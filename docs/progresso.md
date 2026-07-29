@@ -31,8 +31,8 @@ Tudo que precisava ser decidido antes de qualquer código existir.
 Infraestrutura mínima antes de qualquer feature visível.
 
 - [ ] Criar fork do repositório Lucide no GitHub
-- [ ] Criar repositório do Projeto Célula (código)
-- [ ] Criar projeto Supabase (auth anônima, banco Postgres)
+- [x] Criar repositório do Projeto Célula (código) — https://github.com/carlosbrito92/projeto-celula
+- [x] Criar projeto Supabase (auth anônima, banco Postgres) — projeto `projeto-celula`, região `sa-east-1`, ref `tvhywnpctttrmzcyueii`
 - [ ] Definir e aplicar Row Level Security nas tabelas iniciais (pregações, quebra-gelos)
 - [ ] Configurar projeto React + Capacitor (scaffold inicial, build Android/iOS/PWA funcionando)
 - [ ] Configurar deploy no Vercel
