@@ -34,7 +34,7 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Criar repositório do Projeto Célula (código) — https://github.com/carlosbrito92/projeto-celula
 - [x] Criar projeto Supabase (auth anônima, banco Postgres) — projeto `projeto-celula`, região `sa-east-1`, ref `tvhywnpctttrmzcyueii`
 - [x] Definir e aplicar Row Level Security nas tabelas iniciais (pregações, quebra-gelos) — tabelas `pregacoes`/`quebra_gelos` criadas com RLS habilitado, policy de `select` pública para `anon`/`authenticated`, sem policy de escrita (conteúdo editorial só via service role); migração em `supabase/migrations/`
-- [ ] Configurar projeto React + Capacitor (scaffold inicial, build Android/iOS/PWA funcionando)
+- [x] Configurar projeto React + Capacitor (scaffold inicial, build Android/iOS/PWA funcionando) — Vite+React+TS, `com.minc.celula`; build Android testado de ponta a ponta em tablet físico via adb; PWA (manifest + service worker) validado via `vite preview`; iOS só escafoldado (build real exige macOS/Xcode)
 - [ ] Configurar deploy no Vercel
 - [ ] Criar documento vivo de projeto para a fase de código (equivalente a um `CLAUDE.md`, conforme prática referenciada do artigo do Akita) — hurdles técnicos documentados aqui, não nos markdowns de conteúdo
 
