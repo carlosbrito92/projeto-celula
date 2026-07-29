@@ -30,7 +30,7 @@ Tudo que precisava ser decidido antes de qualquer código existir.
 
 Infraestrutura mínima antes de qualquer feature visível.
 
-- [ ] Criar fork do repositório Lucide no GitHub
+- [x] Criar fork do repositório Lucide no GitHub — https://github.com/carlosbrito92/lucide
 - [x] Criar repositório do Projeto Célula (código) — https://github.com/carlosbrito92/projeto-celula
 - [x] Criar projeto Supabase (auth anônima, banco Postgres) — projeto `projeto-celula`, região `sa-east-1`, ref `tvhywnpctttrmzcyueii`
 - [x] Definir e aplicar Row Level Security nas tabelas iniciais (pregações, quebra-gelos) — tabelas `pregacoes`/`quebra_gelos` criadas com RLS habilitado, policy de `select` pública para `anon`/`authenticated`, sem policy de escrita (conteúdo editorial só via service role); migração em `supabase/migrations/`
