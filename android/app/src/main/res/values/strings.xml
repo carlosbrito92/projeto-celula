@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Projeto Célula</string>
+    <string name="title_activity_main">Projeto Célula</string>
+    <string name="package_name">com.minc.celula</string>
+    <string name="custom_url_scheme">com.minc.celula</string>
+</resources>
