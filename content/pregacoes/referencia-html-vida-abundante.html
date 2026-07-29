@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastor Pedro — Como Viver uma Vida Abundante</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #060608;
+      --surface:   #0e0e12;
+      --surface2:  #16161c;
+      --border:    #222228;
+      --text:      #dcdce8;
+      --muted:     #666672;
+      --blue1:     #5baef5;
+      --blue2:     #b8dcf8;
+      --blue-dim:  #1e3a58;
+      --callout:   #12121a;
+      --verse-l:   #1e3a58;
+      --tag-bg:    #0d1b2a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16.5px;
+      line-height: 1.9;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 46px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue2);
+      border: 1px solid var(--blue-dim);
+      background: var(--tag-bg);
+      padding: 5px 16px;
+      margin-bottom: 26px;
+    }
+    .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue1); flex-shrink: 0; }
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+    header h1 em { color: var(--blue1); font-style: normal; }
+    .sub  { font-size: 14px; color: var(--muted); letter-spacing: 0.06em; margin-top: 6px; }
+    .speaker { margin-top: 14px; font-size: 12.5px; color: var(--blue2); letter-spacing: 0.13em; text-transform: uppercase; }
+
+    /* ── SERIES BANNER ── */
+    .series-banner { max-width: 780px; margin: 36px auto 0; padding: 0 22px; }
+    .series-inner {
+      background: var(--tag-bg);
+      border: 1px solid var(--blue-dim);
+      border-left: 4px solid var(--blue1);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14.5px;
+      color: var(--blue2);
+    }
+    .series-inner .icon { font-size: 1.4rem; flex-shrink: 0; }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 780px;
+      margin: 38px auto;
+      padding: 0 22px 0 28px;
+      border-left: 3px solid var(--blue1);
+    }
+    .intro p { color: #bbbbc8; font-size: 16px; line-height: 1.95; }
+
+    /* ── SECTION ── */
+    .section { max-width: 780px; margin: 58px auto 0; padding: 0 22px; }
+    .sec-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.5rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: -14px;
+      letter-spacing: -0.02em;
+    }
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .sec-ref {
+      display: block;
+      font-size: 11.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .sec-bar { width: 40px; height: 2px; background: var(--blue1); margin-bottom: 22px; }
+    .section p { color: #c2c2d0; margin-bottom: 13px; }
+
+    /* ── KEYWORDS ── */
+    .k1 { color: var(--blue1); font-weight: 600; }
+    .k2 { color: var(--blue2); font-weight: 600; }
+
+    /* ── VERSE ── */
+    .verse {
+      background: var(--surface2);
+      border-left: 4px solid var(--verse-l);
+      padding: 18px 22px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #aaaab8;
+      font-size: 15.5px;
+      line-height: 1.85;
+    }
+    .verse .ref {
+      display: block;
+      text-align: right;
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--blue1);
+      padding: 16px 20px;
+      margin: 22px 0 22px auto;
+      max-width: 75%;
+      text-align: right;
+      font-style: italic;
+      color: #d8d8e8;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    /* ── BULLET ── */
+    .blist { list-style: none; padding: 0; margin: 14px 0; }
+    .blist li {
+      padding: 8px 0 8px 22px;
+      position: relative;
+      color: #c2c2d0;
+      border-bottom: 1px solid #111118;
+    }
+    .blist li::before { content: '—'; position: absolute; left: 0; color: var(--blue-dim); }
+
+    /* ── PRINCÍPIOS GRID ── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .principle-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--blue-dim);
+      padding: 14px 16px;
+    }
+    .principle-card .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+    }
+    .principle-card .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── SEPARATOR ── */
+    .sep { max-width: 780px; margin: 46px auto; border-top: 1px solid var(--border); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 72px;
+      padding: 28px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      .callout { max-width: 100%; }
+      header h1 { font-size: 2.4rem; }
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ HEADER ══════ -->
+<header>
+  <div class="badge"><span class="dot"></span> Mensagem dominical <span class="dot"></span></div>
+  <h1>Como Viver uma Vida <em>Abundante</em></h1>
+  <p class="sub">Sete chaves espirituais para uma vida intensa, plena e em Cristo</p>
+  <p class="speaker">Pastor Pedro Estrella</p>
+</header>
+
+<!-- ══════ BANNER DE CONTEXTO ══════ -->
+<div class="series-banner">
+  <div class="series-inner">
+    <span class="icon">✦</span>
+    <span>Esta mensagem apresenta <strong>sete princípios práticos</strong> para viver a vida abundante que Cristo prometeu — combatendo os dois principais instrumentos do inimigo: a <strong>condenação do passado</strong> e a <strong>ansiedade do futuro</strong>, e cultivando gratidão, paz e alegria no presente.</span>
+  </div>
+</div>
+
+<!-- ══════ INTRO ══════ -->
+<div class="intro">
+  <p>
+    A mensagem parte de Tiago 1.2–4, mostrando que cada batalha produz perseverança, e cada provação, 
+    despojo espiritual. Mas o fio condutor da pregação é este: 
+    <span class="k1">a única parte da vida que você realmente possui é o aqui e o agora</span>. 
+    O passado passou. O futuro ainda não chegou. E o inimigo opera exatamente nesses dois extremos 
+    para roubar o presente de você.
+  </p>
+</div>
+
+<!-- ══════ VERSÍCULO DE ABERTURA ══════ -->
+<div class="section">
+  <div class="verse">
+    "Meus irmãos, tende por motivo de toda alegria o passardes por várias provações, sabendo que a provação da vossa fé, uma vez confirmada, produz perseverança. E a perseverança deve ter ação completa, para que sejais perfeitos e íntegros, em nada deficientes."
+    <span class="ref">Tiago 1.2–4</span>
+  </div>
+</div>
+
+<!-- ══════ MAPA DOS PRINCÍPIOS ══════ -->
+<div class="section">
+  <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--blue1); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px;">Os Sete Princípios</h2>
+  <div class="principles-grid">
+    <div class="principle-card"><div class="num">01</div><div class="title">Saia da condenação</div></div>
+    <div class="principle-card"><div class="num">02</div><div class="title">Viva em paz</div></div>
+    <div class="principle-card"><div class="num">03</div><div class="title">Tenha boas expectativas</div></div>
+    <div class="principle-card"><div class="num">04</div><div class="title">Rejeite o merecimento</div></div>
+    <div class="principle-card"><div class="num">05</div><div class="title">Escolha ser feliz</div></div>
+    <div class="principle-card"><div class="num">06</div><div class="title">Seja grato</div></div>
+    <div class="principle-card"><div class="num">07</div><div class="title">Desfrute do Senhor</div></div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 01 ══════ -->
+<div class="section">
+  <div class="sec-num">01</div>
+  <h2>Saia da <span class="k1">Condenação</span></h2>
+  <span class="sec-ref">Romanos 8.1</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    O primeiro movimento do inimigo para roubar a sua vida é <span class="k1">prendê-lo no passado</span>. 
+    Em algum momento da sua trajetória, ele tenta te fixar numa falha, num erro, num tropeço — 
+    usando <span class="k2">culpa, vergonha e acusação</span> como correntes. A isso chamamos de condenação.
+  </p>
+
+  <p>
+    Na cruz do Calvário, o sangue de Jesus foi derramado e o passado foi completamente apagado. 
+    Você não tem mais passado — você só tem futuro. Seus erros, tropeços, falhas e quedas ficaram para trás.
+  </p>
+
+  <div class="verse">
+    "Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus."
+    <span class="ref">Romanos 8.1</span>
+  </div>
+
+  <p>
+    Quando você diz que não há perdão para você — ou quando vive como alguém sem consciência de perdão — 
+    está dizendo que o seu pecado é maior do que a graça de Deus. 
+    <span class="k1">Se Deus te perdoou, quem é você para não se perdoar?</span>
+  </p>
+
+  <div class="callout">
+    "Você está em Cristo. Por isso, sobre você já não há nenhuma condenação."
+  </div>
+
+  <p>
+    Além de esquecer o seu próprio passado, esqueça também o passado dos outros. 
+    Quem vive sempre se sentindo em falta, sempre em dívida, nunca consegue exercer 
+    <span class="k2">fé e autoridade espiritual</span>. O grande problema de muitos crentes 
+    é nunca saber com certeza se Deus está bem com eles. A resposta é simples: 
+    você está em Cristo — e o Pai está satisfeito com Cristo em você.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 02 ══════ -->
+<div class="section">
+  <div class="sec-num">02</div>
+  <h2>Viva em <span class="k2">Paz</span></h2>
+  <span class="sec-ref">Mateus 11.28–29 · Romanos 5.1 · Filipenses 4.6–7 · Hebreus 4.11</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    Se o inimigo não consegue te prender no passado pela condenação, ele te prende no futuro pela <span class="k1">ansiedade</span>. 
+    Dizem que <em>depressão é excesso de passado</em> e <em>ansiedade é excesso de futuro</em>. 
+    O ansioso também não vive o aqui e o agora — vive num suposto futuro imaginado que ainda não chegou.
+  </p>
+
+  <p>
+    A paz possui <span class="k2">três dimensões</span>:
+  </p>
+
+  <ul class="blist">
+    <li><strong>Paz com as pessoas</strong> — não guardar mágoa, não guardar rancor. Decidir estar em paz com todos, mesmo quando o outro não quer.</li>
+    <li><strong>Paz concedida</strong> — recebida no perdão dos pecados. Cristo nos alivia do peso da culpa.</li>
+    <li><strong>Paz encontrada</strong> — o descanso da fé, conquistado diariamente ao lançar sobre Deus todos os cuidados.</li>
+  </ul>
+
+  <div class="verse">
+    "Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."
+    <span class="ref">Mateus 11.28</span>
+  </div>
+
+  <div class="verse">
+    "Tomai sobre vós o meu jugo e aprendei de mim, porque sou manso e humilde de coração; e achareis descanso para as vossas almas."
+    <span class="ref">Mateus 11.29</span>
+  </div>
+
+  <div class="verse">
+    "Sendo, pois, justificados pela fé, temos paz para com Deus por meio de nosso Senhor Jesus Cristo."
+    <span class="ref">Romanos 5.1</span>
+  </div>
+
+  <p>
+    Quando a ansiedade bate na porta da sua alma, a resposta não é resistir pela força de vontade — 
+    é <span class="k1">lançar sobre Ele todo o peso</span>. Pessoas, circunstâncias, problemas, medos, angústias. 
+    Colocados nas mãos d'Ele, não se pega de volta. Depois que você lança, você deixa lá — e Ele cuida.
+  </p>
+
+  <div class="callout">
+    "A ansiedade virá novamente te tentar. O que você faz? Lança novamente. Derrama novamente. Deixa novamente."
+  </div>
+
+  <div class="verse">
+    "Não andeis ansiosos de coisa alguma; em tudo, porém, sejam conhecidas, diante de Deus, as vossas petições, pela oração e pela súplica, com ações de graças. E a paz de Deus, que excede todo entendimento, guardará os vossos corações e os vossos pensamentos em Cristo Jesus."
+    <span class="ref">Filipenses 4.6–7</span>
+  </div>
+
+  <div class="verse">
+    "Esforcemo-nos, pois, por entrar naquele descanso."
+    <span class="ref">Hebreus 4.11a</span>
+  </div>
+
+  <p>
+    A Bíblia diz que você precisa <span class="k2">se esforçar para descansar</span> — porque não é fácil. 
+    Há uma tempestade ao redor, ventos fortes, problemas pressionando. Mas você se esforça para entrar no descanso, 
+    porque sabe em quem creu, e sabe que o seu Redentor vive.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 03 ══════ -->
+<div class="section">
+  <div class="sec-num">03</div>
+  <h2>Tenha Boas <span class="k1">Expectativas</span></h2>
+  <span class="sec-ref">Jeremias 29.11</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    Você pode pensar no futuro — e deve. Mas ao pensar nele, 
+    <span class="k1">encha o coração de esperança</span>. O crente vive intensamente como uma criança 
+    à véspera de uma festa — excitada, ansiosa no bom sentido, contando os dias para algo bom que vai acontecer.
+  </p>
+
+  <p>
+    O mundo ensina: <em>"não crie expectativas para não se frustrar."</em> 
+    O Senhor diz o contrário: coloca expectativas ainda mais altas, 
+    porque Ele é seu Pai e os pensamentos d'Ele a seu respeito são de bem, não de mal.
+  </p>
+
+  <div class="verse">
+    "Porque eu bem sei os planos que tenho a vosso respeito, diz o Senhor; planos de paz e não de mal, para vos dar um futuro e uma esperança."
+    <span class="ref">Jeremias 29.11</span>
+  </div>
+
+  <div class="callout">
+    "A nossa esperança não é otimismo vazio. É baseada numa firme convicção: estamos em Cristo, e a obra de Cristo nos garante um futuro de glória."
+  </div>
+
+  <p>
+    A esperança cristã não é simplesmente pensamento positivo — embora o otimismo seja melhor que o pessimismo. 
+    É uma <span class="k2">convicção firme</span> ancorada na obra de Cristo. 
+    Esteja na torcida: você vai virar a esquina. Deus vai te surpreender.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 04 ══════ -->
+<div class="section">
+  <div class="sec-num">04</div>
+  <h2>Rejeite o <span class="k2">Merecimento</span></h2>
+  <span class="sec-ref">Romanos 8.32</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    Quem vive pelo merecimento nunca é feliz. Nunca está satisfeito. Nunca desfrutará com alegria 
+    daquilo que tem, porque sempre acha que merece algo maior ou melhor. 
+    O <span class="k1">sentimento de merecimento é um ladrão</span> — rouba a felicidade, rouba o desfrute da vida.
+  </p>
+
+  <p>
+    Nós não somos vencedores porque merecemos. Estamos <span class="k2">debaixo de um favor imerecido</span>. 
+    E é exatamente esse favor — que não foi merecido — que queremos que seja derramado sobre nossas vidas.
+  </p>
+
+  <div class="callout">
+    "Deus não quer te dar o que você merece. Ele quer te dar o que Cristo merece. Essa é a troca do Calvário."
+  </div>
+
+  <p>
+    Na cruz, Cristo experimentou tudo o que nós merecíamos, para que hoje pudéssemos experimentar 
+    tudo o que <span class="k1">Ele merece</span>. Essa é a lógica da graça.
+  </p>
+
+  <div class="verse">
+    "Aquele que não poupou nem o seu próprio Filho, antes por todos nós o entregou, porventura não nos dará graciosamente com ele todas as coisas?"
+    <span class="ref">Romanos 8.32</span>
+  </div>
+
+  <p>
+    Não por merecimento. Não como pagamento. <span class="k2">Graciosamente</span> — como fruto de um favor imerecido. 
+    Se quando éramos inimigos d'Ele fomos tão grandemente abençoados, imagina agora, sendo feitos filhos.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 05 ══════ -->
+<div class="section">
+  <div class="sec-num">05</div>
+  <h2>Escolha Ser <span class="k1">Feliz</span></h2>
+  <span class="sec-ref">1 Pedro 3.10</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    Ser feliz é uma <span class="k1">decisão</span>. É uma escolha pessoal, exclusiva, sua. 
+    Ninguém pode ser feliz por você. Há pessoas que preferem ficar tristes, amarguras, 
+    remoendo ofensas do passado, lambendo feridas — e essa também é uma escolha que estão fazendo.
+  </p>
+
+  <div class="verse">
+    "Pois quem quer amar a vida e ver dias felizes..."
+    <span class="ref">1 Pedro 3.10a</span>
+  </div>
+
+  <div class="callout">
+    "Mau humor não é destino — é uma escolha. Decida não ficar mal-humorado. Decida ser feliz."
+  </div>
+
+  <p>
+    Perceba: você já escolhe o seu estado de humor. Em meio a uma discussão com seu cônjuge, 
+    se toca o telefone com alguém de fora, você muda o tom imediatamente — porque escolhe. 
+    Você pode fazer isso agora mesmo, de forma deliberada.
+  </p>
+
+  <p>
+    Felicidade não depende da ausência dos defeitos dos outros. 
+    Você casou com alguém que tem defeitos — e até a morte terá defeitos. 
+    Aprenda a conviver com as limitações daqueles ao seu redor. 
+    Isso envolve <span class="k2">graça, amor e suprimento sobrenatural</span>.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 06 ══════ -->
+<div class="section">
+  <div class="sec-num">06</div>
+  <h2>Seja <span class="k2">Grato</span></h2>
+  <span class="sec-ref">Provérbios 27.7</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    A <span class="k1">gratidão</span> é uma chave espiritual. Ela faz você desfrutar de cada momento, 
+    da beleza de cada situação. O ingrato nunca desfruta de nada — nunca está contente, 
+    nunca está satisfeito, nunca acha que foi feito o suficiente por ele.
+  </p>
+
+  <p>
+    Se você for ingrato em relação ao seu casamento, tudo o que seu cônjuge fizer não será suficiente. 
+    Ninguém vive intensamente se não desfrutará — e a ingratidão impede o desfrute.
+  </p>
+
+  <div class="callout">
+    "Tudo aquilo de que você reclama, você repele da sua vida. Tudo aquilo que você louva, você atrai."
+  </div>
+
+  <p>
+    Três coisas tiram a gratidão do coração:
+  </p>
+
+  <ul class="blist">
+    <li><span class="k1">Orgulho</span> — a pessoa orgulhosa pensa que conquistou tudo pela força do próprio braço e não deve nada a ninguém. Não reconhece que a inteligência, a disciplina e a vontade de lutar vieram do alto.</li>
+    <li><span class="k2">Reclamação</span> — um mau hábito aprendido desde a infância. Quem reclama repele a bênção. Reclamação é o oposto de louvor.</li>
+    <li><span class="k1">Familiaridade</span> — quando nos acostumamos com algo, tratamos aquilo como comum. Deixamos de enxergar o extraordinário no ordinário.</li>
+  </ul>
+
+  <div class="verse">
+    "A alma farta pisa o favo de mel."
+    <span class="ref">Provérbios 27.7a</span>
+  </div>
+
+  <p>
+    Se as estrelas aparecessem apenas uma vez no ano, seria feriado nacional. As cidades apagariam as luzes. 
+    As pessoas reuniriam suas famílias. Mas como as estrelas aparecem todas as noites, quem as vê? 
+    Não se permita chegar ao ponto de estar tão farto que não valorize mais o que Deus tem colocado à sua volta.
+  </p>
+
+  <p>
+    Jesus, diante de apenas cinco pães e dois peixes, fez uma <span class="k2">oração de ações de graças</span> — 
+    e a gratidão gerou multiplicação. Ações de graças atraem provisão e enchimento do Espírito.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ PRINCÍPIO 07 ══════ -->
+<div class="section">
+  <div class="sec-num">07</div>
+  <h2>Desfrute do <span class="k1">Senhor</span></h2>
+  <span class="sec-ref">Salmo 37.4</span>
+  <div class="sec-bar"></div>
+
+  <p>
+    A chave mais importante de todas: <span class="k1">desfrutar do próprio Senhor</span>. 
+    Ele é a sua alegria. Ele é o seu prazer. Ele é o seu deleite. Ele é a sua satisfação.
+  </p>
+
+  <p>
+    No final das contas, não são as circunstâncias que definem o quanto você é amado. 
+    Você precisa parar de interpretar o amor de Deus com base nas circunstâncias — 
+    ora achando que Ele te ama porque algo de bom aconteceu, ora achando que não te ama 
+    porque algo foi tirado. <span class="k2">As circunstâncias não medem o Seu amor.</span>
+  </p>
+
+  <div class="callout">
+    "Você é amado. Você tem um Pai que te ama, que não te larga, que não te abandona."
+  </div>
+
+  <p>
+    Coloque o seu coração em Cristo. Coloque a sua confiança em Cristo. 
+    Coloque a sua expectativa em Cristo. Ele é o nosso descanso, a nossa paz, o nosso desfrute — 
+    <span class="k1">tudo em nós</span>.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ CONCLUSÃO ══════ -->
+<div class="section" style="margin-bottom: 16px;">
+  <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--blue1); font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px;">Encerramento — A Vida que Cristo Prometeu</h2>
+
+  <p>
+    A mensagem se encerra com um chamado: <span class="k1">o céu já começou aqui</span>. 
+    A eternidade foi plantada no seu coração. Você já pode experimentar, hoje, os poderes do mundo vindouro. 
+    Deus não te chamou para viver uma vida de angústia, paralisia ou fardo pesado — 
+    Ele te chamou para uma <span class="k2">vida abundante</span>.
+  </p>
+</div>
+
+<!-- ══════ RESUMO FINAL ══════ -->
+<div class="sep"></div>
+<div class="section" style="margin-bottom:60px;">
+  <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--blue2); font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px;">Os Sete Princípios — Resumo</h2>
+  <ul class="blist">
+    <li><span class="k1">Saia da condenação:</span> o seu passado foi apagado pelo sangue de Cristo. Romanos 8.1 — já nenhuma condenação há para os que estão em Cristo Jesus.</li>
+    <li><span class="k2">Viva em paz:</span> lance sobre Ele todo o cuidado. A paz de Deus que excede todo entendimento guardará o seu coração (Filipenses 4.6–7). Se esforce para entrar no descanso da fé.</li>
+    <li><span class="k1">Tenha boas expectativas:</span> encha o coração de esperança. Os planos de Deus para você são de paz e não de mal (Jeremias 29.11).</li>
+    <li><span class="k2">Rejeite o merecimento:</span> você não vai receber o que merece — vai receber o que Cristo merece. Graciosamente, Ele nos dará todas as coisas (Romanos 8.32).</li>
+    <li><span class="k1">Escolha ser feliz:</span> mau humor não é destino, é escolha. Quem quer ver dias felizes, decide sê-lo (1 Pedro 3.10).</li>
+    <li><span class="k2">Seja grato:</span> gratidão gera multiplicação. Afaste o orgulho, a reclamação e a familiaridade — não pise o favo de mel (Provérbios 27.7).</li>
+    <li><span class="k1">Desfrute do Senhor:</span> Ele é o seu deleite, a sua paz, a sua alegria. No fim, tudo está em Cristo.</li>
+  </ul>
+</div>
+
+<footer>
+  Resumo baseado na pregação do Pastor Pedro Estrella &nbsp;·&nbsp; Material para compartilhamento em grupo &nbsp;·&nbsp; 27–28 de maio de 2026
+</footer>
+
+</body>
+</html>
