@@ -29,6 +29,26 @@ Web app (React + Capacitor) para redes de célula: biblioteca de pregações, ca
 
 ---
 
+## Fluxo de trabalho — branches + PR, main protegida
+
+Desde 2026-07-29, `main` tem branch protection (`enforce_admins: true`, sem bypass nem para admin):
+
+- **Push direto em `main` é bloqueado.** Todo trabalho vai para uma branch, com PR para `main`.
+- **Checks obrigatórios antes do merge**: `build` (GitHub Actions — `.github/workflows/ci.yml`, roda lint + build) e `Vercel` (preview deployment do PR precisa ficar verde).
+- **Sem revisão humana obrigatória** — decisão consciente, dado que o projeto é mantido por uma pessoa só. Os checks automatizados são o gate.
+- `allow_force_pushes: false`, `allow_deletions: false` em `main`.
+- Por quê: reversibilidade (cada PR é um ponto de revert limpo) + garantia de que nada quebra o build/deploy antes de entrar em `main`.
+
+Fluxo prático para qualquer mudança a partir daqui:
+```bash
+git checkout -b nome-da-branch
+# ...commits...
+git push -u origin nome-da-branch
+gh pr create --fill
+# esperar checks (build + Vercel) ficarem verdes, então:
+gh pr merge --squash  # ou merge normal, conforme preferir
+```
+
 ## Requisitos de segurança — não-negociáveis
 
 Direto de `docs/projeto-celula.md` §7. Um agente de IA "implementa o que você pede, mas raramente sugere proteções que você não pediu" — por isso ficam explícitos aqui, não implícitos:
