@@ -1,0 +1,73 @@
+.paragrafo {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.versiculo {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.versiculoTexto {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--text);
+}
+
+.versiculoReferencia {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent1);
+}
+
+.callout {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent1);
+  padding: 16px 18px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.fraseChave {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--accent2);
+  padding: 12px 24px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listaItem {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.listaItem::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}

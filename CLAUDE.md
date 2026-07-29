@@ -61,12 +61,22 @@ Direto de `docs/projeto-celula.md` §7. Um agente de IA "implementa o que você 
 
 Ao adicionar uma tabela nova: habilitar RLS na mesma migração que cria a tabela, nunca depois.
 
+**Chave anon/publishable do Supabase é pública por design** — está hardcoded em `src/lib/supabase.ts`, sem `.env`. Isso não é um vazamento: é literalmente o que "publishable key" significa (Supabase a projetou para ir no bundle do client). O gate de segurança real é RLS (item 2 acima), não o sigilo dessa chave. Não "corrigir" isso movendo para variável de ambiente sem necessidade real — normal.
+
 ## Práticas de desenvolvimento
 
 - **TDD nasce junto com o código.** Utilitários (sorteador, contador) e lógica de renderização de conteúdo nascem com teste, não como algo adicionado depois.
 - **Refactoring contínuo é disciplina.** A separação em camadas (conteúdo / utilitários locais / roteamento por feature — ver `docs/projeto-celula.md` §7) exige poda regular, não desenho único.
 - **O humano decide o quê, a IA decide o como.** Questionar decisões de arquitetura propostas (ex: recusar over-engineering, state machine complexa quando um caso simples resolve).
 - **Modularidade para a V2.** Utilitários da V1 (sorteio single-device) são módulos isolados desde já, pensados para serem *estendidos* com Supabase Realtime na V2 — não reescritos.
+
+## Decisões de arquitetura (Fase 2)
+
+- **Router próprio (`src/router/`), não `react-router-dom`.** O app só precisa de ~4 rotas estáticas; a lib puxava uma cadeia de CVEs do modo framework/RSC (SSR, actions) que este app nunca usa (SPA client-side puro). Antes de adicionar uma lib de roteamento "de verdade" no futuro, reavaliar se ainda faz sentido dado o tamanho real do app.
+- **`componente_tema` é um registro por variante, não por tema.** Qualquer variante (`stage`, `diagnostico`, etc.) pode aparecer em qualquer pregação — confirmado no conteúdo real (`stage`, documentado como do Estilo #1/#2, apareceu numa pregação do Igrejar). Um único componente por `variante` em `src/content/ComponenteTemaRenderer.tsx`, cores resolvidas via CSS custom properties do tema ativo. Variante desconhecida não quebra a renderização (retorna `null`, `console.warn` em dev).
+- **Tema é escopado por componente (`ThemeScope`), não só por tela.** A casca do app (tab bar) usa Padrão MINC; cada card da Biblioteca aplica o tema da própria série; a tela de Leitura aplica o tema da pregação. CSS vars via `style` inline num wrapper — funciona porque custom properties cascateiam normalmente.
+- **Busca da Biblioteca é client-side.** Dataset pequeno (dezenas de registros) — sem Postgres full-text search por enquanto. Reavaliar se o catálogo crescer para centenas de pregações.
+- **Datas em português exigem conversão.** `metadados.data` no JSON vem como `"26 de julho de 2026"`; a coluna `pregacoes.data` é `date` nativo do Postgres, que não entende nome de mês em PT-BR. `src/content/parseData.ts` (`parseDataPtBr`/`formatDataPtBr`) é o conversor canônico — usar sempre que inserir conteúdo novo, nunca inserir a string crua na coluna `data`.
 
 ## Ambiente de build
 
@@ -79,3 +89,5 @@ Ao adicionar uma tabela nova: habilitar RLS na mesma migração que cria a tabel
 > Registrar aqui conforme aparecem, com data e contexto suficiente para não repetir o mesmo erro. Não duplicar em `docs/progresso.md` (que é só checklist) nem nos markdowns de conteúdo.
 
 - **2026-07-29** — Build Android falhava com `invalid source release: 21` mesmo após instalar JDK 21 e exportar `JAVA_HOME` corretamente. Causa: `sdk env | tail -1` — o pipe roda `sdk env` em subshell, então a variável exportada não chegava ao shell pai. Corrigido rodando `sdk env` sem pipe antes do comando de build.
+- **2026-07-29** — Testes Vitest com múltiplos `it()` no mesmo arquivo falhavam com "multiple elements found" a partir do segundo teste. Causa: sem `test.globals` habilitado no `vite.config.ts`, o auto-cleanup do Testing Library (que depende de detectar `afterEach` global) não roda — o DOM de um teste vaza para o próximo. Corrigido chamando `cleanup()` explicitamente num `afterEach` em `src/test/setup.ts`.
+- **2026-07-29** — jsdom não implementa `IntersectionObserver` nem `Element.prototype.scrollIntoView` — qualquer componente que os use (ex: `useIndiceFab`) quebra em teste sem um stub. Stubs inofensivos adicionados em `src/test/setup.ts`; testes que precisam simular comportamento real (ex: clique chamando `scrollIntoView`) usam `vi.spyOn`/`vi.stubGlobal` por cima desse stub.
