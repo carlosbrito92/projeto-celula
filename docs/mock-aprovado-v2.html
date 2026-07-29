@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#060503; }
+  a { color:#e8720c; text-decoration:none; }
+  a:hover { color:#f4b06a; }
+</style>
+</helmet>
+
+<div style="min-height:100%;background:#060503;padding:80px 72px 140px;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;gap:96px">
+
+  <div style="display:flex;flex-direction:column;gap:14px;max-width:660px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e8720c">Mock visual · v2</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:62px;line-height:1;color:#e8e0d4;font-weight:600">Projeto Célula</div>
+    <div style="font-size:15px;line-height:1.65;color:#6b5f50;text-wrap:pretty">Uma tela por vez. Dois registros sob a mesma paleta: pregações editoriais e sóbrias; quebra-gelos e utilitários leves como jogo de festa.</div>
+  </div>
+
+  <!-- MÓDULO 1 -->
+  <div style="display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;align-items:baseline;gap:18px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#e8720c">01</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#e8e0d4">Pregações</div>
+      <div style="font-size:13px;color:#6b5f50">editorial · sóbrio</div>
+    </div>
+
+    <div style="display:flex;gap:80px;flex-wrap:wrap;align-items:flex-start">
+
+      <!-- BIBLIOTECA -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4;position:relative">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 26px 4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b5f50">
+              <span>9:41</span>
+              <div style="display:flex;gap:5px;align-items:center">
+                <span style="width:14px;height:8px;border:1px solid #6b5f50"></span>
+                <span style="width:6px;height:8px;background:#6b5f50"></span>
+              </div>
+            </div>
+
+            <div style="padding:28px 24px 20px;display:flex;flex-direction:column;gap:20px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;line-height:1">Pregações</div>
+              <div style="display:flex;align-items:center;gap:11px;background:#111009;border:1px solid #2a2318;padding:14px 15px">
+                <div style="width:13px;height:13px;border:1.5px solid #6b5f50;border-radius:50%"></div>
+                <div style="font-size:14px;color:#6b5f50">Buscar tema, série, pregador</div>
+              </div>
+            </div>
+
+            <div style="flex:1;padding:0 24px;display:flex;flex-direction:column;gap:26px;overflow:hidden">
+              <div style="background:#111009;border:1px solid #2a2318;border-left:3px solid #e8720c;padding:24px;display:flex;flex-direction:column;gap:14px">
+                <div style="align-self:flex-start;background:#1e1008;color:#f4b06a;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px">Fé que Move</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1.08;font-weight:600;text-wrap:balance">O Deus que Interrompe</div>
+                <div style="font-size:14px;line-height:1.6;color:#6b5f50;text-wrap:pretty">Quando Deus quebra a rotina, o que Ele quer não é o seu susto — é a sua resposta.</div>
+                <div style="display:flex;gap:9px;padding-top:12px;border-top:1px solid #2a2318;font-size:12px;color:#6b5f50">
+                  <span style="color:#e8e0d4">Pr. Daniel Moraes</span><span>·</span><span>14 jun</span>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <sc-for list="{{ sermons }}" as="s" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:9px;padding-bottom:16px;border-bottom:1px solid #2a2318">
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:23px;line-height:1.15;font-weight:600;text-wrap:pretty">{{ s.title }}</div>
+                    <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+                      <span style="background:#1e1008;color:#f4b06a;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px">{{ s.series }}</span>
+                      <span style="font-size:12px;color:#6b5f50">{{ s.preacher }}</span>
+                      <span style="font-size:12px;color:#6b5f50">·</span>
+                      <span style="font-size:12px;color:#6b5f50">{{ s.date }}</span>
+                    </div>
+                  </div>
+                </sc-for>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b5f50">e mais 43 pregações…</div>
+              </div>
+            </div>
+
+            <div style="display:flex;background:#111009;border-top:1px solid #2a2318;padding:14px 0 26px">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #e8720c"></div>
+                <div style="font-size:10px;font-weight:600;color:#e8720c">Pregações</div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #6b5f50;border-radius:50%"></div>
+                <div style="font-size:10px;color:#6b5f50">Quebra-gelos</div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #6b5f50;transform:rotate(45deg)"></div>
+                <div style="font-size:10px;color:#6b5f50">Utilitários</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Biblioteca</div>
+      </div>
+
+      <!-- LEITURA -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4;position:relative">
+            <div style="display:flex;align-items:center;gap:14px;padding:20px 24px 18px;border-bottom:1px solid #2a2318;background:#111009">
+              <span style="color:#e8720c;font-size:16px">←</span>
+              <div style="flex:1;min-width:0">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">O Deus que Interrompe</div>
+                <div style="font-size:11px;color:#6b5f50">Pr. Daniel Moraes · 14 jun</div>
+              </div>
+            </div>
+
+            <div style="flex:1;padding:26px 24px;display:flex;flex-direction:column;gap:28px;overflow:hidden">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Índice</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                  <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
+                    <div style="background:#111009;border:1px solid #2a2318;padding:15px;display:flex;flex-direction:column;gap:9px;min-height:96px">
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e8720c">{{ p.num }}</div>
+                      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.2;font-weight:600;text-wrap:pretty">{{ p.title }}</div>
+                    </div>
+                  </sc-for>
+                  <div style="background:#111009;border:1px solid #2a2318;padding:15px;display:flex;flex-direction:column;gap:9px;min-height:96px">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b5f50">↓</div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.2;font-weight:600;color:#6b5f50">Resumo final</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e8720c">01</div>
+                    <div style="flex:1;height:2px;background:#2a2318"></div>
+                  </div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.1;font-weight:600;text-wrap:balance">Deus interrompe a rotina</div>
+                </div>
+                <div style="font-size:15px;line-height:1.8;color:#e8e0d4;opacity:.9;text-wrap:pretty">Simão e André não estavam num retiro espiritual. Estavam trabalhando — no meio de um dia comum, com as mãos molhadas e a rede meio consertada. É exatamente aí que o chamado chega. A <span style="color:#e8720c;font-weight:600">rotina não é obstáculo</span> para Deus falar; é o lugar onde Ele mais fala.</div>
+                <div style="background:#1a1610;border:1px solid #2a2318;padding:18px;display:flex;flex-direction:column;gap:10px">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.45;font-style:italic;text-wrap:pretty">“E, andando junto ao mar da Galileia, viu Simão e André, e disse-lhes: Vinde após mim.”</div>
+                  <div style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:#e8720c">Marcos 1.16-17</div>
+                </div>
+                <div style="font-size:15px;line-height:1.8;color:#e8e0d4;opacity:.55">A interrupção de Deus não é castigo — é convite. E todo convite tem…</div>
+              </div>
+            </div>
+
+            <div style="position:absolute;right:22px;bottom:30px;display:flex;align-items:center;gap:10px;background:#e8720c;color:#0a0805;padding:14px 18px;box-shadow:0 10px 30px rgba(0,0,0,.65)">
+              <div style="display:flex;flex-direction:column;gap:3px">
+                <div style="width:14px;height:2px;background:#0a0805"></div>
+                <div style="width:14px;height:2px;background:#0a0805"></div>
+                <div style="width:9px;height:2px;background:#0a0805"></div>
+              </div>
+              <div style="font-size:13px;font-weight:700">Índice</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Leitura · rolada até o ponto 01 · FAB visível</div>
+      </div>
+
+      <!-- CARD DE TEMA POR SÉRIE -->
+      <sc-if value="{{ showSeriesVariant }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:18px;width:300px;padding-top:60px">
+          <div style="font-size:13px;line-height:1.7;color:#6b5f50;text-wrap:pretty">O Padrão MINC é o fallback. Cada série troca os tokens — o componente é o mesmo.</div>
+          <div style="background:#060a10;border:1px solid #16283a;border-left:3px solid #3f9ee0;padding:22px;display:flex;flex-direction:column;gap:13px">
+            <div style="align-self:flex-start;background:#0c1a26;color:#8fc9f0;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px">Águas Profundas</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.08;font-weight:600;color:#dce7f0;text-wrap:balance">Onde os pés não alcançam</div>
+            <div style="font-size:14px;line-height:1.6;color:#5a7387;text-wrap:pretty">Fé começa exatamente onde o seu preparo termina.</div>
+            <div style="display:flex;gap:9px;padding-top:12px;border-top:1px solid #16283a;font-size:12px;color:#5a7387"><span style="color:#dce7f0">Pra. Renata Alves</span><span>·</span><span>07 jun</span></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">mesmo card · outra série</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- MÓDULO 2 -->
+  <div style="display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;align-items:baseline;gap:18px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#e8720c">02</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#e8e0d4">Quebra-gelos</div>
+      <div style="font-size:13px;color:#6b5f50">leve · lúdico · cards de jogo</div>
+    </div>
+
+    <div style="display:flex;gap:80px;flex-wrap:wrap;align-items:flex-start">
+
+      <!-- CATÁLOGO -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 26px 4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b5f50">
+              <span>9:41</span>
+              <div style="display:flex;gap:5px;align-items:center">
+                <span style="width:14px;height:8px;border:1px solid #6b5f50"></span>
+                <span style="width:6px;height:8px;background:#6b5f50"></span>
+              </div>
+            </div>
+
+            <div style="padding:28px 24px 22px;display:flex;flex-direction:column;gap:18px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;line-height:1">Quebra-gelos</div>
+              <div style="display:flex;gap:9px">
+                <div style="background:#e8720c;color:#0a0805;font-size:13px;font-weight:700;padding:10px 16px;border-radius:999px">Todos</div>
+                <div style="background:#1a1610;color:#6b5f50;font-size:13px;font-weight:500;padding:10px 16px;border-radius:999px">Só leitura</div>
+                <div style="background:#1a1610;color:#6b5f50;font-size:13px;font-weight:500;padding:10px 16px;border-radius:999px">Com sorteio</div>
+              </div>
+            </div>
+
+            <div style="flex:1;padding:0 24px;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start">
+                <sc-for list="{{ games }}" as="g" hint-placeholder-count="6">
+                  <div style="background:#1a1610;padding:16px;display:flex;flex-direction:column;gap:11px;min-height:132px;border-top:3px solid #e8720c">
+                    <div style="font-size:26px;line-height:1">{{ g.icon }}</div>
+                    <div style="flex:1;font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.12;font-weight:600;text-wrap:pretty">{{ g.name }}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.5;color:#6b5f50">{{ g.meta }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b5f50">e mais 12 quebra-gelos…</div>
+            </div>
+
+            <div style="display:flex;background:#111009;border-top:1px solid #2a2318;padding:14px 0 26px">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #6b5f50"></div>
+                <div style="font-size:10px;color:#6b5f50">Pregações</div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #e8720c;border-radius:50%"></div>
+                <div style="font-size:10px;font-weight:600;color:#e8720c">Quebra-gelos</div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px">
+                <div style="width:16px;height:16px;border:2px solid #6b5f50;transform:rotate(45deg)"></div>
+                <div style="font-size:10px;color:#6b5f50">Utilitários</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Catálogo · grid extensível</div>
+      </div>
+
+      <!-- DETALHE -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4">
+            <div style="padding:22px 24px;display:flex;align-items:center;justify-content:space-between">
+              <span style="color:#e8720c;font-size:16px">←</span>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">Com sorteio</div>
+            </div>
+
+            <div style="padding:8px 24px 26px;display:flex;flex-direction:column;gap:18px">
+              <div style="font-size:52px;line-height:1">🕵️</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;font-weight:700">Quem é o Impostor</div>
+              <div style="display:flex;gap:9px;flex-wrap:wrap">
+                <div style="background:#1e1008;color:#f4b06a;font-family:'JetBrains Mono',monospace;font-size:11px;padding:7px 11px">4–8 jogadores</div>
+                <div style="background:#1e1008;color:#f4b06a;font-family:'JetBrains Mono',monospace;font-size:11px;padding:7px 11px">10+</div>
+                <div style="background:#1e1008;color:#f4b06a;font-family:'JetBrains Mono',monospace;font-size:11px;padding:7px 11px">15 min</div>
+              </div>
+            </div>
+
+            <div style="flex:1;padding:0 24px 34px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden">
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <div style="display:flex;gap:14px;align-items:flex-start">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e8720c;padding-top:4px">1</div>
+                  <div style="font-size:17px;line-height:1.55;text-wrap:pretty">Todos em roda. Uma palavra secreta — todos sabem, menos um.</div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:flex-start">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e8720c;padding-top:4px">2</div>
+                  <div style="font-size:17px;line-height:1.55;text-wrap:pretty">Cada um diz <strong style="color:#f4b06a;font-weight:600">uma palavra</strong> ligada ao segredo. O impostor improvisa.</div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:flex-start">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e8720c;padding-top:4px">3</div>
+                  <div style="font-size:17px;line-height:1.55;text-wrap:pretty">Duas rodadas e todos votam.</div>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="background:#e8720c;color:#0a0805;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 14px 40px rgba(232,114,12,.18)">
+                  <div style="display:flex;flex-direction:column;gap:4px">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65">Antes de começar</div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1;font-weight:700">Sortear impostor</div>
+                  </div>
+                  <div style="font-size:24px">🎲</div>
+                </div>
+                <div style="font-size:13px;color:#6b5f50;line-height:1.6">Depois: <span style="color:#f4b06a">atribuir palavra</span> · <span style="color:#f4b06a">cronômetro 60s</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Dinâmica · utilitário inline na regra</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÓDULO 3 -->
+  <div style="display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;align-items:baseline;gap:18px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#e8720c">03</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#e8e0d4">Utilitários</div>
+      <div style="font-size:13px;color:#6b5f50">um estado por tela · nada persiste</div>
+    </div>
+
+    <div style="display:flex;gap:80px;flex-wrap:wrap;align-items:flex-start">
+
+      <!-- SORTEAR -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4">
+            <div style="padding:24px;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">Sortear impostor</div>
+              <div style="font-size:20px;color:#6b5f50">✕</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px;padding:24px">
+              <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;max-width:290px">
+                <sc-for list="{{ players }}" as="n" hint-placeholder-count="6">
+                  <div style="background:#1a1610;font-size:14px;padding:9px 14px;border-radius:999px">{{ n }}</div>
+                </sc-for>
+                <div style="background:#111009;border:1px dashed #2a2318;color:#6b5f50;font-size:14px;padding:9px 14px;border-radius:999px">+ nome</div>
+              </div>
+              <div style="width:250px;height:250px;border-radius:50%;background:#e8720c;color:#0a0805;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 20px 60px rgba(232,114,12,.28)">
+                <div style="font-size:30px">🎲</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:46px;line-height:1;font-weight:700">Sortear</div>
+              </div>
+              <div style="font-size:13px;color:#6b5f50;text-align:center;max-width:230px;line-height:1.6">Ninguém vê o resultado até você mostrar.</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Sorteador de papel · repouso</div>
+      </div>
+
+      <!-- ATRIBUIÇÃO ESCONDIDA -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4">
+            <div style="padding:24px;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">Quem sou eu · 3 de 6</div>
+              <div style="font-size:20px;color:#6b5f50">✕</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;padding:24px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.05;font-weight:600;text-align:center">Vez de <span style="color:#f4b06a">Carol</span></div>
+              <div style="width:100%;background:#1a1610;padding:70px 24px;display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div style="font-size:34px">🙈</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">Carol não pode ver</div>
+              </div>
+              <div style="width:100%;background:#e8720c;color:#0a0805;font-size:17px;font-weight:700;padding:22px;text-align:center">Revelar ao grupo</div>
+              <div style="font-size:13px;color:#6b5f50;text-align:center;max-width:250px;line-height:1.6">Passe o celular. Todos veem, menos ela.</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Atribuição escondida</div>
+      </div>
+
+      <!-- CRONÔMETRO -->
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <div style="padding:11px;background:#17140f;border:1px solid #2a2318;border-radius:46px;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+          <div style="width:390px;height:844px;background:#0a0805;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;color:#e8e0d4">
+            <div style="padding:24px;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5f50">Cronômetro</div>
+              <div style="font-size:20px;color:#6b5f50">✕</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;padding:24px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:130px;line-height:1;font-weight:700;color:#f4b06a">0:45</div>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+                <div style="background:#1a1610;color:#e8e0d4;font-size:14px;padding:11px 18px;border-radius:999px">30s</div>
+                <div style="background:#1e1008;color:#f4b06a;font-size:14px;font-weight:600;padding:11px 18px;border-radius:999px">1 min</div>
+                <div style="background:#1a1610;color:#e8e0d4;font-size:14px;padding:11px 18px;border-radius:999px">2 min</div>
+                <div style="background:#1a1610;color:#e8e0d4;font-size:14px;padding:11px 18px;border-radius:999px">5 min</div>
+              </div>
+              <div style="width:100%;display:flex;gap:12px">
+                <div style="flex:1;background:#1a1610;color:#6b5f50;font-size:16px;font-weight:600;padding:20px;text-align:center">Zerar</div>
+                <div style="flex:2;background:#e8720c;color:#0a0805;font-size:17px;font-weight:700;padding:20px;text-align:center">Pausar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5f50">Contador / cronômetro</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSeriesVariant&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mock&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showSeriesVariant: this.props.showSeriesVariant ?? true,
+      sermons: [
+        { title: 'Onde os pés não alcançam', series: 'Águas Profundas', preacher: 'Pra. Renata Alves', date: '07 jun' },
+        { title: 'A mesa que ninguém merece', series: 'Águas Profundas', preacher: 'Pr. Daniel Moraes', date: '31 mai' },
+        { title: 'Fé sem plano B', series: 'Fé que Move', preacher: 'Pr. Vitor Lima', date: '24 mai' }
+      ],
+      points: [
+        { num: '01', title: 'Deus interrompe a rotina' },
+        { num: '02', title: 'A interrupção exige resposta' },
+        { num: '03', title: 'O que nasce da obediência' }
+      ],
+      games: [
+        { icon: '🕵️', name: 'Quem é o Impostor', meta: '4–8 · 10+ · 15 min' },
+        { icon: '🎭', name: 'Quem Sou Eu?', meta: '3–12 · 8+ · 20 min' },
+        { icon: '🤥', name: 'Duas Verdades e Uma Mentira', meta: '4–15 · 12+ · 10 min' },
+        { icon: '🔤', name: 'Mestre da Palavra', meta: '5–10 · 10+ · 12 min' },
+        { icon: '🪢', name: 'Nó Humano', meta: '6–12 · 10+ · 8 min' },
+        { icon: '✏️', name: 'Telefone Desenhado', meta: '4–10 · 8+ · 15 min' }
+      ],
+      players: ['Ana', 'Bruno', 'Carol', 'Diego', 'Elis', 'Fábio']
+    };
+  }
+}
+</script>
+</body>
+</html>
