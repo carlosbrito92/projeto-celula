@@ -110,6 +110,30 @@ describe('ComponenteTemaRenderer', () => {
     expect(screen.getByText('Uma piada.')).toBeInTheDocument();
   });
 
+  it('renderiza label_box com título e todos os campos', () => {
+    render(
+      <ComponenteTemaRenderer
+        bloco={{
+          tipo: 'componente_tema',
+          variante: 'label_box',
+          dados: {
+            titulo: 'Antídoto',
+            campos: [
+              { campo: 'Antídoto', valor: 'Graça' },
+              { campo: 'Toxina identificada', valor: 'Mistura lei + graça' },
+              { campo: 'Status', valor: 'Instável' },
+            ],
+          },
+        }}
+      />,
+    );
+    expect(screen.getAllByText('Antídoto').length).toBe(2); // título + nome do campo
+    expect(screen.getByText('Toxina identificada')).toBeInTheDocument();
+    expect(screen.getByText('Mistura lei + graça')).toBeInTheDocument();
+    expect(screen.getByText('Status')).toBeInTheDocument();
+    expect(screen.getByText('Instável')).toBeInTheDocument();
+  });
+
   it('ignora variante desconhecida sem quebrar', () => {
     const bloco = {
       tipo: 'componente_tema',

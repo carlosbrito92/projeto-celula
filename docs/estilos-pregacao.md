@@ -16,6 +16,8 @@ Quando uma pregação nova é gerada (ver `geracao-pregacao.md`), o conteúdo (J
 
 **Regra de fallback:** pregações sem série (`Avulsa`) usam o tema **Padrão MINC** por padrão, ou podem apontar explicitamente para qualquer um dos temas registrados abaixo.
 
+**Nota de implementação — `componente_tema` não é exclusivo de tema.** As seções abaixo descrevem cada componente (`stage`, `label_box`, etc.) como "introduzido" ou "específico" de um estilo — isso registra sua origem editorial, não uma restrição técnica. Na implementação, qualquer variante de `componente_tema` pode aparecer em qualquer pregação, de qualquer série: a plataforma tem **um renderizador por variante**, que aplica as cores do tema ativo da pregação (via CSS vars), não um renderizador por combinação tema×variante. Confirmado com conteúdo real: `stage` — descrito abaixo como do Estilo #1, evoluído no #2 — apareceu numa pregação da série Igrejar (Estilo #4). Variante sem renderizador implementado ainda cai no tratamento padrão sem quebrar a tela (ver `geracao-pregacao.md`).
+
 ---
 
 ## Workflow: criando o tema de uma série nova

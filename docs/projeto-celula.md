@@ -149,14 +149,14 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 - **TDD nasce junto com o código, não depois.** O contraste do artigo (projeto sem testes exigiu 6 "cirurgias de emergência"; projeto com 1.323 testes teve zero paradas forçadas) sugere que mesmo os utilitários simples da V1 (sorteador, contador) devem nascer com teste, não como algo adicionado depois que o código "já funciona".
 - **Refactoring contínuo é disciplina, não decisão única.** A separação em camadas (seção acima) evita acúmulo de dívida técnica se for mantida ativamente — não é suficiente desenhar a arquitetura bonita uma vez; exige poda regular conforme features são adicionadas.
 - **O humano decide o quê, a IA decide o como.** Trazer contexto e objetivo para o agente, deixar a implementação por conta dele, mas continuar questionando decisões de arquitetura propostas (ex: recusar over-engineering, como uma state machine complexa quando um caso simples resolve).
-- **Documento vivo do projeto.** Os três markdowns do Projeto Célula (`projeto-celula.md`, `estilos-pregacao.md`, `geracao-pregacao.md`) já seguem esse padrão — cada calibração adicionou uma lição aprendida em vez de documentação estática escrita uma única vez. Esse padrão deve continuar quando a fase de código começar, registrando hurdles técnicos conforme aparecerem.
+- **Documento vivo do projeto.** Os três markdowns do Projeto Célula (`projeto-celula.md`, `estilos-pregacao.md`, `geracao-pregacao.md`) já seguem esse padrão — cada calibração adicionou uma lição aprendida em vez de documentação estática escrita uma única vez. Esse padrão continua na fase de código: `CLAUDE.md`, no repositório, registra hurdles técnicos e decisões de arquitetura pelo mesmo princípio.
 
 ---
 
 ## 8. Decisões em aberto
 
-- Estrutura de dados definitiva do JSON de saída das pregações — ver `geracao-pregacao.md`.
-- Formato do arquivo de tema por série (extraído dos estilos existentes) — ver `estilos-pregacao.md`.
+- ~~Estrutura de dados definitiva do JSON de saída das pregações~~ — resolvida e implementada (`src/content/types.ts`), validada com as 4 pregações reais de calibração já no banco. Ver `geracao-pregacao.md`.
+- ~~Formato do arquivo de tema por série~~ — resolvido e implementado (`src/themes/registry.ts`, 6 temas registrados como dados). Ver `estilos-pregacao.md`.
 - Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima, detalhamento fica para quando a V2 entrar em pauta.
 
 ---
@@ -168,3 +168,6 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 - `mock-prompt.md` — prompt descritiva do projeto inteiro (visão + módulos + identidade visual), para geração de mock visual. v2 aprovada por Carlos.
 - `mock-aprovado-v2.html` — mock visual gerado a partir da prompt v2, validado como referência visual do projeto ("moderno, sleek, parece um app").
 - `progresso.md` — checklist de acompanhamento por fase, vive no repositório de código (não em ferramenta externa).
+- `CLAUDE.md` (raiz do repositório de código) — documento vivo da fase de código: recursos/IDs do projeto (Supabase, Vercel, GitHub), requisitos de segurança, decisões de arquitetura e hurdles técnicos. Não duplica o conteúdo destes markdowns — complementar, focado em *como construir*.
+- `supabase/migrations/` (repositório de código) — schema do banco e RLS, versionados.
+- `content/pregacoes/` (repositório de código) — os JSONs de calibração reais, servindo de fixture para testes e referência de conteúdo real.

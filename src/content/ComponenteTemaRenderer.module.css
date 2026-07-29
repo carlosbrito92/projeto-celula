@@ -179,3 +179,45 @@
   font-size: 14px;
   color: var(--muted);
 }
+
+.labelBox {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent1);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-mono);
+}
+
+.labelBoxTitulo {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent1);
+}
+
+.labelBoxCampos {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.labelBoxLinha {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.labelBoxCampo {
+  color: var(--muted);
+}
+
+.labelBoxValor {
+  margin: 0;
+  color: var(--text);
+  text-align: right;
+}

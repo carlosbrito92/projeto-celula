@@ -5,6 +5,7 @@ import type {
   DadosBanhoList,
   DadosDiagnostico,
   DadosHumor,
+  DadosLabelBox,
   DadosStage,
   DadosVersus,
 } from './types';
@@ -34,6 +35,8 @@ export function ComponenteTemaRenderer({ bloco }: { bloco: BlocoComponenteTema }
       return <BanhoList dados={bloco.dados as DadosBanhoList} />;
     case 'humor':
       return <Humor dados={bloco.dados as DadosHumor} />;
+    case 'label_box':
+      return <LabelBox dados={bloco.dados as DadosLabelBox} />;
     default:
       if (import.meta.env.DEV) {
         console.warn(`componente_tema variante desconhecida: "${bloco.variante}" — ignorada.`);
@@ -129,6 +132,22 @@ function Humor({ dados }: { dados: DadosHumor }) {
     <div className={styles.humor}>
       <span aria-hidden="true">😄</span>
       <span>{dados.texto}</span>
+    </div>
+  );
+}
+
+function LabelBox({ dados }: { dados: DadosLabelBox }) {
+  return (
+    <div className={styles.labelBox}>
+      <div className={styles.labelBoxTitulo}>{dados.titulo}</div>
+      <dl className={styles.labelBoxCampos}>
+        {dados.campos.map((item, i) => (
+          <div key={i} className={styles.labelBoxLinha}>
+            <dt className={styles.labelBoxCampo}>{item.campo}</dt>
+            <dd className={styles.labelBoxValor}>{item.valor}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   );
 }
