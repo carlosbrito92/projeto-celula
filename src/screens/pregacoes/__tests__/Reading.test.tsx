@@ -97,4 +97,37 @@ describe('Reading', () => {
     expect(screen.getAllByText('Religião Tóxica').length).toBeGreaterThan(0);
     expect(screen.getByText('Resumo do ponto 1')).toBeInTheDocument();
   });
+
+  it('FAB aparece quando o índice sai da viewport — regressão: o observer precisa se anexar ao elemento real, não a um ref nulo capturado durante o estado de carregamento', async () => {
+    let observedElement: Element | null = null;
+    let intersectionCallback: ((entries: { isIntersecting: boolean }[]) => void) | null = null;
+
+    class FakeIntersectionObserver {
+      constructor(cb: (entries: { isIntersecting: boolean }[]) => void) {
+        intersectionCallback = cb;
+      }
+      observe(el: Element) {
+        observedElement = el;
+      }
+      unobserve() {}
+      disconnect() {}
+      takeRecords() {
+        return [];
+      }
+    }
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+
+    // Se o bug do ref-nulo-no-carregamento voltar, observedElement fica null aqui.
+    expect(observedElement).not.toBeNull();
+    expect(observedElement).toBe(document.getElementById('indice'));
+    expect(screen.queryByText('☰ Índice')).not.toBeInTheDocument();
+
+    intersectionCallback!([{ isIntersecting: false }]);
+    expect(await screen.findByText('☰ Índice')).toBeInTheDocument();
+
+    vi.unstubAllGlobals();
+  });
 });
