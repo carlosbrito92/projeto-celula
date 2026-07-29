@@ -1,0 +1,318 @@
+{
+  "metadados": {
+    "serie": "Avulsa",
+    "capitulo": "",
+    "tema": "Como Viver uma Vida Abundante",
+    "data": "27-28 de maio de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Tiago 1.2-4",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Esta mensagem apresenta sete princípios práticos para viver a vida abundante que Cristo prometeu — combatendo os dois principais instrumentos do inimigo: a condenação do passado e a ansiedade do futuro, e cultivando gratidão, paz e alegria no presente.",
+    "frase_sintese": "A mensagem parte de Tiago 1.2–4, mostrando que cada batalha produz perseverança, e cada provação, despojo espiritual. Mas o fio condutor da pregação é este: a única parte da vida que você realmente possui é o aqui e o agora. O passado passou. O futuro ainda não chegou. E o inimigo opera exatamente nesses dois extremos para roubar o presente de você."
+  },
+  "mapa_pontos": [
+    { "id": "principio-01", "numero": "01", "titulo": "Saia da condenação" },
+    { "id": "principio-02", "numero": "02", "titulo": "Viva em paz" },
+    { "id": "principio-03", "numero": "03", "titulo": "Tenha boas expectativas" },
+    { "id": "principio-04", "numero": "04", "titulo": "Rejeite o merecimento" },
+    { "id": "principio-05", "numero": "05", "titulo": "Escolha ser feliz" },
+    { "id": "principio-06", "numero": "06", "titulo": "Seja grato" },
+    { "id": "principio-07", "numero": "07", "titulo": "Desfrute do Senhor" }
+  ],
+  "secoes": [
+    {
+      "id": "principio-01",
+      "numero": "01",
+      "titulo": "Saia da Condenação",
+      "sec_eyebrow": "",
+      "referencias": "Romanos 8.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O primeiro movimento do inimigo para roubar a sua vida é **prendê-lo no passado**. Em algum momento da sua trajetória, ele tenta te fixar numa falha, num erro, num tropeço — usando **culpa, vergonha e acusação** como correntes. A isso chamamos de condenação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na cruz do Calvário, o sangue de Jesus foi derramado e o passado foi completamente apagado. Você não tem mais passado — você só tem futuro. Seus erros, tropeços, falhas e quedas ficaram para trás."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.1",
+          "texto": "Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando você diz que não há perdão para você — ou quando vive como alguém sem consciência de perdão — está dizendo que o seu pecado é maior do que a graça de Deus. **Se Deus te perdoou, quem é você para não se perdoar?**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você está em Cristo. Por isso, sobre você já não há nenhuma condenação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além de esquecer o seu próprio passado, esqueça também o passado dos outros. Quem vive sempre se sentindo em falta, sempre em dívida, nunca consegue exercer **fé e autoridade espiritual**. O grande problema de muitos crentes é nunca saber com certeza se Deus está bem com eles. A resposta é simples: você está em Cristo — e o Pai está satisfeito com Cristo em você."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-02",
+      "numero": "02",
+      "titulo": "Viva em Paz",
+      "sec_eyebrow": "",
+      "referencias": "Mateus 11.28-29 · Romanos 5.1 · Filipenses 4.6-7 · Hebreus 4.11",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Se o inimigo não consegue te prender no passado pela condenação, ele te prende no futuro pela **ansiedade**. Dizem que *depressão é excesso de passado* e *ansiedade é excesso de futuro*. O ansioso também não vive o aqui e o agora — vive num suposto futuro imaginado que ainda não chegou."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A paz possui **três dimensões**:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "**Paz com as pessoas** — não guardar mágoa, não guardar rancor. Decidir estar em paz com todos, mesmo quando o outro não quer.",
+            "**Paz concedida** — recebida no perdão dos pecados. Cristo nos alivia do peso da culpa.",
+            "**Paz encontrada** — o descanso da fé, conquistado diariamente ao lançar sobre Deus todos os cuidados."
+          ]
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 11.28",
+          "texto": "Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 11.29",
+          "texto": "Tomai sobre vós o meu jugo e aprendei de mim, porque sou manso e humilde de coração; e achareis descanso para as vossas almas."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 5.1",
+          "texto": "Sendo, pois, justificados pela fé, temos paz para com Deus por meio de nosso Senhor Jesus Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando a ansiedade bate na porta da sua alma, a resposta não é resistir pela força de vontade — é **lançar sobre Ele todo o peso**. Pessoas, circunstâncias, problemas, medos, angústias. Colocados nas mãos d'Ele, não se pega de volta. Depois que você lança, você deixa lá — e Ele cuida."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A ansiedade virá novamente te tentar. O que você faz? Lança novamente. Derrama novamente. Deixa novamente."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Filipenses 4.6-7",
+          "texto": "Não andeis ansiosos de coisa alguma; em tudo, porém, sejam conhecidas, diante de Deus, as vossas petições, pela oração e pela súplica, com ações de graças. E a paz de Deus, que excede todo entendimento, guardará os vossos corações e os vossos pensamentos em Cristo Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 4.11a",
+          "texto": "Esforcemo-nos, pois, por entrar naquele descanso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Bíblia diz que você precisa **se esforçar para descansar** — porque não é fácil. Há uma tempestade ao redor, ventos fortes, problemas pressionando. Mas você se esforça para entrar no descanso, porque sabe em quem creu, e sabe que o seu Redentor vive."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-03",
+      "numero": "03",
+      "titulo": "Tenha Boas Expectativas",
+      "sec_eyebrow": "",
+      "referencias": "Jeremias 29.11",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Você pode pensar no futuro — e deve. Mas ao pensar nele, **encha o coração de esperança**. O crente vive intensamente como uma criança à véspera de uma festa — excitada, ansiosa no bom sentido, contando os dias para algo bom que vai acontecer."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O mundo ensina: *\"não crie expectativas para não se frustrar.\"* O Senhor diz o contrário: coloca expectativas ainda mais altas, porque Ele é seu Pai e os pensamentos d'Ele a seu respeito são de bem, não de mal."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Jeremias 29.11",
+          "texto": "Porque eu bem sei os planos que tenho a vosso respeito, diz o Senhor; planos de paz e não de mal, para vos dar um futuro e uma esperança."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A nossa esperança não é otimismo vazio. É baseada numa firme convicção: estamos em Cristo, e a obra de Cristo nos garante um futuro de glória."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A esperança cristã não é simplesmente pensamento positivo — embora o otimismo seja melhor que o pessimismo. É uma **convicção firme** ancorada na obra de Cristo. Esteja na torcida: você vai virar a esquina. Deus vai te surpreender."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-04",
+      "numero": "04",
+      "titulo": "Rejeite o Merecimento",
+      "sec_eyebrow": "",
+      "referencias": "Romanos 8.32",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem vive pelo merecimento nunca é feliz. Nunca está satisfeito. Nunca desfrutará com alegria daquilo que tem, porque sempre acha que merece algo maior ou melhor. O **sentimento de merecimento é um ladrão** — rouba a felicidade, rouba o desfrute da vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nós não somos vencedores porque merecemos. Estamos **debaixo de um favor imerecido**. E é exatamente esse favor — que não foi merecido — que queremos que seja derramado sobre nossas vidas."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus não quer te dar o que você merece. Ele quer te dar o que Cristo merece. Essa é a troca do Calvário."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na cruz, Cristo experimentou tudo o que nós merecíamos, para que hoje pudéssemos experimentar tudo o que **Ele merece**. Essa é a lógica da graça."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.32",
+          "texto": "Aquele que não poupou nem o seu próprio Filho, antes por todos nós o entregou, porventura não nos dará graciosamente com ele todas as coisas?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não por merecimento. Não como pagamento. **Graciosamente** — como fruto de um favor imerecido. Se quando éramos inimigos d'Ele fomos tão grandemente abençoados, imagina agora, sendo feitos filhos."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-05",
+      "numero": "05",
+      "titulo": "Escolha Ser Feliz",
+      "sec_eyebrow": "",
+      "referencias": "1 Pedro 3.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Ser feliz é uma **decisão**. É uma escolha pessoal, exclusiva, sua. Ninguém pode ser feliz por você. Há pessoas que preferem ficar tristes, amarguras, remoendo ofensas do passado, lambendo feridas — e essa também é uma escolha que estão fazendo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Pedro 3.10a",
+          "texto": "Pois quem quer amar a vida e ver dias felizes..."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Mau humor não é destino — é uma escolha. Decida não ficar mal-humorado. Decida ser feliz."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Perceba: você já escolhe o seu estado de humor. Em meio a uma discussão com seu cônjuge, se toca o telefone com alguém de fora, você muda o tom imediatamente — porque escolhe. Você pode fazer isso agora mesmo, de forma deliberada."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Felicidade não depende da ausência dos defeitos dos outros. Você casou com alguém que tem defeitos — e até a morte terá defeitos. Aprenda a conviver com as limitações daqueles ao seu redor. Isso envolve **graça, amor e suprimento sobrenatural**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-06",
+      "numero": "06",
+      "titulo": "Seja Grato",
+      "sec_eyebrow": "",
+      "referencias": "Provérbios 27.7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A **gratidão** é uma chave espiritual. Ela faz você desfrutar de cada momento, da beleza de cada situação. O ingrato nunca desfruta de nada — nunca está contente, nunca está satisfeito, nunca acha que foi feito o suficiente por ele."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você for ingrato em relação ao seu casamento, tudo o que seu cônjuge fizer não será suficiente. Ninguém vive intensamente se não desfrutará — e a ingratidão impede o desfrute."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Tudo aquilo de que você reclama, você repele da sua vida. Tudo aquilo que você louva, você atrai."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Três coisas tiram a gratidão do coração:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "**Orgulho** — a pessoa orgulhosa pensa que conquistou tudo pela força do próprio braço e não deve nada a ninguém. Não reconhece que a inteligência, a disciplina e a vontade de lutar vieram do alto.",
+            "**Reclamação** — um mau hábito aprendido desde a infância. Quem reclama repele a bênção. Reclamação é o oposto de louvor.",
+            "**Familiaridade** — quando nos acostumamos com algo, tratamos aquilo como comum. Deixamos de enxergar o extraordinário no ordinário."
+          ]
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Provérbios 27.7a",
+          "texto": "A alma farta pisa o favo de mel."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se as estrelas aparecessem apenas uma vez no ano, seria feriado nacional. As cidades apagariam as luzes. As pessoas reuniriam suas famílias. Mas como as estrelas aparecem todas as noites, quem as vê? Não se permita chegar ao ponto de estar tão farto que não valorize mais o que Deus tem colocado à sua volta."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus, diante de apenas cinco pães e dois peixes, fez uma **oração de ações de graças** — e a gratidão gerou multiplicação. Ações de graças atraem provisão e enchimento do Espírito."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "principio-07",
+      "numero": "07",
+      "titulo": "Desfrute do Senhor",
+      "sec_eyebrow": "",
+      "referencias": "Salmo 37.4",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A chave mais importante de todas: **desfrutar do próprio Senhor**. Ele é a sua alegria. Ele é o seu prazer. Ele é o seu deleite. Ele é a sua satisfação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "No final das contas, não são as circunstâncias que definem o quanto você é amado. Você precisa parar de interpretar o amor de Deus com base nas circunstâncias — ora achando que Ele te ama porque algo de bom aconteceu, ora achando que não te ama porque algo foi tirado. **As circunstâncias não medem o Seu amor.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você é amado. Você tem um Pai que te ama, que não te larga, que não te abandona."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Coloque o seu coração em Cristo. Coloque a sua confiança em Cristo. Coloque a sua expectativa em Cristo. Ele é o nosso descanso, a nossa paz, o nosso desfrute — **tudo em nós**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "encerramento",
+      "numero": "",
+      "titulo": "Encerramento — A Vida que Cristo Prometeu",
+      "sec_eyebrow": "",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A mensagem se encerra com um chamado: **o céu já começou aqui**. A eternidade foi plantada no seu coração. Você já pode experimentar, hoje, os poderes do mundo vindouro. Deus não te chamou para viver uma vida de angústia, paralisia ou fardo pesado — Ele te chamou para uma **vida abundante**."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "Saia da condenação: o seu passado foi apagado pelo sangue de Cristo. Já nenhuma condenação há para os que estão em Cristo Jesus.", "versiculo_ancora": "Romanos 8.1" },
+    { "ponto": "Viva em paz: lance sobre Ele todo o cuidado. A paz de Deus que excede todo entendimento guardará o seu coração. Se esforce para entrar no descanso da fé.", "versiculo_ancora": "Filipenses 4.6-7" },
+    { "ponto": "Tenha boas expectativas: encha o coração de esperança. Os planos de Deus para você são de paz e não de mal.", "versiculo_ancora": "Jeremias 29.11" },
+    { "ponto": "Rejeite o merecimento: você não vai receber o que merece — vai receber o que Cristo merece. Graciosamente, Ele nos dará todas as coisas.", "versiculo_ancora": "Romanos 8.32" },
+    { "ponto": "Escolha ser feliz: mau humor não é destino, é escolha. Quem quer ver dias felizes, decide sê-lo.", "versiculo_ancora": "1 Pedro 3.10" },
+    { "ponto": "Seja grato: gratidão gera multiplicação. Afaste o orgulho, a reclamação e a familiaridade — não pise o favo de mel.", "versiculo_ancora": "Provérbios 27.7" },
+    { "ponto": "Desfrute do Senhor: Ele é o seu deleite, a sua paz, a sua alegria. No fim, tudo está em Cristo.", "versiculo_ancora": "" }
+  ],
+  "nota_lacuna": []
+}
