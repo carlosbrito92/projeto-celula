@@ -4,6 +4,7 @@ import { resolveTema } from '../../themes/registry';
 import { usePregacao } from '../../content/usePregacoes';
 import { formatDataPtBr } from '../../content/parseData';
 import { BlockRenderer } from '../../content/BlockRenderer';
+import { ComponenteTemaRenderer } from '../../content/ComponenteTemaRenderer';
 import { AnnotationBox } from '../../content/AnnotationBox';
 import { MerchSection } from '../../content/MerchSection';
 import { useIndiceFab, scrollToId } from './useIndiceFab';
@@ -45,6 +46,18 @@ export function Reading({ id }: { id: string }) {
         </div>
 
         {pregacao.serie && <span className={styles.badge}>{pregacao.serie}</span>}
+
+        {conteudo.banner_intro?.componente_tema && (
+          <ComponenteTemaRenderer
+            bloco={{ tipo: 'componente_tema', ...conteudo.banner_intro.componente_tema }}
+          />
+        )}
+
+        {conteudo.banner_intro?.contextualizacao && (
+          <div className={styles.bannerContextualizacao}>
+            {conteudo.banner_intro.contextualizacao}
+          </div>
+        )}
 
         {conteudo.banner_intro && (
           <div className={styles.banner}>{conteudo.banner_intro.frase_sintese}</div>

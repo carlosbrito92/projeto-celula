@@ -9,7 +9,17 @@ const conteudo: PregacaoConteudo = {
     tema: 'A Graça Não É o Que Você Pensa',
     pregador: 'Pastor Pedro Estrella',
   },
-  banner_intro: { frase_sintese: 'Frase de abertura.' },
+  banner_intro: {
+    contextualizacao: 'Segundo capítulo da série. No episódio anterior...',
+    componente_tema: {
+      variante: 'label_box',
+      dados: {
+        titulo: 'Antídoto',
+        campos: [{ campo: 'Status', valor: 'Instável' }],
+      },
+    },
+    frase_sintese: 'Frase de abertura.',
+  },
   mapa_pontos: [
     { id: 'bloco-0', numero: '·', titulo: 'Quem É a Graça?' },
     { id: 'bloco-1', numero: '01', titulo: 'A Lei Foi Feita Para Quem?' },
@@ -96,6 +106,17 @@ describe('Reading', () => {
     await screen.findByText('A Graça Não É o Que Você Pensa');
     expect(screen.getAllByText('Religião Tóxica').length).toBeGreaterThan(0);
     expect(screen.getByText('Resumo do ponto 1')).toBeInTheDocument();
+  });
+
+  it('renderiza banner_intro.contextualizacao e banner_intro.componente_tema (label_box)', async () => {
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    expect(
+      screen.getByText('Segundo capítulo da série. No episódio anterior...'),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Antídoto')).toBeInTheDocument();
+    expect(screen.getByText('Status')).toBeInTheDocument();
+    expect(screen.getByText('Instável')).toBeInTheDocument();
   });
 
   it('FAB aparece quando o índice sai da viewport — regressão: o observer precisa se anexar ao elemento real, não a um ref nulo capturado durante o estado de carregamento', async () => {

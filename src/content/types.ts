@@ -11,6 +11,10 @@ export interface Metadados {
 }
 
 export interface BannerIntro {
+  /** Recapitulação/enquadramento editorial antes da frase-síntese. Ex: "Segundo capítulo da série X...". */
+  contextualizacao?: string;
+  /** Mesmo formato de variante/dados de ComponenteTemaVariante, mas no nível do header — não dentro de uma seção. */
+  componente_tema?: ComponenteTemaVariante;
   frase_sintese: string;
 }
 
@@ -86,6 +90,16 @@ export interface DadosHumor {
   texto: string;
 }
 
+export interface DadosLabelBoxCampo {
+  campo: string;
+  valor: string;
+}
+
+export interface DadosLabelBox {
+  titulo: string;
+  campos: DadosLabelBoxCampo[];
+}
+
 export type ComponenteTemaVariante =
   | { variante: 'stage'; dados: DadosStage }
   | { variante: 'diagnostico'; dados: DadosDiagnostico }
@@ -94,9 +108,10 @@ export type ComponenteTemaVariante =
   | { variante: 'analogia'; dados: DadosAnalogia }
   | { variante: 'banho_list'; dados: DadosBanhoList }
   | { variante: 'humor'; dados: DadosHumor }
+  | { variante: 'label_box'; dados: DadosLabelBox }
   // variantes exclusivas de tema ainda não implementadas na plataforma
-  // (verb_block, poeiras_grid, label_box) caem aqui e são ignoradas com
-  // segurança pelo ComponenteTemaRenderer — nunca quebram a renderização.
+  // (verb_block, poeiras_grid) caem aqui e são ignoradas com segurança
+  // pelo ComponenteTemaRenderer — nunca quebram a renderização.
   | { variante: string; dados: unknown };
 
 export type BlocoComponenteTema = { tipo: 'componente_tema' } & ComponenteTemaVariante;

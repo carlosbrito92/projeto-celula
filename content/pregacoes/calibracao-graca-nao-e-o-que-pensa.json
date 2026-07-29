@@ -9,6 +9,18 @@
     "modo_origem": "A"
   },
   "banner_intro": {
+    "contextualizacao": "Segundo capítulo da série Religião Tóxica. No episódio anterior, a \"doença dos gálatas\" foi diagnosticada: a mistura entre graça e Lei. Nesta mensagem, o pastor aprofunda o antídoto — respondendo a três perguntas centrais sobre a Lei: para quem ela foi dada, se ainda precisamos guardá-la, e se a obediência nos torna mais justos.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Antídoto",
+        "campos": [
+          { "campo": "Antídoto", "valor": "Graça" },
+          { "campo": "Toxina identificada", "valor": "Mistura lei + graça" },
+          { "campo": "Status", "valor": "Instável" }
+        ]
+      }
+    },
     "frase_sintese": "A doença dos gálatas produz efeitos terríveis: culpa permanente, um grande peso, medo governando as emoções, falta de liberdade, insuficiência constante. O foco sai de Cristo e é colocado nas regras. O problema não era que os gálatas negavam Jesus — eles criam em Jesus. O problema era que criam que Jesus não era suficiente. Sempre Cristo e mais alguma coisa."
   },
   "mapa_pontos": [
