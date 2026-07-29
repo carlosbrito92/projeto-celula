@@ -436,7 +436,8 @@ Aplicável a qualquer pregação com 4+ pontos, independente do tema:
 
 1. **Índice clicável** — cada item aponta para o `id` da seção (`#ponto-N`). Toda seção recebe `scroll-margin-top: 32px` para não ficar encoberta ao navegar.
 2. **Botão flutuante (FAB)** — fixo no canto inferior direito, some quando o índice está visível, aparece quando o usuário rola além dele.
-   - Implementado com `IntersectionObserver` nativo (`rootMargin: '0px 0px -80% 0px'`) — sem biblioteca externa.
+   - Implementado com `IntersectionObserver` nativo — sem biblioteca externa.
+   - **Correção de implementação (plataforma):** os HTMLs gerados usavam `rootMargin: '0px 0px -80% 0px'` (só considera "interseção" o top 20% da viewport — um padrão de "sticky header"). Isso presume que o índice nasce colado no topo da tela. Na prática, o índice quase sempre vem depois de header/banner/badge, então ele nunca cai nesse top-20%, e o FAB fica dissociado do scroll real (aparece cedo demais ou nunca). A plataforma usa `threshold: 0` sem `rootMargin`: `isIntersecting` reflete literalmente "alguma parte do índice está visível" — a semântica certa quando o elemento observado não é um header fixo. Detalhes em `CLAUDE.md`.
    - **Importante:** não confiar em `href="#indice"` puro — falha em alguns WebViews (apps mobile, preview de artifact). Interceptar o clique e usar `scrollIntoView({ behavior: 'smooth', block: 'start' })`.
    - Cores seguem o acento primário e o acento dim do tema ativo.
 

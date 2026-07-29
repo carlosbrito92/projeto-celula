@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Você Foi Enganado · Religião Tóxica · Pr. Pedro Estrela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:         #07100e;
+      --surface:    #0d1815;
+      --surface2:   #12211d;
+      --border:     #1e332d;
+      --text:       #e8f0ed;
+      --muted:      #5c766e;
+
+      /* Paleta clínica — verde-teal sóbrio: diagnóstico e antídoto */
+      --teal:       #2dd4a8;
+      --teal-soft:  #8fe8cf;
+      --teal-dim:   #0a2e24;
+      --teal-glow:  rgba(45,212,168,.07);
+
+      /* Acento de alerta — para "sintomas" e confronto */
+      --red:        #e8604a;
+      --red-dim:    #2e120c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16.5px;
+      line-height: 1.9;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 28px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 340px;
+      background: radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--teal) 30%, var(--teal-soft) 50%, var(--teal) 70%, transparent 100%);
+    }
+
+    .series-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--red); border: 1px solid var(--red-dim);
+      background: rgba(232,96,74,.06); padding: 5px 18px; margin-bottom: 26px;
+    }
+    .series-tag .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+
+    header h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+    header h1 em { color: var(--teal); font-style: italic; }
+    .header-sub { font-size: 13.5px; color: var(--muted); letter-spacing: .06em; margin-top: 10px; }
+    .speaker-line { margin-top: 16px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--teal-soft); }
+
+    /* ── SÉRIE BANNER ── */
+    .series-banner { max-width: 800px; margin: 40px auto 0; padding: 0 24px; }
+    .series-inner {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      padding: 14px 22px; display: flex; gap: 14px; align-items: flex-start;
+      font-size: 14.5px; color: #c8b8b0; line-height: 1.75;
+    }
+    .series-inner strong { color: #f0a898; }
+
+    /* ── INTRO ── */
+    .intro { max-width: 800px; margin: 40px auto; padding: 0 24px 0 30px; border-left: 3px solid var(--teal); }
+    .intro p { color: #c8d8d2; font-size: 16px; line-height: 2; }
+
+    /* ── ANCHOR VERSE ── */
+    .anchor-verse { max-width: 800px; margin: 0 auto 10px; padding: 0 24px; }
+
+    /* ── ÍNDICE ── */
+    .index-wrap { max-width: 800px; margin: 44px auto 0; padding: 0 24px; scroll-margin-top: 32px; }
+    .index-label { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .index-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .index-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-left: 3px solid var(--teal-dim);
+      padding: 12px 16px; text-decoration: none; cursor: pointer;
+      transition: border-left-color .2s, background .2s;
+    }
+    .index-item:hover { border-left-color: var(--teal); background: #16261f; }
+    .index-item .n { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 700; color: var(--border); line-height: 1; flex-shrink: 0; width: 26px; }
+    .index-item .t { font-size: 12px; font-weight: 500; letter-spacing: .02em; color: var(--teal-soft); line-height: 1.35; }
+
+    /* ── SEP ── */
+    .sep { max-width: 800px; margin: 52px auto; border-top: 1px solid var(--border); }
+
+    /* ── SECTION ── */
+    .section { max-width: 800px; margin: 0 auto; padding: 0 24px; scroll-margin-top: 32px; }
+    .sec-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 22px; }
+    .sec-num { font-family: 'Source Serif 4', serif; font-size: 4.6rem; font-weight: 700; color: var(--border); line-height: .9; flex-shrink: 0; }
+    .sec-titles { flex: 1; padding-top: 6px; }
+    .section h2 { font-family: 'Source Serif 4', serif; font-size: 1.8rem; font-weight: 700; color: #fff; line-height: 1.18; margin-bottom: 4px; }
+    .section h2 em { color: var(--teal); font-style: italic; }
+    .sec-ref { font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+    .sec-bar { width: 36px; height: 2px; background: var(--teal); margin: 12px 0 20px; }
+    .section p { color: #b8c8c2; margin-bottom: 14px; }
+
+    /* ── KEYWORDS ── */
+    .kt { color: var(--teal);      font-weight: 600; }
+    .kr { color: var(--red);       font-weight: 600; }
+    .ks { color: var(--teal-soft); font-weight: 600; }
+
+    /* ── VERSE ── */
+    .verse { background: var(--surface2); border-left: 4px solid var(--teal-dim); padding: 18px 22px; margin: 22px 0; font-style: italic; font-size: 15.5px; color: #a8c4bc; line-height: 1.85; }
+    .verse .ref { display: block; text-align: right; font-style: normal; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+    /* ── CALLOUT ── */
+    .callout { background: rgba(7,16,14,.85); border: 1px solid var(--border); border-right: 4px solid var(--teal); padding: 18px 22px; margin: 24px 0 24px auto; max-width: 76%; text-align: right; font-style: italic; color: #dceae4; font-family: 'Source Serif 4', serif; font-size: 1.12rem; line-height: 1.5; }
+    .callout.red { border-right-color: var(--red); }
+
+    /* ── DIAGNÓSTICO BOX (sintomas) ── */
+    .diagnostico { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 20px 24px; margin: 24px 0; }
+    .diagnostico-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .sintoma-list { list-style: none; padding: 0; margin: 0; }
+    .sintoma-list li { padding: 9px 0; border-bottom: 1px solid #0f1a17; color: #d0c0ba; font-size: 14.5px; display: flex; gap: 10px; align-items: flex-start; }
+    .sintoma-list li:last-child { border-bottom: none; }
+    .sintoma-list li::before { content: '✕'; color: var(--red); font-size: 12px; flex-shrink: 0; margin-top: 3px; }
+
+    /* ── ANTÍDOTO BOX ── */
+    .antidoto { background: var(--teal-glow); border: 1px solid var(--teal-dim); padding: 20px 24px; margin: 24px 0; }
+    .antidoto-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .antidoto p { color: #b8ded0; font-size: 15px; margin-bottom: 0; }
+
+    /* ── COMPARAÇÃO — religião vs evangelho ── */
+    .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0; }
+    .versus-side { background: var(--surface2); border: 1px solid var(--border); padding: 18px 18px 16px; }
+    .versus-side.rel { border-top: 3px solid var(--red); }
+    .versus-side.gra { border-top: 3px solid var(--teal); }
+    .versus-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; }
+    .versus-side.rel .versus-label { color: var(--red); }
+    .versus-side.gra .versus-label { color: var(--teal); }
+    .versus-quote { font-family: 'Source Serif 4', serif; font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+    .versus-side.rel .versus-quote { color: #f0a898; }
+    .versus-side.gra .versus-quote { color: var(--teal-soft); }
+
+    /* ── BLIST ── */
+    .blist { list-style: none; padding: 0; margin: 14px 0; }
+    .blist li { padding: 8px 0 8px 24px; position: relative; color: #b8c8c2; border-bottom: 1px solid #0f1a17; }
+    .blist li::before { content: '—'; position: absolute; left: 0; color: var(--teal-dim); }
+
+    /* ── FAB ── */
+    .fab { position: fixed; bottom: 28px; right: 24px; z-index: 100; display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--teal-dim); color: var(--teal); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: 10px 16px; box-shadow: 0 4px 24px rgba(0,0,0,.5); opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .3s, background .2s, border-color .2s; pointer-events: none; cursor: pointer; }
+    .fab.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .fab:hover { background: #142622; border-color: var(--teal); }
+
+    /* ── FOOTER ── */
+    footer { margin-top: 80px; background: var(--surface); border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; font-size: 11.5px; color: var(--muted); letter-spacing: .08em; }
+
+    @media (max-width: 600px) {
+      .callout { max-width: 100%; }
+      header h1 { font-size: 2.4rem; }
+      .index-grid { grid-template-columns: 1fr; }
+      .sec-header { flex-direction: column; gap: 8px; }
+      .sec-num { font-size: 3rem; }
+      .versus { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ HEADER ══════ -->
+<header>
+  <div class="series-tag"><span class="dot"></span> Série Religião Tóxica <span class="dot"></span></div>
+  <h1>Você Foi<br><em>Enganado</em></h1>
+  <p class="header-sub">O Evangelho da Graça e o antídoto contra a religião</p>
+  <p class="speaker-line">Pr. Pedro Estrela</p>
+</header>
+
+<!-- ══════ CONTEXTO ══════ -->
+<div class="series-banner">
+  <div class="series-inner">
+    <span style="font-size:1.2rem;flex-shrink:0;">⚠</span>
+    <p>Primeira mensagem da série <strong>Religião Tóxica</strong>. O diagnóstico é direto: muitos cristãos afirmam crer na graça, mas na prática ainda vivem pela meritocracia espiritual — uma "doença" que Paulo identificou e confrontou na carta aos Gálatas. Esta mensagem expõe o engano e aponta o único antídoto: o Evangelho da graça.</p>
+  </div>
+</div>
+
+<!-- ══════ INTRO ══════ -->
+<div class="intro">
+  <p>
+    Quando comemos um alimento, ele passa a fazer parte de nós — tornamo-nos, de certa forma, aquilo que consumimos. Da mesma maneira, quando nos alimentamos do Pão Celestial, Cristo, somos transformados por Ele. <span class="kt">Tornamo-nos participantes da natureza celestial</span> por meio do poder da Palavra de Deus. Mas há um engano sutil que impede muitos crentes de viver essa realidade — e esta mensagem existe para expô-lo.
+  </p>
+</div>
+
+<!-- ══════ VERSÍCULO BASE ══════ -->
+<div class="anchor-verse">
+  <div class="verse">
+    "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não vem das obras, para que ninguém se glorie."
+    <span class="ref">Efésios 2.8–9 — Texto-base</span>
+  </div>
+</div>
+
+<!-- ══════ ÍNDICE ══════ -->
+<div class="index-wrap" id="indice">
+  <p class="index-label">Os cinco blocos desta mensagem</p>
+  <div class="index-grid">
+    <a class="index-item" href="#bloco-1"><div class="n">1</div><div class="t">O Evangelho da Graça</div></a>
+    <a class="index-item" href="#bloco-2"><div class="n">2</div><div class="t">O Antídoto Contra a Religião</div></a>
+    <a class="index-item" href="#bloco-3"><div class="n">3</div><div class="t">A Doença dos Gálatas</div></a>
+    <a class="index-item" href="#bloco-4"><div class="n">4</div><div class="t">O Poder Daquilo em que Cremos</div></a>
+    <a class="index-item" href="#bloco-5"><div class="n">5</div><div class="t">Sintomas de um "Gálata"</div></a>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ BLOCO 1 ══════ -->
+<div class="section" id="bloco-1">
+  <div class="sec-header">
+    <div class="sec-num">1</div>
+    <div class="sec-titles">
+      <h2>O Evangelho da <em>Graça</em></h2>
+      <span class="sec-ref">Efésios 2.8–9 · Colossenses 2.6 · Gálatas 3.3</span>
+    </div>
+  </div>
+  <div class="sec-bar"></div>
+
+  <p>
+    Não existe outra maneira de sermos salvos, a não ser <span class="kt">pela graça de Deus</span>. Paulo afirma que é pela graça que recebemos a salvação — e da mesma graça procedem a cura, os milagres e todas as demais bênçãos. Não há uma graça para salvar e outro sistema para o resto da vida cristã.
+  </p>
+
+  <div class="verse">
+    "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não vem das obras, para que ninguém se glorie."
+    <span class="ref">Efésios 2.8–9</span>
+  </div>
+
+  <p>
+    O problema é que muitos cristãos afirmam crer nessa verdade, mas <span class="kr">na prática ainda acreditam que serão aceitos por Deus por meio da meritocracia</span>, do esforço próprio e das suas obras. Assim como recebemos a Cristo, devemos também andar nele — pela graça, não pelo mérito.
+  </p>
+
+  <div class="verse">
+    "Sendo estultos até este ponto? Tendo começado pelo Espírito, ireis agora aperfeiçoar-vos pela carne?"
+    <span class="ref">Gálatas 3.3</span>
+  </div>
+
+  <p>
+    Muitos crentes, embora façam parte da <span class="kt">Nova Aliança</span>, ainda vivem como se estivessem debaixo da Lei. Assim, a vida cristã, que deveria ser leve, torna-se um fardo.
+  </p>
+
+  <div class="callout">
+    "Cristo é o nosso representante diante do Pai. Deus sempre tratou com o homem por meio de um representante. Na Antiga Aliança, esse representante era o sacerdote; na Nova Aliança, é Cristo."
+  </div>
+
+  <p>
+    Quando o homem pecou no Éden, surgiu a <span class="kr">religião</span> — a tentativa humana de se religar a Deus pelos próprios esforços. Deus cobriu a nudez de Adão e Eva com vestes; hoje, nós estamos revestidos de Cristo. Se não compreendermos essa verdade, viveremos um evangelho baseado na <span class="kr">troca</span>, e não no verdadeiro Evangelho da graça.
+  </p>
+
+  <p>
+    Todas as religiões ensinam o que o homem deve fazer para chegar até Deus. O cristianismo, porém, revela <span class="kt">Deus vindo ao encontro do homem</span>. Vivemos em uma geração que tenta barganhar com Deus — algumas religiões e até igrejas ensinam que a bênção precisa ser conquistada; apenas mudam a "moeda": penitências, esmolas, boas obras, sacrifícios ou ofertas.
+  </p>
+
+  <div class="callout">
+    "A bênção de Deus é um presente da graça. Ela é concedida justamente àqueles que não a merecem. O preço já foi pago por Cristo."
+  </div>
+
+  <p>
+    A Igreja de Cristo é formada por pessoas que reconhecem que não têm méritos próprios, mas <span class="kt">dependem completamente da graça</span>.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ BLOCO 2 ══════ -->
+<div class="section" id="bloco-2">
+  <div class="sec-header">
+    <div class="sec-num">2</div>
+    <div class="sec-titles">
+      <h2>O Antídoto Contra a <em>Religião</em></h2>
+      <span class="sec-ref">Gálatas 1:6–9 · Atos 15.1</span>
+    </div>
+  </div>
+  <div class="sec-bar"></div>
+
+  <p>
+    Os falsos mestres da igreja da Galácia tentavam desconstruir a mensagem de Paulo — mas não retiravam Cristo completamente do centro. <span class="kr">Apenas acrescentavam "algo a mais"</span>. Assim, Cristo deixava de ser suficiente. Esse falso ensino arruinava a vida da igreja.
+  </p>
+
+  <div class="verse">
+    "Admira-me que tão depressa passásseis daquele que vos chamou à graça de Cristo para outro evangelho, o qual não é outro; senão que há alguns que vos inquietam, e querem transtornar o evangelho de Cristo."
+    <span class="ref">Gálatas 1.6–7</span>
+  </div>
+
+  <p>
+    Diferentemente das outras cartas, Paulo <span class="kt">não inicia Gálatas agradecendo à igreja</span>. Ele começa demonstrando profunda perplexidade. Os gálatas estavam misturando a Lei com a graça.
+  </p>
+
+  <div class="verse">
+    "Alguns homens, que tinham descido da Judeia, ensinavam os irmãos, dizendo: Se vos não circuncidardes, segundo o rito de Moisés, não podeis ser salvos."
+    <span class="ref">Atos 15.1</span>
+  </div>
+
+  <p>
+    Alguns pregavam Cristo, mas acrescentavam condições para a salvação — ensinavam muitas exigências além de Cristo. Uma das estratégias de Satanás é <span class="kr">perverter o Evangelho, colocando o homem no centro</span>. O verdadeiro Evangelho mantém Cristo no centro.
+  </p>
+
+  <div class="versus">
+    <div class="versus-side rel">
+      <div class="versus-label">A Religião Ensina</div>
+      <div class="versus-quote">"Se eu fizer o bem, serei recompensado."</div>
+    </div>
+    <div class="versus-side gra">
+      <div class="versus-label">O Evangelho Ensina</div>
+      <div class="versus-quote">"Cristo fez tudo por mim."</div>
+    </div>
+  </div>
+
+  <p>
+    O problema nunca foi Cristo — mas a <span class="kr">mistura entre graça e Lei</span>. Jamais receberemos algo de Deus com base no nosso merecimento.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ BLOCO 3 ══════ -->
+<div class="section" id="bloco-3">
+  <div class="sec-header">
+    <div class="sec-num">3</div>
+    <div class="sec-titles">
+      <h2>A Doença dos <em>Gálatas</em></h2>
+      <span class="sec-ref">1 Coríntios 1.4 · Gálatas 3.1</span>
+    </div>
+  </div>
+  <div class="sec-bar"></div>
+
+  <p>
+    Como identificar essa doença? Ela aparece na forma como a pessoa se relaciona com Deus.
+  </p>
+
+  <div class="diagnostico">
+    <div class="diagnostico-label">⚠ Sintomas da "Doença dos Gálatas"</div>
+    <ul class="sintoma-list">
+      <li>Medo constante da punição de Deus.</li>
+      <li>Dúvida sobre a própria salvação.</li>
+      <li>Sentimento de não ser amado ou aceito por Deus.</li>
+      <li>Crença de que precisa conquistar o favor divino por meio das obras.</li>
+    </ul>
+  </div>
+
+  <p>
+    Paulo trata diversos problemas na igreja de Corinto, mas inicia sua carta com <span class="kt">gratidão</span>.
+  </p>
+
+  <div class="verse">
+    "Sempre dou graças ao meu Deus por vós, pela graça de Deus que vos foi dada em Cristo Jesus."
+    <span class="ref">1 Coríntios 1.4</span>
+  </div>
+
+  <p>
+    Já aos gálatas, ele começa com uma <span class="kr">forte exortação</span>.
+  </p>
+
+  <div class="verse">
+    "Ó insensatos gálatas! Quem vos fascinou para não obedecerdes à verdade, a vós, perante os olhos de quem Jesus Cristo já foi representado, crucificado entre vós?"
+    <span class="ref">Gálatas 3.1</span>
+  </div>
+
+  <p>
+    Isso demonstra o quanto <span class="kr">uma crença errada é mais perigosa do que um comportamento errado</span>. Precisamos da sã doutrina para nos proteger dos falsos ensinos.
+  </p>
+
+  <div class="antidoto">
+    <div class="antidoto-label">✓ O tratamento</div>
+    <p>A fé produz o fruto correto. Enquanto houver graça, haverá esperança de transformação. Uma pessoa pode ter comportamentos errados e ainda encontrar esperança na graça. Porém, uma crença errada compromete toda a vida cristã.</p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ BLOCO 4 ══════ -->
+<div class="section" id="bloco-4">
+  <div class="sec-header">
+    <div class="sec-num">4</div>
+    <div class="sec-titles">
+      <h2>O Poder Daquilo em que <em>Cremos</em></h2>
+      <span class="sec-ref">1 Coríntios 11.29–30</span>
+    </div>
+  </div>
+  <div class="sec-bar"></div>
+
+  <p>
+    A Ceia do Senhor — muitos interpretam esse texto de forma equivocada, afirmando que quem está em pecado não pode participar da Ceia. <span class="kt">No entanto, o problema da igreja de Corinto não era esse.</span>
+  </p>
+
+  <div class="verse">
+    "Porque, quem come e bebe indignamente, come e bebe para si mesmo o juízo, não discernindo o corpo do Senhor. Por causa disso há entre vós muitos fracos e doentes, e muitos que dormem."
+    <span class="ref">1 Coríntios 11.29–30</span>
+  </div>
+
+  <p>
+    Eles não discerniam o verdadeiro significado da Ceia de Cristo e tratavam esse momento sagrado como algo comum. <span class="kr">O problema era a falta de entendimento sobre Cristo e sua obra</span> — não uma lista de pecados que impediria a participação.
+  </p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ BLOCO 5 ══════ -->
+<div class="section" id="bloco-5">
+  <div class="sec-header">
+    <div class="sec-num">5</div>
+    <div class="sec-titles">
+      <h2>Sintomas de um <em>"Gálata"</em></h2>
+    </div>
+  </div>
+  <div class="sec-bar"></div>
+
+  <p>
+    Um autodiagnóstico prático — três sinais de que você ainda vive pela lógica religiosa, mesmo professando a graça:
+  </p>
+
+  <div class="diagnostico">
+    <div class="diagnostico-label">⚠ Autoexame</div>
+    <ul class="sintoma-list">
+      <li>Se a obra da cruz não faz diferença prática no seu dia a dia, esse é um sinal de que você ainda depende das obras da Lei.</li>
+      <li>Se você crê que foi salvo pela graça, mas acredita que a santificação depende exclusivamente do seu esforço, então ainda vive segundo a mentalidade da Lei.</li>
+      <li>Quando você acredita que precisa conquistar o amor, a aceitação ou as bênçãos de Deus por mérito próprio, está anulando, na prática, a suficiência da cruz de Cristo.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    "A graça não apenas inicia a vida cristã; ela também a sustenta até o fim."
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════ RESUMO ══════ -->
+<div class="section" style="margin-bottom:60px;">
+  <p style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">Resumo da mensagem</p>
+  <ul class="blist">
+    <li><span class="kt">O Evangelho da Graça:</span> Não há outra forma de salvação senão pela graça — e da mesma graça vêm cura, milagres e bênçãos. Muitos crentes professam a graça mas vivem pela meritocracia (Ef 2.8–9 · Gl 3.3).</li>
+    <li><span class="kt">O Antídoto:</span> Os falsos mestres não retiravam Cristo — apenas acrescentavam algo. A religião diz "faça e será recompensado"; o Evangelho diz "Cristo fez tudo por mim" (Gl 1.6–9).</li>
+    <li><span class="kr">A Doença dos Gálatas:</span> Medo da punição, dúvida da salvação, sentimento de rejeição, crença em conquistar o favor divino. Uma crença errada é mais perigosa que um comportamento errado (Gl 3.1).</li>
+    <li><span class="kt">O Poder da Crença:</span> O problema em Corinto não era pecado impedindo a Ceia — era falta de entendimento sobre Cristo e sua obra (1 Co 11.29–30).</li>
+    <li><span class="kr">Sintomas de um "Gálata":</span> A cruz sem efeito prático, a santificação pelo esforço próprio, o amor de Deus como algo a conquistar — todos anulam a suficiência da cruz.</li>
+  </ul>
+</div>
+
+<!-- ══════ FAB ══════ -->
+<a class="fab" href="#indice" id="fab" aria-label="Voltar ao índice">
+  <span>↑</span> Índice
+</a>
+
+<footer>
+  Pr. Pedro Estrela &nbsp;·&nbsp; Série Religião Tóxica &nbsp;·&nbsp; Você Foi Enganado
+</footer>
+
+<script>
+  const fab = document.getElementById('fab');
+  const indice = document.getElementById('indice');
+
+  fab.addEventListener('click', function (e) {
+    e.preventDefault();
+    indice.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  const observer = new IntersectionObserver(
+    ([entry]) => { fab.classList.toggle('visible', !entry.isIntersecting); },
+    { rootMargin: '0px 0px -80% 0px' }
+  );
+  if (indice) observer.observe(indice);
+</script>
+
+</body>
+</html>

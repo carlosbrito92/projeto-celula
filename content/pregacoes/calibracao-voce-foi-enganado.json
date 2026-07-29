@@ -1,0 +1,238 @@
+{
+  "metadados": {
+    "serie": "Religião Tóxica",
+    "capitulo": "Capítulo 1",
+    "tema": "Você Foi Enganado",
+    "data": "",
+    "pregador": "Pr. Pedro Estrela",
+    "texto_base": "Efésios 2.8-9",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Primeira mensagem da série Religião Tóxica. O diagnóstico é direto: muitos cristãos afirmam crer na graça, mas na prática ainda vivem pela meritocracia espiritual — uma \"doença\" que Paulo identificou e confrontou na carta aos Gálatas. Esta mensagem expõe o engano e aponta o único antídoto: o Evangelho da graça.",
+    "frase_sintese": "Quando comemos um alimento, ele passa a fazer parte de nós — tornamo-nos, de certa forma, aquilo que consumimos. Da mesma maneira, quando nos alimentamos do Pão Celestial, Cristo, somos transformados por Ele. Tornamo-nos participantes da natureza celestial por meio do poder da Palavra de Deus. Mas há um engano sutil que impede muitos crentes de viver essa realidade — e esta mensagem existe para expô-lo."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "1", "titulo": "O Evangelho da Graça" },
+    { "id": "bloco-2", "numero": "2", "titulo": "O Antídoto Contra a Religião" },
+    { "id": "bloco-3", "numero": "3", "titulo": "A Doença dos Gálatas" },
+    { "id": "bloco-4", "numero": "4", "titulo": "O Poder Daquilo em que Cremos" },
+    { "id": "bloco-5", "numero": "5", "titulo": "Sintomas de um \"Gálata\"" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Evangelho da Graça",
+      "sec_eyebrow": "",
+      "referencias": "Efésios 2.8-9 · Colossenses 2.6 · Gálatas 3.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Não existe outra maneira de sermos salvos, a não ser **pela graça de Deus**. Paulo afirma que é pela graça que recebemos a salvação — e da mesma graça procedem a cura, os milagres e todas as demais bênçãos. Não há uma graça para salvar e outro sistema para o resto da vida cristã."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 2.8-9",
+          "texto": "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não vem das obras, para que ninguém se glorie."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O problema é que muitos cristãos afirmam crer nessa verdade, mas **na prática ainda acreditam que serão aceitos por Deus por meio da meritocracia**, do esforço próprio e das suas obras. Assim como recebemos a Cristo, devemos também andar nele — pela graça, não pelo mérito."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 3.3",
+          "texto": "Sendo estultos até este ponto? Tendo começado pelo Espírito, ireis agora aperfeiçoar-vos pela carne?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos crentes, embora façam parte da **Nova Aliança**, ainda vivem como se estivessem debaixo da Lei. Assim, a vida cristã, que deveria ser leve, torna-se um fardo."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Cristo é o nosso representante diante do Pai. Deus sempre tratou com o homem por meio de um representante. Na Antiga Aliança, esse representante era o sacerdote; na Nova Aliança, é Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando o homem pecou no Éden, surgiu a **religião** — a tentativa humana de se religar a Deus pelos próprios esforços. Deus cobriu a nudez de Adão e Eva com vestes; hoje, nós estamos revestidos de Cristo. Se não compreendermos essa verdade, viveremos um evangelho baseado na **troca**, e não no verdadeiro Evangelho da graça."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Todas as religiões ensinam o que o homem deve fazer para chegar até Deus. O cristianismo, porém, revela **Deus vindo ao encontro do homem**. Vivemos em uma geração que tenta barganhar com Deus — algumas religiões e até igrejas ensinam que a bênção precisa ser conquistada; apenas mudam a \"moeda\": penitências, esmolas, boas obras, sacrifícios ou ofertas."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A bênção de Deus é um presente da graça. Ela é concedida justamente àqueles que não a merecem. O preço já foi pago por Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Igreja de Cristo é formada por pessoas que reconhecem que não têm méritos próprios, mas **dependem completamente da graça**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Antídoto Contra a Religião",
+      "sec_eyebrow": "",
+      "referencias": "Gálatas 1.6-9 · Atos 15.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Os falsos mestres da igreja da Galácia tentavam desconstruir a mensagem de Paulo — mas não retiravam Cristo completamente do centro. **Apenas acrescentavam \"algo a mais\"**. Assim, Cristo deixava de ser suficiente. Esse falso ensino arruinava a vida da igreja."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 1.6-7",
+          "texto": "Admira-me que tão depressa passásseis daquele que vos chamou à graça de Cristo para outro evangelho, o qual não é outro; senão que há alguns que vos inquietam, e querem transtornar o evangelho de Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Diferentemente das outras cartas, Paulo **não inicia Gálatas agradecendo à igreja**. Ele começa demonstrando profunda perplexidade. Os gálatas estavam misturando a Lei com a graça."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 15.1",
+          "texto": "Alguns homens, que tinham descido da Judeia, ensinavam os irmãos, dizendo: Se vos não circuncidardes, segundo o rito de Moisés, não podeis ser salvos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Alguns pregavam Cristo, mas acrescentavam condições para a salvação — ensinavam muitas exigências além de Cristo. Uma das estratégias de Satanás é **perverter o Evangelho, colocando o homem no centro**. O verdadeiro Evangelho mantém Cristo no centro."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": { "label": "A Religião Ensina", "citacao": "Se eu fizer o bem, serei recompensado." },
+            "lado_b": { "label": "O Evangelho Ensina", "citacao": "Cristo fez tudo por mim." }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O problema nunca foi Cristo — mas a **mistura entre graça e Lei**. Jamais receberemos algo de Deus com base no nosso merecimento."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Doença dos Gálatas",
+      "sec_eyebrow": "",
+      "referencias": "1 Coríntios 1.4 · Gálatas 3.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Como identificar essa doença? Ela aparece na forma como a pessoa se relaciona com Deus."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "diagnostico",
+          "dados": {
+            "label": "⚠ Sintomas da \"Doença dos Gálatas\"",
+            "itens": [
+              "Medo constante da punição de Deus.",
+              "Dúvida sobre a própria salvação.",
+              "Sentimento de não ser amado ou aceito por Deus.",
+              "Crença de que precisa conquistar o favor divino por meio das obras."
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo trata diversos problemas na igreja de Corinto, mas inicia sua carta com **gratidão**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 1.4",
+          "texto": "Sempre dou graças ao meu Deus por vós, pela graça de Deus que vos foi dada em Cristo Jesus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Já aos gálatas, ele começa com uma **forte exortação**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 3.1",
+          "texto": "Ó insensatos gálatas! Quem vos fascinou para não obedecerdes à verdade, a vós, perante os olhos de quem Jesus Cristo já foi representado, crucificado entre vós?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso demonstra o quanto **uma crença errada é mais perigosa do que um comportamento errado**. Precisamos da sã doutrina para nos proteger dos falsos ensinos."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "antidoto",
+          "dados": {
+            "label": "✓ O tratamento",
+            "texto": "A fé produz o fruto correto. Enquanto houver graça, haverá esperança de transformação. Uma pessoa pode ter comportamentos errados e ainda encontrar esperança na graça. Porém, uma crença errada compromete toda a vida cristã."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Poder Daquilo em que Cremos",
+      "sec_eyebrow": "",
+      "referencias": "1 Coríntios 11.29-30",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Ceia do Senhor — muitos interpretam esse texto de forma equivocada, afirmando que quem está em pecado não pode participar da Ceia. **No entanto, o problema da igreja de Corinto não era esse.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 11.29-30",
+          "texto": "Porque, quem come e bebe indignamente, come e bebe para si mesmo o juízo, não discernindo o corpo do Senhor. Por causa disso há entre vós muitos fracos e doentes, e muitos que dormem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Eles não discerniam o verdadeiro significado da Ceia de Cristo e tratavam esse momento sagrado como algo comum. **O problema era a falta de entendimento sobre Cristo e sua obra** — não uma lista de pecados que impediria a participação."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Sintomas de um \"Gálata\"",
+      "sec_eyebrow": "",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Um autodiagnóstico prático — três sinais de que você ainda vive pela lógica religiosa, mesmo professando a graça:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "diagnostico",
+          "dados": {
+            "label": "⚠ Autoexame",
+            "itens": [
+              "Se a obra da cruz não faz diferença prática no seu dia a dia, esse é um sinal de que você ainda depende das obras da Lei.",
+              "Se você crê que foi salvo pela graça, mas acredita que a santificação depende exclusivamente do seu esforço, então ainda vive segundo a mentalidade da Lei.",
+              "Quando você acredita que precisa conquistar o amor, a aceitação ou as bênçãos de Deus por mérito próprio, está anulando, na prática, a suficiência da cruz de Cristo."
+            ]
+          }
+        },
+        {
+          "tipo": "callout",
+          "texto": "A graça não apenas inicia a vida cristã; ela também a sustenta até o fim."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "O Evangelho da Graça: não há outra forma de salvação senão pela graça — e da mesma graça vêm cura, milagres e bênçãos. Muitos crentes professam a graça mas vivem pela meritocracia.", "versiculo_ancora": "Efésios 2.8-9 · Gálatas 3.3" },
+    { "ponto": "O Antídoto: os falsos mestres não retiravam Cristo — apenas acrescentavam algo. A religião diz \"faça e será recompensado\"; o Evangelho diz \"Cristo fez tudo por mim\".", "versiculo_ancora": "Gálatas 1.6-9" },
+    { "ponto": "A Doença dos Gálatas: medo da punição, dúvida da salvação, sentimento de rejeição, crença em conquistar o favor divino. Uma crença errada é mais perigosa que um comportamento errado.", "versiculo_ancora": "Gálatas 3.1" },
+    { "ponto": "O Poder da Crença: o problema em Corinto não era pecado impedindo a Ceia — era falta de entendimento sobre Cristo e sua obra.", "versiculo_ancora": "1 Coríntios 11.29-30" },
+    { "ponto": "Sintomas de um \"Gálata\": a cruz sem efeito prático, a santificação pelo esforço próprio, o amor de Deus como algo a conquistar — todos anulam a suficiência da cruz.", "versiculo_ancora": "" }
+  ],
+  "nota_lacuna": []
+}
