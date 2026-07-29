@@ -36,7 +36,7 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Definir e aplicar Row Level Security nas tabelas iniciais (pregações, quebra-gelos) — tabelas `pregacoes`/`quebra_gelos` criadas com RLS habilitado, policy de `select` pública para `anon`/`authenticated`, sem policy de escrita (conteúdo editorial só via service role); migração em `supabase/migrations/`
 - [x] Configurar projeto React + Capacitor (scaffold inicial, build Android/iOS/PWA funcionando) — Vite+React+TS, `com.minc.celula`; build Android testado de ponta a ponta em tablet físico via adb; PWA (manifest + service worker) validado via `vite preview`; iOS só escafoldado (build real exige macOS/Xcode)
 - [x] Configurar deploy no Vercel — projeto `projeto-celula` linkado e conectado ao GitHub (deploy automático a cada push em `main`); produção em https://projeto-celula.vercel.app, verificado servindo build + manifest PWA + service worker (200)
-- [ ] Criar documento vivo de projeto para a fase de código (equivalente a um `CLAUDE.md`, conforme prática referenciada do artigo do Akita) — hurdles técnicos documentados aqui, não nos markdowns de conteúdo
+- [x] Criar documento vivo de projeto para a fase de código (equivalente a um `CLAUDE.md`, conforme prática referenciada do artigo do Akita) — hurdles técnicos documentados aqui, não nos markdowns de conteúdo — ver `CLAUDE.md` na raiz do repo
 
 ## Fase 2 — Módulo de Pregações (não iniciada)
 
