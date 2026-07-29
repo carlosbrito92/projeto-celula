@@ -1,0 +1,52 @@
+.shell {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-corpo);
+  padding-bottom: 76px;
+}
+
+.tabBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 10px 0 max(10px, env(safe-area-inset-bottom));
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.tabActive {
+  color: var(--accent1);
+  font-weight: 600;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+}
+
+.square {
+  border-radius: 2px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.diamond {
+  transform: rotate(45deg);
+}

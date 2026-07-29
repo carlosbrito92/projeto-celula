@@ -1,0 +1,222 @@
+{
+  "metadados": {
+    "serie": "Igrejar",
+    "capitulo": "Capítulo 4 · Penúltimo Episódio",
+    "tema": "A Igreja: o Centro do Coração de Deus",
+    "data": "28 de junho de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Mateus 16.18",
+    "modo_origem": "B"
+  },
+  "banner_intro": {
+    "frase_sintese": "Vivemos em um tempo em que muitas pessoas valorizam Jesus, mas desprezam a igreja. Porém, a Bíblia revela que a igreja não é uma invenção humana — ela é o centro do coração de Deus e Seu propósito eterno."
+  },
+  "mapa_pontos": [
+    { "id": "ponto-1", "numero": "01", "titulo": "A Igreja sempre esteve no plano de Deus" },
+    { "id": "ponto-2", "numero": "02", "titulo": "A Igreja é a Casa de Deus" },
+    { "id": "ponto-3", "numero": "03", "titulo": "Hoje nós somos essa Casa" },
+    { "id": "ponto-4", "numero": "04", "titulo": "O propósito eterno de Deus" },
+    { "id": "ponto-5", "numero": "05", "titulo": "Chamados para viver em unidade" },
+    { "id": "ponto-6", "numero": "06", "titulo": "Somos um Corpo" }
+  ],
+  "secoes": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Igreja Sempre Esteve no Plano de Deus",
+      "sec_eyebrow": "Ponto 1",
+      "referencias": "Gênesis 2 · Apocalipse 21-22",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Desde o Jardim do Éden até a Nova Jerusalém, Deus revela Seu desejo de **habitar com Seu povo**. O primeiro e o último livro da Bíblia contam a mesma história: Deus preparando o lugar da Sua habitação com os homens."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "Lição",
+            "frase": "Deus sempre desejou viver em comunhão conosco.",
+            "subtitulo": "Gênesis 2 · Apocalipse 21-22 — do anteprojeto no Éden à consumação na Nova Jerusalém."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Igreja É a Casa de Deus",
+      "sec_eyebrow": "Ponto 2",
+      "referencias": "Hebreus 11.9-10 · Gênesis 28.16-17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Ao longo do Antigo Testamento, Deus mostrou esse propósito por meio de figuras que apontavam para a Igreja:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "poeiras_grid",
+          "dados": {
+            "itens": [
+              { "numero": "", "nome": "A Arca de Noé", "descricao": "Quem estava dentro não experimentou o juízo." },
+              { "numero": "", "nome": "Abraão", "descricao": "Aguardava a cidade eterna, habitando em tendas por revelação." },
+              { "numero": "", "nome": "Jacó", "descricao": "Chamou Betel de Casa de Deus, a porta dos céus." },
+              { "numero": "", "nome": "O Tabernáculo de Moisés", "descricao": "A glória desceu no dia em que foi levantado." },
+              { "numero": "", "nome": "O Templo de Salomão", "descricao": "A glória encheu a casa na dedicação." }
+            ]
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 11.9-10",
+          "texto": "Pela fé, peregrinou na terra da promessa como em terra alheia, habitando em tendas com Isaque e Jacó, herdeiros com ele da mesma promessa; porque aguardava a cidade que tem fundamentos, da qual Deus é o arquiteto e edificador."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 28.16-17",
+          "texto": "Despertado Jacó do seu sono, disse: Na verdade o Senhor está neste lugar, e eu não o sabia. E temeu e disse: Quão temível é este lugar! É esta a Casa de Deus, e esta é a porta dos céus."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Sempre que a casa de Deus era edificada, Sua glória se manifestava."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "Hoje Nós Somos Essa Casa",
+      "sec_eyebrow": "Ponto 3",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Com Cristo, tudo mudou. O Espírito Santo passou a habitar **em nós**. Deus não habita mais em templos feitos por mãos humanas — Ele habita no Seu povo."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "A mudança de paradigma",
+            "frase": "Não somos apenas frequentadores da igreja. Nós somos a Igreja.",
+            "subtitulo": "O templo agora é vivo — construído de pedras vivas, habitado pelo Espírito."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-4",
+      "numero": "04",
+      "titulo": "O Propósito Eterno de Deus",
+      "sec_eyebrow": "Ponto 4",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O propósito de Deus não é apenas salvar pessoas. A salvação nos **restaura** para vivermos aquilo para o qual fomos criados: **a comunhão com Deus e uns com os outros**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A salvação é o caminho de volta — mas o destino sempre foi a comunhão. Fomos criados para essa vida compartilhada, e é nela que o propósito eterno se cumpre."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-5",
+      "numero": "05",
+      "titulo": "Chamados Para Viver em Unidade",
+      "sec_eyebrow": "Ponto 5",
+      "referencias": "Gênesis 1.26",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 1.26",
+          "texto": "Também disse Deus: Façamos o homem à nossa imagem, conforme a nossa semelhança."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O plural — 'façamos' — revela quem Deus é: **Deus é comunhão**. Pai, Filho e Espírito vivem em relacionamento eterno. Por isso a igreja, criada à Sua imagem, deve viver em comunhão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando caminhamos em unidade:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "**A presença de Deus se manifesta** — a glória habita onde há concordância.",
+            "**Existe crescimento** — nada se edifica sem unidade.",
+            "**Existe autoridade espiritual** — a imagem coletiva gera domínio."
+          ]
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-6",
+      "numero": "06",
+      "titulo": "Somos um Corpo",
+      "sec_eyebrow": "Ponto 6",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo ensina que a igreja é um corpo — e **cada membro é importante**. Nenhuma parte é dispensável. Nenhum serviço é menor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando permanecemos ligados ao Corpo:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Somos fortalecidos — a vida flui pela conexão.",
+            "Recebemos direção — o Corpo enxerga o que o membro isolado não vê.",
+            "Somos protegidos — há cobertura na comunhão."
+          ]
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quando nos afastamos, esfriamos espiritualmente. A brasa fora do braseiro esfria."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "aplicacao",
+      "numero": "",
+      "titulo": "A Célula É o Lugar do Corpo",
+      "sec_eyebrow": "Aplicação",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A célula não é apenas uma reunião. Ela é o lugar onde aprendemos a **viver a vida do Corpo de Cristo** — onde compartilhamos a Palavra, oramos, cuidamos uns dos outros e experimentamos, no cotidiano, o propósito eterno de Deus."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "Conclusão",
+            "frase": "Cristo continua edificando Sua Igreja.",
+            "subtitulo": "Mateus 16.18 — E as portas do inferno não prevalecerão contra ela."
+          }
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "A Igreja sempre esteve no plano: do Éden à Nova Jerusalém, Deus deseja habitar com Seu povo.", "versiculo_ancora": "Gênesis 2 · Apocalipse 21-22" },
+    { "ponto": "A Igreja é a Casa de Deus: Arca de Noé, Abraão, Betel, Tabernáculo, Templo — sempre que a casa era edificada, a glória se manifestava.", "versiculo_ancora": "Hebreus 11.9-10 · Gênesis 28.16-17" },
+    { "ponto": "Hoje nós somos essa Casa: o Espírito habita em nós. Não somos frequentadores — somos a Igreja.", "versiculo_ancora": "" },
+    { "ponto": "O propósito eterno: não é apenas salvar — é restaurar para a comunhão com Deus e uns com os outros.", "versiculo_ancora": "" },
+    { "ponto": "Unidade: Deus é comunhão ('façamos'). Em unidade há presença, crescimento e autoridade.", "versiculo_ancora": "Gênesis 1.26" },
+    { "ponto": "Somos um Corpo: ligados, somos fortalecidos, direcionados e protegidos. Afastados, esfriamos. A célula é onde o Corpo vive no cotidiano.", "versiculo_ancora": "" }
+  ],
+  "nota_lacuna": []
+}

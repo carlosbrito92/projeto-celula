@@ -1,0 +1,328 @@
+{
+  "metadados": {
+    "serie": "Igrejar",
+    "capitulo": "Capítulo 5 · Último Episódio",
+    "tema": "Os Desigrejados",
+    "data": "5 de julho de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Gênesis 38.1-2",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "frase_sintese": "No hebraico, a palavra traduzida como 'apartou-se' é yarad — que significa literalmente descer, afundar, ir para baixo. Quando você se aparta da comunhão, você nunca sobe — você só desce. É um caminho de decadência. E ninguém dorme crente e acorda desviado: as pessoas se afastam aos poucos."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "I", "titulo": "Judá se Apartou — o Contexto" },
+    { "id": "bloco-2", "numero": "II", "titulo": "Primeira Causa: Culpa e Condenação" },
+    { "id": "bloco-3", "numero": "III", "titulo": "Afastar-se do Povo da Promessa" },
+    { "id": "bloco-4", "numero": "IV", "titulo": "Os Filhos São os que Mais Sofrem" },
+    { "id": "bloco-5", "numero": "V", "titulo": "A Parábola do Banho" },
+    { "id": "bloco-6", "numero": "VI", "titulo": "Segunda Causa: Justiça Própria" },
+    { "id": "bloco-7", "numero": "VII", "titulo": "A Prova da Transformação" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "I",
+      "titulo": "Judá se Apartou — O Que Veio Antes",
+      "sec_eyebrow": "O Contexto",
+      "referencias": "Gênesis 37 · Gênesis 38.1-2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Antes de Judá decidir se apartar dos seus irmãos, algo terrível aconteceu. Os irmãos de José, cheios de ciúme e inveja, decidiram matá-lo. E foi Judá quem deu a sugestão: **não vamos matá-lo — vamos vendê-lo como escravo**. Alguns até pensariam que Judá deu uma instrução misericordiosa. Mas muitos prefeririam a morte à escravidão. Judá vendeu o próprio irmão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E poucos percebem o que Judá sentiu depois desse ato. José é o tipo mais próximo de Cristo em toda a Bíblia — e as semelhanças são impressionantes:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ambos foram **amados pelo pai** e invejados e rejeitados pelos irmãos.",
+            "Ambos foram alvos de conspiração e **vendidos por moedas de prata**.",
+            "Ambos sofreram injustamente e foram colocados **entre dois transgressores**.",
+            "Ambos foram **exaltados após o sofrimento** e receberam autoridade sobre tudo.",
+            "Ambos se tornaram **salvadores do mundo**."
+          ]
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "O detalhe que poucos notam",
+            "frase": "José foi traído por Judá. Jesus foi traído por Judas.",
+            "subtitulo": "Judá e Judas são o mesmo nome — o primeiro em hebraico, o segundo em grego. A Palavra de Deus é perfeita em cada detalhe."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "II",
+      "titulo": "Culpa, Vergonha e Condenação",
+      "sec_eyebrow": "Primeira Causa do Afastamento",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois de vender o irmão, Judá sentiu o que qualquer pessoa sentiria: **culpa, acusação, vergonha, condenação**. Aquela sensação de 'o que eu fui fazer?', 'não tem como voltar atrás', 'já está feito'. E essa é a primeira razão pela qual muitas pessoas se afastam da família da fé."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Acontece assim: a pessoa está na vida da igreja, mas tem um pecado que a assedia. Ela cai repetidas vezes do mesmo lugar. Já foi exortada, já recebeu discipulado, já tentou tantas vezes — e não dá conta. Até que chega o momento em que ela pensa: 'para mim não tem jeito. Eu esgotei a paciência de Deus. Eu não sirvo para ser crente.' E, sendo honesta consigo mesma, ela se aparta."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Ninguém dorme crente e acorda desviado. As pessoas se afastam aos poucos, se desconectam aos poucos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O afastamento é gradual: antes servia como voluntária — deixa de servir. Era membro de célula — deixa a célula. Vinha a todos os cultos — passa a vir só no culto de ceia. Depois, nem isso. **Pessoas debaixo de condenação não querem ser vistas, notadas, identificadas.** Preferem viver na sombra."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "A advertência",
+            "frase": "Quando você estiver debaixo de acusação — esse é o dia de sentar na primeira fileira.",
+            "subtitulo": "O instinto da condenação é o isolamento. Mas a Palavra disponível na casa de Deus é poderosa para quebrar todo jugo e remover todo fardo. Venha do mesmo jeito."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "III",
+      "titulo": "Afastar-se do Povo da Promessa",
+      "sec_eyebrow": "A Gravidade da Escolha",
+      "referencias": "Gênesis 3.15 · Gênesis 24.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A família de Jacó era a família da promessa. Deus havia liberado a primeira e mais importante profecia de toda a Bíblia:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 3.15",
+          "texto": "E porei inimizade entre ti e a mulher e entre a tua semente e a sua semente; esta te ferirá a cabeça, e tu lhe ferirás o calcanhar."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O próprio diabo tinha consciência dessa promessa — por isso os ataques ao longo da Bíblia contra mulheres estéreis e os infanticídios: tentativas de impedir o nascimento do Descendente. Deus estabeleceu que Ele viria pela linhagem de Abraão. Por isso Abraão cuidou tanto do casamento de Isaque — **'não tomarás mulher dentre as filhas dos cananeus'** — e Isaque fez o mesmo com Jacó. Eles sabiam: o Messias viria daquela descendência."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando Judá resolve se apartar, ele está se separando do povo da aliança — do povo da promessa. Hoje o povo da aliança não é um lugar físico; é simplesmente todos aqueles que foram regenerados pela Palavra, lavados pelo sangue do Cordeiro, e que receberam a semente de Deus dentro de si."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quando Deus quer te abençoar, ele coloca alguém na sua vida. Quando Deus quer te sarar, ele coloca alguém na sua vida. Tem coisas que só acontecem na igreja."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "IV",
+      "titulo": "Os Filhos São os que Mais Sofrem",
+      "sec_eyebrow": "Quem Mais Sofre",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Judá criou seus filhos afastado da família. Eles não conviveram com o avô Jacó, não conheceram as histórias da aliança, dos livramentos, da promessa — cresceram entre os cananeus. E a Bíblia os descreve como **homens perversos diante do Senhor**. Quem mais sofre na família de um desigrejado são os filhos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe um tempo certo para as coisas: **enquanto a argila está fresca, ela tem que ser trabalhada**. Por isso o pastor apresenta sete razões pelas quais os filhos precisam crescer na vida da igreja:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "poeiras_grid",
+          "dados": {
+            "itens": [
+              { "numero": "01", "nome": "Confirmação da sua autoridade", "descricao": "Quando o filho ouve na igreja a mesma coisa que ouve em casa, a autoridade dos pais é confirmada. Um legado é transmitido com respaldo." },
+              { "numero": "02", "nome": "Referências espirituais além de você", "descricao": "Nenhum pai consegue discipular sozinho. Os filhos precisam conviver com outros homens e mulheres de Deus e se inspirar em diferentes exemplos de fé." },
+              { "numero": "03", "nome": "Amizades que fortalecem a fé", "descricao": "Amizades influenciam diretamente o destino. Na igreja, os filhos constroem relacionamentos com quem compartilha dos mesmos valores." },
+              { "numero": "04", "nome": "Amor pela Palavra desde cedo", "descricao": "O diabo não acha que seu filho é novo demais para atacá-lo. Você não pode achar que ele é novo demais para ser exposto à Palavra. Semeie cedo." },
+              { "numero": "05", "nome": "Cosmovisão bíblica", "descricao": "A escola ensina, a internet ensina, as amizades ensinam. Mas é na igreja que ele aprende a enxergar a vida na perspectiva de Deus — identidade, propósito, caráter." },
+              { "numero": "06", "nome": "Suporte nos momentos difíceis", "descricao": "Crises, dúvidas, tentações e perdas virão. Quando vierem, haverá uma família espiritual ao redor deles." },
+              { "numero": "07", "nome": "Aprender a servir, não só consumir", "descricao": "O mundo ensina a extrair. O Reino ensina a servir. Crianças que crescem servindo desenvolvem empatia, compaixão, responsabilidade e senso de propósito." }
+            ]
+          }
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Testemunho — O 'Testemunho Fraco'",
+            "corpo": [
+              "O pastor conta que por anos achou seu testemunho fraco: nunca se desviou, nunca fumou, casou virgem com a única mulher que conheceu. Nada de história dramática de conversão.",
+              "Esse testemunho foi construído por pais que o levavam a todos os cultos: escola dominical de ônibus e Kombi, culto de manhã e de noite, servindo no louvor e no retroprojetor. Uma vida inteira formada dentro da casa de Deus."
+            ],
+            "conclusao": "Seu testemunho é para as crianças e adolescentes da sua igreja — porque eles podem crescer amando a casa de Deus sem precisar se afastar."
+          }
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "A mensagem que você transmite",
+            "frase": "Quando o filho não quer ir à escola, você o leva mesmo assim. E quando ele não quer vir ao culto?",
+            "subtitulo": "Se a resposta é 'tudo bem', a mensagem gravada no coração dele é: existe coisa mais importante que a igreja. Os pais moldam o coração em casa — e a igreja é a parceira poderosa dessa formação."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "V",
+      "titulo": "A Parábola do Banho",
+      "sec_eyebrow": "As Desculpas",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Para uma mãe cujo filho não queria mais vir aos cultos, o pastor compartilhou uma parábola antiga — as dez desculpas de quem não quer tomar banho. Substitua 'banho' por 'igreja' e a mensagem se revela:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "banho_list",
+          "dados": {
+            "itens": [
+              "Fui obrigado a tomar banho quando era criança.",
+              "Pessoas que tomam banho são hipócritas — pensam que são mais limpas do que os outros.",
+              "Existem tantos tipos de sabonete que não consigo decidir qual é o certo.",
+              "Eu costumava tomar banho, mas me cansei — todo dia o mesmo banheiro, o mesmo chuveiro, a mesma água.",
+              "Só tomo banho em ocasiões especiais, como Natal e Páscoa.",
+              "Nenhum banheiro é perfeito. Quando eu encontrar o banheiro perfeito, começarei a tomar banho.",
+              "Nenhum dos meus amigos toma banho.",
+              "Não tenho tempo para tomar banho.",
+              "Ainda sou muito jovem para tomar banho — quando for mais velho, pensarei nisso.",
+              "Os fabricantes de sabonete estão apenas atrás do meu dinheiro."
+            ]
+          }
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você anda com gente que não toma banho, uma hora dessas você vai feder. Até os desigrejados andam em bando."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "São desculpas — e você não vai cair em nenhuma delas, porque você tem outro entendimento, outra revelação. E note o tom do convite: **'Não estou aqui para te condenar. Estou aqui para te atrair. A vida da igreja é o melhor lugar para estar.'**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Provavelmente alguém errou com você — e não deveria. A igreja erra, falha com pessoas. Mas para os filhos de Deus, existe o perdão. Ficar ressentido é dizer que você é perfeito demais para ser ofendido. **Vença isso. Faça as pazes. Venha viver a vida da igreja.**"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "VI",
+      "titulo": "Justiça Própria",
+      "sec_eyebrow": "Segunda Causa do Afastamento",
+      "referencias": "Gênesis 38.6-26 · Filipenses 2.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A história continua. O primeiro filho de Judá, casado com Tamar, morre sem deixar descendência. Pela lei do levirato — **levir** significa cunhado — o irmão deveria casar-se com a viúva para dar descendência ao falecido. O segundo filho também morre. E Judá promete o terceiro a Tamar quando crescesse — mas não cumpre a promessa."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Tamar então arquiteta um plano: cobre-se com o véu das prostitutas e se coloca no caminho de Judá. Ele se deita com ela sem saber quem era, e deixa como penhor **três objetos**: o anel de selo (sua identidade e crédito), o cordão e o cajado (símbolo da sua autoridade)."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Três coisas ficaram na casa da prostituta: identidade, honra e autoridade. Muitos já perderam o cajado por conta da prostituição e do adultério."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Três meses depois, chega a notícia: Tamar está grávida. E a reação de Judá é imediata: 'Tragam-na para fora e queime-se.' O homem que se deitou com uma prostituta quer queimar a mulher grávida. O nome disso é **justiça própria** — duro com o outro, leniente consigo mesmo. Com o outro é rigor; comigo mesmo sempre há uma explicação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E essa é a segunda causa dos desigrejados: há quem se afaste por culpa — e há quem se afaste porque **se sente melhor, maior, superior**. 'Não encontro nenhuma igreja em que eu me encaixe.' 'A igreja tem muito hipócrita.' Traduzindo: não existe igreja à sua altura, nem pastor que possa falar na sua vida. É um espírito de engano."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Filipenses 2.3",
+          "texto": "Nada façais por partidarismo ou vanglória, mas por humildade, considerando cada um os outros superiores a si mesmo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando trouxeram Tamar, ela estava com o cajado e o anel na mão: **'O pai desta criança é o proprietário destas peças.'** Todos sabiam de quem eram — o selo era único, pessoal, uma identidade. Judá ficou em silêncio. E só pôde concluir uma coisa:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 38.26",
+          "texto": "E conheceu-os Judá e disse: Mais justa é ela do que eu."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "O ponto de virada",
+            "frase": "Você está apto para a vida da igreja quando reconhece: esses irmãos são melhores do que eu.",
+            "subtitulo": "Filipenses 2.3 — Quando você se sente no lucro de pertencer, o sentimento de pertencimento nasce. Quando se sente no prejuízo, ele nunca virá."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E o padrão supremo é o próprio Jesus: **Deus prostrado aos pés da sua criatura** — lavando os pés de Tomé, de Bartolomeu, de Pedro, e até os pés de Judas. Se isso não te impressiona, nada mais poderia. Precisamos descer do nosso suposto pedestal e nos colocar na posição de lavar os pés dos nossos irmãos."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "VII",
+      "titulo": "A Prova da Transformação",
+      "sec_eyebrow": "A Restauração",
+      "referencias": "Gênesis 44.18-34",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Qual é a prova de que Judá mudou de vida? Anos depois, na fome, os irmãos descem ao Egito e são testados por José — que eles não reconhecem. José exige que tragam Benjamim, o irmão mais novo, e ameaça retê-lo como escravo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E quem se levanta? **Judá.** O mesmo homem que teve a ideia de vender José como escravo agora diz: **'Meu pai é velho — se isso acontecer, ele morre. Toma a mim como escravo no lugar do menino.'**"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "A metanoia completa",
+            "frase": "Anos atrás, ele vendeu um irmão como escravo. Agora, se oferece como escravo para resgatar um irmão.",
+            "subtitulo": "Gênesis 44.33 — Quando a justiça própria é quebrada, nasce a disposição de servir, de se sacrificar, de permanecer."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando José viu aquilo, entendeu: esse homem realmente se tornou diferente. Essa é a marca da transformação verdadeira — **a disposição de dar a vida pelos irmãos, de permanecer, de ver a bênção de Deus sobre a família**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você está desconectado de uma igreja, eu quero te dizer: volte. Não somos uma igreja perfeita — mas queremos ser uma igreja saudável."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "Yarad — descer: apartar-se da comunhão é literalmente afundar. Ninguém dorme crente e acorda desviado — o afastamento é gradual.", "versiculo_ancora": "Gênesis 38.1" },
+    { "ponto": "Primeira causa — culpa: Judá vendeu José (tipo de Cristo; Judá e Judas são o mesmo nome) e a condenação o afastou. Quem está debaixo de acusação se esconde — mas esse é exatamente o dia de vir e sentar na primeira fileira.", "versiculo_ancora": "" },
+    { "ponto": "O povo da promessa: afastar-se da família da fé é afastar-se do povo da aliança — e a mistura traz queda. Hoje o povo da aliança são todos os regenerados pela Palavra e lavados pelo sangue.", "versiculo_ancora": "Gênesis 3.15" },
+    { "ponto": "Os filhos sofrem mais: sete razões para os filhos crescerem na igreja — autoridade confirmada, referências, amizades, amor pela Palavra, cosmovisão, suporte e aprender a servir. Enquanto a argila está fresca, ela deve ser trabalhada.", "versiculo_ancora": "" },
+    { "ponto": "A parábola do banho: dez desculpas de quem não toma banho — as mesmas de quem não congrega. O convite não é condenação: é atração.", "versiculo_ancora": "" },
+    { "ponto": "Segunda causa — justiça própria: Judá quis queimar Tamar pelo pecado que ele mesmo cometeu. Quem se sente superior não pertence. 'Mais justa é ela do que eu' é o ponto de virada.", "versiculo_ancora": "Gênesis 38.26 · Filipenses 2.3" },
+    { "ponto": "A prova da transformação: Judá, que vendeu um irmão como escravo, oferece-se como escravo por Benjamim. A metanoia verdadeira gera disposição de servir e permanecer.", "versiculo_ancora": "Gênesis 44" }
+  ],
+  "nota_lacuna": []
+}

@@ -1,0 +1,230 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px 24px 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  margin: -20px -24px 0;
+  padding: 20px 24px 18px;
+  background: var(--surface);
+}
+
+.voltar {
+  color: var(--accent1);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerTitulo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.headerMeta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--tag-bg);
+  color: var(--accent2);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  margin-bottom: 6px;
+}
+
+.banner {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent1);
+  padding: 20px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.indiceLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.indiceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.indiceCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-height: 88px;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.indiceNumero {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent1);
+}
+
+.indiceTitulo {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.secoes {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.secao {
+  scroll-margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secaoHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.secaoTopo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secaoNumero {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent1);
+}
+
+.secaoBarra {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+}
+
+.secaoEyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.secaoTitulo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.secaoReferencias {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.secaoCorpo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secaoAnotacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resumo {
+  scroll-margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resumoLista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resumoItem {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.resumoAncora {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent1);
+  margin-top: 6px;
+}
+
+.footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.fab {
+  position: fixed;
+  right: 22px;
+  bottom: 92px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent1);
+  color: var(--bg);
+  border: none;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  z-index: 5;
+}

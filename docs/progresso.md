@@ -38,15 +38,17 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Configurar deploy no Vercel — projeto `projeto-celula` linkado e conectado ao GitHub (deploy automático a cada push em `main`); produção em https://projeto-celula.vercel.app, verificado servindo build + manifest PWA + service worker (200)
 - [x] Criar documento vivo de projeto para a fase de código (equivalente a um `CLAUDE.md`, conforme prática referenciada do artigo do Akita) — hurdles técnicos documentados aqui, não nos markdowns de conteúdo — ver `CLAUDE.md` na raiz do repo
 
-## Fase 2 — Módulo de Pregações (não iniciada)
+## Fase 2 — Módulo de Pregações (concluída)
 
-- [ ] Modelar tabela(s) Supabase para pregações (jsonb do schema + metadados como colunas indexáveis)
-- [ ] Implementar renderização dos tipos de bloco universais (`paragrafo`, `versiculo`, `callout`, `frase_chave`, `lista`)
-- [ ] Implementar renderização dos `componente_tema` (stage, diagnostico, antidoto, versus, analogia, banho_list, humor, merch_section, etc.)
-- [ ] Implementar sistema de tema por série (resolver `Série → tema`, aplicar CSS vars dinamicamente)
-- [ ] Implementar tela de biblioteca (destaque + lista + busca)
-- [ ] Implementar tela de leitura com índice clicável + FAB (usando a correção de `scrollIntoView` já documentada)
-- [ ] Popular com as pregações já calibradas (os 4 JSONs de exemplo existentes) como primeiro conteúdo real
+- [x] Modelar tabela(s) Supabase para pregações — já coberto pela migração da Fase 1 (`pregacoes` com colunas indexáveis + `conteudo jsonb`); nenhuma migração nova foi necessária
+- [x] Implementar renderização dos tipos de bloco universais (`paragrafo`, `versiculo`, `callout`, `frase_chave`, `lista`) — `src/content/BlockRenderer.tsx`
+- [x] Implementar renderização dos `componente_tema` (stage, diagnostico, antidoto, versus, analogia, banho_list, humor) e do `merch_section` — `src/content/ComponenteTemaRenderer.tsx` / `MerchSection.tsx`. Descoberta: `componente_tema` não é código exclusivo por tema — qualquer variante pode aparecer em qualquer pregação (confirmado no conteúdo real: `stage` apareceu numa pregação do Igrejar); um único registro por variante, cores resolvidas via CSS vars do tema ativo
+- [x] Implementar sistema de tema por série — `src/themes/registry.ts` (6 temas de `estilos-pregacao.md`, dados completos) + `resolveTema()` + `ThemeScope` (CSS custom properties escopadas por componente, não só por tela — cards da Biblioteca aplicam o tema da própria série)
+- [x] Implementar tela de biblioteca (destaque + lista + busca) — `src/screens/pregacoes/Library.tsx`, busca client-side tolerante a acento
+- [x] Implementar tela de leitura com índice clicável + FAB — `src/screens/pregacoes/Reading.tsx` + `useIndiceFab.ts` (IntersectionObserver + `scrollIntoView`, nunca `href="#id"`)
+- [x] Popular com as pregações já calibradas — os 4 JSONs (`content/pregacoes/`) inseridos via `execute_sql` (RLS bloqueia escrita client-side por design; seed é operação administrativa, não código de app)
+
+Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
 
 ## Fase 3 — Módulo de Quebra-gelos + Utilitários (não iniciada)
 

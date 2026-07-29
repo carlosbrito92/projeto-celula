@@ -1,0 +1,370 @@
+{
+  "metadados": {
+    "serie": "Avulsa",
+    "capitulo": "",
+    "tema": "De Volta ao Pai",
+    "data": "21 de abril de 2026",
+    "pregador": "Pastor Naor Pedroza",
+    "texto_base": "",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "frase_sintese": "A pregação parte de uma premissa central: a sua vida é o resultado das suas crenças, não dos seus comportamentos. Mudar comportamentos sem renovar crenças produz resultados temporários. A Palavra de Deus tem poder de derrubar fortalezas mentais e transformar a vida de dentro para fora — não pela força do braço, mas pela graça do evangelho."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "01", "titulo": "A sua vida é resultado das suas crenças" },
+    { "id": "bloco-2", "numero": "02", "titulo": "O poder da Palavra de Deus e da oração fundamentada no evangelho" },
+    { "id": "bloco-3", "numero": "03", "titulo": "Andar pela fé, não pelo que se vê" },
+    { "id": "bloco-4", "numero": "04", "titulo": "O problema original: a desconexão com o Pai" },
+    { "id": "bloco-5", "numero": "05", "titulo": "Jesus veio revelar o Pai" },
+    { "id": "bloco-6", "numero": "06", "titulo": "O homem que perdeu a identidade de filho" },
+    { "id": "bloco-7", "numero": "07", "titulo": "Justiça — não melhoria, mas uma nova natureza" },
+    { "id": "bloco-8", "numero": "08", "titulo": "O verdadeiro homem: contemplar a Cristo para ser transformado" },
+    { "id": "bloco-9", "numero": "09", "titulo": "A graça transforma — não a cobrança" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "01",
+      "titulo": "A sua vida é resultado das suas crenças",
+      "sec_eyebrow": "",
+      "referencias": "Provérbios 23.7 · 2 Coríntios 10.4-5 · Romanos 12.2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Seus pensamentos produzem seus sentimentos, e as suas **crenças** produzem os resultados da sua vida. A Bíblia diz: 'Segundo o homem imagina em seu coração, assim ele é' (Provérbios 23.7). Você é, de fato, aquilo que acredita ser."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por isso, se você quer se tornar uma pessoa diferente, a mudança precisa começar nas **crenças**, não apenas nos hábitos externos. Muitas das nossas crenças limitantes foram formadas na infância — por pais, professores, mídia, experiências dolorosas."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Testemunho pessoal",
+            "corpo": ["O pastor compartilhou que cresceu ouvindo de seu pai e irmão mais velho que 'não era nada e não ia virar nada' — e reagia."],
+            "conclusao": "É um bom tipo de estratégia… só destrói a alma de uma criança."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Crianças acreditam nos pais. E aquilo que ouvimos repetidamente se torna uma **fortaleza mental**. Como o elefante que, preso por uma corrente quando filhote, cresce capaz de romper qualquer grilhão — mas não o faz porque está escravizado por uma convicção que formou na infância."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A Palavra de Deus tem poder de derrubar fortalezas — não o pensamento positivo, não a força de vontade sozinha."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 10.4-5",
+          "texto": "Pois as armas da nossa batalha não são carnais, mas sim poderosas em Deus, para destruir fortalezas; destruindo raciocínios e toda altivez que se levante contra o conhecimento de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 12.2a",
+          "texto": "Não vos conformeis com este século, mas transformai-vos pela renovação da vossa mente."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "02",
+      "titulo": "O poder da Palavra de Deus e da oração fundamentada no evangelho",
+      "sec_eyebrow": "",
+      "referencias": "João 1.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Orar é fundamental — mas a oração que transforma é aquela fundamentada no **evangelho**. Não uma oração de súplica vaga, mas a oração de um filho que sabe que tem acesso ao Pai pelo sangue de Jesus, pelo caminho novo e vivo que Ele abriu."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se a sua oração ainda é igual à do jantar de domingo, é porque você não aprendeu a orar conforme o evangelho."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus é a **Palavra**. Tudo o que Ele fez, fez pela palavra. A palavra trouxe à existência tudo o que não existia. Quando você fala a **Palavra de Deus** em fé, você libera o poder de Cristo para agir — na sua vida, na sua família, no seu casamento. Não pela sua força, mas por aquilo que você declara em fé."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 1.1",
+          "texto": "No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "03",
+      "titulo": "Andar pela fé, não pelo que se vê",
+      "sec_eyebrow": "",
+      "referencias": "2 Reis 6.17 · 2 Coríntios 5.7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Nossa vida depende daquilo pelo qual escolhemos **enxergar**. O relato de Eliseu e seu servo em 2 Reis 6 ilustra perfeitamente isso: quando o servo acordou e viu o exército inimigo cercando a cidade, entrou em desespero. Mas o profeta estava tranquilo — porque via com olhos diferentes."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Reis 6.17",
+          "texto": "Então orou Eliseu e disse: 'Senhor, peço-te que abras os seus olhos, para que veja.' E o Senhor abriu os olhos do moço, e ele viu; e eis que o monte estava cheio de cavalos e carros de fogo em derredor de Eliseu."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A questão não é o que você sabe — é o que você **enxerga** com os olhos da fé. A Palavra de Deus tem o poder de abrir seus olhos espirituais para ver o que os olhos naturais não alcançam."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não é uma questão de saber como. É uma questão de ver mais."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 5.7",
+          "texto": "Porque andamos por fé e não por vista."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "04",
+      "titulo": "O problema original: a desconexão com o Pai",
+      "sec_eyebrow": "",
+      "referencias": "Gênesis 2.7 · Gênesis 3.9",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Toda a bagunça da sociedade, das famílias, dos casamentos e do estresse que vivemos não tem sua raiz no pecado apenas — tem raiz na **ausência**. Adão estava na presença de Deus todo dia. Mas chegou um momento em que ele escolheu ser homem sozinho — comer da árvore do conhecimento do bem e do mal, tentar funcionar sem Deus. A partir daí: trabalho com suor, ansiedade, medo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Observe como Deus criou tudo: primeiro a fonte, depois o ser. Fez os rios antes dos peixes, o céu antes das aves, a terra antes das plantas. E, por fim, fez o homem — mas não de qualquer jeito. Soprou nas narinas a vida. O homem foi criado conectado à **fonte**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Arranque uma planta da terra e você a separa da sua fonte. O homem sem Deus é exatamente isso."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 2.7",
+          "texto": "Então formou o Senhor Deus o homem do pó da terra, e soprou em suas narinas o fôlego da vida, e o homem passou a ser alma vivente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A primeira pergunta da Bíblia é a mais reveladora: 'Adão, onde você está?' Deus não estava preocupado com o que Adão fez — estava preocupado com a **distância**. Você é mais importante do que o seu erro."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 3.9",
+          "texto": "Mas o Senhor Deus chamou o homem e perguntou-lhe: 'Onde estás?'"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus não perguntou o que você fez. Ele perguntou onde você está. Porque você é mais importante do que o seu pecado."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "05",
+      "titulo": "Jesus veio revelar o Pai",
+      "sec_eyebrow": "",
+      "referencias": "Gálatas 4.4-6 · Romanos 8.15",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando Jesus veio, Ele revelou um nome de Deus que os judeus não conheciam com profundidade. Eles conheciam Jeová, Javé, El Shaddai — mas Jesus veio revelar: **Pai**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que Adão perdeu não foi apenas um relacionamento moral — foi a **paternidade**. E quando o homem perde a figura paterna ou a experimenta de forma distorcida, ele tende a transferir essa imagem para Deus. Por isso, muitos de nós temos dificuldade de nos aproximar de Deus como Pai — porque a referência que tivemos de pai foi dolorosa ou ausente."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A maioria dos problemas espirituais do homem começa com uma imagem distorcida do Pai."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.4-6",
+          "texto": "Mas, quando veio a plenitude do tempo, Deus enviou seu Filho, nascido de mulher, nascido sob a lei, para resgatar os que estavam sob a lei, a fim de recebermos a adoção de filhos. E, porque sois filhos, Deus enviou ao nosso coração o Espírito de seu Filho, que clama: 'Aba, Pai!'"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na cruz, aconteceu algo único: foi a única vez em toda a Escritura que Jesus chamou Deus de 'Deus' ao invés de 'Pai'. Isso porque, naquele momento, Ele carregou sobre Si todos os nossos pecados — e a ira que era nossa foi derramada sobre Ele, para que nós pudéssemos chamar Deus de Pai para sempre."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.15",
+          "texto": "Pois não recebestes o espírito de escravidão, para viverdes outra vez em temor, mas recebestes o espírito de adoção, pelo qual clamamos: 'Aba, Pai!'"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "06",
+      "titulo": "O homem que perdeu a identidade de filho",
+      "sec_eyebrow": "",
+      "referencias": "João 10.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O órfão e o escravo têm o mesmo problema: nenhum dos dois tem pai. O órfão não tem proteção, direção, disciplina — nem herança. Nós, homens, fomos criados para guardar e cultivar o jardim — mas quando a **paternidade** está ausente, carregamos pesos que não deveríamos carregar."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A ausência do pai faz isso na vida do homem: você enfrenta tudo sozinho, sem ter uma base segura."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A boa notícia do evangelho é que Jesus nos trouxe de volta ao Pai. Não como escravos, não como órfãos — mas como **filhos**. Filhos que têm acesso, herança, identidade, base segura."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E é exatamente esse fundamento que transforma o homem: não regras, não cobranças — mas a experiência real de ser amado e aceito pelo Pai. A vida abundante que Jesus prometeu não é uma vida sem dificuldades, mas uma vida vivida a partir de uma **identidade** segura."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 10.10b",
+          "texto": "Eu vim para que tenham vida e a tenham em abundância."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Humor sobre a criação",
+            "corpo": ["Fazendo uma piada sobre a criação, o pastor comparou a beleza do mundo — rios, araras, minerais, a mente humana capaz de processar o equivalente a 20 estádios do Maracanã lotados em computadores de última geração."],
+            "conclusao": "Era pra todo mundo ser muito feliz. Mas estamos perdidos porque nos desconectamos da fonte."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "07",
+      "titulo": "Justiça — não melhoria, mas uma nova natureza",
+      "sec_eyebrow": "",
+      "referencias": "Romanos 14.17-18 · Ezequiel 36.26",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O Reino de Deus é **justiça**, paz e alegria no Espírito Santo. E a justiça de que a Bíblia fala não é a justiça social ou moral — é a **justificação** diante de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 14.17-18",
+          "texto": "Porque o reino de Deus não é comida nem bebida, mas justiça, paz e alegria no Espírito Santo; pois quem nisto serve a Cristo é agradável a Deus e aprovado pelos homens."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ser justificado não é apenas ser perdoado. É ser declarado inocente — como se o crime nunca tivesse acontecido. Você não é mais um pecador tentando melhorar. Diante de Deus, você já é justo em Cristo. Isso muda tudo: você não vive mais tentando conquistar a aprovação de Deus — você vive a partir dela."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você não é um pecador melhorado. Em Cristo, você é uma nova criação — diante de Deus está resolvido."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Ezequiel 36.26b",
+          "texto": "Tirarei de vós o coração de pedra e vos darei um coração de carne."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus não está tentando apenas corrigir comportamentos externos — Ele está removendo uma natureza e implantando outra. Está escrevendo Sua vontade dentro de você. A **graça** não produz obediência por medo; ela produz amor genuíno que gera transformação real."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "08",
+      "titulo": "O verdadeiro homem: contemplar a Cristo para ser transformado",
+      "sec_eyebrow": "",
+      "referencias": "2 Coríntios 3.18",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Você se torna semelhante àquilo que contempla. Se você olha para Cristo — como Ele realmente é: o Filho amado, o leão de Judá, o Bom Pastor que te chama pelo nome — essa imagem se reflete em você e te transforma."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.18",
+          "texto": "E todos nós, com o rosto descoberto, contemplando como por espelho a glória do Senhor, somos transformados de glória em glória na mesma imagem, como pelo Espírito do Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O **verdadeiro homem** não é o que resolve tudo na força bruta. Sua família não precisa de um homem violento — ela precisa de um homem real. Um homem seguro na sua identidade de filho, capaz de amar, de servir e de liderar com integridade."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O verdadeiro homem não é o que resolve na porrada. É o que sabe quem ele é em Cristo — e age a partir disso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O diabo, a ansiedade e as doenças que afligem sua família não saem pela força do braço. Saem quando um homem, de joelhos, na identidade de filho, exerce a autoridade que Cristo lhe conferiu."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-9",
+      "numero": "09",
+      "titulo": "A graça transforma — não a cobrança",
+      "sec_eyebrow": "",
+      "referencias": "Ezequiel 36.27 · Efésios 2.8",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Há uma crença equivocada de que mudança espiritual acontece pela cobrança constante: 'faça mais, ore mais, se esforce mais'. Mas essa é a linguagem da antiga aliança — a lei que vinha de fora, que exigia, mas não dava capacidade."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A nova aliança funciona de forma diferente: a transformação acontece por dentro. **Deus** não está tentando corrigir comportamentos — Ele está dando um coração novo, escrevendo Sua vontade no interior, produzindo um desejo genuíno pelo que é de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Ezequiel 36.27",
+          "texto": "Darei o meu Espírito dentro de vós e farei com que andeis nos meus estatutos, e guardeis os meus juízos, e os cumprais."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O evangelho não diz: mude para ser amado. O evangelho diz: você já foi amado em Cristo — e esse amor te transforma."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A **graça** não produz tendência por medo. Ela produz mudança por amor. Não pela pressão externa — mas pela vida de Deus operando no interior. Quando nascemos de novo, recebemos um coração sensível, tocado pelo Espírito, que começa a desejar naturalmente as coisas de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Portanto: não viva tentando mudar apenas pela força da obrigação. Volte ao **evangelho**. Volte ao Pai. Essa é a essência da graça."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 2.8",
+          "texto": "Porque pela graça sois salvos, mediante a fé; e isso não vem de vós; é dom de Deus."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "A sua vida é resultado das suas crenças — mudar comportamentos sem renovar crenças produz resultado temporário.", "versiculo_ancora": "Provérbios 23.7" },
+    { "ponto": "A oração que transforma é a fundamentada no evangelho, não a súplica vaga.", "versiculo_ancora": "João 1.1" },
+    { "ponto": "Andamos por fé, não pelo que vemos — a questão não é saber como, é ver mais.", "versiculo_ancora": "2 Reis 6.17 · 2 Coríntios 5.7" },
+    { "ponto": "O problema original não foi apenas o pecado — foi a ausência, a desconexão da fonte.", "versiculo_ancora": "Gênesis 2.7 · Gênesis 3.9" },
+    { "ponto": "Jesus veio revelar o Pai — e na cruz levou a ira que era nossa, para que pudéssemos chamar Deus de Pai.", "versiculo_ancora": "Gálatas 4.4-6 · Romanos 8.15" },
+    { "ponto": "O homem perdeu a identidade de filho — mas em Cristo voltamos como filhos, não órfãos nem escravos.", "versiculo_ancora": "João 10.10" },
+    { "ponto": "A justiça de Deus não é melhoria — é uma nova natureza, uma justificação completa.", "versiculo_ancora": "Romanos 14.17-18 · Ezequiel 36.26" },
+    { "ponto": "O verdadeiro homem se transforma contemplando a Cristo, não pela força.", "versiculo_ancora": "2 Coríntios 3.18" },
+    { "ponto": "A graça transforma por amor, de dentro para fora — não a cobrança externa.", "versiculo_ancora": "Ezequiel 36.27 · Efésios 2.8" }
+  ],
+  "nota_lacuna": [
+    { "secao_id": "geral", "texto": "Transcrição com nível de ruído muito acima do padrão observado em outras calibrações — trechos inteiros ficam ininteligíveis (repetições duplicadas, palavras trocadas sem relação aparente, fragmentos em inglês quebrado). O conteúdo teológico deste JSON foi majoritariamente ancorado no HTML já gerado, cujos versículos citados são confirmáveis contra a transcrição mesmo em meio ao ruído; a redação fina dos parágrafos e das citações em .callout, porém, é reconstrução editorial que não pode ser verificada palavra por palavra contra a fonte bruta." },
+    { "secao_id": "bloco-1", "texto": "Menção a um livro recomendado pelo pregador ('não é pra mulher') e a um presente de rosas para a esposa aparecem de forma muito fragmentada na transcrição (ex: '15000 rosas', números sem contexto claro) — o merch_section do HTML organiza essa parte de forma mais clara do que a transcrição sustenta isoladamente." },
+    { "secao_id": "bloco-9", "texto": "Os detalhes práticos da seção de indicações do pastor (preço de R$20/mês do devocional via WhatsApp, 30 mensagens mensais, certificação Meta) aparecem na transcrição de forma dispersa e parcialmente contraditória (ex: menção a 'R$65,00' também aparece perto do valor de R$20,00) — o HTML resolve para um valor único; vale confirmar o valor correto com a fonte original antes de publicar." }
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "metadados": {
+    "serie": "Religião Tóxica",
+    "capitulo": "Capítulo 2",
+    "tema": "A Graça Não É o Que Você Pensa",
+    "data": "26 de julho de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Efésios 2.8-9",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "frase_sintese": "A doença dos gálatas produz efeitos terríveis: culpa permanente, um grande peso, medo governando as emoções, falta de liberdade, insuficiência constante. O foco sai de Cristo e é colocado nas regras. O problema não era que os gálatas negavam Jesus — eles criam em Jesus. O problema era que criam que Jesus não era suficiente. Sempre Cristo e mais alguma coisa."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-0",
+      "numero": "·",
+      "titulo": "Quem É a Graça?"
+    },
+    {
+      "id": "bloco-1",
+      "numero": "01",
+      "titulo": "A Lei Foi Feita Para Quem?"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "02",
+      "titulo": "Precisamos Guardar a Lei?"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "03",
+      "titulo": "A Obediência Me Torna Mais Justo?"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "04",
+      "titulo": "Nova Aliança, Lei Antiquada"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "05",
+      "titulo": "O Aio Que Nos Conduziu a Cristo"
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-0",
+      "numero": "·",
+      "titulo": "Quem É a Graça?",
+      "referencias": "Efésios 2.8-9 · Colossenses 2.6 · Romanos 8.32 · Filipenses 3.1 · João 1.14,17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A maioria das igrejas ensina que a salvação é pela graça mediante a fé — mas acredita que **todas as demais bênçãos serão fruto do esforço próprio**: a santificação depende do meu empenho, a vitória contra os problemas depende do meu desempenho, a cura depende da minha obediência. Ou seja: creem que foram salvos pela graça, mas chegam a ela apenas como uma **porta de entrada** — depois creem que caminharão sozinhos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Colossenses 2.6",
+          "texto": "Ora, como recebestes o Senhor Jesus Cristo, assim também andai nele."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A graça não é apenas a porta — ela é o caminho inteiro. Você entrou pela graça, você permanece pela graça, você cresce pela graça, você vence pela graça, você produz frutos pela graça."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.32",
+          "texto": "Aquele que não poupou nem a seu próprio Filho, antes por todos nós o entregou, porventura não nos dará também com ele todas as coisas?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não é por mérito. Não é recompensa por bom comportamento. Você recebeu Cristo **graciosamente** — e de que maneira você receberá todas as outras bênçãos? Da mesma forma: **graciosamente**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo não inicia essa passagem cobrando um comportamento — ele lembra o que já foi dado. E não é a primeira vez que ele repete essa mensagem:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Filipenses 3.1",
+          "texto": "Quanto ao mais, irmãos meus, alegrai-vos no Senhor. Não me é penoso e é seguro para vós outros que eu escreva as mesmas coisas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nem sempre você vem ouvir algo novo. Às vezes você vem **para ser lembrado** — e isso é uma forma de ser guardado. A pergunta mais comum é 'o que é a graça' — mas essa não é a melhor pergunta. A melhor pergunta é: **quem é a graça?** Porque a graça é uma pessoa. A graça é Cristo Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 1.14",
+          "texto": "E o Verbo se fez carne e habitou entre nós, cheio de graça e de verdade; e vimos a sua glória, glória como do unigênito do Pai."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 1.17",
+          "texto": "Porque a lei foi dada por meio de Moisés; a graça e a verdade vieram por meio de Jesus Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A lei foi **dada** — algo impessoal, entregue por meio de um servo. Mas a graça **veio** — no grego original, literalmente veio, porque a graça não é uma coisa entregue. É uma pessoa que chega. Cristo é o centro da nossa história."
+        }
+      ],
+      "anotacoes": [],
+      "sec_eyebrow": "Fundação"
+    },
+    {
+      "id": "bloco-1",
+      "numero": "01",
+      "titulo": "A Lei Foi Feita Para Quem?",
+      "referencias": "Gênesis 3.15 · Romanos 3.20 · Gálatas 2.21 · 1 Timóteo 1.8 · Tiago 2.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus não deu a Lei para salvar o homem — esse nunca foi o plano. O plano foi revelado desde Gênesis 3.15, quando Deus prometeu o Descendente que feriria a cabeça da serpente. **Cristo é esse descendente.** Deus não muda de plano."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 3.15",
+          "texto": "E porei inimizade entre ti e a mulher, e entre a tua semente e a sua semente; esta te ferirá a cabeça, e tu lhe ferirás o calcanhar."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Então por que Deus deu a Lei? **Porque se não há Lei, a graça não será valorizada.** Antes do homem ter uma experiência com a graça, ele precisa ter uma experiência com a Lei."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 3.20",
+          "texto": "Visto que ninguém será justificado diante dele por obras da lei; pois pela lei vem o pleno conhecimento do pecado."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei veio mostrar que você é pecador — que o homem não dá conta de cumprir os justos requisitos de Deus. Quando você chega a essa conclusão, Deus diz: **eu mesmo vou cumprir a lei por você**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 2.21",
+          "texto": "Não anulo a graça de Deus; pois, se a justiça vem mediante a lei, segue-se que Cristo morreu em vão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando você pensa que dá conta, que é capaz — você está anulando a graça de Deus sobre a sua vida. Uma das coisas mais terríveis que um crente pode experimentar. Mas o problema é que existem áreas em que você reconhece que necessita de Deus, e áreas em que você crê que dá conta sozinho — e por isso pode oscilar entre estar debaixo do favor e estar fora dele no mesmo dia."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Celular e a Barata",
+            "corpo": [
+              "Quando uma barata surge e o pastor não está por perto, sua esposa pega qualquer coisa à frente para atirar nela — inclusive, uma vez, quase o celular. Poderia matar a barata? Sim. Mas destruiria o smartphone no processo."
+            ],
+            "conclusao": "Isso é abuso — um uso fora do propósito para o qual algo foi criado. O celular não foi feito para matar baratas. A Lei não foi dada para salvar o homem — foi dada para mostrar que ele é condenado e precisa clamar pela graça."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 2.10",
+          "texto": "Pois qualquer que guardar toda a lei, mas tropeçar em um só ponto, se torna culpado de todos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei é impossível de ser obedecida parcialmente — **é toda ou nada**. Imagine todas as pessoas que você já viu andando se arrastando pelo chão — ninguém anda ereto, em pé, firme. No Monte Sinai, Deus revela que para se achegar a ele, o homem precisa estar de pé — ereto, íntegro. O homem tenta, cai, cria muletas, tenta de novo, cai novamente. **Somente um andou ereto e íntegro: Cristo.** E por isso foi perseguido, rejeitado, crucificado."
+        }
+      ],
+      "anotacoes": [],
+      "sec_eyebrow": "Subtema 1"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "02",
+      "titulo": "Precisamos Guardar a Lei?",
+      "referencias": "Romanos 7.7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei é o prumo de Deus — e o homem mais correto, mais íntegro, mais honesto que você conhece ainda está torto diante desse prumo, como uma parede fora do esquadro. Porque o padrão de Deus é **mais elevado** do que qualquer homem é capaz de cumprir. Um novo coração é necessário."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.7",
+          "texto": "Que diremos pois? É a lei pecado? De modo nenhum. Mas eu não conheci o pecado, senão pela lei; porque eu não conheceria a cobiça, se a lei não dissesse: Não cobiçarás."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Copo de Água Suja",
+            "corpo": [
+              "Um copo de água com impurezas sedimentadas no fundo parece completamente transparente e pura à primeira vista. Não há nada de errado visível. Mas ao mexer com uma colher, todas as impurezas que estavam ali começam a se manifestar — a água fica turva."
+            ],
+            "conclusao": "A colher não sujou a água — ela apenas revelou o que já estava lá. A Lei é essa colher: mostra ao homem sua condição real de pecador, que estava escondida sob a aparência de tranquilidade."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei não foi dada para ser cumprida — foi dada para ser **quebrada**, e assim revelar sua condição de pecador. Ela espanca a realidade do homem, mas faz com que você seja honesto consigo mesmo."
+        }
+      ],
+      "anotacoes": [],
+      "sec_eyebrow": "Subtema 2"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "03",
+      "titulo": "A Obediência Me Torna Mais Justo?",
+      "referencias": "1 Timóteo 1.8-11 · Romanos 5.17 · Mateus 5.17 · Hebreus 8.13",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Timóteo 1.8-9",
+          "texto": "Sabemos, porém, que a lei é boa, se alguém dela usa legitimamente, tendo em vista que a lei não se promulga para o justo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei não foi dada para quem é justo. Por que você foi declarado justo? **Não porque cumpriu os mandamentos** — mas porque recebeu o **dom da justiça**. Dom significa presente."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 5.17",
+          "texto": "Se, pela ofensa de um só, reinou a morte, muito mais os que recebem a abundância da graça e o dom da justiça reinarão em vida por meio de um só, Jesus Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você recebeu esse dom — portanto você é justo. E é assim que Deus te vê. A Lei se aplica a quem **ainda não recebeu esse dom**:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Parábola — A Placa do Restaurante",
+            "corpo": [
+              "Imagine estar num restaurante e ver uma placa: 'É proibido fumar.' Se você não fuma, não tem vontade nem tentação de fumar — aquela placa simplesmente não diz respeito a você. Você olha e pensa: deve haver gente que precisa dessa placa."
+            ],
+            "conclusao": "A Lei de Moisés é como essa placa. Ela diz respeito a você quando você ainda vive na tentação e na luta contra o pecado — mas ela não define quem você é em Cristo."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A lista que Paulo apresenta em seguida — transgressores, rebeldes, ímpios, homicidas, mentirosos — mostra para quem a Lei se aplica: para quem ainda não foi transformado. E então ele chama isso de **'evangelho da glória do Deus bendito'** — no grego, makarios, a mesma palavra usada nas bem-aventuranças: feliz, exultante."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não é o evangelho de um Deus irado, raivoso, que vai acertar as contas com você. O arquivo foi corrompido. A fita foi apagada. O filme foi cancelado — porque o sangue de Cristo lavou. Deus não se lembra mais."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus está sorrindo para você — não porque você cumpriu toda a Lei, mas porque você creu no **favor imerecido** e recebeu a justiça de Cristo. É como se o pecado nunca tivesse existido diante de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas a Lei ainda tem validade? Jesus mesmo declarou:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 5.17",
+          "texto": "Não penseis que vim revogar a lei ou os profetas; não vim para revogar, mas para cumprir."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você não está mais debaixo da Lei porque o seu representante já a cumpriu inteiramente no seu lugar. Você deveria enxergar a Lei como uma **profecia** — Deus dizendo ao povo: no dia em que alguém cumprir tudo isso perfeitamente, esse será o Messias. **Cristo cumpriu — por causa de você.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 8.13",
+          "texto": "Ao dizer nova, ele tornou antiquada a primeira; e o que se torna antiquado e envelhecido está prestes a desaparecer."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Vídeo Cassete e o Streaming",
+            "corpo": [
+              "Um aparelho de vídeo cassete um dia foi útil — até surgir o DVD. O DVD um dia foi moderno — até surgir o streaming, que permite assistir a qualquer filme, a qualquer hora, sem precisar ir a uma locadora."
+            ],
+            "conclusao": "A Lei foi dada para um propósito, mas veio algo superior: o Espírito Santo habitando dentro de você. Você não é mais guiado por regras externas — é guiado por uma voz que habita dentro de você."
+          }
+        }
+      ],
+      "anotacoes": [],
+      "sec_eyebrow": "Subtema 3"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "04",
+      "titulo": "Nova Aliança, Lei Antiquada",
+      "referencias": "Gálatas 5.18 · Romanos 10.4",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 5.18",
+          "texto": "Mas, se sois guiados pelo Espírito, não estais debaixo da lei."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Aquele que é dirigido pelo Espírito não precisa mais ser guiado pela Lei. Ser guiado pelo Espírito é como estar no nível do streaming — quem vive pela Lei está preso ao vídeo cassete."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 10.4",
+          "texto": "Porque o fim da lei é Cristo, para justiça de todo aquele que crê."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "'Fim' aqui tem dois sentidos: **finalidade** — como uma seta que aponta para Cristo, assim como o tabernáculo, o sacerdócio e os sacrifícios do Antigo Testamento sempre apontaram para ele; e **terminação** — a Lei nos conduziu até Cristo, e quando Cristo chegou, essa função foi encerrada."
+        }
+      ],
+      "anotacoes": [],
+      "sec_eyebrow": "A Transição"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "05",
+      "titulo": "O Aio Que Nos Conduziu a Cristo",
+      "referencias": "Gálatas 3.24-25 · Tiago 2.10 · Romanos 7.4",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 3.24-25",
+          "texto": "De maneira que a lei serviu de aio, para nos conduzir a Cristo, a fim de que fôssemos justificados pela fé. Mas, tendo vindo a fé, já não estamos mais subordinados ao aio."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Aio** não era um professor, nem um mestre — era um monitor, um servo que conduzia os filhos das famílias romanas ricas até a escola. Quando chegava lá, sua função terminava. Essa é a função da Lei: **ela nos conduziu a Cristo — não para sermos santificados por ela, mas para sermos justificados pela fé.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Alguns ensinam que a Lei se divide em três partes — cerimonial, civil e moral — e que apenas a parte moral permanece válida. Mas isso é engano:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 2.10",
+          "texto": "Pois qualquer que guardar toda a lei, mas tropeçar em um só ponto, se torna culpado de todos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei é **uma coisa só**. Não há como cumprir uma parte e ignorar outra — e ninguém tem autoridade para decidir o que ainda vale ou não."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.4",
+          "texto": "Também vós morrestes para a lei mediante o corpo de Cristo, para pertencerdes a outro, a saber, àquele que ressuscitou dentre os mortos, a fim de que frutifiquemos para Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você morreu para a Lei — e está livre para se casar com outro: Cristo. A Lei é eterna e não morre — mas quando Cristo morreu na cruz, ele não apenas nos substituiu, sua morte foi **uma morte de inclusão**. Nós morremos juntamente com ele. Não foi a Lei que morreu — foi você. E hoje você ressuscitou com Cristo, uma nova criatura."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A vontade de Deus foi colocada em nós. Não mais tábuas de pedra — mas um coração de carne, onde o Espírito Santo escreve a lei por dentro."
+        }
+      ],
+      "anotacoes": [
+        {
+          "autor": "Carlos",
+          "texto": "Anotação pessoal registrada de forma fragmentada ao longo do esboço da mensagem — ver nota de calibração sobre tratamento do Modo B abaixo."
+        }
+      ],
+      "sec_eyebrow": "Conclusão"
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "Quem é a graça: não é uma doutrina — é uma pessoa, Cristo Jesus. A graça não é apenas a porta de entrada: é o caminho inteiro.",
+      "versiculo_ancora": "João 1.14,17 · Colossenses 2.6"
+    },
+    {
+      "ponto": "A Lei foi feita para quem: não foi dada para salvar — foi dada para revelar o pecado e a incapacidade humana, conduzindo à graça.",
+      "versiculo_ancora": "Romanos 3.20 · Gálatas 2.21"
+    },
+    {
+      "ponto": "Precisamos guardar a Lei: ela é o prumo de Deus — revela a condição real do homem, como a colher que agita a água turva.",
+      "versiculo_ancora": "Romanos 7.7"
+    },
+    {
+      "ponto": "A obediência não me torna mais justo: a justiça é um dom recebido, não uma conquista. A Lei não se aplica a quem já foi declarado justo em Cristo.",
+      "versiculo_ancora": "1 Timóteo 1.8-9 · Romanos 5.17"
+    },
+    {
+      "ponto": "Nova aliança, Lei antiquada: o que se torna antiquado está prestes a desaparecer. Somos guiados pelo Espírito, não mais pela Lei.",
+      "versiculo_ancora": "Hebreus 8.13 · Gálatas 5.18 · Romanos 10.4"
+    },
+    {
+      "ponto": "O aio: a Lei nos conduziu a Cristo como um monitor conduz uma criança à escola — e ao chegar, sua função termina. Morremos para a Lei; hoje pertencemos a Cristo.",
+      "versiculo_ancora": "Gálatas 3.24-25 · Romanos 7.4"
+    }
+  ],
+  "nota_lacuna": []
+}

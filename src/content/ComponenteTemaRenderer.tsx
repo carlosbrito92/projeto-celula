@@ -1,0 +1,134 @@
+import type {
+  BlocoComponenteTema,
+  DadosAnalogia,
+  DadosAntidoto,
+  DadosBanhoList,
+  DadosDiagnostico,
+  DadosHumor,
+  DadosStage,
+  DadosVersus,
+} from './types';
+import { TextoComKeywords } from './Keyword';
+import styles from './ComponenteTemaRenderer.module.css';
+
+/**
+ * Um `componente_tema` não é código exclusivo de um tema — qualquer variante
+ * pode aparecer em qualquer pregação (confirmado no conteúdo real: `stage`
+ * apareceu numa pregação da série Igrejar, documentado como "exclusivo" dos
+ * Estilos #1/#2). O payload é sempre o mesmo; só as cores mudam com o tema
+ * ativo via CSS vars. Variante não reconhecida não quebra a renderização.
+ */
+export function ComponenteTemaRenderer({ bloco }: { bloco: BlocoComponenteTema }) {
+  switch (bloco.variante) {
+    case 'stage':
+      return <Stage dados={bloco.dados as DadosStage} />;
+    case 'diagnostico':
+      return <Diagnostico dados={bloco.dados as DadosDiagnostico} />;
+    case 'antidoto':
+      return <Antidoto dados={bloco.dados as DadosAntidoto} />;
+    case 'versus':
+      return <Versus dados={bloco.dados as DadosVersus} />;
+    case 'analogia':
+      return <Analogia dados={bloco.dados as DadosAnalogia} />;
+    case 'banho_list':
+      return <BanhoList dados={bloco.dados as DadosBanhoList} />;
+    case 'humor':
+      return <Humor dados={bloco.dados as DadosHumor} />;
+    default:
+      if (import.meta.env.DEV) {
+        console.warn(`componente_tema variante desconhecida: "${bloco.variante}" — ignorada.`);
+      }
+      return null;
+  }
+}
+
+function Stage({ dados }: { dados: DadosStage }) {
+  return (
+    <div className={styles.stage}>
+      <div className={styles.stageLabel}>{dados.label}</div>
+      <div className={styles.stageFrase}>{dados.frase}</div>
+      {dados.subtitulo && <div className={styles.stageSubtitulo}>{dados.subtitulo}</div>}
+    </div>
+  );
+}
+
+function Diagnostico({ dados }: { dados: DadosDiagnostico }) {
+  return (
+    <div className={styles.diagnostico}>
+      <div className={styles.diagnosticoLabel}>{dados.label}</div>
+      <ul className={styles.diagnosticoItens}>
+        {dados.itens.map((item, i) => (
+          <li key={i} className={styles.diagnosticoItem}>
+            <TextoComKeywords texto={item} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Antidoto({ dados }: { dados: DadosAntidoto }) {
+  return (
+    <div className={styles.antidoto}>
+      <div className={styles.antidotoLabel}>{dados.label}</div>
+      <div className={styles.antidotoTexto}>
+        <TextoComKeywords texto={dados.texto} />
+      </div>
+    </div>
+  );
+}
+
+function Versus({ dados }: { dados: DadosVersus }) {
+  return (
+    <div className={styles.versus}>
+      <div className={styles.versusLado}>
+        <div className={styles.versusLabel}>{dados.lado_a.label}</div>
+        <div className={styles.versusCitacao}>“{dados.lado_a.citacao}”</div>
+      </div>
+      <div className={`${styles.versusLado} ${styles.versusLadoB}`}>
+        <div className={styles.versusLabel}>{dados.lado_b.label}</div>
+        <div className={styles.versusCitacao}>“{dados.lado_b.citacao}”</div>
+      </div>
+    </div>
+  );
+}
+
+function Analogia({ dados }: { dados: DadosAnalogia }) {
+  return (
+    <div className={styles.analogia}>
+      <div className={styles.analogiaLabel}>{dados.label}</div>
+      {dados.corpo.map((paragrafo, i) => (
+        <p key={i} className={styles.analogiaCorpo}>
+          <TextoComKeywords texto={paragrafo} />
+        </p>
+      ))}
+      <p className={styles.analogiaConclusao}>
+        <TextoComKeywords texto={dados.conclusao} />
+      </p>
+    </div>
+  );
+}
+
+function BanhoList({ dados }: { dados: DadosBanhoList }) {
+  return (
+    <ol className={styles.banhoList}>
+      {dados.itens.map((item, i) => (
+        <li key={i} className={styles.banhoItem}>
+          <span className={styles.banhoNumero}>{String(i + 1).padStart(2, '0')}</span>
+          <span className={styles.banhoTexto}>
+            <TextoComKeywords texto={item} />
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function Humor({ dados }: { dados: DadosHumor }) {
+  return (
+    <div className={styles.humor}>
+      <span aria-hidden="true">😄</span>
+      <span>{dados.texto}</span>
+    </div>
+  );
+}
