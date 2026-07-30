@@ -1,0 +1,10 @@
+{
+  "nome": "Sorteador de Nome/Palavra",
+  "tipo": "utilitario",
+  "utilitario": "Sorteador de nome/palavra com atribuição escondida",
+  "conteudo": {
+    "icone": "🎭",
+    "utilitario_tipo": "sorteio_atribuicao",
+    "descricao_curta": "Atribuição escondida · passa o celular"
+  }
+}

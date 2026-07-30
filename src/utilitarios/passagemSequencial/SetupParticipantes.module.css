@@ -1,0 +1,75 @@
+.corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px;
+  text-align: center;
+}
+
+.campoTexto {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  padding: 12px 16px;
+  font-family: var(--font-corpo);
+  outline: none;
+  width: 100%;
+  max-width: 280px;
+}
+
+.campoTexto::placeholder {
+  color: var(--muted);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: var(--font-corpo);
+}
+
+.botaoCircular {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--accent1);
+  color: var(--bg);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 20px 60px rgba(232, 114, 12, 0.28);
+  cursor: pointer;
+}
+
+.botaoCircular:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.botaoIcone {
+  font-size: 28px;
+}
+
+.botaoLabel {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: var(--font-display-weight);
+  line-height: 1;
+}
+
+.legenda {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 230px;
+  line-height: 1.6;
+}

@@ -50,14 +50,14 @@ Infraestrutura mínima antes de qualquer feature visível.
 
 Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
 
-## Fase 3 — Módulo de Quebra-gelos + Utilitários (não iniciada)
+## Fase 3 — Módulo de Quebra-gelos + Utilitários (em andamento)
 
-- [ ] Modelar tabela(s) Supabase para quebra-gelos
-- [ ] Implementar os três utilitários como módulos isolados (sorteador nome/palavra, sorteador de papel, contador/cronômetro)
-- [ ] Implementar tela de catálogo de quebra-gelos
-- [ ] Implementar tela de quebra-gelo individual com utilitário embutido inline
-- [ ] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote)
-- [ ] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada
+- [x] Modelar tabela(s) Supabase para quebra-gelos — já coberta pela migração da Fase 1 (`quebra_gelos`, `tipo` com 3 valores incluindo `utilitario` puro); nenhuma migração nova foi necessária
+- [x] Implementar os três utilitários como módulos isolados (sorteador nome/palavra, sorteador de papel, contador/cronômetro) — `src/utilitarios/`. Sorteador de atribuição e sorteador de papel compartilham o **fluxo de privacidade sequencial** ("passar o celular": setup → passagem revelar/confirmar/próximo por pessoa → gestão do líder com valores ocultos) especificado em `docs/spec-privacidade-sorteio.md` — decisão que chegou depois do plano original de Fase 3 e substituiu o desenho inicial (que tinha os dois widgets com comportamentos de privacidade diferentes)
+- [x] Implementar tela de catálogo de utilitários (`/utilitarios`) + tela standalone por utilitário (`/utilitarios/:id`) — aba 100% funcional, `tipo='utilitario'` na mesma tabela de quebra-gelos
+- [ ] Implementar tela de catálogo de quebra-gelos (`/quebra-gelos`) + tela de detalhe com utilitário embutido inline — PR2, depende dos widgets acima
+- [ ] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote) — regras/jogadores/idade/duração não existem ainda como conteúdo real; seed só com nome/tipo/utilitário/ícone (dado já decidido), fallback "Detalhes em breve" no resto
+- [ ] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — adiado para PR separado (`lucide-react` não instalado, 2 nomes de ícone não confirmados no fork)
 
 ## Fase 4 — Polimento V1 (não iniciada)
 

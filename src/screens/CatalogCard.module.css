@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  background: var(--surface2);
+  border-top: 3px solid var(--accent1);
+  padding: 16px;
+  min-height: 132px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.icone {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.titulo {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.12;
+  font-weight: var(--font-display-weight);
+  color: var(--text);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+}

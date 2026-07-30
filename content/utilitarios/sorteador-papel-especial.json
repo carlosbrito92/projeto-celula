@@ -1,0 +1,10 @@
+{
+  "nome": "Sorteador de Papel Especial",
+  "tipo": "utilitario",
+  "utilitario": "Sorteador de papel especial",
+  "conteudo": {
+    "icone": "🕵️",
+    "utilitario_tipo": "sorteio_papel",
+    "descricao_curta": "Escolhe 1 entre N · passa o celular"
+  }
+}

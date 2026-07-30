@@ -5,6 +5,8 @@ import { AppShell } from './screens/AppShell';
 import { ComingSoon } from './screens/ComingSoon';
 import { Library } from './screens/pregacoes/Library';
 import { Reading } from './screens/pregacoes/Reading';
+import { Catalogo as UtilitarioCatalogo } from './screens/utilitarios/Catalogo';
+import { UtilitarioScreen } from './screens/utilitarios/UtilitarioScreen';
 
 function Screens() {
   const { path } = useRouter();
@@ -12,7 +14,11 @@ function Screens() {
   const pregacaoParams = matchPath('/pregacoes/:id', path);
   if (pregacaoParams) return <Reading id={pregacaoParams.id} />;
   if (path === '/quebra-gelos') return <ComingSoon titulo="Quebra-gelos" />;
-  if (path === '/utilitarios') return <ComingSoon titulo="Utilitários" />;
+
+  const utilitarioParams = matchPath('/utilitarios/:id', path);
+  if (utilitarioParams) return <UtilitarioScreen id={utilitarioParams.id} />;
+  if (path === '/utilitarios') return <UtilitarioCatalogo />;
+
   return <Library />;
 }
 
