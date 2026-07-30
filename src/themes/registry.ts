@@ -161,7 +161,26 @@ const SERIE_PARA_TEMA: Record<string, string> = {
   "Renovo'26": ESTILO_2_RENOVO26.key,
 };
 
-export function resolveTema(serie: string | null | undefined): Theme {
+// Chaves curtas aceitas em metadados.tema_override (docs/estilos-pregacao.md
+// § Resolução de tema) — para pregações "Avulsa" que precisam de um tema
+// registrado sem ter uma série própria (ex: resumos de célula → Estilo #3).
+const TEMA_OVERRIDE_PARA_CHAVE: Record<string, string> = {
+  'Padrão MINC': PADRAO_MINC.key,
+  'Estilo #1': ESTILO_1_MAIO_SALVACAO.key,
+  'Estilo #2': ESTILO_2_RENOVO26.key,
+  'Estilo #3': ESTILO_3_CELULA.key,
+  'Estilo #4': ESTILO_4_IGREJAR.key,
+  'Estilo #5b': ESTILO_5B_RELIGIAO_TOXICA.key,
+};
+
+export function resolveTema(
+  serie: string | null | undefined,
+  temaOverride?: string | null,
+): Theme {
+  if (temaOverride) {
+    const overrideKey = TEMA_OVERRIDE_PARA_CHAVE[temaOverride];
+    if (overrideKey && THEMES[overrideKey]) return THEMES[overrideKey];
+  }
   if (!serie) return PADRAO_MINC;
   const key = SERIE_PARA_TEMA[serie];
   return (key && THEMES[key]) || PADRAO_MINC;

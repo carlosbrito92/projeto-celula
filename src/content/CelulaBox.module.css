@@ -1,0 +1,27 @@
+.box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-alert);
+  padding: 16px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.icone {
+  flex-shrink: 0;
+  color: var(--accent-alert);
+  margin-top: 2px;
+}
+
+.texto {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.destaque {
+  color: var(--accent-alert);
+  font-weight: 600;
+}

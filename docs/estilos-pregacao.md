@@ -16,6 +16,16 @@ Quando uma pregação nova é gerada (ver `geracao-pregacao.md`), o conteúdo (J
 
 **Regra de fallback:** pregações sem série (`Avulsa`) usam o tema **Padrão MINC** por padrão, ou podem apontar explicitamente para qualquer um dos temas registrados abaixo.
 
+### Resolução de tema (algoritmo)
+
+1. Se `metadados.tema_override` estiver presente, ele tem prioridade — usar o tema indicado, ignorando a `serie`.
+2. Senão, resolver por `serie` (mapeamento Série → tema, ex: "Religião Tóxica" → Estilo #5b, "Igrejar" → Estilo #4).
+3. Senão (série desconhecida, "Avulsa", ou ausente), aplicar o fallback **Padrão MINC**.
+
+`tema_override` existe para o caso de uma pregação `Avulsa` que precisa de um tema registrado sem ter uma série própria — caso real: "Jamais Será em Vão" (resumo de célula, Modo B) usa `tema_override: "Estilo #3"`, já que Estilo #3 é definido pelo *tipo de conteúdo* (resumo de célula a partir de anotações), não por uma série com nome próprio.
+
+**Valores aceitos de `tema_override`** (correspondem à chave curta do tema, não ao título completo do heading acima): `"Padrão MINC"`, `"Estilo #1"`, `"Estilo #2"`, `"Estilo #3"`, `"Estilo #4"`, `"Estilo #5b"`. Usar exatamente uma dessas strings.
+
 **Nota de implementação — `componente_tema` não é exclusivo de tema.** As seções abaixo descrevem cada componente (`stage`, `label_box`, etc.) como "introduzido" ou "específico" de um estilo — isso registra sua origem editorial, não uma restrição técnica. Na implementação, qualquer variante de `componente_tema` pode aparecer em qualquer pregação, de qualquer série: a plataforma tem **um renderizador por variante**, que aplica as cores do tema ativo da pregação (via CSS vars), não um renderizador por combinação tema×variante. Confirmado com conteúdo real: `stage` — descrito abaixo como do Estilo #1, evoluído no #2 — apareceu numa pregação da série Igrejar (Estilo #4). Variante sem renderizador implementado ainda cai no tratamento padrão sem quebrar a tela (ver `geracao-pregacao.md`).
 
 ---

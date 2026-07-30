@@ -8,6 +8,8 @@ export interface Metadados {
   pregador?: string;
   texto_base?: string;
   modo_origem?: 'A' | 'B';
+  /** Aponta explicitamente para um tema (ex: "Estilo #3") quando serie não resolve um. Ver docs/estilos-pregacao.md § Resolução de tema. */
+  tema_override?: string;
 }
 
 export interface BannerIntro {
@@ -160,6 +162,12 @@ export interface NotaLacuna {
   texto: string;
 }
 
+export interface CelulaBoxData {
+  anotado_por?: string;
+  compartilhado_por?: string;
+  sugestao_uso?: string;
+}
+
 export interface PregacaoConteudo {
   metadados: Metadados;
   banner_intro?: BannerIntro;
@@ -167,6 +175,8 @@ export interface PregacaoConteudo {
   secoes: Secao[];
   resumo_final?: ResumoItem[];
   merch_section?: MerchSectionData | null;
+  /** Nota de rodapé do Estilo #3 (quem anotou, quem compartilha, sugestão de uso) — não confundir com banner_intro.contextualizacao (abertura). */
+  celula_box?: CelulaBoxData | null;
   nota_lacuna?: NotaLacuna[];
 }
 

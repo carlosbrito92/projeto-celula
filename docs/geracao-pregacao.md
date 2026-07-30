@@ -69,7 +69,8 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
     "data": "26 de julho de 2026",
     "pregador": "Pastor Pedro Estrella",
     "texto_base": "Efésios 2.8–9",
-    "modo_origem": "A"
+    "modo_origem": "A",
+    "tema_override": "opcional — string, nome exato de um tema registrado em estilos-pregacao.md (ex: 'Estilo #3', 'Padrão MINC'). Só usado quando serie for 'Avulsa' (ou qualquer série sem tema próprio) e a pregação precisar de um tema específico diferente do fallback Padrão MINC. Ausente/null → aplica o fallback normal. Ver 'Resolução de tema' em estilos-pregacao.md."
   },
   "banner_intro": {
     "contextualizacao": "opcional — string. Texto de recapitulação/enquadramento editorial, ex: 'Segundo capítulo da série X. No episódio anterior...'. Situa o leitor antes da frase-síntese. Distinto do conteúdo teológico da pregação — é metadado editorial sobre a mensagem, não fala do pregador. Omitir quando não aplicável (mensagem avulsa, primeira de uma série, etc).",
@@ -131,6 +132,11 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
       { "icone": "emoji", "titulo": "string curta", "descricao": "string" }
     ]
   },
+  "celula_box": {
+    "anotado_por": "opcional — string, nome de quem fez a anotação original (Modo B)",
+    "compartilhado_por": "opcional — string, nome de quem vai compartilhar/conduzir na célula",
+    "sugestao_uso": "opcional — string, orientação prática para a dinâmica de grupo (ex: 'as frases-chave de cada ponto são boas âncoras para a discussão — escolha uma ou duas conforme o tempo disponível')"
+  },
   "nota_lacuna": [
     { "secao_id": "ponto-3", "texto": "não registrado nas anotações" }
   ]
@@ -148,6 +154,7 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
 - **`anotacoes[]`** — mantém o mesmo princípio do componente `.annotation` original: nome do autor + texto, associado ao `id` da seção correspondente. Renderizado pela plataforma como caixa inline discreta, seguindo o tema ativo.
 - **`nota_lacuna[]`** — usado no Modo B quando uma parte do conteúdo não pode ser reconstituída com confiança a partir das anotações disponíveis. **Também usado no Modo A quando a transcrição tem ruído severo** (ver "Transcrição com ruído severo" abaixo) — nesse caso, `secao_id: "geral"` sinaliza uma ressalva sobre o documento inteiro, e entradas por seção sinalizam trechos específicos onde o texto gerado se apoia mais em reconstrução do que em confirmação direta da fonte.
 - **`merch_section`** — campo de topo opcional (não faz parte de `secoes[]`), para a seção de indicações/menções do pregador (livros, redes sociais, ferramentas) comum em pregações de convidado ou eventos especiais. Omitir o campo inteiro quando a pregação não tiver esse conteúdo — não é parte do fluxo padrão de séries regulares da casa. **Nota de implementação:** na prática, os JSONs de calibração usam `"merch_section": null` em vez de omitir a chave — a plataforma trata os dois casos da mesma forma (nenhuma seção renderizada), então ambos são válidos; omitir a chave continua sendo a forma preferida para conteúdo novo.
+- **`celula_box`** — campo de topo opcional, equivalente ao componente `.celula-box` do Estilo #3 (nota de rodapé, não de header): quem anotou, quem vai compartilhar, e sugestão prática de uso da mensagem na dinâmica de célula. Identificado como lacuna real na calibração de "Jamais Será em Vão" — o primeiro JSON gerado colou uma versão truncada disso em `banner_intro.contextualizacao` (perdendo a frase de sugestão de uso) e no lugar errado (header em vez de rodapé). `celula_box` é conceitualmente distinto de `contextualizacao`: este último é enquadramento de abertura da mensagem; `celula_box` é metadado de processo e orientação de uso, e vive no fim do documento.
 
 ### Achado de implementação — `banner_intro` incompleto na primeira calibração
 
