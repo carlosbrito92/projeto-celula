@@ -159,6 +159,12 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 - ~~Formato do arquivo de tema por série~~ — resolvido e implementado (`src/themes/registry.ts`, 6 temas registrados como dados). Ver `estilos-pregacao.md`.
 - Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima, detalhamento fica para quando a V2 entrar em pauta.
 
+## 9. Fluxo de geração de conteúdo (decidido)
+
+**O HTML continua sendo gerado no domingo**, via o processo já existente — velocidade e mobilidade importam mais nesse momento do que o formato final. Calibração para JSON acontece depois, sem pressa, sempre nesta conversa (não no Claude Code) — o Claude Code só recebe o JSON já pronto para popular o banco.
+
+**Objetivo explícito da calibração**: não é só extrair conteúdo corretamente — é aproximar ao máximo a qualidade estética do resultado final renderizado à do HTML original. Feedback registrado: o HTML tem direção artística mais agradável que a primeira versão renderizada em JSON (caso do `label_box`/`contextualizacao` ausentes, corrigido). Diagnóstico: a causa raiz não é a extração de conteúdo pontual — é que `estilos-pregacao.md` ainda não captura todo o repertório visual que um HTML bem feito carrega. Cada nova calibração deve ser tratada também como oportunidade de auditar se o sistema de temas está capturando a riqueza visual da fonte, não só o conteúdo teológico.
+
 ---
 
 ## Documentos relacionados
