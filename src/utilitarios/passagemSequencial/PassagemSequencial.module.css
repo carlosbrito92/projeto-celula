@@ -1,0 +1,123 @@
+.tela {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 24px;
+  text-align: center;
+}
+
+.prompt {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: var(--font-display-weight);
+}
+
+.valorSecreto {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: var(--font-display-weight);
+  color: var(--accent2);
+}
+
+.aviso {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ctaCheio {
+  width: 100%;
+  background: var(--accent1);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 700;
+  padding: 22px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.confirmarLinha {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.pergunta {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.confirmarBotoes {
+  display: flex;
+  gap: 12px;
+}
+
+.botaoSecundario {
+  flex: 1;
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaPrimario {
+  flex: 2;
+  background: var(--accent1);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 700;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.gestaoLista {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 24px;
+  overflow-y: auto;
+}
+
+.gestaoLinha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  font-size: 15px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.gestaoValor {
+  font-family: var(--font-mono);
+  color: var(--accent2);
+}
+
+.gestaoLegenda {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  padding: 20px 24px;
+}

@@ -194,3 +194,53 @@ export interface PregacaoRow {
   created_at: string;
   updated_at: string;
 }
+
+// Tipos do schema de conteúdo de quebra-gelos/utilitários — espelha
+// docs/projeto-celula.md §5-§6 e docs/spec-privacidade-sorteio.md.
+
+export type UtilitarioTipo = 'sorteio_atribuicao' | 'sorteio_papel' | 'cronometro';
+
+/**
+ * Utilitário embutido inline na regra de um quebra-gelo. Item [0] do array vira
+ * o CTA grande da tela de Detalhe; um item adicional (caso "Artista Impostor",
+ * que usa 2 utilitários) vira só uma legenda "Depois: X", não clicável — ver
+ * docs/mock-aprovado-v2.html (bloco de CTA da tela de detalhe).
+ */
+export interface UtilitarioInlineRef {
+  utilitario_tipo: UtilitarioTipo;
+  rotulo_acao: string;
+  eyebrow?: string;
+  /** Só para utilitario_tipo === 'sorteio_papel' — ex: "Detetive", "Impostor". */
+  papel_nome?: string;
+}
+
+export interface QuebraGeloJogoConteudo {
+  icone?: string;
+  jogadores?: { min: number; max?: number };
+  idade_minima?: number;
+  duracao_minutos?: number;
+  /** Passos numerados. Ausente => tela de Detalhe renderiza "Detalhes em breve". */
+  regras?: string[];
+  utilitarios_inline?: UtilitarioInlineRef[];
+}
+
+/** conteudo das linhas tipo='utilitario' — as 3 ferramentas em si, aba Utilitários. */
+export interface UtilitarioCatalogoConteudo {
+  icone?: string;
+  utilitario_tipo: UtilitarioTipo;
+  descricao_curta?: string;
+}
+
+export type QuebraGeloConteudo = QuebraGeloJogoConteudo | UtilitarioCatalogoConteudo;
+
+// Linha da tabela `quebra_gelos` no Supabase.
+export interface QuebraGeloRow {
+  id: string;
+  nome: string;
+  tipo: 'instrucional' | 'utilitario' | 'instrucional_utilitario';
+  /** Texto de proveniência/exibição — não lido pela UI para decidir qual widget abrir. */
+  utilitario: string | null;
+  conteudo: QuebraGeloConteudo;
+  created_at: string;
+  updated_at: string;
+}

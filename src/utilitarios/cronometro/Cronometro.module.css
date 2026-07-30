@@ -1,0 +1,77 @@
+.tela {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  padding: 24px;
+}
+
+.tempo {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: var(--font-display-weight);
+  line-height: 1;
+  color: var(--accent2);
+}
+
+.presets {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.presetPill {
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 14px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font-corpo);
+  cursor: pointer;
+}
+
+.presetAtivo {
+  background: var(--tag-bg);
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+.acoes {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.botaoZerar {
+  flex: 1;
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.botaoPausar {
+  flex: 2;
+  background: var(--accent1);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 700;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+{
+  "nome": "Contador / Cronômetro",
+  "tipo": "utilitario",
+  "utilitario": "Contador/cronômetro",
+  "conteudo": {
+    "icone": "⏱️",
+    "utilitario_tipo": "cronometro",
+    "descricao_curta": "Presets de 30s a 5 min"
+  }
+}
