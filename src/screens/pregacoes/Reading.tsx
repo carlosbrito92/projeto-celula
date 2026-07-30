@@ -7,6 +7,7 @@ import { BlockRenderer } from '../../content/BlockRenderer';
 import { ComponenteTemaRenderer } from '../../content/ComponenteTemaRenderer';
 import { AnnotationBox } from '../../content/AnnotationBox';
 import { MerchSection } from '../../content/MerchSection';
+import { CelulaBox } from '../../content/CelulaBox';
 import { useIndiceFab, scrollToId } from './useIndiceFab';
 import styles from './Reading.module.css';
 
@@ -23,7 +24,7 @@ export function Reading({ id }: { id: string }) {
     return <div className={styles.footer}>Pregação não encontrada.</div>;
   }
 
-  const tema = resolveTema(pregacao.serie);
+  const tema = resolveTema(pregacao.serie, pregacao.conteudo.metadados.tema_override);
   const { conteudo } = pregacao;
   const dataExibicao = formatDataPtBr(pregacao.data) ?? conteudo.metadados.data;
 
@@ -139,6 +140,8 @@ export function Reading({ id }: { id: string }) {
         )}
 
         <MerchSection dados={conteudo.merch_section} />
+
+        <CelulaBox dados={conteudo.celula_box} />
 
         <div className={styles.footer}>
           {pregacao.pregador}

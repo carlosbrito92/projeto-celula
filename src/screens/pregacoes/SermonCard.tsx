@@ -11,7 +11,7 @@ interface SermonCardProps {
 }
 
 export function SermonCard({ pregacao, destaque = false }: SermonCardProps) {
-  const tema = resolveTema(pregacao.serie);
+  const tema = resolveTema(pregacao.serie, pregacao.conteudo.metadados.tema_override);
   const dataExibicao = formatDataPtBr(pregacao.data) ?? pregacao.conteudo.metadados.data;
   const fraseSintese = pregacao.conteudo.banner_intro?.frase_sintese;
 
