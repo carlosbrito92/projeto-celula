@@ -32,7 +32,8 @@
 
 .titulo {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--font-display-weight);
+  text-transform: var(--font-display-transform, none);
   color: var(--text);
 }
 
