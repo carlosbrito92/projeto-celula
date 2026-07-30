@@ -27,6 +27,7 @@ export const PADRAO_MINC: Theme = {
   },
   fonteCorpo: { family: "'Inter', system-ui, sans-serif", googleFontsUrl: '' },
   fonteMono: { family: "'JetBrains Mono', monospace", googleFontsUrl: '' },
+  pesoDisplay: 600, // Cormorant Garamond carrega 500/600/700
 };
 
 export const ESTILO_1_MAIO_SALVACAO: Theme = {
@@ -50,6 +51,7 @@ export const ESTILO_1_MAIO_SALVACAO: Theme = {
     googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap`,
   },
   fonteCorpo: { family: "'DM Sans', system-ui, sans-serif", googleFontsUrl: '' },
+  pesoDisplay: 600, // Cormorant Garamond carrega 400/600/700
 };
 
 export const ESTILO_2_RENOVO26: Theme = {
@@ -73,6 +75,7 @@ export const ESTILO_2_RENOVO26: Theme = {
     googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Sora:wght@300;400;500;600&display=swap`,
   },
   fonteCorpo: { family: "'Sora', system-ui, sans-serif", googleFontsUrl: '' },
+  pesoDisplay: 700, // Playfair Display só carrega 700/900 — 600 não existe
 };
 
 export const ESTILO_3_CELULA: Theme = {
@@ -96,6 +99,7 @@ export const ESTILO_3_CELULA: Theme = {
     googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap`,
   },
   fonteCorpo: { family: "'DM Sans', system-ui, sans-serif", googleFontsUrl: '' },
+  pesoDisplay: 600, // Lora carrega 400/600/700
 };
 
 export const ESTILO_4_IGREJAR: Theme = {
@@ -119,6 +123,9 @@ export const ESTILO_4_IGREJAR: Theme = {
     googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&family=Barlow:wght@300;400;500&display=swap`,
   },
   fonteCorpo: { family: "'Barlow', system-ui, sans-serif", googleFontsUrl: '' },
+  pesoDisplay: 700, // Barlow Condensed carrega 400/600/700/800 — 700 casa com o tom "condensado bold" da série
+  // "Títulos de seção em maiúsculas + itálico (Barlow Condensed 800)" — docs/estilos-pregacao.md
+  secaoTitulo: { peso: 800, maiusculo: true, italico: true },
 };
 
 export const ESTILO_5B_RELIGIAO_TOXICA: Theme = {
@@ -140,6 +147,8 @@ export const ESTILO_5B_RELIGIAO_TOXICA: Theme = {
   fonteDisplay: { family: "'Anton', sans-serif", googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap` },
   fonteCorpo: { family: "'IBM Plex Sans', system-ui, sans-serif", googleFontsUrl: '' },
   fonteMono: { family: "'IBM Plex Mono', monospace", googleFontsUrl: '' },
+  pesoDisplay: 400, // Anton só existe em peso único (400) — já é extra-bold por desenho
+  maiusculoDisplay: true, // "Display: Anton — peso único extra-bold, uppercase" — docs/estilos-pregacao.md
 };
 
 export const THEMES: Record<string, Theme> = {

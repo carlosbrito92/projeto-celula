@@ -31,4 +31,32 @@ export interface Theme {
   fonteCorpo: ThemeFont;
   /** Opcional — usado para labels/badges/metadados. Fallback: monoespaçada do sistema. */
   fonteMono?: ThemeFont;
+  /**
+   * Peso usado em títulos/destaques (var(--font-display-weight)) — precisa
+   * ser um peso que a família de fonteDisplay realmente tem carregado
+   * (ver wght@ na googleFontsUrl). Nunca hardcodar font-weight junto de
+   * var(--font-display) no CSS: fontes de peso único (ex: Anton, só 400)
+   * silenciosamente caem pra fonte de sistema em vez de sintetizar bold
+   * quando o peso pedido não existe — foi exatamente esse o bug do
+   * Estilo #5b. Obrigatório para forçar essa checagem a cada tema novo.
+   */
+  pesoDisplay: number;
+  /**
+   * Caixa alta na fonte de display (ex: Anton no Estilo #5b, que só existe
+   * em uppercase por desenho — ver docs/estilos-pregacao.md). Aplica-se a
+   * todo título em --font-display. Default: false (não seta o CSS var).
+   */
+  maiusculoDisplay?: boolean;
+  /**
+   * Override específico para títulos de seção (.secaoTitulo), quando o tema
+   * documenta um tratamento mais pesado/distinto do resto do display (ex:
+   * Estilo #4 — "Títulos de seção em maiúsculas + itálico, Barlow Condensed
+   * 800", diferente do pesoDisplay geral do tema). Campos ausentes herdam do
+   * geral (peso -> pesoDisplay, maiusculo -> maiusculoDisplay, itálico -> não).
+   */
+  secaoTitulo?: {
+    peso?: number;
+    maiusculo?: boolean;
+    italico?: boolean;
+  };
 }

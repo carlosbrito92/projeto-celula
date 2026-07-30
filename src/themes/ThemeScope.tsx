@@ -20,6 +20,12 @@ export function ThemeScope({ tema, children, className, block = true }: ThemeSco
     '--font-display': tema.fonteDisplay.family,
     '--font-corpo': tema.fonteCorpo.family,
     '--font-mono': tema.fonteMono?.family ?? 'ui-monospace, monospace',
+    '--font-display-weight': String(tema.pesoDisplay),
+    '--font-display-transform': tema.maiusculoDisplay ? 'uppercase' : 'none',
+    '--secao-titulo-weight': String(tema.secaoTitulo?.peso ?? tema.pesoDisplay),
+    '--secao-titulo-transform':
+      tema.secaoTitulo?.maiusculo ?? tema.maiusculoDisplay ? 'uppercase' : 'none',
+    '--secao-titulo-style': tema.secaoTitulo?.italico ? 'italic' : 'normal',
   };
   for (const [chave, valor] of Object.entries(tema.cores)) {
     style[`--${chave}`] = valor;
