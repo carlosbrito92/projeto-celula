@@ -1,0 +1,15 @@
+{
+  "nome": "Quem Sou Eu?",
+  "tipo": "instrucional_utilitario",
+  "utilitario": "Sorteador de nome com atribuição escondida",
+  "conteudo": {
+    "icone": "🎭",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_atribuicao",
+        "rotulo_acao": "Sortear identidades",
+        "eyebrow": "Antes de começar"
+      }
+    ]
+  }
+}

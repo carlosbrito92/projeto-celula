@@ -1,0 +1,16 @@
+{
+  "nome": "Contact",
+  "tipo": "instrucional",
+  "utilitario": "Sorteador de papel especial (mestre da palavra) — opcional",
+  "conteudo": {
+    "icone": "📡",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear mestre da palavra",
+        "eyebrow": "Opcional",
+        "papeis": [{ "nome": "Mestre da palavra", "quantidade": 1 }]
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "nome": "Medusa",
+  "tipo": "instrucional",
+  "utilitario": "Contador/cronômetro (opcional)",
+  "conteudo": {
+    "icone": "🐍",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "cronometro",
+        "rotulo_acao": "Iniciar cronômetro",
+        "eyebrow": "Opcional"
+      }
+    ]
+  }
+}
