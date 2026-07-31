@@ -210,8 +210,14 @@ export interface UtilitarioInlineRef {
   utilitario_tipo: UtilitarioTipo;
   rotulo_acao: string;
   eyebrow?: string;
-  /** Só para utilitario_tipo === 'sorteio_papel' — ex: "Detetive", "Impostor". */
-  papel_nome?: string;
+  /**
+   * Só para utilitario_tipo === 'sorteio_papel' — lista de papéis com
+   * quantidade explícita (ex: [{nome:"Detetive",quantidade:1},{nome:"Cidadão",quantidade:3}]).
+   * A soma das quantidades precisa bater com o total de participantes no
+   * momento do sorteio (validado em runtime, não aqui) — docs/spec-privacidade-sorteio.md
+   * § Extensão: papéis múltiplos.
+   */
+  papeis?: { nome: string; quantidade: number }[];
 }
 
 export interface QuebraGeloJogoConteudo {

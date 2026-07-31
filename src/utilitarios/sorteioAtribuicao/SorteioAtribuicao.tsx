@@ -4,7 +4,7 @@ import { PassagemSequencial } from '../passagemSequencial/PassagemSequencial';
 import { ListaChips } from '../passagemSequencial/ListaChips';
 import { SetupParticipantes } from '../passagemSequencial/SetupParticipantes';
 import { UtilitarioHeader } from '../UtilitarioHeader';
-import { atribuir } from './atribuir';
+import { atribuir } from '../shuffle';
 import styles from '../passagemSequencial/PassagemSequencial.module.css';
 
 const TITULO = 'Atribuição escondida';

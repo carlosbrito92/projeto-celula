@@ -3,31 +3,35 @@ import { usePassagemSequencial } from '../passagemSequencial/usePassagemSequenci
 import { PassagemSequencial } from '../passagemSequencial/PassagemSequencial';
 import { SetupParticipantes } from '../passagemSequencial/SetupParticipantes';
 import { UtilitarioHeader } from '../UtilitarioHeader';
-import { sortearPapel } from './sortearPapel';
+import { atribuir } from '../shuffle';
+import { gerarFichas, somaQuantidades, type PapelConfig } from './papeis';
+import { PapeisEditor } from './PapeisEditor';
 import styles from '../passagemSequencial/PassagemSequencial.module.css';
-import setupStyles from '../passagemSequencial/SetupParticipantes.module.css';
 
 const TITULO = 'Sorteio de papel especial';
 
 interface SorteioPapelProps {
-  /** Quando embutido num quebra-gelo (UtilitarioInlineRef.papel_nome), já vem definido. */
-  papelNome?: string;
+  /** Quando embutido num quebra-gelo (UtilitarioInlineRef.papeis), já vem definido. */
+  papeis?: PapelConfig[];
   aoFechar: () => void;
 }
 
-export function SorteioPapel({ papelNome: papelNomeProp, aoFechar }: SorteioPapelProps) {
+export function SorteioPapel({ papeis: papeisProp, aoFechar }: SorteioPapelProps) {
   const passagem = usePassagemSequencial();
-  const [papelDigitado, setPapelDigitado] = useState('');
-  const papelNome = papelNomeProp ?? papelDigitado;
+  const [papeisDigitados, setPapeisDigitados] = useState<PapelConfig[]>([]);
+  const papeis = papeisProp ?? papeisDigitados;
 
   if (passagem.estado.fase !== 'setup') {
     return <PassagemSequencial passagem={passagem} titulo={TITULO} aoFechar={aoFechar} />;
   }
 
+  const totalParticipantes = passagem.nomes.length;
+  const somaBate = totalParticipantes > 0 && somaQuantidades(papeis) === totalParticipantes;
+
   function iniciar() {
-    if (!papelNome.trim()) return;
-    passagem.iniciar(passagem.nomes.length, (participantes) =>
-      sortearPapel(participantes, papelNome, Math.random),
+    if (!somaBate) return;
+    passagem.iniciar(totalParticipantes, (participantes) =>
+      atribuir(participantes, gerarFichas(papeis), Math.random),
     );
   }
 
@@ -40,16 +44,16 @@ export function SorteioPapel({ papelNome: papelNomeProp, aoFechar }: SorteioPape
         liderParticipa={passagem.liderParticipa}
         onChangeLiderParticipa={passagem.setLiderParticipa}
         onIniciar={iniciar}
+        podeIniciarExtra={somaBate}
         rotuloAcao="Sortear"
         icone="🎲"
         legenda="Ninguém vê o resultado até você mostrar."
       >
-        {!papelNomeProp && (
-          <input
-            className={setupStyles.campoTexto}
-            value={papelDigitado}
-            onChange={(e) => setPapelDigitado(e.target.value)}
-            placeholder="Nome do papel (ex: Detetive)"
+        {!papeisProp && (
+          <PapeisEditor
+            papeis={papeisDigitados}
+            onChange={setPapeisDigitados}
+            totalParticipantes={totalParticipantes}
           />
         )}
       </SetupParticipantes>
