@@ -11,6 +11,8 @@ interface SetupParticipantesProps {
   legenda: string;
   icone?: string;
   children?: React.ReactNode;
+  /** Condição adicional (ex: validação de soma de papéis) além de haver participantes. Default: true. */
+  podeIniciarExtra?: boolean;
 }
 
 export function SetupParticipantes({
@@ -23,8 +25,9 @@ export function SetupParticipantes({
   legenda,
   icone = '🎲',
   children,
+  podeIniciarExtra = true,
 }: SetupParticipantesProps) {
-  const podeIniciar = nomes.length > 0;
+  const podeIniciar = nomes.length > 0 && podeIniciarExtra;
 
   return (
     <div className={styles.corpo}>

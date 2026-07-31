@@ -14,3 +14,18 @@ export function escolherUm<T>(itens: T[], rng: Rng = Math.random): T {
   const indice = Math.floor(rng() * itens.length);
   return itens[indice];
 }
+
+/**
+ * Embaralha `valores` e atribui 1:1 a cada participante, na ordem dada.
+ * Primitivo compartilhado por sorteio de atribuição escondida (valores livres)
+ * e sorteio de papel especial (fichas geradas a partir de papéis múltiplos,
+ * ver `sorteioPapel/papeis.ts`) — a distribuição é a mesma nos dois casos.
+ */
+export function atribuir(
+  participantes: string[],
+  valores: string[],
+  rng: Rng = Math.random,
+): Record<string, string> {
+  const valoresEmbaralhados = embaralhar(valores, rng);
+  return Object.fromEntries(participantes.map((p, i) => [p, valoresEmbaralhados[i] ?? '']));
+}

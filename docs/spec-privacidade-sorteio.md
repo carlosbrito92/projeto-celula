@@ -65,6 +65,35 @@ O ciclo se repete até que o número de toques em "próximo"/"avançar" atinja a
 
 ---
 
+## Extensão: papéis múltiplos no sorteio de papel especial
+
+> Identificado ao revisar o primeiro protótipo funcional (screenshots do app real): o widget de sorteio de papel especial só suportava **um único papel nomeado** (ex: "Assassino"), sorteado para 1 pessoa entre N — todo o resto do grupo ficava implicitamente "sem papel". Dinâmicas reais como o jogo do Detetive precisam de **múltiplos papéis nomeados simultaneamente**, alguns únicos (1 Detetive, 1 Assassino) e outros repetíveis (N Cidadãos/Vítimas). Esta extensão substitui o campo único de "nome do papel" por uma lista de papéis configurável no setup.
+
+### Setup (revisado)
+
+Em vez de um campo de texto único para o nome do papel, o líder configura uma **lista de papéis**, cada um com:
+
+- **Nome do papel** (texto livre, ex: "Detetive", "Assassino", "Cidadão")
+- **Quantidade** (número inteiro, digitado pelo líder — ex: Detetive: 1, Assassino: 1, Cidadão: 3)
+
+O app pode **sugerir preenchimento** para agilizar a configuração (ex: ao adicionar um segundo papel depois de já ter um, oferecer "preencher o restante dos participantes com este papel" como atalho) — mas a quantidade numérica explícita é a base de dados real; sugestões são só uma conveniência de UI sobre ela, nunca a única forma de definir a quantidade.
+
+### Validação
+
+- Se a soma das quantidades dos papéis for **menor** que o total de participantes, o app deve avisar antes de sortear (ex: "faltam 2 pessoas sem papel definido") e oferecer uma correção rápida — não travar silenciosamente nem sortear com participantes sem papel definido sem avisar.
+- Se a soma for **maior** que o total de participantes, também avisar antes de sortear (papéis em excesso não têm como ser atribuídos).
+- Sortear só fica disponível quando a soma bate exatamente com o total de participantes.
+
+### Distribuição no sorteio
+
+Cada papel gera exatamente a quantidade de "fichas" configurada (ex: Assassino gera 1 ficha, Cidadão gera 3 fichas) — o conjunto total de fichas é embaralhado e distribuído 1:1 entre os participantes, do mesmo jeito que o sorteio de atribuição escondida já distribui valores. Papéis repetidos (ex: "Cidadão" 3 vezes) não têm identidade própria entre si — são o mesmo papel atribuído a pessoas diferentes.
+
+### Efeito sobre o fluxo de passagem e a tela de gestão
+
+Nenhuma mudança estrutural no fluxo de passagem sequencial nem na tela de gestão (seções "Fluxo completo" e "Decisões explícitas" acima continuam valendo como estão) — a única mudança é **o que é revelado** por pessoa: em vez de "você tem/não tem o papel X", cada pessoa vê o nome do papel que lhe coube (podendo ser um papel repetido, como "Cidadão").
+
+---
+
 ## Pendência de implementação
 
-Ainda não implementado — o plano original de Fase 3 do Claude Code modelava os dois widgets com fluxos de privacidade diferentes (sem esse mecanismo de passagem sequencial). Esta spec substitui aquele desenho. Carlos vai levar esta spec ao Claude Code como instrução específica; registrar como pendência em `progresso.md` (Fase 3) até a implementação acontecer.
+Ainda não implementado — o plano original de Fase 3 do Claude Code modelava os dois widgets com fluxos de privacidade diferentes (sem esse mecanismo de passagem sequencial), e o setup do sorteio de papel especial só suportava um único papel nomeado. Esta spec (fluxo de passagem + extensão de papéis múltiplos) substitui ambos os desenhos. Carlos vai levar esta spec ao Claude Code como instrução específica; registrar como pendência em `progresso.md` (Fase 3) até a implementação acontecer.
