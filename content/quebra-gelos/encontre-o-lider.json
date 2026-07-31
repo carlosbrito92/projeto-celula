@@ -1,0 +1,16 @@
+{
+  "nome": "Encontre o Líder",
+  "tipo": "instrucional",
+  "utilitario": "Sorteador de papel especial (detetive) — opcional",
+  "conteudo": {
+    "icone": "🕵️",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear detetive",
+        "eyebrow": "Opcional",
+        "papeis": [{ "nome": "Detetive", "quantidade": 1 }]
+      }
+    ]
+  }
+}

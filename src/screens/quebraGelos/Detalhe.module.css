@@ -1,0 +1,147 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 24px 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.voltar {
+  color: var(--accent1);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.tipoLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.heroIcone {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.heroTitulo {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: var(--font-display-weight);
+  line-height: 1.05;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.badge {
+  background: var(--tag-bg);
+  color: var(--accent2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 7px 11px;
+}
+
+.regras {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.regraItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.regraNumero {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent1);
+  padding-top: 4px;
+}
+
+.regraTexto {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.semRegras {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.ctaBloco {
+  background: var(--accent1);
+  color: var(--bg);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ctaTextos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ctaEyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.ctaTitulo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+  font-weight: var(--font-display-weight);
+}
+
+.ctaIcone {
+  font-size: 24px;
+}
+
+.depois {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,20 @@
+{
+  "nome": "Artista Impostor",
+  "tipo": "instrucional_utilitario",
+  "utilitario": "Sorteador de nome/palavra + sorteador de papel especial (impostor) — protótipo da V2 multiplayer",
+  "conteudo": {
+    "icone": "🎨",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_atribuicao",
+        "rotulo_acao": "Sortear palavra",
+        "eyebrow": "Antes de começar"
+      },
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear impostor",
+        "papeis": [{ "nome": "Impostor", "quantidade": 1 }]
+      }
+    ]
+  }
+}

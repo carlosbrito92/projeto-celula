@@ -11,15 +11,21 @@ import styles from '../passagemSequencial/PassagemSequencial.module.css';
 const TITULO = 'Sorteio de papel especial';
 
 interface SorteioPapelProps {
-  /** Quando embutido num quebra-gelo (UtilitarioInlineRef.papeis), já vem definido. */
+  /**
+   * Quando embutido num quebra-gelo (UtilitarioInlineRef.papeis), entra como
+   * valor inicial editável — não como override fixo. Um preset parcial (ex:
+   * só "Detetive × 1") não teria como bater a soma com o total de
+   * participantes sem o editor, já que a quantidade de participantes só é
+   * conhecida em tempo real; por isso o editor continua sempre visível,
+   * pré-preenchido quando há preset.
+   */
   papeis?: PapelConfig[];
   aoFechar: () => void;
 }
 
-export function SorteioPapel({ papeis: papeisProp, aoFechar }: SorteioPapelProps) {
+export function SorteioPapel({ papeis: papeisPreset, aoFechar }: SorteioPapelProps) {
   const passagem = usePassagemSequencial();
-  const [papeisDigitados, setPapeisDigitados] = useState<PapelConfig[]>([]);
-  const papeis = papeisProp ?? papeisDigitados;
+  const [papeis, setPapeis] = useState<PapelConfig[]>(papeisPreset ?? []);
 
   if (passagem.estado.fase !== 'setup') {
     return <PassagemSequencial passagem={passagem} titulo={TITULO} aoFechar={aoFechar} />;
@@ -49,13 +55,7 @@ export function SorteioPapel({ papeis: papeisProp, aoFechar }: SorteioPapelProps
         icone="🎲"
         legenda="Ninguém vê o resultado até você mostrar."
       >
-        {!papeisProp && (
-          <PapeisEditor
-            papeis={papeisDigitados}
-            onChange={setPapeisDigitados}
-            totalParticipantes={totalParticipantes}
-          />
-        )}
+        <PapeisEditor papeis={papeis} onChange={setPapeis} totalParticipantes={totalParticipantes} />
       </SetupParticipantes>
     </div>
   );
