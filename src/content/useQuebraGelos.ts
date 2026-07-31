@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { apiGet } from '../lib/api';
 import type { QuebraGeloRow } from './types';
 
 export function useUtilitariosCatalogo() {
@@ -8,15 +8,12 @@ export function useUtilitariosCatalogo() {
 
   useEffect(() => {
     let cancelado = false;
-    supabase
-      .from('quebra_gelos')
-      .select('*')
-      .eq('tipo', 'utilitario')
-      .order('nome')
-      .then(({ data, error }) => {
-        if (cancelado) return;
-        if (error) setErro(error.message);
-        else setUtilitarios((data ?? []) as QuebraGeloRow[]);
+    apiGet<QuebraGeloRow[]>('/quebra-gelos?tipo=utilitario')
+      .then((data) => {
+        if (!cancelado) setUtilitarios(data);
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
       });
     return () => {
       cancelado = true;
@@ -34,16 +31,15 @@ export function useUtilitarioCatalogo(id: string) {
   useEffect(() => {
     let cancelado = false;
     setCarregando(true);
-    supabase
-      .from('quebra_gelos')
-      .select('*')
-      .eq('id', id)
-      .single()
-      .then(({ data, error }) => {
-        if (cancelado) return;
-        if (error) setErro(error.message);
-        else setUtilitario(data as QuebraGeloRow);
-        setCarregando(false);
+    apiGet<QuebraGeloRow>(`/quebra-gelos/${id}`)
+      .then((data) => {
+        if (!cancelado) setUtilitario(data);
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
+      })
+      .finally(() => {
+        if (!cancelado) setCarregando(false);
       });
     return () => {
       cancelado = true;
@@ -59,15 +55,12 @@ export function useQuebraGelosJogos() {
 
   useEffect(() => {
     let cancelado = false;
-    supabase
-      .from('quebra_gelos')
-      .select('*')
-      .in('tipo', ['instrucional', 'instrucional_utilitario'])
-      .order('nome')
-      .then(({ data, error }) => {
-        if (cancelado) return;
-        if (error) setErro(error.message);
-        else setJogos((data ?? []) as QuebraGeloRow[]);
+    apiGet<QuebraGeloRow[]>('/quebra-gelos?tipo=instrucional,instrucional_utilitario')
+      .then((data) => {
+        if (!cancelado) setJogos(data);
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
       });
     return () => {
       cancelado = true;
@@ -85,16 +78,15 @@ export function useQuebraGeloJogo(id: string) {
   useEffect(() => {
     let cancelado = false;
     setCarregando(true);
-    supabase
-      .from('quebra_gelos')
-      .select('*')
-      .eq('id', id)
-      .single()
-      .then(({ data, error }) => {
-        if (cancelado) return;
-        if (error) setErro(error.message);
-        else setJogo(data as QuebraGeloRow);
-        setCarregando(false);
+    apiGet<QuebraGeloRow>(`/quebra-gelos/${id}`)
+      .then((data) => {
+        if (!cancelado) setJogo(data);
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
+      })
+      .finally(() => {
+        if (!cancelado) setCarregando(false);
       });
     return () => {
       cancelado = true;
