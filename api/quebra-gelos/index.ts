@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sql } from '../_lib/db';
-import { setCors } from '../_lib/cors';
+import { sql } from '../_lib/db.js';
+import { setCors } from '../_lib/cors.js';
 
 // Espelha o CHECK constraint de quebra_gelos.tipo (db/migrations).
 const TIPOS_VALIDOS = new Set(['instrucional', 'utilitario', 'instrucional_utilitario']);
