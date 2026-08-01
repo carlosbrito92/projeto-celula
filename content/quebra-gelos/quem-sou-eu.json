@@ -4,6 +4,17 @@
   "utilitario": "Sorteador de nome com atribuição escondida",
   "conteudo": {
     "icone": "🎭",
+    "jogadores": { "min": 4, "max": 8 },
+    "idade_minima": 10,
+    "duracao_minutos": 15,
+    "regras": [
+      "Conte o número total de jogadores e prepare a mesma quantidade de bilhetes adesivos (ou qualquer papel com fita adesiva).",
+      "Escreva o nome de uma pessoa famosa diferente em cada papel — desde que sejam pessoas que todos conheçam.",
+      "Cole os nomes, um por um, na testa ou nas costas de cada jogador, garantindo que eles não vejam o que está escrito.",
+      "Assim que todos estiverem com um bilhete, circulem pelo ambiente fazendo perguntas de sim/não a qualquer pessoa, tentando descobrir quem são. Exemplos: \"Sou homem?\" ou \"Sou um personagem fictício?\"",
+      "Continue jogando até que todos tenham adivinhado corretamente quem são.",
+      "Dica: para tornar competitivo, revezem as perguntas — o primeiro a adivinhar corretamente vence."
+    ],
     "utilitarios_inline": [
       {
         "utilitario_tipo": "sorteio_atribuicao",

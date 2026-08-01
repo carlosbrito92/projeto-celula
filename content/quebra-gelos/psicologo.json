@@ -1,8 +1,27 @@
 {
   "nome": "Psicólogo",
   "tipo": "instrucional",
-  "utilitario": null,
+  "utilitario": "Sorteador de papel especial (psicólogo)",
   "conteudo": {
-    "icone": "🛋️"
+    "icone": "🛋️",
+    "jogadores": { "min": 3 },
+    "idade_minima": 8,
+    "duracao_minutos": 15,
+    "regras": [
+      "Toque em \"Sortear papel especial\" pra escolher quem será o psicólogo — essa pessoa deve se afastar do grupo antes da escolha do padrão.",
+      "Em grupo (sem o psicólogo por perto), decidam qual será o padrão de comportamento, característica ou ação que ele vai tentar adivinhar.",
+      "Chamem o psicólogo de volta.",
+      "O psicólogo faz perguntas a uma pessoa do grupo por vez, buscando pistas para decifrar o padrão — perguntas como \"Qual é a sua cor favorita?\" valem, desde que façam a pessoa falar.",
+      "O psicólogo tem direito a 5 perguntas (ou uma por pessoa, se o grupo tiver mais de 5 pessoas).",
+      "Assim que arriscar um palpite, o grupo revela se ele acertou, e o próximo jogador assume o papel de psicólogo."
+    ],
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear papel especial",
+        "eyebrow": "Antes de começar",
+        "papeis": [{ "nome": "Psicólogo", "quantidade": 1 }]
+      }
+    ]
   }
 }

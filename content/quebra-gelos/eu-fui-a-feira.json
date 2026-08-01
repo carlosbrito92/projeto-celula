@@ -1,8 +1,26 @@
 {
   "nome": "Eu Fui à Feira",
   "tipo": "instrucional",
-  "utilitario": null,
+  "utilitario": "Sorteador de papel especial (quem começa)",
   "conteudo": {
-    "icone": "🛒"
+    "icone": "🛒",
+    "jogadores": { "min": 2 },
+    "idade_minima": 8,
+    "duracao_minutos": 10,
+    "regras": [
+      "É um jogo de memória: cada jogador repete a lista de itens já ditos e acrescenta um novo.",
+      "Não sabem quem começa? Toque em \"Sortear papel especial\" pra decidir.",
+      "Quem começa diz: \"Eu fui à feira e comprei um(a) _____\". Por exemplo: \"uma laranja\".",
+      "A pessoa seguinte (no sentido horário) repete o que foi dito e acrescenta algo novo. Por exemplo: \"Eu fui à feira e comprei uma laranja e uma revista\".",
+      "Continuem assim até que alguém erre a lista — esse jogador é eliminado, e o jogo segue até restar um único vencedor."
+    ],
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear papel especial",
+        "eyebrow": "Antes de começar",
+        "papeis": [{ "nome": "Primeiro a começar", "quantidade": 1 }]
+      }
+    ]
   }
 }
