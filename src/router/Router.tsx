@@ -6,6 +6,8 @@ import {
   type MouseEvent,
   type ReactNode,
 } from 'react';
+import { Capacitor } from '@capacitor/core';
+import { App } from '@capacitor/app';
 
 // Router mínimo para as ~4 rotas do app — evita puxar react-router (e a
 // superfície de CVEs do seu modo de framework/RSC, que não usamos) para
@@ -25,6 +27,31 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     const onPopState = () => setPath(window.location.pathname);
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  // Capacitor não navega o histórico do WebView sozinho no botão físico de
+  // voltar do Android (mudou a partir da v4) — sem isso, o botão fecha o app
+  // direto pra home screen em vez de voltar uma tela, mesmo tendo entradas
+  // no histórico (pushState de navigate() acima). Não roda em web/PWA — lá o
+  // navegador já trata o botão voltar nativamente.
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return;
+    let mounted = true;
+    let handle: { remove: () => void } | undefined;
+    App.addListener('backButton', ({ canGoBack }) => {
+      if (canGoBack) {
+        window.history.back();
+      } else {
+        App.exitApp();
+      }
+    }).then((h) => {
+      if (mounted) handle = h;
+      else h.remove();
+    });
+    return () => {
+      mounted = false;
+      handle?.remove();
+    };
   }, []);
 
   const navigate = (to: string) => {
