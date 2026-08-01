@@ -3,7 +3,23 @@
   "tipo": "instrucional",
   "utilitario": "Contador/cronômetro (opcional)",
   "conteudo": {
-    "icone": "🐍",
+    "icone": "eye",
+    "jogadores": {
+      "min": 6
+    },
+    "idade_minima": 6,
+    "duracao_minutos": 10,
+    "regras": [
+      "Peçam para todos se sentarem ou ficarem em pé em círculo (ou ao redor de uma mesa), de modo que cada pessoa veja claramente todos os outros jogadores.",
+      "Todos fecham os olhos.",
+      "Cada jogador vira a cabeça em direção a outro jogador, mantendo os olhos fechados.",
+      "O mediador faz a contagem regressiva: \"3, 2, 1, Abram!\"",
+      "Todos abrem os olhos ao mesmo tempo.",
+      "Se dois jogadores estiverem olhando diretamente um para o outro, ambos são eliminados.",
+      "Se a pessoa para quem você está olhando está focada em outra pessoa, você está a salvo e segue para a próxima rodada.",
+      "Repitam os passos até restar um ou dois jogadores — esses vencem a rodada.",
+      "Joguem quantas rodadas quiserem, até alguém vencer duas vezes (ou parem após a primeira)."
+    ],
     "utilitarios_inline": [
       {
         "utilitario_tipo": "cronometro",

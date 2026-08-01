@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from '../../router/Router';
 import { useQuebraGeloJogo } from '../../content/useQuebraGelos';
+import { Icon } from '../../icons/Icon';
 import type { QuebraGeloJogoConteudo, UtilitarioInlineRef } from '../../content/types';
 import { SorteioAtribuicao } from '../../utilitarios/sorteioAtribuicao/SorteioAtribuicao';
 import { SorteioPapel } from '../../utilitarios/sorteioPapel/SorteioPapel';
@@ -55,7 +56,11 @@ export function Detalhe({ id }: { id: string }) {
       </div>
 
       <div className={styles.hero}>
-        {conteudo.icone && <div className={styles.heroIcone}>{conteudo.icone}</div>}
+        {conteudo.icone && (
+          <div className={styles.heroIcone}>
+            <Icon name={conteudo.icone} />
+          </div>
+        )}
         <div className={styles.heroTitulo}>{jogo.nome}</div>
         {badges.length > 0 && (
           <div className={styles.badges}>
@@ -92,7 +97,9 @@ export function Detalhe({ id }: { id: string }) {
               <div className={styles.ctaEyebrow}>{ctaPrincipal.eyebrow ?? 'Antes de começar'}</div>
               <div className={styles.ctaTitulo}>{ctaPrincipal.rotulo_acao}</div>
             </div>
-            <div className={styles.ctaIcone}>🎲</div>
+            <div className={styles.ctaIcone}>
+              <Icon name="dices" />
+            </div>
           </button>
           {ctasSecundarios.length > 0 && (
             <div className={styles.depois}>

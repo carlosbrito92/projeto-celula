@@ -3,13 +3,32 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (detetive) — opcional",
   "conteudo": {
-    "icone": "🕵️",
+    "icone": "user-search",
+    "jogadores": {
+      "min": 6,
+      "max": 12
+    },
+    "idade_minima": 6,
+    "duracao_minutos": 10,
+    "regras": [
+      "Vocês vão precisar de um espaço grande o suficiente para todos ficarem em pé ou sentados em círculo.",
+      "Escolha um jogador para ser o \"detetive\". Peça a essa pessoa que saia da sala para não ouvir a conversa, enquanto os demais escolhem um \"líder\".",
+      "Assim que o líder for escolhido, chamem o detetive de volta à sala.",
+      "Os jogadores devem imitar sutilmente as ações do líder, sem olhar diretamente para ele, para não dar pistas ao detetive.",
+      "O detetive tem apenas uma tentativa para identificar o líder. Se acertar, o detetive vence a rodada; se errar, o líder vence.",
+      "Joguem quantas rodadas quiserem, alternando quem é o detetive para que todos tenham uma chance."
+    ],
     "utilitarios_inline": [
       {
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear detetive",
         "eyebrow": "Opcional",
-        "papeis": [{ "nome": "Detetive", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Detetive",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

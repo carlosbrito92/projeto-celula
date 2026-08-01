@@ -3,7 +3,21 @@
   "tipo": "instrucional",
   "utilitario": "Contador/cronômetro (opcional)",
   "conteudo": {
-    "icone": "🔮",
+    "icone": "sparkle",
+    "jogadores": {
+      "min": 5
+    },
+    "idade_minima": 6,
+    "duracao_minutos": 10,
+    "regras": [
+      "Contem o número de jogadores — vocês vão contar juntos até o dobro desse número. Ex.: com 5 jogadores, o objetivo é chegar a 10.",
+      "O jogo começa com qualquer jogador gritando \"um\" aleatoriamente.",
+      "Continuem contando em sequência, mas sem ordem de turno definida — nada de contar no sentido horário ou seguir um padrão fixo.",
+      "Cada jogador pode gritar um número até duas vezes. Se alguém gritar mais que isso, o jogo acaba e recomeçam do um.",
+      "Apenas um jogador pode gritar um número por vez. Se dois ou mais gritarem o mesmo número simultaneamente, todos recomeçam do um.",
+      "Se o grupo conseguir contar até o número final, todos ganham!",
+      "Variação: joguem de olhos fechados, ou peçam para cada jogador contar três vezes em vez de duas, para um desafio maior."
+    ],
     "utilitarios_inline": [
       {
         "utilitario_tipo": "cronometro",

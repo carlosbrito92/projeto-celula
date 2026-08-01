@@ -3,13 +3,32 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (mestre da palavra) — opcional",
   "conteudo": {
-    "icone": "📡",
+    "icone": "satellite-dish",
+    "jogadores": {
+      "min": 3
+    },
+    "idade_minima": 12,
+    "duracao_minutos": 10,
+    "regras": [
+      "Reúnam um grupo de pelo menos três jogadores.",
+      "Toque em \"Sortear mestre da palavra\" — a pessoa escolhida pensa numa palavra (\"palavra-alvo\"), e o objetivo dos demais (\"adivinhadores\") é descobri-la.",
+      "O mestre revela a primeira letra da palavra-alvo. Os adivinhadores sugerem \"palavras de tentativa\" que comecem com essa letra, tentando fazer o mestre revelar a segunda.",
+      "Quem pensar numa palavra de tentativa dá uma dica pra fazer outros adivinhadores pensarem na mesma palavra ao mesmo tempo. Ex.: pensou em \"montanha\", diz \"Você pode escalar isso\".",
+      "Quem tiver uma palavra que combine com a dica grita \"Contato!\". Quem deu a dica conta \"3, 2, 1\" — e todos os envolvidos gritam a palavra em que pensaram, ao mesmo tempo.",
+      "O mestre tenta impedir dizendo a palavra com \"Not\" na frente (ex.: \"Not montanha\"). Se não impedir corretamente, revela a próxima letra da palavra-alvo.",
+      "O jogo continua até acertarem a palavra-alvo; depois, outro jogador assume o papel de mestre da palavra."
+    ],
     "utilitarios_inline": [
       {
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear mestre da palavra",
         "eyebrow": "Opcional",
-        "papeis": [{ "nome": "Mestre da palavra", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Mestre da palavra",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

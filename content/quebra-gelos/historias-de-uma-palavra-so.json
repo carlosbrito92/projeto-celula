@@ -1,8 +1,33 @@
 {
   "nome": "Histórias de Uma Palavra Só",
   "tipo": "instrucional",
-  "utilitario": null,
+  "utilitario": "Sorteador de papel especial (quem começa)",
   "conteudo": {
-    "icone": "📖"
+    "icone": "book-open",
+    "jogadores": {
+      "min": 2
+    },
+    "idade_minima": 7,
+    "duracao_minutos": 10,
+    "regras": [
+      "Expliquem as regras: em grupo, vocês vão contar uma história revezando-se para dizer uma palavra de cada vez, no sentido horário.",
+      "Não sabem quem começa? Toque em \"Sortear papel especial\" pra decidir.",
+      "Quem começa diz a primeira palavra da história. Por exemplo: \"Era\".",
+      "A pessoa seguinte (no sentido horário) diz a próxima palavra. Por exemplo: \"uma\", depois \"vez\"...",
+      "A história continua nesse ritmo, com cada jogador acrescentando uma palavra por vez, até ter começo, meio e fim."
+    ],
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear papel especial",
+        "eyebrow": "Antes de começar",
+        "papeis": [
+          {
+            "nome": "Primeiro a começar",
+            "quantidade": 1
+          }
+        ]
+      }
+    ]
   }
 }
