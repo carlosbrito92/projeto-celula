@@ -3,8 +3,10 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (mestre da palavra) — opcional",
   "conteudo": {
-    "icone": "📡",
-    "jogadores": { "min": 3 },
+    "icone": "satellite-dish",
+    "jogadores": {
+      "min": 3
+    },
     "idade_minima": 12,
     "duracao_minutos": 10,
     "regras": [
@@ -21,7 +23,12 @@
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear mestre da palavra",
         "eyebrow": "Opcional",
-        "papeis": [{ "nome": "Mestre da palavra", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Mestre da palavra",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

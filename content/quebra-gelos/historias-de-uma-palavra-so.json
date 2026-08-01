@@ -3,8 +3,10 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (quem começa)",
   "conteudo": {
-    "icone": "📖",
-    "jogadores": { "min": 2 },
+    "icone": "book-open",
+    "jogadores": {
+      "min": 2
+    },
     "idade_minima": 7,
     "duracao_minutos": 10,
     "regras": [
@@ -19,7 +21,12 @@
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear papel especial",
         "eyebrow": "Antes de começar",
-        "papeis": [{ "nome": "Primeiro a começar", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Primeiro a começar",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

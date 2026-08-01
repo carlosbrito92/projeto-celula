@@ -134,22 +134,29 @@ Três ferramentas reutilizáveis entre múltiplos quebra-gelos — aparecem como
 
 ## Sistema de ícones — Lucide (substituindo emojis placeholder)
 
-Os emojis usados no `mock-aprovado-v2.html` (🕵️ 🎭 🤥 🔤 🪢 ✏️ 🎲 🙈) são placeholder — comunicam a ideia rápido, mas não têm o acabamento de um asset pensado nos detalhes. O sistema de ícones definitivo é **Lucide** (`lucide-icons/lucide`, MIT), via fork próprio do repositório completo (não apenas a dependência npm) para ter controle de versão e espaço para customização futura.
+Os emojis usados no `mock-aprovado-v2.html` (🕵️ 🎭 🤥 🔤 🪢 ✏️ 🎲 🙈) eram placeholder — comunicavam a ideia rápido, mas sem o acabamento de um asset pensado nos detalhes. O sistema de ícones definitivo é **Lucide** (`lucide-icons/lucide`, MIT), via fork próprio do repositório completo (não apenas a dependência npm) para ter controle de versão e espaço para customização futura.
+
+**Implementado em 2026-08-01** (`src/icons/`) — não via `lucide-react` (pacote npm), mas vendorizando só os SVGs necessários direto do fork numa revisão pinada, com um componente `<Icon name="..." />` próprio que injeta o SVG via `dangerouslySetInnerHTML` (`width`/`height` trocados para `1em` no arquivo salvo, então o ícone escala com `font-size` do elemento em volta, igual o emoji que substituiu). Decisão: build do pacote `lucide-react` a partir do monorepo do fork (pnpm/turborepo) seria mais fiel à ideia original, mas peso de engenharia desproporcional para consumir ~12 ícones estáticos — revisar se a lista crescer muito ou se ícones customizados (`icons/celula/` no fork) entrarem em jogo. Ver `src/icons/README.md` para a revisão pinada do fork e como adicionar um ícone novo.
 
 **Estrutura do fork:** manter o fork sincronizável com o upstream Lucide (sem editar os SVGs originais diretamente); se surgir necessidade de ícone customizado que o Lucide não tem, adicionar num diretório próprio dentro do fork (ex: `icons/celula/`), sem misturar com os arquivos originais.
 
-**Mapeamento emoji → ícone Lucide** (referência para troca dos placeholders no mock e, depois, no código React via `lucide-react`):
+**Mapeamento emoji → ícone Lucide** (catálogo real de quebra-gelos + utilitários, `content/quebra-gelos/*.json` e `content/utilitarios/*.json` — a tabela antiga referenciava nomes de jogos de uma versão anterior do catálogo, já substituída):
 
-| Contexto | Emoji placeholder | Ícone Lucide |
+| Jogo/utilitário | Emoji antigo | Ícone Lucide |
 |---|---|---|
-| Quem é o Impostor | 🕵️ | `search` ou `user-search` |
-| Quem Sou Eu? | 🎭 | `drama` (verificar disponibilidade no fork) |
-| Duas Verdades e Uma Mentira | 🤥 | `message-circle-question` |
-| Mestre da Palavra | 🔤 | `type` ou `letter-text` |
-| Nó Humano | 🪢 | `link` ou `knot` (verificar disponibilidade no fork) |
-| Telefone Desenhado | ✏️ | `pencil` |
-| Sortear (dado) | 🎲 | `dices` |
-| Atribuição escondida | 🙈 | `eye-off` |
+| Quem Sou Eu? | 🎭 | `drama` |
+| Artista Impostor | 🎨 | `palette` |
+| Encontre o Líder | 🕵️ | `user-search` |
+| Eu Fui à Feira | 🛒 | `shopping-cart` |
+| Histórias de Uma Palavra Só | 📖 | `book-open` |
+| Medusa | 🐍 | `eye` (Lucide não tem ícone de cobra) |
+| Psicólogo | 🛋️ | `sofa` |
+| Psíquico | 🔮 | `sparkle` |
+| Contact | 📡 | `satellite-dish` |
+| Contador / Cronômetro | ⏱️ | `timer` |
+| Sorteador de Nome/Palavra | 🎭 | `shuffle` |
+| Sorteador de Papel Especial | 🕵️ | `users-round` |
+| CTA "Sortear" (Detalhe de quebra-gelo) | 🎲 | `dices` |
 
 Esta tabela deve crescer conforme novos quebra-gelos/utilitários entrarem no catálogo — cada novo emoji placeholder ganha uma linha aqui antes de virar ícone definitivo.
 

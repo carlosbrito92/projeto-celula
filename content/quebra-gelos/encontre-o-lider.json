@@ -3,8 +3,11 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (detetive) — opcional",
   "conteudo": {
-    "icone": "🕵️",
-    "jogadores": { "min": 6, "max": 12 },
+    "icone": "user-search",
+    "jogadores": {
+      "min": 6,
+      "max": 12
+    },
     "idade_minima": 6,
     "duracao_minutos": 10,
     "regras": [
@@ -20,7 +23,12 @@
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear detetive",
         "eyebrow": "Opcional",
-        "papeis": [{ "nome": "Detetive", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Detetive",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

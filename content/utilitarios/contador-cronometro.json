@@ -3,7 +3,7 @@
   "tipo": "utilitario",
   "utilitario": "Contador/cronômetro",
   "conteudo": {
-    "icone": "⏱️",
+    "icone": "timer",
     "utilitario_tipo": "cronometro",
     "descricao_curta": "Presets de 30s a 5 min"
   }

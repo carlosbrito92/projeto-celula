@@ -3,8 +3,10 @@
   "tipo": "instrucional",
   "utilitario": "Contador/cronômetro (opcional)",
   "conteudo": {
-    "icone": "🐍",
-    "jogadores": { "min": 6 },
+    "icone": "eye",
+    "jogadores": {
+      "min": 6
+    },
     "idade_minima": 6,
     "duracao_minutos": 10,
     "regras": [

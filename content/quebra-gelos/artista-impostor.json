@@ -3,7 +3,7 @@
   "tipo": "instrucional_utilitario",
   "utilitario": "Sorteador de nome/palavra + sorteador de papel especial (impostor) — protótipo da V2 multiplayer",
   "conteudo": {
-    "icone": "🎨",
+    "icone": "palette",
     "utilitarios_inline": [
       {
         "utilitario_tipo": "sorteio_atribuicao",
@@ -13,7 +13,12 @@
       {
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear impostor",
-        "papeis": [{ "nome": "Impostor", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Impostor",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

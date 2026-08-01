@@ -99,6 +99,12 @@ Ao adicionar uma tabela nova: habilitar RLS na mesma migração que cria a tabel
 - **`DATABASE_URL_ADMIN` (role owner do Neon) só existe em `.env.local` local, nunca em `api/` nem nas env vars da Vercel** — usada só manualmente por `scripts/db-schema.mjs`/`scripts/db-seed.ts`. `DATABASE_URL` (role `app_readonly`) é a única credential de banco cadastrada na Vercel (Production/Preview/Development).
 - **Rate limiting ficou fora do escopo desta migração** — as rotas novas são conteúdo editorial de leitura, mesmo nível de exposição que o Supabase já tinha sem throttle nenhum. O não-negociável de rate limiting (item 4 da seção de segurança) continua sendo especificamente sobre *utilitários*, que seguem 100% client-side.
 
+## Decisões de arquitetura (Sistema de ícones)
+
+- **Ícones vendorizados (`src/icons/`), não `lucide-react` do npm.** `docs/mock-prompt.md` §"Sistema de ícones" já decidia usar o fork completo (`carlosbrito92/lucide`) em vez do pacote publicado, para controle de versão e espaço pra ícone customizado futuro — buildar `packages/lucide-react` a partir do monorepo do fork (pnpm/turborepo) seria mais fiel a essa decisão, mas peso de engenharia desproporcional só pra consumir ~12 ícones estáticos hoje. Meio-termo: copiar só os SVGs necessários do fork numa revisão pinada (`4aec3f892fd6c23063bc2fead83c899b5d412b1c`) pra `src/icons/lucide/`, com `width`/`height` trocados pra `1em` (escala com `font-size` do elemento em volta, igual o emoji que substituiu — zero mudança de CSS nos componentes que já usavam emoji).
+- **`Icon` (`src/icons/Icon.tsx`) usa `import.meta.glob` com `?raw`** pra montar o registro de ícones em runtime a partir dos arquivos em `src/icons/lucide/`, injetados via `dangerouslySetInnerHTML` — seguro aqui porque o conteúdo vem de arquivos vendorizados no próprio repo, não de input de usuário. Nome desconhecido não quebra a renderização (retorna `null`, `console.warn` em dev) — mesmo padrão de `ComponenteTemaRenderer` pra variante desconhecida (Fase 2).
+- **`conteudo.icone` nos JSONs de quebra-gelos/utilitários agora guarda o nome do ícone Lucide** (ex: `"drama"`), não mais o emoji — ver tabela de mapeamento em `docs/mock-prompt.md`.
+
 ## Ambiente de build
 
 - **JDK 21 é obrigatório para o build Android** (Capacitor 8 / AGP atual). Pinado localmente via `.sdkmanrc` neste diretório — não altera o JDK padrão da máquina. Se o build falhar com `invalid source release: 21`, rodar `sdk env` (sem pipe — pipe roda em subshell e não propaga `JAVA_HOME`) antes do `./gradlew`.

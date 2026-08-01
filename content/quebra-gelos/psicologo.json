@@ -3,8 +3,10 @@
   "tipo": "instrucional",
   "utilitario": "Sorteador de papel especial (psicólogo)",
   "conteudo": {
-    "icone": "🛋️",
-    "jogadores": { "min": 3 },
+    "icone": "sofa",
+    "jogadores": {
+      "min": 3
+    },
     "idade_minima": 8,
     "duracao_minutos": 15,
     "regras": [
@@ -20,7 +22,12 @@
         "utilitario_tipo": "sorteio_papel",
         "rotulo_acao": "Sortear papel especial",
         "eyebrow": "Antes de começar",
-        "papeis": [{ "nome": "Psicólogo", "quantidade": 1 }]
+        "papeis": [
+          {
+            "nome": "Psicólogo",
+            "quantidade": 1
+          }
+        ]
       }
     ]
   }

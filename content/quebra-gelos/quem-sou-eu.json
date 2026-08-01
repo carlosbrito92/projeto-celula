@@ -3,8 +3,11 @@
   "tipo": "instrucional_utilitario",
   "utilitario": "Sorteador de nome com atribuição escondida",
   "conteudo": {
-    "icone": "🎭",
-    "jogadores": { "min": 4, "max": 8 },
+    "icone": "drama",
+    "jogadores": {
+      "min": 4,
+      "max": 8
+    },
     "idade_minima": 10,
     "duracao_minutos": 15,
     "regras": [
