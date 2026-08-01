@@ -122,15 +122,18 @@ Peças reutilizáveis entre múltiplos quebra-gelos, com valor mesmo antes de qu
 ## 7. Stack técnica
 
 - **Frontend**: React + Capacitor (build único para Android, iOS e PWA — decisão de distribuição já fixada na seção 1).
-- **Backend + banco**: Supabase — Postgres com colunas `jsonb` acomodando o schema de pregação já desenhado sem modelagem campo a campo; auth anônima/opcional nativa, compatível com "sem login tradicional"; Realtime nativo (WebSocket) é o mecanismo natural para a V2 multiplayer, evitando troca de banco quando essa fase chegar.
-- **Hospedagem**: Vercel para o frontend; Supabase hospeda o backend.
-- **Alternativa descartada**: Firebase cobriria auth+banco+realtime da mesma forma, mas seu modelo NoSQL é menos confortável para consultas estruturadas (busca por série, palavra-chave) do que Postgres/jsonb — descartado em favor de Supabase.
+- **Backend + banco**: Neon (Postgres puro) desde 2026-08-01, acessado via Vercel Serverless Functions (`api/pregacoes/*`, `api/quebra-gelos/*`). Antes disso, Supabase — a escolha original (linha abaixo) continua válida como justificativa de "por que Postgres com `jsonb`"; o que mudou foi só o provedor.
+  - **Motivo da troca**: limitações do projeto ativo no Supabase (conta/projeto atingiu restrições que impediam continuar usando normalmente). Neon foi a alternativa escolhida por ser Postgres puro — portar o schema e o conteúdo já existente (`jsonb`, RLS, as mesmas 2 tabelas) não exigiu remodelar nada, só trocar a camada de acesso (de PostgREST/client SDK para Vercel Functions + `@neondatabase/serverless`, já que Neon não expõe REST/auth/realtime prontos como o Supabase). Detalhe técnico completo da migração em `CLAUDE.md` ("Decisões de arquitetura (Migração Neon)" e hurdles de 2026-08-01).
+  - **Auth anônima do Supabase nunca chegou a ser usada de fato** (confirmado ao migrar: zero chamada `supabase.auth.*` em qualquer lugar do código) — "sem login tradicional" sempre foi resolvido por não ter auth nenhuma, não por uma feature de auth anônima ativa. Isso não muda com Neon.
+  - **Realtime nativo do Supabase, cotado para a V2 multiplayer, precisa de mecanismo novo** — Neon não tem equivalente nativo (WebSocket/pub-sub gerenciado). Vira decisão em aberto (ver seção 8) em vez de escolha já resolvida.
+- **Hospedagem**: Vercel para o frontend e para o backend (Serverless Functions); Neon hospeda só o banco.
+- **Alternativa descartada (histórico, na escolha original Supabase vs. outros)**: Firebase cobriria auth+banco+realtime da mesma forma, mas seu modelo NoSQL é menos confortável para consultas estruturadas (busca por série, palavra-chave) do que Postgres/jsonb — descartado.
 
 ### Segurança
 
 - **Row Level Security (RLS) obrigatório** em toda tabela — mesmo sem "conta de usuário", é o que impede leitura/escrita livre via API pública.
 - **Conteúdo editorial é somente leitura para o app**: pregações e quebra-gelos (gerados por Carlos/Claude) nunca são editáveis pelo usuário final. Dado efêmero de sessão (resultado de sorteio, nome digitado numa dinâmica) pode ter escrita livre, por não ter valor de permanência.
-- **Rate limiting nos utilitários** (ex: Supabase Edge Functions com throttle) para evitar abuso trivial, já que os utilitários não exigem autenticação para serem acionados.
+- **Rate limiting nos utilitários** (ex: Vercel Firewall/`@vercel/firewall` ou Upstash + `@upstash/ratelimit`, no ecossistema atual pós-Neon) para evitar abuso trivial, já que os utilitários não exigem autenticação para serem acionados. Ainda não implementado — utilitários são 100% client-side sem chamada de rede hoje, então não há superfície a proteger; vira requisito real no dia em que ganharem backend.
 - **Sem PII persistida**: nome/número informados numa dinâmica não são guardados além da sessão, a não ser que histórico seja explicitamente desejado depois — simplifica LGPD por natureza (dado não guardado não precisa ser protegido).
 
 ### Modularidade — espaço para crescer sem reescrever
@@ -138,7 +141,7 @@ Peças reutilizáveis entre múltiplos quebra-gelos, com valor mesmo antes de qu
 Preocupação central: a chegada da V2 (multiplayer) não pode forçar reescrever a V1. Estrutura pensada em camadas desde já:
 
 - **Camada de conteúdo** (pregações, quebra-gelos estáticos) — já isolada via JSON + tema (seções 4.3 e 5). Não muda quando a V2 chegar.
-- **Camada de utilitários locais** (sorteio single-device da V1) — desenhada como módulo isolado (ex: um hook/serviço próprio por utilitário). Quando a V2 precisar de sincronização multiplayer, esse módulo é **estendido** para usar Supabase Realtime, não reescrito do zero.
+- **Camada de utilitários locais** (sorteio single-device da V1) — desenhada como módulo isolado (ex: um hook/serviço próprio por utilitário). Quando a V2 precisar de sincronização multiplayer, esse módulo é **estendido**, não reescrito do zero — mecanismo concreto de sincronização em aberto desde a migração para Neon (ver seção 8).
 - **Roteamento por feature**: cada quebra-gelo e utilitário vive na própria rota/módulo desde o início, evitando um app monolítico onde adicionar um jogo da V2 exige mexer em código não relacionado.
 
 ### Práticas de desenvolvimento com IA (referência: artigo "Do Zero à Pós-Produção em 1 Semana", Akita)
@@ -158,6 +161,7 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 - ~~Estrutura de dados definitiva do JSON de saída das pregações~~ — resolvida e implementada (`src/content/types.ts`), validada com as 4 pregações reais de calibração já no banco. Ver `geracao-pregacao.md`.
 - ~~Formato do arquivo de tema por série~~ — resolvido e implementado (`src/themes/registry.ts`, 6 temas registrados como dados). Ver `estilos-pregacao.md`.
 - Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima, detalhamento fica para quando a V2 entrar em pauta.
+- **Mecanismo de sincronização real-time da V2, pós-migração para Neon** — a resposta original (Supabase Realtime, WebSocket nativo) não vale mais: Neon não tem equivalente pronto. Opções a avaliar quando a V2 entrar em pauta: WebSockets próprios via alguma plataforma com suporte a conexão persistente (Vercel Serverless Functions não sustentam WebSocket de longa duração), ou um serviço de realtime gerenciado separado (Pusher, Ably, Supabase Realtime "solo" sem o resto do Supabase, etc.). Não bloqueia a V1.
 
 ## 9. Fluxo de geração de conteúdo (decidido)
 
@@ -174,6 +178,6 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 - `mock-prompt.md` — prompt descritiva do projeto inteiro (visão + módulos + identidade visual), para geração de mock visual. v2 aprovada por Carlos.
 - `mock-aprovado-v2.html` — mock visual gerado a partir da prompt v2, validado como referência visual do projeto ("moderno, sleek, parece um app").
 - `progresso.md` — checklist de acompanhamento por fase, vive no repositório de código (não em ferramenta externa).
-- `CLAUDE.md` (raiz do repositório de código) — documento vivo da fase de código: recursos/IDs do projeto (Supabase, Vercel, GitHub), requisitos de segurança, decisões de arquitetura e hurdles técnicos. Não duplica o conteúdo destes markdowns — complementar, focado em *como construir*.
-- `supabase/migrations/` (repositório de código) — schema do banco e RLS, versionados.
+- `CLAUDE.md` (raiz do repositório de código) — documento vivo da fase de código: recursos/IDs do projeto (Neon, Vercel, GitHub), requisitos de segurança, decisões de arquitetura e hurdles técnicos. Não duplica o conteúdo destes markdowns — complementar, focado em *como construir*.
+- `db/migrations/` (repositório de código) — schema do banco (Neon) e RLS, versionados.
 - `content/pregacoes/` (repositório de código) — os JSONs de calibração reais, servindo de fixture para testes e referência de conteúdo real.

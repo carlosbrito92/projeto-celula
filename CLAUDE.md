@@ -13,7 +13,7 @@ Web app (React + Capacitor) para redes de célula: biblioteca de pregações, ca
 ## Recursos e IDs
 
 - **GitHub**: https://github.com/carlosbrito92/projeto-celula
-- **Neon**: projeto Postgres `projeto-celula` (região `sa-east-1`), substituiu o Supabase em 2026-08-01 (ver "Decisões de arquitetura (Migração Neon)" abaixo). Motivo completo da troca ainda pendente de registro em `docs/projeto-celula.md` §7.
+- **Neon**: projeto Postgres `projeto-celula` (região `sa-east-1`), substituiu o Supabase em 2026-08-01 — motivo: limitações do projeto ativo no Supabase, Neon escolhido por portar o schema/conteúdo Postgres já existente sem remodelar nada (ver `docs/projeto-celula.md` §7 e "Decisões de arquitetura (Migração Neon)" abaixo).
 - **Supabase**: projeto anterior (`tvhywnpctttrmzcyueii`, `sa-east-1`) — mantido ativo (não deletado) como fallback até confirmar estabilidade da produção em Neon por alguns dias; pausar depois, não deletar de imediato.
 - **Vercel**: https://projeto-celula.vercel.app (deploy automático a cada push em `main`)
 - **Fork Lucide** (ícones, ver `docs/mock-prompt.md`): https://github.com/carlosbrito92/lucide
@@ -92,7 +92,7 @@ Ao adicionar uma tabela nova: habilitar RLS na mesma migração que cria a tabel
 
 ## Decisões de arquitetura (Migração Neon)
 
-- **Backend trocado de Supabase (PostgREST + anon key) para Postgres puro no Neon**, acessado via Vercel Serverless Functions (`api/pregacoes/*`, `api/quebra-gelos/*`) com o driver HTTP `@neondatabase/serverless`. Motivo de negócio/técnico completo ainda pendente de registro em `docs/projeto-celula.md` §7 — não bloqueou a migração técnica, mas falta a prosa final.
+- **Backend trocado de Supabase (PostgREST + anon key) para Postgres puro no Neon**, acessado via Vercel Serverless Functions (`api/pregacoes/*`, `api/quebra-gelos/*`) com o driver HTTP `@neondatabase/serverless`. Motivo: limitações do projeto ativo no Supabase; Neon escolhido por ser Postgres puro, portando schema/conteúdo/RLS já existentes sem remodelar nada — só a camada de acesso mudou (ver `docs/projeto-celula.md` §7 para o detalhe completo).
 - **Um único role de aplicação (`app_readonly`, só `SELECT`)** substitui o par `anon`/`authenticated` do Supabase — não há autenticação real no app para justificar dois papéis. RLS continua habilitado mesmo com role único fixo: defesa em profundidade barata (um `GRANT` futuro malfeito ainda não habilita escrita, pois não existe policy de insert/update/delete) e mantém a disciplina "RLS obrigatório, sem exceção" intacta para quando existir usuário real na V2.
 - **Não existe conexão direta client→Neon.** Connection string de Postgres não é um credential público como o anon key era — por isso toda leitura passa por `api/*.ts` (Vercel Serverless Functions), nunca por um driver Postgres rodando no browser/WebView.
 - **CORS explícito (`Access-Control-Allow-Origin: *`) em toda rota `api/`** — requisito novo que o Supabase resolvia de graça; sem isso o app quebra especificamente no build Capacitor (a origem do WebView nunca é o domínio Vercel).
