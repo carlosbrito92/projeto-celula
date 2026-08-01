@@ -58,16 +58,8 @@ const pregacaoRow: PregacaoRow = {
   updated_at: '2026-07-26T00:00:00Z',
 };
 
-vi.mock('../../../lib/supabase', () => ({
-  supabase: {
-    from: () => ({
-      select: () => ({
-        eq: () => ({
-          single: () => Promise.resolve({ data: pregacaoRow, error: null }),
-        }),
-      }),
-    }),
-  },
+vi.mock('../../../lib/api', () => ({
+  apiGet: () => Promise.resolve(pregacaoRow),
 }));
 
 vi.mock('../../../router/Router', () => ({

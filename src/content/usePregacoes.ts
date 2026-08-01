@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { apiGet } from '../lib/api';
 import type { PregacaoRow } from './types';
 
 /** data (ISO) desc, nulls por último; depois created_at desc — nunca quebra por falta de data. */
@@ -18,13 +18,13 @@ export function usePregacoes() {
 
   useEffect(() => {
     let cancelado = false;
-    supabase
-      .from('pregacoes')
-      .select('*')
-      .then(({ data, error }) => {
+    apiGet<PregacaoRow[]>('/pregacoes')
+      .then((data) => {
         if (cancelado) return;
-        if (error) setErro(error.message);
-        else setPregacoes(ordenarPregacoes((data ?? []) as PregacaoRow[]));
+        setPregacoes(ordenarPregacoes(data));
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
       });
     return () => {
       cancelado = true;
@@ -42,16 +42,16 @@ export function usePregacao(id: string) {
   useEffect(() => {
     let cancelado = false;
     setCarregando(true);
-    supabase
-      .from('pregacoes')
-      .select('*')
-      .eq('id', id)
-      .single()
-      .then(({ data, error }) => {
+    apiGet<PregacaoRow>(`/pregacoes/${id}`)
+      .then((data) => {
         if (cancelado) return;
-        if (error) setErro(error.message);
-        else setPregacao(data as PregacaoRow);
-        setCarregando(false);
+        setPregacao(data);
+      })
+      .catch((e: Error) => {
+        if (!cancelado) setErro(e.message);
+      })
+      .finally(() => {
+        if (!cancelado) setCarregando(false);
       });
     return () => {
       cancelado = true;
