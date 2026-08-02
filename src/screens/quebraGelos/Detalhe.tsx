@@ -12,7 +12,7 @@ import styles from './Detalhe.module.css';
 function renderUtilitario(ref: UtilitarioInlineRef, aoFechar: () => void) {
   switch (ref.utilitario_tipo) {
     case 'sorteio_atribuicao':
-      return <SorteioAtribuicao aoFechar={aoFechar} />;
+      return <SorteioAtribuicao categorias={ref.categorias} aoFechar={aoFechar} />;
     case 'sorteio_papel':
       return <SorteioPapel papeis={ref.papeis} aoFechar={aoFechar} />;
     case 'cronometro':

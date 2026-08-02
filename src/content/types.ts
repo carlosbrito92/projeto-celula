@@ -218,6 +218,16 @@ export interface UtilitarioInlineRef {
    * § Extensão: papéis múltiplos.
    */
   papeis?: { nome: string; quantidade: number }[];
+  /**
+   * Só para utilitario_tipo === 'sorteio_atribuicao' — banco de categorias de
+   * palavras (ex: [{nome:"Objetos da casa",palavras:["Cadeira","Geladeira",...]}]).
+   * Quando presente, quem configura escolhe só a categoria (nome) — as
+   * palavras em si nunca aparecem na tela de setup, só na revelação
+   * individual de cada participante (docs/spec-privacidade-sorteio.md
+   * § Extensão: banco de categorias de palavras). Ausente => setup usa
+   * valores livres digitados na hora (comportamento original).
+   */
+  categorias?: { nome: string; palavras: string[] }[];
 }
 
 export interface QuebraGeloJogoConteudo {
