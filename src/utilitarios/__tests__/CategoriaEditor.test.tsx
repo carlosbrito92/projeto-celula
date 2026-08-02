@@ -14,7 +14,7 @@ describe('CategoriaEditor', () => {
         categorias={categorias}
         categoriaEscolhida={null}
         onEscolher={() => {}}
-        totalParticipantes={3}
+        minimoPalavras={3}
       />,
     );
     expect(screen.getByText('Objetos da casa')).toBeInTheDocument();
@@ -34,23 +34,23 @@ describe('CategoriaEditor', () => {
         categorias={categorias}
         categoriaEscolhida={null}
         onEscolher={onEscolher}
-        totalParticipantes={3}
+        minimoPalavras={3}
       />,
     );
     fireEvent.click(screen.getByText('Animais'));
     expect(onEscolher).toHaveBeenCalledWith('Animais');
   });
 
-  it('mostra aviso quando a categoria escolhida tem menos palavras que participantes', () => {
+  it('mostra aviso quando a categoria escolhida tem menos palavras que o mínimo exigido', () => {
     render(
       <CategoriaEditor
         categorias={categorias}
         categoriaEscolhida="Animais"
         onEscolher={() => {}}
-        totalParticipantes={3}
+        minimoPalavras={3}
       />,
     );
-    expect(screen.getByText(/só 2 palavra\(s\) para 3 participantes/)).toBeInTheDocument();
+    expect(screen.getByText(/só 2 palavra\(s\) — precisa de pelo menos 3/)).toBeInTheDocument();
   });
 
   it('mostra confirmação quando a categoria escolhida tem palavras suficientes', () => {
@@ -59,7 +59,19 @@ describe('CategoriaEditor', () => {
         categorias={categorias}
         categoriaEscolhida="Objetos da casa"
         onEscolher={() => {}}
-        totalParticipantes={3}
+        minimoPalavras={3}
+      />,
+    );
+    expect(screen.getByText(/pronto para sortear/)).toBeInTheDocument();
+  });
+
+  it('minimoPalavras=1 (modo Artista Impostor) — 1 palavra já basta', () => {
+    render(
+      <CategoriaEditor
+        categorias={categorias}
+        categoriaEscolhida="Animais"
+        onEscolher={() => {}}
+        minimoPalavras={1}
       />,
     );
     expect(screen.getByText(/pronto para sortear/)).toBeInTheDocument();
@@ -71,10 +83,10 @@ describe('CategoriaEditor', () => {
         categorias={categorias}
         categoriaEscolhida={null}
         onEscolher={() => {}}
-        totalParticipantes={3}
+        minimoPalavras={3}
       />,
     );
     expect(screen.queryByText(/pronto para sortear/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/participantes/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/precisa de pelo menos/)).not.toBeInTheDocument();
   });
 });

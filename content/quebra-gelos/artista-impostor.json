@@ -1,13 +1,13 @@
 {
   "nome": "Artista Impostor",
   "tipo": "instrucional_utilitario",
-  "utilitario": "Sorteador de nome/palavra + sorteador de papel especial (impostor) — protótipo da V2 multiplayer",
+  "utilitario": "Sorteador de papel especial (impostor + palavra compartilhada) — protótipo da V2 multiplayer",
   "conteudo": {
     "icone": "palette",
     "utilitarios_inline": [
       {
-        "utilitario_tipo": "sorteio_atribuicao",
-        "rotulo_acao": "Sortear palavra",
+        "utilitario_tipo": "sorteio_papel",
+        "rotulo_acao": "Sortear",
         "eyebrow": "Antes de começar",
         "categorias": [
           {
@@ -42,16 +42,6 @@
               "Milho", "Batata frita", "Churrasco",
               "Feijão", "Arroz", "Sopa"
             ]
-          }
-        ]
-      },
-      {
-        "utilitario_tipo": "sorteio_papel",
-        "rotulo_acao": "Sortear impostor",
-        "papeis": [
-          {
-            "nome": "Impostor",
-            "quantidade": 1
           }
         ]
       }

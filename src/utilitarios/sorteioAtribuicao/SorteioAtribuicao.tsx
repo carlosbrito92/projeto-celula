@@ -5,7 +5,7 @@ import { ListaChips } from '../passagemSequencial/ListaChips';
 import { SetupParticipantes } from '../passagemSequencial/SetupParticipantes';
 import { UtilitarioHeader } from '../UtilitarioHeader';
 import { atribuir, embaralhar } from '../shuffle';
-import { CategoriaEditor, type CategoriaConfig } from './CategoriaEditor';
+import { CategoriaEditor, type CategoriaConfig } from '../CategoriaEditor';
 import styles from '../passagemSequencial/PassagemSequencial.module.css';
 
 const TITULO = 'Atribuição escondida';
@@ -72,7 +72,7 @@ export function SorteioAtribuicao({ categorias, aoFechar }: SorteioAtribuicaoPro
             categorias={categorias!}
             categoriaEscolhida={categoriaEscolhida}
             onEscolher={setCategoriaEscolhida}
-            totalParticipantes={totalParticipantes}
+            minimoPalavras={totalParticipantes}
           />
         ) : (
           <ListaChips itens={valores} onChange={setValores} placeholder="valor/palavra" />

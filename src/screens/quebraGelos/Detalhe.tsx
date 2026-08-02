@@ -14,7 +14,7 @@ function renderUtilitario(ref: UtilitarioInlineRef, aoFechar: () => void) {
     case 'sorteio_atribuicao':
       return <SorteioAtribuicao categorias={ref.categorias} aoFechar={aoFechar} />;
     case 'sorteio_papel':
-      return <SorteioPapel papeis={ref.papeis} aoFechar={aoFechar} />;
+      return <SorteioPapel papeis={ref.papeis} categorias={ref.categorias} aoFechar={aoFechar} />;
     case 'cronometro':
       return <Cronometro aoFechar={aoFechar} />;
     default:

@@ -202,30 +202,37 @@ export type UtilitarioTipo = 'sorteio_atribuicao' | 'sorteio_papel' | 'cronometr
 
 /**
  * Utilitário embutido inline na regra de um quebra-gelo. Item [0] do array vira
- * o CTA grande da tela de Detalhe; um item adicional (caso "Artista Impostor",
- * que usa 2 utilitários) vira só uma legenda "Depois: X", não clicável — ver
- * docs/mock-aprovado-v2.html (bloco de CTA da tela de detalhe).
+ * o CTA grande da tela de Detalhe; um item adicional viraria só uma legenda
+ * "Depois: X", não clicável (capacidade genérica, sem consumidor real hoje —
+ * ver docs/mock-aprovado-v2.html, bloco de CTA da tela de detalhe).
  */
 export interface UtilitarioInlineRef {
   utilitario_tipo: UtilitarioTipo;
   rotulo_acao: string;
   eyebrow?: string;
   /**
-   * Só para utilitario_tipo === 'sorteio_papel' — lista de papéis com
-   * quantidade explícita (ex: [{nome:"Detetive",quantidade:1},{nome:"Cidadão",quantidade:3}]).
+   * Modo "Detetive" de utilitario_tipo === 'sorteio_papel' — lista de papéis
+   * com quantidade explícita (ex: [{nome:"Detetive",quantidade:1},{nome:"Cidadão",quantidade:3}]).
    * A soma das quantidades precisa bater com o total de participantes no
    * momento do sorteio (validado em runtime, não aqui) — docs/spec-privacidade-sorteio.md
-   * § Extensão: papéis múltiplos.
+   * § Extensão: papéis múltiplos. Mutuamente exclusivo com `categorias` no
+   * mesmo item — um widget usa um modo ou outro, nunca os dois.
    */
   papeis?: { nome: string; quantidade: number }[];
   /**
-   * Só para utilitario_tipo === 'sorteio_atribuicao' — banco de categorias de
-   * palavras (ex: [{nome:"Objetos da casa",palavras:["Cadeira","Geladeira",...]}]).
-   * Quando presente, quem configura escolhe só a categoria (nome) — as
-   * palavras em si nunca aparecem na tela de setup, só na revelação
-   * individual de cada participante (docs/spec-privacidade-sorteio.md
-   * § Extensão: banco de categorias de palavras). Ausente => setup usa
-   * valores livres digitados na hora (comportamento original).
+   * Banco de categorias de palavras (ex: [{nome:"Objetos da casa",palavras:["Cadeira","Geladeira",...]}]).
+   * Quem configura escolhe só a categoria (nome) — as palavras em si nunca
+   * aparecem na tela de setup, só na revelação individual de cada
+   * participante (docs/spec-privacidade-sorteio.md § Extensão: banco de
+   * categorias de palavras). Semântica varia por utilitario_tipo:
+   * - `sorteio_atribuicao`: cada participante recebe uma palavra diferente
+   *   da categoria (mesma distribuição de sempre, só a origem do valor muda).
+   * - `sorteio_papel` (modo "Artista Impostor" — ver § Correção na spec):
+   *   1 papel "Impostor" implícito (quantidade 1, fixo) + todo o resto do
+   *   grupo recebe a MESMA palavra sorteada da categoria — troca o modo de
+   *   setup de papéis livres (nome+quantidade) pra seletor de categoria.
+   * Ausente em qualquer um dos dois => comportamento original (valores/papéis
+   * livres digitados na hora).
    */
   categorias?: { nome: string; palavras: string[] }[];
 }

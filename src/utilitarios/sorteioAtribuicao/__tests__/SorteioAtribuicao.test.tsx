@@ -64,7 +64,7 @@ describe('SorteioAtribuicao — com categorias (docs/spec-privacidade-sorteio.md
     render(<SorteioAtribuicao categorias={categorias} aoFechar={() => {}} />);
     digitarNomes(['Ana', 'Beto', 'Carla', 'Duda']);
     fireEvent.click(screen.getByText('Animais'));
-    expect(screen.getByText(/só 3 palavra\(s\) para 4 participantes/)).toBeInTheDocument();
+    expect(screen.getByText(/só 3 palavra\(s\) — precisa de pelo menos 4/)).toBeInTheDocument();
     expect(screen.getByText('Sortear').closest('button')).toBeDisabled();
   });
 });

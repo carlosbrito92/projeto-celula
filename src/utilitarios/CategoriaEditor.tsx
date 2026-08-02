@@ -9,7 +9,15 @@ interface CategoriaEditorProps {
   categorias: CategoriaConfig[];
   categoriaEscolhida: string | null;
   onEscolher: (nome: string) => void;
-  totalParticipantes: number;
+  /**
+   * Quantas palavras a categoria escolhida precisa ter — varia por widget:
+   * sorteio de atribuição escondida precisa de uma palavra por participante
+   * (cada um recebe um valor diferente); sorteio de papel especial no modo
+   * Artista Impostor precisa de só 1 (a palavra é compartilhada por todo
+   * mundo, menos o impostor) — ver docs/spec-privacidade-sorteio.md
+   * § Correção: modelo "Artista Impostor" é diferente do modelo "Detetive".
+   */
+  minimoPalavras: number;
 }
 
 /**
@@ -23,10 +31,10 @@ export function CategoriaEditor({
   categorias,
   categoriaEscolhida,
   onEscolher,
-  totalParticipantes,
+  minimoPalavras,
 }: CategoriaEditorProps) {
   const categoria = categorias.find((c) => c.nome === categoriaEscolhida) ?? null;
-  const palavrasSuficientes = categoria ? categoria.palavras.length >= totalParticipantes : false;
+  const palavrasSuficientes = categoria ? categoria.palavras.length >= minimoPalavras : false;
 
   return (
     <div className={styles.wrapper}>
@@ -43,11 +51,11 @@ export function CategoriaEditor({
         ))}
       </div>
 
-      {categoria && totalParticipantes > 0 && (
+      {categoria && minimoPalavras > 0 && (
         <div className={palavrasSuficientes ? styles.validacaoOk : styles.validacaoAlerta}>
           {palavrasSuficientes
             ? `Categoria "${categoria.nome}" selecionada — pronto para sortear`
-            : `Categoria "${categoria.nome}" tem só ${categoria.palavras.length} palavra(s) para ${totalParticipantes} participantes`}
+            : `Categoria "${categoria.nome}" tem só ${categoria.palavras.length} palavra(s) — precisa de pelo menos ${minimoPalavras}`}
         </div>
       )}
     </div>
