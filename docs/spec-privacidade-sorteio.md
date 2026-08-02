@@ -94,6 +94,54 @@ Nenhuma mudança estrutural no fluxo de passagem sequencial nem na tela de gest�
 
 ---
 
+## Extensão: banco de categorias de palavras (corrige vazamento para quem configura)
+
+> Identificado em teste de campo real (célula ao vivo, Artista Impostor com papel e caneta): o líder escolheu a palavra ("Desenhe uma casa") no setup e, por participar do sorteio, foi sorteado impostor — mas já sabia a palavra, porque foi ele quem a digitou. O fluxo de passagem sequencial protege contra ver o papel *dos outros*, mas não protegia contra quem configura o jogo já ter visto o dado sensível antes de qualquer sorteio existir. Esta extensão fecha esse gap.
+
+### Regra central
+
+**Quem configura o setup nunca vê a palavra específica — só escolhe uma categoria.** A palavra em si só é decidida no momento do sorteio (a partir de uma lista pré-definida dentro da categoria) e só aparece na tela de revelação individual de cada participante, nunca na tela de setup nem em nenhuma etapa anterior ao sorteio.
+
+### Formato do banco de categorias
+
+Conteúdo próprio do quebra-gelo (não um utilitário genérico — diferente do sorteio de papel especial, cuja lista de papéis é digitada na hora pelo líder), estruturado como categorias nomeadas, cada uma com uma lista de palavras:
+
+```json
+{
+  "categorias": [
+    { "nome": "Objetos da casa", "palavras": ["Casa", "Cadeira", "Geladeira", "Escada", "..."] },
+    { "nome": "Animais", "palavras": ["Gato", "Elefante", "Borboleta", "..."] },
+    { "nome": "Comida", "palavras": ["Pizza", "Bolo", "Sanduíche", "..."] }
+  ]
+}
+```
+
+Reutilizável por qualquer quebra-gelo futuro que precise de "categoria escolhida sem ver a palavra exata" — não é exclusivo do Artista Impostor.
+
+### Volume por categoria
+
+**30 a 50 palavras por categoria** — suficiente pra manter variedade numa célula que joga esporadicamente (não uso diário tipo jogo online), sem exigir centenas de itens. Lista curada manualmente (mesma disciplina de nunca inventar/gerar conteúdo sem revisão que já se aplica ao resto do projeto) — não gerada por IA neste momento (ver decisão abaixo).
+
+### Decisão: lista estática, não geração por IA
+
+Avaliada e descartada a ideia de gerar a palavra via IA (Groq) no momento do sorteio — resolveria o mesmo problema (líder nunca vê a palavra), mas introduziria: dependência de rede externa nos utilitários (hoje 100% client-side/offline-capable por design), necessidade de rota serverless nova só pra isso (chave de API não pode ir pro bundle do client), outro provedor com free tier a monitorar (mesma classe de risco que já motivou a migração Neon), e perda de controle de qualidade sobre as palavras sugeridas. Lista estática resolve o mesmo problema sem nenhuma dessas desvantagens. **Groq/IA fica descartado por ora — revisitar apenas se um quebra-gelo futuro específico se beneficiar genuinamente de geração dinâmica**, não como prevenção especulativa de repetição que ainda não foi sentida como problema real de uso.
+
+---
+
+## Extensão: nomes de participantes persistentes entre sessões + reordenação por arraste
+
+> Identificado no mesmo teste de campo: hoje os nomes dos participantes são digitados do zero a cada quebra-gelo/utilitário acessado — sem continuidade entre sessões na mesma reunião. Se o grupo já jogou algo e vai jogar outra dinâmica em seguida, digitar tudo de novo é fricção desnecessária.
+
+### Persistência de nomes
+
+A lista de nomes digitados numa sessão (setup de qualquer sorteio) deve persistir em **memória local** (mesmo mecanismo client-side já usado pelos utilitários — não é dado que precisa ir pro banco) e ficar disponível como sugestão/preenchimento automático ao abrir outro quebra-gelo ou utilitário na mesma visita ao app. Não é sincronizado entre dispositivos nem persiste indefinidamente — é conveniência de sessão, mesmo espírito do restante da camada de utilitários (efêmero, sem escrita em banco).
+
+### Reordenação por arraste (drag-and-drop)
+
+A lista de nomes no setup deve suportar arrastar para reordenar — a ordem da lista É a ordem física de passagem do celular (já definida assim desde o fluxo original). Hoje a única forma de fixar a ordem é digitar os nomes na sequência certa desde o início; arraste permite ajustar a ordem depois de já ter os nomes (ex: perceber que esqueceu a ordem certa, ou que alguém trocou de lugar) sem precisar apagar e redigitar.
+
+---
+
 ## Pendência de implementação
 
-Ainda não implementado — o plano original de Fase 3 do Claude Code modelava os dois widgets com fluxos de privacidade diferentes (sem esse mecanismo de passagem sequencial), e o setup do sorteio de papel especial só suportava um único papel nomeado. Esta spec (fluxo de passagem + extensão de papéis múltiplos) substitui ambos os desenhos. Carlos vai levar esta spec ao Claude Code como instrução específica; registrar como pendência em `progresso.md` (Fase 3) até a implementação acontecer.
+Ainda não implementado — o plano original de Fase 3 do Claude Code modelava os dois widgets com fluxos de privacidade diferentes (sem esse mecanismo de passagem sequencial), o setup do sorteio de papel especial só suportava um único papel nomeado, o setup do Artista Impostor deixava a palavra passar pela tela de quem configura, e não havia persistência de nomes nem reordenação por arraste. Esta spec (fluxo de passagem + extensão de papéis múltiplos + banco de categorias + nomes persistentes/arrastáveis) substitui todos os desenhos anteriores. Carlos vai levar esta spec ao Claude Code como instrução específica; registrar como pendência em `progresso.md` (Fase 3) até a implementação acontecer.
