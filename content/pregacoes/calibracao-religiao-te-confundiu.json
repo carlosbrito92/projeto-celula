@@ -1,0 +1,370 @@
+{
+  "metadados": {
+    "serie": "Religião Tóxica",
+    "capitulo": "Capítulo 3",
+    "tema": "A Religião Te Confundiu",
+    "data": "2 de agosto de 2026",
+    "pregador": "Pastora Anaily",
+    "texto_base": "Apocalipse 3.15-16",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Terceiro capítulo da série Religião Tóxica. Muitos crentes vivem confusos — um domingo ouvem que são filhos amados e perdoados, no seguinte ouvem que podem perder a salvação. Essa mensagem expõe a raiz dessa confusão: a grande Babilônia de Apocalipse, que não representa o mundo, mas a mistura espiritual entre Lei e Graça dentro da própria igreja.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Antídoto",
+        "campos": [
+          { "campo": "Toxina identificada", "valor": "Mistura lei + graça" },
+          { "campo": "Nome bíblico", "valor": "Babel — confusão" },
+          { "campo": "Status", "valor": "Instável" }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "Apocalipse 3.15-16 — Texto-âncora",
+      "texto": "Conheço as tuas obras, sei que não és frio nem quente. Antes fosses frio ou quente! E, por este motivo, porque és morno, não és frio nem quente, estou a ponto de vomitar-te da minha boca."
+    },
+    "frase_sintese": "A lei não te dá segurança — ela traz condenação. E o problema é que muitos crentes nunca sabem exatamente onde estão: numa semana se sentem salvos, na outra se sentem perdidos. Isso é confusão. E confusão, na Bíblia, tem nome: Babilônia."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-0", "numero": "·", "titulo": "A Grande Babilônia" },
+    { "id": "bloco-1", "numero": "1", "titulo": "A Confusão da Mistura" },
+    { "id": "bloco-2", "numero": "2", "titulo": "O Equilíbrio Térmico Não Agrada" },
+    { "id": "bloco-3", "numero": "3", "titulo": "O Evangelho Não Aceita Remendos" },
+    { "id": "bloco-4", "numero": "4", "titulo": "A Prostituição da Mistura" },
+    { "id": "bloco-5", "numero": "5", "titulo": "O Vale da Confusão" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-0",
+      "numero": "·",
+      "titulo": "A Grande Babilônia",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Apocalipse 17-18 · Gênesis 10 · Daniel",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A ilustração central desta mensagem está em Apocalipse, nos capítulos 17 e 18 — dois capítulos inteiros que o Espírito Santo separou para tratar desse assunto. Existe um princípio de hermenêutica chamado **menção múltipla ou menção acumulada**: a importância de um tema é proporcional ao espaço que a Bíblia dedica a ele. Dois capítulos inteiros mostram que esse é um assunto muito importante."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A grande Babilônia é apresentada em Apocalipse como a **grande meretriz**, a grande prostituta — mas não se trata de uma prostituição física. É um **sistema espiritual e religioso**, uma prostituição espiritual."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Babilônia não começa em Apocalipse. Ela surge em Gênesis 10, com Ninrode — um grande caçador contra Deus, o único homem que governou um império mundial, quando todas as pessoas ainda falavam a mesma língua, antes da Torre de Babel. O mesmo sistema reaparece em Daniel, quando os utensílios da casa de Deus são levados para a Babilônia."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que significa a palavra **Babel**, de onde vem Babilônia? No dicionário Strong, ela é definida como **confusão, mistura**. E a Bíblia diz: \"Sai dela, povo meu\" — o que significa que ainda existe povo de Deus dentro dessa grande confusão, dessa grande mistura."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Confusão da Mistura",
+      "sec_eyebrow": "Tópico 1",
+      "referencias": "Gálatas 4.21-31 · Hebreus 5.13",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Gálatas 4, Paulo faz uma alegoria — uma comparação entre Sara e Agar, entre a graça e a lei, entre a nova e a antiga aliança. Deus gosta de nos ensinar através de contrastes."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.21-23",
+          "texto": "Dizei-me vós, os que quereis permanecer subjugados à Lei: acaso não tendes ouvido com clareza a Lei? Porquanto está escrito que Abraão teve dois filhos, um da mulher escrava e outro da livre. O que era filho da escrava nasceu de modo natural, porém o filho da mulher livre nasceu mediante uma promessa."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Os dois filhos são Ismael e Isaque. A mulher escrava era Agar; a mulher livre, Sara. O texto diz que o filho da escrava nasceu \"segundo a carne\" — mas atenção: **carne aqui não significa pecado**. A lei permitia que Abraão se deitasse com uma escrava para gerar descendência; ele não estava fazendo nada de errado segundo aquela dispensação."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Carne, no Novo Testamento, é esforço próprio. É qualquer coisa que te leva a viver baseado na força do seu próprio braço, naquilo que você dá conta de conquistar."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Essas duas mulheres são **duas alianças**: uma se refere ao Monte Sinai, que gera para a escravidão — **a Lei**; a outra é a Jerusalém do alto, que é livre — **a Promessa**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.25-26",
+          "texto": "Hagar representa o monte Sinai, na Arábia, e corresponde à atual cidade de Jerusalém, que vive como escrava com os seus filhos. Entretanto, a Jerusalém do alto é livre, e esta é a nossa mãe!"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Menino e a Caixa de Chocolate",
+            "corpo": [
+              "Lei: Uma mãe diz ao filho pela manhã: \"Hoje à noite, se você se comportar bem, comer tudo, obedecer em tudo, eu trago uma caixa de chocolate.\" O menino passa o dia se esforçando, mas vacila algumas vezes — e fica ansioso o dia inteiro, sem saber se vai merecer o presente.",
+              "Promessa: Um pai diz ao filho: \"Hoje à noite, quando eu voltar, vou trazer uma caixa de chocolate\" — sem nenhuma condição. Ele quer mostrar o quanto ama o filho. O menino não vive ansioso, porque o pai já prometeu e é fiel para cumprir."
+            ],
+            "conclusao": "A lei é fazer para merecer. A promessa é receber porque já foi prometido — e aquele que prometeu é fiel para cumprir."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.29",
+          "texto": "No entanto, assim como naquele tempo o que nasceu de modo natural perseguia o que nasceu segundo o Espírito, assim também acontece nos dias de hoje."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por que Paulo faz essa menção? Depois que Ismael nasceu, Deus ficou **13 anos sem aparecer** para Abraão. Ismael tinha 14 anos quando Isaque nasceu; quando Isaque foi desmamado, aos 3 anos, Abraão fez uma grande festa — costume da época. Ismael, então, já tinha 17 anos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 5.13",
+          "texto": "Ora, quem precisa alimentar-se de leite ainda é criança, e não tem experiência no ensino da justiça."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É justamente na ocasião do desmame de Isaque que Agar é mandada embora — **porque Deus detesta confusão**. Isaque não podia ter duas mães, duas influências. Você é desmamado do leite, você é desmamado da lei, quando Agar sai da sua vida."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.30-31",
+          "texto": "Contudo, o que nos revela a Escritura? 'Mande embora a escrava e o seu filho, porque o filho da escrava jamais será herdeiro com o filho da livre.' Portanto, amados irmãos, não somos filhos da escrava, mas sim filhos da liberdade!"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Outra alegoria: quando Agar e Ismael estavam perdidos no deserto sem água, a fonte já estava ali — mas eles não conseguiam vê-la. **Aqueles que andam na lei não conseguem enxergar as coisas do Espírito.** O véu precisa ser removido."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em contraste, quando Isaque tinha 15 anos, Deus chama Isaque de **\"único filho\"** de Abraão — porque Deus só contabiliza aquilo que tem origem nele mesmo. Isaque carregou a lenha do próprio sacrifício subindo o monte Moriá — um monte difícil, custoso — e conseguiu, porque **a graça é o que fortalece**, não o esforço humano. Enquanto Ismael chorava fraco no deserto, Isaque subia forte com a lenha nas costas."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "contraste",
+          "dados": {
+            "lado_a": {
+              "label": "Agar",
+              "titulo": "Grande Babilônia",
+              "texto": "A Lei. Não sozinha — mas misturada. Aponta para o Monte Sinai, gera escravidão, produz esforço e merecimento."
+            },
+            "lado_b": {
+              "label": "Sara",
+              "titulo": "Nova Jerusalém",
+              "texto": "A Graça. A noiva, pura, com interesse somente em Cristo. Aponta para a Jerusalém do alto — livre."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que isso tem a ver com a grande Babilônia? A Babilônia é **Agar** — mas atenção: **não é a Lei sozinha**. A Lei, do jeito que foi escrita, já é um peso imenso — mas ela é como um **aio**, um professor que nos conduz a Cristo. Todo aquele que tenta cumprir a Lei inevitavelmente é conduzido a clamar pela graça. A Lei não é do diabo — ela é de Deus, só que não é mais para você, porque você está em outra dispensação."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A grande Babilônia aponta para a mistura. Não é só a Lei — é a Lei misturada com a Graça. É por isso que Babel significa confusão: mistura da Lei com a Graça."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você não desfruta plenamente de nada quando vive na mistura: crê que é salvo pela graça, mas crê que precisa merecer as demais bênçãos. **Ensina um pouquinho de graça, ensina um pouquinho de lei.** Num domingo o crente é chamado de amado; no outro, de fracassado. Isso é confusão. Isso é Babel."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Equilíbrio Térmico Não Agrada",
+      "sec_eyebrow": "Tópico 2",
+      "referencias": "Apocalipse 3.15-16",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Babilônia é a confusão pela mistura entre lei e graça — viver um pouco de cada. O \"bater e assoprar\" gera uma confusão enorme. **Quanto mais escutamos pelo amor, mais somos transformados de dentro para fora.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.15-16",
+          "texto": "Conheço as tuas obras, sei que não és frio nem quente. Antes fosses frio ou quente! E, por este motivo, porque és morno, não és frio nem quente, estou a ponto de vomitar-te da minha boca."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus não detesta o frio — detesta o **morno**. Porque o morno é a mistura do quente com o frio. Isso pode escandalizar: ser frio, aqui, é bom. Ser quente também é bom. O que Deus reprova é ficar no meio."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Refrigerante Quente e o Café Frio",
+            "corpo": [
+              "Num dia quente, um refrigerante gelado é uma delícia. Num dia frio, um café bem quente é maravilhoso. Mas quem já pediu um refrigerante e ele chegou morno, ou tomou café que esfriou? É horrível — vai direto para o lixo."
+            ],
+            "conclusao": "O senhor está dizendo: quem dera você acreditasse totalmente na Lei, ou totalmente na Graça. Mas você fica no meio — um pouco de graça, um pouco de lei. Isso é morno. E o morno não é tolerado."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas e a igreja que é totalmente da lei? Ora — **não existe**. Se assim fosse, ela teria voltado ao judaísmo — seria uma **sinagoga**, não uma igreja evangélica. Toda igreja crê ao menos um pouco na graça. O problema é que muitas creem **parcialmente** na graça e parcialmente na lei — e essas igrejas são mornas."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Mornidão só serve para bebê. Você não é mais bebê — você se tornou adulto pela palavra da justiça que recebeu. Por isso você não suporta mais o morno; você quer o quente do evangelho."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "O Evangelho Não Aceita Remendos",
+      "sec_eyebrow": "Tópico 3",
+      "referencias": "Marcos 2.21-22 · Deuteronômio 22.9-10",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Marcos 2.21",
+          "texto": "Ninguém costura remendo de pano novo em roupa velha, porquanto o remendo novo forçará o tecido velho e o rasgará ainda mais, aumentando a ruptura."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Veste velha é a antiga aliança, a lei; veste nova é a nova aliança, a graça. A veste velha rasga porque a lei depende do esforço humano — e o esforço humano tem limite. Tentar remendar um pedaço da graça na velha aliança da lei não funciona: **o rasgo fica maior, o estrago fica pior**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Marcos 2.22",
+          "texto": "Assim como não há pessoa que deposite vinho novo em recipiente de couro velho; caso o faça, o vinho arrebentará o recipiente, e dessa forma, tanto o vinho novo quanto o recipiente se estragarão. Ao contrário, põe-se o vinho novo em um recipiente de couro novo."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Odre de Couro",
+            "corpo": [
+              "Os odres antigos eram feitos de couro, e esse couro precisava ser untado para manter a flexibilidade — de forma que, quando o vinho novo era colocado e começasse a fermentar, o odre fosse capaz de se expandir sem se romper."
+            ],
+            "conclusao": "Um odre velho perdeu a flexibilidade. Quando o vinho novo fermenta dentro dele, o odre estoura — e tanto o odre quanto o vinho se perdem. Deus odeia a mistura entre o velho e o novo."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Deuteronômio 22.9",
+          "texto": "Não semearás em tua vinha dois tipos de semente; a fim de evitar que a vinha inteira seja confiscada pelo santuário, tanto a semente que semeaste como o fruto da vinha sejam consagrados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando você mistura as sementes, elas se degeneram. O fruto pode até surgir, mas será um fruto distorcido — **não é aquilo que Deus plantou**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Deuteronômio 22.10",
+          "texto": "Não submeterás um boi e um jumento ao mesmo jugo para arar a terra!"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Lavrar a terra com dois animais diferentes é um jugo desigual — expressão que Paulo usa também no Novo Testamento. O problema dos legalistas: escolhem cumprir os mandamentos mais fáceis e acham que assim já estão cumprindo a Lei. Mas se você se propõe a cumprir a Lei, precisa cumprir **completamente** — não parcialmente."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "A Prostituição da Mistura",
+      "sec_eyebrow": "Tópico Conclusivo",
+      "referencias": "Romanos 7.1-5 · Gálatas 2.21",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Romanos 7, Paulo faz outra alegoria — desta vez, do **casamento** — para falar da lei."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.1-2",
+          "texto": "Caros irmãos, falo convosco como conhecedores da Lei. Acaso não sabeis que a Lei tem autoridade sobre uma pessoa apenas enquanto ela vive? Pela Lei a mulher casada está ligada ao marido enquanto ele vive; mas, se ele morrer, ela está livre da lei do casamento."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.4",
+          "texto": "Assim também, vós, meus irmãos, morrestes quanto à Lei mediante o corpo de Cristo, para pertencerdes a outro, àquele que ressuscitou dentre os mortos, a fim de que frutifiquemos para Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Enquanto você está casado, não há como se separar. Você era casado com o **senhor Lei** — e a Lei é eterna, então esse casamento não terminaria naturalmente. Mas Deus proveu uma solução: **quando Jesus morreu, ele não apenas morreu pelo seu pecado — ele morreu a sua morte.** Cristo se tornou sua morte, e a sua ressurreição também. Você morreu de um lado e ressuscitou do outro — casado agora com Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Onde está a prostituição da grande Babilônia, então? **Você é casado com Cristo, mas toda vez que volta para a Lei buscando merecer a bênção, você está se prostituindo** — porque não é mais casado com o senhor Lei. Só que a vida com o senhor Lei é pesada, cheia de cobranças minuciosas, e você começa a se sentir acusado. Então volta para Cristo, que te conforta e te enche de paz — até que você acha que é capaz de merecer de novo, e volta para a Lei. Um ciclo repetido."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Enquanto você vive nessa prostituição espiritual, você se torna estéril. Mas se você vive pela graça, a fertilidade do Senhor se manifesta na sua vida."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 2.21",
+          "texto": "Não torno inútil a Graça de Deus; porquanto, se a justiça pudesse ser estabelecida pela Lei, então, Cristo teria morrido em vão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A grande Babilônia é essa prostituta que ensina as pessoas a terem **um pouco de Jesus e um pouco de Moisés**. Nesta plataforma, somente o nome do Senhor é entronizado — Jesus será o centro, domingo após domingo."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "O Vale da Confusão",
+      "sec_eyebrow": "Ilustração Final",
+      "referencias": "Josué 7.2,20-26",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois que Israel conquistou Jericó — cujos muros caíram, e Deus ordenou que nenhum despojo fosse retido para uso pessoal, tudo deveria ir para a casa de Deus — um servo chamado Acã desobedeceu e escondeu parte do despojo em sua própria tenda."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Josué 7.20-21",
+          "texto": "Acã respondeu a Josué: 'Em verdade, fui eu que pequei contra o SENHOR, Deus de Israel, e eis o que fiz: vi entre os despojos um belo manto tecido em Sinear, Babilônia, dois quilos e quatrocentos gramas de prata e uma barra de ouro de seiscentos gramas, eu me deixei seduzir pela cobiça e me apossei deles. Estão escondidos no chão da minha tenda, com a prata por baixo!'"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Havia duas tendas: a de Acã, e a do próprio Senhor — o tabernáculo, feito apenas de ouro e prata. Na Bíblia, esses metais têm significado espiritual: **a prata aponta para redenção; o ouro, para a justiça de Deus**. Mas na tenda de Acã, o ouro e a prata estavam **embrulhados no manto babilônico** — misturados. E isso é literalmente o significado de Babel."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Enquanto você vive embrulhado na mistura, o ouro e a prata não têm efeito prático na sua vida. Quando você vive pela graça, você percebe a justiça de Deus e a redenção de Cristo se manifestando de verdade."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois de Jericó, Josué foi enfrentar uma cidade menor — Ai — e perdeu a batalha, por causa do pecado escondido de Acã."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Josué 7.2",
+          "texto": "Aconteceu que Josué enviou homens de Jericó em direção à cidade de Ai, que fica próximo de Bete-Áven, a leste de Bete-El, Betel, e ordenou-lhes: 'Subi e espionai a região!'"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Bete** significa casa de Deus. **Áven** significa vaidade. Entre a casa de Deus e a casa da vaidade está exatamente **a mistura** — e o resultado é **Ai**, que significa ruína. Um lugar onde, em vez de algo edificado, só resta um monte de pedras espalhadas — porque ficaram no meio do caminho."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Todo o Israel apedrejou Acã e sua família naquele vale, e ergueu um monte de pedras sobre ele — desde então chamado **vale de Acor**, que significa perturbação, angústia. Um lembrete permanente de que **a mistura tem consequências**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não misture nem na sua vida, nem na sua célula, nem no seu casamento, nem no seu ministério. Fale só da graça de Deus. Tudo o que você recebeu, recebeu sem merecer — recebeu de graça."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "A grande Babilônia: não é o mundo — é um sistema espiritual e religioso. Babel significa confusão, mistura. \"Sai dela, povo meu\" — ainda há povo de Deus dentro dessa mistura.", "versiculo_ancora": "Apocalipse 17-18" },
+    { "ponto": "A confusão da mistura: Agar (Lei) e Sara (Promessa) são duas alianças. A Lei gera escravidão; a promessa gera segurança. Deus detesta confusão — Isaque não podia ter duas influências.", "versiculo_ancora": "Gálatas 4.21-31" },
+    { "ponto": "O equilíbrio térmico não agrada: Deus prefere frio ou quente — não morno. Morno é a mistura de lei e graça. Não existe igreja totalmente da lei — só sinagoga.", "versiculo_ancora": "Apocalipse 3.15-16" },
+    { "ponto": "O evangelho não aceita remendos: vinho novo em odres novos. Misturar o velho com o novo faz os dois se perderem — jugo desigual, sementes que se degeneram.", "versiculo_ancora": "Marcos 2.21-22 · Deuteronômio 22.9-10" },
+    { "ponto": "A prostituição da mistura: você é casado com Cristo — buscar a Lei para merecer é se prostituir espiritualmente. Um ciclo de ir e voltar entre graça e lei.", "versiculo_ancora": "Romanos 7.1-5" },
+    { "ponto": "O vale da confusão: ouro e prata (justiça e redenção) embrulhados no manto babilônico (mistura) ficam inoperantes. Entre Betel (casa de Deus) e Bete-Áven (casa da vaidade) está a mistura — e o resultado é Ai, ruína.", "versiculo_ancora": "Josué 7" }
+  ],
+  "nota_lacuna": []
+}

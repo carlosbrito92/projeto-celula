@@ -16,17 +16,15 @@ Quando uma pregação nova é gerada (ver `geracao-pregacao.md`), o conteúdo (J
 
 **Regra de fallback:** pregações sem série (`Avulsa`) usam o tema **Padrão MINC** por padrão, ou podem apontar explicitamente para qualquer um dos temas registrados abaixo.
 
-### Resolução de tema (algoritmo)
+### Resolução de tema — mecanismo concreto
 
-1. Se `metadados.tema_override` estiver presente, ele tem prioridade — usar o tema indicado, ignorando a `serie`.
-2. Senão, resolver por `serie` (mapeamento Série → tema, ex: "Religião Tóxica" → Estilo #5b, "Igrejar" → Estilo #4).
-3. Senão (série desconhecida, "Avulsa", ou ausente), aplicar o fallback **Padrão MINC**.
+Identificado como lacuna real na calibração de "Jamais Será em Vão" (série `Avulsa`, mas conteúdo/paleta do Estilo #3): a regra acima existia em prosa, mas nunca virou campo de fato no schema JSON. Resolução:
 
-`tema_override` existe para o caso de uma pregação `Avulsa` que precisa de um tema registrado sem ter uma série própria — caso real: "Jamais Será em Vão" (resumo de célula, Modo B) usa `tema_override: "Estilo #3"`, já que Estilo #3 é definido pelo *tipo de conteúdo* (resumo de célula a partir de anotações), não por uma série com nome próprio.
+1. Se `metadados.tema_override` estiver presente (ver `geracao-pregacao.md`), usar esse tema, independente da `serie`.
+2. Senão, resolver `serie → tema` normalmente (cada série tem um tema associado, documentado nas seções abaixo).
+3. Senão (série sem tema associado, tipicamente `Avulsa` sem override), usar **Padrão MINC**.
 
-**Valores aceitos de `tema_override`** (correspondem à chave curta do tema, não ao título completo do heading acima): `"Padrão MINC"`, `"Estilo #1"`, `"Estilo #2"`, `"Estilo #3"`, `"Estilo #4"`, `"Estilo #5b"`. Usar exatamente uma dessas strings.
-
-**Nota de implementação — `componente_tema` não é exclusivo de tema.** As seções abaixo descrevem cada componente (`stage`, `label_box`, etc.) como "introduzido" ou "específico" de um estilo — isso registra sua origem editorial, não uma restrição técnica. Na implementação, qualquer variante de `componente_tema` pode aparecer em qualquer pregação, de qualquer série: a plataforma tem **um renderizador por variante**, que aplica as cores do tema ativo da pregação (via CSS vars), não um renderizador por combinação tema×variante. Confirmado com conteúdo real: `stage` — descrito abaixo como do Estilo #1, evoluído no #2 — apareceu numa pregação da série Igrejar (Estilo #4). Variante sem renderizador implementado ainda cai no tratamento padrão sem quebrar a tela (ver `geracao-pregacao.md`).
+`tema_override` deve conter o nome exato de um tema já registrado neste documento (ex: `"Estilo #3"`) — nunca uma paleta inline solta no JSON de conteúdo. Se a pregação avulsa precisar de uma identidade visual que ainda não existe como tema registrado, o caminho é o workflow de criação de tema (seção acima), não inventar cores ad-hoc no JSON.
 
 ---
 
@@ -380,6 +378,8 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
   **Payload (variante `antidoto`):** `{ "label": "ex: '✓ O tratamento'", "texto": "string" }`
 - **`.versus`** — comparação de duas colunas (ex: "A Religião Ensina" vs "O Evangelho Ensina"), cada lado com cor e borda superior própria. Usar apenas quando a mensagem apresenta uma dicotomia explícita e citável — não para qualquer contraste genérico.
   **Payload (variante `versus`):** `{ "lado_a": { "label": "string", "citacao": "string" }, "lado_b": { "label": "string", "citacao": "string" } }` — `lado_a` sempre o polo negativo/confrontado (cor de alerta do tema), `lado_b` sempre o polo positivo/afirmado (cor de acento primário do tema).
+- **`.contraste`** — variação de `.versus`, mesma estrutura visual (duas colunas, borda superior colorida por lado), mas para contrastar **duas figuras/entidades bíblicas** (ex: Agar vs. Sara), não duas frases citáveis. Cada lado tem um `label` (o nome da figura) e um `titulo` (o que ela representa na mensagem), além do texto explicativo — um campo a mais que `.versus`, que só tem `label` + `citacao`. Identificado na calibração de "A Religião Te Confundiu" (Religião Tóxica cap. 3): `lado_a` (Agar) em magenta/alerta, `lado_b` (Sara) em verde-tóxico/primário — mesma semântica de cor já estabelecida na série, reafirmando que o vocabulário cromático (alerta vs. afirmação) se aplica além de citações, também a personagens.
+  **Payload (variante `contraste`):** `{ "lado_a": { "label": "string — nome da figura", "titulo": "string — o que ela representa", "texto": "string" }, "lado_b": { "label": "string", "titulo": "string", "texto": "string" } }` — mesma convenção de `lado_a`/`lado_b` do `.versus` (negativo/confrontado vs. positivo/afirmado).
 - **Navegação interna (índice + FAB)** — igual às demais, cores usando o acento primário vigente do tema (`--toxic`/`--toxic-dim` no 5b).
 
 ### Decisões editoriais
@@ -446,8 +446,7 @@ Aplicável a qualquer pregação com 4+ pontos, independente do tema:
 
 1. **Índice clicável** — cada item aponta para o `id` da seção (`#ponto-N`). Toda seção recebe `scroll-margin-top: 32px` para não ficar encoberta ao navegar.
 2. **Botão flutuante (FAB)** — fixo no canto inferior direito, some quando o índice está visível, aparece quando o usuário rola além dele.
-   - Implementado com `IntersectionObserver` nativo — sem biblioteca externa.
-   - **Correção de implementação (plataforma):** os HTMLs gerados usavam `rootMargin: '0px 0px -80% 0px'` (só considera "interseção" o top 20% da viewport — um padrão de "sticky header"). Isso presume que o índice nasce colado no topo da tela. Na prática, o índice quase sempre vem depois de header/banner/badge, então ele nunca cai nesse top-20%, e o FAB fica dissociado do scroll real (aparece cedo demais ou nunca). A plataforma usa `threshold: 0` sem `rootMargin`: `isIntersecting` reflete literalmente "alguma parte do índice está visível" — a semântica certa quando o elemento observado não é um header fixo. Detalhes em `CLAUDE.md`.
+   - Implementado com `IntersectionObserver` nativo (`rootMargin: '0px 0px -80% 0px'`) — sem biblioteca externa.
    - **Importante:** não confiar em `href="#indice"` puro — falha em alguns WebViews (apps mobile, preview de artifact). Interceptar o clique e usar `scrollIntoView({ behavior: 'smooth', block: 'start' })`.
    - Cores seguem o acento primário e o acento dim do tema ativo.
 

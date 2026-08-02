@@ -47,6 +47,7 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Implementar tela de biblioteca (destaque + lista + busca) — `src/screens/pregacoes/Library.tsx`, busca client-side tolerante a acento
 - [x] Implementar tela de leitura com índice clicável + FAB — `src/screens/pregacoes/Reading.tsx` + `useIndiceFab.ts` (IntersectionObserver + `scrollIntoView`, nunca `href="#id"`)
 - [x] Popular com as pregações já calibradas — os 4 JSONs (`content/pregacoes/`) inseridos via `execute_sql` (RLS bloqueia escrita client-side por design; seed é operação administrativa, não código de app)
+- [x] Nova calibração: "A Religião Te Confundiu" (Religião Tóxica cap. 3, Pastora Anaily) — introduziu 2 gaps reais entre schema documentado e código, corrigidos junto com o conteúdo: `componente_tema` variante `contraste` (documentada em `estilos-pregacao.md`, nunca implementada em `ComponenteTemaRenderer.tsx`) e `banner_intro.versiculo_ancora` (documentado em `geracao-pregacao.md`, nunca existiu no tipo `BannerIntro` nem em `Reading.tsx`). Ver `CLAUDE.md` "Hurdles técnicos".
 
 Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
 

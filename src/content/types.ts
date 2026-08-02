@@ -12,12 +12,19 @@ export interface Metadados {
   tema_override?: string;
 }
 
+export interface VersiculoAncora {
+  referencia: string;
+  texto: string;
+}
+
 export interface BannerIntro {
   /** Recapitulação/enquadramento editorial antes da frase-síntese. Ex: "Segundo capítulo da série X...". */
   contextualizacao?: string;
   /** Mesmo formato de variante/dados de ComponenteTemaVariante, mas no nível do header — não dentro de uma seção. */
   componente_tema?: ComponenteTemaVariante;
   frase_sintese: string;
+  /** Versículo-base citado por extenso, em destaque isolado, entre a frase-síntese e o índice. Distinto de metadados.texto_base (só a referência curta). */
+  versiculo_ancora?: VersiculoAncora;
 }
 
 export interface MapaPonto {
@@ -78,6 +85,17 @@ export interface DadosVersus {
   lado_b: DadosVersusLado;
 }
 
+export interface DadosContrasteLado {
+  label: string;
+  titulo: string;
+  texto: string;
+}
+
+export interface DadosContraste {
+  lado_a: DadosContrasteLado;
+  lado_b: DadosContrasteLado;
+}
+
 export interface DadosAnalogia {
   label: string;
   corpo: string[];
@@ -107,6 +125,7 @@ export type ComponenteTemaVariante =
   | { variante: 'diagnostico'; dados: DadosDiagnostico }
   | { variante: 'antidoto'; dados: DadosAntidoto }
   | { variante: 'versus'; dados: DadosVersus }
+  | { variante: 'contraste'; dados: DadosContraste }
   | { variante: 'analogia'; dados: DadosAnalogia }
   | { variante: 'banho_list'; dados: DadosBanhoList }
   | { variante: 'humor'; dados: DadosHumor }

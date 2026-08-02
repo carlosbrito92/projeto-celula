@@ -64,6 +64,17 @@ export function Reading({ id }: { id: string }) {
           <div className={styles.banner}>{conteudo.banner_intro.frase_sintese}</div>
         )}
 
+        {conteudo.banner_intro?.versiculo_ancora && (
+          <div className={styles.versiculoAncora}>
+            <div className={styles.versiculoAncoraTexto}>
+              “{conteudo.banner_intro.versiculo_ancora.texto}”
+            </div>
+            <div className={styles.versiculoAncoraReferencia}>
+              {conteudo.banner_intro.versiculo_ancora.referencia}
+            </div>
+          </div>
+        )}
+
         <div id="indice" ref={indiceRef}>
           <div className={styles.indiceLabel}>Índice</div>
           <div className={styles.indiceGrid}>
