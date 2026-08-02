@@ -92,8 +92,73 @@ Cada papel gera exatamente a quantidade de "fichas" configurada (ex: Assassino g
 
 Nenhuma mudança estrutural no fluxo de passagem sequencial nem na tela de gestão (seções "Fluxo completo" e "Decisões explícitas" acima continuam valendo como estão) — a única mudança é **o que é revelado** por pessoa: em vez de "você tem/não tem o papel X", cada pessoa vê o nome do papel que lhe coube (podendo ser um papel repetido, como "Cidadão").
 
+### Correção — modelo "Artista Impostor" é diferente do modelo "Detetive"
+
+> Bug real de campo: a primeira implementação rodou o Artista Impostor pela lógica do **sorteio de atribuição escondida** (cada pessoa recebe um valor diferente da lista — o mecanismo correto do "Quem Sou Eu?"), não pela lógica de **sorteio de papel especial**. Sintoma relatado: todos os participantes recebiam uma palavra aleatória *diferente* entre si, e o campo de configurar o papel "Impostor" tinha desaparecido da tela.
+
+O Detetive e o Artista Impostor usam o **mesmo widget** (sorteio de papel especial, com a extensão de papéis múltiplos acima), mas com uma diferença de modelo que precisa ficar explícita:
+
+- **Modelo Detetive**: papéis nomeados cobrem *parte* do grupo (1 Detetive, 1 Assassino, 3 Cidadãos = 5 de 5 participantes, mas cada um É um papel distinto ou repetido — não há conceito de "todos exceto um recebem a mesma coisa"). "Sem papel especial" nunca aparece porque a soma de papéis sempre bate com o total.
+- **Modelo Artista Impostor**: **1 papel especial** ("Impostor", quantidade 1) + **todos os demais participantes recebem o mesmo valor compartilhado** — a palavra sorteada da categoria (ver extensão "banco de categorias" abaixo). Não é "papel nomeado repetido" (como Cidadão×3, onde cada Cidadão é indistinguível dos outros mas ainda é um *papel*) — é a **palavra do jogo em si**, comum a todo mundo que não é o impostor.
+
+Exemplo concreto: 10 participantes, categoria "Animais" sorteada → 9 pessoas veem "Coelho" na tela de revelação, 1 pessoa (o impostor) vê "Você é o impostor" (ou equivalente, sem a palavra). A soma continua batendo (1 impostor + 9 "portadores da palavra" = 10), mas o widget precisa reconhecer que o "resto do grupo" recebe a **palavra sorteada dinamicamente da categoria**, não um papel nomeado estático configurado no setup como Cidadão.
+
+**Implicação de implementação**: o setup do Artista Impostor não pede "nome do papel + quantidade" livre como o Detetive — pede a **categoria** (ver extensão de banco de categorias, abaixo), e o papel "Impostor" com quantidade 1 é implícito/fixo, não configurado à mão a cada partida. A tela de configuração de papéis livres (nome + quantidade, do modelo Detetive) e a tela de categoria+impostor fixo (do modelo Artista Impostor) são dois modos de setup diferentes sobre o mesmo widget de sorteio de papel especial — não a mesma tela.
+
 ---
 
-## Pendência de implementação
+## Extensão: banco de categorias de palavras (corrige vazamento para quem configura)
 
-Ainda não implementado — o plano original de Fase 3 do Claude Code modelava os dois widgets com fluxos de privacidade diferentes (sem esse mecanismo de passagem sequencial), e o setup do sorteio de papel especial só suportava um único papel nomeado. Esta spec (fluxo de passagem + extensão de papéis múltiplos) substitui ambos os desenhos. Carlos vai levar esta spec ao Claude Code como instrução específica; registrar como pendência em `progresso.md` (Fase 3) até a implementação acontecer.
+> Identificado em teste de campo real (célula ao vivo, Artista Impostor com papel e caneta): o líder escolheu a palavra ("Desenhe uma casa") no setup e, por participar do sorteio, foi sorteado impostor — mas já sabia a palavra, porque foi ele quem a digitou. O fluxo de passagem sequencial protege contra ver o papel *dos outros*, mas não protegia contra quem configura o jogo já ter visto o dado sensível antes de qualquer sorteio existir. Esta extensão fecha esse gap.
+
+### Regra central
+
+**Quem configura o setup nunca vê a palavra específica — só escolhe uma categoria.** A palavra em si só é decidida no momento do sorteio (a partir de uma lista pré-definida dentro da categoria) e só aparece na tela de revelação individual de cada participante, nunca na tela de setup nem em nenhuma etapa anterior ao sorteio.
+
+### Formato do banco de categorias
+
+Conteúdo próprio do quebra-gelo (não um utilitário genérico — diferente do sorteio de papel especial, cuja lista de papéis é digitada na hora pelo líder), estruturado como categorias nomeadas, cada uma com uma lista de palavras:
+
+```json
+{
+  "categorias": [
+    { "nome": "Objetos da casa", "palavras": ["Casa", "Cadeira", "Geladeira", "Escada", "..."] },
+    { "nome": "Animais", "palavras": ["Gato", "Elefante", "Borboleta", "..."] },
+    { "nome": "Comida", "palavras": ["Pizza", "Bolo", "Sanduíche", "..."] }
+  ]
+}
+```
+
+Reutilizável por qualquer quebra-gelo futuro que precise de "categoria escolhida sem ver a palavra exata" — não é exclusivo do Artista Impostor.
+
+### Volume por categoria
+
+**30 a 50 palavras por categoria** — suficiente pra manter variedade numa célula que joga esporadicamente (não uso diário tipo jogo online), sem exigir centenas de itens. Lista curada manualmente (mesma disciplina de nunca inventar/gerar conteúdo sem revisão que já se aplica ao resto do projeto) — não gerada por IA neste momento (ver decisão abaixo).
+
+### Decisão: lista estática, não geração por IA
+
+Avaliada e descartada a ideia de gerar a palavra via IA (Groq) no momento do sorteio — resolveria o mesmo problema (líder nunca vê a palavra), mas introduziria: dependência de rede externa nos utilitários (hoje 100% client-side/offline-capable por design), necessidade de rota serverless nova só pra isso (chave de API não pode ir pro bundle do client), outro provedor com free tier a monitorar (mesma classe de risco que já motivou a migração Neon), e perda de controle de qualidade sobre as palavras sugeridas. Lista estática resolve o mesmo problema sem nenhuma dessas desvantagens. **Groq/IA fica descartado por ora — revisitar apenas se um quebra-gelo futuro específico se beneficiar genuinamente de geração dinâmica**, não como prevenção especulativa de repetição que ainda não foi sentida como problema real de uso.
+
+---
+
+## Extensão: nomes de participantes persistentes entre sessões + reordenação
+
+> Identificado no mesmo teste de campo: hoje os nomes dos participantes são digitados do zero a cada quebra-gelo/utilitário acessado — sem continuidade entre sessões na mesma reunião. Se o grupo já jogou algo e vai jogar outra dinâmica em seguida, digitar tudo de novo é fricção desnecessária.
+
+### Persistência de nomes
+
+A lista de nomes digitados numa sessão (setup de qualquer sorteio) deve persistir em **memória local** (mesmo mecanismo client-side já usado pelos utilitários — não é dado que precisa ir pro banco) e ficar disponível como sugestão/preenchimento automático ao abrir outro quebra-gelo ou utilitário na mesma visita ao app. Não é sincronizado entre dispositivos nem persiste indefinidamente — é conveniência de sessão, mesmo espírito do restante da camada de utilitários (efêmero, sem escrita em banco).
+
+### Reordenação (implementado como botões de seta, não arraste)
+
+> **Atualizado pós-implementação**: a spec original pedia drag-and-drop. Implementação real testou `@dnd-kit/sortable` em device físico e não funcionou de forma confiável em touch — substituído por botões de seta (←/→), sem biblioteca externa. `@dnd-kit/*` removido do projeto. Mantendo aqui o requisito original (reordenar a lista sem redigitar) como referência do *problema* que a solução resolve — a *forma* de resolver mudou pela realidade de uso em touch.
+
+A lista de nomes no setup precisa suportar reordenação — a ordem da lista É a ordem física de passagem do celular (já definida assim desde o fluxo original). A única forma de fixar a ordem era digitar os nomes na sequência certa desde o início; a reordenação permite ajustar a ordem depois de já ter os nomes (ex: perceber que esqueceu a ordem certa, ou que alguém trocou de lugar) sem precisar apagar e redigitar. Implementado via botões de seta por item da lista, não arraste.
+
+---
+
+## Status de implementação
+
+Segundo `progresso.md` (Fase 3, marcada como concluída pelo Claude Code): fluxo de passagem sequencial, papéis múltiplos, banco de categorias (3 categorias reais já semeadas — Objetos da casa, Animais, Comida), nomes persistentes (localStorage) e reordenação (via botões de seta, não arraste — `@dnd-kit` testado e descartado por não funcionar de forma confiável em touch) já estão implementados.
+
+**Pendência real remanescente**: o bug do Artista Impostor rodando pela lógica de sorteio de atribuição escondida em vez de sorteio de papel especial — ver seção "Correção — modelo Artista Impostor é diferente do modelo Detetive" acima. Carlos vai levar esta correção ao Claude Code como instrução específica.

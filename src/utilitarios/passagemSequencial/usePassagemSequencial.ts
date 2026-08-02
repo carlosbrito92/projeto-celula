@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { resolverParticipantes } from './resolverParticipantes';
+import { lerNomesPersistidos, salvarNomesPersistidos } from '../nomesPersistentes';
 
 type SubFasePassagem = 'aguardando' | 'revelado' | 'confirmando';
 
@@ -17,8 +18,15 @@ type Estado =
  */
 export function usePassagemSequencial() {
   const [quantidade, setQuantidade] = useState(0);
-  const [nomes, setNomes] = useState<string[]>([]);
+  // Inicializa com nomes de uma sessão anterior na mesma visita (docs/spec-privacidade-sorteio.md
+  // § Extensão: nomes persistentes) — cada setNomes() também persiste, ver abaixo.
+  const [nomes, setNomesState] = useState<string[]>(lerNomesPersistidos);
   const [liderParticipa, setLiderParticipa] = useState(false);
+
+  function setNomes(novosNomes: string[]) {
+    setNomesState(novosNomes);
+    salvarNomesPersistidos(novosNomes);
+  }
 
   const [participantes, setParticipantes] = useState<string[]>([]);
   const [valores, setValores] = useState<string[]>([]);
@@ -84,7 +92,11 @@ export function usePassagemSequencial() {
 
   function reiniciar() {
     setQuantidade(0);
-    setNomes([]);
+    // setNomesState, não setNomes: reiniciar zera o estado local deste widget,
+    // mas não deve apagar a lista persistida (docs/spec-privacidade-sorteio.md
+    // § Extensão: nomes persistentes) — é conveniência da sessão, não algo
+    // que resetar um único sorteio deva descartar pro próximo utilitário.
+    setNomesState([]);
     setLiderParticipa(false);
     setParticipantes([]);
     setValores([]);

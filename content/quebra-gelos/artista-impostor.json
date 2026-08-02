@@ -1,22 +1,47 @@
 {
   "nome": "Artista Impostor",
   "tipo": "instrucional_utilitario",
-  "utilitario": "Sorteador de nome/palavra + sorteador de papel especial (impostor) — protótipo da V2 multiplayer",
+  "utilitario": "Sorteador de papel especial (impostor + palavra compartilhada) — protótipo da V2 multiplayer",
   "conteudo": {
     "icone": "palette",
     "utilitarios_inline": [
       {
-        "utilitario_tipo": "sorteio_atribuicao",
-        "rotulo_acao": "Sortear palavra",
-        "eyebrow": "Antes de começar"
-      },
-      {
         "utilitario_tipo": "sorteio_papel",
-        "rotulo_acao": "Sortear impostor",
-        "papeis": [
+        "rotulo_acao": "Sortear",
+        "eyebrow": "Antes de começar",
+        "categorias": [
           {
-            "nome": "Impostor",
-            "quantidade": 1
+            "nome": "Objetos da casa",
+            "palavras": [
+              "Casa", "Cadeira", "Mesa", "Cama", "Porta", "Janela", "Escada", "Sofá",
+              "Geladeira", "Fogão", "Chuveiro", "Espelho", "Relógio", "Vassoura",
+              "Panela", "Copo", "Garfo", "Chave", "Lâmpada", "Travesseiro",
+              "Guarda-chuva", "Telefone", "Livro", "Vaso de planta", "Quadro na parede",
+              "Toalha", "Escova de dente", "Sabonete", "Cortina", "Ventilador",
+              "Tapete", "Caixa de correio"
+            ]
+          },
+          {
+            "nome": "Animais",
+            "palavras": [
+              "Gato", "Cachorro", "Elefante", "Borboleta", "Peixe", "Passarinho",
+              "Cavalo", "Vaca", "Porco", "Galinha", "Coelho", "Tartaruga",
+              "Cobra", "Aranha", "Formiga", "Abelha", "Leão", "Girafa",
+              "Macaco", "Urso", "Pinguim", "Tubarão", "Polvo", "Coruja",
+              "Sapo", "Caracol", "Camelo", "Zebra", "Canguru", "Ovelha",
+              "Rato", "Pato"
+            ]
+          },
+          {
+            "nome": "Comida",
+            "palavras": [
+              "Pizza", "Bolo", "Sanduíche", "Sorvete", "Banana", "Maçã",
+              "Pão", "Ovo frito", "Pipoca", "Hambúrguer", "Cenoura", "Melancia",
+              "Chocolate", "Suco", "Café", "Salada", "Macarrão", "Queijo",
+              "Uva", "Laranja", "Cachorro-quente", "Torta", "Biscoito", "Presunto",
+              "Milho", "Batata frita", "Churrasco",
+              "Feijão", "Arroz", "Sopa"
+            ]
           }
         ]
       }

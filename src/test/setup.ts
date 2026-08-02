@@ -4,6 +4,7 @@ import { afterEach } from 'vitest';
 
 afterEach(() => {
   cleanup();
+  localStorage.clear();
 });
 
 // jsdom não implementa IntersectionObserver — stub inofensivo para que

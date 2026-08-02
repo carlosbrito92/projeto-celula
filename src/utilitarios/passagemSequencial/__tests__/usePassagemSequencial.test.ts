@@ -113,3 +113,33 @@ describe('usePassagemSequencial', () => {
     expect(result.current.participantes).toEqual([]);
   });
 });
+
+describe('usePassagemSequencial — nomes persistentes entre sessões', () => {
+  it('inicializa nomes a partir do que já estava salvo (aberto por outro widget antes)', () => {
+    localStorage.setItem('projeto-celula:nomes-participantes', JSON.stringify(['Ana', 'Beto']));
+    const { result } = renderHook(() => usePassagemSequencial());
+    expect(result.current.nomes).toEqual(['Ana', 'Beto']);
+  });
+
+  it('setNomes() persiste, disponível pro próximo widget aberto na mesma visita', () => {
+    const { result } = renderHook(() => usePassagemSequencial());
+    act(() => result.current.setNomes(['Carla', 'Duda']));
+    expect(JSON.parse(localStorage.getItem('projeto-celula:nomes-participantes')!)).toEqual([
+      'Carla',
+      'Duda',
+    ]);
+
+    const { result: outroWidget } = renderHook(() => usePassagemSequencial());
+    expect(outroWidget.current.nomes).toEqual(['Carla', 'Duda']);
+  });
+
+  it('reiniciar() zera o estado local do widget mas não apaga a lista persistida', () => {
+    const result = iniciarComParticipantes(2, ['Ana', 'Beto']);
+    act(() => result.current.reiniciar());
+    expect(result.current.nomes).toEqual([]);
+    expect(JSON.parse(localStorage.getItem('projeto-celula:nomes-participantes')!)).toEqual([
+      'Ana',
+      'Beto',
+    ]);
+  });
+});

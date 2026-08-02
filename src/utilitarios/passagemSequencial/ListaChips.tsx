@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { moverPorIndice } from './reordenar';
 import styles from './ListaChips.module.css';
 
 interface ListaChipsProps {
@@ -7,6 +8,14 @@ interface ListaChipsProps {
   placeholder: string;
 }
 
+/**
+ * Chips com setas pra reordenar — a ordem da lista é a ordem física de
+ * passagem do celular (docs/spec-privacidade-sorteio.md § Extensão:
+ * reordenação). Era arraste (@dnd-kit/sortable) — testado num device real,
+ * o gesto não completava de forma confiável em touch; trocado por botões de
+ * seta, que não dependem de nenhuma biblioteca e funcionam de forma
+ * previsível em qualquer touchscreen.
+ */
 export function ListaChips({ itens, onChange, placeholder }: ListaChipsProps) {
   const [rascunho, setRascunho] = useState('');
 
@@ -21,12 +30,36 @@ export function ListaChips({ itens, onChange, placeholder }: ListaChipsProps) {
     onChange(itens.filter((_, i) => i !== indice));
   }
 
+  function mover(indice: number, direcao: -1 | 1) {
+    onChange(moverPorIndice(itens, indice, indice + direcao));
+  }
+
   return (
     <div className={styles.wrapper}>
       {itens.map((item, i) => (
-        <button key={`${item}-${i}`} type="button" className={styles.chip} onClick={() => remover(i)}>
-          {item} <span aria-hidden="true">✕</span>
-        </button>
+        <div key={`${item}-${i}`} className={styles.chipGrupo}>
+          <button
+            type="button"
+            className={styles.seta}
+            onClick={() => mover(i, -1)}
+            disabled={i === 0}
+            aria-label={`Mover "${item}" pra esquerda`}
+          >
+            ←
+          </button>
+          <button type="button" className={styles.chip} onClick={() => remover(i)}>
+            {item} <span aria-hidden="true">✕</span>
+          </button>
+          <button
+            type="button"
+            className={styles.seta}
+            onClick={() => mover(i, 1)}
+            disabled={i === itens.length - 1}
+            aria-label={`Mover "${item}" pra direita`}
+          >
+            →
+          </button>
+        </div>
       ))}
       <input
         className={styles.input}
