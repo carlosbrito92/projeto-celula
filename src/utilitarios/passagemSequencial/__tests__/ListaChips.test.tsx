@@ -41,3 +41,29 @@ describe('ListaChips', () => {
     expect(onChange).toHaveBeenCalledWith(['Beto']);
   });
 });
+
+describe('ListaChips — reordenar por seta (não mais arraste, ver CLAUDE.md)', () => {
+  it('seta pra direita move o item uma posição adiante', () => {
+    const onChange = vi.fn();
+    render(<ListaChips itens={['Ana', 'Beto', 'Carla']} onChange={onChange} placeholder="nome" />);
+    fireEvent.click(screen.getByLabelText('Mover "Ana" pra direita'));
+    expect(onChange).toHaveBeenCalledWith(['Beto', 'Ana', 'Carla']);
+  });
+
+  it('seta pra esquerda move o item uma posição atrás', () => {
+    const onChange = vi.fn();
+    render(<ListaChips itens={['Ana', 'Beto', 'Carla']} onChange={onChange} placeholder="nome" />);
+    fireEvent.click(screen.getByLabelText('Mover "Carla" pra esquerda'));
+    expect(onChange).toHaveBeenCalledWith(['Ana', 'Carla', 'Beto']);
+  });
+
+  it('primeiro item não tem seta pra esquerda habilitada', () => {
+    render(<ListaChips itens={['Ana', 'Beto']} onChange={() => {}} placeholder="nome" />);
+    expect(screen.getByLabelText('Mover "Ana" pra esquerda')).toBeDisabled();
+  });
+
+  it('último item não tem seta pra direita habilitada', () => {
+    render(<ListaChips itens={['Ana', 'Beto']} onChange={() => {}} placeholder="nome" />);
+    expect(screen.getByLabelText('Mover "Beto" pra direita')).toBeDisabled();
+  });
+});

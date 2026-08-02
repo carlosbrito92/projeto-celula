@@ -1,15 +1,23 @@
-import { arrayMove } from '@dnd-kit/sortable';
-
 /**
- * Lógica pura de reordenação por arraste — separada do wiring do dnd-kit
- * (DndContext/sensors) pra ser testável sem simular gestos de ponteiro em
- * jsdom. Os ids em ListaChips são o índice de cada item convertido pra
- * string, então mover por id é o mesmo que mover por índice.
+ * Reordenação por seta (não mais arraste — @dnd-kit/sortable testado em
+ * device real e não funcionou de forma confiável em touch; ver hurdle em
+ * CLAUDE.md). Lógica pura, separada da UI, mesmo padrão de shuffle.ts/
+ * resolverParticipantes.ts.
  */
-export function moverPorIndice(itens: string[], idOrigem: string, idDestino: string): string[] {
-  const de = Number(idOrigem);
-  const para = Number(idDestino);
-  if (!Number.isInteger(de) || !Number.isInteger(para) || de === para) return itens;
-  if (de < 0 || de >= itens.length || para < 0 || para >= itens.length) return itens;
-  return arrayMove(itens, de, para);
+export function moverPorIndice(itens: string[], indiceOrigem: number, indiceDestino: number): string[] {
+  if (
+    !Number.isInteger(indiceOrigem) ||
+    !Number.isInteger(indiceDestino) ||
+    indiceOrigem === indiceDestino ||
+    indiceOrigem < 0 ||
+    indiceOrigem >= itens.length ||
+    indiceDestino < 0 ||
+    indiceDestino >= itens.length
+  ) {
+    return itens;
+  }
+  const copia = [...itens];
+  const [removido] = copia.splice(indiceOrigem, 1);
+  copia.splice(indiceDestino, 0, removido);
+  return copia;
 }
