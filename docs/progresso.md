@@ -51,14 +51,14 @@ Infraestrutura mínima antes de qualquer feature visível.
 
 Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
 
-## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída, exceto troca de ícones)
+## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída)
 
 - [x] Modelar tabela(s) Supabase para quebra-gelos — já coberta pela migração da Fase 1 (`quebra_gelos`, `tipo` com 3 valores incluindo `utilitario` puro); nenhuma migração nova foi necessária
 - [x] Implementar os três utilitários como módulos isolados (sorteador nome/palavra, sorteador de papel, contador/cronômetro) — `src/utilitarios/`. Sorteador de atribuição e sorteador de papel compartilham o **fluxo de privacidade sequencial** ("passar o celular": setup → passagem revelar/confirmar/próximo por pessoa → gestão do líder com valores ocultos) especificado em `docs/spec-privacidade-sorteio.md` — decisão que chegou depois do plano original de Fase 3 e substituiu o desenho inicial (que tinha os dois widgets com comportamentos de privacidade diferentes)
 - [x] Implementar tela de catálogo de utilitários (`/utilitarios`) + tela standalone por utilitário (`/utilitarios/:id`) — aba 100% funcional, `tipo='utilitario'` na mesma tabela de quebra-gelos
 - [x] Implementar tela de catálogo de quebra-gelos (`/quebra-gelos`, com pills Todos/Só leitura/Com sorteio) + tela de detalhe (`/quebra-gelos/:id`) com utilitário(s) embutido(s) inline como overlay — reaproveita os widgets de `/utilitarios` sem duplicar lógica
-- [x] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote, `docs/projeto-celula.md` §5.3) — regras/jogadores/idade/duração não existem ainda como conteúdo real; seed só com nome/tipo/utilitário/ícone/`utilitarios_inline` (dado já decidido), fallback "Detalhes em breve" no resto. Achado ao popular: `SorteioPapel` precisou tratar `papeis` preset como valor inicial editável (não override fixo) — um preset parcial como "Detetive × 1" não bate a soma com o total de participantes sem completar via editor, já que a contagem só é conhecida em tempo real
-- [ ] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — adiado para PR separado (`lucide-react` não instalado, 2 nomes de ícone não confirmados no fork)
+- [x] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote, `docs/projeto-celula.md` §5.3) — regras/jogadores/idade/duração populados para os 9; Artista Impostor também ganhou `dica` (campo novo em `QuebraGeloJogoConteudo`, ver `CLAUDE.md` "Decisões de arquitetura (Fase 3)"), renderizado como callout na tela de Detalhe. Achado ao popular: `SorteioPapel` precisou tratar `papeis` preset como valor inicial editável (não override fixo) — um preset parcial como "Detetive × 1" não bate a soma com o total de participantes sem completar via editor, já que a contagem só é conhecida em tempo real
+- [x] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — vendorizados em `src/icons/lucide/` (ver `CLAUDE.md` "Decisões de arquitetura (Sistema de ícones)")
 
 ## Fase 4 — Polimento V1 (não iniciada)
 
