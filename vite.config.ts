@@ -9,6 +9,18 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
+      workbox: {
+        // playroomkit (chunk Lobby-*.js, protótipo V2 em /v2/quem-sou-eu) é
+        // ~800kB, e puxa o SDK do Discord (peer dep opcional que não usamos,
+        // vira o chunk output-*.js) — nenhum dos dois faz sentido pré-cachear
+        // pra todo usuário da V1 que nunca visita essa rota. Fora do
+        // precache; se alguém abrir /v2 mesmo assim, carrega sob demanda e o
+        // navegador cacheia normal. Nomes de chunk são auto-gerados — se o
+        // precache crescer de novo inesperadamente depois de mexer em
+        // dependências, procurar chunk novo só alcançável a partir de
+        // Lobby.js e adicionar aqui.
+        globIgnores: ['**/Lobby-*.js', '**/output-*.js'],
+      },
       manifest: {
         name: 'Projeto Célula',
         short_name: 'Célula',
