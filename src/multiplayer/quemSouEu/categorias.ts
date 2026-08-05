@@ -1,0 +1,130 @@
+export interface Categoria {
+  nome: string;
+  palavras: string[];
+}
+
+/**
+ * Bancos de nomes por categoria pro Quem Sou Eu (V2) — aprovados por Carlos
+ * em 2026-08-05. Critério: personagens amplamente reconhecíveis, adequados
+ * pra todas as idades numa célula, sem entradas ambíguas/difíceis de
+ * "incorporar" na brincadeira. "Cultura pop" removida por misturar
+ * personagens fictícios com pessoas históricas/contemporâneas reais — se
+ * pessoas reais entrarem no futuro, viram categoria própria, com critério
+ * próprio (não misturada com ficção).
+ *
+ * Ainda não consumido por nenhuma UI — substitui VALORES_PLACEHOLDER de
+ * Lobby.tsx quando o seletor de categoria for implementado.
+ */
+export const CATEGORIAS: Categoria[] = [
+  {
+    nome: 'Figuras bíblicas',
+    palavras: [
+      'Moisés',
+      'Noé',
+      'Davi',
+      'Golias',
+      'Sansão',
+      'Daniel',
+      'Ester',
+      'Rute',
+      'José',
+      'Abraão',
+      'Sara',
+      'Jó',
+      'Elias',
+      'Eliseu',
+      'Jonas',
+      'Gideão',
+      'Débora',
+      'Salomão',
+      'Pedro',
+      'João Batista',
+      'Maria Madalena',
+      'Judas',
+      'Tomé',
+      'Paulo',
+      'Zaqueu',
+      'Nicodemos',
+      'Marta',
+      'Lázaro',
+      'Barrabás',
+      'Herodes',
+      'Betsabá',
+      'Jezabel',
+    ],
+  },
+  {
+    nome: 'Personagens de desenho animado',
+    palavras: [
+      'Mickey Mouse',
+      'Bob Esponja',
+      'Homer Simpson',
+      'Patolino',
+      'Pernalonga',
+      'Scooby-Doo',
+      'Pica-Pau',
+      'Popeye',
+      'Tom e Jerry',
+      'Pateta',
+      'Cebolinha',
+      'Mônica',
+      'Chapolin Colorado',
+      'Chaves',
+      'Pink Panther',
+      'Betty Boop',
+      'Shrek',
+      'Woody (Toy Story)',
+      'Buzz Lightyear',
+      'Nemo',
+      'Simba',
+      'Mufasa',
+      'Aladdin',
+      'Rapunzel',
+      'Elsa',
+      'Olaf',
+      'Dory',
+      'Mowgli',
+      'Tarzan',
+      'Pinóquio',
+      'Peter Pan',
+      'Alice no País das Maravilhas',
+    ],
+  },
+  {
+    nome: 'Animais',
+    palavras: [
+      'Leão',
+      'Elefante',
+      'Girafa',
+      'Macaco',
+      'Águia',
+      'Coruja',
+      'Pinguim',
+      'Urso',
+      'Tubarão',
+      'Golfinho',
+      'Cavalo',
+      'Zebra',
+      'Panda',
+      'Coala',
+      'Canguru',
+      'Tartaruga',
+      'Camaleão',
+      'Raposa',
+      'Lobo',
+      'Coelho',
+      'Esquilo',
+      'Ouriço',
+      'Papagaio',
+      'Flamingo',
+      'Polvo',
+      'Estrela-do-mar',
+      'Rinoceronte',
+      'Hipopótamo',
+      'Foca',
+      'Morcego',
+      'Camelo',
+      'Avestruz',
+    ],
+  },
+];
