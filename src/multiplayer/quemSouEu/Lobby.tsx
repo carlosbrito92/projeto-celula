@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { insertCoin, isHost, myPlayer, onPlayerJoin, usePlayersList } from 'playroomkit';
+import { getRoomCode, insertCoin, isHost, myPlayer, onPlayerJoin, usePlayersList } from 'playroomkit';
 import { criarDistribuidorIncremental } from '../distribuicaoIncremental';
 
 /**
@@ -35,7 +35,11 @@ export function QuemSouEuLobby() {
       const valor = distribuidor.proximo();
       if (valor) jogador.setState('valorAtribuido', valor);
     });
-    await insertCoin();
+    // ?sala=<código> — mesmo mecanismo que o QR nativo entrega via URL, só
+    // que explícito. Útil pra QA (testar re-scan/reconexão sem decodificar
+    // QR) e como fallback de convite por texto/link compartilhado.
+    const sala = new URLSearchParams(window.location.search).get('sala') ?? undefined;
+    await insertCoin({ roomCode: sala });
     setEntrou(true);
   };
 
@@ -54,6 +58,7 @@ export function QuemSouEuLobby() {
     return (
       <div style={{ padding: 24 }}>
         <h1>Sala criada</h1>
+        <p>Código: {getRoomCode()}</p>
         <p>{jogadores.length} participante(s) na sala.</p>
         <ul>
           {jogadores.map((jogador) => (
