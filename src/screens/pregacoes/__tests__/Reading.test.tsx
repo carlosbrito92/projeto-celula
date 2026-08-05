@@ -19,6 +19,10 @@ const conteudo: PregacaoConteudo = {
       },
     },
     frase_sintese: 'Frase de abertura.',
+    versiculo_ancora: {
+      referencia: 'Efésios 2.8-9 — Texto-âncora',
+      texto: 'Porque pela graça sois salvos, mediante a fé.',
+    },
   },
   mapa_pontos: [
     { id: 'bloco-0', numero: '·', titulo: 'Quem É a Graça?' },
@@ -109,6 +113,15 @@ describe('Reading', () => {
     expect(screen.getByText('Antídoto')).toBeInTheDocument();
     expect(screen.getByText('Status')).toBeInTheDocument();
     expect(screen.getByText('Instável')).toBeInTheDocument();
+  });
+
+  it('renderiza banner_intro.versiculo_ancora entre a frase-síntese e o índice', async () => {
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    expect(
+      screen.getByText('“Porque pela graça sois salvos, mediante a fé.”'),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Efésios 2.8-9 — Texto-âncora')).toBeInTheDocument();
   });
 
   it('FAB aparece quando o índice sai da viewport — regressão: o observer precisa se anexar ao elemento real, não a um ref nulo capturado durante o estado de carregamento', async () => {

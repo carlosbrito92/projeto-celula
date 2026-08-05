@@ -117,6 +117,45 @@
   color: var(--text);
 }
 
+.contraste {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.contrasteLado {
+  padding: 16px;
+  border-top: 3px solid var(--accent-alert);
+  background: var(--surface2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contrasteLadoB {
+  border-top-color: var(--accent1);
+}
+
+.contrasteLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contrasteTitulo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contrasteTexto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .analogia {
   background: var(--surface2);
   border-left: 3px solid var(--muted);

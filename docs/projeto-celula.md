@@ -19,6 +19,10 @@ Uma **plataforma unificada** (web app instalável) que hospeda:
 
 Web app único, empacotado via **Capacitor** para funcionar tanto como PWA instalável quanto como build nativo para Android e iOS — uma única base de código, sem manter apps separados por plataforma.
 
+**Canal principal: PWA.** Decisão fechada após avaliar update automático: distribuir o build nativo (APK) manualmente exigiria reinstalação a cada deploy — o mesmo tipo de atrito que motivou o projeto inteiro (ver problema original do HTML que quebra ao ser baixado, acima). Publicar em loja (Google Play/App Store) resolveria isso, mas exige conta de desenvolvedor, review a cada versão, e (se quiser update fora do ciclo de review) contratar um provedor de OTA/Live Updates de terceiro — mercado fragmentado e instável em 2026 (Ionic Appflow, a solução oficial, está sendo descontinuada; App Center também). PWA instalado direto do navegador atualiza sozinho a cada visita, sem loja, sem terceiro, sem custo — e já estava previsto desde a concepção do projeto.
+
+**Build nativo (Capacitor→APK/loja): canal secundário.** Mantido para quem quiser um "app de verdade" instalado, ou como caminho futuro caso o projeto cresça a ponto de valer a pena publicar em loja — nesse cenário, reavaliar um provedor de Live Updates pago (ex: Capgo, OtaKit) como custo operacional normal, não como algo a resolver gratuitamente.
+
 ---
 
 ## 2. Público e acesso
@@ -123,11 +127,11 @@ Peças reutilizáveis entre múltiplos quebra-gelos, com valor mesmo antes de qu
 
 - **Frontend**: React + Capacitor (build único para Android, iOS e PWA — decisão de distribuição já fixada na seção 1).
 - **Backend + banco**: Neon (Postgres puro) desde 2026-08-01, acessado via Vercel Serverless Functions (`api/pregacoes/*`, `api/quebra-gelos/*`). Antes disso, Supabase — a escolha original (linha abaixo) continua válida como justificativa de "por que Postgres com `jsonb`"; o que mudou foi só o provedor.
-  - **Motivo da troca**: limitações do projeto ativo no Supabase (conta/projeto atingiu restrições que impediam continuar usando normalmente). Neon foi a alternativa escolhida por ser Postgres puro — portar o schema e o conteúdo já existente (`jsonb`, RLS, as mesmas 2 tabelas) não exigiu remodelar nada, só trocar a camada de acesso (de PostgREST/client SDK para Vercel Functions + `@neondatabase/serverless`, já que Neon não expõe REST/auth/realtime prontos como o Supabase). Detalhe técnico completo da migração em `CLAUDE.md` ("Decisões de arquitetura (Migração Neon)" e hurdles de 2026-08-01).
+  - **Motivo da troca**: Supabase free tier permite só 2 projetos ativos por pessoa (não por organização — confirmado que criar uma segunda organização Free não contorna o limite), limite já ocupado por outros projetos de Carlos, sem orçamento disponível pro Pro ($25/mês). Neon foi escolhido entre as alternativas Postgres gratuitas avaliadas (Railway: sem tier grátis permanente, é crédito de teste; Render: banco free expira em 30 dias e é deletado) por ser o único com tier gratuito permanente de verdade, e por ser Postgres puro — portar o schema e o conteúdo já existente (`jsonb`, RLS, as mesmas 2 tabelas) não exigiu remodelar nada, só trocar a camada de acesso (de PostgREST/client SDK para Vercel Functions + `@neondatabase/serverless`, já que Neon não expõe REST/auth/realtime prontos como o Supabase). Detalhe técnico completo da migração em `CLAUDE.md` ("Decisões de arquitetura (Migração Neon)" e hurdles de 2026-08-01).
   - **Auth anônima do Supabase nunca chegou a ser usada de fato** (confirmado ao migrar: zero chamada `supabase.auth.*` em qualquer lugar do código) — "sem login tradicional" sempre foi resolvido por não ter auth nenhuma, não por uma feature de auth anônima ativa. Isso não muda com Neon.
   - **Realtime nativo do Supabase, cotado para a V2 multiplayer, precisa de mecanismo novo** — Neon não tem equivalente nativo (WebSocket/pub-sub gerenciado). Vira decisão em aberto (ver seção 8) em vez de escolha já resolvida.
 - **Hospedagem**: Vercel para o frontend e para o backend (Serverless Functions); Neon hospeda só o banco.
-- **Alternativa descartada (histórico, na escolha original Supabase vs. outros)**: Firebase cobriria auth+banco+realtime da mesma forma, mas seu modelo NoSQL é menos confortável para consultas estruturadas (busca por série, palavra-chave) do que Postgres/jsonb — descartado.
+- **Alternativa descartada (histórico, na escolha original Supabase vs. outros, e reconfirmada na reavaliação pós-limite do Supabase)**: Firebase cobriria auth+banco+realtime da mesma forma, mas seu modelo NoSQL é menos confortável para consultas estruturadas (busca por série, palavra-chave) do que Postgres/jsonb — trocar para NoSQL exigiria reescrever RLS como Firestore Security Rules e remodelar o JSON de pregação pro limite de profundidade de documento do Firestore, custo desproporcional ao problema real (limite de projetos), que uma alternativa Postgres resolve sem reescrita. Descartado nas duas ocasiões.
 
 ### Segurança
 
@@ -160,7 +164,7 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 
 - ~~Estrutura de dados definitiva do JSON de saída das pregações~~ — resolvida e implementada (`src/content/types.ts`), validada com as 4 pregações reais de calibração já no banco. Ver `geracao-pregacao.md`.
 - ~~Formato do arquivo de tema por série~~ — resolvido e implementado (`src/themes/registry.ts`, 6 temas registrados como dados). Ver `estilos-pregacao.md`.
-- Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima, detalhamento fica para quando a V2 entrar em pauta.
+- Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima. Decisões de produto e mecânica do primeiro jogo (Quem Sou Eu) fechadas, tecnologia (Playroom Kit) com viabilidade confirmada mas 2 pendências não documentadas — ver §10; implementação de código fica para quando a V2 entrar em pauta.
 - **Mecanismo de sincronização real-time da V2, pós-migração para Neon** — a resposta original (Supabase Realtime, WebSocket nativo) não vale mais: Neon não tem equivalente pronto. Opções a avaliar quando a V2 entrar em pauta: WebSockets próprios via alguma plataforma com suporte a conexão persistente (Vercel Serverless Functions não sustentam WebSocket de longa duração), ou um serviço de realtime gerenciado separado (Pusher, Ably, Supabase Realtime "solo" sem o resto do Supabase, etc.). Não bloqueia a V1.
 
 ## 9. Fluxo de geração de conteúdo (decidido)
@@ -168,6 +172,48 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 **O HTML continua sendo gerado no domingo**, via o processo já existente — velocidade e mobilidade importam mais nesse momento do que o formato final. Calibração para JSON acontece depois, sem pressa, sempre nesta conversa (não no Claude Code) — o Claude Code só recebe o JSON já pronto para popular o banco.
 
 **Objetivo explícito da calibração**: não é só extrair conteúdo corretamente — é aproximar ao máximo a qualidade estética do resultado final renderizado à do HTML original. Feedback registrado: o HTML tem direção artística mais agradável que a primeira versão renderizada em JSON (caso do `label_box`/`contextualizacao` ausentes, corrigido). Diagnóstico: a causa raiz não é a extração de conteúdo pontual — é que `estilos-pregacao.md` ainda não captura todo o repertório visual que um HTML bem feito carrega. Cada nova calibração deve ser tratada também como oportunidade de auditar se o sistema de temas está capturando a riqueza visual da fonte, não só o conteúdo teológico.
+
+---
+
+## 10. V2 — Decisões de produto e arquitetura (primeiro jogo: Quem Sou Eu)
+
+Escopo de produto da V2: um jogo por vez em desenvolvimento — **Quem Sou Eu é o primeiro jogo**, não mais o Artista Impostor (prioridade trocada após o desenho da mecânica de QR code abaixo, que resolve Quem Sou Eu de forma mais direta e serve como validação do lobby antes de partir para o Artista Impostor, que tem mais partes móveis — canvas colaborativo, turnos de desenho). Host é quem cria o lobby, sem regra fixa de que precise ser sempre "o líder" da V1.
+
+### Decisões de produto fechadas
+
+- **Líder pode participar do jogo sem vazamento.** Diferente da V1 (onde quem configura o setup corre risco de ver dados sensíveis antes do sorteio), na V2 a atribuição acontece no servidor/estado sincronizado — o host nunca precisa "ver" os valores dos outros para configurar a partida. Resolve de raiz a classe de bug que apareceu duas vezes na V1 (Artista Impostor e Quem Sou Eu).
+- **Revelação simultânea, não sequencial.** A V1 usa o fluxo de passagem sequencial (`spec-privacidade-sorteio.md`) porque só existe um celular físico circulando. Na V2, cada participante tem o próprio celular conectado à sessão — não há razão para fila de revelação um por vez. Todos veem seu próprio resultado ao mesmo tempo, cada um na própria tela.
+- **Desconexão: o jogo continua sem a pessoa, com chance de reconectar.** Se um participante perde conexão ou sai, a partida segue para os demais — o estado dela permanece na sessão por um tempo, permitindo retomar se for problema de conexão (não é descartada imediatamente).
+
+### Mecânica do primeiro jogo — Quem Sou Eu via QR code
+
+Desenhada por Carlos, resolve o vazamento de valores para o organizador sem exigir fluxo de passagem de celular:
+
+1. Organizador escolhe a categoria e toca em Sortear — o servidor/estado da sessão já decide os valores que serão distribuídos, mas ainda sem atrelar a nenhuma pessoa física.
+2. Um QR code aparece na tela do organizador — é a **porta de entrada da sessão de rede** (fixo durante a partida, não muda a cada leitura), não carrega a palavra em si.
+3. Cada participante escaneia o mesmo QR code com o próprio celular — ao entrar na sessão, o servidor atribui a essa pessoa um dos valores ainda não distribuídos, por ordem de chegada (mecanismo padrão de estado sincronizado multiplayer — é o gancho `onPlayerJoin` do Playroom Kit, ver "Tecnologia" abaixo).
+4. No celular de quem escaneou: aviso de alguns segundos → instrução "coloque o celular na sua testa" → a palavra aparece em caixa alta, orientação horizontal, ocupando a tela — réplica digital do post-it na testa do jogo original.
+5. **Variante com organizador participando**: se o organizador quiser jogar também, depois de escanear e ver a instrução de 3 segundos, a palavra pode ficar oculta e a pessoa tentando adivinhar "toca" na testa da outra pessoa (segurando o próprio celular na própria testa) para revelar — mecânica ainda a detalhar na prática, mas o princípio (visibilidade controlada por interação, não por quem configurou) já está definido.
+
+**Importante**: o QR code não é "o valor" — é o link de entrada da sala. A atribuição de valores por pessoa acontece no momento em que cada participante entra na sessão, gerenciada pelo estado compartilhado da partida, não pelo QR code em si (que permanece fixo).
+
+### Tecnologia para lobby + sincronização
+
+Duas opções avaliadas, ambas resolvem sincronização de estado entre celulares diferentes:
+
+- **Playroom Kit** (joinplayroom.com) — **escolhido como caminho principal, viabilidade técnica confirmada em 2026-08-05** lendo a documentação oficial. "Zero server setup": o SDK cuida da camada de rede/estado compartilhado, sem precisar hospedar/manter servidor próprio. Modelo host-autoritativo, `onPlayerJoin` e `reconnectGracePeriod` encaixam exatamente com as decisões de produto fechadas acima — detalhe técnico completo em `CLAUDE.md`. Duas pendências não confirmadas pela documentação (comportamento de re-scan duplicado do QR; se sala/QR expira sozinha) não bloqueiam o planejamento, mas precisam resposta antes de implementar de verdade — ver `CLAUDE.md`. Já tem template de referência para Pictionary (mecânica de desenho colaborativo, útil para quando o Artista Impostor entrar em desenvolvimento). Funciona com React nativamente. Free tier descrito como "generous" — limites reais não confirmados em detalhe, avaliar quando o desenvolvimento real começar.
+- **Colyseus** (colyseus.io) — **alternativa documentada, não escolhida agora**. Open source, framework de servidor de jogo Node.js com estado autoritativo — mais robusto para lógica de servidor complexa (turnos validados, anti-trapaça), mas exige hospedar/manter um servidor (mesmo via Colyseus Cloud gerenciado, que tem free tier). Descartado como primeira escolha por adicionar mais uma peça de infraestrutura a manter, no mesmo período em que o projeto já lida com a fricção de limites de plano gratuito (ver migração Neon, §7). Revisitar se Playroom Kit não atender bem na prática.
+
+### Achado paralelo — não é a V2, mas vale como feature própria
+
+**`KnotzerIO/find-the-impostor`** (github.com/KnotzerIO/find-the-impostor, licença MIT) — jogo de "impostor não sabe a palavra secreta" (variante diferente do Artista Impostor: aqui não há desenho colaborativo, é revelação de palavra + rodadas de pista falada + votação). Interessante não pela tecnologia (Next.js + Zustand + Dexie/IndexedDB — stack diferente da do projeto) mas pelo **fluxo de UX**: setup de jogadores → atribuição de papéis → "players take turns looking at their phone/device privately" → discussão → votação — muito próximo do `spec-privacidade-sorteio.md` já implementado na V1. É **local-first** (sem rede, sem servidor), não multiplayer de verdade — por isso não resolve o problema técnico da V2, mas é candidato a **feature própria futura** quando o app for divulgado mais amplamente, como evolução natural da V1 sem precisar de nenhuma infraestrutura de rede nova.
+
+### Pendências (não bloqueiam, ainda não são spec de implementação)
+
+- Detalhamento de interação da variante "toca na testa do outro" (organizador participando).
+- Timeout do aviso "coloque na testa" (fixo em X segundos? ajustável?) e se a palavra some sozinha depois de aparecer ou fica até interação.
+- Comportamento se alguém escaneia sem que o organizador tenha aberto o QR ainda, ou outros edge cases de ordem de operações que só devem aparecer testando de verdade.
+- As duas pendências técnicas do Playroom Kit (re-scan duplicado do QR; expiração de sala/QR) — ver "Tecnologia para lobby + sincronização" acima e detalhe completo em `CLAUDE.md`.
 
 ---
 

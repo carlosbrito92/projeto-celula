@@ -4,6 +4,22 @@
   "utilitario": "Sorteador de nome/palavra + sorteador de papel especial (impostor) — protótipo da V2 multiplayer",
   "conteudo": {
     "icone": "palette",
+    "regras": [
+      "3 a 10 jogadores — funciona melhor com 5 a 8.",
+      "Vocês vão precisar de papel e caneta compartilhados entre o grupo — todos desenham na mesma folha.",
+      "Escolham a categoria da rodada e toquem em Sortear no papel especial. O app escolhe em segredo quem será o impostor.",
+      "Cada jogador vê seu resultado individualmente, sem que os outros saibam — passem o celular normalmente, do jeito que já estão acostumados.",
+      "Todos, exceto o impostor, veem o mesmo objeto secreto para desenhar. O impostor não sabe o que é.",
+      "Os jogadores se revezam desenhando UMA LINHA de cada vez, sem tirar a caneta do papel, continuando o desenho em conjunto.",
+      "O impostor deve fingir que sabe o que está desenhando, imitando o estilo dos outros sem levantar suspeita.",
+      "Depois que cada jogador tiver contribuído duas vezes, a rodada de desenho termina e a votação começa.",
+      "Discutam e apontem quem parece suspeito antes de votar.",
+      "Todos votam ao mesmo tempo, apontando para a pessoa escolhida — quem receber a maioria dos votos é a decisão do grupo.",
+      "Os artistas reais vencem se a maioria dos votos acertar o verdadeiro impostor.",
+      "O impostor vence se a maioria dos votos cair sobre outra pessoa.",
+      "Joguem quantas rodadas quiserem, sorteando um novo impostor a cada vez."
+    ],
+    "dica": "O impostor deve observar os outros com atenção e copiar o estilo de desenho deles. Quem não é impostor deve ser específico, mas não óbvio — muito detalhe ajuda o impostor a se camuflar.",
     "utilitarios_inline": [
       {
         "utilitario_tipo": "sorteio_atribuicao",

@@ -69,6 +69,32 @@
   color: var(--muted);
 }
 
+.versiculoAncora {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.versiculoAncoraTexto {
+  font-family: var(--font-corpo);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.92;
+}
+
+.versiculoAncoraReferencia {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent1);
+}
+
 .indiceLabel {
   font-family: var(--font-mono);
   font-size: 10px;

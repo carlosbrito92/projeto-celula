@@ -67,6 +67,27 @@ describe('ComponenteTemaRenderer', () => {
     expect(screen.getByText('“Já foi feito por você”')).toBeInTheDocument();
   });
 
+  it('renderiza contraste com os dois lados (label + título + texto)', () => {
+    render(
+      <ComponenteTemaRenderer
+        bloco={{
+          tipo: 'componente_tema',
+          variante: 'contraste',
+          dados: {
+            lado_a: { label: 'Agar', titulo: 'Grande Babilônia', texto: 'A Lei.' },
+            lado_b: { label: 'Sara', titulo: 'Nova Jerusalém', texto: 'A Graça.' },
+          },
+        }}
+      />,
+    );
+    expect(screen.getByText('Agar')).toBeInTheDocument();
+    expect(screen.getByText('Grande Babilônia')).toBeInTheDocument();
+    expect(screen.getByText('A Lei.')).toBeInTheDocument();
+    expect(screen.getByText('Sara')).toBeInTheDocument();
+    expect(screen.getByText('Nova Jerusalém')).toBeInTheDocument();
+    expect(screen.getByText('A Graça.')).toBeInTheDocument();
+  });
+
   it('renderiza analogia com múltiplos parágrafos e conclusão', () => {
     render(
       <ComponenteTemaRenderer

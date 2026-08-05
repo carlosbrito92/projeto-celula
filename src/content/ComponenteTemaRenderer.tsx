@@ -3,6 +3,7 @@ import type {
   DadosAnalogia,
   DadosAntidoto,
   DadosBanhoList,
+  DadosContraste,
   DadosDiagnostico,
   DadosHumor,
   DadosLabelBox,
@@ -29,6 +30,8 @@ export function ComponenteTemaRenderer({ bloco }: { bloco: BlocoComponenteTema }
       return <Antidoto dados={bloco.dados as DadosAntidoto} />;
     case 'versus':
       return <Versus dados={bloco.dados as DadosVersus} />;
+    case 'contraste':
+      return <Contraste dados={bloco.dados as DadosContraste} />;
     case 'analogia':
       return <Analogia dados={bloco.dados as DadosAnalogia} />;
     case 'banho_list':
@@ -91,6 +94,27 @@ function Versus({ dados }: { dados: DadosVersus }) {
       <div className={`${styles.versusLado} ${styles.versusLadoB}`}>
         <div className={styles.versusLabel}>{dados.lado_b.label}</div>
         <div className={styles.versusCitacao}>“{dados.lado_b.citacao}”</div>
+      </div>
+    </div>
+  );
+}
+
+function Contraste({ dados }: { dados: DadosContraste }) {
+  return (
+    <div className={styles.contraste}>
+      <div className={styles.contrasteLado}>
+        <div className={styles.contrasteLabel}>{dados.lado_a.label}</div>
+        <div className={styles.contrasteTitulo}>{dados.lado_a.titulo}</div>
+        <div className={styles.contrasteTexto}>
+          <TextoComKeywords texto={dados.lado_a.texto} />
+        </div>
+      </div>
+      <div className={`${styles.contrasteLado} ${styles.contrasteLadoB}`}>
+        <div className={styles.contrasteLabel}>{dados.lado_b.label}</div>
+        <div className={styles.contrasteTitulo}>{dados.lado_b.titulo}</div>
+        <div className={styles.contrasteTexto}>
+          <TextoComKeywords texto={dados.lado_b.texto} />
+        </div>
       </div>
     </div>
   );

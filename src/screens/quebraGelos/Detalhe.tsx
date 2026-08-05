@@ -86,6 +86,13 @@ export function Detalhe({ id }: { id: string }) {
         <div className={styles.semRegras}>Detalhes em breve.</div>
       )}
 
+      {conteudo.dica && (
+        <div className={styles.dica}>
+          <span className={styles.dicaLabel}>Dica</span>
+          <span className={styles.dicaTexto}>{conteudo.dica}</span>
+        </div>
+      )}
+
       {ctaPrincipal && (
         <>
           <button

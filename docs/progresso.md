@@ -47,17 +47,18 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Implementar tela de biblioteca (destaque + lista + busca) — `src/screens/pregacoes/Library.tsx`, busca client-side tolerante a acento
 - [x] Implementar tela de leitura com índice clicável + FAB — `src/screens/pregacoes/Reading.tsx` + `useIndiceFab.ts` (IntersectionObserver + `scrollIntoView`, nunca `href="#id"`)
 - [x] Popular com as pregações já calibradas — os 4 JSONs (`content/pregacoes/`) inseridos via `execute_sql` (RLS bloqueia escrita client-side por design; seed é operação administrativa, não código de app)
+- [x] Nova calibração: "A Religião Te Confundiu" (Religião Tóxica cap. 3, Pastora Anaily) — introduziu 2 gaps reais entre schema documentado e código, corrigidos junto com o conteúdo: `componente_tema` variante `contraste` (documentada em `estilos-pregacao.md`, nunca implementada em `ComponenteTemaRenderer.tsx`) e `banner_intro.versiculo_ancora` (documentado em `geracao-pregacao.md`, nunca existiu no tipo `BannerIntro` nem em `Reading.tsx`). Ver `CLAUDE.md` "Hurdles técnicos".
 
 Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
 
-## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída, exceto troca de ícones)
+## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída)
 
 - [x] Modelar tabela(s) Supabase para quebra-gelos — já coberta pela migração da Fase 1 (`quebra_gelos`, `tipo` com 3 valores incluindo `utilitario` puro); nenhuma migração nova foi necessária
 - [x] Implementar os três utilitários como módulos isolados (sorteador nome/palavra, sorteador de papel, contador/cronômetro) — `src/utilitarios/`. Sorteador de atribuição e sorteador de papel compartilham o **fluxo de privacidade sequencial** ("passar o celular": setup → passagem revelar/confirmar/próximo por pessoa → gestão do líder com valores ocultos) especificado em `docs/spec-privacidade-sorteio.md` — decisão que chegou depois do plano original de Fase 3 e substituiu o desenho inicial (que tinha os dois widgets com comportamentos de privacidade diferentes)
 - [x] Implementar tela de catálogo de utilitários (`/utilitarios`) + tela standalone por utilitário (`/utilitarios/:id`) — aba 100% funcional, `tipo='utilitario'` na mesma tabela de quebra-gelos
 - [x] Implementar tela de catálogo de quebra-gelos (`/quebra-gelos`, com pills Todos/Só leitura/Com sorteio) + tela de detalhe (`/quebra-gelos/:id`) com utilitário(s) embutido(s) inline como overlay — reaproveita os widgets de `/utilitarios` sem duplicar lógica
-- [x] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote, `docs/projeto-celula.md` §5.3) — regras/jogadores/idade/duração não existem ainda como conteúdo real; seed só com nome/tipo/utilitário/ícone/`utilitarios_inline` (dado já decidido), fallback "Detalhes em breve" no resto. Achado ao popular: `SorteioPapel` precisou tratar `papeis` preset como valor inicial editável (não override fixo) — um preset parcial como "Detetive × 1" não bate a soma com o total de participantes sem completar via editor, já que a contagem só é conhecida em tempo real
-- [ ] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — adiado para PR separado (`lucide-react` não instalado, 2 nomes de ícone não confirmados no fork)
+- [x] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote, `docs/projeto-celula.md` §5.3) — regras/jogadores/idade/duração populados para os 9; Artista Impostor também ganhou `dica` (campo novo em `QuebraGeloJogoConteudo`, ver `CLAUDE.md` "Decisões de arquitetura (Fase 3)"), renderizado como callout na tela de Detalhe. Achado ao popular: `SorteioPapel` precisou tratar `papeis` preset como valor inicial editável (não override fixo) — um preset parcial como "Detetive × 1" não bate a soma com o total de participantes sem completar via editor, já que a contagem só é conhecida em tempo real
+- [x] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — vendorizados em `src/icons/lucide/` (ver `CLAUDE.md` "Decisões de arquitetura (Sistema de ícones)")
 
 ## Fase 4 — Polimento V1 (não iniciada)
 
@@ -72,7 +73,7 @@ Arquitetura detalhada fica para quando esta fase entrar em pauta — ver `projet
 
 - [ ] Detalhar arquitetura de lobby via QR code
 - [ ] Detalhar sincronização de estado via Supabase Realtime
-- [ ] Especificar o primeiro mini-jogo (candidato natural: Artista Impostor, já semi-especificado no material original)
+- [x] Especificar o primeiro mini-jogo — **Quem Sou Eu** (trocado do candidato original Artista Impostor: mecânica de QR code resolve Quem Sou Eu mais diretamente e serve de validação do lobby antes do Artista Impostor, que tem mais partes móveis). Decisões de produto fechadas + mecânica de QR code + tecnologia (Playroom Kit) especificadas em `projeto-celula.md` §10. Implementação de código ainda não iniciada.
 
 ---
 
@@ -82,3 +83,4 @@ Arquitetura detalhada fica para quando esta fase entrar em pauta — ver `projet
 - Se uma tarefa nova surgir que não estava prevista aqui, adicionar na fase correspondente (não deixar implícita).
 - Se uma decisão em qualquer outro markdown do projeto mudar o escopo de uma fase, refletir aqui também — este documento deve sempre bater com o estado real dos outros cinco.
 - Fases não têm data fixa nem duração estimada — o ritmo é ditado pelo tempo disponível de Carlos, não por sprint.
+- **Este arquivo é a única fonte de verdade de progresso — nunca deve existir uma segunda cópia editada em paralelo fora do repositório.** Quando Carlos planeja algo fora do Claude Code (spec, decisão, roadmap) e traz o resultado pra incorporar, o material referencia a fase/seção correspondente aqui (ex: "ver Fase 5 — V2 Multiplayer") em vez de carregar sua própria lista de status duplicada. Decidido em 2026-08-05 depois de um desalinhamento real: uma cópia externa mantida por Carlos ainda dizia Fase 3 "não iniciada" enquanto este arquivo já reportava concluída.
