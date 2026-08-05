@@ -73,7 +73,7 @@ Arquitetura detalhada fica para quando esta fase entrar em pauta — ver `projet
 
 - [ ] Detalhar arquitetura de lobby via QR code
 - [ ] Detalhar sincronização de estado via Supabase Realtime
-- [ ] Especificar o primeiro mini-jogo (candidato natural: Artista Impostor, já semi-especificado no material original)
+- [x] Especificar o primeiro mini-jogo — **Quem Sou Eu** (trocado do candidato original Artista Impostor: mecânica de QR code resolve Quem Sou Eu mais diretamente e serve de validação do lobby antes do Artista Impostor, que tem mais partes móveis). Decisões de produto fechadas + mecânica de QR code + tecnologia (Playroom Kit) especificadas em `projeto-celula.md` §10. Implementação de código ainda não iniciada.
 
 ---
 
@@ -83,3 +83,4 @@ Arquitetura detalhada fica para quando esta fase entrar em pauta — ver `projet
 - Se uma tarefa nova surgir que não estava prevista aqui, adicionar na fase correspondente (não deixar implícita).
 - Se uma decisão em qualquer outro markdown do projeto mudar o escopo de uma fase, refletir aqui também — este documento deve sempre bater com o estado real dos outros cinco.
 - Fases não têm data fixa nem duração estimada — o ritmo é ditado pelo tempo disponível de Carlos, não por sprint.
+- **Este arquivo é a única fonte de verdade de progresso — nunca deve existir uma segunda cópia editada em paralelo fora do repositório.** Quando Carlos planeja algo fora do Claude Code (spec, decisão, roadmap) e traz o resultado pra incorporar, o material referencia a fase/seção correspondente aqui (ex: "ver Fase 5 — V2 Multiplayer") em vez de carregar sua própria lista de status duplicada. Decidido em 2026-08-05 depois de um desalinhamento real: uma cópia externa mantida por Carlos ainda dizia Fase 3 "não iniciada" enquanto este arquivo já reportava concluída.
