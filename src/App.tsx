@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { RouterProvider, matchPath, useRouter } from './router/Router';
 import { ThemeScope } from './themes/ThemeScope';
 import { PADRAO_MINC } from './themes/registry';
@@ -8,6 +9,13 @@ import { Catalogo as UtilitarioCatalogo } from './screens/utilitarios/Catalogo';
 import { UtilitarioScreen } from './screens/utilitarios/UtilitarioScreen';
 import { Catalogo as QuebraGeloCatalogo } from './screens/quebraGelos/Catalogo';
 import { Detalhe as QuebraGeloDetalhe } from './screens/quebraGelos/Detalhe';
+
+// Lazy: playroomkit sozinho adiciona ~800kB ao bundle — ninguém que usa a V1
+// deve baixar isso sem nunca visitar /v2. Code-split mantém o chunk principal
+// do tamanho de sempre.
+const QuemSouEuLobby = lazy(() =>
+  import('./multiplayer/quemSouEu/Lobby').then((m) => ({ default: m.QuemSouEuLobby })),
+);
 
 function Screens() {
   const { path } = useRouter();
@@ -26,14 +34,32 @@ function Screens() {
   return <Library />;
 }
 
+// V2 fica fora do AppShell/ThemeScope da V1 (sem tab bar, sem tema definido
+// ainda) — protótipo isolado, alcançável só por URL direta enquanto não
+// entra no roteamento real do produto.
+function Root() {
+  const { path } = useRouter();
+  if (path === '/v2/quem-sou-eu') {
+    return (
+      <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
+        <QuemSouEuLobby />
+      </Suspense>
+    );
+  }
+
+  return (
+    <ThemeScope tema={PADRAO_MINC}>
+      <AppShell>
+        <Screens />
+      </AppShell>
+    </ThemeScope>
+  );
+}
+
 export default function App() {
   return (
     <RouterProvider>
-      <ThemeScope tema={PADRAO_MINC}>
-        <AppShell>
-          <Screens />
-        </AppShell>
-      </ThemeScope>
+      <Root />
     </RouterProvider>
   );
 }
