@@ -86,6 +86,30 @@
   color: var(--text);
 }
 
+.dica {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent1);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dicaLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent1);
+}
+
+.dicaTexto {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .semRegras {
   color: var(--muted);
   font-size: 14px;

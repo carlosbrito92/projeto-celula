@@ -246,6 +246,8 @@ export interface QuebraGeloJogoConteudo {
   duracao_minutos?: number;
   /** Passos numerados. Ausente => tela de Detalhe renderiza "Detalhes em breve". */
   regras?: string[];
+  /** Sugestão de estratégia/jogabilidade, renderizada como callout após as regras — distinta de uma regra que o jogo exige. */
+  dica?: string;
   utilitarios_inline?: UtilitarioInlineRef[];
 }
 
