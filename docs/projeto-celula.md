@@ -212,7 +212,7 @@ Duas opções avaliadas, ambas resolvem sincronização de estado entre celulare
 
 - Detalhamento de interação da variante "toca na testa do outro" (organizador participando) — organizador ainda não participa da rodada na primeira implementação (2026-08-05), só conduz.
 - ~~Timeout do aviso "coloque na testa"~~ — implementado fixo em 3 segundos (`useCountdown`, não ajustável ainda). Ainda em aberto: se a palavra some sozinha depois de aparecer ou fica até interação — hoje fica revelada indefinidamente, sem essconder de volta.
-- **Direção da rotação da tela de revelação (`rotate(90deg)` vs `-90deg`) é um chute, não testado em device físico** — depende de qual sentido a pessoa gira o celular pra segurar na testa; pode sair ilegível pra quem olha se for o sentido errado. Corrigir com 1 linha de CSS assim que testado.
+- ~~Direção da rotação da tela de revelação~~ — testado em device físico e confirmado: `rotate(-90deg)`. Ver `CLAUDE.md`.
 - Comportamento se alguém escaneia sem que o organizador tenha aberto o QR ainda, ou outros edge cases de ordem de operações que só devem aparecer testando de verdade.
 
 ---

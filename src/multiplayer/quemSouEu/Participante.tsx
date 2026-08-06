@@ -71,7 +71,9 @@ export function Participante() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        transform: 'rotate(90deg)',
+        // Direção confirmada em device físico (2026-08-06) — rotate(90deg)
+        // saía ilegível pra quem olha de frente, -90deg é o certo.
+        transform: 'rotate(-90deg)',
         transformOrigin: 'center center',
       }}
     >
