@@ -249,6 +249,13 @@ export interface QuebraGeloJogoConteudo {
   /** Sugestão de estratégia/jogabilidade, renderizada como callout após as regras — distinta de uma regra que o jogo exige. */
   dica?: string;
   utilitarios_inline?: UtilitarioInlineRef[];
+  /**
+   * Caminho da versão multiplayer via QR code (V2), se este jogo tiver uma —
+   * hoje só "Quem Sou Eu" (`/v2/quem-sou-eu`). Vira um botão "Jogar pelo
+   * Celular" ao final da tela de Detalhe, opção adicional que coexiste com
+   * `utilitarios_inline` (V1) — não substitui.
+   */
+  jogar_pelo_celular?: string;
 }
 
 /** conteudo das linhas tipo='utilitario' — as 3 ferramentas em si, aba Utilitários. */
