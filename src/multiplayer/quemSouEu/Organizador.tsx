@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { getRoomCode, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
+import { Link } from '../../router/Router';
+import { ThemeScope } from '../../themes/ThemeScope';
+import { PADRAO_MINC } from '../../themes/registry';
 import { CATEGORIAS, type Categoria } from './categorias';
 import { criarDistribuidorIncremental } from '../distribuicaoIncremental';
 import { QrCode } from './QrCode';
+import styles from './Organizador.module.css';
 
 type Fase = 'categoria' | 'sala' | 'jogo';
 
@@ -47,45 +51,81 @@ export function Organizador() {
     setFase('jogo');
   };
 
-  if (fase === 'categoria') {
-    return (
-      <div style={{ padding: 24 }}>
-        <h1>Quem Sou Eu — organizador</h1>
-        <p>Escolha a categoria:</p>
-        {CATEGORIAS.map((cat) => (
-          <div key={cat.nome} style={{ marginBottom: 8 }}>
-            <button type="button" onClick={() => sortear(cat)}>
-              {cat.nome}
-            </button>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  if (fase === 'sala') {
-    return (
-      <div style={{ padding: 24 }}>
-        <h1>Sala criada</h1>
-        <p>Categoria: {categoria?.nome}</p>
-        <QrCode valor={linkConvite()} />
-        <p>Código: {getRoomCode()}</p>
-        <ul>
-          {participantes.map((jogador) => (
-            <li key={jogador.id}>{jogador.getState('nome') ?? 'aguardando nome…'}</li>
-          ))}
-        </ul>
-        <button type="button" onClick={iniciar} disabled={participantes.length === 0}>
-          Iniciar
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Jogo iniciado</h1>
-      <p>{participantes.length} jogador(es) — valores atribuídos.</p>
-    </div>
+    <ThemeScope tema={PADRAO_MINC} className={styles.shell}>
+      <div className={styles.wrapper}>
+        <Link to="/quebra-gelos" className={styles.voltar}>
+          ←
+        </Link>
+
+        {fase === 'categoria' && (
+          <>
+            <div className={styles.titulo}>Quem Sou Eu?</div>
+            <div className={styles.subtitulo}>Escolha a categoria pra sortear:</div>
+            <div className={styles.categorias}>
+              {CATEGORIAS.map((cat) => (
+                <button
+                  key={cat.nome}
+                  type="button"
+                  className={styles.categoriaBotao}
+                  onClick={() => sortear(cat)}
+                >
+                  {cat.nome}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
+        {fase === 'sala' && (
+          <>
+            <div className={styles.titulo}>Sala criada</div>
+            <div className={styles.subtitulo}>Categoria: {categoria?.nome}</div>
+            <div className={styles.qrBloco}>
+              <QrCode valor={linkConvite()} />
+            </div>
+            <div className={styles.codigo}>
+              Código <span className={styles.codigoValor}>{getRoomCode()}</span>
+            </div>
+
+            <div className={styles.participantes}>
+              <div className={styles.participantesLabel}>
+                {participantes.length} participante(s)
+              </div>
+              {participantes.length === 0 && (
+                <div className={styles.vazio}>Aguardando alguém escanear o QR…</div>
+              )}
+              {participantes.map((jogador) => {
+                const nome = jogador.getState('nome');
+                return (
+                  <div key={jogador.id} className={styles.participanteItem}>
+                    {nome ?? <span className={styles.participanteAguardando}>aguardando nome…</span>}
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              className={styles.ctaIniciar}
+              onClick={iniciar}
+              disabled={participantes.length === 0}
+            >
+              Iniciar
+            </button>
+          </>
+        )}
+
+        {fase === 'jogo' && (
+          <div className={styles.jogoIniciado}>
+            <div className={styles.jogoIniciadoTitulo}>Jogo iniciado</div>
+            <div className={styles.jogoIniciadoTexto}>
+              {participantes.length} jogador(es) — valores atribuídos. Cada um já vê a própria
+              palavra no celular.
+            </div>
+          </div>
+        )}
+      </div>
+    </ThemeScope>
   );
 }
