@@ -67,13 +67,14 @@ Também entregue nesta fase, fora do checklist original: router mínimo próprio
 - [ ] Testar build Capacitor real em dispositivo Android e iOS
 - [ ] Convidar um pequeno grupo de líderes de célula para uso real / feedback
 
-## Fase 5 — V2: Multiplayer (não iniciada, sem detalhamento ainda)
+## Fase 5 — V2: Multiplayer (em andamento)
 
-Arquitetura detalhada fica para quando esta fase entrar em pauta — ver `projeto-celula.md` §8.
-
-- [ ] Detalhar arquitetura de lobby via QR code
-- [ ] Detalhar sincronização de estado via Supabase Realtime
-- [x] Especificar o primeiro mini-jogo — **Quem Sou Eu** (trocado do candidato original Artista Impostor: mecânica de QR code resolve Quem Sou Eu mais diretamente e serve de validação do lobby antes do Artista Impostor, que tem mais partes móveis). Decisões de produto fechadas + mecânica de QR code + tecnologia (Playroom Kit) especificadas em `projeto-celula.md` §10. Implementação de código ainda não iniciada.
+- [x] Tecnologia de sincronização escolhida, viabilidade confirmada e implementada — **Playroom Kit** (não mais Supabase Realtime — referência obsoleta desde a migração pra Neon, que não tem equivalente nativo; ver `projeto-celula.md` §7/§10 e `CLAUDE.md` "Decisões de arquitetura (V2 — Quem Sou Eu)")
+- [x] Lobby via QR code implementado e testado — `src/multiplayer/quemSouEu/` (`Organizador.tsx`/`Participante.tsx`, UI própria via `skipLobby: true`, QR gerado com `qrcode-generator`). Testado de ponta a ponta contra o backend real do Playroom e em device físico Android (incluindo cenário de re-scan)
+- [x] Primeiro mini-jogo — **Quem Sou Eu** (trocado do candidato original Artista Impostor: mecânica de QR code resolve Quem Sou Eu mais diretamente, serve de validação do lobby antes do Artista Impostor, que tem mais partes móveis). Fluxo completo funcionando: organizador escolhe categoria → cria sala → participantes escaneiam e digitam nome → organizador vê ao vivo e inicia → cada participante revela sua palavra sorteada em tela landscape (direção de rotação confirmada em device físico). 3 categorias de conteúdo aprovadas por Carlos (Figuras bíblicas, Personagens de desenho animado, Animais) — `src/multiplayer/quemSouEu/categorias.ts`
+- [ ] Segundo mini-jogo (Artista Impostor) — ainda não iniciado
+- [ ] Integração na navegação real do app — hoje só acessível por URL direta (`/v2/quem-sou-eu`), fora da tab bar/fluxo normal da V1
+- [ ] Pendências abertas de produto: variante "organizador participando", timeout/auto-hide da palavra revelada, edge cases de ordem de operações — ver `projeto-celula.md` §10 "Pendências"
 
 ---
 
