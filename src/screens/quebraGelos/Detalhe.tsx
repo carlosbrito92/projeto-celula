@@ -115,6 +115,18 @@ export function Detalhe({ id }: { id: string }) {
           )}
         </>
       )}
+
+      {conteudo.jogar_pelo_celular && (
+        <Link to={conteudo.jogar_pelo_celular} className={styles.ctaSecundario}>
+          <div className={styles.ctaTextos}>
+            <div className={styles.ctaEyebrow}>Multiplayer</div>
+            <div className={styles.ctaTituloSecundario}>Jogar pelo Celular</div>
+          </div>
+          <div className={styles.ctaIcone}>
+            <Icon name="users-round" />
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

@@ -15,7 +15,8 @@
       "Escreva o nome de uma pessoa famosa diferente em cada papel — desde que sejam pessoas que todos conheçam.",
       "Cole os nomes, um por um, na testa ou nas costas de cada jogador, garantindo que eles não vejam o que está escrito.",
       "Assim que todos estiverem com um bilhete, circulem pelo ambiente fazendo perguntas de sim/não a qualquer pessoa, tentando descobrir quem são. Exemplos: \"Sou homem?\" ou \"Sou um personagem fictício?\"",
-      "Continue jogando até que todos tenham adivinhado corretamente quem são."
+      "Continue jogando até que todos tenham adivinhado corretamente quem são.",
+      "Prefere sem papel? Toque em \"Jogar pelo Celular\" no fim desta página — cada um entra pelo próprio celular e a rodada roda direto por lá."
     ],
     "dica": "Para tornar competitivo, revezem as perguntas — o primeiro a adivinhar corretamente vence.",
     "utilitarios_inline": [
@@ -24,6 +25,7 @@
         "rotulo_acao": "Sortear identidades",
         "eyebrow": "Antes de começar"
       }
-    ]
+    ],
+    "jogar_pelo_celular": "/v2/quem-sou-eu"
   }
 }
