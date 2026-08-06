@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { getRoomCode, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
 import { CATEGORIAS, type Categoria } from './categorias';
 import { criarDistribuidorIncremental } from '../distribuicaoIncremental';
@@ -6,11 +7,19 @@ import { QrCode } from './QrCode';
 
 type Fase = 'categoria' | 'sala' | 'jogo';
 
+// Mesmo domínio público hardcoded de src/lib/api.ts (API_BASE_URL) — sem
+// server.hostname customizado no capacitor.config.ts, o app nativo serve de
+// https://localhost por padrão. window.location.origin funciona pra
+// web/PWA (reflete o domínio real), mas dentro do app nativo geraria um QR
+// apontando pro "localhost" de quem escaneia — inútil pra outro dispositivo.
+const DOMINIO_PUBLICO = 'https://projeto-celula.vercel.app';
+
 function linkConvite(): string {
   // skipLobby: true faz o insertCoin() não ler mais o hash #r=<código> —
   // isso era feito pela UI nativa do lobby, que pulamos. Convenção própria
   // via query param, lida explicitamente em Participante.tsx.
-  return `${window.location.origin}${window.location.pathname}?sala=${getRoomCode()}`;
+  const origem = Capacitor.isNativePlatform() ? DOMINIO_PUBLICO : window.location.origin;
+  return `${origem}${window.location.pathname}?sala=${getRoomCode()}`;
 }
 
 export function Organizador() {
