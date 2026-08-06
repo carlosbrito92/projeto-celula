@@ -19,7 +19,7 @@ export default defineConfig({
         // precache crescer de novo inesperadamente depois de mexer em
         // dependências, procurar chunk novo só alcançável a partir de
         // Lobby.js e adicionar aqui.
-        globIgnores: ['**/Lobby-*.js', '**/output-*.js'],
+        globIgnores: ['**/Lobby-*', '**/output-*.js'],
       },
       manifest: {
         name: 'Projeto Célula',
