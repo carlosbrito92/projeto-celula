@@ -144,6 +144,7 @@ Decisões de produto fechadas por Carlos em 2026-08-06/07 (turno livre sem lock,
 - **JDK 21 é obrigatório para o build Android** (Capacitor 8 / AGP atual). Pinado localmente via `.sdkmanrc` neste diretório — não altera o JDK padrão da máquina. Se o build falhar com `invalid source release: 21`, rodar `sdk env` (sem pipe — pipe roda em subshell e não propaga `JAVA_HOME`) antes do `./gradlew`.
 - **iOS só builda em macOS/Xcode.** A plataforma está escafoldada (`ios/`), mas nunca foi buildada de verdade neste ambiente (Linux). Testar em macOS antes de considerar a V1 pronta para a App Store.
 - Build Android já validado de ponta a ponta em hardware físico (tablet Samsung via `adb`) — ver commit do scaffold inicial.
+- **Distribuição do APK (canal secundário, `docs/projeto-celula.md` §"Canal principal") via GitHub Releases** (`.github/workflows/release-apk.yml`) — dispara em push de tag `v*.*.*`, builda web + `cap sync android` + `assembleDebug`, publica o APK como asset da Release. Assinado com a **debug key** padrão do Capacitor (não release key própria) — decisão consciente: suficiente pra instalar via download direto/`adb install` num device pessoal, sem gerenciar keystore/senha como secret novo. Trocar para release key assinada só se/quando o app for publicado em loja de verdade (Google Play).
 
 ## Hurdles técnicos
 
