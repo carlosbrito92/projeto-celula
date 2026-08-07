@@ -16,6 +16,9 @@ import { Detalhe as QuebraGeloDetalhe } from './screens/quebraGelos/Detalhe';
 const QuemSouEuLobby = lazy(() =>
   import('./multiplayer/quemSouEu/Lobby').then((m) => ({ default: m.QuemSouEuLobby })),
 );
+const ArtistaImpostorLobby = lazy(() =>
+  import('./multiplayer/artistaImpostor/Lobby').then((m) => ({ default: m.ArtistaImpostorLobby })),
+);
 
 function Screens() {
   const { path } = useRouter();
@@ -43,6 +46,13 @@ function Root() {
     return (
       <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
         <QuemSouEuLobby />
+      </Suspense>
+    );
+  }
+  if (path === '/v2/artista-impostor') {
+    return (
+      <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
+        <ArtistaImpostorLobby />
       </Suspense>
     );
   }

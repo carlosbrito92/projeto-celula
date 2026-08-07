@@ -1,0 +1,60 @@
+.wrapper {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: var(--bg, #0a0805);
+  color: var(--text, #e8e0d4);
+  font-family: var(--font-corpo, system-ui, sans-serif);
+}
+
+.titulo {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 26px;
+  font-weight: var(--font-display-weight, 600);
+}
+
+.revelacao {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.palavra {
+  color: var(--muted, #6b5f50);
+  font-size: 14px;
+}
+
+.contagem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.contagemItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 8px 12px;
+  background: var(--surface2, #1a1610);
+  border-radius: 8px;
+}
+
+.contagemValor {
+  color: var(--muted, #6b5f50);
+}
+
+.ctaNovaRodada {
+  margin-top: 12px;
+  background: var(--accent1, #e8720c);
+  color: var(--bg, #0a0805);
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 18px;
+  font-weight: var(--font-display-weight, 600);
+  padding: 16px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

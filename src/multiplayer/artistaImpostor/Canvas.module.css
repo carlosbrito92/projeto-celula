@@ -1,0 +1,9 @@
+.canvas {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border-radius: 12px;
+  touch-action: none;
+  align-self: center;
+}
