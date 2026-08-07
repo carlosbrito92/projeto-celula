@@ -17,7 +17,8 @@
       "Todos votam ao mesmo tempo, apontando para a pessoa escolhida — quem receber a maioria dos votos é a decisão do grupo.",
       "Os artistas reais vencem se a maioria dos votos acertar o verdadeiro impostor.",
       "O impostor vence se a maioria dos votos cair sobre outra pessoa.",
-      "Joguem quantas rodadas quiserem, sorteando um novo impostor a cada vez."
+      "Joguem quantas rodadas quiserem, sorteando um novo impostor a cada vez.",
+      "Prefere sem papel? Toque em \"Jogar pelo Celular\" no fim desta página — cada um entra pelo próprio celular, desenha na tela e vota por lá."
     ],
     "dica": "O impostor deve observar os outros com atenção e copiar o estilo de desenho deles. Quem não é impostor deve ser específico, mas não óbvio — muito detalhe ajuda o impostor a se camuflar.",
     "utilitarios_inline": [
@@ -36,6 +37,7 @@
           }
         ]
       }
-    ]
+    ],
+    "jogar_pelo_celular": "/v2/artista-impostor"
   }
 }
