@@ -41,9 +41,9 @@ Web app único, empacotado via **Capacitor** para funcionar tanto como PWA insta
 2. Catálogo de quebra-gelos (instrucionais + utilitários)
 3. Kit de utilitários compartilhados (sorteio, atribuição, contagem)
 
-### V2 — Depois
+### V2 — Em andamento (desde 2026-08-05)
 
-4. Mini-jogos multiplayer via lobby com QR code (ex: Pictionary, Impostor). Cada participante joga no próprio celular, sem tela central. Prioridade menor — entra depois que V1 estiver consolidada.
+4. Mini-jogos multiplayer via lobby com QR code. Cada participante joga no próprio celular, sem tela central. Dois jogos já em produção: **Quem Sou Eu** (primeiro) e **Artista Impostor** (segundo, canvas colaborativo — ver §10). Detalhe de implementação e progresso real em `progresso.md` Fase 5, não duplicado aqui.
 
 ---
 
@@ -101,10 +101,10 @@ Lista de quebra-gelos recebidos e catalogados até o momento — Carlos envia o 
 
 | Quebra-gelo | Tipo | Utilitário usado |
 |---|---|---|
-| Quem Sou Eu? | Instrucional + utilitário | Sorteador de nome com atribuição escondida |
+| Quem Sou Eu? | Instrucional + utilitário (com variante multiplayer V2, "Jogar pelo Celular") | Sorteador de nome com atribuição escondida |
 | Encontre o Líder | Instrucional | Sorteador de papel especial (detetive) — opcional |
 | Histórias de Uma Palavra Só | Instrucional | — |
-| Artista Impostor | Instrucional + utilitário (protótipo da v2 multiplayer) | Sorteador de nome/palavra + sorteador de papel especial (impostor) |
+| Artista Impostor | Instrucional + utilitário (com variante multiplayer V2, "Jogar pelo Celular" — canvas colaborativo) | Sorteador de nome/palavra + sorteador de papel especial (impostor) |
 | Eu Fui à Feira | Instrucional | — |
 | Medusa | Instrucional | Contador/cronômetro (opcional) |
 | Psíquico | Instrucional | Contador/cronômetro (opcional) |
@@ -129,7 +129,7 @@ Peças reutilizáveis entre múltiplos quebra-gelos, com valor mesmo antes de qu
 - **Backend + banco**: Neon (Postgres puro) desde 2026-08-01, acessado via Vercel Serverless Functions (`api/pregacoes/*`, `api/quebra-gelos/*`). Antes disso, Supabase — a escolha original (linha abaixo) continua válida como justificativa de "por que Postgres com `jsonb`"; o que mudou foi só o provedor.
   - **Motivo da troca**: Supabase free tier permite só 2 projetos ativos por pessoa (não por organização — confirmado que criar uma segunda organização Free não contorna o limite), limite já ocupado por outros projetos de Carlos, sem orçamento disponível pro Pro ($25/mês). Neon foi escolhido entre as alternativas Postgres gratuitas avaliadas (Railway: sem tier grátis permanente, é crédito de teste; Render: banco free expira em 30 dias e é deletado) por ser o único com tier gratuito permanente de verdade, e por ser Postgres puro — portar o schema e o conteúdo já existente (`jsonb`, RLS, as mesmas 2 tabelas) não exigiu remodelar nada, só trocar a camada de acesso (de PostgREST/client SDK para Vercel Functions + `@neondatabase/serverless`, já que Neon não expõe REST/auth/realtime prontos como o Supabase). Detalhe técnico completo da migração em `CLAUDE.md` ("Decisões de arquitetura (Migração Neon)" e hurdles de 2026-08-01).
   - **Auth anônima do Supabase nunca chegou a ser usada de fato** (confirmado ao migrar: zero chamada `supabase.auth.*` em qualquer lugar do código) — "sem login tradicional" sempre foi resolvido por não ter auth nenhuma, não por uma feature de auth anônima ativa. Isso não muda com Neon.
-  - **Realtime nativo do Supabase, cotado para a V2 multiplayer, precisa de mecanismo novo** — Neon não tem equivalente nativo (WebSocket/pub-sub gerenciado). Vira decisão em aberto (ver seção 8) em vez de escolha já resolvida.
+  - ~~Realtime nativo do Supabase, cotado para a V2 multiplayer, precisa de mecanismo novo~~ — resolvido: **Playroom Kit**, não um serviço de realtime genérico. Neon nunca precisou de equivalente próprio porque a sincronização da V2 não passa pelo banco — vive inteiramente no backend do Playroom (ver §10 e `CLAUDE.md`).
 - **Hospedagem**: Vercel para o frontend e para o backend (Serverless Functions); Neon hospeda só o banco.
 - **Alternativa descartada (histórico, na escolha original Supabase vs. outros, e reconfirmada na reavaliação pós-limite do Supabase)**: Firebase cobriria auth+banco+realtime da mesma forma, mas seu modelo NoSQL é menos confortável para consultas estruturadas (busca por série, palavra-chave) do que Postgres/jsonb — trocar para NoSQL exigiria reescrever RLS como Firestore Security Rules e remodelar o JSON de pregação pro limite de profundidade de documento do Firestore, custo desproporcional ao problema real (limite de projetos), que uma alternativa Postgres resolve sem reescrita. Descartado nas duas ocasiões.
 
@@ -164,8 +164,8 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 
 - ~~Estrutura de dados definitiva do JSON de saída das pregações~~ — resolvida e implementada (`src/content/types.ts`), validada com as 4 pregações reais de calibração já no banco. Ver `geracao-pregacao.md`.
 - ~~Formato do arquivo de tema por série~~ — resolvido e implementado (`src/themes/registry.ts`, 6 temas registrados como dados). Ver `estilos-pregacao.md`.
-- Arquitetura da camada multiplayer da V2 (lobby via QR code, sincronização de estado em tempo real) — camada de extensão já prevista na modularidade acima. Decisões de produto e mecânica do primeiro jogo (Quem Sou Eu) fechadas, tecnologia (Playroom Kit) com viabilidade confirmada mas 2 pendências não documentadas — ver §10; implementação de código fica para quando a V2 entrar em pauta.
-- **Mecanismo de sincronização real-time da V2, pós-migração para Neon** — a resposta original (Supabase Realtime, WebSocket nativo) não vale mais: Neon não tem equivalente pronto. Opções a avaliar quando a V2 entrar em pauta: WebSockets próprios via alguma plataforma com suporte a conexão persistente (Vercel Serverless Functions não sustentam WebSocket de longa duração), ou um serviço de realtime gerenciado separado (Pusher, Ably, Supabase Realtime "solo" sem o resto do Supabase, etc.). Não bloqueia a V1.
+- ~~Arquitetura da camada multiplayer da V2~~ — implementada e em produção desde 2026-08-07: lobby via QR code + Playroom Kit, dois jogos completos (Quem Sou Eu, Artista Impostor). Ver §10 para decisões de produto e `CLAUDE.md` ("Decisões de arquitetura (V2 — Quem Sou Eu)" / "(V2 — Artista Impostor)") para o detalhe técnico.
+- ~~Mecanismo de sincronização real-time da V2, pós-migração para Neon~~ — resolvido: **Playroom Kit**, sem envolver o Neon nem exigir WebSocket próprio hospedado pela Vercel. As alternativas cotadas aqui (Pusher, Ably, Colyseus) não foram necessárias.
 
 ## 9. Fluxo de geração de conteúdo (decidido)
 
@@ -175,9 +175,9 @@ Carlos usa esse artigo como base para seu processo de desenvolvimento assistido 
 
 ---
 
-## 10. V2 — Decisões de produto e arquitetura (primeiro jogo: Quem Sou Eu)
+## 10. V2 — Decisões de produto e arquitetura
 
-Escopo de produto da V2: um jogo por vez em desenvolvimento — **Quem Sou Eu é o primeiro jogo**, não mais o Artista Impostor (prioridade trocada após o desenho da mecânica de QR code abaixo, que resolve Quem Sou Eu de forma mais direta e serve como validação do lobby antes de partir para o Artista Impostor, que tem mais partes móveis — canvas colaborativo, turnos de desenho). Host é quem cria o lobby, sem regra fixa de que precise ser sempre "o líder" da V1.
+Escopo de produto da V2: um jogo por vez em desenvolvimento — **Quem Sou Eu foi o primeiro jogo** (prioridade trocada em relação ao plano original, que era começar pelo Artista Impostor: a mecânica de QR code abaixo resolve Quem Sou Eu de forma mais direta e serviu como validação do lobby antes do Artista Impostor, que tem mais partes móveis — canvas colaborativo, turnos de desenho). **Artista Impostor é o segundo jogo, em produção desde 2026-08-07** — ver subseção própria abaixo. Host é quem cria o lobby, sem regra fixa de que precise ser sempre "o líder" da V1.
 
 ### Decisões de produto fechadas
 
@@ -193,7 +193,7 @@ Desenhada por Carlos, resolve o vazamento de valores para o organizador sem exig
 2. Um QR code aparece na tela do organizador — é a **porta de entrada da sessão de rede** (fixo durante a partida, não muda a cada leitura), não carrega a palavra em si.
 3. Cada participante escaneia o mesmo QR code com o próprio celular — ao entrar na sessão, o servidor atribui a essa pessoa um dos valores ainda não distribuídos, por ordem de chegada (mecanismo padrão de estado sincronizado multiplayer — é o gancho `onPlayerJoin` do Playroom Kit, ver "Tecnologia" abaixo).
 4. No celular de quem escaneou: aviso de alguns segundos → instrução "coloque o celular na sua testa" → a palavra aparece em caixa alta, orientação horizontal, ocupando a tela — réplica digital do post-it na testa do jogo original.
-5. **Variante com organizador participando**: se o organizador quiser jogar também, depois de escanear e ver a instrução de 3 segundos, a palavra pode ficar oculta e a pessoa tentando adivinhar "toca" na testa da outra pessoa (segurando o próprio celular na própria testa) para revelar — mecânica ainda a detalhar na prática, mas o princípio (visibilidade controlada por interação, não por quem configurou) já está definido.
+5. **Variante com organizador participando**: se o organizador quiser jogar também, depois de escanear e ver a instrução de 7 segundos, a palavra pode ficar oculta e a pessoa tentando adivinhar "toca" na testa da outra pessoa (segurando o próprio celular na própria testa) para revelar — mecânica ainda a detalhar na prática, mas o princípio (visibilidade controlada por interação, não por quem configurou) já está definido.
 
 **Importante**: o QR code não é "o valor" — é o link de entrada da sala. A atribuição de valores por pessoa acontece no momento em que cada participante entra na sessão, gerenciada pelo estado compartilhado da partida, não pelo QR code em si (que permanece fixo).
 
@@ -201,8 +201,19 @@ Desenhada por Carlos, resolve o vazamento de valores para o organizador sem exig
 
 Duas opções avaliadas, ambas resolvem sincronização de estado entre celulares diferentes:
 
-- **Playroom Kit** (joinplayroom.com) — **escolhido como caminho principal, viabilidade técnica confirmada em 2026-08-05** lendo a documentação oficial e testando um protótipo real (lobby + `onPlayerJoin` + distribuição de valores) contra o backend do Playroom. "Zero server setup": o SDK cuida da camada de rede/estado compartilhado, sem precisar hospedar/manter servidor próprio. Modelo host-autoritativo, `onPlayerJoin` e `reconnectGracePeriod` encaixam exatamente com as decisões de produto fechadas acima — detalhe técnico completo em `CLAUDE.md`. As duas pendências técnicas iniciais estão **fechadas**: re-escanear o mesmo QR não duplica participante, reconecta como a mesma identidade/sala (testado em device físico); e sala/QR não expira por tempo — o estado é limpo quando todos os jogadores saem, sem timeout fixo (confirmado na doc oficial "Persistent Storage in Playroom Kit", já que não pretendemos usar `persistentMode`). Já tem template de referência para Pictionary (mecânica de desenho colaborativo, útil para quando o Artista Impostor entrar em desenvolvimento). Funciona com React nativamente. Free tier descrito como "generous" — limites reais não confirmados em detalhe, avaliar quando o desenvolvimento real começar.
+- **Playroom Kit** (joinplayroom.com) — **escolhido como caminho principal, viabilidade técnica confirmada em 2026-08-05** lendo a documentação oficial e testando um protótipo real (lobby + `onPlayerJoin` + distribuição de valores) contra o backend do Playroom. "Zero server setup": o SDK cuida da camada de rede/estado compartilhado, sem precisar hospedar/manter servidor próprio. Modelo host-autoritativo, `onPlayerJoin` e `reconnectGracePeriod` encaixam exatamente com as decisões de produto fechadas acima — detalhe técnico completo em `CLAUDE.md`. As duas pendências técnicas iniciais estão **fechadas**: re-escanear o mesmo QR não duplica participante, reconecta como a mesma identidade/sala (testado em device físico); e sala/QR não expira por tempo — o estado é limpo quando todos os jogadores saem, sem timeout fixo (confirmado na doc oficial "Persistent Storage in Playroom Kit", já que não pretendemos usar `persistentMode`). O exemplo oficial "Live Canvas" (mecânica de desenho colaborativo por polling de traços) foi de fato usado como referência real na implementação do Artista Impostor — não ficou só como pista útil, virou o mecanismo de sincronização do canvas em produção. Funciona com React nativamente. Free tier descrito como "generous" — limites reais não confirmados em detalhe, seguiu suficiente pros dois jogos até agora.
 - **Colyseus** (colyseus.io) — **alternativa documentada, não escolhida agora**. Open source, framework de servidor de jogo Node.js com estado autoritativo — mais robusto para lógica de servidor complexa (turnos validados, anti-trapaça), mas exige hospedar/manter um servidor (mesmo via Colyseus Cloud gerenciado, que tem free tier). Descartado como primeira escolha por adicionar mais uma peça de infraestrutura a manter, no mesmo período em que o projeto já lida com a fricção de limites de plano gratuito (ver migração Neon, §7). Revisitar se Playroom Kit não atender bem na prática.
+
+### Segundo jogo — Artista Impostor (em produção desde 2026-08-07)
+
+Canvas colaborativo com sorteio de impostor + objeto secreto, decisões de produto fechadas por Carlos em 2026-08-06/07:
+
+- **Turno livre, não travado pelo app** — diferente do jogo físico original (que também nunca teve trava real, era só combinado verbal), o app não implementa lógica de "vez de quem"; qualquer participante pode desenhar a qualquer momento, por decisão consciente de simplicidade (evita estado compartilhado de lock, que não agregaria à experiência real de uma célula desenhando junto).
+- **Todos acompanham o desenho se formando ao vivo**, não só quem está desenhando no momento — resolvido pela própria arquitetura de sincronização do canvas (ver "Tecnologia" acima), sem trabalho de produto extra.
+- **Votação híbrida**: o app atribui uma cor fixa a cada participante (referência tanto pra apontar fisicamente quanto pra votar digital); votação digital é opcional — quem preferir decide na conversa/apontando, sem quebrar o jogo. O app revela só o resultado agregado (achou ou não achou o impostor), nunca quem votou em quem, preservando a dinâmica social. Depois do resultado, pergunta se quer jogar outra rodada.
+- **Organizador não participa da rodada** (mesma decisão já tomada informalmente no Quem Sou Eu) — só conduz: escolhe categoria, sorteia, acompanha o canvas, controla a transição pra votação e pro resultado.
+
+Testado de ponta a ponta em produção real (device físico + QR code) em 2026-08-07 — ver `progresso.md` Fase 5 para o relato do teste e `CLAUDE.md` para o detalhe técnico de implementação.
 
 ### Achado paralelo — não é a V2, mas vale como feature própria
 
@@ -210,10 +221,11 @@ Duas opções avaliadas, ambas resolvem sincronização de estado entre celulare
 
 ### Pendências (não bloqueiam, ainda não são spec de implementação)
 
-- Detalhamento de interação da variante "toca na testa do outro" (organizador participando) — organizador ainda não participa da rodada na primeira implementação (2026-08-05), só conduz.
-- ~~Timeout do aviso "coloque na testa"~~ — implementado fixo em 3 segundos (`useCountdown`, não ajustável ainda). Ainda em aberto: se a palavra some sozinha depois de aparecer ou fica até interação — hoje fica revelada indefinidamente, sem essconder de volta.
-- ~~Direção da rotação da tela de revelação~~ — testado em device físico e confirmado: `rotate(-90deg)`. Ver `CLAUDE.md`.
-- Comportamento se alguém escaneia sem que o organizador tenha aberto o QR ainda, ou outros edge cases de ordem de operações que só devem aparecer testando de verdade.
+- **Quem Sou Eu**: detalhamento de interação da variante "toca na testa do outro" (organizador participando) ainda não feito — organizador segue só conduzindo, não jogando. Decisão equivalente pro Artista Impostor já foi tomada de forma definitiva (organizador não participa, ponto final — ver subseção acima), então essa pendência é específica do primeiro jogo, não um padrão geral em aberto.
+- ~~Timeout do aviso "coloque na testa"~~ (Quem Sou Eu) — implementado fixo em 7 segundos (`useCountdown`, subiu de 3s após feedback de usuário — 3s era curto demais em aparelhos mais lentos; ainda não ajustável). Ainda em aberto: se a palavra some sozinha depois de aparecer ou fica até interação — hoje fica revelada indefinidamente, sem esconder de volta. (Não se aplica ao Artista Impostor, que não usa esse mecanismo de revelação — ver subseção acima.)
+- ~~Direção da rotação da tela de revelação~~ (Quem Sou Eu) — testado em device físico e confirmado: `rotate(-90deg)`. Ver `CLAUDE.md`.
+- Comportamento se alguém escaneia sem que o organizador tenha aberto o QR ainda, ou outros edge cases de ordem de operações — parcialmente exercitado nos testes de ponta a ponta dos dois jogos (2026-08-06/07), mas sem varredura sistemática de edge case; segue como algo que só aparece testando de verdade, não spec fechada.
+- Artista Impostor testado até agora só com participantes de teste (device físico + 2 abas simulando participantes) — teste com um grupo real de célula (3+ pessoas de verdade) ainda não aconteceu.
 
 ---
 
