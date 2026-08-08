@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { insertCoin, myPlayer, useMultiplayerState } from 'playroomkit';
 import { useCountdown } from './useCountdown';
+import styles from './Participante.module.css';
 
-const SEGUNDOS_CONTAGEM = 3;
+// 7s (não 3s) — feedback de usuário: 3s era curto demais em aparelhos mais
+// lentos pra dar tempo de ler "coloque na testa" e se posicionar.
+const SEGUNDOS_CONTAGEM = 7;
 
 export function Participante() {
   const [entrou, setEntrou] = useState(false);
@@ -22,13 +25,13 @@ export function Participante() {
   }, []);
 
   if (!entrou) {
-    return <div style={{ padding: 24 }}>Entrando na sala…</div>;
+    return <div className={styles.tela}>Entrando na sala…</div>;
   }
 
   if (!nomeEnviado) {
     return (
       <form
-        style={{ padding: 24 }}
+        className={styles.tela}
         onSubmit={(e) => {
           e.preventDefault();
           if (!nome.trim()) return;
@@ -36,50 +39,39 @@ export function Participante() {
           setNomeEnviado(true);
         }}
       >
-        <h1>Qual seu nome?</h1>
+        <h1 className={styles.titulo}>Qual seu nome?</h1>
         <input
+          className={styles.input}
           type="text"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Seu nome"
           autoFocus
         />
-        <button type="submit">Confirmar</button>
+        <button type="submit" className={styles.cta}>
+          Confirmar
+        </button>
       </form>
     );
   }
 
   if (fase === 'aguardando') {
-    return <div style={{ padding: 24 }}>Aguardando o organizador iniciar…</div>;
+    return <div className={styles.tela}>Aguardando o organizador iniciar…</div>;
   }
 
   if (fase === 'contagem') {
     return (
-      <div style={{ padding: 24, textAlign: 'center' }}>
-        <p>Coloque o celular na sua testa…</p>
-        <div style={{ fontSize: 64 }}>{restante}</div>
+      <div className={styles.tela}>
+        <p className={styles.texto}>Coloque o celular na sua testa…</p>
+        <div className={styles.contagemNumero}>{restante}</div>
       </div>
     );
   }
 
   const valor = myPlayer().getState('valor');
   return (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        // Direção confirmada em device físico (2026-08-06) — rotate(90deg)
-        // saía ilegível pra quem olha de frente, -90deg é o certo.
-        transform: 'rotate(-90deg)',
-        transformOrigin: 'center center',
-      }}
-    >
-      <div style={{ fontSize: 48, fontWeight: 'bold', textTransform: 'uppercase', textAlign: 'center' }}>
-        {valor}
-      </div>
+    <div className={styles.telaRevelacao}>
+      <div className={styles.valorRevelado}>{valor}</div>
     </div>
   );
 }
