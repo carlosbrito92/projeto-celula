@@ -55,10 +55,6 @@
   align-items: center;
   justify-content: center;
   background: var(--bg, #0a0805);
-  /* Direção confirmada em device físico (2026-08-06) — rotate(90deg)
-     saía ilegível pra quem olha de frente, -90deg é o certo. */
-  transform: rotate(-90deg);
-  transform-origin: center center;
 }
 
 .valorRevelado {
@@ -67,4 +63,23 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text, #e8e0d4);
+  transform-origin: center center;
+}
+
+.botaoRotacionar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--muted, #6b5f50);
+  background: var(--surface, #111009);
+  border: 1px solid var(--border, #2a2318);
+  border-radius: 999px;
+  cursor: pointer;
 }

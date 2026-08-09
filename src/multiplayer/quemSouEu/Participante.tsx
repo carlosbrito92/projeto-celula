@@ -7,12 +7,19 @@ import styles from './Participante.module.css';
 // lentos pra dar tempo de ler "coloque na testa" e se posicionar.
 const SEGUNDOS_CONTAGEM = 7;
 
+// -90deg confirmado em device físico (2026-08-06), mas depende de como o
+// aparelho é segurado — feedback de usuário: em outro device/orientação
+// ficou errado. Botão de girar (outra pessoa aperta, não o dono, que está
+// com o celular na própria testa sem ver a tela) cicla entre as 4 opções.
+const ROTACOES = [-90, 0, 90, 180] as const;
+
 export function Participante() {
   const [entrou, setEntrou] = useState(false);
   const [nomeEnviado, setNomeEnviado] = useState(false);
   const [nome, setNome] = useState('');
   const [jogoIniciado] = useMultiplayerState('jogoIniciado', false);
   const { fase, restante } = useCountdown(SEGUNDOS_CONTAGEM, jogoIniciado);
+  const [rotacaoIndex, setRotacaoIndex] = useState(0);
   const entrandoRef = useRef(false);
 
   // Guarda por ref: StrictMode roda efeitos 2x em dev, e insertCoin() não
@@ -71,7 +78,20 @@ export function Participante() {
   const valor = myPlayer().getState('valor');
   return (
     <div className={styles.telaRevelacao}>
-      <div className={styles.valorRevelado}>{valor}</div>
+      <div
+        className={styles.valorRevelado}
+        style={{ transform: `rotate(${ROTACOES[rotacaoIndex]}deg)` }}
+      >
+        {valor}
+      </div>
+      <button
+        type="button"
+        className={styles.botaoRotacionar}
+        onClick={() => setRotacaoIndex((i) => (i + 1) % ROTACOES.length)}
+        aria-label="Girar texto"
+      >
+        ⟳
+      </button>
     </div>
   );
 }
