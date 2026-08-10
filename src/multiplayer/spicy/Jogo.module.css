@@ -1,0 +1,109 @@
+/*
+ * UI mínima do Sprint B — visual neutro de propósito, sem depender de
+ * CSS vars de tema (evita o problema de fallback documentado em
+ * CLAUDE.md "Decisões de arquitetura (V2 — Artista Impostor)": esta tela
+ * roda tanto dentro do ThemeScope do organizador quanto fora, no
+ * participante). Sprint C troca isso pelo componente de carta real.
+ */
+.tela {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.texto {
+  margin: 0;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.pilha {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.aviso {
+  padding: 6px 12px;
+  background: #ffe0e0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.resultado {
+  padding: 8px 12px;
+  background: #fff3cd;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.blocoTitulo {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.mao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.carta,
+.cartaSelecionada {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+.cartaSelecionada {
+  background: #cde;
+  border-color: #369;
+}
+
+.declarar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.placar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

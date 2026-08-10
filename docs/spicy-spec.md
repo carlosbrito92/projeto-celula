@@ -148,31 +148,37 @@ Máquina de turno (alto nível): `declarar → (passar | desafiar)`. Se desafiar
 
 Decisão de sequenciamento: **lógica de jogo (backend/estado) primeiro, renderização visual das cartas depois** — desacopladas propositalmente. O motivo é de risco: a máquina de estados do turno (declarar → passar/desafiar → resolver → definir vencedor, mais a variante ativa) é onde mora toda a complexidade real do Spicy; o componente visual é, comparado a isso, mecânico — troca de `shapes`/`texts` por um objeto JSON, já com padrão resolvido nos outros jogos. Validar a lógica com uma UI mínima (texto puro, sem SVG) evita gastar tempo de design antes de saber se as regras batem.
 
-### Sprint A — Motor de jogo (sem visual)
+**Nota de nomenclatura (2026-08-10)**: o plano original prometia isolar a lógica de variante numa "Sprint B" separada, depois de um "Sprint A" só com o fluxo padrão. Na prática, a implementação real da Sprint A já saiu com o reducer de turno cobrindo declarar/passar/desafiar **incluindo** o modo de verificação "ambos os traços" do Copy Cat — a separação não se sustentou porque o parâmetro de modo precisava existir desde o desafio básico (ver §5, "Implicação de arquitetura"). Por isso a numeração abaixo foi ajustada para bater com o que de fato foi entregue, evitando confusão de escopo daqui pra frente.
 
-Objetivo: partida completa jogável entre 2+ clients conectados via Playroom Kit, com UI mínima (lista de cartas em texto, botões simples) — o suficiente para validar que a máquina de estados está correta.
+### ✅ Sprint A — Motor de jogo completo (concluída — PR #34, merged em `main`)
 
-- Estrutura do baralho: gerar as 110 cartas (100 numeradas, com a distribuição de §3.1 + 3 Troféu + 1 World's End + 6 Spice It Up! + 4 Wild de cor + 3 Wild de número), embaralhar, distribuir 6 por jogador.
-- Estado sincronizado (Playroom Kit): pilha de compra, pilha "spicy" ativa, mão por jogador, jogador da vez, troféus, posição do World's End, toggle de aviso de sequência.
-- Ações do turno: declarar (número + cor, sem bloqueio — apenas aviso opcional não-bloqueante quando fora de sequência), passar, desafiar (com escolha de traço único, exceto contexto Copy Cat).
-- Resolução de desafio: revelar carta real, comparar com o traço citado (incluindo lógica de Wild — cobre um traço, falha no outro), definir quem vence a pilha.
-- Condições de fim de partida: 2º troféu, último troféu do pote, World's End revelada — conforme regra oficial (§4).
-- Testes (TDD, mesma disciplina já usada em `shuffle.ts` e outros utilitários do projeto) cobrindo embaralhamento, aviso de sequência, resolução de desafio (traço único) e cada condição de fim.
+Objetivo: motor de jogo completo e testado, sem rede e sem visual — validado só com testes automatizados (TDD), sem UI real ainda.
 
-### Sprint B — Variante "Spice It Up!" ativa
+- Estrutura do baralho: 110 cartas (100 numeradas com a distribuição de §3.1 + 3 Troféu + 1 World's End + 6 Spice It Up! + 4 Wild de cor + 3 Wild de número) — `baralho.ts`.
+- Ações do turno: declarar (sem bloqueio, aviso opcional não-bloqueante de sequência — `sequencia.ts`), passar, desafiar (traço único, exceto Copy Cat = ambos os traços — `desafio.ts`) — reducer de turno em `turno.ts`.
+- Resolução de desafio, troféu de última carta, condições de fim de partida e pontuação — `fimDePartida.ts`.
+- World's End implementada como **toggle de setup** (`OpcoesPartida.worldsEndAtiva`, default `false`) — mesma lógica de opcionalidade da variante Spice It Up!, não peça fixa do motor (corrigido depois de um desalinhamento inicial do Claude Code — ver nota abaixo).
+- 192 testes (TDD), typecheck e lint limpos.
 
-Objetivo: a variante escolhida no setup (1 por partida — §4) integrada à máquina de turno do Sprint A, incluindo o modo de verificação "ambos os traços" exigido pelo desafio especial do Copy Cat (§5).
+*Nota registrada: a primeira entrega tratou World's End como sempre presente no baralho com posição fixa calculada. Corrigido para toggle real de setup — motivo: reembaralhamentos repetidos numa sessão casual aumentam a chance da carta sair cedo e encerrar a partida sem aviso, por isso grupos tratam ela (e as variantes) como escolha consciente do organizador com o grupo, não padrão fixo do motor.*
 
-- Isolado do Sprint A porque depende do motor base já estar correto — cada variante é uma modificação pontual do fluxo padrão, não uma reescrita.
-- As 6 variantes já estão detalhadas em nível de estado/transição (§5) — esta sprint é implementação, não mais definição de produto.
+### ▶️ Sprint B — Rede (Playroom Kit) + UI mínima (próxima)
+
+Objetivo: o motor já validado da Sprint A rodando entre 2+ clients reais, sincronizado via Playroom Kit, com UI mínima o suficiente para jogar uma partida de ponta a ponta (texto/botões simples, sem componente visual de carta ainda).
+
+- Estado sincronizado (Playroom Kit): pilha de compra, pilha "spicy" ativa (oculto: identidade real da carta no topo), mão por jogador, jogador da vez, troféus, posição do World's End, toggles de setup (World's End, variante Spice It Up!, aviso de sequência).
+- Tela de setup: organizador escolhe variante (ou nenhuma), liga/desliga World's End, liga/desliga aviso de sequência — antes do `insertCoin`.
+- Lobby + QR code, mesmo mecanismo dos outros 2 jogos V2 (`insertCoin` com `skipLobby: true`, `onPlayerJoin`).
+- UI mínima: lista de cartas em texto/botões (declarar, passar, desafiar com seleção de traço) — sem SVG, sem flip, sem tema visual.
+- Naming não-descritivo para chaves de estado sensíveis no Playroom (§2) — mão de cada jogador, carta real sob a declaração.
 
 ### Sprint C — Renderização visual (componente de carta)
 
-Objetivo: trocar a UI mínima do Sprint A/B pelo componente React+SVG real, consumindo o mesmo JSON de carta já especificado (§6.1) — sem alterar a lógica de jogo por baixo.
+Objetivo: trocar a UI mínima da Sprint B pelo componente React+SVG real, consumindo o mesmo JSON de carta já especificado (§6.1) — sem alterar a lógica de jogo por baixo.
 
 - Componente `Card`/`FlippableCard` conforme os mocks já validados (SVG dinâmico a partir de `shapes`/`texts`, flip via CSS 3D).
 - Depende do design visual das cartas estar pronto (Carlos trabalhando em paralelo via Canva/Claude Design — prompt de design na seção 8 abaixo) e traduzido para o schema JSON.
-- Nenhuma lógica de jogo nova nesta sprint — é troca de camada de apresentação sobre um motor já validado nos Sprints A/B.
+- Nenhuma lógica de jogo nova nesta sprint — é troca de camada de apresentação sobre um motor já validado nas Sprints A/B.
 
 ---
 
@@ -203,6 +209,5 @@ Todas as pendências de produto fechadas nesta rodada de definição:
 - ✅ Detalhamento das 6 variantes Spice It Up! em nível de estado/transição, incluindo o modo de verificação especial do Copy Cat (§5).
 - ✅ Apenas 1 variante ativa por partida, não 2 (§4) — simplificação deliberada para a primeira versão.
 - ✅ Nome do módulo/rota: mantido `spicy` por ora; ícone/identidade visual a definir depois, não bloqueia.
-- ✅ **World's End é toggle de setup, não peça fixa do motor** (Carlos, 2026-08-10) — mesmo tratamento da variante Spice It Up! (linha da tabela §4: "selecionável no setup antes do `insertCoin`"). Motivo: em sessões casuais com vários reembaralhamentos ao longo do encontro, a chance dela sair cedo sobe bastante e derruba a partida no meio sem aviso — grupos decidem juntos antes de começar. Implementado como `OpcoesPartida.worldsEndAtiva` (default `false`) em `src/multiplayer/spicy/turno.ts`; quando entra, posiciona no fundo da pilha de compra a `nºJogadores × 5` cartas do fundo — heurística sem tabela oficial (regra física só diz "conforme indicado na carta", sem número), a calibrar em playtesting. **Pendente**: expor esse toggle na UI de setup junto com a escolha de variante quando essa tela for construída — ainda não existe nenhuma UI de setup (Sprint A é só motor).
 
-Nenhuma pendência de produto restante. Próximo passo é a implementação do Sprint A (§7).
+Nenhuma pendência de produto restante. Sprint A concluída (§7); próximo passo é a implementação da Sprint B — rede (Playroom Kit) + UI mínima.

@@ -19,6 +19,7 @@ const QuemSouEuLobby = lazy(() =>
 const ArtistaImpostorLobby = lazy(() =>
   import('./multiplayer/artistaImpostor/Lobby').then((m) => ({ default: m.ArtistaImpostorLobby })),
 );
+const SpicyLobby = lazy(() => import('./multiplayer/spicy/Lobby').then((m) => ({ default: m.SpicyLobby })));
 
 function Screens() {
   const { path } = useRouter();
@@ -53,6 +54,13 @@ function Root() {
     return (
       <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
         <ArtistaImpostorLobby />
+      </Suspense>
+    );
+  }
+  if (path === '/v2/spicy') {
+    return (
+      <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
+        <SpicyLobby />
       </Suspense>
     );
   }
