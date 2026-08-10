@@ -1,4 +1,4 @@
-import { declarar, desafiar, passar, type EstadoPartida } from './turno';
+import { copiar, declarar, desafiar, passar, type EstadoPartida } from './turno';
 import type { Declaracao, Traco } from './types';
 
 /**
@@ -9,14 +9,24 @@ import type { Declaracao, Traco } from './types';
  * tocar em Playroom.
  */
 export type Acao =
-  | { tipo: 'declarar'; cartaId: string; declaracao: Declaracao; anunciouUltima?: boolean }
+  | {
+      tipo: 'declarar';
+      cartaId: string;
+      declaracao: Declaracao;
+      anunciouUltima?: boolean;
+      /** Change Your Luck (§5) — até 2 ids de carta da própria mão, só com a variante ativa e valor 5. */
+      cartasExtrasParaEnfiar?: string[];
+    }
   | { tipo: 'passar' }
-  | { tipo: 'desafiar'; traco: Traco };
+  | { tipo: 'desafiar'; traco: Traco }
+  /** Copy Cat (§5) — só com a variante ativa; ver `turno.ts#copiar`. */
+  | { tipo: 'copiar'; cartaId: string };
 
 export type EventoAcao =
   | { tipo: 'declarar'; avisoSequenciaQuebrada: boolean; esqueceuUltimaCarta: boolean }
   | { tipo: 'passar' }
-  | { tipo: 'desafiar'; declaranteVenceu: boolean; cartaRevelada: EstadoPartida['pilhaSpicy'][number] };
+  | { tipo: 'desafiar'; declaranteVenceu: boolean; cartaRevelada: EstadoPartida['pilhaSpicy'][number] }
+  | { tipo: 'copiar' };
 
 export interface ResultadoAcao {
   estado: EstadoPartida;
@@ -27,7 +37,14 @@ export interface ResultadoAcao {
 export function aplicarAcao(estado: EstadoPartida, jogadorId: string, acao: Acao): ResultadoAcao {
   switch (acao.tipo) {
     case 'declarar': {
-      const r = declarar(estado, jogadorId, acao.cartaId, acao.declaracao, acao.anunciouUltima);
+      const r = declarar(
+        estado,
+        jogadorId,
+        acao.cartaId,
+        acao.declaracao,
+        acao.anunciouUltima,
+        acao.cartasExtrasParaEnfiar,
+      );
       return {
         estado: r.estado,
         evento: {
@@ -45,6 +62,10 @@ export function aplicarAcao(estado: EstadoPartida, jogadorId: string, acao: Acao
         estado: r.estado,
         evento: { tipo: 'desafiar', declaranteVenceu: r.declaranteVenceu, cartaRevelada: r.cartaRevelada },
       };
+    }
+    case 'copiar': {
+      const r = copiar(estado, jogadorId, acao.cartaId);
+      return { estado: r.estado, evento: { tipo: 'copiar' } };
     }
   }
 }

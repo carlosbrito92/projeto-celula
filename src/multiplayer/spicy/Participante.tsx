@@ -14,6 +14,7 @@ export function Participante() {
   const [fase] = useMultiplayerState('fase', 'sala');
   const [jogadorDaVezId] = useMultiplayerState('jogadorDaVezId', '');
   const [declaracaoAtual] = useMultiplayerState<Declaracao | null>('declaracaoAtual', null);
+  const [ultimoDeclaranteId] = useMultiplayerState<string | null>('ultimoDeclaranteId', null);
   const [pilhaSpicyQtd] = useMultiplayerState('pilhaSpicyQtd', 0);
   const [trofeusNoPote] = useMultiplayerState('trofeusNoPote', 3);
   const [trofeusColetados] = useMultiplayerState<Record<string, number>>('trofeusColetados', {});
@@ -23,6 +24,9 @@ export function Participante() {
   const [avisoSequenciaAtivo] = useMultiplayerState('avisoSequenciaAtivo', true);
   const [ultimaDeclaracaoForaDeSequencia] = useMultiplayerState('ultimaDeclaracaoForaDeSequencia', false);
   const [nomes] = useMultiplayerState<Record<string, string>>('nomes', {});
+  const [varianteAtiva] = useMultiplayerState<string | null>('varianteAtiva', null);
+  const [pawHolderId] = useMultiplayerState<string | null>('pawHolderId', null);
+  const [ultimaJogadaEhCopia] = useMultiplayerState('ultimaJogadaEhCopia', false);
 
   useEffect(() => {
     if (entrandoRef.current) return;
@@ -74,6 +78,7 @@ export function Participante() {
   const projecao: ProjecaoPublica = {
     jogadorDaVezId,
     declaracaoAtual,
+    ultimoDeclaranteId,
     pilhaSpicyQtd,
     trofeusNoPote,
     trofeusColetados,
@@ -83,6 +88,9 @@ export function Participante() {
     nomes,
     avisoSequenciaAtivo,
     ultimaDeclaracaoForaDeSequencia,
+    varianteAtiva,
+    pawHolderId,
+    ultimaJogadaEhCopia,
   };
 
   const enviarAcao = (acao: Acao) => {

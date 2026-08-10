@@ -1,5 +1,7 @@
 import type { Carta, Declaracao, Traco } from './types';
 
+const PAR_TURN_IT_UP = [6, 9];
+
 /**
  * Verifica se a declaração bate com a carta real, no traço pedido.
  *
@@ -13,12 +15,32 @@ import type { Carta, Declaracao, Traco } from './types';
  * têm traço cor/valor, então nunca "acertam" um desafio (fora do escopo do
  * motor de declaração/desafio da Sprint A; ver fimDePartida.ts para o papel
  * real dessas duas).
+ *
+ * `varianteAtiva === 'turn_it_up'` (§5): 6 e 9 são equivalentes no traço
+ * 'valor' — declarado 6 ou 9, carta real 6 ou 9 (qualquer combinação),
+ * declarante vence esse traço.
  */
-export function verificarTraco(cartaReal: Carta, declaracao: Declaracao, traco: Traco): boolean {
+export function verificarTraco(
+  cartaReal: Carta,
+  declaracao: Declaracao,
+  traco: Traco,
+  varianteAtiva?: string | null,
+): boolean {
   if (traco === 'ambos') {
     return (
-      verificarTraco(cartaReal, declaracao, 'cor') && verificarTraco(cartaReal, declaracao, 'valor')
+      verificarTraco(cartaReal, declaracao, 'cor', varianteAtiva) &&
+      verificarTraco(cartaReal, declaracao, 'valor', varianteAtiva)
     );
+  }
+
+  if (
+    traco === 'valor' &&
+    varianteAtiva === 'turn_it_up' &&
+    cartaReal.tipo === 'numerada' &&
+    PAR_TURN_IT_UP.includes(declaracao.valor) &&
+    PAR_TURN_IT_UP.includes(cartaReal.valor!)
+  ) {
+    return true;
   }
 
   switch (cartaReal.tipo) {
@@ -41,6 +63,11 @@ export function verificarTraco(cartaReal: Carta, declaracao: Declaracao, traco: 
  * `traco === 'ambos'` só é usado no modo especial do Copy Cat (§5) — nesse
  * caso os dois traços (cor E valor) precisam bater para o declarante vencer.
  */
-export function resolverDesafio(cartaReal: Carta, declaracao: Declaracao, traco: Traco): boolean {
-  return verificarTraco(cartaReal, declaracao, traco);
+export function resolverDesafio(
+  cartaReal: Carta,
+  declaracao: Declaracao,
+  traco: Traco,
+  varianteAtiva?: string | null,
+): boolean {
+  return verificarTraco(cartaReal, declaracao, traco, varianteAtiva);
 }

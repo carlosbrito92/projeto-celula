@@ -40,3 +40,42 @@ describe('quebraSequencia — meio de pilha', () => {
     expect(quebraSequencia(d(10), d(5))).toBe(true);
   });
 });
+
+describe('quebraSequencia — variante we_love_chili', () => {
+  it('1-3 em Vermelho nunca quebra, mesmo com cor estabelecida diferente', () => {
+    expect(quebraSequencia(d(5, 'azul'), d(2, 'vermelho'), 'we_love_chili')).toBe(false);
+    expect(quebraSequencia(d(9, 'verde'), d(1, 'vermelho'), 'we_love_chili')).toBe(false);
+  });
+
+  it('1-3 em outra cor continua seguindo a regra base (quebra se cor diferente)', () => {
+    expect(quebraSequencia(d(5, 'azul'), d(2, 'verde'), 'we_love_chili')).toBe(true);
+  });
+
+  it('4+ em Vermelho não ganha a exceção — regra base normal', () => {
+    expect(quebraSequencia(d(5, 'azul'), d(7, 'vermelho'), 'we_love_chili')).toBe(true);
+  });
+
+  it('sem a variante ativa, mesma jogada quebra normalmente', () => {
+    expect(quebraSequencia(d(5, 'azul'), d(2, 'vermelho'))).toBe(true);
+  });
+});
+
+describe('quebraSequencia — variante start_it_up', () => {
+  it('reset pra 1-3 também vale depois de 8 ou 9, mesma cor', () => {
+    expect(quebraSequencia(d(8, 'verde'), d(1, 'verde'), 'start_it_up')).toBe(false);
+    expect(quebraSequencia(d(9, 'verde'), d(3, 'verde'), 'start_it_up')).toBe(false);
+  });
+
+  it('reset não muda a cor — cor diferente ainda quebra', () => {
+    expect(quebraSequencia(d(8, 'verde'), d(1, 'azul'), 'start_it_up')).toBe(true);
+  });
+
+  it('sem a variante, 8/9 não habilitam reset (só 10, regra base)', () => {
+    expect(quebraSequencia(d(8, 'verde'), d(1, 'verde'))).toBe(true);
+    expect(quebraSequencia(d(9, 'verde'), d(1, 'verde'))).toBe(true);
+  });
+
+  it('reset após 10 continua funcionando com a variante ligada', () => {
+    expect(quebraSequencia(d(10, 'verde'), d(2, 'verde'), 'start_it_up')).toBe(false);
+  });
+});
