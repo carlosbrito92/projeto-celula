@@ -112,26 +112,174 @@ Diferente do desafio normal (que verifica **um só** traço, o citado pelo desaf
 
 ### 6.1 Carta — JSON declarativo
 
+ViewBox de referência: **200×300**, raio de canto 16. Exemplo real (não placeholder — vem do mock aprovado `docs/Baralho Spicy.dc.html`, seção "Tradução para o schema"):
+
 ```json
 {
   "id": "red_7_a",
   "kind": "numbered",
   "color": "red",
   "value": 7,
-  "background": "#8B0000",
-  "border": "#FF4500",
+  "background": "#FFFFFF",
+  "border": "#E6E2DA",
   "shapes": [
-    { "type": "rect", "x": 10, "y": 10, "width": 180, "height": 280, "rx": 15, "fill": "#A00000" }
+    { "type": "circle", "cx": 100, "cy": 150, "r": 77,
+      "fill": "none", "stroke": "#D92B1F",
+      "strokeOpacity": 0.32, "strokeWidth": 1.5 },
+    { "type": "circle", "cx": 176, "cy": 24, "r": 6,
+      "fill": "none", "stroke": "#D92B1F", "strokeWidth": 2 },
+    { "type": "circle", "cx": 24, "cy": 276, "r": 6,
+      "fill": "none", "stroke": "#D92B1F", "strokeWidth": 2 }
   ],
   "texts": [
-    { "content": "7", "x": 25, "y": 45, "fontSize": 28, "fill": "#FFFFFF", "fontWeight": "bold" }
+    { "content": "7", "x": 100, "y": 150, "fontSize": 104,
+      "fill": "#D92B1F", "fontWeight": 800,
+      "anchor": "middle", "baseline": "central" },
+    { "content": "7", "x": 15, "y": 35, "fontSize": 22,
+      "fill": "#D92B1F", "fontWeight": 700 },
+    { "content": "7", "x": 185, "y": 265, "fontSize": 22,
+      "fill": "#D92B1F", "fontWeight": 700,
+      "anchor": "end", "rotate": 180 }
   ]
 }
 ```
 
-- `kind`: `"numbered" | "wild_color" | "wild_number" | "trophy" | "worlds_end" | "spice_it_up"`
+- `kind`: `"numbered" | "wild_color" | "wild_number" | "trophy" | "worlds_end" | "spice_it_up" | "back"` — `"back"` é o verso universal do baralho (§6.1.1), não uma carta da distribuição.
+- Convenção de forma por família (mock §"Tradução para o schema"): círculo → `type: "circle"` (`cx`/`cy`/`r`, centro); losango → `type: "rect"` (`cx`/`cy`/`width`/`height`/`rotate: 45`, também centrado); triângulo → `type: "polygon"` (`points`: array de `[x, y]`, 3 pontos). Traço radial (mostrador do Wild de número) → `type: "line"` (`x1`/`y1`/`x2`/`y2`).
+- Campos novos em relação ao rascunho original, necessários pra traduzir as cartas especiais (§6.1.1) fielmente: `fontFamily` em `texts[]` (`"mono"` para os rótulos de canto tipo "COR"/"Nº"/"TROFÉU"/"FIM", que usam JetBrains Mono no mock — diferente da família de exibição usada no número central) e `fillOpacity` em `texts[]` (usado só em `worlds_end`, rótulo "FIM" a 80% de opacidade).
 - Wilds e especiais seguem o mesmo formato de `shapes`/`texts`, sem `value`/`color` fixos (ou com valor simbólico, a definir na implementação).
 - Renderização via React + SVG, iterando sobre `shapes`/`texts` — conforme mock já validado por Carlos. Flip de carta via CSS 3D (`perspective`, `backfaceVisibility`, `rotateY`), mesmo padrão.
+
+#### 6.1.1 Cartas especiais — tradução do mock
+
+Traduzidas de `docs/Baralho Spicy.dc.html` § "Cartas especiais" (achado de Carlos, 2026-08-10: já estavam desenhadas ali, não uma lacuna de design real). Mesma gramática das numeradas — mas só Troféu/Fim do Mundo/Verso de fato invertem pra fundo escuro; Wild de cor e Wild de número mantêm o fundo branco das numeradas (a legenda do mock diz "fundo invertido ou neutro" — na prática só 3 das 5 invertem).
+
+**Wild de cor** (`wild_color`, ×4 — 3 originais + a 4ª de §3.1) — fundo branco, as 3 formas da família juntas no centro (translúcidas), corner mark é um mini-conjunto das 3 formas (sólidas) + rótulo "COR":
+
+```json
+{
+  "id": "wild_color_a",
+  "kind": "wild_color",
+  "background": "#FFFFFF",
+  "border": "#E6E2DA",
+  "shapes": [
+    { "type": "circle", "cx": 100, "cy": 114, "r": 39,
+      "fill": "#D92B1F", "fillOpacity": 0.10, "stroke": "#D92B1F", "strokeOpacity": 0.55, "strokeWidth": 1.5 },
+    { "type": "rect", "cx": 64, "cy": 183, "width": 56, "height": 56, "rotate": 45,
+      "fill": "#0B63C5", "fillOpacity": 0.10, "stroke": "#0B63C5", "strokeOpacity": 0.55, "strokeWidth": 1.5 },
+    { "type": "polygon", "points": [[133, 153], [170, 217], [96, 217]],
+      "fill": "#0E8A4F", "fillOpacity": 0.10, "stroke": "#0E8A4F", "strokeOpacity": 0.55, "strokeWidth": 1.5 },
+    { "type": "circle", "cx": 19, "cy": 17, "r": 4, "fill": "#D92B1F" },
+    { "type": "rect", "cx": 32, "cy": 17, "width": 8, "height": 8, "rotate": 45, "fill": "#0B63C5" },
+    { "type": "polygon", "points": [[45, 13], [50, 21], [40, 21]], "fill": "#0E8A4F" },
+    { "type": "circle", "cx": 154, "cy": 283, "r": 4, "fill": "#D92B1F" },
+    { "type": "rect", "cx": 167, "cy": 283, "width": 8, "height": 8, "rotate": 45, "fill": "#0B63C5" },
+    { "type": "polygon", "points": [[180, 278], [185, 286], [175, 286]], "fill": "#0E8A4F" }
+  ],
+  "texts": [
+    { "content": "COR", "x": 184, "y": 22, "fontSize": 11, "fontWeight": 500, "fill": "#8A857C", "fontFamily": "mono", "anchor": "end" },
+    { "content": "COR", "x": 16, "y": 278, "fontSize": 11, "fontWeight": 500, "fill": "#8A857C", "fontFamily": "mono", "rotate": 180 }
+  ]
+}
+```
+
+**Wild de número** (`wild_number`, ×3) — fundo branco, mostrador circular com 10 traços radiais, "1–10" central, cantos com `*` + rótulo "Nº":
+
+```json
+{
+  "id": "wild_number_a",
+  "kind": "wild_number",
+  "background": "#FFFFFF",
+  "border": "#E6E2DA",
+  "shapes": [
+    { "type": "circle", "cx": 100, "cy": 150, "r": 77, "fill": "none", "stroke": "#1C1B19", "strokeOpacity": 0.22, "strokeWidth": 1.5 },
+    { "type": "line", "x1": 100.0, "y1": 73.0, "x2": 100.0, "y2": 86.0, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 145.3, "y1": 88.7, "x2": 137.6, "y2": 98.2, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 173.2, "y1": 126.2, "x2": 160.9, "y2": 130.2, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 173.2, "y1": 173.8, "x2": 160.9, "y2": 169.8, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 145.3, "y1": 211.3, "x2": 137.6, "y2": 201.8, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 100.0, "y1": 227.0, "x2": 100.0, "y2": 214.0, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 54.7, "y1": 211.3, "x2": 62.4, "y2": 201.8, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 26.8, "y1": 173.8, "x2": 39.1, "y2": 169.8, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 26.8, "y1": 126.2, "x2": 39.1, "y2": 130.2, "stroke": "#1C1B19", "strokeWidth": 2 },
+    { "type": "line", "x1": 54.7, "y1": 88.7, "x2": 62.4, "y2": 98.2, "stroke": "#1C1B19", "strokeWidth": 2 }
+  ],
+  "texts": [
+    { "content": "1–10", "x": 100, "y": 150, "fontSize": 52, "fill": "#1C1B19", "fontWeight": 800, "anchor": "middle", "baseline": "central" },
+    { "content": "*", "x": 15, "y": 35, "fontSize": 20, "fill": "#1C1B19", "fontWeight": 700 },
+    { "content": "*", "x": 185, "y": 265, "fontSize": 20, "fill": "#1C1B19", "fontWeight": 700, "anchor": "end", "rotate": 180 },
+    { "content": "Nº", "x": 184, "y": 22, "fontSize": 11, "fontWeight": 500, "fill": "#8A857C", "fontFamily": "mono", "anchor": "end" },
+    { "content": "Nº", "x": 16, "y": 278, "fontSize": 11, "fontWeight": 500, "fill": "#8A857C", "fontFamily": "mono", "rotate": 180 }
+  ]
+}
+```
+
+**Troféu** (`trophy`, ×3) — fundo escuro (mesmo tom das numeradas em negativo), taça dourada sobre um pedestal, cantos com mini-taça + rótulo "TROFÉU":
+
+```json
+{
+  "id": "trophy_a",
+  "kind": "trophy",
+  "background": "#1C1B19",
+  "border": "#1C1B19",
+  "shapes": [
+    { "type": "circle", "cx": 100, "cy": 150, "r": 75, "fill": "none", "stroke": "#C7A15A", "strokeOpacity": 0.55, "strokeWidth": 1.5 },
+    { "type": "polygon", "points": [[100, 103], [148, 187], [52, 187]], "fill": "#C7A15A" },
+    { "type": "rect", "cx": 100, "cy": 202, "width": 56, "height": 5, "rx": 3, "fill": "#C7A15A" },
+    { "type": "polygon", "points": [[23, 15], [30, 27], [16, 27]], "fill": "#C7A15A" },
+    { "type": "polygon", "points": [[177, 273], [184, 285], [170, 285]], "fill": "#C7A15A" }
+  ],
+  "texts": [
+    { "content": "TROFÉU", "x": 184, "y": 22, "fontSize": 11, "fontWeight": 500, "fill": "#C7A15A", "fontFamily": "mono", "anchor": "end" },
+    { "content": "TROFÉU", "x": 16, "y": 278, "fontSize": 11, "fontWeight": 500, "fill": "#C7A15A", "fontFamily": "mono", "rotate": 180 }
+  ]
+}
+```
+
+**Fim do Mundo** (`worlds_end`, ×1) — fundo verde escuro (tom exclusivo dessa carta, único diferente do preto das outras 3 invertidas), quadrado dentro de quadrado cortado por uma linha, cantos com quadrado sólido + rótulo "FIM":
+
+```json
+{
+  "id": "worlds_end",
+  "kind": "worlds_end",
+  "background": "#1F3A3D",
+  "border": "#1F3A3D",
+  "shapes": [
+    { "type": "rect", "x": 0, "y": 147, "width": 200, "height": 6, "fill": "#E8E4DC" },
+    { "type": "rect", "cx": 100, "cy": 150, "width": 132, "height": 132, "rx": 4, "fill": "none", "stroke": "#E8E4DC", "strokeOpacity": 0.45, "strokeWidth": 1.5 },
+    { "type": "rect", "cx": 100, "cy": 150, "width": 52, "height": 52, "rx": 2, "fill": "#1F3A3D", "stroke": "#E8E4DC", "strokeOpacity": 0.45, "strokeWidth": 1.5 },
+    { "type": "rect", "x": 16, "y": 15, "width": 12, "height": 12, "fill": "#E8E4DC" },
+    { "type": "rect", "x": 172, "y": 273, "width": 12, "height": 12, "fill": "#E8E4DC" }
+  ],
+  "texts": [
+    { "content": "FIM", "x": 184, "y": 22, "fontSize": 11, "fontWeight": 500, "fill": "#E8E4DC", "fillOpacity": 0.8, "fontFamily": "mono", "anchor": "end" },
+    { "content": "FIM", "x": 16, "y": 278, "fontSize": 11, "fontWeight": 500, "fill": "#E8E4DC", "fillOpacity": 0.8, "fontFamily": "mono", "rotate": 180 }
+  ]
+}
+```
+
+**Verso** (`back`, universal — não faz parte da distribuição, §3, é a face exibida sempre que uma carta não deve ser revelada) — fundo preto puro, círculos concêntricos dourados com as 3 formas da família centralizadas, "SPICY" embaixo:
+
+```json
+{
+  "id": "back",
+  "kind": "back",
+  "background": "#0D0C0B",
+  "border": "#0D0C0B",
+  "shapes": [
+    { "type": "circle", "cx": 100, "cy": 150, "r": 75, "fill": "none", "stroke": "#C7A15A", "strokeOpacity": 0.35, "strokeWidth": 1.5 },
+    { "type": "circle", "cx": 100, "cy": 150, "r": 59, "fill": "none", "stroke": "#C7A15A", "strokeOpacity": 0.55, "strokeWidth": 1.5 },
+    { "type": "circle", "cx": 71, "cy": 150, "r": 9, "fill": "none", "stroke": "#C7A15A", "strokeWidth": 2 },
+    { "type": "rect", "cx": 100, "cy": 150, "width": 16, "height": 16, "rotate": 45, "fill": "none", "stroke": "#C7A15A", "strokeWidth": 2 },
+    { "type": "polygon", "points": [[129, 141], [139, 158], [119, 158]], "fill": "#C7A15A" }
+  ],
+  "texts": [
+    { "content": "SPICY", "x": 100, "y": 274, "fontSize": 11, "fill": "#C7A15A", "fontFamily": "mono", "anchor": "middle" }
+  ]
+}
+```
+
+Coordenadas calculadas a partir do CSS do mock (posições px num card 200×300) — arredondadas, não pixel-perfect; ajuste fino normal na implementação real do componente `Card` (Sprint D), mesmo espírito de qualquer calibração visual do projeto.
 
 ### 6.2 Estado de partida (rascunho conceitual, não final)
 
@@ -162,27 +310,46 @@ Objetivo: motor de jogo completo e testado, sem rede e sem visual — validado s
 
 *Nota registrada: a primeira entrega tratou World's End como sempre presente no baralho com posição fixa calculada. Corrigido para toggle real de setup — motivo: reembaralhamentos repetidos numa sessão casual aumentam a chance da carta sair cedo e encerrar a partida sem aviso, por isso grupos tratam ela (e as variantes) como escolha consciente do organizador com o grupo, não padrão fixo do motor.*
 
-### ▶️ Sprint B — Rede (Playroom Kit) + UI mínima (próxima)
+### ✅ Sprint B — Rede (Playroom Kit) + UI mínima (concluída — PR #36, merged em `main`)
 
 Objetivo: o motor já validado da Sprint A rodando entre 2+ clients reais, sincronizado via Playroom Kit, com UI mínima o suficiente para jogar uma partida de ponta a ponta (texto/botões simples, sem componente visual de carta ainda).
 
-- Estado sincronizado (Playroom Kit): pilha de compra, pilha "spicy" ativa (oculto: identidade real da carta no topo), mão por jogador, jogador da vez, troféus, posição do World's End, toggles de setup (World's End, variante Spice It Up!, aviso de sequência).
-- Tela de setup: organizador escolhe variante (ou nenhuma), liga/desliga World's End, liga/desliga aviso de sequência — antes do `insertCoin`.
-- Lobby + QR code, mesmo mecanismo dos outros 2 jogos V2 (`insertCoin` com `skipLobby: true`, `onPlayerJoin`).
+- Estado sincronizado (Playroom Kit): pilha de compra, pilha "spicy" ativa (oculto: identidade real da carta no topo — `s_topo`, naming não-descritivo, §2/§6.2), mão por jogador (`s_h4x`), jogador da vez, troféus, toggles de setup (World's End, variante Spice It Up!, aviso de sequência) — `src/multiplayer/spicy/Organizador.tsx`/`Participante.tsx`/`Jogo.tsx`.
+- Tela de setup: organizador escolhe variante (ou nenhuma), liga/desliga World's End, liga/desliga aviso de sequência — antes do `insertCoin`. **Organizador joga junto** (mão + ordem de turno), diferente de Quem Sou Eu/Artista Impostor onde o host só facilita — decisão específica do Spicy por ser jogo de cartas de mesa.
+- Lobby + QR code, mesmo mecanismo dos outros 2 jogos V2 (`insertCoin` com `skipLobby: true`).
+- Ações de participante chegam ao host por caixa-postal (`PlayerState.s_acao`), aplicadas via `aplicarAcao` (dispatcher puro, testado) e republicadas.
 - UI mínima: lista de cartas em texto/botões (declarar, passar, desafiar com seleção de traço) — sem SVG, sem flip, sem tema visual.
-- Naming não-descritivo para chaves de estado sensíveis no Playroom (§2) — mão de cada jogador, carta real sob a declaração.
+- Testado de ponta a ponta com 2 clientes Playwright reais contra o backend Playroom. 196 testes, typecheck, lint e build de produção limpos.
 
-### Sprint C — Renderização visual (componente de carta)
+### ✅ Sprint C — Motor das 6 variantes "Spice It Up!" (§5) (concluída — PR #39, merged em `main`)
 
-Objetivo: trocar a UI mínima da Sprint B pelo componente React+SVG real, consumindo o mesmo JSON de carta já especificado (§6.1) — sem alterar a lógica de jogo por baixo.
+Objetivo: os 6 efeitos de variante detalhados em §5 rodando de verdade no motor — na Sprint B, a variante escolhida no setup era só rótulo sincronizado, sem efeito.
 
-- Componente `Card`/`FlippableCard` conforme os mocks já validados (SVG dinâmico a partir de `shapes`/`texts`, flip via CSS 3D).
-- Depende do design visual das cartas estar pronto (Carlos trabalhando em paralelo via Canva/Claude Design — prompt de design na seção 8 abaixo) e traduzido para o schema JSON.
-- Nenhuma lógica de jogo nova nesta sprint — é troca de camada de apresentação sobre um motor já validado nas Sprints A/B.
+- **We Love Chili!**: 1-3 declarado em Vermelho nunca quebra sequência, mesmo no meio da pilha com cor estabelecida diferente — `sequencia.ts`.
+- **Start It Up!**: reset pra 1-3 também vale depois de 8 ou 9, não só 10 — `sequencia.ts`.
+- **Spice Raider** (valor 4): marca `pawHolderId`; próxima carta jogada de fato (declarar/copiar — passar não conta) resolve, Raider fica com a pilha antiga como pontos, pilha nova começa só com a carta recém-jogada — `turno.ts`.
+- **Change Your Luck** (valor 5): até 2 cartas extras da mão enfiadas embaixo da declaração, repostas por compra do monte, imunes a desafio (nunca são o topo) — `turno.ts`.
+- **Turn It Up!**: 6 e 9 equivalentes no traço valor de um desafio — `desafio.ts`.
+- **Copy Cat**: nova ação `copiar` (qualquer jogador, menos quem declarou por último, replica a declaração atual com carta própria, rouba a vez) — `turno.ts`/`acao.ts`; desafiar essa jogada força traço 'ambos' automático, sem escolha do desafiante.
+- UI mínima ganhou os controles específicos de cada variante (picker de cópia, picker de cartas extras, status do Raider, desafio sem traço quando é cópia) — `Jogo.tsx`.
+- 37 testes novos (231 no total). Copy Cat, Spice Raider e Change Your Luck testados de ponta a ponta com 2 clientes Playwright reais; We Love Chili/Start It Up/Turn It Up cobertos por unit + integração.
+
+### ▶️ Sprint D — Visual da carta + animação (próxima)
+
+Objetivo: trocar a UI mínima das Sprints B/C pelo componente React real (SVG + animação), consumindo o mesmo JSON de carta já especificado (§6.1) — sem alterar a lógica de jogo por baixo. Nenhuma lógica de jogo nova nesta sprint — é troca de camada de apresentação sobre um motor já validado nas Sprints A/B/C.
+
+**Design de carta**: mock aprovado por Carlos (`docs/Baralho Spicy.dc.html`) — sistema minimalista já validado (círculo/Vermelho, losango/Azul, triângulo/Verde, cada cor com uma forma geométrica de traço fino no fundo; número grande centralizado + repetido nos 4 cantos). As 5 cartas especiais (Wild de cor, Wild de número, Troféu, Fim do Mundo, Verso) **já estavam desenhadas no mock também** (§ "Cartas especiais", achado de Carlos, 2026-08-10 — não era uma lacuna real) e já foram traduzidas pro schema JSON em §6.1.1. Nenhuma pendência de design real restante — Sprint D desbloqueada por completo.
+
+**Abordagem técnica de animação (decidido 2026-08-10, pesquisa completa em `docs/spicy-pesquisa-visual-animacao.md`)**: **Framer Motion** — flip via `motion.div`/`rotateY` (mesma técnica CSS 3D do mock original), movimento de carta entre áreas (mão → pilha → vencedor) via prop `layoutId` (FLIP automático entre componentes-pai diferentes, técnica confirmada em projeto real de card game — `aod/zhithead`). Shuffle visual (embaralhar várias cartas com coreografia) reimplementa o algoritmo do artigo "JavaScript Playing Cards Part 3: Animations" (Juha Lindstedt) — separar em 2 pilhas, intercalar de volta simulando riffle shuffle — na sintaxe do Framer Motion, não com CSS puro (delays muito próximos entre elementos ficam com timing impreciso em CSS). GSAP (referência real: `oskarrough/slaytheweb`) avaliado e **não descartado**, mas não escolhido agora — fica pra consulta se a coreografia precisar de controle mais fino que o Framer Motion não cubra bem.
+
+- Componente `Card`/`FlippableCard` consumindo `shapes`/`texts` de §6.1, incluindo as 5 cartas especiais traduzidas em §6.1.1 e o verso (`kind: "back"`).
+- Movimento entre áreas (mão/pilha/vencedor) via `layoutId`, shuffle via algoritmo de Juha Lindstedt reimplementado em Framer Motion.
 
 ---
 
 ## 8. Prompt de design das cartas (para Canva / Claude Design)
+
+**Resultado já aprovado**: `docs/Baralho Spicy.dc.html` (ver Sprint D, §7), incluindo as 5 cartas especiais (§6.1.1) — este prompt fica registrado como histórico de como se chegou lá. Nenhuma pendência de design restante.
 
 Uso: colar diretamente em uma ferramenta de geração de design (Canva, Claude Design) para gerar as peças visuais das cartas do Spicy. Desacoplada da lógica de jogo — o resultado visual só precisa, no fim, ser traduzível para o schema JSON já definido (§6.1: `background`, `border`, `shapes[]`, `texts[]`).
 
@@ -209,5 +376,8 @@ Todas as pendências de produto fechadas nesta rodada de definição:
 - ✅ Detalhamento das 6 variantes Spice It Up! em nível de estado/transição, incluindo o modo de verificação especial do Copy Cat (§5).
 - ✅ Apenas 1 variante ativa por partida, não 2 (§4) — simplificação deliberada para a primeira versão.
 - ✅ Nome do módulo/rota: mantido `spicy` por ora; ícone/identidade visual a definir depois, não bloqueia.
+- ✅ World's End é toggle de setup, não peça fixa do motor (Carlos, 2026-08-10) — ver Sprint A (§7) e nota registrada ali.
+- ✅ Design de carta aprovado (`docs/Baralho Spicy.dc.html`) e abordagem técnica de animação decidida — Framer Motion + algoritmo de shuffle de Juha Lindstedt, GSAP como referência futura (Carlos, 2026-08-10; pesquisa completa em `docs/spicy-pesquisa-visual-animacao.md`, incorporada na Sprint D acima).
+- ✅ Wild de cor / Wild de número: já estavam desenhadas no mock (§ "Cartas especiais"), não era lacuna real (Carlos, 2026-08-10) — traduzidas pro schema JSON em §6.1.1 junto com Troféu, Fim do Mundo e Verso.
 
-Nenhuma pendência de produto restante. Sprint A concluída (§7); próximo passo é a implementação da Sprint B — rede (Playroom Kit) + UI mínima.
+Nenhuma pendência de produto ou design restante. Sprints A/B/C concluídas (§7); próximo passo é a implementação da Sprint D — visual da carta + animação.
