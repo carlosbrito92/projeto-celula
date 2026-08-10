@@ -1,9 +1,11 @@
 /*
- * UI mínima do Sprint B — visual neutro de propósito, sem depender de
- * CSS vars de tema (evita o problema de fallback documentado em
- * CLAUDE.md "Decisões de arquitetura (V2 — Artista Impostor)": esta tela
- * roda tanto dentro do ThemeScope do organizador quanto fora, no
- * participante). Sprint C troca isso pelo componente de carta real.
+ * Layout neutro de propósito, sem depender de CSS vars de tema (evita o
+ * problema de fallback documentado em CLAUDE.md "Decisões de arquitetura
+ * (V2 — Artista Impostor)": esta tela roda tanto dentro do ThemeScope do
+ * organizador quanto fora, no participante). O visual da carta em si
+ * (Card.tsx/FlippableCard.tsx, Sprint D) já segue a paleta real do mock
+ * aprovado — só o chrome ao redor (fundo da tela, botões, blocos) continua
+ * neutro.
  */
 .tela {
   min-height: 100dvh;
@@ -35,6 +37,9 @@
 }
 
 .pilha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 8px 12px;
   background: #f0f0f0;
   border-radius: 8px;
@@ -48,6 +53,9 @@
 }
 
 .resultado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 8px 12px;
   background: #fff3cd;
   border-radius: 8px;
@@ -74,18 +82,22 @@
   gap: 6px;
 }
 
-.carta,
-.cartaSelecionada {
-  padding: 8px 12px;
+.cartaPequena {
+  width: 64px;
+  aspect-ratio: 2 / 3;
   border-radius: 6px;
-  border: 1px solid #999;
-  background: #fff;
-  font-size: 0.9rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
 }
 
-.cartaSelecionada {
-  background: #cde;
-  border-color: #369;
+.cartaMedia {
+  width: 110px;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .declarar {
