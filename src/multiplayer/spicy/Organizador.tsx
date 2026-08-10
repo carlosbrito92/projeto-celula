@@ -7,11 +7,12 @@ import { PADRAO_MINC } from '../../themes/registry';
 import { QrCode } from '../quemSouEu/QrCode';
 import { aplicarAcao, type Acao } from './acao';
 import { Jogo, type ProjecaoPublica, type ResultadoDesafioPublico } from './Jogo';
+import { ShuffleAnimation } from './ShuffleAnimation';
 import { montarEstadoInicial, type EstadoPartida, type OpcoesPartida } from './turno';
 import { VARIANTES } from './variantes';
 import styles from './Organizador.module.css';
 
-type FaseLocal = 'setup' | 'sala' | 'jogo';
+type FaseLocal = 'setup' | 'sala' | 'embaralhando' | 'jogo';
 
 const MINIMO_JOGADORES = 2;
 
@@ -147,8 +148,13 @@ export function Organizador() {
     setFaseLocal('sala');
   };
 
+  /** Botão "Iniciar" só dispara a animação decorativa — a partida de verdade só monta quando ela termina (`iniciarDeVerdade`). */
   const iniciar = () => {
     if (totalJogadores < MINIMO_JOGADORES) return;
+    setFaseLocal('embaralhando');
+  };
+
+  const iniciarDeVerdade = () => {
     const todosIds = [myPlayer().id, ...participantes.map((j) => j.id)];
     const varianteEscolhida = varianteId === 'nenhuma' ? null : varianteId;
     const opcoes: OpcoesPartida = { worldsEndAtiva, varianteAtiva: varianteEscolhida };
@@ -297,6 +303,13 @@ export function Organizador() {
             >
               Iniciar
             </button>
+          </>
+        )}
+
+        {faseLocal === 'embaralhando' && (
+          <>
+            <div className={styles.titulo}>Embaralhando…</div>
+            <ShuffleAnimation onConcluido={iniciarDeVerdade} />
           </>
         )}
       </div>

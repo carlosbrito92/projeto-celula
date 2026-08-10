@@ -1,24 +1,21 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
+import { FlippableCard } from './FlippableCard';
 import { CORES, type Carta, type Cor, type Declaracao, type Traco } from './types';
 import type { Acao } from './acao';
 import styles from './Jogo.module.css';
 
 const VALORES = Array.from({ length: 10 }, (_, i) => i + 1);
 
-function rotuloCarta(carta: Carta): string {
-  switch (carta.tipo) {
-    case 'numerada':
-      return `${capitalizar(carta.cor!)} ${carta.valor}`;
-    case 'wild_cor':
-      return 'Wild de cor';
-    case 'wild_numero':
-      return 'Wild de número';
-    case 'trofeu':
-      return 'Troféu';
-    case 'fim_do_mundo':
-      return "Fim do Mundo";
-  }
-}
+/**
+ * Carta de conteúdo irrelevante — só usada com `revelada={false}` (verso não
+ * depende do id/tipo real, §6.1.1). Nunca a mesma referência de uma carta
+ * real, então nunca cria continuidade de `layoutId` acidental com a mão de
+ * ninguém. `FlippableCard` monta as duas faces sempre (o flip 3D depende
+ * disso), então mesmo a face nunca exibida precisa de `cor`/`valor` válidos
+ * — sem isso, `cartaParaVisual` quebra tentando montar a forma numerada.
+ */
+const CARTA_VERSO_PILHA: Carta = { id: 'pilha-topo', tipo: 'numerada', cor: 'vermelho', valor: 1 };
 
 function capitalizar(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -142,9 +139,14 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
       </div>
 
       <div className={styles.pilha}>
-        {projecao.declaracaoAtual
-          ? `Pilha: ${projecao.pilhaSpicyQtd} carta(s) — declarado ${capitalizar(projecao.declaracaoAtual.cor)} ${projecao.declaracaoAtual.valor}`
-          : 'Pilha vazia'}
+        {projecao.declaracaoAtual && (
+          <FlippableCard carta={CARTA_VERSO_PILHA} revelada={false} className={styles.cartaMedia} />
+        )}
+        <div>
+          {projecao.declaracaoAtual
+            ? `Pilha: ${projecao.pilhaSpicyQtd} carta(s) — declarado ${capitalizar(projecao.declaracaoAtual.cor)} ${projecao.declaracaoAtual.valor}`
+            : 'Pilha vazia'}
+        </div>
       </div>
 
       {projecao.avisoSequenciaAtivo && projecao.ultimaDeclaracaoForaDeSequencia && (
@@ -153,9 +155,11 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
       {projecao.ultimoResultado && (
         <div className={styles.resultado}>
-          Revelado: {rotuloCarta(projecao.ultimoResultado.cartaRevelada)} —{' '}
-          {nome(projecao.ultimoResultado.declaranteVenceu ? projecao.ultimoResultado.declaranteId : projecao.ultimoResultado.desafianteId)}{' '}
-          venceu o desafio
+          <FlippableCard carta={projecao.ultimoResultado.cartaRevelada} revelada className={styles.cartaMedia} />
+          <div>
+            {nome(projecao.ultimoResultado.declaranteVenceu ? projecao.ultimoResultado.declaranteId : projecao.ultimoResultado.desafianteId)}{' '}
+            venceu o desafio
+          </div>
         </div>
       )}
 
@@ -192,14 +196,14 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
           <div className={styles.blocoTitulo}>Copiar declaração (Copy Cat)</div>
           <div className={styles.mao}>
             {minhaMao.map((carta) => (
-              <button
+              <FlippableCard
                 key={carta.id}
-                type="button"
-                className={carta.id === cartaParaCopiar?.id ? styles.cartaSelecionada : styles.carta}
+                carta={carta}
+                revelada
+                className={styles.cartaPequena}
+                selecionada={carta.id === cartaParaCopiar?.id}
                 onClick={() => setCartaParaCopiar(carta)}
-              >
-                {rotuloCarta(carta)}
-              </button>
+              />
             ))}
           </div>
           {cartaParaCopiar && (
@@ -215,14 +219,14 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
           <div className={styles.blocoTitulo}>Sua mão ({minhaMao.length})</div>
           <div className={styles.mao}>
             {minhaMao.map((carta) => (
-              <button
+              <FlippableCard
                 key={carta.id}
-                type="button"
-                className={carta.id === cartaSelecionada?.id ? styles.cartaSelecionada : styles.carta}
+                carta={carta}
+                revelada
+                className={styles.cartaPequena}
+                selecionada={carta.id === cartaSelecionada?.id}
                 onClick={() => setCartaSelecionada(carta)}
-              >
-                {rotuloCarta(carta)}
-              </button>
+              />
             ))}
           </div>
 
@@ -269,16 +273,14 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                     {minhaMao
                       .filter((c) => c.id !== cartaSelecionada.id)
                       .map((carta) => (
-                        <button
+                        <FlippableCard
                           key={carta.id}
-                          type="button"
-                          className={
-                            extrasSelecionadas.includes(carta.id) ? styles.cartaSelecionada : styles.carta
-                          }
+                          carta={carta}
+                          revelada
+                          className={styles.cartaPequena}
+                          selecionada={extrasSelecionadas.includes(carta.id)}
                           onClick={() => alternarExtra(carta.id)}
-                        >
-                          {rotuloCarta(carta)}
-                        </button>
+                        />
                       ))}
                   </div>
                 </div>
@@ -298,11 +300,11 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
       {!minhaVez && (
         <div className={styles.mao}>
-          {minhaMao.map((carta) => (
-            <div key={carta.id} className={styles.carta}>
-              {rotuloCarta(carta)}
-            </div>
-          ))}
+          <AnimatePresence>
+            {minhaMao.map((carta) => (
+              <FlippableCard key={carta.id} carta={carta} revelada className={styles.cartaPequena} />
+            ))}
+          </AnimatePresence>
         </div>
       )}
     </div>
