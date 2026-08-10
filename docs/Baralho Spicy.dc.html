@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#EFEDE8; }
+  a { color:#0B63C5; text-decoration:none; border-bottom:1px solid rgba(11,99,197,.35); }
+  a:hover { color:#D92B1F; border-bottom-color:rgba(217,43,31,.4); }
+</style>
+</helmet>
+
+<div style="font-family:Archivo, Helvetica, sans-serif; color:#1C1B19; padding:56px 56px 88px; background:#EFEDE8; box-sizing:border-box">
+
+  <div style="display:flex; flex-direction:column; gap:10px; max-width:760px; margin-bottom:44px">
+    <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#8A857C">Spicy · sistema visual do baralho</div>
+    <h1 style="margin:0; font-size:40px; font-weight:700; letter-spacing:-0.025em; line-height:1.05">Três cores, dez números, quatro especiais</h1>
+    <p style="margin:0; font-size:16px; line-height:1.55; color:#5C574F; text-wrap:pretty">Formato 2:3, cantos suaves. Cada cor tem uma única forma geométrica de fundo em traço fino: círculo, losango, triângulo — reconhecível de longe, silenciosa por baixo do número. Cantos opostos repetem o número; o outro par repete a forma da família. Tudo se traduz para <code style="font-family:'JetBrains Mono', monospace; font-size:14px">shapes[]</code> + <code style="font-family:'JetBrains Mono', monospace; font-size:14px">texts[]</code> do schema.</p>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px">
+    <div style="width:14px; height:14px; border-radius:50%; border:2.5px solid #D92B1F; box-sizing:border-box"></div>
+    <div style="font-size:19px; font-weight:600">Vermelho</div>
+    <div style="font-family:'JetBrains Mono', monospace; font-size:12px; color:#8A857C">círculo · #D92B1F sobre #FFFFFF</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:44px">
+    <sc-for list="{{ nums }}" as="n" hint-placeholder-count="10">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#FFFFFF; border:1px solid #E6E2DA; box-shadow:0 1px 2px rgba(28,27,25,.08); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:154px; height:154px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box">
+          <sc-if value="{{ softFill }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; inset:0; border-radius:50%; background:rgba(217,43,31,.10)"></div></sc-if>
+        </div>
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:104px; font-weight:800; letter-spacing:-0.05em; color:#D92B1F; font-variant-numeric:tabular-nums; line-height:1">{{ n }}</div>
+        <sc-if value="{{ showCorners }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; top:13px; left:15px; font-size:22px; font-weight:700; color:#D92B1F; line-height:1">{{ n }}</div>
+          <div style="position:absolute; bottom:13px; right:15px; font-size:22px; font-weight:700; color:#D92B1F; line-height:1; transform:rotate(180deg)">{{ n }}</div>
+          <div style="position:absolute; top:17px; right:17px; width:12px; height:12px; border-radius:50%; border:2px solid #D92B1F; box-sizing:border-box"></div>
+          <div style="position:absolute; bottom:17px; left:17px; width:12px; height:12px; border-radius:50%; border:2px solid #D92B1F; box-sizing:border-box"></div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px">
+    <div style="width:13px; height:13px; border:2.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+    <div style="font-size:19px; font-weight:600">Azul</div>
+    <div style="font-family:'JetBrains Mono', monospace; font-size:12px; color:#8A857C">losango · #0B63C5 sobre #FFFFFF</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:44px">
+    <sc-for list="{{ nums }}" as="n" hint-placeholder-count="10">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#FFFFFF; border:1px solid #E6E2DA; box-shadow:0 1px 2px rgba(28,27,25,.08); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:120px; height:120px; border-radius:8px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box">
+          <sc-if value="{{ softFill }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; inset:0; border-radius:7px; background:rgba(11,99,197,.10)"></div></sc-if>
+        </div>
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:104px; font-weight:800; letter-spacing:-0.05em; color:#0B63C5; font-variant-numeric:tabular-nums; line-height:1">{{ n }}</div>
+        <sc-if value="{{ showCorners }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; top:13px; left:15px; font-size:22px; font-weight:700; color:#0B63C5; line-height:1">{{ n }}</div>
+          <div style="position:absolute; bottom:13px; right:15px; font-size:22px; font-weight:700; color:#0B63C5; line-height:1; transform:rotate(180deg)">{{ n }}</div>
+          <div style="position:absolute; top:19px; right:19px; width:11px; height:11px; border:2px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+          <div style="position:absolute; bottom:19px; left:19px; width:11px; height:11px; border:2px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px">
+    <div style="width:14px; height:12px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+    <div style="font-size:19px; font-weight:600">Verde</div>
+    <div style="font-family:'JetBrains Mono', monospace; font-size:12px; color:#8A857C">triângulo · #0E8A4F sobre #FFFFFF</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:56px">
+    <sc-for list="{{ nums }}" as="n" hint-placeholder-count="10">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#FFFFFF; border:1px solid #E6E2DA; box-shadow:0 1px 2px rgba(28,27,25,.08); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:168px; height:146px; background:rgba(14,138,79,.32); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+          <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:164px; height:142px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+            <sc-if value="{{ softFill }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; inset:0; background:rgba(14,138,79,.10); clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div></sc-if>
+          </div>
+        </div>
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:104px; font-weight:800; letter-spacing:-0.05em; color:#0E8A4F; font-variant-numeric:tabular-nums; line-height:1; padding-top:14px; box-sizing:border-box">{{ n }}</div>
+        <sc-if value="{{ showCorners }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; top:13px; left:15px; font-size:22px; font-weight:700; color:#0E8A4F; line-height:1">{{ n }}</div>
+          <div style="position:absolute; bottom:13px; right:15px; font-size:22px; font-weight:700; color:#0E8A4F; line-height:1; transform:rotate(180deg)">{{ n }}</div>
+          <div style="position:absolute; top:18px; right:17px; width:13px; height:11px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          <div style="position:absolute; bottom:18px; left:17px; width:13px; height:11px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="height:1px; background:#DCD8D0; margin-bottom:40px"></div>
+
+  <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:22px">
+    <h2 style="margin:0; font-size:26px; font-weight:700; letter-spacing:-0.02em">Cartas especiais</h2>
+    <p style="margin:0; font-size:15px; color:#5C574F; max-width:620px; text-wrap:pretty">Mesma gramática — uma forma central, cantos em par oposto — mas com fundo invertido ou neutro, para que se separem da mão numerada num relance.</p>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:24px; margin-bottom:52px">
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#FFFFFF; border:1px solid #E6E2DA; box-shadow:0 1px 2px rgba(28,27,25,.08); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:156px; height:150px">
+          <div style="position:absolute; left:50%; top:0; transform:translateX(-50%); width:78px; height:78px; border-radius:50%; border:1.5px solid rgba(217,43,31,.55); background:rgba(217,43,31,.10); box-sizing:border-box"></div>
+          <div style="position:absolute; left:14px; bottom:14px; width:56px; height:56px; border:1.5px solid rgba(11,99,197,.55); background:rgba(11,99,197,.10); transform:rotate(45deg); box-sizing:border-box"></div>
+          <div style="position:absolute; right:8px; bottom:8px; width:74px; height:64px; background:rgba(14,138,79,.55); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+            <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:70px; height:61px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+              <div style="position:absolute; inset:0; background:rgba(14,138,79,.10); clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute; top:13px; left:15px; display:flex; gap:4px; align-items:center">
+          <div style="width:9px; height:9px; border-radius:50%; background:#D92B1F"></div>
+          <div style="width:8px; height:8px; background:#0B63C5; transform:rotate(45deg)"></div>
+          <div style="width:10px; height:8px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        </div>
+        <div style="position:absolute; bottom:13px; right:15px; display:flex; gap:4px; align-items:center">
+          <div style="width:9px; height:9px; border-radius:50%; background:#D92B1F"></div>
+          <div style="width:8px; height:8px; background:#0B63C5; transform:rotate(45deg)"></div>
+          <div style="width:10px; height:8px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        </div>
+        <div style="position:absolute; top:16px; right:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#8A857C">COR</div>
+        <div style="position:absolute; bottom:16px; left:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#8A857C; transform:rotate(180deg)">COR</div>
+      </div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#8A857C; letter-spacing:.06em">WILD_COLOR · ×3</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#FFFFFF; border:1px solid #E6E2DA; box-shadow:0 1px 2px rgba(28,27,25,.08); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:154px; height:154px; border-radius:50%; border:1.5px solid rgba(28,27,25,.22); box-sizing:border-box"></div>
+        <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="10">
+          <div style="position:absolute; left:50%; top:50%; width:2px; height:154px; margin-left:-1px; margin-top:-77px; transform:rotate({{ t }}deg)">
+            <div style="width:2px; height:13px; background:#1C1B19; border-radius:1px"></div>
+          </div>
+        </sc-for>
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:52px; font-weight:800; letter-spacing:-0.04em; color:#1C1B19; line-height:1">1–10</div>
+        <div style="position:absolute; top:13px; left:15px; font-size:20px; font-weight:700; color:#1C1B19; line-height:1">*</div>
+        <div style="position:absolute; bottom:13px; right:15px; font-size:20px; font-weight:700; color:#1C1B19; line-height:1">*</div>
+        <div style="position:absolute; top:16px; right:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#8A857C">Nº</div>
+        <div style="position:absolute; bottom:16px; left:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#8A857C; transform:rotate(180deg)">Nº</div>
+      </div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#8A857C; letter-spacing:.06em">WILD_NUMBER · ×3</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#1C1B19; border:1px solid #1C1B19; box-shadow:0 1px 2px rgba(28,27,25,.16); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:150px; height:150px; border-radius:50%; border:1.5px solid rgba(199,161,90,.55); box-sizing:border-box"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-56%); width:96px; height:84px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,52px); width:56px; height:5px; border-radius:3px; background:#C7A15A"></div>
+        <div style="position:absolute; top:15px; left:16px; width:14px; height:12px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        <div style="position:absolute; bottom:15px; right:16px; width:14px; height:12px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        <div style="position:absolute; top:16px; right:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.10em; color:#C7A15A">TROFÉU</div>
+        <div style="position:absolute; bottom:16px; left:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.10em; color:#C7A15A; transform:rotate(180deg)">TROFÉU</div>
+      </div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#8A857C; letter-spacing:.06em">TROPHY · ×3</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#1F3A3D; border:1px solid #1F3A3D; box-shadow:0 1px 2px rgba(28,27,25,.16); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:0; right:0; top:50%; height:6px; margin-top:-3px; background:#E8E4DC"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:132px; height:132px; border:1.5px solid rgba(232,228,220,.45); border-radius:4px; box-sizing:border-box"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:#1F3A3D; border:1.5px solid rgba(232,228,220,.45); border-radius:2px; box-sizing:border-box"></div>
+        <div style="position:absolute; top:15px; left:16px; width:12px; height:12px; background:#E8E4DC"></div>
+        <div style="position:absolute; bottom:15px; right:16px; width:12px; height:12px; background:#E8E4DC"></div>
+        <div style="position:absolute; top:16px; right:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.10em; color:rgba(232,228,220,.8)">FIM</div>
+        <div style="position:absolute; bottom:16px; left:16px; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500; letter-spacing:.10em; color:rgba(232,228,220,.8); transform:rotate(180deg)">FIM</div>
+      </div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#8A857C; letter-spacing:.06em">WORLDS_END · ×1</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="position:relative; width:200px; height:300px; border-radius:16px; background:#0D0C0B; border:1px solid #0D0C0B; box-shadow:0 1px 2px rgba(28,27,25,.16); overflow:hidden; box-sizing:border-box">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:150px; height:150px; border-radius:50%; border:1.5px solid rgba(199,161,90,.35); box-sizing:border-box"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:118px; height:118px; border-radius:50%; border:1.5px solid rgba(199,161,90,.55); box-sizing:border-box"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; gap:11px; align-items:center">
+          <div style="width:19px; height:19px; border-radius:50%; border:2px solid #C7A15A; box-sizing:border-box"></div>
+          <div style="width:16px; height:16px; border:2px solid #C7A15A; transform:rotate(45deg); box-sizing:border-box"></div>
+          <div style="width:20px; height:17px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        </div>
+        <div style="position:absolute; left:0; right:0; bottom:26px; text-align:center; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.24em; color:#C7A15A">SPICY</div>
+      </div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#8A857C; letter-spacing:.06em">VERSO</div>
+    </div>
+  </div>
+
+  <div style="height:1px; background:#DCD8D0; margin-bottom:36px"></div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:40px; align-items:flex-start">
+    <div style="max-width:520px; display:flex; flex-direction:column; gap:12px">
+      <h2 style="margin:0; font-size:22px; font-weight:700; letter-spacing:-0.02em">Tradução para o schema (§5.1)</h2>
+      <p style="margin:0; font-size:15px; line-height:1.55; color:#5C574F; text-wrap:pretty">Nada aqui depende de imagem: cada carta é 1 forma central + 4 marcas de canto. Círculo = <code style="font-family:'JetBrains Mono', monospace">circle</code>, losango = <code style="font-family:'JetBrains Mono', monospace">rect</code> com <code style="font-family:'JetBrains Mono', monospace">rotate(45)</code>, triângulo = <code style="font-family:'JetBrains Mono', monospace">polygon</code>. Viewbox de referência 200×300, raio de canto 16.</p>
+      <table style="border-collapse:collapse; font-size:14px; width:100%">
+        <tbody>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C; width:120px">Verso</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#C7A15A / #0D0C0B</td></tr>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C; width:120px">Vermelho</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#D92B1F / #FFFFFF / #E6E2DA</td></tr>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C">Azul</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#0B63C5 / #FFFFFF / #E6E2DA</td></tr>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C">Verde</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#0E8A4F / #FFFFFF / #E6E2DA</td></tr>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C">Troféu</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#C7A15A / #1C1B19</td></tr>
+          <tr><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; color:#8A857C">Fim do Mundo</td><td style="padding:7px 0; border-bottom:1px solid #DCD8D0; font-family:'JetBrains Mono', monospace; font-size:13px">#E8E4DC / #1F3A3D</td></tr>
+          <tr><td style="padding:7px 0; color:#8A857C">Tipografia</td><td style="padding:7px 0; font-family:'JetBrains Mono', monospace; font-size:13px">Archivo 800 · centro 104px · canto 22px</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pre style="margin:0; font-family:'JetBrains Mono', monospace; font-size:12.5px; line-height:1.65; color:#3A3630; background:#E4E0D7; border:1px solid #D2CDC3; border-radius:12px; padding:20px 22px; overflow:auto; max-width:560px">{
+  "id": "red_7_a",
+  "kind": "numbered",
+  "color": "red",
+  "value": 7,
+  "background": "#FFFFFF",
+  "border": "#E6E2DA",
+  "shapes": [
+    { "type": "circle", "cx": 100, "cy": 150, "r": 77,
+      "fill": "none", "stroke": "#D92B1F",
+      "strokeOpacity": 0.32, "strokeWidth": 1.5 },
+    { "type": "circle", "cx": 176, "cy": 24, "r": 6,
+      "fill": "none", "stroke": "#D92B1F", "strokeWidth": 2 },
+    { "type": "circle", "cx": 24, "cy": 276, "r": 6,
+      "fill": "none", "stroke": "#D92B1F", "strokeWidth": 2 }
+  ],
+  "texts": [
+    { "content": "7", "x": 100, "y": 150, "fontSize": 104,
+      "fill": "#D92B1F", "fontWeight": 800,
+      "anchor": "middle", "baseline": "central" },
+    { "content": "7", "x": 15, "y": 35, "fontSize": 22,
+      "fill": "#D92B1F", "fontWeight": 700 },
+    { "content": "7", "x": 185, "y": 265, "fontSize": 22,
+      "fill": "#D92B1F", "fontWeight": 700,
+      "anchor": "end", "rotate": 180 }
+  ]
+}</pre>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;softFill&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cartas numeradas&quot;},&quot;showCorners&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cartas numeradas&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      nums: [1,2,3,4,5,6,7,8,9,10],
+      ticks: [0,36,72,108,144,180,216,252,288,324],
+      softFill: this.props.softFill ?? true,
+      showCorners: this.props.showCorners ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
