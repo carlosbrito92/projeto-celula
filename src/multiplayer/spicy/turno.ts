@@ -6,6 +6,7 @@ import { quebraSequencia } from './sequencia';
 import type { Carta, Declaracao, Traco } from './types';
 
 const MAO_INICIAL = 6;
+const MAX_EXTRAS_CHANGE_YOUR_LUCK = 2;
 
 /**
  * Cartas do fundo da pilha de compra "reservadas" por jogador antes de
@@ -37,6 +38,20 @@ export interface EstadoPartida {
   maoVaziaAguardandoTrofeu: string | null;
   worldsEndRevelada: boolean;
   jogoEncerrado: boolean;
+  /** Variante "Spice It Up!" ativa nesta partida (§5) — só 1 por vez (§4), ou `null`. */
+  varianteAtiva: string | null;
+  /**
+   * Spice Raider (§5): jogador que declarou um 4 e reivindicou a pilha
+   * atual. Resolvido na próxima carta jogada de fato (declarar/copiar,
+   * `passar` não conta) por `resolverReivindicacaoRaider`.
+   */
+  pawHolderId: string | null;
+  /**
+   * Copy Cat (§5): true quando a carta no topo da pilha entrou via `copiar`
+   * (não `declarar`) — desafiar essa jogada específica usa modo 'ambos' os
+   * traços automaticamente, sem escolha do desafiante (ver `desafiar`).
+   */
+  ultimaJogadaEhCopia: boolean;
 }
 
 export interface OpcoesPartida {
@@ -51,6 +66,8 @@ export interface OpcoesPartida {
    * interno de `false`.
    */
   worldsEndAtiva?: boolean;
+  /** Id de `variantes.ts` (ex: 'we_love_chili') ou `null`/omitido — só 1 por partida (§4). */
+  varianteAtiva?: string | null;
 }
 
 function inserirFimDoMundo(pilhaCompra: Carta[], numJogadores: number, fimDoMundo: Carta): Carta[] {
@@ -94,6 +111,9 @@ export function montarEstadoInicial(
     maoVaziaAguardandoTrofeu: null,
     worldsEndRevelada: false,
     jogoEncerrado: false,
+    varianteAtiva: opcoes.varianteAtiva ?? null,
+    pawHolderId: null,
+    ultimaJogadaEhCopia: false,
   };
 }
 
@@ -118,12 +138,12 @@ function comFimDeJogoAtualizado(estado: EstadoPartida): EstadoPartida {
 
 /**
  * Última carta jogada (mão vazia) sobrevive sem desafio até a próxima ação
- * de outro jogador (declarar/passar "enterra" a jogada; ver `desafiar` para
- * o caminho onde ela É desafiada) → jogador ganha 1 Troféu do pote e puxa
- * uma mão nova de `MAO_INICIAL` cartas pra continuar tentando o 2º troféu
- * (Carlos, 2026-08-10). Pote esgotado nesse meio-tempo: pendência só limpa,
- * sem prêmio — não deveria ser alcançável (pote esgotado já encerra o jogo),
- * guarda defensiva.
+ * de outro jogador (declarar/passar/copiar "enterra" a jogada; ver
+ * `desafiar` para o caminho onde ela É desafiada) → jogador ganha 1 Troféu
+ * do pote e puxa uma mão nova de `MAO_INICIAL` cartas pra continuar
+ * tentando o 2º troféu (Carlos, 2026-08-10). Pote esgotado nesse meio-tempo:
+ * pendência só limpa, sem prêmio — não deveria ser alcançável (pote
+ * esgotado já encerra o jogo), guarda defensiva.
  */
 function resolverPendenciaUltimaCarta(estado: EstadoPartida): EstadoPartida {
   const jogador = estado.maoVaziaAguardandoTrofeu;
@@ -144,6 +164,31 @@ function resolverPendenciaUltimaCarta(estado: EstadoPartida): EstadoPartida {
   });
 }
 
+/**
+ * Spice Raider (§5): se há uma reivindicação pendente (`pawHolderId`),
+ * resolve ANTES de processar a próxima carta jogada de fato (`declarar`/
+ * `copiar` chamam isso; `passar` não, porque "passe não conta" §5) — o
+ * Raider fica com toda a pilha atual como pontos, pilha zera, e a carta
+ * prestes a ser jogada começa uma pilha nova sozinha (efeito automático de
+ * já rodar isso antes do push da nova carta).
+ */
+function resolverReivindicacaoRaider(estado: EstadoPartida): EstadoPartida {
+  if (!estado.pawHolderId) return estado;
+  if (estado.pilhaSpicy.length === 0) {
+    return { ...estado, pawHolderId: null };
+  }
+  const raiderId = estado.pawHolderId;
+  const pontos = estado.pilhaSpicy.length;
+  return {
+    ...estado,
+    pawHolderId: null,
+    pilhaSpicy: [],
+    declaracaoAtual: null,
+    ultimoDeclaranteId: null,
+    pontuacoes: { ...estado.pontuacoes, [raiderId]: estado.pontuacoes[raiderId] + pontos },
+  };
+}
+
 export interface ResultadoDeclarar {
   estado: EstadoPartida;
   /** Aviso não-bloqueante (§4) — a jogada acontece de qualquer forma. */
@@ -160,6 +205,13 @@ export interface ResultadoDeclarar {
  * Declara e joga `cartaId` da mão de `jogadorId`, alegando `declaracao`.
  * `anunciouUltima` só importa quando a mão do jogador tem exatamente 1
  * carta antes da jogada (§4) — ignorado nos demais casos.
+ *
+ * `cartasExtrasParaEnfiar` é o mecanismo do Change Your Luck (§5, valor 5):
+ * até 2 ids de carta da própria mão, enfiadas embaixo da carta principal na
+ * pilha (imunes a desafio — nunca são o topo, então `desafiar` nunca as
+ * inspeciona) e repostas por compra do monte. Só válido com a variante
+ * `change_your_luck` ativa e `declaracao.valor === 5`; lança erro fora
+ * desse contexto (uso indevido, não uma jogada "errada" tolerável).
  */
 export function declarar(
   estadoOriginal: EstadoPartida,
@@ -167,8 +219,10 @@ export function declarar(
   cartaId: string,
   declaracao: Declaracao,
   anunciouUltima = false,
+  cartasExtrasParaEnfiar: string[] = [],
 ): ResultadoDeclarar {
-  const estado = resolverPendenciaUltimaCarta(estadoOriginal);
+  let estado = resolverPendenciaUltimaCarta(estadoOriginal);
+  estado = resolverReivindicacaoRaider(estado);
   validarVez(estado, jogadorId);
   const mao = estado.maos[jogadorId];
   if (mao.length === 1 && !anunciouUltima) {
@@ -182,27 +236,111 @@ export function declarar(
   const carta = mao.find((c) => c.id === cartaId);
   if (!carta) throw new Error(`Carta ${cartaId} não está na mão de ${jogadorId}`);
 
-  const avisoSequenciaQuebrada = quebraSequencia(estado.declaracaoAtual, declaracao);
+  const avisoSequenciaQuebrada = quebraSequencia(estado.declaracaoAtual, declaracao, estado.varianteAtiva);
+  let maoRestante = mao.filter((c) => c.id !== cartaId);
+  let pilhaCompra = estado.pilhaCompra;
+  let worldsEndRevelada = estado.worldsEndRevelada;
+  let cartasParaPilha: Carta[] = [carta];
+
+  if (cartasExtrasParaEnfiar.length > 0) {
+    if (estado.varianteAtiva !== 'change_your_luck') {
+      throw new Error('Cartas extras só são válidas com a variante Change Your Luck ativa');
+    }
+    if (declaracao.valor !== 5) {
+      throw new Error('Cartas extras só podem ser enfiadas junto de uma declaração de valor 5');
+    }
+    if (cartasExtrasParaEnfiar.length > MAX_EXTRAS_CHANGE_YOUR_LUCK) {
+      throw new Error(`No máximo ${MAX_EXTRAS_CHANGE_YOUR_LUCK} cartas extras`);
+    }
+    const extras = cartasExtrasParaEnfiar.map((id) => {
+      const c = maoRestante.find((carta2) => carta2.id === id);
+      if (!c) throw new Error(`Carta extra ${id} não está na mão de ${jogadorId}`);
+      return c;
+    });
+    maoRestante = maoRestante.filter((c) => !cartasExtrasParaEnfiar.includes(c.id));
+    cartasParaPilha = [...extras, carta];
+
+    const { compradas, restante, fimDoMundoRevelada } = comprar(pilhaCompra, extras.length);
+    maoRestante = [...maoRestante, ...compradas];
+    pilhaCompra = restante;
+    worldsEndRevelada = worldsEndRevelada || fimDoMundoRevelada;
+  }
+
+  const maoFinal = maoRestante;
+
+  const estadoNovo: EstadoPartida = {
+    ...estado,
+    pilhaCompra,
+    worldsEndRevelada,
+    maos: { ...estado.maos, [jogadorId]: maoFinal },
+    pilhaSpicy: [...estado.pilhaSpicy, ...cartasParaPilha],
+    declaracaoAtual: declaracao,
+    ultimoDeclaranteId: jogadorId,
+    maoVaziaAguardandoTrofeu: maoFinal.length === 0 ? jogadorId : null,
+    ultimaJogadaEhCopia: false,
+    pawHolderId: estado.varianteAtiva === 'spice_raider' && declaracao.valor === 4 ? jogadorId : estado.pawHolderId,
+    indiceDaVez: proximoIndice(estado),
+  };
+
+  return { estado: comFimDeJogoAtualizado(estadoNovo), avisoSequenciaQuebrada, esqueceuUltimaCarta: false };
+}
+
+/** Jogador da vez passa sem jogar carta — pilha/declaração atual não mudam. Spice Raider: "passe não conta" (§5), não resolve a reivindicação. */
+export function passar(estadoOriginal: EstadoPartida, jogadorId: string): EstadoPartida {
+  const estado = resolverPendenciaUltimaCarta(estadoOriginal);
+  validarVez(estado, jogadorId);
+  return { ...estado, indiceDaVez: proximoIndice(estado) };
+}
+
+export interface ResultadoCopiar {
+  estado: EstadoPartida;
+  avisoSequenciaQuebrada: false;
+  esqueceuUltimaCarta: false;
+}
+
+/**
+ * Copy Cat (§5): `jogadorId` (qualquer um, menos quem fez a última
+ * declaração) joga `cartaId` da própria mão replicando exatamente a
+ * declaração atual (mesma cor+valor) — "rouba" a vez. Turno segue para a
+ * esquerda de quem copiou; cópia de uma cópia é permitida (só olha o
+ * `ultimoDeclaranteId` corrente, sem limite de cadeia).
+ */
+export function copiar(estadoOriginal: EstadoPartida, jogadorId: string, cartaId: string): ResultadoCopiar {
+  let estado = resolverPendenciaUltimaCarta(estadoOriginal);
+  estado = resolverReivindicacaoRaider(estado);
+
+  if (estado.varianteAtiva !== 'copy_cat') {
+    throw new Error('Copiar só é válido com a variante Copy Cat ativa');
+  }
+  if (estado.pilhaSpicy.length === 0 || estado.declaracaoAtual === null || estado.ultimoDeclaranteId === null) {
+    throw new Error('Não há declaração pendente para copiar');
+  }
+  if (jogadorId === estado.ultimoDeclaranteId) {
+    throw new Error('Não é possível copiar a própria jogada');
+  }
+
+  const mao = estado.maos[jogadorId];
+  const carta = mao.find((c) => c.id === cartaId);
+  if (!carta) throw new Error(`Carta ${cartaId} não está na mão de ${jogadorId}`);
   const maoRestante = mao.filter((c) => c.id !== cartaId);
+
+  const indiceCopiador = estado.jogadores.indexOf(jogadorId);
 
   const estadoNovo: EstadoPartida = {
     ...estado,
     maos: { ...estado.maos, [jogadorId]: maoRestante },
     pilhaSpicy: [...estado.pilhaSpicy, carta],
-    declaracaoAtual: declaracao,
     ultimoDeclaranteId: jogadorId,
+    ultimaJogadaEhCopia: true,
     maoVaziaAguardandoTrofeu: maoRestante.length === 0 ? jogadorId : null,
-    indiceDaVez: proximoIndice(estado),
+    indiceDaVez: (indiceCopiador + 1) % estado.jogadores.length,
   };
 
-  return { estado: estadoNovo, avisoSequenciaQuebrada, esqueceuUltimaCarta: false };
-}
-
-/** Jogador da vez passa sem jogar carta — pilha/declaração atual não mudam. */
-export function passar(estadoOriginal: EstadoPartida, jogadorId: string): EstadoPartida {
-  const estado = resolverPendenciaUltimaCarta(estadoOriginal);
-  validarVez(estado, jogadorId);
-  return { ...estado, indiceDaVez: proximoIndice(estado) };
+  return {
+    estado: comFimDeJogoAtualizado(estadoNovo),
+    avisoSequenciaQuebrada: false,
+    esqueceuUltimaCarta: false,
+  };
 }
 
 export interface ResultadoDesafio {
@@ -223,15 +361,29 @@ export interface ResultadoDesafio {
  * Se a carta desafiada era a última da mão do declarante
  * (`maoVaziaAguardandoTrofeu`) e ele vence, também ganha o Troféu + mão nova
  * (mesma regra do caminho não-desafiado, ver `resolverPendenciaUltimaCarta`).
+ *
+ * `ultimaJogadaEhCopia` (Copy Cat, §5) força `traco` para 'ambos',
+ * ignorando o que foi passado — "o desafiante só diz 'Errado!', sem
+ * escolher traço" (§5, "Desafio especial do Copy Cat"). `varianteAtiva`
+ * também é repassado pra `resolverDesafio` (Turn It Up, 6↔9). Qualquer
+ * reivindicação pendente do Spice Raider (`pawHolderId`) é descartada ao
+ * desafiar — a pilha em disputa muda de mãos via desafio, não sobra nada
+ * pro Raider reivindicar depois (decisão própria, não-especificada na spec).
  */
 export function desafiar(estado: EstadoPartida, desafianteId: string, traco: Traco): ResultadoDesafio {
   if (estado.pilhaSpicy.length === 0 || estado.declaracaoAtual === null || estado.ultimoDeclaranteId === null) {
     throw new Error('Não há declaração pendente para desafiar');
   }
 
+  const tracoEfetivo: Traco = estado.ultimaJogadaEhCopia ? 'ambos' : traco;
   const cartaRevelada = estado.pilhaSpicy[estado.pilhaSpicy.length - 1];
   const declaranteId = estado.ultimoDeclaranteId;
-  const declaranteVenceu = resolverDesafio(cartaRevelada, estado.declaracaoAtual, traco);
+  const declaranteVenceu = resolverDesafio(
+    cartaRevelada,
+    estado.declaracaoAtual,
+    tracoEfetivo,
+    estado.varianteAtiva,
+  );
 
   const vencedorId = declaranteVenceu ? declaranteId : desafianteId;
   const perdedorId = declaranteVenceu ? desafianteId : declaranteId;
@@ -251,6 +403,8 @@ export function desafiar(estado: EstadoPartida, desafianteId: string, traco: Tra
     declaracaoAtual: null,
     ultimoDeclaranteId: null,
     maoVaziaAguardandoTrofeu: null,
+    pawHolderId: null,
+    ultimaJogadaEhCopia: false,
     maos: {
       ...estado.maos,
       [perdedorId]: [...estado.maos[perdedorId], ...cartasCompradas],

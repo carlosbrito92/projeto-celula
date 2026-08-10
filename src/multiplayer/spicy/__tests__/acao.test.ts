@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { aplicarAcao } from '../acao';
-import { montarEstadoInicial } from '../turno';
+import { montarEstadoInicial, type EstadoPartida } from '../turno';
 
 describe('aplicarAcao', () => {
   it('declarar: despacha pro reducer de turno, evento carrega os flags de declarar', () => {
@@ -48,5 +48,39 @@ describe('aplicarAcao', () => {
     expect(() =>
       aplicarAcao(estado, 'bruno', { tipo: 'declarar', cartaId, declaracao: { cor: 'vermelho', valor: 1 } }),
     ).toThrow();
+  });
+
+  it('copiar: despacha pro reducer de turno (Copy Cat), evento é só o tipo', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5, { varianteAtiva: 'copy_cat' });
+    const cartaAna = base.maos.ana[0];
+    const estado: EstadoPartida = {
+      ...base,
+      maos: { ...base.maos, ana: base.maos.ana.filter((c) => c.id !== cartaAna.id) },
+      pilhaSpicy: [cartaAna],
+      declaracaoAtual: { cor: 'vermelho' as const, valor: 7 },
+      ultimoDeclaranteId: 'ana',
+      indiceDaVez: 1,
+    };
+    const cartaBruno = estado.maos.bruno[0];
+
+    const r = aplicarAcao(estado, 'bruno', { tipo: 'copiar', cartaId: cartaBruno.id });
+
+    expect(r.evento).toEqual({ tipo: 'copiar' });
+    expect(r.estado.ultimoDeclaranteId).toBe('bruno');
+    expect(r.estado.ultimaJogadaEhCopia).toBe(true);
+  });
+
+  it('declarar com cartasExtrasParaEnfiar: despacha pro Change Your Luck', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5, { varianteAtiva: 'change_your_luck' });
+    const [principal, extra1] = base.maos.ana;
+
+    const r = aplicarAcao(base, 'ana', {
+      tipo: 'declarar',
+      cartaId: principal.id,
+      declaracao: { cor: 'vermelho', valor: 5 },
+      cartasExtrasParaEnfiar: [extra1.id],
+    });
+
+    expect(r.estado.pilhaSpicy).toEqual([extra1, principal]);
   });
 });

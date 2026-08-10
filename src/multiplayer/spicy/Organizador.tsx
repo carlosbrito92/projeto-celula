@@ -39,6 +39,7 @@ function publicarEstado(
   setState('fase', 'jogo', true);
   setState('jogadorDaVezId', estado.jogadores[estado.indiceDaVez], true);
   setState('declaracaoAtual', estado.declaracaoAtual, true);
+  setState('ultimoDeclaranteId', estado.ultimoDeclaranteId, true);
   setState('pilhaSpicyQtd', estado.pilhaSpicy.length, true);
   setState('s_topo', estado.pilhaSpicy.at(-1) ?? null, true);
   setState('trofeusNoPote', estado.trofeusNoPote, true);
@@ -47,6 +48,8 @@ function publicarEstado(
   setState('worldsEndRevelada', estado.worldsEndRevelada, true);
   setState('ultimoResultado', resultado, true);
   setState('ultimaDeclaracaoForaDeSequencia', avisoSequencia, true);
+  setState('pawHolderId', estado.pawHolderId, true);
+  setState('ultimaJogadaEhCopia', estado.ultimaJogadaEhCopia, true);
   const nomes: Record<string, string> = {};
   for (const jogador of jogadores) {
     jogador.setState('s_h4x', estado.maos[jogador.id] ?? [], true);
@@ -147,10 +150,11 @@ export function Organizador() {
   const iniciar = () => {
     if (totalJogadores < MINIMO_JOGADORES) return;
     const todosIds = [myPlayer().id, ...participantes.map((j) => j.id)];
-    const opcoes: OpcoesPartida = { worldsEndAtiva };
+    const varianteEscolhida = varianteId === 'nenhuma' ? null : varianteId;
+    const opcoes: OpcoesPartida = { worldsEndAtiva, varianteAtiva: varianteEscolhida };
     const estadoInicial = montarEstadoInicial(todosIds, Math.random, opcoes);
 
-    setState('varianteAtiva', varianteId === 'nenhuma' ? null : varianteId, true);
+    setState('varianteAtiva', varianteEscolhida, true);
     setState('worldsEndAtiva', worldsEndAtiva, true);
     setState('avisoSequenciaAtivo', avisoSequenciaAtivo, true);
 
@@ -179,6 +183,7 @@ export function Organizador() {
     const projecao: ProjecaoPublica = {
       jogadorDaVezId: estado.jogadores[estado.indiceDaVez],
       declaracaoAtual: estado.declaracaoAtual,
+      ultimoDeclaranteId: estado.ultimoDeclaranteId,
       pilhaSpicyQtd: estado.pilhaSpicy.length,
       trofeusNoPote: estado.trofeusNoPote,
       trofeusColetados: estado.trofeusColetados,
@@ -188,6 +193,9 @@ export function Organizador() {
       nomes,
       avisoSequenciaAtivo,
       ultimaDeclaracaoForaDeSequencia: avisoSequenciaAtual,
+      varianteAtiva: estado.varianteAtiva,
+      pawHolderId: estado.pawHolderId,
+      ultimaJogadaEhCopia: estado.ultimaJogadaEhCopia,
     };
     return (
       <Jogo meuId={myPlayer().id} minhaMao={estado.maos[myPlayer().id] ?? []} projecao={projecao} onAcao={onAcaoHost} />

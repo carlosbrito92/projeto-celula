@@ -77,6 +77,35 @@ describe('verificarTraco — trofeu/fim_do_mundo fora do escopo de declaração'
   });
 });
 
+describe('verificarTraco — variante turn_it_up (6↔9 equivalentes no traço valor)', () => {
+  it('declarado 9, carta real 6: vence o traço valor com a variante ligada', () => {
+    const real = carta({ cor: 'vermelho', valor: 6 });
+    expect(verificarTraco(real, declaracao({ valor: 9 }), 'valor', 'turn_it_up')).toBe(true);
+  });
+
+  it('declarado 6, carta real 9: também vence (bidirecional)', () => {
+    const real = carta({ cor: 'vermelho', valor: 9 });
+    expect(verificarTraco(real, declaracao({ valor: 6 }), 'valor', 'turn_it_up')).toBe(true);
+  });
+
+  it('sem a variante ligada, 9 declarado com carta real 6 é blefe normal', () => {
+    const real = carta({ cor: 'vermelho', valor: 6 });
+    expect(verificarTraco(real, declaracao({ valor: 9 }), 'valor')).toBe(false);
+  });
+
+  it('não afeta outros valores (ex: declarado 9, carta real 3)', () => {
+    const real = carta({ cor: 'vermelho', valor: 3 });
+    expect(verificarTraco(real, declaracao({ valor: 9 }), 'valor', 'turn_it_up')).toBe(false);
+  });
+
+  it('não afeta o traço cor', () => {
+    const real = carta({ cor: 'azul', valor: 6 });
+    expect(verificarTraco(real, declaracao({ cor: 'vermelho', valor: 9 }), 'cor', 'turn_it_up')).toBe(
+      false,
+    );
+  });
+});
+
 describe('resolverDesafio', () => {
   it('declarante vence quando a declaração está correta no traço contestado', () => {
     const real = carta({ cor: 'vermelho', valor: 7 });

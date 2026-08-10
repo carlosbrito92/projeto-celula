@@ -34,6 +34,7 @@ export interface ResultadoDesafioPublico {
 export interface ProjecaoPublica {
   jogadorDaVezId: string;
   declaracaoAtual: Declaracao | null;
+  ultimoDeclaranteId: string | null;
   pilhaSpicyQtd: number;
   trofeusNoPote: number;
   trofeusColetados: Record<string, number>;
@@ -46,6 +47,12 @@ export interface ProjecaoPublica {
   avisoSequenciaAtivo: boolean;
   /** true logo após uma declaração fora de sequência; próxima ação de qualquer tipo reseta. */
   ultimaDeclaracaoForaDeSequencia: boolean;
+  /** Variante "Spice It Up!" ativa nesta partida (§5), ou `null`. */
+  varianteAtiva: string | null;
+  /** Spice Raider (§5): jogador que reivindicou a pilha atual, ou `null`. */
+  pawHolderId: string | null;
+  /** Copy Cat (§5): true quando o topo da pilha é uma cópia — desafio não pede traço. */
+  ultimaJogadaEhCopia: boolean;
 }
 
 interface JogoProps {
@@ -67,10 +74,15 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   const [valorDeclarado, setValorDeclarado] = useState(1);
   const [anunciouUltima, setAnunciouUltima] = useState(false);
   const [tracoDesafio, setTracoDesafio] = useState<Traco>('cor');
+  const [extrasSelecionadas, setExtrasSelecionadas] = useState<string[]>([]);
+  const [cartaParaCopiar, setCartaParaCopiar] = useState<Carta | null>(null);
 
   const nome = (id: string) => projecao.nomes[id] ?? id;
   const minhaVez = projecao.jogadorDaVezId === meuId;
   const podeDesafiar = projecao.pilhaSpicyQtd > 0 && projecao.declaracaoAtual !== null;
+  const podeCopiar =
+    projecao.varianteAtiva === 'copy_cat' && podeDesafiar && projecao.ultimoDeclaranteId !== meuId;
+  const changeYourLuckAtivo = projecao.varianteAtiva === 'change_your_luck' && valorDeclarado === 5;
 
   const confirmarDeclaracao = () => {
     if (!cartaSelecionada) return;
@@ -79,9 +91,27 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
       cartaId: cartaSelecionada.id,
       declaracao: { cor: corDeclarada, valor: valorDeclarado },
       anunciouUltima,
+      cartasExtrasParaEnfiar: changeYourLuckAtivo ? extrasSelecionadas : undefined,
     });
     setCartaSelecionada(null);
     setAnunciouUltima(false);
+    setExtrasSelecionadas([]);
+  };
+
+  const alternarExtra = (cartaId: string) => {
+    setExtrasSelecionadas((atual) =>
+      atual.includes(cartaId)
+        ? atual.filter((id) => id !== cartaId)
+        : atual.length < 2
+          ? [...atual, cartaId]
+          : atual,
+    );
+  };
+
+  const confirmarCopia = () => {
+    if (!cartaParaCopiar) return;
+    onAcao({ tipo: 'copiar', cartaId: cartaParaCopiar.id });
+    setCartaParaCopiar(null);
   };
 
   if (projecao.jogoEncerrado) {
@@ -129,7 +159,22 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
         </div>
       )}
 
-      {podeDesafiar && (
+      {projecao.pawHolderId && (
+        <div className={styles.aviso}>
+          🐾 {nome(projecao.pawHolderId)} reivindicou a pilha (Spice Raider) — resolve na próxima jogada.
+        </div>
+      )}
+
+      {podeDesafiar && projecao.ultimaJogadaEhCopia && (
+        <div className={styles.bloco}>
+          <div className={styles.blocoTitulo}>Desafiar cópia (Copy Cat)</div>
+          <button type="button" onClick={() => onAcao({ tipo: 'desafiar', traco: 'ambos' })}>
+            Errado!
+          </button>
+        </div>
+      )}
+
+      {podeDesafiar && !projecao.ultimaJogadaEhCopia && (
         <div className={styles.bloco}>
           <div className={styles.blocoTitulo}>Desafiar declaração</div>
           <select value={tracoDesafio} onChange={(e) => setTracoDesafio(e.target.value as Traco)}>
@@ -139,6 +184,29 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
           <button type="button" onClick={() => onAcao({ tipo: 'desafiar', traco: tracoDesafio })}>
             Desafiar!
           </button>
+        </div>
+      )}
+
+      {podeCopiar && (
+        <div className={styles.bloco}>
+          <div className={styles.blocoTitulo}>Copiar declaração (Copy Cat)</div>
+          <div className={styles.mao}>
+            {minhaMao.map((carta) => (
+              <button
+                key={carta.id}
+                type="button"
+                className={carta.id === cartaParaCopiar?.id ? styles.cartaSelecionada : styles.carta}
+                onClick={() => setCartaParaCopiar(carta)}
+              >
+                {rotuloCarta(carta)}
+              </button>
+            ))}
+          </div>
+          {cartaParaCopiar && (
+            <button type="button" onClick={confirmarCopia}>
+              Copiar!
+            </button>
+          )}
         </div>
       )}
 
@@ -193,6 +261,29 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                   Última carta!
                 </label>
               )}
+
+              {changeYourLuckAtivo && (
+                <div className={styles.declarar}>
+                  <div className={styles.blocoTitulo}>Enfiar até 2 cartas extras embaixo (Change Your Luck)</div>
+                  <div className={styles.mao}>
+                    {minhaMao
+                      .filter((c) => c.id !== cartaSelecionada.id)
+                      .map((carta) => (
+                        <button
+                          key={carta.id}
+                          type="button"
+                          className={
+                            extrasSelecionadas.includes(carta.id) ? styles.cartaSelecionada : styles.carta
+                          }
+                          onClick={() => alternarExtra(carta.id)}
+                        >
+                          {rotuloCarta(carta)}
+                        </button>
+                      ))}
+                  </div>
+                </div>
+              )}
+
               <button type="button" onClick={confirmarDeclaracao}>
                 Jogar
               </button>
