@@ -1,0 +1,262 @@
+{
+  "metadados": {
+    "serie": "Religião Tóxica",
+    "capitulo": "Capítulo 4 — Encerramento",
+    "tema": "O Véu É Removido",
+    "data": "9 de agosto de 2026",
+    "pregador": "Pastor Ian",
+    "texto_base": "2 Coríntios 3.17-18",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Último capítulo da série Religião Tóxica. Continuação direta da mensagem anterior sobre a confusão entre Lei e Graça — agora aprofundando o ministério da nova aliança a partir de 2 Coríntios 3. O pastor anunciou seis verdades espirituais; por limitação de tempo, cinco foram desenvolvidas nesta manhã.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Antídoto",
+        "campos": [
+          { "campo": "Antídoto", "valor": "Contemplação de Cristo" },
+          { "campo": "Ministério", "valor": "Não da letra, mas do Espírito" },
+          { "campo": "Status", "valor": "5 de 6 verdades liberadas" }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "2 Coríntios 3.17-18 — Texto-base",
+      "texto": "Ora, o Senhor é o Espírito, e onde está o Espírito do Senhor aí há liberdade. E todos nós, com o rosto desvendado, contemplando como por um espelho a glória do Senhor, somos transformados de glória em glória na sua própria imagem, como pelo Senhor, o Espírito."
+    },
+    "frase_sintese": "Existem apenas dois tipos de pregação: aquela que ministra vida, e aquela que ministra morte. Ao ouvir o evangelho verdadeiro, sua experiência deveria ser sempre a mesma — coração encorajado, espírito erguido, alegria abundante. Quando a lei é pregada no lugar do evangelho, as pessoas saem dos cultos desencorajadas, abatidas. A exortação na graça de Deus não abate — ela levanta."
+  },
+  "mapa_pontos": [
+    { "id": "verdade-1", "numero": "1", "titulo": "O Véu Precisa Ser Removido" },
+    { "id": "verdade-2", "numero": "2", "titulo": "Ministros da Graça, Não da Letra" },
+    { "id": "verdade-3", "numero": "3", "titulo": "A Lei É um Ministério da Morte" },
+    { "id": "verdade-4", "numero": "4", "titulo": "Decida Remover o Véu da Lei" },
+    { "id": "verdade-5", "numero": "5", "titulo": "A Bíblia É a Verdade Viva de Deus" },
+    { "id": "verdade-6", "numero": "6", "titulo": "Não desenvolvida — sem tempo hábil", "pendente": true }
+  ],
+  "secoes": [
+    {
+      "id": "verdade-1",
+      "numero": "1",
+      "titulo": "O Véu Precisa Ser Removido",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "2 Coríntios 3.12-16 · João 3.14-15",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo, com base na experiência de Moisés ao subir o Sinai e ter o rosto transformado pela glória de Deus, faz um contraste entre a Lei e a Graça. O resultado inevitável de contemplarmos o Senhor é a transformação — mas essa transformação **não é instantânea**: acontece \"de glória em glória\"."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A primeira coisa necessária, antes mesmo de contemplar o Senhor, é **remover o véu** — o véu da lei, da religiosidade, do legalismo. Paulo diz que até hoje, quando os judeus leem o Antigo Testamento, esse véu permanece — literal e sobre o coração. Eles não conseguem enxergar a graça de Deus; a visão está obstruída."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A Bíblia não é um livro de histórias, nem um livro de regras. Toda a Bíblia converge em um ponto: a revelação de Cristo Jesus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma vez removido o véu, você apenas **contempla**. Contemplar não requer esforço, não depende do seu desempenho — é olhar com admiração. À medida que o coração se enche de Cristo, a vida é transformada. **Você não será transformado pelo seu esforço — você será transformado por contemplar.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 3.14-15",
+          "texto": "E do modo porque Moisés levantou a serpente no deserto, assim importa que o Filho do homem seja levantado; para que todo aquele que nele crê tenha a vida eterna."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Serpente de Bronze",
+            "corpo": [
+              "Quando serpentes ardentes picavam o povo de Israel no deserto, Moisés orou pedindo que Deus as removesse. Mas Deus resolveu o problema de outra forma: mandou levantar uma serpente de bronze numa haste — e quem simplesmente olhasse para ela era curado. Não era necessário esforço, sacrifício ou ritual — apenas olhar."
+            ],
+            "conclusao": "Quando você contempla a Cristo, o veneno que foi injetado em Adão no Éden é removido da sua vida. Contemplar não é olhar imagens produzidas pela imaginação humana — é contemplar através das Escrituras."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nos discípulos de Emaús (Lucas 24), os olhos deles se abriram quando Jesus expôs as Escrituras — \"porventura não ardia em nós o coração?\" É a **Palavra de Deus** que pinta diante de nós um quadro de Cristo. Homem não muda homem; quem transforma é o Espírito de Deus, por meio da Palavra."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Bronzeado",
+            "corpo": [
+              "Quem quer ficar bronzeado na praia não se esforça para isso — apenas se deita ao sol e se expõe. O sol, que é muito maior e mais forte, faz o trabalho."
+            ],
+            "conclusao": "É assim que o Senhor transforma você: você se expõe ao Sol da Justiça, e ele toca a sua pele completamente. Onde o Espírito do Senhor está, há liberdade completa."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "verdade-2",
+      "numero": "2",
+      "titulo": "Ministros da Graça, Não da Letra",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "2 Coríntios 3.5-6",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.5-6",
+          "texto": "Não que por nós mesmos sejamos capazes de pensar alguma coisa como se partisse de nós, pelo contrário, a nossa suficiência vem de Deus, o qual nos habilitou para sermos ministros de uma nova aliança, não da letra, mas do Espírito, porque a letra mata, mas o Espírito vivifica."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nossa suficiência não procede de nós mesmos — nós somos suficientes em Cristo. Cristo é a nossa sabedoria, a nossa justiça, a nossa santificação, a nossa redenção, a nossa esperança. Fomos habilitados para sermos ministros de uma **nova aliança** — não ministros de uma mistura entre a antiga e a nova."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A letra mata porque a Lei, embora santa, justa e perfeita, **não santifica ninguém, não salva ninguém, não declara ninguém justo**. Quando a lei encontra a nossa incapacidade, ela produz condenação. Já a graça de Deus **capacita** você a viver uma vida santa — ela é boa e salva, é justa e justifica, é santa e santifica."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Letra do Tesouro",
+            "corpo": [
+              "Uma LTN (Letra do Tesouro Nacional) é um título de dívida: quem a adquire se torna credor, e o governo reconhece oficialmente a obrigação de pagar."
+            ],
+            "conclusao": "Ser \"ministro da letra\" — como Moisés — é anunciar a dívida das pessoas. Mas você não veio anunciar dívida: você veio anunciar que, em Cristo Jesus, toda dívida já foi completamente paga."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É preciso não confundir **disciplina** com **maldição**. Deus disciplina como Pai — restringindo, fechando portas — mas nunca pune, nunca amaldiçoa. Deus não coloca doenças, miséria ou pobreza para ensinar lições. Quando Deus corrige, ele nunca coloca em cheque quem você é nele: você continua sendo **filho, amado, justo, perdoado**. A correção diz \"isso não combina com você\" — não \"você não é filho\"."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Cristo já te resgatou da maldição da Lei. Você não está mais debaixo de maldição — o que significa que você está debaixo da graça de Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "verdade-3",
+      "numero": "3",
+      "titulo": "A Lei É um Ministério da Morte",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "2 Coríntios 3.7-8 · Êxodo 33.19 · Romanos 2.4",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.7-8",
+          "texto": "Ora, se o ministério da morte, gravado com letras em pedras, se revestiu de glória a ponto de os filhos de Israel não poderem fitar a face de Moisés, por causa da glória do seu rosto, ainda que essa glória fosse passageira, como não será de maior glória o ministério do Espírito?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Moisés subiu o Sinai duas vezes. Na primeira, ao descer com as tábuas da lei, encontrou o povo idolatrando um bezerro de ouro — e quebrou as tábuas de ira. Antes de subir pela segunda vez, ele orou pedindo para ver a face de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Êxodo 33.19",
+          "texto": "Farei passar toda a minha bondade diante de ti."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Da segunda vez, havia um elemento de **graça** na experiência de Moisés: antes de receber novamente as tábuas, ele viu passar diante dele toda a bondade de Deus. E foi assim que desceu com o rosto brilhando — **a glória não vinha das tábuas, vinha da bondade de Deus que ele contemplou**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você não é transformado por ser punido. Você é transformado quando vê a bondade de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 2.4",
+          "texto": "Ou desprezas tu as riquezas da sua bondade, e tolerância, e longanimidade, ignorando que a bondade de Deus te conduz ao arrependimento?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando Deus quer nos levar a mudar de vida, ele não pune — ele manifesta bondade. No contraste entre a sua maldade e a bondade de Deus, o coração é constrangido a ser diferente. Nenhuma igreja é totalmente da lei; a maioria mistura um pouco de lei e um pouco de graça, e essa mistura produz algum nível de glória — emociona, inspira, impressiona. Mas era uma **glória que se desvanecia**, pouco a pouco."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Contraste — Moisés e Jesus",
+            "corpo": [
+              "Quando Moisés desceu do monte com o rosto iluminado pela lei, o povo fugiu dele, apavorado — ele teve que cobrir o rosto. Quando Jesus desceu do monte da Transfiguração com o rosto glorificado, as pessoas correram em direção a ele."
+            ],
+            "conclusao": "A glória da lei afasta os pecadores. A glória do evangelho os aproxima. Que tipo de glória existe na sua célula, na sua igreja — uma que afasta, ou uma que atrai?"
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A diferença entre as duas glórias: a de Moisés se desvanecia; a do evangelho **permanece**. \"A luz do justo é como a aurora, que vai brilhando cada vez mais, até ser dia perfeito.\""
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "verdade-4",
+      "numero": "4",
+      "titulo": "Decida Remover o Véu da Lei",
+      "sec_eyebrow": "4ª Verdade",
+      "referencias": "2 Coríntios 3.14-16",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.14-16",
+          "texto": "Mas os sentidos deles se embotaram, pois até hoje, quando fazem a leitura da antiga aliança, o mesmo véu permanece, não lhes sendo revelado que em Cristo o véu é removido. Mas, até hoje, quando é lido Moisés, o véu está posto sobre o coração deles; quando, porém, algum deles se converte ao Senhor, o véu lhe é retirado."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse princípio não atinge apenas os judeus — atinge qualquer um que, mesmo depois de crer no evangelho, escolha viver deliberadamente debaixo da lei. Ler a Bíblia enxergando apenas deveres, o que se deve e não se deve fazer, tira **Cristo do centro** da mensagem."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A Bíblia não é um espelho para apontar seus defeitos — quem aponta é Satanás, quem acusa é Satanás. A Bíblia é um espelho para te lembrar de quem você é."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você não precisa da Bíblia para ver seus defeitos — seu cônjuge já viu, seus filhos já viram, Deus já viu. O que você precisa é escolher olhar para Cristo. Quando alguém pede uma \"mensagem mais equilibrada\", vale lembrar: a semana inteira já é inundada de más notícias — rádio, TV, trabalho. **O evangelho é a boa notícia** que equilibra a semana."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O véu é retirado quando nos voltamos para o Senhor — quando lemos as Escrituras procurando contemplar Cristo, e não apenas princípios de liderança, finanças ou desenvolvimento pessoal. A Bíblia contém tudo isso, mas não é sobre nenhuma dessas coisas. **Ela é sobre uma pessoa.**"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "verdade-5",
+      "numero": "5",
+      "titulo": "A Bíblia É a Verdade Viva de Deus",
+      "sec_eyebrow": "5ª Verdade",
+      "referencias": "2 Coríntios 3.15-16",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe diferença entre uma verdade e uma **verdade viva**. Que 2×2 é igual a 4 é uma verdade — mas não é uma verdade viva, porque não pode libertar nenhum pecador, não pode curar ninguém, não pode remover culpa de ninguém, não pode transportar ninguém do império das trevas para o reino da luz."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O evangelho não é apenas uma verdade — ele tem o poder de transformar sua história para sempre. Ao ouvir o evangelho, pessoas mortas em seus delitos e pecados são vivificadas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus não disse \"eu ensino a verdade\" — ele disse: **\"Eu sou o caminho, a verdade e a vida.\"** Ele não veio pregar uma verdade entre tantas; ele se apresentou como a única verdade. Toda vez que Cristo é anunciado, a vida de Deus é comunicada aos homens. Se você chegou até este ponto e ouviu o evangelho, você não recebeu apenas uma informação verdadeira — **você foi exposto à verdade viva de Deus**, e essa verdade tem poder para transformar sua vida."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "O véu precisa ser removido: antes de contemplar o Senhor, o véu da lei precisa sair. Contemplar não exige esforço — a transformação vem de olhar, como Israel olhou para a serpente de bronze.", "versiculo_ancora": "2 Coríntios 3.12-16 · João 3.14-15" },
+    { "ponto": "Ministros da graça, não da letra: nossa suficiência vem de Deus. A letra mata, o Espírito vivifica. Disciplina não é maldição — Deus restringe como Pai, mas nunca amaldiçoa.", "versiculo_ancora": "2 Coríntios 3.5-6" },
+    { "ponto": "A lei é ministério da morte: a glória de Moisés vinha da bondade de Deus contemplada, não das tábuas — e era passageira. A bondade de Deus conduz ao arrependimento, não o castigo.", "versiculo_ancora": "2 Coríntios 3.7-8 · Êxodo 33.19 · Romanos 2.4" },
+    { "ponto": "Decida remover o véu da lei: a Bíblia não é espelho de defeitos — é espelho de identidade. O véu cai quando nos voltamos para o Senhor buscando contemplar Cristo.", "versiculo_ancora": "2 Coríntios 3.14-16" },
+    { "ponto": "A Bíblia é a verdade viva de Deus: diferente de uma verdade comum, a verdade viva tem poder de transformar, libertar e vivificar. Jesus não ensinou a verdade — ele é a verdade.", "versiculo_ancora": "" },
+    { "ponto": "Sexta verdade não desenvolvida: o tempo do culto se esgotou antes que fosse compartilhada.", "versiculo_ancora": "" }
+  ],
+  "nota_lacuna": [
+    {
+      "secao_id": "geral",
+      "texto": "O pastor anunciou no início que compartilharia seis verdades espirituais a partir de 2 Coríntios 3, mas o tempo do culto se esgotou antes que a sexta pudesse ser desenvolvida. A mensagem foi encerrada com a leitura de 2 Coríntios 3.18 e uma oração de liberação de glória sobre a congregação — concluindo, ainda que sem a sexta verdade explícita, o encerramento da série Religião Tóxica."
+    }
+  ]
+}

@@ -27,6 +27,7 @@ const conteudo: PregacaoConteudo = {
   mapa_pontos: [
     { id: 'bloco-0', numero: '·', titulo: 'Quem É a Graça?' },
     { id: 'bloco-1', numero: '01', titulo: 'A Lei Foi Feita Para Quem?' },
+    { id: 'bloco-2', numero: '02', titulo: 'Ponto Não Desenvolvido', pendente: true },
   ],
   secoes: [
     {
@@ -95,6 +96,24 @@ describe('Reading', () => {
     expect((Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.instances[0]).toBe(
       secaoAlvo,
     );
+  });
+
+  it('ponto pendente (mapa_pontos[].pendente): renderiza esmaecido, não-clicável, sem tentar rolar', async () => {
+    render(<Reading id="sermon-1" />);
+    const titulo = await screen.findByText('Ponto Não Desenvolvido');
+
+    const botao = titulo.closest('button');
+    expect(botao).toBeNull();
+
+    const card = titulo.closest('div');
+    expect(card).not.toBeNull();
+
+    const chamadasAntes = (Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.calls
+      .length;
+    fireEvent.click(card!);
+    expect(
+      (Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.calls.length,
+    ).toBe(chamadasAntes);
   });
 
   it('renderiza título, badge de série e conteúdo das seções', async () => {

@@ -31,6 +31,8 @@ export interface MapaPonto {
   id: string;
   numero: string;
   titulo: string;
+  /** Ponto anunciado mas não desenvolvido na pregação (ex: sem tempo hábil) — sem `secoes[]` correspondente; índice mostra esmaecido, não-clicável. */
+  pendente?: boolean;
 }
 
 export interface BlocoParagrafo {

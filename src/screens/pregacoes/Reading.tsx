@@ -78,17 +78,24 @@ export function Reading({ id }: { id: string }) {
         <div id="indice" ref={indiceRef}>
           <div className={styles.indiceLabel}>Índice</div>
           <div className={styles.indiceGrid}>
-            {conteudo.mapa_pontos.map((ponto) => (
-              <button
-                key={ponto.id}
-                type="button"
-                className={styles.indiceCard}
-                onClick={() => scrollToId(ponto.id)}
-              >
-                <span className={styles.indiceNumero}>{ponto.numero}</span>
-                <span className={styles.indiceTitulo}>{ponto.titulo}</span>
-              </button>
-            ))}
+            {conteudo.mapa_pontos.map((ponto) =>
+              ponto.pendente ? (
+                <div key={ponto.id} className={`${styles.indiceCard} ${styles.indiceCardPendente}`}>
+                  <span className={styles.indiceNumero}>{ponto.numero}</span>
+                  <span className={styles.indiceTitulo}>{ponto.titulo}</span>
+                </div>
+              ) : (
+                <button
+                  key={ponto.id}
+                  type="button"
+                  className={styles.indiceCard}
+                  onClick={() => scrollToId(ponto.id)}
+                >
+                  <span className={styles.indiceNumero}>{ponto.numero}</span>
+                  <span className={styles.indiceTitulo}>{ponto.titulo}</span>
+                </button>
+              ),
+            )}
             {conteudo.resumo_final && conteudo.resumo_final.length > 0 && (
               <button
                 type="button"
