@@ -124,6 +124,12 @@
   cursor: pointer;
 }
 
+/* Ponto anunciado mas não desenvolvido na pregação (mapa_pontos[].pendente). */
+.indiceCardPendente {
+  opacity: 0.45;
+  cursor: default;
+}
+
 .indiceNumero {
   font-family: var(--font-mono);
   font-size: 11px;
