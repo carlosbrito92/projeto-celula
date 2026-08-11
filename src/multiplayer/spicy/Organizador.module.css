@@ -1,143 +1,211 @@
-.shell {
+/*
+ * Mesma paleta de Jogo.module.css (mesa escura + fio dourado, docs/Tela de
+ * Jogo Spicy.dc.html §04) — fixa, não depende do sistema de tema do app
+ * (ThemeScope/PADRAO_MINC). Decisão: Setup/Sala/Embaralhando têm identidade
+ * visual própria do Spicy, igual à tela de jogo — não faz sentido essas
+ * telas usarem a paleta genérica do resto do app enquanto o jogo em si usa
+ * a paleta própria.
+ */
+.tela {
   min-height: 100dvh;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-corpo);
-}
-
-.wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px 24px 40px;
+  gap: 14px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 22px 20px 26px;
+  box-sizing: border-box;
+  font-family: 'Archivo', Helvetica, sans-serif;
+  color: #f4f1eb;
+  background: #12110f;
 }
 
 .voltar {
-  color: var(--accent1);
+  color: #c7a15a;
   font-size: 16px;
   text-decoration: none;
 }
 
 .titulo {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: var(--font-display-weight);
-  line-height: 1.05;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f4f1eb;
 }
 
 .subtitulo {
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8c8479;
 }
 
 .input {
-  background: var(--surface2);
-  color: var(--text);
-  font-family: var(--font-corpo);
-  font-size: 16px;
-  padding: 14px 16px;
-  border: none;
+  height: 46px;
+  padding: 0 13px;
   border-radius: 10px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+  color: #f4f1eb;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: #6f6862;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 14px;
-  color: var(--text);
 }
 
-.campo select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-size: 15px;
+.campoLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c8479;
+}
+
+.select {
+  height: 46px;
+  padding: 0 13px;
+  border-radius: 10px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+  color: #f4f1eb;
+  font-family: inherit;
+  font-size: 14px;
 }
 
 .checkboxCampo {
   display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #cfc9bf;
+}
+
+.checkboxCampo input {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  accent-color: #c7a15a;
+}
+
+.espacador {
+  flex: 1;
+  min-height: 8px;
+}
+
+.ctaIniciar {
+  height: 50px;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text);
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+  background: #0e8a4f;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.ctaIniciar:disabled {
+  background: #2a2621;
+  color: #6f6862;
+  cursor: not-allowed;
+}
+
+.ajuda {
+  text-align: center;
+  font-size: 11px;
+  color: #6f6862;
 }
 
 .qrBloco {
   display: flex;
   justify-content: center;
-  padding: 12px;
-  background: var(--surface);
+  padding: 8px 0;
+}
+
+.qrBloco > * {
   border-radius: 12px;
+  overflow: hidden;
 }
 
 .codigo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  text-transform: uppercase;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  color: #c7a15a;
 }
 
-.codigoValor {
-  color: var(--accent2);
-  font-weight: 600;
+.contagemLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #8c8479;
 }
 
 .participantes {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-
-.participantesLabel {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 6px;
+  gap: 7px;
 }
 
 .participanteItem {
-  font-size: 16px;
-  color: var(--text);
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+  font-size: 13px;
+  color: #f4f1eb;
+}
+
+.participanteTag {
+  color: #8c8479;
 }
 
 .participanteAguardando {
-  color: var(--muted);
+  color: #6f6862;
   font-style: italic;
 }
 
 .vazio {
-  color: var(--muted);
-  font-size: 14px;
+  padding: 10px 0;
   text-align: center;
-  padding: 12px 0;
+  font-size: 13px;
+  color: #6f6862;
 }
 
-.ctaIniciar {
-  background: var(--accent1);
-  color: var(--bg);
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: var(--font-display-weight);
-  padding: 18px 24px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+.embaralhandoTela {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
 }
 
-.ctaIniciar:disabled {
-  background: var(--surface2);
-  color: var(--muted);
-  cursor: not-allowed;
+.embaralhandoTitulo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f4f1eb;
+}
+
+.embaralhandoSubtitulo {
+  margin-top: -20px;
+  font-size: 12px;
+  color: #8c8479;
 }

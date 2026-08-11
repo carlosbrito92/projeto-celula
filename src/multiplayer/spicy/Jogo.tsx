@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { FlippableCard } from './FlippableCard';
+import { calcularPosicaoFan } from './fanLayout';
+import { IconeForma } from './IconeForma';
 import { CORES, type Carta, type Cor, type Declaracao, type Traco } from './types';
 import type { Acao } from './acao';
 import styles from './Jogo.module.css';
@@ -29,6 +31,10 @@ export interface ResultadoDesafioPublico {
 }
 
 export interface ProjecaoPublica {
+  /** Ordem de turno da partida — driva o placar de jogadores (só quantidade de cartas, nunca conteúdo). */
+  jogadores: string[];
+  /** id → quantidade de cartas na mão. Só contagem, nunca as cartas em si (nada de novo em termos de sigilo, §2). */
+  contagemMaos: Record<string, number>;
   jogadorDaVezId: string;
   declaracaoAtual: Declaracao | null;
   ultimoDeclaranteId: string | null;
@@ -59,11 +65,18 @@ interface JogoProps {
   onAcao: (acao: Acao) => void;
 }
 
+const CORES_ATIVAS: Record<Cor, string> = {
+  vermelho: styles.corPillAtivaVermelho,
+  azul: styles.corPillAtivaAzul,
+  verde: styles.corPillAtivaVerde,
+};
+
 /**
- * UI mínima do Sprint B (docs/spicy-spec.md §7) — texto e botões, sem SVG,
- * sem visual de carta (isso é Sprint C). Componente burro: só lê a projeção
- * pública + mão própria e emite `Acao` pro chamador (Organizador/host
- * aplica via `acao.ts`) — nenhuma chamada Playroom aqui dentro.
+ * UI da tela de jogo (docs/Tela de Jogo Spicy.dc.html) — mesa escura + fio
+ * dourado, mesmo par visual do verso da carta aprovado. Componente burro:
+ * só lê a projeção pública + mão própria e emite `Acao` pro chamador
+ * (Organizador/host aplica via `acao.ts`) — nenhuma chamada Playroom aqui
+ * dentro.
  */
 export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   const [cartaSelecionada, setCartaSelecionada] = useState<Carta | null>(null);
@@ -114,16 +127,21 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   if (projecao.jogoEncerrado) {
     return (
       <div className={styles.tela}>
-        <h1 className={styles.titulo}>Fim de jogo</h1>
-        {projecao.worldsEndRevelada && (
-          <p className={styles.texto}>O Fim do Mundo foi revelado — a partida encerra imediatamente.</p>
-        )}
-        <div className={styles.placar}>
-          {Object.entries(projecao.trofeusColetados).map(([id, qtd]) => (
-            <div key={id}>
-              {nome(id)}: {qtd} troféu(s)
-            </div>
-          ))}
+        <div className={styles.fimDeJogo}>
+          <h1 className={styles.fimTitulo}>Fim de jogo</h1>
+          {projecao.worldsEndRevelada && (
+            <p className={styles.fimTexto}>O Fim do Mundo foi revelado — a partida encerra imediatamente.</p>
+          )}
+          <div className={styles.placarFinal}>
+            {Object.entries(projecao.trofeusColetados)
+              .sort(([, a], [, b]) => b - a)
+              .map(([id, qtd]) => (
+                <div key={id} className={styles.placarFinalLinha}>
+                  <span>{nome(id)}</span>
+                  <span className={styles.placarFinalValor}>{qtd}</span>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     );
@@ -131,48 +149,92 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
   return (
     <div className={styles.tela}>
-      <div className={styles.cabecalho}>
-        <div>
+      <div className={styles.header}>
+        <div className={styles.headerVez}>
           Vez de: <strong>{nome(projecao.jogadorDaVezId)}</strong>
         </div>
-        <div>Troféus no pote: {projecao.trofeusNoPote}</div>
+        <div className={styles.trofeuPill}>
+          <div className={styles.trofeuIcone} />
+          <span>{projecao.trofeusNoPote} no pote</span>
+        </div>
       </div>
 
-      <div className={styles.pilha}>
-        {projecao.declaracaoAtual && (
-          <FlippableCard carta={CARTA_VERSO_PILHA} revelada={false} className={styles.cartaMedia} />
-        )}
-        <div>
-          {projecao.declaracaoAtual
-            ? `Pilha: ${projecao.pilhaSpicyQtd} carta(s) — declarado ${capitalizar(projecao.declaracaoAtual.cor)} ${projecao.declaracaoAtual.valor}`
-            : 'Pilha vazia'}
+      <div className={styles.placar}>
+        {projecao.jogadores.map((id) => (
+          <div
+            key={id}
+            className={id === projecao.jogadorDaVezId ? styles.placarItemAtivo : styles.placarItem}
+          >
+            <div className={styles.placarNome}>{id === meuId ? 'Você' : nome(id)}</div>
+            <div className={styles.placarContagem}>{projecao.contagemMaos[id] ?? 0} cartas</div>
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.colunaCentro}>
+      <div className={styles.mesaCentro}>
+        <div className={styles.pilhaLabel}>
+          {projecao.declaracaoAtual ? `PILHA · ${projecao.pilhaSpicyQtd} CARTAS` : 'PILHA VAZIA'}
         </div>
+        {projecao.declaracaoAtual && (
+          <>
+            <div className={styles.pilhaStack}>
+              <div className={styles.pilhaSombra2} />
+              <div className={styles.pilhaSombra1} />
+              <FlippableCard carta={CARTA_VERSO_PILHA} revelada={false} className={styles.pilhaCartaTopo} />
+            </div>
+            <div className={styles.declaradoPill}>
+              <span className={styles.declaradoLabel}>DECLARADO</span>
+              <IconeForma cor={projecao.declaracaoAtual.cor} tamanho={12} />
+              <span className={styles.declaradoValor}>
+                {capitalizar(projecao.declaracaoAtual.cor)} {projecao.declaracaoAtual.valor}
+              </span>
+            </div>
+          </>
+        )}
       </div>
 
       {projecao.avisoSequenciaAtivo && projecao.ultimaDeclaracaoForaDeSequencia && (
-        <div className={styles.aviso}>⚠ Essa declaração quebrou a sequência esperada.</div>
+        <div className={styles.avisoVermelho}>
+          <div className={styles.avisoVermelhoIcone} />
+          <span>Declaração fora de sequência</span>
+        </div>
       )}
 
       {projecao.ultimoResultado && (
-        <div className={styles.resultado}>
-          <FlippableCard carta={projecao.ultimoResultado.cartaRevelada} revelada className={styles.cartaMedia} />
-          <div>
-            {nome(projecao.ultimoResultado.declaranteVenceu ? projecao.ultimoResultado.declaranteId : projecao.ultimoResultado.desafianteId)}{' '}
-            venceu o desafio
+        <div className={styles.bloco}>
+          <div className={styles.blocoLabel}>REVELADO</div>
+          <div className={styles.reveladoLinha}>
+            <FlippableCard carta={projecao.ultimoResultado.cartaRevelada} revelada className={styles.cartaMedia} />
+            <div className={styles.reveladoTextos}>
+              <div className={styles.reveladoTitulo}>
+                Era {capitalizar(projecao.ultimoResultado.cartaRevelada.cor ?? '')}{' '}
+                {projecao.ultimoResultado.cartaRevelada.valor}
+              </div>
+              <div className={styles.reveladoSubtitulo}>
+                {nome(
+                  projecao.ultimoResultado.declaranteVenceu
+                    ? projecao.ultimoResultado.declaranteId
+                    : projecao.ultimoResultado.desafianteId,
+                )}{' '}
+                venceu o desafio e leva a pilha.
+              </div>
+            </div>
           </div>
         </div>
       )}
 
       {projecao.pawHolderId && (
-        <div className={styles.aviso}>
-          🐾 {nome(projecao.pawHolderId)} reivindicou a pilha (Spice Raider) — resolve na próxima jogada.
+        <div className={styles.avisoDourado}>
+          <div className={styles.trofeuIcone} />
+          <span>{nome(projecao.pawHolderId)} reivindicou a pilha · Spice Raider</span>
         </div>
       )}
 
       {podeDesafiar && projecao.ultimaJogadaEhCopia && (
         <div className={styles.bloco}>
-          <div className={styles.blocoTitulo}>Desafiar cópia (Copy Cat)</div>
-          <button type="button" onClick={() => onAcao({ tipo: 'desafiar', traco: 'ambos' })}>
+          <div className={styles.blocoLabel}>DESAFIAR CÓPIA · COPY CAT</div>
+          <button type="button" className={styles.botaoVermelho} onClick={() => onAcao({ tipo: 'desafiar', traco: 'ambos' })}>
             Errado!
           </button>
         </div>
@@ -180,12 +242,24 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
       {podeDesafiar && !projecao.ultimaJogadaEhCopia && (
         <div className={styles.bloco}>
-          <div className={styles.blocoTitulo}>Desafiar declaração</div>
-          <select value={tracoDesafio} onChange={(e) => setTracoDesafio(e.target.value as Traco)}>
-            <option value="cor">Duvidar da cor</option>
-            <option value="valor">Duvidar do número</option>
-          </select>
-          <button type="button" onClick={() => onAcao({ tipo: 'desafiar', traco: tracoDesafio })}>
+          <div className={styles.blocoLabel}>DESAFIAR DECLARAÇÃO</div>
+          <div className={styles.pillsLinha}>
+            <button
+              type="button"
+              className={tracoDesafio === 'cor' ? styles.pillVermelhoAtiva : styles.pillNeutra}
+              onClick={() => setTracoDesafio('cor')}
+            >
+              Duvidar da cor
+            </button>
+            <button
+              type="button"
+              className={tracoDesafio === 'valor' ? styles.pillVermelhoAtiva : styles.pillNeutra}
+              onClick={() => setTracoDesafio('valor')}
+            >
+              Duvidar do número
+            </button>
+          </div>
+          <button type="button" className={styles.botaoVermelho} onClick={() => onAcao({ tipo: 'desafiar', traco: tracoDesafio })}>
             Desafiar!
           </button>
         </div>
@@ -193,7 +267,12 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
       {podeCopiar && (
         <div className={styles.bloco}>
-          <div className={styles.blocoTitulo}>Copiar declaração (Copy Cat)</div>
+          <div className={styles.blocoLabel}>COPIAR DECLARAÇÃO · COPY CAT</div>
+          <div className={styles.textoMuted}>
+            Escolha uma carta sua e copie a declaração de {nome(projecao.ultimoDeclaranteId ?? '')} (
+            {projecao.declaracaoAtual && `${capitalizar(projecao.declaracaoAtual.cor)} ${projecao.declaracaoAtual.valor}`}
+            ).
+          </div>
           <div className={styles.mao}>
             {minhaMao.map((carta) => (
               <FlippableCard
@@ -207,104 +286,126 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
             ))}
           </div>
           {cartaParaCopiar && (
-            <button type="button" onClick={confirmarCopia}>
+            <button type="button" className={styles.botaoAzul} onClick={confirmarCopia}>
               Copiar!
             </button>
           )}
         </div>
       )}
 
-      {minhaVez && (
-        <div className={styles.bloco}>
-          <div className={styles.blocoTitulo}>Sua mão ({minhaMao.length})</div>
-          <div className={styles.mao}>
-            {minhaMao.map((carta) => (
+      <div className={styles.espacador} />
+
+      {minhaVez && <div className={styles.suaVezBadge}>SUA VEZ</div>}
+
+      <div className={styles.maoFan}>
+        <AnimatePresence>
+          {minhaMao.map((carta, i) => {
+            const selecionada = carta.id === cartaSelecionada?.id;
+            const { rotacaoDeg, deslocamentoY } = calcularPosicaoFan(i, minhaMao.length);
+            return (
               <FlippableCard
                 key={carta.id}
                 carta={carta}
                 revelada
-                className={styles.cartaPequena}
-                selecionada={carta.id === cartaSelecionada?.id}
-                onClick={() => setCartaSelecionada(carta)}
+                className={selecionada ? styles.cartaFanSelecionada : styles.cartaFan}
+                selecionada={selecionada}
+                onClick={minhaVez ? () => setCartaSelecionada(carta) : undefined}
+                rotacaoDeg={rotacaoDeg}
+                deslocamentoY={deslocamentoY}
+                zIndex={selecionada ? minhaMao.length + 1 : i}
               />
+            );
+          })}
+        </AnimatePresence>
+      </div>
+
+      {minhaVez && (
+        <div className={styles.painelDeclararControles}>
+          <div className={styles.painelHeader}>
+            <div className={styles.blocoLabel}>DECLARAR COMO</div>
+            {minhaMao.length === 1 && (
+              <label className={styles.ultimaCartaCheck}>
+                <input
+                  type="checkbox"
+                  checked={anunciouUltima}
+                  onChange={(e) => setAnunciouUltima(e.target.checked)}
+                />
+                Última carta!
+              </label>
+            )}
+          </div>
+
+          <div className={styles.pillsLinha}>
+            {CORES.map((cor) => (
+              <button
+                key={cor}
+                type="button"
+                className={corDeclarada === cor ? CORES_ATIVAS[cor] : styles.pillNeutra}
+                onClick={() => setCorDeclarada(cor)}
+                data-testid={`cor-${cor}`}
+              >
+                <IconeForma cor={cor} tamanho={11} contorno={corDeclarada !== cor} />
+                {capitalizar(cor)}
+              </button>
             ))}
           </div>
 
-          {cartaSelecionada && (
-            <div className={styles.declarar}>
-              <div className={styles.blocoTitulo}>Declarar como:</div>
-              <select
-                data-testid="select-cor"
-                value={corDeclarada}
-                onChange={(e) => setCorDeclarada(e.target.value as Cor)}
+          <div className={styles.valorGrid}>
+            {VALORES.map((v) => (
+              <button
+                key={v}
+                type="button"
+                className={valorDeclarado === v ? styles.valorCelulaAtiva : styles.valorCelula}
+                onClick={() => setValorDeclarado(v)}
+                data-testid={`valor-${v}`}
               >
-                {CORES.map((cor) => (
-                  <option key={cor} value={cor}>
-                    {capitalizar(cor)}
-                  </option>
-                ))}
-              </select>
-              <select
-                data-testid="select-valor"
-                value={valorDeclarado}
-                onChange={(e) => setValorDeclarado(Number(e.target.value))}
-              >
-                {VALORES.map((v) => (
-                  <option key={v} value={v}>
-                    {v}
-                  </option>
-                ))}
-              </select>
-              {minhaMao.length === 1 && (
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={anunciouUltima}
-                    onChange={(e) => setAnunciouUltima(e.target.checked)}
-                  />
-                  Última carta!
-                </label>
-              )}
-
-              {changeYourLuckAtivo && (
-                <div className={styles.declarar}>
-                  <div className={styles.blocoTitulo}>Enfiar até 2 cartas extras embaixo (Change Your Luck)</div>
-                  <div className={styles.mao}>
-                    {minhaMao
-                      .filter((c) => c.id !== cartaSelecionada.id)
-                      .map((carta) => (
-                        <FlippableCard
-                          key={carta.id}
-                          carta={carta}
-                          revelada
-                          className={styles.cartaPequena}
-                          selecionada={extrasSelecionadas.includes(carta.id)}
-                          onClick={() => alternarExtra(carta.id)}
-                        />
-                      ))}
-                  </div>
-                </div>
-              )}
-
-              <button type="button" onClick={confirmarDeclaracao}>
-                Jogar
+                {v}
               </button>
+            ))}
+          </div>
+
+          {changeYourLuckAtivo && cartaSelecionada && (
+            <div className={styles.bloco}>
+              <div className={styles.blocoLabel}>CHANGE YOUR LUCK · VALOR 5</div>
+              <div className={styles.textoMuted}>Enfiar até 2 cartas extras embaixo da pilha.</div>
+              <div className={styles.mao}>
+                {minhaMao
+                  .filter((c) => c.id !== cartaSelecionada.id)
+                  .map((carta) => (
+                    <FlippableCard
+                      key={carta.id}
+                      carta={carta}
+                      revelada
+                      className={
+                        extrasSelecionadas.includes(carta.id) ? styles.cartaPequenaDourada : styles.cartaPequena
+                      }
+                      selecionada={extrasSelecionadas.includes(carta.id)}
+                      onClick={() => alternarExtra(carta.id)}
+                    />
+                  ))}
+                <div className={styles.slotTracejado}>{extrasSelecionadas.length} de 2 escolhidas</div>
+              </div>
             </div>
           )}
-
-          <button type="button" onClick={() => onAcao({ tipo: 'passar' })}>
-            Passar
-          </button>
         </div>
       )}
+      </div>
 
-      {!minhaVez && (
-        <div className={styles.mao}>
-          <AnimatePresence>
-            {minhaMao.map((carta) => (
-              <FlippableCard key={carta.id} carta={carta} revelada className={styles.cartaPequena} />
-            ))}
-          </AnimatePresence>
+      {minhaVez && (
+        <div className={styles.colunaAcoes}>
+          <div className={styles.acoesRodape}>
+            <button type="button" className={styles.botaoContorno} onClick={() => onAcao({ tipo: 'passar' })}>
+              Passar
+            </button>
+            <button
+              type="button"
+              className={styles.botaoVerde}
+              onClick={confirmarDeclaracao}
+              disabled={!cartaSelecionada}
+            >
+              Jogar
+            </button>
+          </div>
         </div>
       )}
     </div>

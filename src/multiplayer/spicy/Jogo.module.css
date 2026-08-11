@@ -1,121 +1,631 @@
 /*
- * Layout neutro de propósito, sem depender de CSS vars de tema (evita o
- * problema de fallback documentado em CLAUDE.md "Decisões de arquitetura
- * (V2 — Artista Impostor)": esta tela roda tanto dentro do ThemeScope do
- * organizador quanto fora, no participante). O visual da carta em si
- * (Card.tsx/FlippableCard.tsx, Sprint D) já segue a paleta real do mock
- * aprovado — só o chrome ao redor (fundo da tela, botões, blocos) continua
- * neutro.
+ * Mesa escura + fio dourado — mesmo par visual do verso da carta aprovado
+ * (docs/Baralho Spicy.dc.html) e da tela de jogo (docs/Tela de Jogo
+ * Spicy.dc.html). Sem depender de CSS vars de tema (evita o problema de
+ * fallback documentado em CLAUDE.md "Decisões de arquitetura (V2 —
+ * Artista Impostor)": esta tela roda tanto dentro do ThemeScope do
+ * organizador quanto fora, no participante) — paleta fixa própria do Spicy.
  */
 .tela {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px;
   max-width: 480px;
   margin: 0 auto;
-  font-family: system-ui, sans-serif;
-  color: #1a1a1a;
-  background: #fafafa;
+  font-family: 'Archivo', Helvetica, sans-serif;
+  color: #f4f1eb;
+  background: #12110f;
 }
 
-.titulo {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.texto {
-  margin: 0;
-}
-
-.cabecalho {
+.header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 0.9rem;
-  color: #444;
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid rgba(199, 161, 90, 0.2);
 }
 
-.pilha {
+.headerVez {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #f4f1eb;
+}
+
+.trofeuPill {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  background: #f0f0f0;
-  border-radius: 8px;
-}
-
-.aviso {
-  padding: 6px 12px;
-  background: #ffe0e0;
-  border-radius: 8px;
-  font-size: 0.85rem;
-}
-
-.resultado {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  background: #fff3cd;
-  border-radius: 8px;
+  gap: 7px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 161, 90, 0.45);
+  font-size: 13px;
   font-weight: 600;
+  color: #c7a15a;
+  flex-shrink: 0;
+}
+
+.trofeuIcone {
+  width: 11px;
+  height: 10px;
+  background: #c7a15a;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  flex-shrink: 0;
+}
+
+.placar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 14px 20px 0;
+}
+
+.placarItem,
+.placarItemAtivo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+}
+
+.placarItemAtivo {
+  border: 1.5px solid #0e8a4f;
+}
+
+.placarNome {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cfc9bf;
+}
+
+.placarItemAtivo .placarNome {
+  color: #f4f1eb;
+}
+
+.placarContagem {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #8c8479;
+}
+
+.placarItemAtivo .placarContagem {
+  color: #0e8a4f;
+}
+
+.mesaCentro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 20px 0;
+}
+
+.pilhaLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #8c8479;
+}
+
+.pilhaStack {
+  position: relative;
+  width: 132px;
+  height: 190px;
+}
+
+.pilhaSombra1,
+.pilhaSombra2 {
+  position: absolute;
+  width: 126px;
+  height: 182px;
+  border-radius: 12px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+}
+
+.pilhaSombra1 {
+  left: 3px;
+  top: 4px;
+  background: #211e19;
+  border-color: #2f2a24;
+}
+
+.pilhaSombra2 {
+  left: 6px;
+  top: 8px;
+}
+
+.pilhaCartaTopo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 126px;
+  height: 182px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.declaradoPill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #1b1915;
+  border: 1px solid #2a2621;
+}
+
+.declaradoLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #8c8479;
+}
+
+.declaradoValor {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f4f1eb;
+}
+
+.avisoVermelho {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 20px 0;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: rgba(217, 43, 31, 0.1);
+  border: 1px solid rgba(217, 43, 31, 0.5);
+  font-size: 12px;
+  color: #f0c6c1;
+}
+
+.avisoVermelhoIcone {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid #d92b1f;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.avisoDourado {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 20px 0;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: rgba(199, 161, 90, 0.12);
+  border: 1px solid rgba(199, 161, 90, 0.45);
+  font-size: 12px;
+  color: #e4d3ac;
 }
 
 .bloco {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  gap: 10px;
+  margin: 12px 20px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: #16140f;
+  border: 1px solid #2a2621;
+  box-sizing: border-box;
 }
 
-.blocoTitulo {
+.blocoLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: #8c8479;
+}
+
+.textoMuted {
+  font-size: 13px;
+  color: #cfc9bf;
+  line-height: 1.5;
+}
+
+.reveladoLinha {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.reveladoTextos {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reveladoTitulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f4f1eb;
+}
+
+.reveladoSubtitulo {
+  font-size: 13px;
+  color: #8c8479;
+  line-height: 1.5;
+}
+
+.pillsLinha {
+  display: flex;
+  gap: 8px;
+}
+
+.pillNeutra,
+.pillVermelhoAtiva,
+.corPillAtivaVermelho,
+.corPillAtivaAzul,
+.corPillAtivaVerde {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 38px;
+  border-radius: 9px;
+  font-size: 13px;
   font-weight: 600;
-  font-size: 0.9rem;
+  border: 1px solid #2a2621;
+  background: #1b1915;
+  color: #cfc9bf;
+  cursor: pointer;
+}
+
+.pillVermelhoAtiva {
+  background: rgba(217, 43, 31, 0.14);
+  border: 1.5px solid #d92b1f;
+  color: #f4f1eb;
+  font-weight: 700;
+}
+
+.corPillAtivaVermelho {
+  background: rgba(217, 43, 31, 0.14);
+  border: 1.5px solid #d92b1f;
+  color: #f4f1eb;
+  font-weight: 700;
+}
+
+.corPillAtivaAzul {
+  background: rgba(11, 99, 197, 0.14);
+  border: 1.5px solid #0b63c5;
+  color: #f4f1eb;
+  font-weight: 700;
+}
+
+.corPillAtivaVerde {
+  background: rgba(14, 138, 79, 0.14);
+  border: 1.5px solid #0e8a4f;
+  color: #f4f1eb;
+  font-weight: 700;
+}
+
+.botaoVermelho,
+.botaoAzul,
+.botaoVerde {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.botaoVermelho {
+  background: #d92b1f;
+}
+
+.botaoAzul {
+  background: #0b63c5;
+}
+
+.botaoVerde {
+  background: #0e8a4f;
+}
+
+.botaoVerde:disabled {
+  background: #2a2621;
+  color: #6f6862;
+  cursor: not-allowed;
+}
+
+.botaoContorno {
+  width: 112px;
+  flex-shrink: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #3a342c;
+  font-size: 15px;
+  font-weight: 600;
+  color: #cfc9bf;
+  cursor: pointer;
 }
 
 .mao {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  align-items: center;
 }
 
-.cartaPequena {
+.cartaPequena,
+.cartaPequenaDourada {
   width: 64px;
   aspect-ratio: 2 / 3;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
+}
+
+.cartaPequenaDourada {
+  outline: 2px solid #c7a15a;
+  outline-offset: 1px;
 }
 
 .cartaMedia {
-  width: 110px;
+  width: 90px;
   aspect-ratio: 2 / 3;
-  border-radius: 10px;
+  border-radius: 9px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
 }
 
-.declarar {
+.slotTracejado {
+  flex: 1;
+  min-width: 90px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  border: 1px dashed #3a342c;
+  font-size: 12px;
+  color: #8c8479;
+  padding: 10px;
+  text-align: center;
+}
+
+.espacador {
+  flex: 1;
+}
+
+.suaVezBadge {
+  align-self: center;
+  margin-top: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(14, 138, 79, 0.14);
+  border: 1px solid #0e8a4f;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #3ed089;
+}
+
+.maoFan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 14px 12px 0;
+  min-height: 118px;
+}
+
+.maoFan > * {
+  margin-right: -16px;
+}
+
+.maoFan > *:last-child {
+  margin-right: 0;
+}
+
+.cartaFan,
+.cartaFanSelecionada {
+  width: 62px;
+  aspect-ratio: 2 / 3;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.cartaFanSelecionada {
+  outline: 2px solid #0e8a4f;
+  outline-offset: 1px;
+}
+
+.colunaCentro {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.painelDeclararControles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 20px 4px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(199, 161, 90, 0.2);
+  background: #0d0c0b;
+}
+
+.colunaAcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 20px 22px;
+  background: #0d0c0b;
+}
+
+.painelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ultimaCartaCheck {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #cfc9bf;
+}
+
+.ultimaCartaCheck input {
+  accent-color: #c7a15a;
+  width: 15px;
+  height: 15px;
+}
+
+.valorGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+}
+
+.valorCelula,
+.valorCelulaAtiva {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #2a2621;
+  background: #1b1915;
+  color: #cfc9bf;
+  cursor: pointer;
+  padding: 0;
+}
+
+.valorCelulaAtiva {
+  background: #f4f1eb;
+  border: 1.5px solid #f4f1eb;
+  font-size: 14px;
+  font-weight: 800;
+  color: #12110f;
+}
+
+.acoesRodape {
+  display: flex;
   gap: 8px;
 }
 
-.checkboxLabel {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.85rem;
-}
-
-.placar {
+.fimDeJogo {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
+  padding: 26px 20px;
+}
+
+.fimTitulo {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #f4f1eb;
+}
+
+.fimTexto {
+  margin: 0;
+  font-size: 13px;
+  color: #c7a15a;
+  line-height: 1.5;
+}
+
+.placarFinal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.placarFinalLinha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #cfc9bf;
+  padding: 8px 0;
+  border-bottom: 1px solid #2a2621;
+}
+
+.placarFinalValor {
+  font-family: 'JetBrains Mono', monospace;
+  color: #c7a15a;
+}
+
+/*
+ * Paisagem (docs/Tela de Jogo Spicy.dc.html §02) — mesmo par visual, layout
+ * 3 colunas via CSS Grid: placar (esquerda) | mesa+declarar (centro) |
+ * ações (direita). Reaproveita o mesmo DOM do portrait (`.colunaCentro`/
+ * `.colunaAcoes` já existem como wrappers pra isso), só muda `grid-area` —
+ * nenhuma duplicação de JSX. Simplificação deliberada: "Última carta!" fica
+ * junto do painel de declarar (centro) em vez de ir pro rodapé de ações
+ * como no mock — evita espalhar um único checkbox por 2 colunas diferentes
+ * só pra bater 1:1 com a paisagem.
+ */
+@media (orientation: landscape) {
+  .tela {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 196px 1fr 150px;
+    grid-template-areas:
+      'header header header'
+      'placar centro acoes';
+    align-items: stretch;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .placar {
+    grid-area: placar;
+    grid-template-columns: 1fr;
+    align-content: flex-start;
+    border-right: 1px solid rgba(199, 161, 90, 0.2);
+    padding: 14px 12px;
+  }
+
+  .colunaCentro {
+    grid-area: centro;
+    overflow-y: auto;
+  }
+
+  .colunaAcoes {
+    grid-area: acoes;
+    border-left: 1px solid rgba(199, 161, 90, 0.2);
+    background: #0d0c0b;
+    justify-content: flex-end;
+    padding: 14px;
+  }
+
+  .acoesRodape {
+    flex-direction: column;
+  }
+
+  .colunaAcoes .botaoContorno {
+    width: 100%;
+    height: 44px;
+  }
+
+  .maoFan {
+    margin-top: auto;
+  }
 }
