@@ -1,0 +1,26 @@
+{
+  "nome": "Spicy",
+  "tipo": "instrucional",
+  "utilitario": "Jogo de blefe com cartas, 100% multiplayer pelo celular — sem baralho físico",
+  "conteudo": {
+    "icone": "shuffle",
+    "jogadores": {
+      "min": 2,
+      "max": 8
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 25,
+    "regras": [
+      "Cada jogador entra pelo próprio celular, escaneando o QR gerado pelo organizador — não precisa de baralho físico, o jogo roda 100% pela tela.",
+      "No início, cada um recebe 6 cartas viradas pra baixo, sem que os outros vejam quais são.",
+      "Na sua vez, escolha uma carta da mão e declare que cor e número ela é — pode blefar: a carta pode ser outra coisa, e ninguém sabe até alguém desafiar.",
+      "Qualquer jogador pode desafiar a declaração a qualquer momento, duvidando da cor ou do número. A carta é revelada: se a declaração estava certa, quem declarou fica com a pilha inteira como pontos; se era blefe, quem desafiou fica com os pontos e quem blefou compra 2 cartas.",
+      "Ficou só com 1 carta na mão? Avise antes de jogar — esquecer anula a jogada e passa a vez.",
+      "Jogou sua última carta e ninguém desafiou (ou desafiou e você venceu)? Você ganha 1 troféu do pote e puxa uma mão nova de 6 cartas pra tentar o segundo.",
+      "O jogo acaba quando alguém consegue o segundo troféu, ou quando os 3 troféus do pote se esgotam.",
+      "No setup, o organizador pode ligar uma variante extra (Spice It Up!) e a carta especial Fim do Mundo, que encerra a partida na hora se sair da pilha — combinem antes se vão usar."
+    ],
+    "dica": "As cartas coringa (Wild) cobrem só um dos dois traços de propósito — decorar qual cobre a cor e qual cobre o número ajuda a blefar com mais confiança.",
+    "jogar_pelo_celular": "/v2/spicy"
+  }
+}

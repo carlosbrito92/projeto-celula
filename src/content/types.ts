@@ -252,10 +252,10 @@ export interface QuebraGeloJogoConteudo {
   dica?: string;
   utilitarios_inline?: UtilitarioInlineRef[];
   /**
-   * Caminho da versão multiplayer via QR code (V2), se este jogo tiver uma —
-   * hoje só "Quem Sou Eu" (`/v2/quem-sou-eu`). Vira um botão "Jogar pelo
-   * Celular" ao final da tela de Detalhe, opção adicional que coexiste com
-   * `utilitarios_inline` (V1) — não substitui.
+   * Caminho da versão multiplayer via QR code (V2), se este jogo tiver uma
+   * (`/v2/quem-sou-eu`, `/v2/artista-impostor`, `/v2/spicy`). Vira um botão
+   * "Jogar pelo Celular" ao final da tela de Detalhe, opção adicional que
+   * coexiste com `utilitarios_inline` (V1) — não substitui.
    */
   jogar_pelo_celular?: string;
 }
