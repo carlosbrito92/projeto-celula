@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#EFEDE8; }
+  a { color:#0B63C5; text-decoration:none; }
+  a:hover { color:#D92B1F; }
+</style>
+</helmet>
+
+<div style="font-family:Archivo, Helvetica, sans-serif; color:#1C1B19; background:#EFEDE8; padding:56px 56px 88px; box-sizing:border-box">
+
+  <div style="display:flex; flex-direction:column; gap:10px; max-width:760px; margin-bottom:40px">
+    <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#8A857C">Spicy · tela de jogo mobile</div>
+    <h1 style="margin:0; font-size:38px; font-weight:700; letter-spacing:-0.025em; line-height:1.05">Retrato e paisagem, mesma mesa</h1>
+    <p style="margin:0; font-size:16px; line-height:1.55; color:#5C574F; text-wrap:pretty">Mesa preta com fio dourado — o mesmo par do verso da carta — para que as faces brancas do baralho aprovado sejam o único ponto claro da tela. Sem avatar, sem textura: jogador é nome + contagem. Cada ação tem cor própria, e o valor declarado é uma fileira de 1 a 10, nunca dropdown.</p>
+  </div>
+
+  <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.14em; color:#8A857C; margin-bottom:14px">01 · RETRATO — SUA VEZ, CARTA SELECIONADA</div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:28px; align-items:flex-start; margin-bottom:52px">
+
+    <div style="position:relative; width:390px; height:844px; border-radius:34px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; box-shadow:0 12px 32px rgba(28,27,25,.18)">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 20px 14px; border-bottom:1px solid rgba(199,161,90,.20)">
+        <div style="display:flex; flex-direction:column; gap:3px; min-width:0">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479; white-space:nowrap">MESA #7821</div>
+          <div style="font-size:17px; font-weight:700; color:#F4F1EB; letter-spacing:-.01em; white-space:nowrap">Vez de: Lúcia</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:7px; padding:7px 12px; border-radius:999px; border:1px solid rgba(199,161,90,.45); flex-shrink:0">
+          <div style="width:11px; height:10px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%); flex-shrink:0"></div>
+          <div style="font-size:13px; font-weight:600; color:#C7A15A; white-space:nowrap; line-height:1.1">3 no pote</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:14px 20px 0">
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1.5px solid #0E8A4F">
+          <div style="font-size:12px; font-weight:600; color:#F4F1EB">Lúcia</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#0E8A4F">5 cartas</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF">Rafael</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">4 cartas</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF">Mari</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">6 cartas</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF">Julia</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">3 cartas</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF">Bruno</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">4 cartas</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding:9px 10px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF">Você</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">6 cartas</div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:26px 20px 0">
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.18em; color:#8C8479">PILHA · 4 CARTAS</div>
+        <div style="position:relative; width:132px; height:190px">
+          <div style="position:absolute; left:6px; top:8px; width:126px; height:182px; border-radius:12px; background:#1B1915; border:1px solid #2A2621"></div>
+          <div style="position:absolute; left:3px; top:4px; width:126px; height:182px; border-radius:12px; background:#211E19; border:1px solid #2F2A24"></div>
+          <div style="position:absolute; left:0; top:0; width:126px; height:182px; border-radius:12px; background:#0D0C0B; border:1px solid rgba(199,161,90,.45); overflow:hidden; box-sizing:border-box">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:96px; height:96px; border-radius:50%; border:1px solid rgba(199,161,90,.30); box-sizing:border-box"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:74px; height:74px; border-radius:50%; border:1px solid rgba(199,161,90,.50); box-sizing:border-box"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; gap:7px; align-items:center">
+              <div style="width:12px; height:12px; border-radius:50%; border:1.5px solid #C7A15A; box-sizing:border-box"></div>
+              <div style="width:10px; height:10px; border:1.5px solid #C7A15A; transform:rotate(45deg); box-sizing:border-box"></div>
+              <div style="width:13px; height:11px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+            <div style="position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.24em; color:#C7A15A">SPICY</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:9px; padding:9px 14px; border-radius:999px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; color:#8C8479">DECLARADO</div>
+          <div style="width:12px; height:10px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          <div style="font-size:14px; font-weight:700; color:#F4F1EB">Verde 7</div>
+        </div>
+      </div>
+
+      <div style="flex:1"></div>
+
+      <div style="display:flex; justify-content:center; padding:0 20px 10px">
+        <div style="padding:6px 16px; border-radius:999px; background:rgba(14,138,79,.14); border:1px solid #0E8A4F; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.18em; color:#3ED089">SUA VEZ</div>
+      </div>
+
+      <div style="display:flex; justify-content:center; align-items:flex-end; padding:0 12px; height:132px">
+        <div style="display:flex; align-items:flex-end">
+          <div style="position:relative; width:66px; height:99px; margin-right:-16px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-11deg) translateY(9px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:48px; height:48px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#D92B1F">2</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#D92B1F">2</div>
+            <div style="position:absolute; top:6px; right:7px; width:7px; height:7px; border-radius:50%; border:1.5px solid #D92B1F; box-sizing:border-box"></div>
+          </div>
+          <div style="position:relative; width:66px; height:99px; margin-right:-16px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-6.5deg) translateY(3px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:38px; height:38px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#0B63C5">9</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#0B63C5">9</div>
+            <div style="position:absolute; top:7px; right:8px; width:7px; height:7px; border:1.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+          </div>
+          <div style="position:relative; width:66px; height:99px; margin-right:-16px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-2deg)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:38px; height:38px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#0B63C5">1</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#0B63C5">1</div>
+            <div style="position:absolute; top:7px; right:8px; width:7px; height:7px; border:1.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+          </div>
+          <div style="position:relative; width:66px; height:99px; margin-right:-16px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(2deg)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:52px; height:45px; background:rgba(14,138,79,.32); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+              <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:49px; height:42px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#0E8A4F; padding-top:5px; box-sizing:border-box">4</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#0E8A4F">4</div>
+            <div style="position:absolute; top:7px; right:7px; width:8px; height:7px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          </div>
+          <div style="position:relative; width:66px; height:99px; margin-right:-16px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(6.5deg) translateY(3px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:48px; height:48px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#D92B1F">6</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#D92B1F">6</div>
+            <div style="position:absolute; top:6px; right:7px; width:7px; height:7px; border-radius:50%; border:1.5px solid #D92B1F; box-sizing:border-box"></div>
+          </div>
+          <div style="position:relative; width:70px; height:105px; border-radius:10px; background:#FFFFFF; border:2px solid #0E8A4F; box-sizing:border-box; overflow:hidden; transform:rotate(10deg) translateY(-16px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:55px; height:48px; background:rgba(14,138,79,.32); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+              <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:52px; height:45px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:38px; font-weight:800; letter-spacing:-.05em; color:#0E8A4F; padding-top:5px; box-sizing:border-box">3</div>
+            <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#0E8A4F">3</div>
+            <div style="position:absolute; top:7px; right:7px; width:8px; height:7px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; padding:14px 20px 22px; border-top:1px solid rgba(199,161,90,.20); background:#0D0C0B">
+        <div style="display:flex; align-items:center; justify-content:space-between">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">DECLARAR COMO</div>
+          <div style="display:flex; align-items:center; gap:7px">
+            <div style="width:15px; height:15px; border-radius:4px; border:1.5px solid #C7A15A; box-sizing:border-box"></div>
+            <div style="font-size:12px; color:#CFC9BF; white-space:nowrap">Última carta!</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:8px">
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:7px; height:38px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+            <div style="width:11px; height:11px; border-radius:50%; border:1.5px solid #D92B1F; box-sizing:border-box"></div>
+            <div style="font-size:13px; font-weight:600; color:#CFC9BF">Vermelho</div>
+          </div>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:7px; height:38px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+            <div style="width:10px; height:10px; border:1.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+            <div style="font-size:13px; font-weight:600; color:#CFC9BF">Azul</div>
+          </div>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:7px; height:38px; border-radius:9px; background:rgba(14,138,79,.14); border:1.5px solid #0E8A4F">
+            <div style="width:12px; height:10px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            <div style="font-size:13px; font-weight:700; color:#F4F1EB">Verde</div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(10, 1fr); gap:5px">
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">1</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">2</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">3</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">4</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">5</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">6</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#F4F1EB; border:1.5px solid #F4F1EB; font-size:14px; font-weight:800; color:#12110F">7</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">8</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">9</div>
+          <div style="height:36px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">10</div>
+        </div>
+        <div style="display:flex; gap:8px">
+          <div style="width:112px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:transparent; border:1px solid #3A342C; font-size:15px; font-weight:600; color:#CFC9BF">Passar</div>
+          <div style="flex:1; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#0E8A4F; font-size:16px; font-weight:700; color:#FFFFFF">Jogar</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:300px; padding-top:6px">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8A857C">NOTAS DE SISTEMA</div>
+      <div style="font-size:14px; line-height:1.6; color:#5C574F; text-wrap:pretty">Alvo de toque mínimo 44px em tudo que é ação: cartas da mão (66×99), botões (48), fileira de valores (36 de altura em grade de 10 — usar 44 se o aparelho for estreito).</div>
+      <div style="font-size:14px; line-height:1.6; color:#5C574F; text-wrap:pretty">Cores de ação fixas: <strong>Jogar</strong> verde, <strong>Desafiar/Errado</strong> vermelho, <strong>Copiar</strong> azul, <strong>Passar</strong> só contorno. Dourado é reservado a troféu e verso — nunca a uma ação.</div>
+      <div style="font-size:14px; line-height:1.6; color:#5C574F; text-wrap:pretty">Jogador da vez recebe borda verde; ninguém tem avatar. Contagem de cartas em mono, para bater os números de relance.</div>
+    </div>
+  </div>
+
+  <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.14em; color:#8A857C; margin-bottom:14px">02 · PAISAGEM — MESMO ESTADO, APARELHO APOIADO NA MESA</div>
+
+  <div style="position:relative; width:844px; height:390px; border-radius:30px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; box-shadow:0 12px 32px rgba(28,27,25,.18); margin-bottom:52px">
+
+    <div style="flex:0 0 196px; box-sizing:border-box; display:flex; flex-direction:column; gap:7px; padding:16px 14px; border-right:1px solid rgba(199,161,90,.20)">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px">
+        <div style="font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.16em; color:#8C8479; white-space:nowrap">MESA #7821</div>
+        <div style="display:flex; align-items:center; gap:5px">
+          <div style="width:9px; height:8px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          <div style="font-size:11px; font-weight:600; color:#C7A15A">3</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1.5px solid #0E8A4F">
+        <div style="font-size:12px; font-weight:700; color:#F4F1EB">Lúcia</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#0E8A4F">5</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:12px; font-weight:600; color:#CFC9BF">Rafael</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">4</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:12px; font-weight:600; color:#CFC9BF">Mari</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">6</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:12px; font-weight:600; color:#CFC9BF">Julia</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">3</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:12px; font-weight:600; color:#CFC9BF">Bruno</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">4</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:12px; font-weight:600; color:#CFC9BF">Você</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:#8C8479">6</div>
+      </div>
+    </div>
+
+    <div style="flex:1 1 0%; min-width:0; display:flex; flex-direction:column">
+      <div style="display:flex; align-items:center; gap:22px; padding:16px 20px 8px">
+        <div style="position:relative; width:82px; height:120px; flex-shrink:0">
+          <div style="position:absolute; left:4px; top:5px; width:78px; height:114px; border-radius:10px; background:#1B1915; border:1px solid #2A2621"></div>
+          <div style="position:absolute; left:0; top:0; width:78px; height:114px; border-radius:10px; background:#0D0C0B; border:1px solid rgba(199,161,90,.45); overflow:hidden; box-sizing:border-box">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:58px; height:58px; border-radius:50%; border:1px solid rgba(199,161,90,.30); box-sizing:border-box"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; gap:5px; align-items:center">
+              <div style="width:9px; height:9px; border-radius:50%; border:1.5px solid #C7A15A; box-sizing:border-box"></div>
+              <div style="width:8px; height:8px; border:1.5px solid #C7A15A; transform:rotate(45deg); box-sizing:border-box"></div>
+              <div style="width:10px; height:8px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.18em; color:#8C8479">PILHA · 4 CARTAS</div>
+          <div style="display:flex; align-items:center; gap:9px">
+            <div style="width:13px; height:11px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            <div style="font-size:19px; font-weight:700; color:#F4F1EB; letter-spacing:-.02em; white-space:nowrap">Declarado Verde 7</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start">
+            <div style="padding:5px 12px; border-radius:999px; background:rgba(14,138,79,.14); border:1px solid #0E8A4F; font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.16em; line-height:1.1; white-space:nowrap; color:#3ED089">SUA VEZ</div>
+            <div style="font-size:12px; color:#8C8479; white-space:nowrap">Lúcia jogou por último</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:6px; padding:4px 20px 0">
+        <div style="display:flex; gap:6px">
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; height:34px; padding:0 12px; border-radius:8px; background:#1B1915; border:1px solid #2A2621">
+          <div style="width:10px; height:10px; border-radius:50%; border:1.5px solid #D92B1F; box-sizing:border-box"></div>
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF; white-space:nowrap">Vermelho</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; height:34px; padding:0 12px; border-radius:8px; background:#1B1915; border:1px solid #2A2621">
+          <div style="width:9px; height:9px; border:1.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+          <div style="font-size:12px; font-weight:600; color:#CFC9BF; white-space:nowrap">Azul</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; height:34px; padding:0 12px; border-radius:8px; background:rgba(14,138,79,.14); border:1.5px solid #0E8A4F">
+          <div style="width:11px; height:9px; background:#0E8A4F; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          <div style="font-size:12px; font-weight:700; color:#F4F1EB; white-space:nowrap">Verde</div>
+        </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(10, 1fr); gap:4px">
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">1</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">2</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">3</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">4</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">5</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">6</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#F4F1EB; border:1.5px solid #F4F1EB; font-size:13px; font-weight:800; color:#12110F">7</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">8</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">9</div>
+          <div style="height:34px; display:flex; align-items:center; justify-content:center; border-radius:7px; background:#1B1915; border:1px solid #2A2621; font-size:12px; font-weight:600; color:#CFC9BF">10</div>
+        </div>
+      </div>
+
+      <div style="flex:1; display:flex; align-items:flex-end; justify-content:center; padding:0 16px 16px">
+        <div style="display:flex; align-items:flex-end">
+          <div style="position:relative; width:58px; height:87px; margin-right:-12px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-9deg) translateY(7px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:42px; height:42px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:31px; font-weight:800; letter-spacing:-.05em; color:#D92B1F">2</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#D92B1F">2</div>
+          </div>
+          <div style="position:relative; width:58px; height:87px; margin-right:-12px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-5deg) translateY(2px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:33px; height:33px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:31px; font-weight:800; letter-spacing:-.05em; color:#0B63C5">9</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#0B63C5">9</div>
+          </div>
+          <div style="position:relative; width:58px; height:87px; margin-right:-12px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(-1.5deg)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:33px; height:33px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:31px; font-weight:800; letter-spacing:-.05em; color:#0B63C5">1</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#0B63C5">1</div>
+          </div>
+          <div style="position:relative; width:58px; height:87px; margin-right:-12px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(1.5deg)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:46px; height:40px; background:rgba(14,138,79,.32); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+              <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:43px; height:37px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:31px; font-weight:800; letter-spacing:-.05em; color:#0E8A4F; padding-top:4px; box-sizing:border-box">4</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#0E8A4F">4</div>
+          </div>
+          <div style="position:relative; width:58px; height:87px; margin-right:-12px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; transform:rotate(5deg) translateY(2px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:42px; height:42px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:31px; font-weight:800; letter-spacing:-.05em; color:#D92B1F">6</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#D92B1F">6</div>
+          </div>
+          <div style="position:relative; width:62px; height:93px; border-radius:9px; background:#FFFFFF; border:2px solid #0E8A4F; box-sizing:border-box; overflow:hidden; transform:rotate(8deg) translateY(-12px)">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:48px; height:42px; background:rgba(14,138,79,.32); clip-path:polygon(50% 0, 100% 100%, 0 100%)">
+              <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:45px; height:39px; background:#FFFFFF; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+            </div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:33px; font-weight:800; letter-spacing:-.05em; color:#0E8A4F; padding-top:4px; box-sizing:border-box">3</div>
+            <div style="position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:#0E8A4F">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:0 0 150px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:12px 14px; border-left:1px solid rgba(199,161,90,.20); background:#0D0C0B">
+      <div style="display:flex; align-items:center; gap:7px">
+        <div style="width:15px; height:15px; border-radius:4px; border:1.5px solid #C7A15A; box-sizing:border-box; flex-shrink:0"></div>
+        <div style="font-size:11px; color:#CFC9BF; white-space:nowrap">Última carta!</div>
+      </div>
+      <div style="height:44px; display:flex; align-items:center; justify-content:center; border-radius:10px; border:1px solid #3A342C; font-size:14px; font-weight:600; color:#CFC9BF">Passar</div>
+      <div style="height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#0E8A4F; font-size:15px; font-weight:700; color:#FFFFFF">Jogar</div>
+    </div>
+  </div>
+
+  <div style="height:1px; background:#DCD8D0; margin-bottom:36px"></div>
+
+  <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.14em; color:#8A857C; margin-bottom:14px">03 · BLOCOS CONDICIONAIS (aparecem no lugar de “Declarar como”)</div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:48px">
+
+    <div style="width:350px; display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:14px; background:#12110F; border:1px solid #2A2621; box-sizing:border-box">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">DESAFIAR DECLARAÇÃO</div>
+      <div style="display:flex; gap:8px">
+        <div style="flex:1; height:38px; display:flex; align-items:center; justify-content:center; border-radius:9px; background:rgba(217,43,31,.14); border:1.5px solid #D92B1F; font-size:13px; font-weight:700; color:#F4F1EB">Duvidar da cor</div>
+        <div style="flex:1; height:38px; display:flex; align-items:center; justify-content:center; border-radius:9px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-weight:600; color:#CFC9BF">Duvidar do número</div>
+      </div>
+      <div style="height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#D92B1F; font-size:16px; font-weight:700; color:#FFFFFF">Desafiar!</div>
+      <div style="font-size:12px; line-height:1.5; color:#8C8479">Vira “Errado!” quando a última jogada foi cópia (Copy Cat).</div>
+    </div>
+
+    <div style="width:350px; display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:14px; background:#12110F; border:1px solid #2A2621; box-sizing:border-box">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">COPIAR DECLARAÇÃO · COPY CAT</div>
+      <div style="font-size:13px; color:#CFC9BF; line-height:1.5">Escolha uma carta sua e copie a declaração de Lúcia (Verde 7).</div>
+      <div style="height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#0B63C5; font-size:16px; font-weight:700; color:#FFFFFF">Copiar!</div>
+      <div style="display:flex; align-items:center; gap:8px; padding:9px 11px; border-radius:9px; background:#1B1915; border:1px solid #2A2621">
+        <div style="width:12px; height:10px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+        <div style="font-size:12px; color:#CFC9BF">Julia reivindicou a pilha · Spice Raider</div>
+      </div>
+    </div>
+
+    <div style="width:350px; display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:14px; background:#12110F; border:1px solid #2A2621; box-sizing:border-box">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">REVELADO</div>
+      <div style="display:flex; gap:14px; align-items:center">
+        <div style="position:relative; width:66px; height:99px; border-radius:9px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden; flex-shrink:0">
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:38px; height:38px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.05em; color:#0B63C5">2</div>
+          <div style="position:absolute; top:5px; left:7px; font-size:11px; font-weight:700; color:#0B63C5">2</div>
+          <div style="position:absolute; top:7px; right:8px; width:7px; height:7px; border:1.5px solid #0B63C5; transform:rotate(45deg); box-sizing:border-box"></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px">
+          <div style="font-size:15px; font-weight:700; color:#F4F1EB">Era Azul 2</div>
+          <div style="font-size:13px; color:#8C8479; line-height:1.5">Bruno venceu o desafio e leva a pilha.</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; padding:9px 11px; border-radius:9px; background:rgba(217,43,31,.10); border:1px solid rgba(217,43,31,.5)">
+        <div style="width:11px; height:11px; border-radius:50%; border:1.5px solid #D92B1F; box-sizing:border-box; flex-shrink:0"></div>
+        <div style="font-size:12px; color:#F0C6C1">Declaração fora de sequência</div>
+      </div>
+    </div>
+
+    <div style="width:350px; display:flex; flex-direction:column; gap:12px; padding:16px; border-radius:14px; background:#12110F; border:1px solid #2A2621; box-sizing:border-box">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">CHANGE YOUR LUCK · VALOR 5</div>
+      <div style="font-size:13px; color:#CFC9BF; line-height:1.5">Enfiar até 2 cartas extras embaixo da pilha.</div>
+      <div style="display:flex; gap:8px">
+        <div style="position:relative; width:54px; height:81px; border-radius:8px; background:#FFFFFF; border:2px solid #C7A15A; box-sizing:border-box; overflow:hidden">
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:38px; height:38px; border-radius:50%; border:1.5px solid rgba(217,43,31,.32); box-sizing:border-box"></div>
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; color:#D92B1F">6</div>
+        </div>
+        <div style="position:relative; width:54px; height:81px; border-radius:8px; background:#FFFFFF; border:1px solid #E6E2DA; box-sizing:border-box; overflow:hidden">
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(45deg); width:30px; height:30px; border-radius:4px; border:1.5px solid rgba(11,99,197,.32); box-sizing:border-box"></div>
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; color:#0B63C5">9</div>
+        </div>
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; border-radius:9px; border:1px dashed #3A342C; font-size:12px; color:#8C8479">1 de 2 escolhidas</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.14em; color:#8A857C; margin-bottom:14px">04 · ANTES E DEPOIS DA PARTIDA</div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:20px">
+
+    <div style="width:280px; height:580px; border-radius:28px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; gap:14px; padding:26px 20px; box-shadow:0 12px 32px rgba(28,27,25,.18)">
+      <div style="font-size:30px; font-weight:800; color:#F4F1EB; letter-spacing:-.03em">Spicy</div>
+      <div style="height:46px; display:flex; align-items:center; padding:0 13px; border-radius:10px; background:#1B1915; border:1px solid #2A2621; font-size:14px; color:#6F6862">Seu nome</div>
+      <div style="display:flex; flex-direction:column; gap:6px">
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; color:#8C8479">VARIANTE · SPICE IT UP!</div>
+        <div style="height:46px; display:flex; align-items:center; justify-content:space-between; padding:0 13px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+          <div style="font-size:14px; color:#F4F1EB">Copy Cat</div>
+          <div style="width:8px; height:6px; background:#C7A15A; clip-path:polygon(0 0, 100% 0, 50% 100%)"></div>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:flex-start; padding:12px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+        <div style="width:17px; height:17px; border-radius:4px; background:#C7A15A; flex-shrink:0"></div>
+        <div style="font-size:12px; line-height:1.5; color:#CFC9BF">World's End ativa — encerra a partida na hora se sair. Combinem antes.</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:flex-start; padding:12px; border-radius:10px; background:#1B1915; border:1px solid #2A2621">
+        <div style="width:17px; height:17px; border-radius:4px; border:1.5px solid #3A342C; box-sizing:border-box; flex-shrink:0"></div>
+        <div style="font-size:12px; line-height:1.5; color:#CFC9BF">Avisar quando alguém declarar fora de sequência</div>
+      </div>
+      <div style="flex:1"></div>
+      <div style="height:50px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#2A2621; font-size:15px; font-weight:600; color:#6F6862">Criar sala</div>
+      <div style="font-size:11px; text-align:center; color:#6F6862">Preencha seu nome para continuar</div>
+    </div>
+
+    <div style="width:280px; height:580px; border-radius:28px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; gap:14px; padding:26px 20px; box-shadow:0 12px 32px rgba(28,27,25,.18)">
+      <div style="font-size:24px; font-weight:700; color:#F4F1EB; letter-spacing:-.02em">Sala criada</div>
+      <div style="font-size:11px; line-height:1.6; color:#8C8479">Copy Cat · World's End ativa · Aviso de sequência desligado</div>
+      <div style="display:flex; justify-content:center; padding:8px 0">
+        <div style="width:150px; height:150px; border-radius:12px; background:#FFFFFF; display:flex; align-items:center; justify-content:center">
+          <div style="width:118px; height:118px; background-image:repeating-linear-gradient(0deg,#0D0C0B 0 8px,transparent 8px 16px), repeating-linear-gradient(90deg,#0D0C0B 0 8px,transparent 8px 16px); background-blend-mode:multiply; opacity:.9"></div>
+        </div>
+      </div>
+      <div style="text-align:center; font-family:'JetBrains Mono', monospace; font-size:22px; letter-spacing:.28em; color:#C7A15A">4K7P</div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; color:#8C8479">3 JOGADORES</div>
+      <div style="display:flex; flex-direction:column; gap:7px">
+        <div style="padding:10px 12px; border-radius:9px; background:#1B1915; border:1px solid #2A2621; font-size:13px; color:#F4F1EB">Você <span style="color:#8C8479">· organizador</span></div>
+        <div style="padding:10px 12px; border-radius:9px; background:#1B1915; border:1px solid #2A2621; font-size:13px; color:#F4F1EB">Rafael</div>
+        <div style="padding:10px 12px; border-radius:9px; background:#1B1915; border:1px solid #2A2621; font-size:13px; font-style:italic; color:#6F6862">aguardando nome…</div>
+      </div>
+      <div style="flex:1"></div>
+      <div style="height:50px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#0E8A4F; font-size:15px; font-weight:700; color:#FFFFFF">Iniciar</div>
+    </div>
+
+    <div style="width:280px; height:580px; border-radius:28px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; padding:26px 20px; box-shadow:0 12px 32px rgba(28,27,25,.18)">
+      <div style="position:relative; width:150px; height:150px">
+        <div style="position:absolute; left:24px; top:16px; width:92px; height:134px; border-radius:11px; background:#0D0C0B; border:1px solid rgba(199,161,90,.30); transform:rotate(-13deg)"></div>
+        <div style="position:absolute; left:30px; top:10px; width:92px; height:134px; border-radius:11px; background:#0D0C0B; border:1px solid rgba(199,161,90,.40); transform:rotate(-5deg)"></div>
+        <div style="position:absolute; left:36px; top:4px; width:92px; height:134px; border-radius:11px; background:#0D0C0B; border:1px solid rgba(199,161,90,.55); transform:rotate(4deg); overflow:hidden">
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:68px; height:68px; border-radius:50%; border:1px solid rgba(199,161,90,.40); box-sizing:border-box"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; gap:6px; align-items:center">
+            <div style="width:10px; height:10px; border-radius:50%; border:1.5px solid #C7A15A; box-sizing:border-box"></div>
+            <div style="width:9px; height:9px; border:1.5px solid #C7A15A; transform:rotate(45deg); box-sizing:border-box"></div>
+            <div style="width:11px; height:9px; background:#C7A15A; clip-path:polygon(50% 0, 100% 100%, 0 100%)"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px">
+        <div style="font-size:22px; font-weight:700; color:#F4F1EB; letter-spacing:-.02em">Embaralhando…</div>
+        <div style="font-size:12px; color:#8C8479">30 cartas · 3 troféus · Fim do Mundo</div>
+      </div>
+    </div>
+
+    <div style="width:280px; height:580px; border-radius:28px; background:#12110F; border:1px solid #2A2621; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; gap:12px; padding:22px 20px; box-shadow:0 12px 32px rgba(28,27,25,.18)">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; color:#8C8479">PARTICIPANTE · 3 ESTADOS</div>
+      <div style="display:flex; flex-direction:column; gap:9px; padding:14px 16px; border-radius:12px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:15px; font-weight:600; color:#F4F1EB">Entrando na sala…</div>
+        <div style="width:100%; height:3px; border-radius:2px; background:#2A2621; overflow:hidden">
+          <div style="width:42%; height:3px; background:#C7A15A"></div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; padding:14px 16px; border-radius:12px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:22px; font-weight:800; color:#F4F1EB; letter-spacing:-.02em">Spicy</div>
+        <div style="height:44px; display:flex; align-items:center; padding:0 12px; border-radius:9px; background:#12110F; border:1px solid #2A2621; font-size:14px; color:#6F6862">Seu nome</div>
+        <div style="height:46px; display:flex; align-items:center; justify-content:center; border-radius:9px; background:#0E8A4F; font-size:15px; font-weight:700; color:#FFFFFF">Confirmar</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; padding:14px 16px; border-radius:12px; background:#1B1915; border:1px solid #2A2621">
+        <div style="font-size:15px; font-weight:600; color:#F4F1EB">Aguardando o organizador iniciar…</div>
+        <div style="font-size:12px; color:#8C8479">3 jogadores na sala</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:9px; padding:14px 16px; border-radius:12px; background:#0D0C0B; border:1px solid rgba(199,161,90,.35)">
+        <div style="font-size:18px; font-weight:700; color:#F4F1EB; letter-spacing:-.02em">Fim de jogo</div>
+        <div style="font-size:12px; line-height:1.45; color:#C7A15A">O Fim do Mundo foi revelado — a partida encerra imediatamente.</div>
+        <div style="display:flex; flex-direction:column; gap:5px">
+          <div style="display:flex; justify-content:space-between; font-size:13px; color:#F4F1EB"><span>Mari</span><span style="font-family:'JetBrains Mono', monospace; color:#C7A15A">2</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; color:#CFC9BF"><span>Você</span><span style="font-family:'JetBrains Mono', monospace; color:#8C8479">1</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; color:#CFC9BF"><span>Rafael</span><span style="font-family:'JetBrains Mono', monospace; color:#8C8479">0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

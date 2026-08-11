@@ -12,6 +12,8 @@ export function Participante() {
   const entrandoRef = useRef(false);
 
   const [fase] = useMultiplayerState('fase', 'sala');
+  const [jogadores] = useMultiplayerState<string[]>('jogadores', []);
+  const [contagemMaos] = useMultiplayerState<Record<string, number>>('contagemMaos', {});
   const [jogadorDaVezId] = useMultiplayerState('jogadorDaVezId', '');
   const [declaracaoAtual] = useMultiplayerState<Declaracao | null>('declaracaoAtual', null);
   const [ultimoDeclaranteId] = useMultiplayerState<string | null>('ultimoDeclaranteId', null);
@@ -36,38 +38,55 @@ export function Participante() {
   }, []);
 
   if (!entrou) {
-    return <div className={styles.tela}>Entrando na sala…</div>;
+    return (
+      <div className={styles.tela}>
+        <div className={styles.cartaoCentral}>
+          <div className={styles.entrandoTitulo}>Entrando na sala…</div>
+          <div className={styles.barraProgresso}>
+            <div className={styles.barraProgressoPreenchida} />
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!nomeEnviado) {
     return (
-      <form
-        className={styles.tela}
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!nome.trim()) return;
-          myPlayer().setState('nome', nome.trim(), true);
-          setNomeEnviado(true);
-        }}
-      >
-        <h1 className={styles.titulo}>Spicy</h1>
-        <input
-          className={styles.input}
-          type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          placeholder="Seu nome"
-          autoFocus
-        />
-        <button type="submit" className={styles.cta}>
-          Confirmar
-        </button>
-      </form>
+      <div className={styles.tela}>
+        <form
+          className={styles.cartaoCentral}
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!nome.trim()) return;
+            myPlayer().setState('nome', nome.trim(), true);
+            setNomeEnviado(true);
+          }}
+        >
+          <h1 className={styles.titulo}>Spicy</h1>
+          <input
+            className={styles.input}
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Seu nome"
+            autoFocus
+          />
+          <button type="submit" className={styles.cta}>
+            Confirmar
+          </button>
+        </form>
+      </div>
     );
   }
 
   if (fase !== 'jogo') {
-    return <div className={styles.tela}>Aguardando o organizador iniciar…</div>;
+    return (
+      <div className={styles.tela}>
+        <div className={styles.cartaoCentral}>
+          <div className={styles.entrandoTitulo}>Aguardando o organizador iniciar…</div>
+        </div>
+      </div>
+    );
   }
 
   // Não é hook — lê o valor corrente a cada re-render (disparado pelos
@@ -76,6 +95,8 @@ export function Participante() {
   const minhaMao = (myPlayer().getState('s_h4x') as Carta[] | undefined) ?? [];
 
   const projecao: ProjecaoPublica = {
+    jogadores,
+    contagemMaos,
     jogadorDaVezId,
     declaracaoAtual,
     ultimoDeclaranteId,
@@ -97,9 +118,5 @@ export function Participante() {
     myPlayer().setState('s_acao', acao, true);
   };
 
-  return (
-    <div className={styles.telaJogo}>
-      <Jogo meuId={myPlayer().id} minhaMao={minhaMao} projecao={projecao} onAcao={enviarAcao} />
-    </div>
-  );
+  return <Jogo meuId={myPlayer().id} minhaMao={minhaMao} projecao={projecao} onAcao={enviarAcao} />;
 }

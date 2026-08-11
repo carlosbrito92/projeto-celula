@@ -10,6 +10,10 @@ export interface FlippableCardProps {
   onClick?: () => void;
   /** Leve destaque visual (ex: carta escolhida na mão antes de confirmar). */
   selecionada?: boolean;
+  /** Mão em leque (fanLayout.ts) — graus e px, combinados com a animação de seleção abaixo. */
+  rotacaoDeg?: number;
+  deslocamentoY?: number;
+  zIndex?: number;
 }
 
 /**
@@ -20,7 +24,16 @@ export interface FlippableCardProps {
  * Framer Motion (técnica FLIP), sem cálculo manual de coordenadas (Sprint D,
  * docs/spicy-pesquisa-visual-animacao.md §2.2).
  */
-export function FlippableCard({ carta, revelada, className, onClick, selecionada }: FlippableCardProps) {
+export function FlippableCard({
+  carta,
+  revelada,
+  className,
+  onClick,
+  selecionada,
+  rotacaoDeg = 0,
+  deslocamentoY = 0,
+  zIndex,
+}: FlippableCardProps) {
   return (
     <motion.div
       layoutId={carta.id}
@@ -30,9 +43,13 @@ export function FlippableCard({ carta, revelada, className, onClick, selecionada
       onKeyDown={onClick ? (e) => (e.key === 'Enter' || e.key === ' ') && onClick() : undefined}
       data-testid={onClick ? `carta-${carta.id}` : undefined}
       className={className}
-      style={{ cursor: onClick ? 'pointer' : undefined, perspective: 800 }}
-      animate={{ scale: selecionada ? 1.06 : 1, y: selecionada ? -8 : 0 }}
-      transition={{ layout: { duration: 0.35, ease: 'easeInOut' }, default: { duration: 0.15 } }}
+      style={{ cursor: onClick ? 'pointer' : undefined, perspective: 800, zIndex }}
+      animate={{
+        scale: selecionada ? 1.08 : 1,
+        rotate: selecionada ? rotacaoDeg * 0.3 : rotacaoDeg,
+        y: (selecionada ? -18 : deslocamentoY) + (selecionada ? -6 : 0),
+      }}
+      transition={{ layout: { duration: 0.35, ease: 'easeInOut' }, default: { duration: 0.2 } }}
     >
       <motion.div
         style={{ width: '100%', height: '100%', position: 'relative', transformStyle: 'preserve-3d' }}

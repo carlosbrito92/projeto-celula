@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { getRoomCode, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
 import { Link } from '../../router/Router';
-import { ThemeScope } from '../../themes/ThemeScope';
-import { PADRAO_MINC } from '../../themes/registry';
 import { QrCode } from '../quemSouEu/QrCode';
 import { aplicarAcao, type Acao } from './acao';
 import { Jogo, type ProjecaoPublica, type ResultadoDesafioPublico } from './Jogo';
@@ -15,6 +13,7 @@ import styles from './Organizador.module.css';
 type FaseLocal = 'setup' | 'sala' | 'embaralhando' | 'jogo';
 
 const MINIMO_JOGADORES = 2;
+const TROFEUS_NO_POTE = 3;
 
 // Mesma convenção de src/multiplayer/quemSouEu/Organizador.tsx.
 const DOMINIO_PUBLICO = 'https://projeto-celula.vercel.app';
@@ -38,6 +37,12 @@ function publicarEstado(
   avisoSequencia: boolean,
 ) {
   setState('fase', 'jogo', true);
+  setState('jogadores', estado.jogadores, true);
+  setState(
+    'contagemMaos',
+    Object.fromEntries(estado.jogadores.map((id) => [id, estado.maos[id]?.length ?? 0])),
+    true,
+  );
   setState('jogadorDaVezId', estado.jogadores[estado.indiceDaVez], true);
   setState('declaracaoAtual', estado.declaracaoAtual, true);
   setState('ultimoDeclaranteId', estado.ultimoDeclaranteId, true);
@@ -187,6 +192,8 @@ export function Organizador() {
       nomes[jogador.id] = jogador.getState('nome') ?? jogador.id;
     }
     const projecao: ProjecaoPublica = {
+      jogadores: estado.jogadores,
+      contagemMaos: Object.fromEntries(estado.jogadores.map((id) => [id, estado.maos[id]?.length ?? 0])),
       jogadorDaVezId: estado.jogadores[estado.indiceDaVez],
       declaracaoAtual: estado.declaracaoAtual,
       ultimoDeclaranteId: estado.ultimoDeclaranteId,
@@ -209,110 +216,119 @@ export function Organizador() {
   }
 
   return (
-    <ThemeScope tema={PADRAO_MINC} className={styles.shell}>
-      <div className={styles.wrapper}>
-        <Link to="/quebra-gelos" className={styles.voltar}>
-          ←
-        </Link>
+    <div className={styles.tela}>
+      <Link to="/quebra-gelos" className={styles.voltar}>
+        ←
+      </Link>
 
-        {faseLocal === 'setup' && (
-          <>
-            <div className={styles.titulo}>Spicy</div>
+      {faseLocal === 'setup' && (
+        <>
+          <div className={styles.titulo}>Spicy</div>
+          <input
+            className={styles.input}
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Seu nome"
+          />
+
+          <div className={styles.campo}>
+            <label className={styles.campoLabel}>Variante · Spice It Up!</label>
+            <select className={styles.select} value={varianteId} onChange={(e) => setVarianteId(e.target.value)}>
+              <option value="nenhuma">Nenhuma</option>
+              {VARIANTES.map((v) => (
+                <option key={v.id} value={v.id}>
+                  {v.nome}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <label className={styles.checkboxCampo}>
             <input
-              className={styles.input}
-              type="text"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              placeholder="Seu nome"
+              type="checkbox"
+              checked={worldsEndAtiva}
+              onChange={(e) => setWorldsEndAtiva(e.target.checked)}
             />
+            World's End ativa — encerra a partida na hora se sair. Combinem antes.
+          </label>
 
-            <label className={styles.campo}>
-              Variante "Spice It Up!"
-              <select value={varianteId} onChange={(e) => setVarianteId(e.target.value)}>
-                <option value="nenhuma">Nenhuma</option>
-                {VARIANTES.map((v) => (
-                  <option key={v.id} value={v.id}>
-                    {v.nome}
-                  </option>
-                ))}
-              </select>
-            </label>
+          <label className={styles.checkboxCampo}>
+            <input
+              type="checkbox"
+              checked={avisoSequenciaAtivo}
+              onChange={(e) => setAvisoSequenciaAtivo(e.target.checked)}
+            />
+            Avisar quando alguém declarar fora de sequência
+          </label>
 
-            <label className={styles.checkboxCampo}>
-              <input
-                type="checkbox"
-                checked={worldsEndAtiva}
-                onChange={(e) => setWorldsEndAtiva(e.target.checked)}
-              />
-              World's End ativa (encerra a partida na hora se sair — combinem antes)
-            </label>
+          <div className={styles.espacador} />
 
-            <label className={styles.checkboxCampo}>
-              <input
-                type="checkbox"
-                checked={avisoSequenciaAtivo}
-                onChange={(e) => setAvisoSequenciaAtivo(e.target.checked)}
-              />
-              Avisar quando alguém declarar fora de sequência
-            </label>
+          <button type="button" className={styles.ctaIniciar} onClick={criarSala} disabled={!nome.trim()}>
+            Criar sala
+          </button>
+          {!nome.trim() && <div className={styles.ajuda}>Preencha seu nome para continuar</div>}
+        </>
+      )}
 
-            <button type="button" className={styles.ctaIniciar} onClick={criarSala} disabled={!nome.trim()}>
-              Criar sala
-            </button>
-          </>
-        )}
+      {faseLocal === 'sala' && (
+        <>
+          <div className={styles.titulo}>Sala criada</div>
+          <div className={styles.subtitulo}>
+            {varianteId === 'nenhuma' ? 'Nenhuma variante' : VARIANTES.find((v) => v.id === varianteId)?.nome} ·{' '}
+            World's End {worldsEndAtiva ? 'ativa' : 'desligada'} · Aviso de sequência{' '}
+            {avisoSequenciaAtivo ? 'ligado' : 'desligado'}
+          </div>
+          <div className={styles.qrBloco}>
+            <QrCode valor={linkConvite()} />
+          </div>
+          <div className={styles.codigo} data-testid="codigo-sala">
+            {getRoomCode()}
+          </div>
+          <div className={styles.contagemLabel}>
+            {totalJogadores} JOGADOR{totalJogadores === 1 ? '' : 'ES'}
+            {totalJogadores < MINIMO_JOGADORES && ` · MÍNIMO ${MINIMO_JOGADORES}`}
+          </div>
 
-        {faseLocal === 'sala' && (
-          <>
-            <div className={styles.titulo}>Sala criada</div>
-            <div className={styles.subtitulo}>
-              Variante: {varianteId === 'nenhuma' ? 'nenhuma' : VARIANTES.find((v) => v.id === varianteId)?.nome} ·
-              World's End: {worldsEndAtiva ? 'ativa' : 'desligada'} · Aviso de sequência:{' '}
-              {avisoSequenciaAtivo ? 'ligado' : 'desligado'}
+          <div className={styles.participantes}>
+            <div className={styles.participanteItem}>
+              {nome} <span className={styles.participanteTag}>· organizador</span>
             </div>
-            <div className={styles.qrBloco}>
-              <QrCode valor={linkConvite()} />
-            </div>
-            <div className={styles.codigo}>
-              Código <span className={styles.codigoValor} data-testid="codigo-sala">{getRoomCode()}</span>
-            </div>
+            {participantes.length === 0 && (
+              <div className={styles.vazio}>Aguardando alguém escanear o QR…</div>
+            )}
+            {participantes.map((jogador) => {
+              const nomeJogador = jogador.getState('nome');
+              return (
+                <div key={jogador.id} className={styles.participanteItem}>
+                  {nomeJogador ?? <span className={styles.participanteAguardando}>aguardando nome…</span>}
+                </div>
+              );
+            })}
+          </div>
 
-            <div className={styles.participantes}>
-              <div className={styles.participantesLabel}>
-                {totalJogadores} jogador(es) — {nome} (você)
-                {totalJogadores < MINIMO_JOGADORES && ` — mínimo ${MINIMO_JOGADORES}`}
-              </div>
-              {participantes.length === 0 && (
-                <div className={styles.vazio}>Aguardando alguém escanear o QR…</div>
-              )}
-              {participantes.map((jogador) => {
-                const nomeJogador = jogador.getState('nome');
-                return (
-                  <div key={jogador.id} className={styles.participanteItem}>
-                    {nomeJogador ?? <span className={styles.participanteAguardando}>aguardando nome…</span>}
-                  </div>
-                );
-              })}
-            </div>
+          <div className={styles.espacador} />
 
-            <button
-              type="button"
-              className={styles.ctaIniciar}
-              onClick={iniciar}
-              disabled={totalJogadores < MINIMO_JOGADORES}
-            >
-              Iniciar
-            </button>
-          </>
-        )}
+          <button
+            type="button"
+            className={styles.ctaIniciar}
+            onClick={iniciar}
+            disabled={totalJogadores < MINIMO_JOGADORES}
+          >
+            Iniciar
+          </button>
+        </>
+      )}
 
-        {faseLocal === 'embaralhando' && (
-          <>
-            <div className={styles.titulo}>Embaralhando…</div>
-            <ShuffleAnimation onConcluido={iniciarDeVerdade} />
-          </>
-        )}
-      </div>
-    </ThemeScope>
+      {faseLocal === 'embaralhando' && (
+        <div className={styles.embaralhandoTela}>
+          <ShuffleAnimation onConcluido={iniciarDeVerdade} />
+          <div className={styles.embaralhandoTitulo}>Embaralhando…</div>
+          <div className={styles.embaralhandoSubtitulo}>
+            {TROFEUS_NO_POTE} troféus{worldsEndAtiva ? ' · Fim do Mundo' : ''}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
