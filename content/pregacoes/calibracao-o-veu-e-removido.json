@@ -9,15 +9,24 @@
     "modo_origem": "A"
   },
   "banner_intro": {
-    "contextualizacao": "Último capítulo da série Religião Tóxica. Continuação direta da mensagem anterior sobre a confusão entre Lei e Graça — agora aprofundando o ministério da nova aliança a partir de 2 Coríntios 3. O pastor anunciou seis verdades espirituais; por limitação de tempo, cinco foram desenvolvidas nesta manhã.",
+    "contextualizacao": "Último capítulo da série Religião Tóxica. Continuação direta da mensagem anterior sobre a confusão entre Lei e Graça — agora aprofundando o ministério da nova aliança a partir de 2 Coríntios 3, em cinco verdades espirituais completas.",
     "componente_tema": {
       "variante": "label_box",
       "dados": {
         "titulo": "Antídoto",
         "campos": [
-          { "campo": "Antídoto", "valor": "Contemplação de Cristo" },
-          { "campo": "Ministério", "valor": "Não da letra, mas do Espírito" },
-          { "campo": "Status", "valor": "5 de 6 verdades liberadas" }
+          {
+            "campo": "Antídoto",
+            "valor": "Contemplação de Cristo"
+          },
+          {
+            "campo": "Ministério",
+            "valor": "Não da letra, mas do Espírito"
+          },
+          {
+            "campo": "Status",
+            "valor": "5 verdades reveladas"
+          }
         ]
       }
     },
@@ -28,12 +37,36 @@
     "frase_sintese": "Existem apenas dois tipos de pregação: aquela que ministra vida, e aquela que ministra morte. Ao ouvir o evangelho verdadeiro, sua experiência deveria ser sempre a mesma — coração encorajado, espírito erguido, alegria abundante. Quando a lei é pregada no lugar do evangelho, as pessoas saem dos cultos desencorajadas, abatidas. A exortação na graça de Deus não abate — ela levanta."
   },
   "mapa_pontos": [
-    { "id": "verdade-1", "numero": "1", "titulo": "O Véu Precisa Ser Removido" },
-    { "id": "verdade-2", "numero": "2", "titulo": "Ministros da Graça, Não da Letra" },
-    { "id": "verdade-3", "numero": "3", "titulo": "A Lei É um Ministério da Morte" },
-    { "id": "verdade-4", "numero": "4", "titulo": "Decida Remover o Véu da Lei" },
-    { "id": "verdade-5", "numero": "5", "titulo": "A Bíblia É a Verdade Viva de Deus" },
-    { "id": "verdade-6", "numero": "6", "titulo": "Não desenvolvida — sem tempo hábil", "pendente": true }
+    {
+      "id": "verdade-1",
+      "numero": "1",
+      "titulo": "O Véu Precisa Ser Removido"
+    },
+    {
+      "id": "verdade-2",
+      "numero": "2",
+      "titulo": "Ministros da Graça, Não da Letra"
+    },
+    {
+      "id": "verdade-3",
+      "numero": "3",
+      "titulo": "A Lei É um Ministério da Morte"
+    },
+    {
+      "id": "verdade-4",
+      "numero": "4",
+      "titulo": "Decida Remover o Véu da Lei"
+    },
+    {
+      "id": "verdade-5",
+      "numero": "5",
+      "titulo": "A Bíblia É a Verdade Viva de Deus"
+    },
+    {
+      "id": "conclusao",
+      "numero": "✦",
+      "titulo": "Conclusão e Apelo"
+    }
   ],
   "secoes": [
     {
@@ -243,20 +276,52 @@
         }
       ],
       "anotacoes": []
+    },
+    {
+      "id": "conclusao",
+      "numero": "✦",
+      "titulo": "Conclusão e Apelo",
+      "sec_eyebrow": "Encerramento",
+      "referencias": "2 Coríntios 3.18",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.18",
+          "texto": "Mas todos nós, com rosto desvendado, contemplando como por espelho a glória do Senhor, somos transformados de glória em glória na mesma imagem, como pelo Espírito do Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A ministração encerra reafirmando que, ao tirarmos os olhos de nós mesmos e olharmos continuamente para Jesus através da Palavra, **o Espírito Santo nos transforma de forma contínua e permanente**."
+        }
+      ],
+      "anotacoes": []
     }
   ],
   "resumo_final": [
-    { "ponto": "O véu precisa ser removido: antes de contemplar o Senhor, o véu da lei precisa sair. Contemplar não exige esforço — a transformação vem de olhar, como Israel olhou para a serpente de bronze.", "versiculo_ancora": "2 Coríntios 3.12-16 · João 3.14-15" },
-    { "ponto": "Ministros da graça, não da letra: nossa suficiência vem de Deus. A letra mata, o Espírito vivifica. Disciplina não é maldição — Deus restringe como Pai, mas nunca amaldiçoa.", "versiculo_ancora": "2 Coríntios 3.5-6" },
-    { "ponto": "A lei é ministério da morte: a glória de Moisés vinha da bondade de Deus contemplada, não das tábuas — e era passageira. A bondade de Deus conduz ao arrependimento, não o castigo.", "versiculo_ancora": "2 Coríntios 3.7-8 · Êxodo 33.19 · Romanos 2.4" },
-    { "ponto": "Decida remover o véu da lei: a Bíblia não é espelho de defeitos — é espelho de identidade. O véu cai quando nos voltamos para o Senhor buscando contemplar Cristo.", "versiculo_ancora": "2 Coríntios 3.14-16" },
-    { "ponto": "A Bíblia é a verdade viva de Deus: diferente de uma verdade comum, a verdade viva tem poder de transformar, libertar e vivificar. Jesus não ensinou a verdade — ele é a verdade.", "versiculo_ancora": "" },
-    { "ponto": "Sexta verdade não desenvolvida: o tempo do culto se esgotou antes que fosse compartilhada.", "versiculo_ancora": "" }
-  ],
-  "nota_lacuna": [
     {
-      "secao_id": "geral",
-      "texto": "O pastor anunciou no início que compartilharia seis verdades espirituais a partir de 2 Coríntios 3, mas o tempo do culto se esgotou antes que a sexta pudesse ser desenvolvida. A mensagem foi encerrada com a leitura de 2 Coríntios 3.18 e uma oração de liberação de glória sobre a congregação — concluindo, ainda que sem a sexta verdade explícita, o encerramento da série Religião Tóxica."
+      "ponto": "O véu precisa ser removido: antes de contemplar o Senhor, o véu da lei precisa sair. Contemplar não exige esforço — a transformação vem de olhar, como Israel olhou para a serpente de bronze.",
+      "versiculo_ancora": "2 Coríntios 3.12-16 · João 3.14-15"
+    },
+    {
+      "ponto": "Ministros da graça, não da letra: nossa suficiência vem de Deus. A letra mata, o Espírito vivifica. Disciplina não é maldição — Deus restringe como Pai, mas nunca amaldiçoa.",
+      "versiculo_ancora": "2 Coríntios 3.5-6"
+    },
+    {
+      "ponto": "A lei é ministério da morte: a glória de Moisés vinha da bondade de Deus contemplada, não das tábuas — e era passageira. A bondade de Deus conduz ao arrependimento, não o castigo.",
+      "versiculo_ancora": "2 Coríntios 3.7-8 · Êxodo 33.19 · Romanos 2.4"
+    },
+    {
+      "ponto": "Decida remover o véu da lei: a Bíblia não é espelho de defeitos — é espelho de identidade. O véu cai quando nos voltamos para o Senhor buscando contemplar Cristo.",
+      "versiculo_ancora": "2 Coríntios 3.14-16"
+    },
+    {
+      "ponto": "A Bíblia é a verdade viva de Deus: diferente de uma verdade comum, a verdade viva tem poder de transformar, libertar e vivificar. Jesus não ensinou a verdade — ele é a verdade.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Conclusão: ao tirarmos os olhos de nós mesmos e olharmos continuamente para Jesus através da Palavra, o Espírito Santo nos transforma de forma contínua e permanente — de glória em glória.",
+      "versiculo_ancora": "2 Coríntios 3.18"
     }
-  ]
+  ],
+  "nota_lacuna": []
 }
