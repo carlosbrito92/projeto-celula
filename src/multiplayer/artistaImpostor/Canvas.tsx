@@ -12,8 +12,6 @@ interface Stroke {
   pontos: Ponto[];
 }
 
-const INTERVALO_POLL_MS = 50;
-
 function redesenhar(canvas: HTMLCanvasElement, strokes: Stroke[]) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -44,8 +42,11 @@ interface CanvasProps {
  * Sincronização confirmada via exemplo oficial "Live Canvas" do Playroom
  * Kit: cada traço completo (não ponto a ponto) entra no array `strokes` do
  * estado da sala via `setState(..., true)`; todo cliente faz polling de
- * `getState('strokes')` a cada 50ms pra refletir o que os outros desenharam
- * — não é push por evento. ~50ms de atraso, imperceptível aqui.
+ * `getState('strokes')` pra refletir o que os outros desenharam — não é
+ * push por evento. Polling via `requestAnimationFrame` (não `setInterval`):
+ * sincroniza com a taxa de atualização da tela e pausa sozinho quando o
+ * app perde foco/vai pra background — `setInterval` continuaria rodando
+ * em background, drenando bateria à toa em WebView Capacitor.
  */
 export function Canvas({ corPropria }: CanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -54,11 +55,14 @@ export function Canvas({ corPropria }: CanvasProps) {
   const desenhandoRef = useRef(false);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    let rafId: number;
+    const poll = () => {
       const remoto: Stroke[] = getState('strokes') ?? [];
       setStrokes((atual) => (remoto.length === atual.length ? atual : remoto));
-    }, INTERVALO_POLL_MS);
-    return () => clearInterval(id);
+      rafId = requestAnimationFrame(poll);
+    };
+    rafId = requestAnimationFrame(poll);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   useEffect(() => {
