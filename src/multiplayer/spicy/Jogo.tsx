@@ -2,9 +2,11 @@ import { useMemo, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { FlippableCard } from './FlippableCard';
 import { calcularPosicaoFan } from './fanLayout';
+import { calcularPontuacaoFinal, determinarVencedor, type JogadorPontuacao } from './fimDePartida';
 import { IconeForma } from './IconeForma';
 import { textoDeclaracao, textoDesafio } from './textos';
 import { CORES, type Carta, type Cor, type Declaracao, type Traco } from './types';
+import { useJanelaDesafio } from './useJanelaDesafio';
 import type { Acao } from './acao';
 import styles from './Jogo.module.css';
 
@@ -26,11 +28,14 @@ function capitalizar(s: string): string {
 
 export interface ResultadoDesafioPublico {
   declaranteId: string;
-  desafianteId: string;
+  /** 1+ ids — desafios simultâneos (janela de detecção ~300ms, `Organizador.tsx`) dividem a pilha entre todos. */
+  desafiantesIds: string[];
   declaranteVenceu: boolean;
   cartaRevelada: Carta;
   /** O que foi alegado (não a carta real) — usado no texto de sabor do desafio. */
   declaracaoContestada: Declaracao;
+  /** Presente só quando os desafiantes venceram — id → pontos que cada um ganhou. */
+  pontosPorDesafiante: Record<string, number>;
 }
 
 export interface ProjecaoPublica {
@@ -42,11 +47,17 @@ export interface ProjecaoPublica {
   declaracaoAtual: Declaracao | null;
   ultimoDeclaranteId: string | null;
   pilhaSpicyQtd: number;
+  /** Cartas restantes no monte de compra — "relógio da partida" (§9). */
+  pilhaCompraQtd: number;
   trofeusNoPote: number;
   trofeusColetados: Record<string, number>;
+  /** Pontos acumulados vencendo desafios (tamanho da pilha no momento da vitória) — id → pontos. */
+  pontuacoes: Record<string, number>;
   jogoEncerrado: boolean;
   worldsEndRevelada: boolean;
   ultimoResultado: ResultadoDesafioPublico | null;
+  /** `Date.now()` da declaração/cópia atual, ou `null` — alimenta `useJanelaDesafio` (regra de turno §P2). */
+  declaradoEm: number | null;
   /** id → nome (só o que cada jogador digitou no início, sem PII além disso). */
   nomes: Record<string, string>;
   /** Toggle de setup (§4) — só controla se o aviso abaixo aparece; motor sempre calcula. */
@@ -103,13 +114,20 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
   const fraseDesafio = useMemo(() => {
     if (!projecao.ultimoResultado) return '';
-    const { declaranteId, desafianteId, declaracaoContestada } = projecao.ultimoResultado;
-    return textoDesafio(nome(declaranteId), nome(desafianteId), declaracaoContestada);
+    const { declaranteId, desafiantesIds, declaracaoContestada } = projecao.ultimoResultado;
+    const nomeDesafiantes = desafiantesIds.map(nome).join(' e ');
+    return textoDesafio(nome(declaranteId), nomeDesafiantes, declaracaoContestada);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projecao.ultimoResultado]);
 
   const minhaVez = projecao.jogadorDaVezId === meuId;
-  const podeDesafiar = projecao.pilhaSpicyQtd > 0 && projecao.declaracaoAtual !== null;
+  const janelaDesafio = useJanelaDesafio(projecao.declaradoEm);
+  // Regra de turno (§P2): não pode desafiar na própria vez, exceto janela de 5s em partidas de 2 —
+  // enforcement de verdade fica no host (`turno.ts#podeDesafiarAgora`), isso só evita mostrar um botão que seria rejeitado.
+  const podeDesafiar =
+    projecao.pilhaSpicyQtd > 0 &&
+    projecao.declaracaoAtual !== null &&
+    (!minhaVez || (projecao.jogadores.length === 2 && janelaDesafio.ativa));
   const podeCopiar =
     projecao.varianteAtiva === 'copy_cat' && podeDesafiar && projecao.ultimoDeclaranteId !== meuId;
   const changeYourLuckAtivo = projecao.varianteAtiva === 'change_your_luck' && valorDeclarado === 5;
@@ -145,6 +163,17 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   };
 
   if (projecao.jogoEncerrado) {
+    const pontuacoesFinais: JogadorPontuacao[] = projecao.jogadores.map((id) => ({
+      jogador: id,
+      pontosPilha: projecao.pontuacoes[id] ?? 0,
+      trofeus: projecao.trofeusColetados[id] ?? 0,
+      cartasNaMao: projecao.contagemMaos[id] ?? 0,
+    }));
+    const vencedor = determinarVencedor(pontuacoesFinais);
+    const resultadosOrdenados = pontuacoesFinais
+      .map(calcularPontuacaoFinal)
+      .sort((a, b) => b.pontuacaoFinal - a.pontuacaoFinal);
+
     return (
       <div className={styles.tela}>
         <div className={styles.fimDeJogo}>
@@ -152,15 +181,20 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
           {projecao.worldsEndRevelada && (
             <p className={styles.fimTexto}>O Fim do Mundo foi revelado — a partida encerra imediatamente.</p>
           )}
+          <p className={styles.fimTexto}>
+            <strong>{nome(vencedor.jogador)}</strong> venceu
+            {vencedor.vitoriaAutomatica ? ' — vitória automática (2 troféus)' : ''}!
+          </p>
           <div className={styles.placarFinal}>
-            {Object.entries(projecao.trofeusColetados)
-              .sort(([, a], [, b]) => b - a)
-              .map(([id, qtd]) => (
-                <div key={id} className={styles.placarFinalLinha}>
-                  <span>{nome(id)}</span>
-                  <span className={styles.placarFinalValor}>{qtd}</span>
-                </div>
-              ))}
+            {resultadosOrdenados.map((r) => (
+              <div
+                key={r.jogador}
+                className={r.jogador === vencedor.jogador ? styles.placarFinalLinhaVencedor : styles.placarFinalLinha}
+              >
+                <span>{nome(r.jogador)}</span>
+                <span className={styles.placarFinalValor}>{r.vitoriaAutomatica ? 'AUTO' : r.pontuacaoFinal}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -172,6 +206,9 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
       <div className={styles.header}>
         <div className={styles.headerVez}>
           Vez de: <strong>{nome(projecao.jogadorDaVezId)}</strong>
+        </div>
+        <div className={styles.montePill}>
+          <span>{projecao.pilhaCompraQtd} no monte</span>
         </div>
         <div className={styles.trofeuPill}>
           <div className={styles.trofeuIcone} />
@@ -233,13 +270,21 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                 {projecao.ultimoResultado.cartaRevelada.valor}
               </div>
               <div className={styles.reveladoSubtitulo}>
-                {nome(
-                  projecao.ultimoResultado.declaranteVenceu
-                    ? projecao.ultimoResultado.declaranteId
-                    : projecao.ultimoResultado.desafianteId,
-                )}{' '}
-                venceu o desafio e leva a pilha.
+                {projecao.ultimoResultado.declaranteVenceu ? (
+                  <>{nome(projecao.ultimoResultado.declaranteId)} venceu o desafio e leva a pilha.</>
+                ) : projecao.ultimoResultado.desafiantesIds.length === 1 ? (
+                  <>{nome(projecao.ultimoResultado.desafiantesIds[0])} venceu o desafio e leva a pilha.</>
+                ) : (
+                  <>{projecao.ultimoResultado.desafiantesIds.map(nome).join(' e ')} desafiaram juntos e venceram — pilha dividida entre eles.</>
+                )}
               </div>
+              {!projecao.ultimoResultado.declaranteVenceu && projecao.ultimoResultado.desafiantesIds.length > 1 && (
+                <div className={styles.textoMuted}>
+                  {projecao.ultimoResultado.desafiantesIds
+                    .map((id) => `${nome(id)}: ${projecao.ultimoResultado!.pontosPorDesafiante[id]} pts`)
+                    .join(' · ')}
+                </div>
+              )}
               {fraseDesafio && <div className={styles.textoMuted}>{fraseDesafio}</div>}
             </div>
           </div>

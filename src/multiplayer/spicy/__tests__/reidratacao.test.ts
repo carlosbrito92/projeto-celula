@@ -28,6 +28,7 @@ function publicarComoDados(estado: EstadoPartida): DadosParaReidratacao {
     varianteAtiva: estado.varianteAtiva,
     pawHolderId: estado.pawHolderId,
     ultimaJogadaEhCopia: estado.ultimaJogadaEhCopia,
+    declaradoEm: estado.declaradoEm,
   };
 }
 

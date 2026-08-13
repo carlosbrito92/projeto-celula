@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { getRoomCode, getState, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
 import { Link } from '../../router/Router';
@@ -8,12 +8,15 @@ import { Jogo, type ProjecaoPublica, type ResultadoDesafioPublico } from './Jogo
 import { ShuffleAnimation } from './ShuffleAnimation';
 import {
   montarEstadoInicial,
+  podeDesafiarAgora,
   reidratarEstado,
+  resolverDesafioMultiplo,
   type DadosParaReidratacao,
+  type DesafianteSimultaneo,
   type EstadoPartida,
   type OpcoesPartida,
 } from './turno';
-import type { Carta, Declaracao } from './types';
+import type { Carta, Declaracao, Traco } from './types';
 import { VARIANTES } from './variantes';
 import styles from './Organizador.module.css';
 
@@ -21,6 +24,14 @@ type FaseLocal = 'inicializando' | 'reconectando' | 'setup' | 'sala' | 'embaralh
 
 const MINIMO_JOGADORES = 2;
 const TROFEUS_NO_POTE = 3;
+/**
+ * Janela técnica de detecção de desafios simultâneos ("on the fly" do grupo
+ * do Carlos) — invisível ao jogador (200-500ms), não é o timer de decisão
+ * de 5s do §P2 (que é sobre PODER desafiar, não sobre agrupar quem já
+ * desafiou). Desafios pro mesmo episódio chegando dentro dessa janela do
+ * primeiro dividem a pilha entre si (`resolverDesafioMultiplo`).
+ */
+const JANELA_DESAFIO_SIMULTANEO_MS = 300;
 /**
  * Generoso de propósito (default do SDK não documentado/inspecionado) —
  * cobre bloquear/desbloquear a tela ou um reload rápido sem derrubar a
@@ -81,6 +92,8 @@ function publicarEstado(
   setState('pilhaCompraQtd', estado.pilhaCompra.length, true);
   setState('pontuacoes', estado.pontuacoes, true);
   setState('maoVaziaAguardandoTrofeu', estado.maoVaziaAguardandoTrofeu, true);
+  // Regra "não pode desafiar na própria vez" + janela de 5s em partidas de 2 (§P2).
+  setState('declaradoEm', estado.declaradoEm, true);
   const nomes: Record<string, string> = {};
   for (const jogador of jogadores) {
     jogador.setState('s_h4x', estado.maos[jogador.id] ?? [], true);
@@ -104,24 +117,19 @@ interface ResultadoProcessamento {
   avisoSequencia: boolean;
 }
 
-/** Único ponto de aplicação — usado tanto pra ação do próprio host quanto pelas da caixa-postal dos participantes. */
+/**
+ * Único ponto de aplicação pra declarar/passar/copiar — usado tanto pra
+ * ação do próprio host quanto pelas da caixa-postal dos participantes.
+ * `desafiar` NUNCA chega aqui (interceptado antes por `receberDesafio`,
+ * que bufferiza a janela de desafios simultâneos — P1); `resultado` é
+ * sempre `null` por isso, o campo existe só porque `ResultadoProcessamento`
+ * é compartilhado.
+ */
 function processarAcao(estadoAtual: EstadoPartida, jogadorId: string, acao: Acao): ResultadoProcessamento | null {
   try {
-    const declaranteIdAntes = estadoAtual.ultimoDeclaranteId;
-    const declaracaoAntes = estadoAtual.declaracaoAtual;
     const r = aplicarAcao(estadoAtual, jogadorId, acao);
-    const resultado: ResultadoDesafioPublico | null =
-      r.evento.tipo === 'desafiar'
-        ? {
-            declaranteId: declaranteIdAntes!,
-            desafianteId: jogadorId,
-            declaranteVenceu: r.evento.declaranteVenceu,
-            cartaRevelada: r.evento.cartaRevelada,
-            declaracaoContestada: declaracaoAntes!,
-          }
-        : null;
     const avisoSequencia = r.evento.tipo === 'declarar' && r.evento.avisoSequenciaQuebrada;
-    return { estado: r.estado, resultado, avisoSequencia };
+    return { estado: r.estado, resultado: null, avisoSequencia };
   } catch (e) {
     console.warn('Spicy: ação inválida recebida', jogadorId, acao, e);
     return null;
@@ -143,6 +151,83 @@ export function Organizador() {
   const todosJogadores = usePlayersList(true);
   const participantes = todosJogadores.filter((j) => !j.getState('ehOrganizador'));
   const totalJogadores = participantes.length + 1;
+
+  // Refs pra leitura síncrona/sempre-fresca dentro do setTimeout de
+  // `resolverJanela` (closures de efeito ficariam presas no valor de quando
+  // o timer foi agendado, não no valor real 300ms depois).
+  const estadoRef = useRef<EstadoPartida | null>(null);
+  useEffect(() => {
+    estadoRef.current = estado;
+  }, [estado]);
+  const todosJogadoresRef = useRef(todosJogadores);
+  useEffect(() => {
+    todosJogadoresRef.current = todosJogadores;
+  }, [todosJogadores]);
+
+  // Buffer de desafios simultâneos (P1, regra "on the fly" do grupo do
+  // Carlos) — ref puro (não state) porque é bookkeeping imperativo entre um
+  // `setTimeout` e o próximo `receberDesafio`, não algo que precisa
+  // re-renderizar a UI por si só.
+  const desafioPendenteRef = useRef<{ episodioId: string; desafiantes: DesafianteSimultaneo[] } | null>(null);
+  const timerJanelaRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function episodioAtual(e: EstadoPartida): string {
+    return `${e.ultimoDeclaranteId}-${e.pilhaSpicy.length}`;
+  }
+
+  /**
+   * Intercepta ações `desafiar` ANTES de `processarAcao` (host e mailbox
+   * chamam isso em vez de despachar direto) — acumula por ~300ms desafios
+   * que caem no mesmo episódio (mesmo declarante + mesmo tamanho de pilha
+   * no momento do 1º desafio) antes de resolver 1x com todos juntos.
+   *
+   * Corrida aceita (não travada): se outro jogador declarar/passar durante
+   * essa janela de 300ms enquanto um desafio já está bufferizado pro
+   * episódio anterior, o buffer resolve contra um episódio que já não é
+   * mais o corrente — mesmo nível de last-write-wins já aceito em outras
+   * partes do projeto (ex: Canvas do Artista Impostor), não vale a pena
+   * travar o fluxo pra evitar uma corrida de janela tão curta num jogo casual.
+   */
+  function receberDesafio(jogadorId: string, traco: Traco, estadoNoMomento: EstadoPartida) {
+    if (!podeDesafiarAgora(estadoNoMomento, jogadorId)) {
+      console.warn('Spicy: desafio rejeitado (regra de turno)', jogadorId);
+      return;
+    }
+    const episodioId = episodioAtual(estadoNoMomento);
+    if (desafioPendenteRef.current?.episodioId === episodioId) {
+      desafioPendenteRef.current.desafiantes.push({ jogadorId, traco });
+      return;
+    }
+    if (timerJanelaRef.current) clearTimeout(timerJanelaRef.current);
+    desafioPendenteRef.current = { episodioId, desafiantes: [{ jogadorId, traco }] };
+    timerJanelaRef.current = setTimeout(() => resolverJanela(episodioId), JANELA_DESAFIO_SIMULTANEO_MS);
+  }
+
+  function resolverJanela(episodioIdEsperado: string) {
+    const atual = desafioPendenteRef.current;
+    if (!atual || atual.episodioId !== episodioIdEsperado) return;
+    desafioPendenteRef.current = null;
+
+    const estadoAtual = estadoRef.current;
+    if (!estadoAtual) return;
+    try {
+      const r = resolverDesafioMultiplo(estadoAtual, atual.desafiantes);
+      const resultado: ResultadoDesafioPublico = {
+        declaranteId: estadoAtual.ultimoDeclaranteId!,
+        desafiantesIds: atual.desafiantes.map((d) => d.jogadorId),
+        declaranteVenceu: r.declaranteVenceu,
+        cartaRevelada: r.cartaRevelada,
+        declaracaoContestada: estadoAtual.declaracaoAtual!,
+        pontosPorDesafiante: r.pontosPorDesafiante,
+      };
+      setEstado(r.estado);
+      setUltimoResultado(resultado);
+      setAvisoSequenciaAtual(false);
+      publicarEstado(r.estado, todosJogadoresRef.current, resultado, false);
+    } catch (e) {
+      console.warn('Spicy: desafio múltiplo inválido', e);
+    }
+  }
 
   // Conecta ao Playroom assim que o componente monta — antes só rodava no
   // clique de "Criar sala", então um reload nunca reconectava sozinho (bug
@@ -195,6 +280,7 @@ export function Organizador() {
       varianteAtiva: varianteAtivaPublicada,
       pawHolderId: (getState('pawHolderId') as string | null | undefined) ?? null,
       ultimaJogadaEhCopia: (getState('ultimaJogadaEhCopia') as boolean | undefined) ?? false,
+      declaradoEm: (getState('declaradoEm') as number | null | undefined) ?? null,
     };
 
     const estadoReidratado = reidratarEstado(dados);
@@ -225,6 +311,12 @@ export function Organizador() {
       if (jogador.id === myPlayer().id) continue;
       const acao = jogador.getState('s_acao') as Acao | undefined;
       if (!acao) continue;
+
+      if (acao.tipo === 'desafiar') {
+        receberDesafio(jogador.id, acao.traco, estadoAtual);
+        jogador.setState('s_acao', null, true);
+        continue;
+      }
 
       const processado = processarAcao(estadoAtual, jogador.id, acao);
       if (processado) {
@@ -277,6 +369,10 @@ export function Organizador() {
 
   const onAcaoHost = (acao: Acao) => {
     if (!estado) return;
+    if (acao.tipo === 'desafiar') {
+      receberDesafio(myPlayer().id, acao.traco, estado);
+      return;
+    }
     const processado = processarAcao(estado, myPlayer().id, acao);
     if (!processado) return;
     setEstado(processado.estado);
@@ -305,11 +401,14 @@ export function Organizador() {
       declaracaoAtual: estado.declaracaoAtual,
       ultimoDeclaranteId: estado.ultimoDeclaranteId,
       pilhaSpicyQtd: estado.pilhaSpicy.length,
+      pilhaCompraQtd: estado.pilhaCompra.length,
       trofeusNoPote: estado.trofeusNoPote,
       trofeusColetados: estado.trofeusColetados,
+      pontuacoes: estado.pontuacoes,
       jogoEncerrado: estado.jogoEncerrado,
       worldsEndRevelada: estado.worldsEndRevelada,
       ultimoResultado,
+      declaradoEm: estado.declaradoEm,
       nomes,
       avisoSequenciaAtivo,
       ultimaDeclaracaoForaDeSequencia: avisoSequenciaAtual,

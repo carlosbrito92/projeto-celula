@@ -52,6 +52,13 @@ export interface EstadoPartida {
    * traços automaticamente, sem escolha do desafiante (ver `desafiar`).
    */
   ultimaJogadaEhCopia: boolean;
+  /**
+   * `Date.now()` de quando a declaração/cópia atual entrou na pilha — usado
+   * só por `podeDesafiarAgora` (regra "não pode desafiar na própria vez",
+   * exceto janela de 5s em partidas de 2 jogadores). `null` quando não há
+   * declaração pendente.
+   */
+  declaradoEm: number | null;
 }
 
 export interface OpcoesPartida {
@@ -114,6 +121,7 @@ export function montarEstadoInicial(
     varianteAtiva: opcoes.varianteAtiva ?? null,
     pawHolderId: null,
     ultimaJogadaEhCopia: false,
+    declaradoEm: null,
   };
 }
 
@@ -146,6 +154,7 @@ export interface DadosParaReidratacao {
   varianteAtiva: string | null;
   pawHolderId: string | null;
   ultimaJogadaEhCopia: boolean;
+  declaradoEm: number | null;
 }
 
 /**
@@ -191,6 +200,7 @@ export function reidratarEstado(dados: DadosParaReidratacao): EstadoPartida {
     varianteAtiva: dados.varianteAtiva,
     pawHolderId: dados.pawHolderId,
     ultimaJogadaEhCopia: dados.ultimaJogadaEhCopia,
+    declaradoEm: dados.declaradoEm,
   };
 }
 
@@ -267,6 +277,7 @@ function resolverReivindicacaoRaider(estado: EstadoPartida): EstadoPartida {
     pilhaSpicy: [],
     declaracaoAtual: null,
     ultimoDeclaranteId: null,
+    declaradoEm: null,
     pontuacoes: { ...estado.pontuacoes, [raiderId]: estado.pontuacoes[raiderId] + pontos },
   };
 }
@@ -302,6 +313,7 @@ export function declarar(
   declaracao: Declaracao,
   anunciouUltima = false,
   cartasExtrasParaEnfiar: string[] = [],
+  agora: number = Date.now(),
 ): ResultadoDeclarar {
   let estado = resolverPendenciaUltimaCarta(estadoOriginal);
   estado = resolverReivindicacaoRaider(estado);
@@ -358,6 +370,7 @@ export function declarar(
     pilhaSpicy: [...estado.pilhaSpicy, ...cartasParaPilha],
     declaracaoAtual: declaracao,
     ultimoDeclaranteId: jogadorId,
+    declaradoEm: agora,
     maoVaziaAguardandoTrofeu: maoFinal.length === 0 ? jogadorId : null,
     ultimaJogadaEhCopia: false,
     pawHolderId: estado.varianteAtiva === 'spice_raider' && declaracao.valor === 4 ? jogadorId : estado.pawHolderId,
@@ -387,7 +400,12 @@ export interface ResultadoCopiar {
  * esquerda de quem copiou; cópia de uma cópia é permitida (só olha o
  * `ultimoDeclaranteId` corrente, sem limite de cadeia).
  */
-export function copiar(estadoOriginal: EstadoPartida, jogadorId: string, cartaId: string): ResultadoCopiar {
+export function copiar(
+  estadoOriginal: EstadoPartida,
+  jogadorId: string,
+  cartaId: string,
+  agora: number = Date.now(),
+): ResultadoCopiar {
   let estado = resolverPendenciaUltimaCarta(estadoOriginal);
   estado = resolverReivindicacaoRaider(estado);
 
@@ -414,6 +432,7 @@ export function copiar(estadoOriginal: EstadoPartida, jogadorId: string, cartaId
     pilhaSpicy: [...estado.pilhaSpicy, carta],
     ultimoDeclaranteId: jogadorId,
     ultimaJogadaEhCopia: true,
+    declaradoEm: agora,
     maoVaziaAguardandoTrofeu: maoRestante.length === 0 ? jogadorId : null,
     indiceDaVez: (indiceCopiador + 1) % estado.jogadores.length,
   };
@@ -431,20 +450,71 @@ export interface ResultadoDesafio {
   cartaRevelada: Carta;
 }
 
+const JANELA_DESAFIO_VEZ_MS = 5000;
+
 /**
- * Qualquer jogador pode desafiar enquanto houver carta no topo da pilha
- * (§4) — não precisa ser a vez de quem desafia.
+ * "Não pode desafiar na própria vez" (Carlos, regra do jogo físico não
+ * implementada até 2026-08-13) — exceto janela de 5s após a declaração,
+ * SÓ em partidas de exatamente 2 jogadores (com 3+, sempre existe outro
+ * jogador disponível pra desafiar antes da vez voltar pra quem declarou;
+ * com 2, o segundo jogador é sempre "o próximo a jogar", então precisa de
+ * uma janela explícita ou nunca teria chance real de desafiar). Predicado
+ * puro — não lança, só responde se `desafianteId` pode desafiar agora.
+ */
+export function podeDesafiarAgora(estado: EstadoPartida, desafianteId: string, agora: number = Date.now()): boolean {
+  const ehSuaVez = estado.jogadores[estado.indiceDaVez] === desafianteId;
+  if (!ehSuaVez) return true;
+  if (estado.jogadores.length !== 2) return false;
+  return estado.declaradoEm !== null && agora - estado.declaradoEm <= JANELA_DESAFIO_VEZ_MS;
+}
+
+export interface DesafianteSimultaneo {
+  jogadorId: string;
+  traco: Traco;
+}
+
+export interface ResultadoDesafioMultiplo {
+  estado: EstadoPartida;
+  declaranteVenceu: boolean;
+  cartaRevelada: Carta;
+  /** Presente só quando os desafiantes venceram — id → pontos que cada um ganhou. */
+  pontosPorDesafiante: Record<string, number>;
+}
+
+/**
+ * Resolve um episódio de desafio com 1+ desafiantes simultâneos (regra
+ * "on the fly" do grupo do Carlos — 2+ jogadores desafiando a mesma
+ * declaração dentro de uma janela técnica de detecção de ~300ms, ver
+ * `Organizador.tsx`). Esta função NÃO valida turno/janela por desafiante
+ * individual (`podeDesafiarAgora`) nem agrupa por tempo — quem chama já
+ * filtrou/bufferizou o grupo; aqui só resolve o episódio.
  *
- * Vencedor fica com a pilha como pontos (1 ponto/carta, §4); perdedor
- * compra 2 cartas. Próximo turno vai para o jogador seguinte ao perdedor
- * (ordem normal) — spec não define explicitamente quem joga a seguir;
- * escolha documentada aqui, ajustável se divergir do jogo físico.
+ * Traço usado: o do PRIMEIRO desafiante do array (`desafiantes[0]`) — spec
+ * não define o que fazer com traços divergentes entre desafiantes
+ * simultâneos, escolha própria.
+ *
+ * Declarante venceu: TODOS os desafiantes perdem, cada um compra 2 cartas
+ * individualmente (extensão da regra de 1 desafiante — spec só define esse
+ * caso).
+ *
+ * Desafiantes venceram: pontos da pilha (1/carta) divididos igualmente; se
+ * não dividir exato, puxa carta(s) extra do monte até completar um
+ * múltiplo do número de desafiantes (exemplo do Carlos: pilha=1, 2
+ * desafiantes → puxa +1 do monte, 2 pontos totais, 1 cada). Se o monte não
+ * tiver cartas suficientes pra completar a divisão exata, divide o que der
+ * sem travar — sobra vai pros desafiantes que chegaram primeiro.
+ *
+ * Vencedor fica com a pilha como pontos (1 ponto/carta, §4); perdedor(es)
+ * compra(m) 2 cartas. Próximo turno vai para o jogador seguinte ao(s)
+ * perdedor(es) (ordem normal) — spec não define explicitamente quem joga a
+ * seguir; com múltiplos perdedores (declarante venceu), usa o primeiro
+ * desafiante do grupo como âncora — escolha própria, ajustável.
  *
  * Se a carta desafiada era a última da mão do declarante
  * (`maoVaziaAguardandoTrofeu`) e ele vence, também ganha o Troféu + mão nova
  * (mesma regra do caminho não-desafiado, ver `resolverPendenciaUltimaCarta`).
  *
- * `ultimaJogadaEhCopia` (Copy Cat, §5) força `traco` para 'ambos',
+ * `ultimaJogadaEhCopia` (Copy Cat, §5) força o traço pra 'ambos',
  * ignorando o que foi passado — "o desafiante só diz 'Errado!', sem
  * escolher traço" (§5, "Desafio especial do Copy Cat"). `varianteAtiva`
  * também é repassado pra `resolverDesafio` (Turn It Up, 6↔9). Qualquer
@@ -452,58 +522,106 @@ export interface ResultadoDesafio {
  * desafiar — a pilha em disputa muda de mãos via desafio, não sobra nada
  * pro Raider reivindicar depois (decisão própria, não-especificada na spec).
  */
-export function desafiar(estado: EstadoPartida, desafianteId: string, traco: Traco): ResultadoDesafio {
+export function resolverDesafioMultiplo(
+  estado: EstadoPartida,
+  desafiantes: DesafianteSimultaneo[],
+): ResultadoDesafioMultiplo {
   if (estado.pilhaSpicy.length === 0 || estado.declaracaoAtual === null || estado.ultimoDeclaranteId === null) {
     throw new Error('Não há declaração pendente para desafiar');
   }
+  if (desafiantes.length === 0) {
+    throw new Error('resolverDesafioMultiplo precisa de ao menos 1 desafiante');
+  }
 
-  const tracoEfetivo: Traco = estado.ultimaJogadaEhCopia ? 'ambos' : traco;
+  const tracoEfetivo: Traco = estado.ultimaJogadaEhCopia ? 'ambos' : desafiantes[0].traco;
   const cartaRevelada = estado.pilhaSpicy[estado.pilhaSpicy.length - 1];
   const declaranteId = estado.ultimoDeclaranteId;
-  const declaranteVenceu = resolverDesafio(
-    cartaRevelada,
-    estado.declaracaoAtual,
-    tracoEfetivo,
-    estado.varianteAtiva,
-  );
+  const declaranteVenceu = resolverDesafio(cartaRevelada, estado.declaracaoAtual, tracoEfetivo, estado.varianteAtiva);
 
-  const vencedorId = declaranteVenceu ? declaranteId : desafianteId;
-  const perdedorId = declaranteVenceu ? desafianteId : declaranteId;
+  let pilhaCompra = estado.pilhaCompra;
+  let worldsEndRevelada = estado.worldsEndRevelada;
+  let maos = estado.maos;
+  let pontuacoes = estado.pontuacoes;
+  const pontosPorDesafiante: Record<string, number> = {};
+  const pontosDaPilha = estado.pilhaSpicy.length;
+  let perdedorAncoraId: string;
 
-  const pontosGanhos = estado.pilhaSpicy.length;
-  const { compradas: cartasCompradas, restante: pilhaCompraRestante, fimDoMundoRevelada } = comprar(
-    estado.pilhaCompra,
-    2,
-  );
+  if (declaranteVenceu) {
+    for (const d of desafiantes) {
+      const { compradas, restante, fimDoMundoRevelada } = comprar(pilhaCompra, 2);
+      pilhaCompra = restante;
+      worldsEndRevelada = worldsEndRevelada || fimDoMundoRevelada;
+      maos = { ...maos, [d.jogadorId]: [...maos[d.jogadorId], ...compradas] };
+    }
+    pontuacoes = { ...pontuacoes, [declaranteId]: pontuacoes[declaranteId] + pontosDaPilha };
+    perdedorAncoraId = desafiantes[0].jogadorId;
+  } else {
+    // Declarante blefou e foi pego — come 2 cartas (mesma punição do caso de 1 desafiante), independente de quantos desafiantes venceram junto.
+    const { compradas, restante, fimDoMundoRevelada } = comprar(pilhaCompra, 2);
+    pilhaCompra = restante;
+    worldsEndRevelada = worldsEndRevelada || fimDoMundoRevelada;
+    maos = { ...maos, [declaranteId]: [...maos[declaranteId], ...compradas] };
 
-  const indicePerdedor = estado.jogadores.indexOf(perdedorId);
+    const n = desafiantes.length;
+    let total = pontosDaPilha;
+    while (total % n !== 0) {
+      const { compradas, restante, fimDoMundoRevelada } = comprar(pilhaCompra, 1);
+      pilhaCompra = restante;
+      worldsEndRevelada = worldsEndRevelada || fimDoMundoRevelada;
+      if (compradas.length === 0) break; // monte esgotou no meio da divisão — divide o que der, não trava
+      total += 1;
+    }
+    const parteBase = Math.floor(total / n);
+    const resto = total % n; // só > 0 se o monte esgotou antes de completar a divisão exata
+    pontuacoes = { ...pontuacoes };
+    desafiantes.forEach((d, i) => {
+      const pontos = parteBase + (i < resto ? 1 : 0); // sobra vai pros desafiantes que chegaram primeiro
+      pontuacoes[d.jogadorId] = pontuacoes[d.jogadorId] + pontos;
+      pontosPorDesafiante[d.jogadorId] = pontos;
+    });
+    perdedorAncoraId = declaranteId;
+  }
+
+  const indicePerdedorAncora = estado.jogadores.indexOf(perdedorAncoraId);
 
   let estadoNovo: EstadoPartida = {
     ...estado,
-    pilhaCompra: pilhaCompraRestante,
+    pilhaCompra,
     pilhaSpicy: [],
     declaracaoAtual: null,
     ultimoDeclaranteId: null,
+    declaradoEm: null,
     maoVaziaAguardandoTrofeu: null,
     pawHolderId: null,
     ultimaJogadaEhCopia: false,
-    maos: {
-      ...estado.maos,
-      [perdedorId]: [...estado.maos[perdedorId], ...cartasCompradas],
-    },
-    pontuacoes: {
-      ...estado.pontuacoes,
-      [vencedorId]: estado.pontuacoes[vencedorId] + pontosGanhos,
-    },
-    worldsEndRevelada: estado.worldsEndRevelada || fimDoMundoRevelada,
-    indiceDaVez: (indicePerdedor + 1) % estado.jogadores.length,
+    maos,
+    pontuacoes,
+    worldsEndRevelada,
+    indiceDaVez: (indicePerdedorAncora + 1) % estado.jogadores.length,
   };
 
   if (declaranteVenceu && estado.maoVaziaAguardandoTrofeu === declaranteId) {
     estadoNovo = resolverPendenciaUltimaCarta({ ...estadoNovo, maoVaziaAguardandoTrofeu: declaranteId });
   }
 
-  return { estado: comFimDeJogoAtualizado(estadoNovo), declaranteVenceu, cartaRevelada };
+  return { estado: comFimDeJogoAtualizado(estadoNovo), declaranteVenceu, cartaRevelada, pontosPorDesafiante };
+}
+
+/** Wrapper de 1 desafiante só, em cima de `resolverDesafioMultiplo` — valida `podeDesafiarAgora` antes de resolver. */
+export function desafiar(
+  estado: EstadoPartida,
+  desafianteId: string,
+  traco: Traco,
+  agora: number = Date.now(),
+): ResultadoDesafio {
+  if (estado.pilhaSpicy.length === 0 || estado.declaracaoAtual === null || estado.ultimoDeclaranteId === null) {
+    throw new Error('Não há declaração pendente para desafiar');
+  }
+  if (!podeDesafiarAgora(estado, desafianteId, agora)) {
+    throw new Error(`${desafianteId} não pode desafiar agora — é a vez dele jogar/passar`);
+  }
+  const r = resolverDesafioMultiplo(estado, [{ jogadorId: desafianteId, traco }]);
+  return { estado: r.estado, declaranteVenceu: r.declaranteVenceu, cartaRevelada: r.cartaRevelada };
 }
 
 interface ResultadoCompra {

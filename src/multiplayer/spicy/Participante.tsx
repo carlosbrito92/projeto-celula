@@ -21,8 +21,11 @@ export function Participante() {
   const [declaracaoAtual] = useMultiplayerState<Declaracao | null>('declaracaoAtual', null);
   const [ultimoDeclaranteId] = useMultiplayerState<string | null>('ultimoDeclaranteId', null);
   const [pilhaSpicyQtd] = useMultiplayerState('pilhaSpicyQtd', 0);
+  const [pilhaCompraQtd] = useMultiplayerState('pilhaCompraQtd', 0);
   const [trofeusNoPote] = useMultiplayerState('trofeusNoPote', 3);
   const [trofeusColetados] = useMultiplayerState<Record<string, number>>('trofeusColetados', {});
+  const [pontuacoes] = useMultiplayerState<Record<string, number>>('pontuacoes', {});
+  const [declaradoEm] = useMultiplayerState<number | null>('declaradoEm', null);
   const [jogoEncerrado] = useMultiplayerState('jogoEncerrado', false);
   const [worldsEndRevelada] = useMultiplayerState('worldsEndRevelada', false);
   const [ultimoResultado] = useMultiplayerState<ResultadoDesafioPublico | null>('ultimoResultado', null);
@@ -112,11 +115,14 @@ export function Participante() {
     declaracaoAtual,
     ultimoDeclaranteId,
     pilhaSpicyQtd,
+    pilhaCompraQtd,
     trofeusNoPote,
     trofeusColetados,
+    pontuacoes,
     jogoEncerrado,
     worldsEndRevelada,
     ultimoResultado,
+    declaradoEm,
     nomes,
     avisoSequenciaAtivo,
     ultimaDeclaracaoForaDeSequencia,
