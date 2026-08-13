@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { FlippableCard } from './FlippableCard';
 import { calcularPosicaoFan } from './fanLayout';
 import { IconeForma } from './IconeForma';
+import { textoDeclaracao, textoDesafio } from './textos';
 import { CORES, type Carta, type Cor, type Declaracao, type Traco } from './types';
 import type { Acao } from './acao';
 import styles from './Jogo.module.css';
@@ -28,6 +29,8 @@ export interface ResultadoDesafioPublico {
   desafianteId: string;
   declaranteVenceu: boolean;
   cartaRevelada: Carta;
+  /** O que foi alegado (não a carta real) — usado no texto de sabor do desafio. */
+  declaracaoContestada: Declaracao;
 }
 
 export interface ProjecaoPublica {
@@ -88,6 +91,23 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   const [cartaParaCopiar, setCartaParaCopiar] = useState<Carta | null>(null);
 
   const nome = (id: string) => projecao.nomes[id] ?? id;
+
+  // Sorteado uma vez por evento (chave muda a cada nova declaração/desafio), não a cada render —
+  // `nome`/`projecao.nomes` ficam fora do dep array de propósito: `publicarEstado` recria o objeto
+  // `nomes` a cada ação (mesmo as que não mudam o texto), o que ressortearia a frase sem necessidade.
+  const fraseDeclaracao = useMemo(() => {
+    if (!projecao.declaracaoAtual || !projecao.ultimoDeclaranteId) return '';
+    return textoDeclaracao(nome(projecao.ultimoDeclaranteId), projecao.declaracaoAtual);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projecao.ultimoDeclaranteId, projecao.pilhaSpicyQtd, projecao.declaracaoAtual?.cor, projecao.declaracaoAtual?.valor]);
+
+  const fraseDesafio = useMemo(() => {
+    if (!projecao.ultimoResultado) return '';
+    const { declaranteId, desafianteId, declaracaoContestada } = projecao.ultimoResultado;
+    return textoDesafio(nome(declaranteId), nome(desafianteId), declaracaoContestada);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projecao.ultimoResultado]);
+
   const minhaVez = projecao.jogadorDaVezId === meuId;
   const podeDesafiar = projecao.pilhaSpicyQtd > 0 && projecao.declaracaoAtual !== null;
   const podeCopiar =
@@ -190,6 +210,7 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                 {capitalizar(projecao.declaracaoAtual.cor)} {projecao.declaracaoAtual.valor}
               </span>
             </div>
+            {fraseDeclaracao && <div className={styles.textoMuted}>{fraseDeclaracao}</div>}
           </>
         )}
       </div>
@@ -219,6 +240,7 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                 )}{' '}
                 venceu o desafio e leva a pilha.
               </div>
+              {fraseDesafio && <div className={styles.textoMuted}>{fraseDesafio}</div>}
             </div>
           </div>
         </div>

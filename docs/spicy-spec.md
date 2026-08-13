@@ -384,6 +384,6 @@ Todas as pendências de produto fechadas nesta rodada de definição:
 
 Nenhuma pendência de produto ou design restante das rodadas anteriores. Status real de sprint (A–D + integração/reformulação visual, todas concluídas) está em `progresso.md` — não duplicar aqui, ver lá.
 
-**Pendências novas (Carlos, 2026-08-13)**, motor ainda não implementa:
-- Indicador visual do monte de compra diminuindo na UI — "relógio da partida", contagem numérica no mínimo, animação de pilha encolhendo desejável.
-- Textos de declaração/desafio sorteados aleatoriamente (26 variações de declaração + 30 de desafio, conteúdo real em `docs/spicy-textos-declaracao-desafio.json`, fornecido por Carlos — não gerar/completar a lista). Placeholders `[nome-jogador]`/`[nome-jogador-desafiante]`/`[cor+número]` precisam ser substituídos por valores reais em runtime antes de exibir na UI.
+**Pendências (Carlos, 2026-08-13)**:
+- Indicador visual do monte de compra diminuindo na UI — "relógio da partida", contagem numérica no mínimo, animação de pilha encolhendo desejável. **Ainda não implementado.**
+- ✅ Textos de declaração/desafio sorteados aleatoriamente (26 variações de declaração + 30 de desafio, conteúdo real em `docs/spicy-textos-declaracao-desafio.json`) — `src/multiplayer/spicy/textos.ts` sorteia e substitui `[nome-jogador]`/`[nome-jogador-desafiante]`/`[cor+número]` por valores reais em runtime, exibido em `Jogo.tsx` junto do pill "DECLARADO" e do bloco "REVELADO".

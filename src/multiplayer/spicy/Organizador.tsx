@@ -74,6 +74,7 @@ interface ResultadoProcessamento {
 function processarAcao(estadoAtual: EstadoPartida, jogadorId: string, acao: Acao): ResultadoProcessamento | null {
   try {
     const declaranteIdAntes = estadoAtual.ultimoDeclaranteId;
+    const declaracaoAntes = estadoAtual.declaracaoAtual;
     const r = aplicarAcao(estadoAtual, jogadorId, acao);
     const resultado: ResultadoDesafioPublico | null =
       r.evento.tipo === 'desafiar'
@@ -82,6 +83,7 @@ function processarAcao(estadoAtual: EstadoPartida, jogadorId: string, acao: Acao
             desafianteId: jogadorId,
             declaranteVenceu: r.evento.declaranteVenceu,
             cartaRevelada: r.evento.cartaRevelada,
+            declaracaoContestada: declaracaoAntes!,
           }
         : null;
     const avisoSequencia = r.evento.tipo === 'declarar' && r.evento.avisoSequenciaQuebrada;
