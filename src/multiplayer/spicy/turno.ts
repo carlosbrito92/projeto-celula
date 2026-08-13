@@ -117,6 +117,83 @@ export function montarEstadoInicial(
   };
 }
 
+/**
+ * Cartas do meio de `pilhaSpicy` nunca são publicadas no Playroom (sigilo —
+ * ver `Organizador.tsx`/`publicarEstado`) — reidratação preenche com esse
+ * placeholder opaco. Nunca inspecionado por conteúdo: todo consumidor em
+ * `turno.ts` só lê `.length`/último elemento de `pilhaSpicy`. Cuidado se um
+ * dia a pilha passar a renderizar cartas do meio na UI (hoje só mostra
+ * placeholder genérico + `s_topo`, Sprint D) — esse `id` fixo colidiria como
+ * `layoutId` do Framer Motion em `FlippableCard`.
+ */
+const CARTA_PLACEHOLDER_REIDRATACAO: Carta = { id: '__reidratado__', tipo: 'numerada', cor: 'vermelho', valor: 1 };
+
+export interface DadosParaReidratacao {
+  jogadores: string[];
+  jogadorDaVezId: string;
+  pilhaCompra: Carta[];
+  pilhaSpicyQtd: number;
+  topoPilhaSpicy: Carta | null;
+  declaracaoAtual: Declaracao | null;
+  ultimoDeclaranteId: string | null;
+  maos: Record<string, Carta[]>;
+  pontuacoes: Record<string, number>;
+  trofeusColetados: Record<string, number>;
+  trofeusNoPote: number;
+  maoVaziaAguardandoTrofeu: string | null;
+  worldsEndRevelada: boolean;
+  jogoEncerrado: boolean;
+  varianteAtiva: string | null;
+  pawHolderId: string | null;
+  ultimaJogadaEhCopia: boolean;
+}
+
+/**
+ * Reconstrói `EstadoPartida` a partir do que foi publicado no Playroom —
+ * usado quando o host recarrega a página/app com uma partida em andamento
+ * (bug real reportado por Carlos: hoje `estado` é `useState` puramente
+ * local em `Organizador.tsx`, sem esse caminho de recuperação, e um reload
+ * do host trava o jogo pra todo mundo). `indiceDaVez` é sempre derivado de
+ * `jogadorDaVezId` (nunca publicado separado) pra não existirem duas fontes
+ * de verdade divergentes.
+ */
+export function reidratarEstado(dados: DadosParaReidratacao): EstadoPartida {
+  const indiceDaVez = dados.jogadores.indexOf(dados.jogadorDaVezId);
+  if (indiceDaVez === -1) {
+    throw new Error(`Reidratação inválida: jogadorDaVezId "${dados.jogadorDaVezId}" não está em jogadores`);
+  }
+  if (dados.pilhaSpicyQtd > 0 && dados.topoPilhaSpicy === null) {
+    throw new Error('Reidratação inválida: pilhaSpicyQtd > 0 mas topoPilhaSpicy é null');
+  }
+
+  const pilhaSpicy: Carta[] =
+    dados.pilhaSpicyQtd === 0
+      ? []
+      : [
+          ...Array.from({ length: dados.pilhaSpicyQtd - 1 }, () => CARTA_PLACEHOLDER_REIDRATACAO),
+          dados.topoPilhaSpicy!,
+        ];
+
+  return {
+    jogadores: dados.jogadores,
+    indiceDaVez,
+    pilhaCompra: dados.pilhaCompra,
+    pilhaSpicy,
+    declaracaoAtual: dados.declaracaoAtual,
+    ultimoDeclaranteId: dados.ultimoDeclaranteId,
+    maos: dados.maos,
+    pontuacoes: dados.pontuacoes,
+    trofeusColetados: dados.trofeusColetados,
+    trofeusNoPote: dados.trofeusNoPote,
+    maoVaziaAguardandoTrofeu: dados.maoVaziaAguardandoTrofeu,
+    worldsEndRevelada: dados.worldsEndRevelada,
+    jogoEncerrado: dados.jogoEncerrado,
+    varianteAtiva: dados.varianteAtiva,
+    pawHolderId: dados.pawHolderId,
+    ultimaJogadaEhCopia: dados.ultimaJogadaEhCopia,
+  };
+}
+
 function proximoIndice(estado: EstadoPartida): number {
   return (estado.indiceDaVez + 1) % estado.jogadores.length;
 }

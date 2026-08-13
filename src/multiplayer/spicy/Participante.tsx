@@ -5,6 +5,9 @@ import { Jogo, type ProjecaoPublica, type ResultadoDesafioPublico } from './Jogo
 import type { Carta, Declaracao } from './types';
 import styles from './Participante.module.css';
 
+/** Mesmo valor de `Organizador.tsx` (não compartilhado — é um número só, não vale a pena importar entre os dois). */
+const RECONNECT_GRACE_PERIOD_MS = 120_000;
+
 export function Participante() {
   const [entrou, setEntrou] = useState(false);
   const [nomeEnviado, setNomeEnviado] = useState(false);
@@ -34,7 +37,15 @@ export function Participante() {
     if (entrandoRef.current) return;
     entrandoRef.current = true;
     const sala = new URLSearchParams(window.location.search).get('sala') ?? undefined;
-    insertCoin({ skipLobby: true, roomCode: sala }).then(() => setEntrou(true));
+    insertCoin({ skipLobby: true, roomCode: sala, reconnectGracePeriod: RECONNECT_GRACE_PERIOD_MS }).then(() => {
+      setEntrou(true);
+      // Reconexão (permId persistido) — nome já foi enviado antes do reload/suspensão, não redigita.
+      const nomeSalvo = myPlayer().getState('nome') as string | undefined;
+      if (nomeSalvo) {
+        setNome(nomeSalvo);
+        setNomeEnviado(true);
+      }
+    });
   }, []);
 
   if (!entrou) {
