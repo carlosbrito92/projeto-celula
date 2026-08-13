@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { resolverParticipantes } from './resolverParticipantes';
+import { carregarNomes, salvarNomes } from './nomesStorage';
 
 type SubFasePassagem = 'aguardando' | 'revelado' | 'confirmando';
 
@@ -14,11 +15,21 @@ type Estado =
  * a diferença entre os dois está só em `gerarValores` (o que é sorteado), nunca
  * em como a privacidade é gerida. Natureza temporária — solução para a restrição
  * de V1 single-device (um celular circulando), não arquitetura permanente.
+ *
+ * `nomes` persiste em localStorage (nomesStorage.ts) entre widgets/reaberturas
+ * do app — mesma célula não redigita a lista a cada quebra-gelo diferente.
  */
 export function usePassagemSequencial() {
   const [quantidade, setQuantidade] = useState(0);
-  const [nomes, setNomes] = useState<string[]>([]);
+  const [nomes, setNomesState] = useState<string[]>(() => carregarNomes());
   const [liderParticipa, setLiderParticipa] = useState(false);
+
+  /** Persiste em localStorage a cada mudança — nomes sobrevivem entre
+   * quebra-gelos diferentes e reaberturas do app (ver nomesStorage.ts). */
+  function setNomes(novos: string[]) {
+    setNomesState(novos);
+    salvarNomes(novos);
+  }
 
   const [participantes, setParticipantes] = useState<string[]>([]);
   const [valores, setValores] = useState<string[]>([]);

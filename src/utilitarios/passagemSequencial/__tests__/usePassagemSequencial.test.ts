@@ -1,6 +1,10 @@
 import { act, renderHook } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { usePassagemSequencial } from '../usePassagemSequencial';
+
+beforeEach(() => {
+  localStorage.clear();
+});
 
 function iniciarComParticipantes(quantidade: number, nomes: string[] = []) {
   const { result } = renderHook(() => usePassagemSequencial());
@@ -111,5 +115,21 @@ describe('usePassagemSequencial', () => {
     expect(result.current.estado).toEqual({ fase: 'setup' });
     expect(result.current.quantidade).toBe(0);
     expect(result.current.participantes).toEqual([]);
+  });
+
+  it('nomes persistem entre instâncias do hook (widget fechado e reaberto)', () => {
+    const { result: primeira } = renderHook(() => usePassagemSequencial());
+    act(() => primeira.current.setNomes(['Ana', 'Beto']));
+
+    const { result: segunda } = renderHook(() => usePassagemSequencial());
+    expect(segunda.current.nomes).toEqual(['Ana', 'Beto']);
+  });
+
+  it('reiniciar() também limpa os nomes persistidos', () => {
+    const result = iniciarComParticipantes(2, ['Ana', 'Beto']);
+    act(() => result.current.reiniciar());
+
+    const { result: nova } = renderHook(() => usePassagemSequencial());
+    expect(nova.current.nomes).toEqual([]);
   });
 });
