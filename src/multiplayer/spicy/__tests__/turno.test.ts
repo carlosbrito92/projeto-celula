@@ -264,6 +264,45 @@ describe('troféu por última carta (§4 + Carlos, 2026-08-10)', () => {
     expect(novo.trofeusColetados.ana).toBe(2);
     expect(novo.jogoEncerrado).toBe(true);
   });
+
+  it('pote de troféus já esgotado (3 dados a jogadores diferentes): zerar mão só puxa 6, sem troféu, jogo continua', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5);
+    const pilhaCompra = cartasCompra(8);
+    const estado: EstadoPartida = {
+      ...base,
+      maos: { ...base.maos, ana: [] },
+      maoVaziaAguardandoTrofeu: 'ana',
+      trofeusColetados: { ana: 0, bruno: 1 },
+      trofeusNoPote: 0,
+      indiceDaVez: 1,
+      pilhaCompra,
+    };
+
+    const novo = passar(estado, 'bruno');
+
+    expect(novo.maos.ana).toEqual(pilhaCompra.slice(0, 6));
+    expect(novo.trofeusColetados.ana).toBe(0);
+    expect(novo.trofeusNoPote).toBe(0);
+    expect(novo.jogoEncerrado).toBe(false);
+  });
+
+  it('monte de compra esgota ao repor mão: jogo encerra mesmo sem 2º troféu', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5);
+    const pilhaCompra = cartasCompra(4);
+    const estado: EstadoPartida = {
+      ...base,
+      maos: { ...base.maos, ana: [] },
+      maoVaziaAguardandoTrofeu: 'ana',
+      indiceDaVez: 1,
+      pilhaCompra,
+    };
+
+    const novo = passar(estado, 'bruno');
+
+    expect(novo.maos.ana).toEqual(pilhaCompra);
+    expect(novo.pilhaCompra).toEqual([]);
+    expect(novo.jogoEncerrado).toBe(true);
+  });
 });
 
 describe("World's End (toggle de setup, Carlos, 2026-08-10)", () => {

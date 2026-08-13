@@ -130,8 +130,8 @@ function validarVez(estado: EstadoPartida, jogadorId: string): void {
 function comFimDeJogoAtualizado(estado: EstadoPartida): EstadoPartida {
   const jogoEncerrado = verificarFimDePartida({
     trofeusColetados: estado.trofeusColetados,
-    trofeusNoPote: estado.trofeusNoPote,
     worldsEndRevelada: estado.worldsEndRevelada,
+    pilhaCompraVazia: estado.pilhaCompra.length === 0,
   });
   return jogoEncerrado === estado.jogoEncerrado ? estado : { ...estado, jogoEncerrado };
 }
@@ -139,27 +139,32 @@ function comFimDeJogoAtualizado(estado: EstadoPartida): EstadoPartida {
 /**
  * Última carta jogada (mão vazia) sobrevive sem desafio até a próxima ação
  * de outro jogador (declarar/passar/copiar "enterra" a jogada; ver
- * `desafiar` para o caminho onde ela É desafiada) → jogador ganha 1 Troféu
- * do pote e puxa uma mão nova de `MAO_INICIAL` cartas pra continuar
- * tentando o 2º troféu (Carlos, 2026-08-10). Pote esgotado nesse meio-tempo:
- * pendência só limpa, sem prêmio — não deveria ser alcançável (pote
- * esgotado já encerra o jogo), guarda defensiva.
+ * `desafiar` para o caminho onde ela É desafiada) → jogador puxa mão nova
+ * de `MAO_INICIAL` cartas pra continuar jogando, e ganha 1 Troféu do pote
+ * SE ainda sobrar (pote tem só 3 — Carlos, 2026-08-10/2026-08-13). Pote
+ * esgotado (3 já distribuídos, mesmo que a jogadores diferentes) NÃO
+ * impede a mão nova nem encerra o jogo sozinho — a partida segue até o
+ * monte de compra esgotar (ver `fimDePartida.ts`); só fica sem prêmio de
+ * troféu daí em diante.
  */
 function resolverPendenciaUltimaCarta(estado: EstadoPartida): EstadoPartida {
   const jogador = estado.maoVaziaAguardandoTrofeu;
-  if (!jogador || estado.trofeusNoPote <= 0) {
+  if (!jogador) {
     return { ...estado, maoVaziaAguardandoTrofeu: null };
   }
 
   const { compradas, restante, fimDoMundoRevelada } = comprar(estado.pilhaCompra, MAO_INICIAL);
+  const ganhaTrofeu = estado.trofeusNoPote > 0;
 
   return comFimDeJogoAtualizado({
     ...estado,
     maoVaziaAguardandoTrofeu: null,
     pilhaCompra: restante,
     maos: { ...estado.maos, [jogador]: compradas },
-    trofeusNoPote: estado.trofeusNoPote - 1,
-    trofeusColetados: { ...estado.trofeusColetados, [jogador]: estado.trofeusColetados[jogador] + 1 },
+    trofeusNoPote: ganhaTrofeu ? estado.trofeusNoPote - 1 : estado.trofeusNoPote,
+    trofeusColetados: ganhaTrofeu
+      ? { ...estado.trofeusColetados, [jogador]: estado.trofeusColetados[jogador] + 1 }
+      : estado.trofeusColetados,
     worldsEndRevelada: estado.worldsEndRevelada || fimDoMundoRevelada,
   });
 }
