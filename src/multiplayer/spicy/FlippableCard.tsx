@@ -8,12 +8,16 @@ export interface FlippableCardProps {
   revelada: boolean;
   className?: string;
   onClick?: () => void;
+  /** Clique duplo — "jogar limpo" sem passar pelo fluxo de blefe (§P4). Não interfere no `onClick` simples. */
+  onDoubleClick?: () => void;
   /** Leve destaque visual (ex: carta escolhida na mão antes de confirmar). */
   selecionada?: boolean;
   /** Mão em leque (fanLayout.ts) — graus e px, combinados com a animação de seleção abaixo. */
   rotacaoDeg?: number;
   deslocamentoY?: number;
   zIndex?: number;
+  /** Dispara quando a animação de layout (posição/`layoutId`) termina — ex: carta "voando" até a mesa (§P4). */
+  onAnimationComplete?: () => void;
 }
 
 /**
@@ -29,15 +33,18 @@ export function FlippableCard({
   revelada,
   className,
   onClick,
+  onDoubleClick,
   selecionada,
   rotacaoDeg = 0,
   deslocamentoY = 0,
   zIndex,
+  onAnimationComplete,
 }: FlippableCardProps) {
   return (
     <motion.div
       layoutId={carta.id}
       onClick={onClick}
+      onDoubleClick={onDoubleClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={onClick ? (e) => (e.key === 'Enter' || e.key === ' ') && onClick() : undefined}
@@ -50,6 +57,7 @@ export function FlippableCard({
         y: (selecionada ? -18 : deslocamentoY) + (selecionada ? -6 : 0),
       }}
       transition={{ layout: { duration: 0.35, ease: 'easeInOut' }, default: { duration: 0.2 } }}
+      onAnimationComplete={onAnimationComplete}
     >
       <motion.div
         style={{ width: '100%', height: '100%', position: 'relative', transformStyle: 'preserve-3d' }}

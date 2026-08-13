@@ -148,6 +148,18 @@
   overflow: hidden;
 }
 
+/* Carta real "voando" da mão até a mesa no clique duplo (§P4) — puramente local/decorativo, nunca sincronizado (a pilha real continua mostrando só o placeholder face-down). */
+.cartaVoando {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 126px;
+  height: 182px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 5;
+}
+
 .declaradoPill {
   display: flex;
   align-items: center;
