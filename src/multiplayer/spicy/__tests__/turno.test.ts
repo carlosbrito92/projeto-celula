@@ -114,6 +114,7 @@ describe('desafiar', () => {
       declaracaoAtual: { cor: 'vermelho', valor: 5 },
       ultimoDeclaranteId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(), // bruno é o jogadorDaVez (2 jogadores) — dentro da janela de 5s (§P2)
     };
   }
 
@@ -211,6 +212,7 @@ describe('troféu por última carta (§4 + Carlos, 2026-08-10)', () => {
       ultimoDeclaranteId: 'ana',
       maoVaziaAguardandoTrofeu: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
       pilhaCompra,
     };
 
@@ -238,6 +240,7 @@ describe('troféu por última carta (§4 + Carlos, 2026-08-10)', () => {
       ultimoDeclaranteId: 'ana',
       maoVaziaAguardandoTrofeu: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
       pilhaCompra,
     };
 
@@ -262,6 +265,45 @@ describe('troféu por última carta (§4 + Carlos, 2026-08-10)', () => {
 
     const novo = passar(estado, 'bruno');
     expect(novo.trofeusColetados.ana).toBe(2);
+    expect(novo.jogoEncerrado).toBe(true);
+  });
+
+  it('pote de troféus já esgotado (3 dados a jogadores diferentes): zerar mão só puxa 6, sem troféu, jogo continua', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5);
+    const pilhaCompra = cartasCompra(8);
+    const estado: EstadoPartida = {
+      ...base,
+      maos: { ...base.maos, ana: [] },
+      maoVaziaAguardandoTrofeu: 'ana',
+      trofeusColetados: { ana: 0, bruno: 1 },
+      trofeusNoPote: 0,
+      indiceDaVez: 1,
+      pilhaCompra,
+    };
+
+    const novo = passar(estado, 'bruno');
+
+    expect(novo.maos.ana).toEqual(pilhaCompra.slice(0, 6));
+    expect(novo.trofeusColetados.ana).toBe(0);
+    expect(novo.trofeusNoPote).toBe(0);
+    expect(novo.jogoEncerrado).toBe(false);
+  });
+
+  it('monte de compra esgota ao repor mão: jogo encerra mesmo sem 2º troféu', () => {
+    const base = montarEstadoInicial(['ana', 'bruno'], () => 0.5);
+    const pilhaCompra = cartasCompra(4);
+    const estado: EstadoPartida = {
+      ...base,
+      maos: { ...base.maos, ana: [] },
+      maoVaziaAguardandoTrofeu: 'ana',
+      indiceDaVez: 1,
+      pilhaCompra,
+    };
+
+    const novo = passar(estado, 'bruno');
+
+    expect(novo.maos.ana).toEqual(pilhaCompra);
+    expect(novo.pilhaCompra).toEqual([]);
     expect(novo.jogoEncerrado).toBe(true);
   });
 });
@@ -301,6 +343,7 @@ describe("World's End (toggle de setup, Carlos, 2026-08-10)", () => {
       declaracaoAtual: { cor: 'vermelho', valor: 5 },
       ultimoDeclaranteId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
       pilhaCompra: [c1, fimDoMundo, c3],
     };
 
@@ -372,6 +415,7 @@ describe('variante spice_raider', () => {
       ultimoDeclaranteId: 'ana',
       pawHolderId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
     };
 
     const r = desafiar(estado, 'bruno', 'cor');
@@ -409,6 +453,7 @@ describe('variante change_your_luck', () => {
       declaracaoAtual: { cor: 'vermelho', valor: 5 },
       ultimoDeclaranteId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
     };
 
     const r = desafiar(estado, 'bruno', 'cor');
@@ -521,7 +566,8 @@ describe('variante copy_cat', () => {
     const rCopia = copiar(comCopia, 'bruno', cartaBrunoReal.id);
     expect(rCopia.estado.ultimaJogadaEhCopia).toBe(true);
 
-    const rDesafio = desafiar(rCopia.estado, 'caio', 'cor');
+    // caio virou jogadorDaVez (índice seguinte a bruno) — não pode desafiar na própria vez (§P2), então ana desafia.
+    const rDesafio = desafiar(rCopia.estado, 'ana', 'cor');
     expect(rDesafio.declaranteVenceu).toBe(false);
   });
 
@@ -529,7 +575,7 @@ describe('variante copy_cat', () => {
     const estado = estadoComDeclaracaoPendente();
     const cartaBruno = estado.maos.bruno[0];
     const rCopia = copiar(estado, 'bruno', cartaBruno.id);
-    const rDesafio = desafiar(rCopia.estado, 'caio', 'cor');
+    const rDesafio = desafiar(rCopia.estado, 'ana', 'cor');
     expect(rDesafio.estado.ultimaJogadaEhCopia).toBe(false);
   });
 });
@@ -558,6 +604,7 @@ describe('integração — varianteAtiva chega em declarar/desafiar', () => {
       declaracaoAtual: { cor: 'vermelho', valor: 6 },
       ultimoDeclaranteId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
     };
     const r = desafiar(estado, 'bruno', 'valor');
     expect(r.declaranteVenceu).toBe(true);

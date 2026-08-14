@@ -148,6 +148,18 @@
   overflow: hidden;
 }
 
+/* Carta real "voando" da mão até a mesa no clique duplo (§P4) — puramente local/decorativo, nunca sincronizado (a pilha real continua mostrando só o placeholder face-down). */
+.cartaVoando {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 126px;
+  height: 182px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 5;
+}
+
 .declaradoPill {
   display: flex;
   align-items: center;
@@ -568,6 +580,31 @@
 .placarFinalValor {
   font-family: 'JetBrains Mono', monospace;
   color: #c7a15a;
+}
+
+.placarFinalLinhaVencedor {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #f4f1eb;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(199, 161, 90, 0.6);
+  background: rgba(199, 161, 90, 0.1);
+  font-weight: 700;
+}
+
+.montePill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 241, 235, 0.2);
+  font-size: 13px;
+  font-weight: 600;
+  color: #cfc9bf;
+  flex-shrink: 0;
 }
 
 /*

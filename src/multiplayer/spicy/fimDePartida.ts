@@ -11,14 +11,22 @@
 
 export interface SinalFimDePartida {
   trofeusColetados: Record<string, number>;
-  trofeusNoPote: number;
   worldsEndRevelada: boolean;
+  /** Monte de compra esgotado — não há mais cartas pra repor mão nem pra desafiante perdedor comer. */
+  pilhaCompraVazia: boolean;
 }
 
-/** 2º troféu de alguém, último troféu do pote, ou World's End revelada. */
+/**
+ * 2º troféu do MESMO jogador, monte de compra esgotado, ou World's End
+ * revelada. Pote de 3 troféus esgotado sozinho NÃO encerra o jogo — se
+ * 3 jogadores diferentes pegam 1 troféu cada, a partida continua (sem
+ * mais troféu pra distribuir) até o monte de compra secar (Carlos,
+ * 2026-08-13, corrigindo a versão anterior que tratava pote vazio como
+ * fim de jogo).
+ */
 export function verificarFimDePartida(sinal: SinalFimDePartida): boolean {
   if (sinal.worldsEndRevelada) return true;
-  if (sinal.trofeusNoPote <= 0) return true;
+  if (sinal.pilhaCompraVazia) return true;
   return Object.values(sinal.trofeusColetados).some((n) => n >= 2);
 }
 

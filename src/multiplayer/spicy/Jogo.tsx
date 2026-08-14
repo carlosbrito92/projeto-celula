@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { FlippableCard } from './FlippableCard';
 import { calcularPosicaoFan } from './fanLayout';
+import { calcularPontuacaoFinal, determinarVencedor, type JogadorPontuacao } from './fimDePartida';
 import { IconeForma } from './IconeForma';
+import { textoDeclaracao, textoDesafio } from './textos';
 import { CORES, type Carta, type Cor, type Declaracao, type Traco } from './types';
+import { useJanelaDesafio } from './useJanelaDesafio';
 import type { Acao } from './acao';
 import styles from './Jogo.module.css';
 
@@ -25,9 +28,14 @@ function capitalizar(s: string): string {
 
 export interface ResultadoDesafioPublico {
   declaranteId: string;
-  desafianteId: string;
+  /** 1+ ids — desafios simultâneos (janela de detecção ~300ms, `Organizador.tsx`) dividem a pilha entre todos. */
+  desafiantesIds: string[];
   declaranteVenceu: boolean;
   cartaRevelada: Carta;
+  /** O que foi alegado (não a carta real) — usado no texto de sabor do desafio. */
+  declaracaoContestada: Declaracao;
+  /** Presente só quando os desafiantes venceram — id → pontos que cada um ganhou. */
+  pontosPorDesafiante: Record<string, number>;
 }
 
 export interface ProjecaoPublica {
@@ -39,11 +47,17 @@ export interface ProjecaoPublica {
   declaracaoAtual: Declaracao | null;
   ultimoDeclaranteId: string | null;
   pilhaSpicyQtd: number;
+  /** Cartas restantes no monte de compra — "relógio da partida" (§9). */
+  pilhaCompraQtd: number;
   trofeusNoPote: number;
   trofeusColetados: Record<string, number>;
+  /** Pontos acumulados vencendo desafios (tamanho da pilha no momento da vitória) — id → pontos. */
+  pontuacoes: Record<string, number>;
   jogoEncerrado: boolean;
   worldsEndRevelada: boolean;
   ultimoResultado: ResultadoDesafioPublico | null;
+  /** `Date.now()` da declaração/cópia atual, ou `null` — alimenta `useJanelaDesafio` (regra de turno §P2). */
+  declaradoEm: number | null;
   /** id → nome (só o que cada jogador digitou no início, sem PII além disso). */
   nomes: Record<string, string>;
   /** Toggle de setup (§4) — só controla se o aviso abaixo aparece; motor sempre calcula. */
@@ -71,6 +85,65 @@ const CORES_ATIVAS: Record<Cor, string> = {
   verde: styles.corPillAtivaVerde,
 };
 
+interface BlocoReveladoProps {
+  resultado: ResultadoDesafioPublico;
+  nome: (id: string) => string;
+  fraseDesafio: string;
+}
+
+/**
+ * Extraído do corpo de `Jogo` só pra isolar `reveladaVisivel` — precisa
+ * nascer com `revelada={false}` (verso) e virar `true` um tick depois pra
+ * `FlippableCard` de fato ver a prop MUDAR de valor e disparar o flip do
+ * Framer Motion. Sem isso (`revelada` fixo em `true` desde o primeiro
+ * render), a troca de carta entre desafios era instantânea — a mesma
+ * instância nunca via `revelada` passar de `false` pra `true` de verdade.
+ * `key={cartaRevelada.id}` no pai força essa instância a remontar (e
+ * reiniciar `reveladaVisivel`) a cada novo resultado — sem isso, um 2º
+ * desafio reusaria a mesma instância já com `reveladaVisivel: true`.
+ */
+function BlocoRevelado({ resultado, nome, fraseDesafio }: BlocoReveladoProps) {
+  const [reveladaVisivel, setReveladaVisivel] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setReveladaVisivel(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  return (
+    <div className={styles.bloco}>
+      <div className={styles.blocoLabel}>REVELADO</div>
+      <div className={styles.reveladoLinha}>
+        <FlippableCard carta={resultado.cartaRevelada} revelada={reveladaVisivel} className={styles.cartaMedia} />
+        <div className={styles.reveladoTextos}>
+          <div className={styles.reveladoTitulo}>
+            Era {capitalizar(resultado.cartaRevelada.cor ?? '')} {resultado.cartaRevelada.valor}
+          </div>
+          <div className={styles.reveladoSubtitulo}>
+            {resultado.declaranteVenceu ? (
+              <>{nome(resultado.declaranteId)} venceu o desafio e leva a pilha.</>
+            ) : resultado.desafiantesIds.length === 1 ? (
+              <>{nome(resultado.desafiantesIds[0])} venceu o desafio e leva a pilha.</>
+            ) : (
+              <>
+                {resultado.desafiantesIds.map(nome).join(' e ')} desafiaram juntos e venceram — pilha dividida
+                entre eles.
+              </>
+            )}
+          </div>
+          {!resultado.declaranteVenceu && resultado.desafiantesIds.length > 1 && (
+            <div className={styles.textoMuted}>
+              {resultado.desafiantesIds
+                .map((id) => `${nome(id)}: ${resultado.pontosPorDesafiante[id]} pts`)
+                .join(' · ')}
+            </div>
+          )}
+          {fraseDesafio && <div className={styles.textoMuted}>{fraseDesafio}</div>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /**
  * UI da tela de jogo (docs/Tela de Jogo Spicy.dc.html) — mesa escura + fio
  * dourado, mesmo par visual do verso da carta aprovado. Componente burro:
@@ -86,10 +159,42 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   const [tracoDesafio, setTracoDesafio] = useState<Traco>('cor');
   const [extrasSelecionadas, setExtrasSelecionadas] = useState<string[]>([]);
   const [cartaParaCopiar, setCartaParaCopiar] = useState<Carta | null>(null);
+  const [cartaEmVoo, setCartaEmVoo] = useState<Carta | null>(null);
+
+  // Fallback de segurança — se `onAnimationComplete` do Framer não disparar por algum motivo (unmount concorrente etc.), a carta não fica presa em voo pra sempre.
+  useEffect(() => {
+    if (!cartaEmVoo) return;
+    const t = setTimeout(() => setCartaEmVoo(null), 700);
+    return () => clearTimeout(t);
+  }, [cartaEmVoo]);
 
   const nome = (id: string) => projecao.nomes[id] ?? id;
+
+  // Sorteado uma vez por evento (chave muda a cada nova declaração/desafio), não a cada render —
+  // `nome`/`projecao.nomes` ficam fora do dep array de propósito: `publicarEstado` recria o objeto
+  // `nomes` a cada ação (mesmo as que não mudam o texto), o que ressortearia a frase sem necessidade.
+  const fraseDeclaracao = useMemo(() => {
+    if (!projecao.declaracaoAtual || !projecao.ultimoDeclaranteId) return '';
+    return textoDeclaracao(nome(projecao.ultimoDeclaranteId), projecao.declaracaoAtual);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projecao.ultimoDeclaranteId, projecao.pilhaSpicyQtd, projecao.declaracaoAtual?.cor, projecao.declaracaoAtual?.valor]);
+
+  const fraseDesafio = useMemo(() => {
+    if (!projecao.ultimoResultado) return '';
+    const { declaranteId, desafiantesIds, declaracaoContestada } = projecao.ultimoResultado;
+    const nomeDesafiantes = desafiantesIds.map(nome).join(' e ');
+    return textoDesafio(nome(declaranteId), nomeDesafiantes, declaracaoContestada);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projecao.ultimoResultado]);
+
   const minhaVez = projecao.jogadorDaVezId === meuId;
-  const podeDesafiar = projecao.pilhaSpicyQtd > 0 && projecao.declaracaoAtual !== null;
+  const janelaDesafio = useJanelaDesafio(projecao.declaradoEm);
+  // Regra de turno (§P2): não pode desafiar na própria vez, exceto janela de 5s em partidas de 2 —
+  // enforcement de verdade fica no host (`turno.ts#podeDesafiarAgora`), isso só evita mostrar um botão que seria rejeitado.
+  const podeDesafiar =
+    projecao.pilhaSpicyQtd > 0 &&
+    projecao.declaracaoAtual !== null &&
+    (!minhaVez || (projecao.jogadores.length === 2 && janelaDesafio.ativa));
   const podeCopiar =
     projecao.varianteAtiva === 'copy_cat' && podeDesafiar && projecao.ultimoDeclaranteId !== meuId;
   const changeYourLuckAtivo = projecao.varianteAtiva === 'change_your_luck' && valorDeclarado === 5;
@@ -106,6 +211,24 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
     setCartaSelecionada(null);
     setAnunciouUltima(false);
     setExtrasSelecionadas([]);
+  };
+
+  /**
+   * Clique duplo — "jogar limpo" (§P4): declara automaticamente o valor/cor
+   * real da carta, sem passar pelo painel "Declarar como" (reservado só
+   * pra blefe intencional). Só faz sentido pra cartas numeradas — wilds não
+   * têm cor/valor fixo pra declarar "de verdade" (`FlippableCard` só recebe
+   * o handler quando `carta.tipo === 'numerada'`, ver mão em leque abaixo).
+   */
+  const jogarCartaLimpa = (carta: Carta) => {
+    if (carta.cor === undefined || carta.valor === undefined) return;
+    setCartaEmVoo(carta);
+    onAcao({
+      tipo: 'declarar',
+      cartaId: carta.id,
+      declaracao: { cor: carta.cor, valor: carta.valor },
+      anunciouUltima: minhaMao.length === 1,
+    });
   };
 
   const alternarExtra = (cartaId: string) => {
@@ -125,6 +248,17 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   };
 
   if (projecao.jogoEncerrado) {
+    const pontuacoesFinais: JogadorPontuacao[] = projecao.jogadores.map((id) => ({
+      jogador: id,
+      pontosPilha: projecao.pontuacoes[id] ?? 0,
+      trofeus: projecao.trofeusColetados[id] ?? 0,
+      cartasNaMao: projecao.contagemMaos[id] ?? 0,
+    }));
+    const vencedor = determinarVencedor(pontuacoesFinais);
+    const resultadosOrdenados = pontuacoesFinais
+      .map(calcularPontuacaoFinal)
+      .sort((a, b) => b.pontuacaoFinal - a.pontuacaoFinal);
+
     return (
       <div className={styles.tela}>
         <div className={styles.fimDeJogo}>
@@ -132,15 +266,20 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
           {projecao.worldsEndRevelada && (
             <p className={styles.fimTexto}>O Fim do Mundo foi revelado — a partida encerra imediatamente.</p>
           )}
+          <p className={styles.fimTexto}>
+            <strong>{nome(vencedor.jogador)}</strong> venceu
+            {vencedor.vitoriaAutomatica ? ' — vitória automática (2 troféus)' : ''}!
+          </p>
           <div className={styles.placarFinal}>
-            {Object.entries(projecao.trofeusColetados)
-              .sort(([, a], [, b]) => b - a)
-              .map(([id, qtd]) => (
-                <div key={id} className={styles.placarFinalLinha}>
-                  <span>{nome(id)}</span>
-                  <span className={styles.placarFinalValor}>{qtd}</span>
-                </div>
-              ))}
+            {resultadosOrdenados.map((r) => (
+              <div
+                key={r.jogador}
+                className={r.jogador === vencedor.jogador ? styles.placarFinalLinhaVencedor : styles.placarFinalLinha}
+              >
+                <span>{nome(r.jogador)}</span>
+                <span className={styles.placarFinalValor}>{r.vitoriaAutomatica ? 'AUTO' : r.pontuacaoFinal}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -152,6 +291,9 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
       <div className={styles.header}>
         <div className={styles.headerVez}>
           Vez de: <strong>{nome(projecao.jogadorDaVezId)}</strong>
+        </div>
+        <div className={styles.montePill}>
+          <span>{projecao.pilhaCompraQtd} no monte</span>
         </div>
         <div className={styles.trofeuPill}>
           <div className={styles.trofeuIcone} />
@@ -176,13 +318,31 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
         <div className={styles.pilhaLabel}>
           {projecao.declaracaoAtual ? `PILHA · ${projecao.pilhaSpicyQtd} CARTAS` : 'PILHA VAZIA'}
         </div>
-        {projecao.declaracaoAtual && (
-          <>
-            <div className={styles.pilhaStack}>
+        {/* Fora do `if (declaracaoAtual)` de propósito: a carta "voando" (clique duplo, §P4) precisa
+            de um lugar pra aparecer mesmo jogando a 1ª carta de uma rodada nova (declaracaoAtual local
+            ainda null até a ação ir e voltar do host). */}
+        <div className={styles.pilhaStack}>
+          {projecao.declaracaoAtual && (
+            <>
               <div className={styles.pilhaSombra2} />
               <div className={styles.pilhaSombra1} />
               <FlippableCard carta={CARTA_VERSO_PILHA} revelada={false} className={styles.pilhaCartaTopo} />
-            </div>
+            </>
+          )}
+          <AnimatePresence>
+            {cartaEmVoo && (
+              <FlippableCard
+                key={cartaEmVoo.id}
+                carta={cartaEmVoo}
+                revelada
+                className={styles.cartaVoando}
+                onAnimationComplete={() => setCartaEmVoo(null)}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+        {projecao.declaracaoAtual && (
+          <>
             <div className={styles.declaradoPill}>
               <span className={styles.declaradoLabel}>DECLARADO</span>
               <IconeForma cor={projecao.declaracaoAtual.cor} tamanho={12} />
@@ -190,6 +350,7 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
                 {capitalizar(projecao.declaracaoAtual.cor)} {projecao.declaracaoAtual.valor}
               </span>
             </div>
+            {fraseDeclaracao && <div className={styles.textoMuted}>{fraseDeclaracao}</div>}
           </>
         )}
       </div>
@@ -202,26 +363,12 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
       )}
 
       {projecao.ultimoResultado && (
-        <div className={styles.bloco}>
-          <div className={styles.blocoLabel}>REVELADO</div>
-          <div className={styles.reveladoLinha}>
-            <FlippableCard carta={projecao.ultimoResultado.cartaRevelada} revelada className={styles.cartaMedia} />
-            <div className={styles.reveladoTextos}>
-              <div className={styles.reveladoTitulo}>
-                Era {capitalizar(projecao.ultimoResultado.cartaRevelada.cor ?? '')}{' '}
-                {projecao.ultimoResultado.cartaRevelada.valor}
-              </div>
-              <div className={styles.reveladoSubtitulo}>
-                {nome(
-                  projecao.ultimoResultado.declaranteVenceu
-                    ? projecao.ultimoResultado.declaranteId
-                    : projecao.ultimoResultado.desafianteId,
-                )}{' '}
-                venceu o desafio e leva a pilha.
-              </div>
-            </div>
-          </div>
-        </div>
+        <BlocoRevelado
+          key={projecao.ultimoResultado.cartaRevelada.id}
+          resultado={projecao.ultimoResultado}
+          nome={nome}
+          fraseDesafio={fraseDesafio}
+        />
       )}
 
       {projecao.pawHolderId && (
@@ -299,23 +446,27 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
 
       <div className={styles.maoFan}>
         <AnimatePresence>
-          {minhaMao.map((carta, i) => {
-            const selecionada = carta.id === cartaSelecionada?.id;
-            const { rotacaoDeg, deslocamentoY } = calcularPosicaoFan(i, minhaMao.length);
-            return (
-              <FlippableCard
-                key={carta.id}
-                carta={carta}
-                revelada
-                className={selecionada ? styles.cartaFanSelecionada : styles.cartaFan}
-                selecionada={selecionada}
-                onClick={minhaVez ? () => setCartaSelecionada(carta) : undefined}
-                rotacaoDeg={rotacaoDeg}
-                deslocamentoY={deslocamentoY}
-                zIndex={selecionada ? minhaMao.length + 1 : i}
-              />
-            );
-          })}
+          {/* Carta em voo (clique duplo) some da mão aqui — reaparece no overlay do `.pilhaStack` acima, mesmo `layoutId` (`carta.id`), nunca os dois montados ao mesmo tempo. */}
+          {minhaMao
+            .filter((c) => c.id !== cartaEmVoo?.id)
+            .map((carta, i, maoVisivel) => {
+              const selecionada = carta.id === cartaSelecionada?.id;
+              const { rotacaoDeg, deslocamentoY } = calcularPosicaoFan(i, maoVisivel.length);
+              return (
+                <FlippableCard
+                  key={carta.id}
+                  carta={carta}
+                  revelada
+                  className={selecionada ? styles.cartaFanSelecionada : styles.cartaFan}
+                  selecionada={selecionada}
+                  onClick={minhaVez ? () => setCartaSelecionada(carta) : undefined}
+                  onDoubleClick={minhaVez && carta.tipo === 'numerada' ? () => jogarCartaLimpa(carta) : undefined}
+                  rotacaoDeg={rotacaoDeg}
+                  deslocamentoY={deslocamentoY}
+                  zIndex={selecionada ? maoVisivel.length + 1 : i}
+                />
+              );
+            })}
         </AnimatePresence>
       </div>
 

@@ -34,6 +34,7 @@ describe('aplicarAcao', () => {
       declaracaoAtual: { cor: 'vermelho' as const, valor: 5 },
       ultimoDeclaranteId: 'ana',
       indiceDaVez: 1,
+      declaradoEm: Date.now(),
     };
 
     const r = aplicarAcao(estado, 'bruno', { tipo: 'desafiar', traco: 'cor' });

@@ -80,10 +80,12 @@ Regras oficiais completas (fonte: UltraBoardGames, transcrito na íntegra) confi
 | Revelação da carta desafiada — só o traço citado importa | Estado revelado simultaneamente para todos os clients; resolução compara apenas o traço citado (exceto Copy Cat, ver §6 abaixo — modo "ambos os traços") |
 | Vencedor coleta a pilha como pontos / perdedor compra 2 cartas e inicia pilha nova | Atualização automática de mão e pontuação via estado sincronizado |
 | Anunciar última carta da mão; se esquecer, deve recolher e passar | UI força/lembra declaração explícita de "última carta" antes de confirmar a jogada quando a mão do jogador tem 1 carta |
-| Troféu: ganho se não desafiado, ou se desafiado e vencer. 2º ou 3º troféu encerra o jogo; senão, compra 6 cartas | Condição de fim verificada a cada resolução de desafio/troféu; tela de resultado com pontuação final |
-| Fim de jogo: 2º troféu de um jogador, último troféu do pote, ou World's End revelada (não comprar a carta) | Verificação a cada compra/desafio; World's End nunca é adicionada à mão de ninguém |
-| Pontuação: 2 troféus = vitória automática; senão, 1 ponto/carta vencida + 10 pontos/troféu − 1 ponto/carta na mão | Cálculo automático ao fim de partida |
+| Troféu: ganho se não desafiado, ou se desafiado e vencer. 2º troféu **do mesmo jogador** encerra o jogo; senão, compra 6 cartas | Condição de fim verificada a cada resolução de desafio/troféu; tela de resultado com pontuação final |
+| Fim de jogo: 2º troféu do mesmo jogador, monte de compra esgotado, ou World's End revelada (não comprar a carta) | Verificação a cada compra/desafio; World's End nunca é adicionada à mão de ninguém |
+| Pontuação: 2 troféus (mesmo jogador) = vitória automática; senão, 1 ponto/carta vencida + 10 pontos/troféu − 1 ponto/carta na mão | Cálculo automático ao fim de partida |
 | Variantes "Spice It Up!" | **Decidido**: apenas 1 variante ativa por partida (não 2, apesar da regra oficial permitir para "advanced players") — simplifica o motor no primeiro momento; selecionável no setup antes do `insertCoin` |
+
+> **Correção (Carlos, 2026-08-13)**: o pote tem só 3 troféus físicos, mas esgotar o pote **não** encerra o jogo sozinho — se 3 jogadores diferentes pegam 1 troféu cada (comum com 4+ jogadores), a partida continua (sem mais troféu pra distribuir, mas jogador que zera a mão ainda puxa 6 cartas normalmente) até o **monte de compra esgotar**. Só o 2º troféu do **mesmo** jogador encerra na hora (vitória automática). Bug real corrigido em `fimDePartida.ts`/`turno.ts` (`verificarFimDePartida` tratava pote vazio como fim de jogo) — versão anterior deste documento e o motor antes da correção estavam errados nesse ponto específico. Pontos de desafio = tamanho da pilha de rodada no momento do desafio, **incluindo a carta do próprio declarante desafiado** (ex: 5 declarações antes + a 6ª do blefado = 6 pontos pro desafiante que vence) — já implementado corretamente (`pilhaSpicy.length` conta a jogada mais recente antes de zerar).
 
 ---
 
@@ -380,4 +382,8 @@ Todas as pendências de produto fechadas nesta rodada de definição:
 - ✅ Design de carta aprovado (`docs/Baralho Spicy.dc.html`) e abordagem técnica de animação decidida — Framer Motion + algoritmo de shuffle de Juha Lindstedt, GSAP como referência futura (Carlos, 2026-08-10; pesquisa completa em `docs/spicy-pesquisa-visual-animacao.md`, incorporada na Sprint D acima).
 - ✅ Wild de cor / Wild de número: já estavam desenhadas no mock (§ "Cartas especiais"), não era lacuna real (Carlos, 2026-08-10) — traduzidas pro schema JSON em §6.1.1 junto com Troféu, Fim do Mundo e Verso.
 
-Nenhuma pendência de produto ou design restante. Sprints A/B/C concluídas (§7); próximo passo é a implementação da Sprint D — visual da carta + animação.
+Nenhuma pendência de produto ou design restante das rodadas anteriores. Status real de sprint (A–D + integração/reformulação visual, todas concluídas) está em `progresso.md` — não duplicar aqui, ver lá.
+
+**Pendências (Carlos, 2026-08-13)**:
+- Indicador visual do monte de compra diminuindo na UI — "relógio da partida", contagem numérica no mínimo, animação de pilha encolhendo desejável. **Ainda não implementado.**
+- ✅ Textos de declaração/desafio sorteados aleatoriamente (26 variações de declaração + 30 de desafio, conteúdo real em `docs/spicy-textos-declaracao-desafio.json`) — `src/multiplayer/spicy/textos.ts` sorteia e substitui `[nome-jogador]`/`[nome-jogador-desafiante]`/`[cor+número]` por valores reais em runtime, exibido em `Jogo.tsx` junto do pill "DECLARADO" e do bloco "REVELADO".

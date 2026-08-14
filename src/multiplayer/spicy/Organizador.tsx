@@ -1,19 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
-import { getRoomCode, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
+import { getRoomCode, getState, insertCoin, myPlayer, setState, usePlayersList } from 'playroomkit';
 import { Link } from '../../router/Router';
 import { QrCode } from '../quemSouEu/QrCode';
 import { aplicarAcao, type Acao } from './acao';
 import { Jogo, type ProjecaoPublica, type ResultadoDesafioPublico } from './Jogo';
 import { ShuffleAnimation } from './ShuffleAnimation';
-import { montarEstadoInicial, type EstadoPartida, type OpcoesPartida } from './turno';
+import {
+  montarEstadoInicial,
+  podeDesafiarAgora,
+  reidratarEstado,
+  resolverDesafioMultiplo,
+  type DadosParaReidratacao,
+  type DesafianteSimultaneo,
+  type EstadoPartida,
+  type OpcoesPartida,
+} from './turno';
+import type { Carta, Declaracao, Traco } from './types';
 import { VARIANTES } from './variantes';
 import styles from './Organizador.module.css';
 
-type FaseLocal = 'setup' | 'sala' | 'embaralhando' | 'jogo';
+type FaseLocal = 'inicializando' | 'reconectando' | 'setup' | 'sala' | 'embaralhando' | 'jogo';
 
 const MINIMO_JOGADORES = 2;
 const TROFEUS_NO_POTE = 3;
+/**
+ * Janela técnica de detecção de desafios simultâneos ("on the fly" do grupo
+ * do Carlos) — invisível ao jogador (200-500ms), não é o timer de decisão
+ * de 5s do §P2 (que é sobre PODER desafiar, não sobre agrupar quem já
+ * desafiou). Desafios pro mesmo episódio chegando dentro dessa janela do
+ * primeiro dividem a pilha entre si (`resolverDesafioMultiplo`).
+ */
+const JANELA_DESAFIO_SIMULTANEO_MS = 300;
+/**
+ * Generoso de propósito (default do SDK não documentado/inspecionado) —
+ * cobre bloquear/desbloquear a tela ou um reload rápido sem derrubar a
+ * sessão do jogador. Custo de um valor alto: um jogador que realmente saiu
+ * fica com a vaga "reservada" por até esse tempo — aceitável no contexto
+ * (célula, jogo casual, poucas pessoas).
+ */
+const RECONNECT_GRACE_PERIOD_MS = 120_000;
 
 // Mesma convenção de src/multiplayer/quemSouEu/Organizador.tsx.
 const DOMINIO_PUBLICO = 'https://projeto-celula.vercel.app';
@@ -56,6 +82,18 @@ function publicarEstado(
   setState('ultimaDeclaracaoForaDeSequencia', avisoSequencia, true);
   setState('pawHolderId', estado.pawHolderId, true);
   setState('ultimaJogadaEhCopia', estado.ultimaJogadaEhCopia, true);
+  // Campos abaixo existem só pra reidratação do host num reload/reconexão
+  // (bug real, Carlos) — `pilhaCompraQtd` também alimenta o indicador visual
+  // do monte de compra. `s_monte` publica o array inteiro (não só a
+  // contagem) porque `comprar()` em turno.ts inspeciona a posição exata do
+  // World's End na pilha — ao contrário de `pilhaSpicy`, não dá pra
+  // reconstruir com placeholder.
+  setState('s_monte', estado.pilhaCompra, true);
+  setState('pilhaCompraQtd', estado.pilhaCompra.length, true);
+  setState('pontuacoes', estado.pontuacoes, true);
+  setState('maoVaziaAguardandoTrofeu', estado.maoVaziaAguardandoTrofeu, true);
+  // Regra "não pode desafiar na própria vez" + janela de 5s em partidas de 2 (§P2).
+  setState('declaradoEm', estado.declaradoEm, true);
   const nomes: Record<string, string> = {};
   for (const jogador of jogadores) {
     jogador.setState('s_h4x', estado.maos[jogador.id] ?? [], true);
@@ -64,28 +102,34 @@ function publicarEstado(
   setState('nomes', nomes, true);
 }
 
+/** Reconstrói `maos` completo lendo o `s_h4x` (mão própria) já publicado por cada jogador — usado na reidratação. */
+function lerMaosPublicadas(jogadores: ReturnType<typeof usePlayersList>): Record<string, Carta[]> {
+  const maos: Record<string, Carta[]> = {};
+  for (const jogador of jogadores) {
+    maos[jogador.id] = (jogador.getState('s_h4x') as Carta[] | undefined) ?? [];
+  }
+  return maos;
+}
+
 interface ResultadoProcessamento {
   estado: EstadoPartida;
   resultado: ResultadoDesafioPublico | null;
   avisoSequencia: boolean;
 }
 
-/** Único ponto de aplicação — usado tanto pra ação do próprio host quanto pelas da caixa-postal dos participantes. */
+/**
+ * Único ponto de aplicação pra declarar/passar/copiar — usado tanto pra
+ * ação do próprio host quanto pelas da caixa-postal dos participantes.
+ * `desafiar` NUNCA chega aqui (interceptado antes por `receberDesafio`,
+ * que bufferiza a janela de desafios simultâneos — P1); `resultado` é
+ * sempre `null` por isso, o campo existe só porque `ResultadoProcessamento`
+ * é compartilhado.
+ */
 function processarAcao(estadoAtual: EstadoPartida, jogadorId: string, acao: Acao): ResultadoProcessamento | null {
   try {
-    const declaranteIdAntes = estadoAtual.ultimoDeclaranteId;
     const r = aplicarAcao(estadoAtual, jogadorId, acao);
-    const resultado: ResultadoDesafioPublico | null =
-      r.evento.tipo === 'desafiar'
-        ? {
-            declaranteId: declaranteIdAntes!,
-            desafianteId: jogadorId,
-            declaranteVenceu: r.evento.declaranteVenceu,
-            cartaRevelada: r.evento.cartaRevelada,
-          }
-        : null;
     const avisoSequencia = r.evento.tipo === 'declarar' && r.evento.avisoSequenciaQuebrada;
-    return { estado: r.estado, resultado, avisoSequencia };
+    return { estado: r.estado, resultado: null, avisoSequencia };
   } catch (e) {
     console.warn('Spicy: ação inválida recebida', jogadorId, acao, e);
     return null;
@@ -93,7 +137,7 @@ function processarAcao(estadoAtual: EstadoPartida, jogadorId: string, acao: Acao
 }
 
 export function Organizador() {
-  const [faseLocal, setFaseLocal] = useState<FaseLocal>('setup');
+  const [faseLocal, setFaseLocal] = useState<FaseLocal>('inicializando');
   const [nome, setNome] = useState('');
   const [varianteId, setVarianteId] = useState<string>('nenhuma');
   const [worldsEndAtiva, setWorldsEndAtiva] = useState(false);
@@ -107,6 +151,148 @@ export function Organizador() {
   const todosJogadores = usePlayersList(true);
   const participantes = todosJogadores.filter((j) => !j.getState('ehOrganizador'));
   const totalJogadores = participantes.length + 1;
+
+  // Refs pra leitura síncrona/sempre-fresca dentro do setTimeout de
+  // `resolverJanela` (closures de efeito ficariam presas no valor de quando
+  // o timer foi agendado, não no valor real 300ms depois).
+  const estadoRef = useRef<EstadoPartida | null>(null);
+  useEffect(() => {
+    estadoRef.current = estado;
+  }, [estado]);
+  const todosJogadoresRef = useRef(todosJogadores);
+  useEffect(() => {
+    todosJogadoresRef.current = todosJogadores;
+  }, [todosJogadores]);
+
+  // Buffer de desafios simultâneos (P1, regra "on the fly" do grupo do
+  // Carlos) — ref puro (não state) porque é bookkeeping imperativo entre um
+  // `setTimeout` e o próximo `receberDesafio`, não algo que precisa
+  // re-renderizar a UI por si só.
+  const desafioPendenteRef = useRef<{ episodioId: string; desafiantes: DesafianteSimultaneo[] } | null>(null);
+  const timerJanelaRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function episodioAtual(e: EstadoPartida): string {
+    return `${e.ultimoDeclaranteId}-${e.pilhaSpicy.length}`;
+  }
+
+  /**
+   * Intercepta ações `desafiar` ANTES de `processarAcao` (host e mailbox
+   * chamam isso em vez de despachar direto) — acumula por ~300ms desafios
+   * que caem no mesmo episódio (mesmo declarante + mesmo tamanho de pilha
+   * no momento do 1º desafio) antes de resolver 1x com todos juntos.
+   *
+   * Corrida aceita (não travada): se outro jogador declarar/passar durante
+   * essa janela de 300ms enquanto um desafio já está bufferizado pro
+   * episódio anterior, o buffer resolve contra um episódio que já não é
+   * mais o corrente — mesmo nível de last-write-wins já aceito em outras
+   * partes do projeto (ex: Canvas do Artista Impostor), não vale a pena
+   * travar o fluxo pra evitar uma corrida de janela tão curta num jogo casual.
+   */
+  function receberDesafio(jogadorId: string, traco: Traco, estadoNoMomento: EstadoPartida) {
+    if (!podeDesafiarAgora(estadoNoMomento, jogadorId)) {
+      console.warn('Spicy: desafio rejeitado (regra de turno)', jogadorId);
+      return;
+    }
+    const episodioId = episodioAtual(estadoNoMomento);
+    if (desafioPendenteRef.current?.episodioId === episodioId) {
+      desafioPendenteRef.current.desafiantes.push({ jogadorId, traco });
+      return;
+    }
+    if (timerJanelaRef.current) clearTimeout(timerJanelaRef.current);
+    desafioPendenteRef.current = { episodioId, desafiantes: [{ jogadorId, traco }] };
+    timerJanelaRef.current = setTimeout(() => resolverJanela(episodioId), JANELA_DESAFIO_SIMULTANEO_MS);
+  }
+
+  function resolverJanela(episodioIdEsperado: string) {
+    const atual = desafioPendenteRef.current;
+    if (!atual || atual.episodioId !== episodioIdEsperado) return;
+    desafioPendenteRef.current = null;
+
+    const estadoAtual = estadoRef.current;
+    if (!estadoAtual) return;
+    try {
+      const r = resolverDesafioMultiplo(estadoAtual, atual.desafiantes);
+      const resultado: ResultadoDesafioPublico = {
+        declaranteId: estadoAtual.ultimoDeclaranteId!,
+        desafiantesIds: atual.desafiantes.map((d) => d.jogadorId),
+        declaranteVenceu: r.declaranteVenceu,
+        cartaRevelada: r.cartaRevelada,
+        declaracaoContestada: estadoAtual.declaracaoAtual!,
+        pontosPorDesafiante: r.pontosPorDesafiante,
+      };
+      setEstado(r.estado);
+      setUltimoResultado(resultado);
+      setAvisoSequenciaAtual(false);
+      publicarEstado(r.estado, todosJogadoresRef.current, resultado, false);
+    } catch (e) {
+      console.warn('Spicy: desafio múltiplo inválido', e);
+    }
+  }
+
+  // Conecta ao Playroom assim que o componente monta — antes só rodava no
+  // clique de "Criar sala", então um reload nunca reconectava sozinho (bug
+  // real, Carlos). `getState('fase')` é estado de SALA (sobrevive à
+  // reconexão via permId/hash de URL do Playroom, independente deste
+  // client) — se já for `'jogo'`, é reconexão de partida em andamento:
+  // pula setup/sala/embaralhando direto pra reidratação (efeito abaixo).
+  useEffect(() => {
+    let cancelado = false;
+    (async () => {
+      await insertCoin({ skipLobby: true, reconnectGracePeriod: RECONNECT_GRACE_PERIOD_MS });
+      if (cancelado) return;
+      myPlayer().setState('ehOrganizador', true, true);
+      setFaseLocal(getState('fase') === 'jogo' ? 'reconectando' : 'setup');
+    })();
+    return () => {
+      cancelado = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Reidratação: só roda em fase 'reconectando'. Espera `usePlayersList`
+  // repovoar TODOS os jogadores que a sala publicada espera antes de
+  // reconstruir `EstadoPartida` — evita reidratar com a mão de alguém que
+  // ainda não voltou a conectar (mão ficaria vazia por engano). Reexecuta a
+  // cada mudança de `todosJogadores` até a condição fechar.
+  useEffect(() => {
+    if (faseLocal !== 'reconectando') return;
+    const jogadoresPublicados = getState('jogadores') as string[] | undefined;
+    if (!jogadoresPublicados?.length) return;
+    const idsPresentes = new Set(todosJogadores.map((j) => j.id));
+    if (jogadoresPublicados.some((id) => !idsPresentes.has(id))) return;
+
+    const varianteAtivaPublicada = (getState('varianteAtiva') as string | null | undefined) ?? null;
+    const dados: DadosParaReidratacao = {
+      jogadores: jogadoresPublicados,
+      jogadorDaVezId: getState('jogadorDaVezId') as string,
+      pilhaCompra: (getState('s_monte') as Carta[] | undefined) ?? [],
+      pilhaSpicyQtd: (getState('pilhaSpicyQtd') as number | undefined) ?? 0,
+      topoPilhaSpicy: (getState('s_topo') as Carta | null | undefined) ?? null,
+      declaracaoAtual: (getState('declaracaoAtual') as Declaracao | null | undefined) ?? null,
+      ultimoDeclaranteId: (getState('ultimoDeclaranteId') as string | null | undefined) ?? null,
+      maos: lerMaosPublicadas(todosJogadores),
+      pontuacoes: (getState('pontuacoes') as Record<string, number> | undefined) ?? {},
+      trofeusColetados: (getState('trofeusColetados') as Record<string, number> | undefined) ?? {},
+      trofeusNoPote: (getState('trofeusNoPote') as number | undefined) ?? TROFEUS_NO_POTE,
+      maoVaziaAguardandoTrofeu: (getState('maoVaziaAguardandoTrofeu') as string | null | undefined) ?? null,
+      worldsEndRevelada: (getState('worldsEndRevelada') as boolean | undefined) ?? false,
+      jogoEncerrado: (getState('jogoEncerrado') as boolean | undefined) ?? false,
+      varianteAtiva: varianteAtivaPublicada,
+      pawHolderId: (getState('pawHolderId') as string | null | undefined) ?? null,
+      ultimaJogadaEhCopia: (getState('ultimaJogadaEhCopia') as boolean | undefined) ?? false,
+      declaradoEm: (getState('declaradoEm') as number | null | undefined) ?? null,
+    };
+
+    const estadoReidratado = reidratarEstado(dados);
+    setEstado(estadoReidratado);
+    setUltimoResultado((getState('ultimoResultado') as ResultadoDesafioPublico | null | undefined) ?? null);
+    setAvisoSequenciaAtual((getState('ultimaDeclaracaoForaDeSequencia') as boolean | undefined) ?? false);
+    setVarianteId(varianteAtivaPublicada ?? 'nenhuma');
+    setWorldsEndAtiva((getState('worldsEndAtiva') as boolean | undefined) ?? false);
+    setAvisoSequenciaAtivo((getState('avisoSequenciaAtivo') as boolean | undefined) ?? true);
+    setFaseLocal('jogo');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [faseLocal, todosJogadores]);
 
   // Reconciliação: aplica a ação pendente (mailbox `s_acao`) de cada
   // participante — o próprio host aplica a sua direto (ver `onAcaoHost`),
@@ -125,6 +311,12 @@ export function Organizador() {
       if (jogador.id === myPlayer().id) continue;
       const acao = jogador.getState('s_acao') as Acao | undefined;
       if (!acao) continue;
+
+      if (acao.tipo === 'desafiar') {
+        receberDesafio(jogador.id, acao.traco, estadoAtual);
+        jogador.setState('s_acao', null, true);
+        continue;
+      }
 
       const processado = processarAcao(estadoAtual, jogador.id, acao);
       if (processado) {
@@ -145,10 +337,9 @@ export function Organizador() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todosJogadores]);
 
-  const criarSala = async () => {
+  // Conexão em si já aconteceu no mount (efeito acima) — aqui só confirma nome/settings e avança.
+  const criarSala = () => {
     if (!nome.trim()) return;
-    await insertCoin({ skipLobby: true });
-    myPlayer().setState('ehOrganizador', true, true);
     myPlayer().setState('nome', nome.trim(), true);
     setFaseLocal('sala');
   };
@@ -178,6 +369,10 @@ export function Organizador() {
 
   const onAcaoHost = (acao: Acao) => {
     if (!estado) return;
+    if (acao.tipo === 'desafiar') {
+      receberDesafio(myPlayer().id, acao.traco, estado);
+      return;
+    }
     const processado = processarAcao(estado, myPlayer().id, acao);
     if (!processado) return;
     setEstado(processado.estado);
@@ -185,6 +380,14 @@ export function Organizador() {
     setAvisoSequenciaAtual(processado.avisoSequencia);
     publicarEstado(processado.estado, todosJogadores, processado.resultado, processado.avisoSequencia);
   };
+
+  if (faseLocal === 'inicializando' || faseLocal === 'reconectando') {
+    return (
+      <div className={styles.tela}>
+        <div className={styles.titulo}>Reconectando…</div>
+      </div>
+    );
+  }
 
   if (faseLocal === 'jogo' && estado) {
     const nomes: Record<string, string> = {};
@@ -198,11 +401,14 @@ export function Organizador() {
       declaracaoAtual: estado.declaracaoAtual,
       ultimoDeclaranteId: estado.ultimoDeclaranteId,
       pilhaSpicyQtd: estado.pilhaSpicy.length,
+      pilhaCompraQtd: estado.pilhaCompra.length,
       trofeusNoPote: estado.trofeusNoPote,
       trofeusColetados: estado.trofeusColetados,
+      pontuacoes: estado.pontuacoes,
       jogoEncerrado: estado.jogoEncerrado,
       worldsEndRevelada: estado.worldsEndRevelada,
       ultimoResultado,
+      declaradoEm: estado.declaradoEm,
       nomes,
       avisoSequenciaAtivo,
       ultimaDeclaracaoForaDeSequencia: avisoSequenciaAtual,

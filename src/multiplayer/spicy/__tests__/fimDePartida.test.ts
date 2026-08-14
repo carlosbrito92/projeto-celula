@@ -2,18 +2,22 @@ import { describe, expect, it } from 'vitest';
 import { calcularPontuacaoFinal, determinarVencedor, verificarFimDePartida } from '../fimDePartida';
 
 describe('verificarFimDePartida', () => {
-  const base = { trofeusColetados: { ana: 0, bruno: 0 }, trofeusNoPote: 3, worldsEndRevelada: false };
+  const base = { trofeusColetados: { ana: 0, bruno: 0 }, worldsEndRevelada: false, pilhaCompraVazia: false };
 
   it('jogo em andamento: false', () => {
     expect(verificarFimDePartida(base)).toBe(false);
   });
 
-  it('2º troféu de um jogador: true', () => {
+  it('2º troféu do MESMO jogador: true', () => {
     expect(verificarFimDePartida({ ...base, trofeusColetados: { ana: 2, bruno: 0 } })).toBe(true);
   });
 
-  it('último troféu do pote esgotado: true', () => {
-    expect(verificarFimDePartida({ ...base, trofeusNoPote: 0 })).toBe(true);
+  it('3 troféus (pote esgotado) mas a jogadores diferentes: jogo continua (false)', () => {
+    expect(verificarFimDePartida({ ...base, trofeusColetados: { ana: 1, bruno: 1, caio: 1 } })).toBe(false);
+  });
+
+  it('monte de compra esgotado: true', () => {
+    expect(verificarFimDePartida({ ...base, pilhaCompraVazia: true })).toBe(true);
   });
 
   it("World's End revelada: true", () => {

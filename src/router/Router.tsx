@@ -20,8 +20,39 @@ interface RouterContextValue {
 
 const RouterContext = createContext<RouterContextValue | null>(null);
 
+const ULTIMA_ROTA_KEY = 'ultimaRota';
+
+/**
+ * Só nativo: o WebView do Capacitor não é um browser real navegando entre
+ * URLs — quando o processo do app morre (background, memória) e o Android
+ * recria a Activity, o WebView recarrega `https://localhost/` do zero,
+ * perdendo qualquer path de `pushState` (`window.location.pathname` volta
+ * a ser `/`). Confirmado em device físico, 2026-08-14: reload/suspensão do
+ * app sempre derrubava o usuário de volta pra Biblioteca, mesmo depois do
+ * fix de reidratação do Spicy — porque o Organizador nem chegava a
+ * remontar, o roteador inteiro já tinha esquecido a rota. Web/PWA não
+ * precisa disso: um reload de página real já preserva a URL sozinho.
+ */
+function lerRotaInicial(): string {
+  const atual = window.location.pathname;
+  if (!Capacitor.isNativePlatform() || atual !== '/') return atual;
+  const salva = localStorage.getItem(ULTIMA_ROTA_KEY);
+  if (!salva) return atual;
+  window.history.replaceState({}, '', salva);
+  return salva;
+}
+
+function persistirRota(to: string): void {
+  if (!Capacitor.isNativePlatform()) return;
+  localStorage.setItem(ULTIMA_ROTA_KEY, to);
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
-  const [path, setPath] = useState(() => window.location.pathname);
+  const [path, setPath] = useState(lerRotaInicial);
+
+  useEffect(() => {
+    persistirRota(path);
+  }, [path]);
 
   useEffect(() => {
     const onPopState = () => setPath(window.location.pathname);
