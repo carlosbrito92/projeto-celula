@@ -191,9 +191,12 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   const janelaDesafio = useJanelaDesafio(projecao.declaradoEm);
   // Regra de turno (§P2): não pode desafiar na própria vez, exceto janela de 5s em partidas de 2 —
   // enforcement de verdade fica no host (`turno.ts#podeDesafiarAgora`), isso só evita mostrar um botão que seria rejeitado.
+  // Também nunca pro próprio declarante desafiar a própria declaração (bug achado 2026-08-14) — mesmo
+  // guard que `podeCopiar` já tinha logo abaixo, espelhando `podeDesafiarAgora` no host.
   const podeDesafiar =
     projecao.pilhaSpicyQtd > 0 &&
     projecao.declaracaoAtual !== null &&
+    projecao.ultimoDeclaranteId !== meuId &&
     (!minhaVez || (projecao.jogadores.length === 2 && janelaDesafio.ativa));
   const podeCopiar =
     projecao.varianteAtiva === 'copy_cat' && podeDesafiar && projecao.ultimoDeclaranteId !== meuId;

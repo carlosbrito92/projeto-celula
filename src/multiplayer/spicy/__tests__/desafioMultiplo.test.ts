@@ -165,4 +165,12 @@ describe('podeDesafiarAgora', () => {
     // 3 jogadores, bruno na própria vez — nunca pode desafiar.
     expect(() => desafiar(estado, 'bruno', 'cor')).toThrow();
   });
+
+  it('declarante não pode desafiar a própria declaração, mesmo já fora da vez (bug 2026-08-14)', () => {
+    const cartaReal: Carta = { id: 'x', tipo: 'numerada', cor: 'vermelho', valor: 5 };
+    // estadoComPilha: ultimoDeclaranteId = 'ana', indiceDaVez = 1 ('bruno') — turno já passou de ana.
+    const estado = estadoComPilha(['ana', 'bruno', 'caio'], cartaReal, cartasCompra(8));
+    expect(podeDesafiarAgora(estado, 'ana')).toBe(false);
+    expect(() => desafiar(estado, 'ana', 'cor')).toThrow();
+  });
 });
