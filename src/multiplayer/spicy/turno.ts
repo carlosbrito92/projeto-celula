@@ -460,8 +460,16 @@ const JANELA_DESAFIO_VEZ_MS = 5000;
  * com 2, o segundo jogador é sempre "o próximo a jogar", então precisa de
  * uma janela explícita ou nunca teria chance real de desafiar). Predicado
  * puro — não lança, só responde se `desafianteId` pode desafiar agora.
+ *
+ * Também nunca deixa o próprio declarante desafiar a própria declaração —
+ * bug real achado em 2026-08-14 (testado ao vivo contra produção): `declarar()`
+ * já avança `indiceDaVez` pro próximo jogador na mesma ação, então logo depois
+ * de declarar o autor deixa de estar "na vez" e, sem esse guard, passava a
+ * satisfazer a regra acima como qualquer outro jogador. Mesmo tipo de trava
+ * que `copiar()` já tinha pro caso análogo (`jogadorId === ultimoDeclaranteId`).
  */
 export function podeDesafiarAgora(estado: EstadoPartida, desafianteId: string, agora: number = Date.now()): boolean {
+  if (desafianteId === estado.ultimoDeclaranteId) return false;
   const ehSuaVez = estado.jogadores[estado.indiceDaVez] === desafianteId;
   if (!ehSuaVez) return true;
   if (estado.jogadores.length !== 2) return false;
