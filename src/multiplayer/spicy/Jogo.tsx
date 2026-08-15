@@ -38,6 +38,24 @@ export interface ResultadoDesafioPublico {
   pontosPorDesafiante: Record<string, number>;
 }
 
+/**
+ * Guarda de forma — bug real achado em 2026-08-15 (crash em produção, `TypeError:
+ * Cannot read properties of undefined (reading 'map')`): `ultimoResultado` sincronizado
+ * via Playroom (`useMultiplayerState`) apareceu truthy mas sem `desafiantesIds`/`cartaRevelada`
+ * num reconnect/troca de sala — provável valor transitório do SDK antes do primeiro sync
+ * real chegar. Sem essa guarda, `.map`/`.length`/`.id` em cima de campos ausentes quebravam
+ * o render, e como o app não tem Error Boundary, a tela inteira ficava em branco. Mesmo
+ * espírito de "dado desconhecido não derruba a UI" de `ComponenteTemaRenderer`.
+ */
+export function resultadoValido(r: ResultadoDesafioPublico | null): r is ResultadoDesafioPublico {
+  return (
+    r !== null &&
+    Array.isArray(r.desafiantesIds) &&
+    r.cartaRevelada != null &&
+    r.pontosPorDesafiante != null
+  );
+}
+
 export interface ProjecaoPublica {
   /** Ordem de turno da partida — driva o placar de jogadores (só quantidade de cartas, nunca conteúdo). */
   jogadores: string[];
@@ -180,7 +198,7 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
   }, [projecao.ultimoDeclaranteId, projecao.pilhaSpicyQtd, projecao.declaracaoAtual?.cor, projecao.declaracaoAtual?.valor]);
 
   const fraseDesafio = useMemo(() => {
-    if (!projecao.ultimoResultado) return '';
+    if (!resultadoValido(projecao.ultimoResultado)) return '';
     const { declaranteId, desafiantesIds, declaracaoContestada } = projecao.ultimoResultado;
     const nomeDesafiantes = desafiantesIds.map(nome).join(' e ');
     return textoDesafio(nome(declaranteId), nomeDesafiantes, declaracaoContestada);
@@ -365,7 +383,7 @@ export function Jogo({ meuId, minhaMao, projecao, onAcao }: JogoProps) {
         </div>
       )}
 
-      {projecao.ultimoResultado && (
+      {resultadoValido(projecao.ultimoResultado) && (
         <BlocoRevelado
           key={projecao.ultimoResultado.cartaRevelada.id}
           resultado={projecao.ultimoResultado}
