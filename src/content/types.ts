@@ -17,6 +17,10 @@ export interface VersiculoAncora {
   texto: string;
 }
 
+export interface AvisoProximaSerie {
+  texto: string;
+}
+
 export interface BannerIntro {
   /** Recapitulação/enquadramento editorial antes da frase-síntese. Ex: "Segundo capítulo da série X...". */
   contextualizacao?: string;
@@ -25,6 +29,8 @@ export interface BannerIntro {
   frase_sintese: string;
   /** Versículo-base citado por extenso, em destaque isolado, entre a frase-síntese e o índice. Distinto de metadados.texto_base (só a referência curta). */
   versiculo_ancora?: VersiculoAncora;
+  /** Anúncio de encerramento de culto sobre a próxima série — não é conteúdo da pregação em si, renderiza como aviso ao final da leitura. */
+  aviso_proxima_serie?: AvisoProximaSerie;
 }
 
 export interface MapaPonto {
@@ -122,6 +128,16 @@ export interface DadosLabelBox {
   campos: DadosLabelBoxCampo[];
 }
 
+export interface DadosDuplaGridItem {
+  num: string;
+  nome: string;
+  texto: string;
+}
+
+export interface DadosDuplaGrid {
+  itens: DadosDuplaGridItem[];
+}
+
 export type ComponenteTemaVariante =
   | { variante: 'stage'; dados: DadosStage }
   | { variante: 'diagnostico'; dados: DadosDiagnostico }
@@ -132,6 +148,7 @@ export type ComponenteTemaVariante =
   | { variante: 'banho_list'; dados: DadosBanhoList }
   | { variante: 'humor'; dados: DadosHumor }
   | { variante: 'label_box'; dados: DadosLabelBox }
+  | { variante: 'duplice_grid'; dados: DadosDuplaGrid }
   // variantes exclusivas de tema ainda não implementadas na plataforma
   // (verb_block, poeiras_grid) caem aqui e são ignoradas com segurança
   // pelo ComponenteTemaRenderer — nunca quebram a renderização.

@@ -95,6 +95,15 @@
   color: var(--accent1);
 }
 
+.avisoProximaSerie {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent2);
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
 .indiceLabel {
   font-family: var(--font-mono);
   font-size: 10px;

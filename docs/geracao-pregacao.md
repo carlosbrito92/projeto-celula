@@ -76,6 +76,7 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
     "contextualizacao": "opcional — string. Texto de recapitulação/enquadramento editorial, ex: 'Segundo capítulo da série X. No episódio anterior...'. Situa o leitor antes da frase-síntese. Distinto do conteúdo teológico da pregação — é metadado editorial sobre a mensagem, não fala do pregador. Omitir quando não aplicável (mensagem avulsa, primeira de uma série, etc).",
     "componente_tema": "opcional — mesmo formato de tipo/variante/dados usado em secoes[].corpo[], mas aqui vive no nível do header/introdução, não dentro de uma seção específica. Uso identificado na calibração: variante 'label_box' como síntese diagnóstica da mensagem inteira (ex: Antídoto/Toxina identificada/Status no tema Religião Tóxica). Só incluir quando o tema da série tiver esse tipo de componente de abertura — não é comum a toda pregação.",
     "versiculo_ancora": "opcional — objeto { referencia: string, texto: string }. Versículo-base citado por extenso, em destaque isolado, entre a frase-síntese e o índice (distinto de metadados.texto_base, que é só a referência curta usada como metadado/filtro). Identificado na calibração de 'A Religião Te Confundiu' — o HTML de referência isolava o texto-âncora completo antes do índice, não só citava a referência.",
+    "aviso_proxima_serie": "opcional — objeto { texto: string }. Anúncio de encerramento de culto sobre a próxima série (ex: 'a partir do próximo domingo, nova série...'). Não é conteúdo teológico da pregação — renderiza como aviso isolado ao final da leitura, depois do resumo/merch/célula. Identificado na calibração de 'A Lei É Boa, Mas o Problema Não É Ela'.",
     "frase_sintese": "string — frase de abertura em destaque"
   },
   "mapa_pontos": [
@@ -113,7 +114,7 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
         },
         {
           "tipo": "componente_tema",
-          "variante": "stage | diagnostico | antidoto | versus | contraste | verb_block | poeiras_grid | label_box | analogia | banho_list",
+          "variante": "stage | diagnostico | antidoto | versus | contraste | verb_block | poeiras_grid | label_box | analogia | banho_list | duplice_grid",
           "dados": "objeto específico da variante — ver 'Payloads de componente_tema por variante' abaixo"
         }
       ],

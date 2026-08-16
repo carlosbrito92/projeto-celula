@@ -161,6 +161,12 @@ export function Reading({ id }: { id: string }) {
 
         <CelulaBox dados={conteudo.celula_box} />
 
+        {conteudo.banner_intro?.aviso_proxima_serie && (
+          <div className={styles.avisoProximaSerie}>
+            {conteudo.banner_intro.aviso_proxima_serie.texto}
+          </div>
+        )}
+
         <div className={styles.footer}>
           {pregacao.pregador}
           {pregacao.pregador && dataExibicao && ' · '}

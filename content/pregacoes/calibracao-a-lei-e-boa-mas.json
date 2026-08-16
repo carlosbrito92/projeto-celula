@@ -1,0 +1,331 @@
+{
+  "metadados": {
+    "serie": "Religião Tóxica",
+    "capitulo": "Episódio Extra — Encerramento Real",
+    "tema": "A Lei É Boa, Mas o Problema Não É Ela",
+    "data": "16 de agosto de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "1 Timóteo 1.8",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Episódio extra da série Religião Tóxica — o verdadeiro encerramento, pregado por engano um domingo após o que havia sido anunciado como último capítulo. O ponto de partida é uma notícia real: grupos evangélicos nos EUA pedindo que os Dez Mandamentos voltem às escolas públicas, sob a bandeira de \"resgatar as raízes cristãs\". O pastor usa esse gancho para revelar, com clareza cirúrgica, qual é o verdadeiro propósito da Lei — e por que tentar usá-la para conter o pecado produz o efeito oposto.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Diagnóstico",
+        "campos": [
+          { "campo": "Diagnóstico", "valor": "A lei desperta o pecado que promete conter" },
+          { "campo": "Efeito da lei", "valor": "Frustração ou hipocrisia" },
+          { "campo": "Antídoto", "valor": "Contemplação, não esforço" }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": "Anunciado ao final do culto: a partir do próximo domingo, nova série — \"Uma Vez Salvo, Salvo Para Sempre\". O tema: é possível um crente perder a salvação?"
+    },
+    "versiculo_ancora": {
+      "referencia": "1 Timóteo 1.8 — Texto-base",
+      "texto": "Sabemos, porém, que a lei é boa, se alguém dela usa legitimamente."
+    },
+    "frase_sintese": "Uma reportagem sobre evangélicos americanos pedindo a volta dos Dez Mandamentos às escolas intrigou o pastor: o cristianismo nunca foi edificado sobre a Lei de Moisés — as raízes cristãs estão na obra consumada de Cristo no Calvário, não nas tábuas do Sinai. Esse gancho abre uma das mensagens mais diretas da série: a Lei é boa, mas não foi feita para o que a religião promete que ela faz."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "1", "titulo": "Ninguém Realmente Cumpre a Lei" },
+    { "id": "bloco-2", "numero": "2", "titulo": "A Lei Desperta o Pecado que Proíbe" },
+    { "id": "bloco-3", "numero": "3", "titulo": "O Verdadeiro Propósito da Lei" },
+    { "id": "bloco-4", "numero": "4", "titulo": "Frustração ou Hipocrisia" },
+    { "id": "bloco-5", "numero": "5", "titulo": "A Serpente Pregou o Primeiro Sermão Religioso" },
+    { "id": "bloco-6", "numero": "6", "titulo": "Contemplar, Não se Esforçar" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Ninguém Realmente Cumpre a Lei",
+      "sec_eyebrow": "Tópico 1",
+      "referencias": "Romanos 7.4 · Romanos 7.12",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando grupos religiosos defendem trazer os Dez Mandamentos de volta como \"raiz da fé cristã\", vale um teste simples: **quem realmente os cumpre?** Tire os sabatistas — ninguém guarda o quarto mandamento, o do sábado. Alguns tentam adaptar, começando na sexta à noite como os judeus — mas aí já não são mais os Dez Mandamentos de Moisés. É outra lei. Ainda assim, é lei."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se de fato os Dez Mandamentos fossem a raiz da nossa fé, eu estaria martelando isso toda semana. Você teria decorado, teria escrito num quadro em casa. Mas ninguém sequer sabe recitá-los em ordem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O cristianismo nunca foi edificado sobre a Lei — Paulo afirma que **\"morremos para a lei\"** por meio do corpo de Cristo. O Senhor Jesus veio para cumprir a Lei e estabelecer uma nova aliança eterna, que não foi edificada sobre a antiga. A antiga não é o alicerce da nova."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.4",
+          "texto": "Assim também vós, meus irmãos, morrestes quanto à lei mediante o corpo de Cristo, para pertencerdes a outro, àquele que ressuscitou dentre os mortos, a fim de que frutifiquemos para Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso não significa que a Lei é ruim. **A Lei é boa.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.12",
+          "texto": "De fato, a lei é santa, e o mandamento, santo, justo e bom."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O problema não está na Lei — **está em você**. A Lei é muito boa, mas não foi feita para te tornar bom. É muito santa, mas não foi feita para te tornar santo. É perfeita, mas não foi dada para te aperfeiçoar. Você não tem o perfil para ela — pelo contrário, quando você se encontra com a Lei, ela só desperta coisas ruins em você."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "A Lei Desperta o Pecado que Proíbe",
+      "sec_eyebrow": "Tópico 2",
+      "referencias": "Romanos 7.5,8 · 1 Coríntios 15.56",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.5",
+          "texto": "Pois, quando éramos controlados pela carne, as paixões pecaminosas despertadas pela lei atuavam em nossos membros, de sorte que produzíamos frutos para a morte."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que despertava as paixões pecaminosas não era a televisão, nem a sedução, nem sites impróprios — era a **proibição da própria Lei**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Muro com a Placa",
+            "corpo": [
+              "Um grupo de adolescentes brincando na rua encontra um terreno vazio, cercado por um muro com um portão — e uma placa: \"Não pule o muro.\""
+            ],
+            "conclusao": "O que a placa desperta neles? O desejo de pular. Basta existir uma proibição para que ela desperte, na carne, exatamente aquilo que proíbe. Quanto mais proibido, mais fascinante. A lei tem um efeito oposto ao que promete."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 7.8",
+          "texto": "Mas o pecado, aproveitando a oportunidade dada pelo mandamento, produziu em mim todo tipo de cobiça; pois sem a lei, o pecado está morto."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quanto mais você tenta se transformar criando regras e regulamentos, **mais força o pecado terá na sua carne**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 15.56",
+          "texto": "O aguilhão da morte é o pecado, e a força do pecado é a lei."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não é a graça que dá força ao pecado — é a Lei. Quanto mais alguém vive debaixo da Lei, mais o pecado se fortalece na carne. Por que ainda existem crentes escravizados por paixões sexuais, por práticas impuras? **Porque estão atrás de uma fórmula** — relacionando-se com Deus com base no merecimento: \"no dia em que eu vencer esse pecado, vou estar mais perto de Deus.\""
+        },
+        {
+          "tipo": "callout",
+          "texto": "O que te aproxima de Deus não é a sua obediência, não é a sua performance — é simplesmente crer no poder do sangue. Você já foi perdoado por conta da obra do Calvário."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O evangelho funciona ao contrário da lógica religiosa: **primeiro você é, depois você faz.** Quanto mais você entende quem você é e assume essa verdade, mais você anda nela — você não age para ser, você age porque já é."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "O Verdadeiro Propósito da Lei",
+      "sec_eyebrow": "Tópico 3",
+      "referencias": "1 Timóteo 1.8 · Romanos 3.20 · Romanos 5.20",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Timóteo 1.8",
+          "texto": "Sabemos, porém, que a lei é boa, se alguém dela usa legitimamente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei é boa quando usada segundo seu propósito. Qual é esse propósito?"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Celular e a Barata (revisitada)",
+            "corpo": [
+              "Quando uma barata aparece em casa e é a esposa quem precisa lidar com ela, ela pega o que estiver à frente — inclusive, uma vez, quase um smartphone. Mataria a barata? Sim. Mas provavelmente quebraria o celular."
+            ],
+            "conclusao": "O celular não foi criado para matar baratas. Usar algo fora do seu propósito é abuso. A Lei foi dada não para te santificar, não para te justificar — mas para mostrar o quanto você é pecador."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 3.20",
+          "texto": "Visto que ninguém será justificado diante dele por obras da lei; pois pela lei vem o pleno conhecimento do pecado."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ninguém chega a Deus pela Lei. **A Lei foi dada para ser quebrada** — para não ser cumprida — de forma que, depois de tantas tentativas frustradas, o homem clamasse pela graça: \"Jesus, vem me ajudar, vem me socorrer.\" Todo crente precisa ter essa experiência: descobrir o que a Lei produz em você, e chegar à conclusão de que você não dá conta de cumpri-la."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 5.20",
+          "texto": "Sobreveio a lei para que a ofensa se tornasse mais evidente. Mas, onde abundou o pecado, superabundou a graça."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei foi dada para realçar o pecado, tornar a ofensa manifesta. Quanto mais debaixo da lei, mais o pecado é realçado — porque a Lei **nunca elogia, só condena**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Policial de Trânsito",
+            "corpo": [
+              "Nenhum policial já parou alguém no trânsito para dizer: \"Parabéns, você para em todos os sinais vermelhos, nunca ultrapassa o limite de velocidade — aqui está um certificado com desconto.\""
+            ],
+            "conclusao": "O policial nunca para para elogiar. Ele está sempre procurando o que você fez de errado. É assim que a Lei de Moisés funciona: sempre te para, porque seu propósito é realçar o erro, não o acerto."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Frustração ou Hipocrisia",
+      "sec_eyebrow": "Tópico 4",
+      "referencias": "Efésios 2.8-9",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Lei só pode gerar duas coisas em você — e apenas duas: **frustração ou hipocrisia**. Ela foi dada para mostrar a incapacidade do homem; ninguém dá conta de cumprir completamente os justos requisitos de Deus. Então, ao tentar cumpri-la, só existem dois caminhos possíveis."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "duplice_grid",
+          "dados": {
+            "itens": [
+              { "num": "01", "nome": "Frustração", "texto": "Você tenta, falha, tenta de novo, falha de novo — e a consciência da própria incapacidade se acumula, gerando desânimo espiritual." },
+              { "num": "02", "nome": "Hipocrisia", "texto": "Você finge que está cumprindo. Coloca os Dez Mandamentos na porta da escola ou do quarto dos filhos — sem realmente vivê-los — e passa a exigir dos outros aquilo que você mesmo não pratica." }
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Só Cristo cumpriu a Lei perfeitamente — e ele não veio para trazer mais mandamentos, veio para cumpri-los. No Brasil, as igrejas nem seguem os mandamentos de Moisés — criaram outros: \"não faltarás ao culto\", \"não beberás\", \"não farás tatuagem\" (revogado), \"não ouvirás música mundana\". **Mandamentos diferentes, mesma lógica legalista** — e a mesma hipocrisia de quem se acha \"crente exemplar\" só porque não tem bafo de nicotina."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você acredita que pode entrar no céu porque obedeceu a lei? Somos salvos pela graça, mediante a fé, e não por obras — para que ninguém se glorie."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 2.8-9",
+          "texto": "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não vem das obras, para que ninguém se glorie."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando a Lei cumpre seu propósito verdadeiro, ela gera em você **humildade** — \"eu não dou conta, eu não sou capaz, eu preciso de Cristo.\" É essa sensação de incapacidade, reconhecida com honestidade, que abre espaço para a graça agir. E quando você reconhece sua fraqueza, a graça vem como um raio na sua direção — e é ela que produz vitória, não o esforço da carne."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "A Serpente Pregou o Primeiro Sermão Religioso",
+      "sec_eyebrow": "Tópico 5",
+      "referencias": "Gênesis 3 · Gálatas 5.16,18",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O Espírito Santo revelou algo ao pastor durante a preparação desta mensagem: quando o homem pecou, comendo do fruto proibido, qual era a motivação real? A serpente disse que, ao comer do fruto, ele **seria como Deus**. A motivação de Adão e Eva não era má — eles não queriam trair, não queriam cometer maldade. **Eles queriam ser como Deus.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "A árvore não era a árvore do pecado — era a árvore do conhecimento. E você está sempre achando que existe algo que você não sabe, que quando descobrir vai destravar sua vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quantas pessoas vão aos cultos tentando se parecer mais com Jesus, buscando fórmulas de autoaprimoramento, um padrão moral melhor? A serpente sugeriu conhecimento do bem e do mal como caminho — mas Jesus disse que é a **verdade** que liberta, e a verdade não é saber o certo e o errado. A verdade é que Deus enviou seu único Filho, nascido de mulher, sem pecado, para levar na cruz toda a nossa condenação, culpa e vergonha — ressuscitou ao terceiro dia, nos justificou, nos encheu do seu Espírito, repartiu conosco a sua natureza."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O homem e a mulher estavam diante da **primeira pregação religiosa da história** — vinda da boca da serpente: \"faça isso e você será como Deus.\" Sempre baseada naquilo que o homem tem condição de fazer. É por isso que tantos crentes ainda pensam que precisam dos mandamentos como **bússola moral**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 5.18",
+          "texto": "Mas se sois guiados pelo Espírito, não estais debaixo da lei."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você já tem o Espírito Santo habitando em você — **que bússola moral você ainda precisaria?** Todo filho conhece a voz da mãe desde a barriga; você conhece a voz do seu Pai. O anseio de agradar a Deus dentro de você não vem da Lei — vem de uma nova natureza que você recebeu. Homens podem te largar. **O Espírito Santo jamais te larga.**"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Contemplar, Não se Esforçar",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Gálatas 5.16 · 2 Coríntios 3.18",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 5.16",
+          "texto": "Digo, pois: andai no Espírito, e de modo nenhum satisfareis a cobiça da carne."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A maioria dos crentes lê esse versículo ao contrário: *\"se eu deixar de satisfazer os desejos da carne, vou viver no Espírito.\"* E então fazem uma lista — vencer o orgulho, vencer a inveja, vencer a preguiça — esforçando-se contra cada um, item por item."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Praga do Esforço Invertido",
+            "corpo": [
+              "O crente se esforça para ser humilde — muda o guarda-roupa, muda o jeito de andar, senta no fundo em vez da primeira fileira, fala baixo. Quando alguém pergunta por que ele fala tão baixo, ele responde: \"porque sou humilde.\" É orgulho disfarçado tentando parecer humildade.",
+              "Ele vence a inveja — celebra o outro, promove o outro. Vence a preguiça — passa a orar, ler a Bíblia, fazer tudo que \"crente exemplar\" faz. E então pensa: \"sou um crente maravilhoso\" — e fica orgulhoso de novo."
+            ],
+            "conclusao": "É uma praga essa vida — inverter a ordem das coisas, achando que o esforço contra a carne é o que produz o Espírito."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo diz o oposto: **viva no Espírito, e você não vai satisfazer os desejos da carne.** Quanto mais cheio do Espírito você é, menos os desejos da carne você vai satisfazer — mas não é a carne vencendo, é o Espírito que milita contra a carne. Foque no Espírito, não no esforço. Tenha consciência da presença de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 3.18",
+          "texto": "E todos nós, com o rosto desvendado, contemplando como por espelho a glória do Senhor, somos transformados de glória em glória na sua própria imagem, como pelo Senhor, o Espírito."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A maneira de sermos transformados não é se esforçando — **é contemplando**. Que esforço é necessário para contemplar? Quem contempla fica impactado, tocado por aquilo que vê. E, à medida que você contempla um pouco mais, não é algo instantâneo — é de glória em glória. A glória de Cristo vai sendo acrescentada em você, não porque você seguiu uma fórmula ou obedeceu dez passos, mas porque você contemplou."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quanto mais você enxerga Cristo e vê um pouco mais dele, a glória de Cristo é acrescentada na sua vida. E de glória em glória, você é mudado e transformado."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "Ninguém cumpre a lei: nem os que a defendem mais fervorosamente a cumprem de fato. O cristianismo não foi edificado sobre a Lei — morremos para ela mediante o corpo de Cristo.", "versiculo_ancora": "Romanos 7.4,12" },
+    { "ponto": "A lei desperta o pecado que proíbe: a proibição desperta exatamente o que proíbe — como a placa \"não pule o muro\". Quanto mais Lei, mais força o pecado tem.", "versiculo_ancora": "Romanos 7.5,8 · 1 Coríntios 15.56" },
+    { "ponto": "O verdadeiro propósito da lei: não foi dada para santificar ou justificar — foi dada para mostrar o quanto você é pecador, e realçar a ofensa até que você clame pela graça.", "versiculo_ancora": "1 Timóteo 1.8 · Romanos 3.20 · Romanos 5.20" },
+    { "ponto": "Frustração ou hipocrisia: a lei só gera duas coisas em quem tenta cumpri-la. A humildade nasce quando você reconhece: \"eu não dou conta, eu preciso de Cristo\".", "versiculo_ancora": "Efésios 2.8-9" },
+    { "ponto": "A serpente pregou o primeiro sermão religioso: \"faça isso e você será como Deus\" — sempre baseado no que o homem pode fazer. Você já tem o Espírito Santo; não precisa de bússola moral.", "versiculo_ancora": "Gênesis 3 · Gálatas 5.18" },
+    { "ponto": "Contemplar, não se esforçar: a transformação não vem do esforço contra a carne — vem de contemplar a Cristo, de glória em glória.", "versiculo_ancora": "Gálatas 5.16 · 2 Coríntios 3.18" }
+  ],
+  "nota_lacuna": []
+}
