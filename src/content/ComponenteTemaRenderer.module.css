@@ -220,6 +220,40 @@
   color: var(--muted);
 }
 
+.duplaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.duplaGridItem {
+  padding: 16px;
+  border-top: 3px solid var(--accent1);
+  background: var(--surface2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.duplaGridNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.duplaGridNome {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.duplaGridTexto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .labelBox {
   background: var(--surface2);
   border: 1px solid var(--border);

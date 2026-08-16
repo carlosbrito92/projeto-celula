@@ -406,6 +406,7 @@ Independente do tema ativo, toda pregação renderizada precisa destes elementos
 | Separadores | Linhas horizontais entre seções |
 | Resumo final | Lista compacta com pontos e versículos-âncora |
 | Footer | Pregador, data, indicação de uso |
+| Aviso de próxima série (`banner_intro.aviso_proxima_serie`, opcional) | Anúncio de encerramento de culto sobre a série seguinte — não é conteúdo teológico da mensagem, renderiza como caixa isolada ao final da leitura (depois de resumo/merch/célula) |
 | Anotações (`.annotation`, se fornecidas) | Caixa inline discreta — fundo levemente diferenciado, borda esquerda tracejada em `--accent2` (ou equivalente do tema), ícone ✎ ou prefixo "Nota:", nome em `font-weight: 600`, texto em itálico, ~14px |
 
 ### `componente_tema` universal: `analogia`
@@ -425,6 +426,12 @@ Cores/bordas seguem o mesmo padrão do `.analogia`/`.diagnostico` de cada tema (
 Identificado na segunda calibração (Estilo #4, Igrejar — "A Parábola do Banho", 10 itens). Diferente de `.blist` (lista com marcador `—`, sem numeração) e diferente de `poeiras_grid` (cards em grid, cada um com nome próprio e descrição separada), este é uma **lista numerada corrida**, sem título individual por item — apenas um número decorativo grande (estilo tipográfico do tema, ex: `01, 02...`) e o texto do item. Usar quando a fonte apresenta uma sequência numerada de afirmações/desculpas/passos que não têm nome próprio nem card individual — apenas ordem.
 
 **Payload (`componente_tema`, variante `banho_list`):** `{ "itens": ["string", "string", "..."] }`
+
+### `componente_tema` universal: `duplice_grid` (grid de dois desdobramentos)
+
+Identificado na calibração de "A Lei É Boa, Mas o Problema Não É Ela" (Religião Tóxica, episódio extra) — grid de exatamente dois cards lado a lado, cada um com número decorativo, nome curto e texto explicativo. Diferente de `versus`/`contraste` (que são dois polos opostos/confrontados, `lado_a` vs. `lado_b` com rótulo fixo negativo/positivo) e diferente de `poeiras_grid` (que aceita N itens, não só dois): `duplice_grid` é usado quando um ponto teológico se desdobra em exatamente dois caminhos/consequências possíveis, sem relação de oposição entre eles (ex: "Frustração" e "Hipocrisia" — dois efeitos possíveis da mesma causa, não um confronto).
+
+**Payload (`componente_tema`, variante `duplice_grid`):** `{ "itens": [{ "num": "01", "nome": "string curta", "texto": "string" }, { "num": "02", "nome": "string curta", "texto": "string" }] }`
 
 ### `componente_tema` universal: `humor`
 

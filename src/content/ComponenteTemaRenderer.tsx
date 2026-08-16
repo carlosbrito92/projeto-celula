@@ -5,6 +5,7 @@ import type {
   DadosBanhoList,
   DadosContraste,
   DadosDiagnostico,
+  DadosDuplaGrid,
   DadosHumor,
   DadosLabelBox,
   DadosStage,
@@ -40,6 +41,8 @@ export function ComponenteTemaRenderer({ bloco }: { bloco: BlocoComponenteTema }
       return <Humor dados={bloco.dados as DadosHumor} />;
     case 'label_box':
       return <LabelBox dados={bloco.dados as DadosLabelBox} />;
+    case 'duplice_grid':
+      return <DuplaGrid dados={bloco.dados as DadosDuplaGrid} />;
     default:
       if (import.meta.env.DEV) {
         console.warn(`componente_tema variante desconhecida: "${bloco.variante}" — ignorada.`);
@@ -156,6 +159,22 @@ function Humor({ dados }: { dados: DadosHumor }) {
     <div className={styles.humor}>
       <span aria-hidden="true">😄</span>
       <span>{dados.texto}</span>
+    </div>
+  );
+}
+
+function DuplaGrid({ dados }: { dados: DadosDuplaGrid }) {
+  return (
+    <div className={styles.duplaGrid}>
+      {dados.itens.map((item, i) => (
+        <div key={i} className={styles.duplaGridItem}>
+          <span className={styles.duplaGridNum}>{item.num}</span>
+          <div className={styles.duplaGridNome}>{item.nome}</div>
+          <div className={styles.duplaGridTexto}>
+            <TextoComKeywords texto={item.texto} />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
