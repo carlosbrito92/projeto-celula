@@ -166,9 +166,22 @@
 }
 
 .analogiaLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
   font-weight: 600;
   font-size: 13px;
   color: var(--accent2);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.analogiaCaret {
+  font-size: 11px;
 }
 
 .analogiaCorpo {

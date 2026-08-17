@@ -421,6 +421,8 @@ Cores/bordas seguem o mesmo padrão do `.analogia`/`.diagnostico` de cada tema (
 
 > **Confirmado na segunda calibração:** o mesmo componente aparece no tema Igrejar sob o nome de classe `.ilustracao` (label + parágrafos + `.punchline`) — estrutura de dado idêntica, apenas o nome da classe CSS muda por tema. O payload do JSON é o mesmo em qualquer tema.
 
+> **Decisão de produto (2026-08-16, junto com a Leitura Contínua):** toda `analogia` nasce **fechada** — o `label` funciona como botão de expandir/colapsar (`aria-expanded`, caret `▸`/`▾`). Sem campo novo no payload, só a exibição inicial muda. Reduz o scroll pra quem já conhece a ilustração ou está revisando.
+
 ### `componente_tema` universal: `banho_list` (lista numerada decorativa)
 
 Identificado na segunda calibração (Estilo #4, Igrejar — "A Parábola do Banho", 10 itens). Diferente de `.blist` (lista com marcador `—`, sem numeração) e diferente de `poeiras_grid` (cards em grid, cada um com nome próprio e descrição separada), este é uma **lista numerada corrida**, sem título individual por item — apenas um número decorativo grande (estilo tipográfico do tema, ex: `01, 02...`) e o texto do item. Usar quando a fonte apresenta uma sequência numerada de afirmações/desculpas/passos que não têm nome próprio nem card individual — apenas ordem.
@@ -447,14 +449,43 @@ Identificado na mesma calibração — seção de fechamento inteira (não um bl
 
 Diferente dos demais `componente_tema`, este não aparece dentro de `secoes[].corpo[]` — é anexado ao final do documento, após `resumo_final`, quando presente. Ver nota no schema de `geracao-pregacao.md`.
 
-### Navegação interna (índice + FAB) — especificação universal
+### Navegação interna — Leitura Contínua (especificação universal)
 
-Aplicável a qualquer pregação com 4+ pontos, independente do tema:
+Aplicável a qualquer pregação com 4+ pontos, independente do tema. Substituiu em
+2026-08-16 a especificação anterior de "índice + FAB" (mock 1A, "Leitura
+Contínua") — a tela de Leitura só tem esse layout, não convive com uma versão
+alternativa.
 
-1. **Índice clicável** — cada item aponta para o `id` da seção (`#ponto-N`). Toda seção recebe `scroll-margin-top: 32px` para não ficar encoberta ao navegar.
-2. **Botão flutuante (FAB)** — fixo no canto inferior direito, some quando o índice está visível, aparece quando o usuário rola além dele.
-   - Implementado com `IntersectionObserver` nativo (`rootMargin: '0px 0px -80% 0px'`) — sem biblioteca externa.
-   - **Importante:** não confiar em `href="#indice"` puro — falha em alguns WebViews (apps mobile, preview de artifact). Interceptar o clique e usar `scrollIntoView({ behavior: 'smooth', block: 'start' })`.
-   - Cores seguem o acento primário e o acento dim do tema ativo.
+1. **Índice clicável (grid)** — mantido do layout anterior, entre o header e as
+   seções: cada card aponta para o `id` da seção. Continua útil como visão
+   geral/pulo direto, complementar à trilha sticky abaixo.
+2. **Header sticky** — fixo no topo (`position: sticky`), com botão voltar,
+   título/badge, e um botão "Aa" que cicla o tamanho de fonte do corpo de
+   leitura (efêmero, sem persistência).
+3. **Trilha de chips** — abaixo do header, um chip por item de `mapa_pontos[]`
+   (mais um chip extra para o resumo final, quando existir), scroll horizontal.
+   Chip de ponto `pendente` renderiza esmaecido/não-clicável, igual ao card do
+   índice grid.
+4. **Barra de progresso fina** — abaixo da trilha, preenche conforme a posição
+   de scroll avança. 100% estado de UI client-side (nunca vai para o schema de
+   conteúdo).
+5. **Detecção de seção ativa** — um único `IntersectionObserver` com múltiplos
+   degraus de `threshold` observa todas as seções; a cada callback, a seção
+   com maior `intersectionRatio` entre as que estão intersectando vira a
+   "ativa" — usada tanto para destacar o chip quanto para calcular o alvo do
+   nav inferior. Substitui o mecanismo antigo de FAB (`rootMargin` fixo
+   pensado só pra saber se o índice saiu da tela, não pra comparar múltiplas
+   seções entre si).
+6. **Nav inferior fixo** — barra fixa acima da tab bar do app (`AppShell`),
+   com botões anterior/próximo e o título do próximo tópico. Nunca aponta
+   para um `mapa_pontos` `pendente` (calculado só sobre seções reais + o
+   resumo final, quando existir).
 
-Na plataforma, esta navegação deixa de ser reproduzida por HTML gerado e vira **componente único da aplicação**, implementado e corrigido uma vez.
+Em toda a navegação: **nunca** confiar em `href="#id"` puro — falha em alguns
+WebViews (apps mobile, preview de artifact). Interceptar o clique e usar
+`scrollIntoView({ behavior: 'smooth', block: 'start' })`.
+
+Na plataforma, esta navegação não é reproduzida por HTML gerado — é
+**componente único da aplicação** (`src/screens/pregacoes/Reading.tsx` +
+`useLeituraNav.ts`), implementado e corrigido uma vez.
+

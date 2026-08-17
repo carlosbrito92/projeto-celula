@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { ComponenteTemaRenderer } from '../ComponenteTemaRenderer';
 import type { BlocoComponenteTema } from '../types';
@@ -88,7 +88,7 @@ describe('ComponenteTemaRenderer', () => {
     expect(screen.getByText('A Graça.')).toBeInTheDocument();
   });
 
-  it('renderiza analogia com múltiplos parágrafos e conclusão', () => {
+  it('renderiza analogia colapsada por padrão, sem corpo/conclusão no DOM', () => {
     render(
       <ComponenteTemaRenderer
         bloco={{
@@ -102,9 +102,56 @@ describe('ComponenteTemaRenderer', () => {
         }}
       />,
     );
+    expect(screen.getByText('Ilustração — X')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Ilustração — X/ })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+    expect(screen.queryByText('Parágrafo um.')).not.toBeInTheDocument();
+    expect(screen.queryByText('A virada.')).not.toBeInTheDocument();
+  });
+
+  it('expande analogia com múltiplos parágrafos e conclusão ao clicar no cabeçalho', () => {
+    render(
+      <ComponenteTemaRenderer
+        bloco={{
+          tipo: 'componente_tema',
+          variante: 'analogia',
+          dados: {
+            label: 'Ilustração — X',
+            corpo: ['Parágrafo um.', 'Parágrafo dois.'],
+            conclusao: 'A virada.',
+          },
+        }}
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /Ilustração — X/ }));
     expect(screen.getByText('Parágrafo um.')).toBeInTheDocument();
     expect(screen.getByText('Parágrafo dois.')).toBeInTheDocument();
     expect(screen.getByText('A virada.')).toBeInTheDocument();
+  });
+
+  it('renderiza duplice_grid com número, nome e texto de cada item', () => {
+    render(
+      <ComponenteTemaRenderer
+        bloco={{
+          tipo: 'componente_tema',
+          variante: 'duplice_grid',
+          dados: {
+            itens: [
+              { num: '01', nome: 'Frustração', texto: 'Você tenta e falha.' },
+              { num: '02', nome: 'Hipocrisia', texto: 'Você finge que cumpre.' },
+            ],
+          },
+        }}
+      />,
+    );
+    expect(screen.getByText('01')).toBeInTheDocument();
+    expect(screen.getByText('Frustração')).toBeInTheDocument();
+    expect(screen.getByText('Você tenta e falha.')).toBeInTheDocument();
+    expect(screen.getByText('02')).toBeInTheDocument();
+    expect(screen.getByText('Hipocrisia')).toBeInTheDocument();
+    expect(screen.getByText('Você finge que cumpre.')).toBeInTheDocument();
   });
 
   it('renderiza banho_list numerando os itens', () => {

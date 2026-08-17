@@ -1,7 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { PregacaoConteudo, PregacaoRow } from '../../../content/types';
 import { Reading } from '../Reading';
+
+const RESUMO_ID = 'resumo-final';
 
 const conteudo: PregacaoConteudo = {
   metadados: {
@@ -22,6 +24,9 @@ const conteudo: PregacaoConteudo = {
     versiculo_ancora: {
       referencia: 'Efésios 2.8-9 — Texto-âncora',
       texto: 'Porque pela graça sois salvos, mediante a fé.',
+    },
+    aviso_proxima_serie: {
+      texto: 'A partir do próximo domingo, nova série.',
     },
   },
   mapa_pontos: [
@@ -73,16 +78,44 @@ vi.mock('../../../router/Router', () => ({
   ),
 }));
 
+class FakeIntersectionObserver {
+  static instancias: FakeIntersectionObserver[] = [];
+  callback: (entries: Partial<IntersectionObserverEntry>[]) => void;
+  observados: Element[] = [];
+
+  constructor(callback: (entries: Partial<IntersectionObserverEntry>[]) => void) {
+    this.callback = callback;
+    FakeIntersectionObserver.instancias.push(this);
+  }
+  observe(el: Element) {
+    this.observados.push(el);
+  }
+  unobserve() {}
+  disconnect() {}
+  takeRecords() {
+    return [];
+  }
+
+  emitir(id: string, isIntersecting: boolean, intersectionRatio: number) {
+    const target = this.observados.find((el) => el.id === id)!;
+    this.callback([{ target, isIntersecting, intersectionRatio }]);
+  }
+}
+
 describe('Reading', () => {
   beforeEach(() => {
     vi.spyOn(Element.prototype, 'scrollIntoView').mockImplementation(() => {});
+    FakeIntersectionObserver.instancias = [];
   });
 
-  it('clicar num item do índice rola para a seção certa via scrollIntoView (nunca via href puro)', async () => {
+  it('clicar num item do índice (#indice) rola para a seção certa via scrollIntoView', async () => {
     render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
 
-    const ocorrencias = await screen.findAllByText('A Lei Foi Feita Para Quem?');
-    const cardIndice = ocorrencias.map((el) => el.closest('button')).find(Boolean);
+    const indice = document.getElementById('indice')!;
+    const cardIndice = within(indice)
+      .getByText('A Lei Foi Feita Para Quem?')
+      .closest('button');
     expect(cardIndice).toBeTruthy();
 
     fireEvent.click(cardIndice!);
@@ -92,25 +125,24 @@ describe('Reading', () => {
     expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith(
       expect.objectContaining({ behavior: 'smooth', block: 'start' }),
     );
-    // garante que foi chamado no elemento certo, não em qualquer um
     expect((Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.instances[0]).toBe(
       secaoAlvo,
     );
   });
 
-  it('ponto pendente (mapa_pontos[].pendente): renderiza esmaecido, não-clicável, sem tentar rolar', async () => {
+  it('ponto pendente (mapa_pontos[].pendente): sem botão nem no índice nem na trilha', async () => {
     render(<Reading id="sermon-1" />);
-    const titulo = await screen.findByText('Ponto Não Desenvolvido');
+    await screen.findByText('A Graça Não É o Que Você Pensa');
 
-    const botao = titulo.closest('button');
-    expect(botao).toBeNull();
-
-    const card = titulo.closest('div');
-    expect(card).not.toBeNull();
+    const ocorrencias = screen.getAllByText('Ponto Não Desenvolvido');
+    expect(ocorrencias.length).toBe(2); // trilha + índice grid
+    ocorrencias.forEach((el) => {
+      expect(el.closest('button')).toBeNull();
+    });
 
     const chamadasAntes = (Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.calls
       .length;
-    fireEvent.click(card!);
+    fireEvent.click(ocorrencias[0].closest('div')!);
     expect(
       (Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.calls.length,
     ).toBe(chamadasAntes);
@@ -143,35 +175,121 @@ describe('Reading', () => {
     expect(screen.getByText('Efésios 2.8-9 — Texto-âncora')).toBeInTheDocument();
   });
 
-  it('FAB aparece quando o índice sai da viewport — regressão: o observer precisa se anexar ao elemento real, não a um ref nulo capturado durante o estado de carregamento', async () => {
-    let observedElement: Element | null = null;
-    let intersectionCallback: ((entries: { isIntersecting: boolean }[]) => void) | null = null;
-
-    class FakeIntersectionObserver {
-      constructor(cb: (entries: { isIntersecting: boolean }[]) => void) {
-        intersectionCallback = cb;
-      }
-      observe(el: Element) {
-        observedElement = el;
-      }
-      unobserve() {}
-      disconnect() {}
-      takeRecords() {
-        return [];
-      }
-    }
-    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
-
+  it('renderiza banner_intro.aviso_proxima_serie com ícone, perto do rodapé', async () => {
     render(<Reading id="sermon-1" />);
     await screen.findByText('A Graça Não É o Que Você Pensa');
+    expect(
+      screen.getByText('A partir do próximo domingo, nova série.'),
+    ).toBeInTheDocument();
+    expect(screen.getByText('✦')).toBeInTheDocument();
+  });
 
-    // Se o bug do ref-nulo-no-carregamento voltar, observedElement fica null aqui.
-    expect(observedElement).not.toBeNull();
-    expect(observedElement).toBe(document.getElementById('indice'));
-    expect(screen.queryByText('☰ Índice')).not.toBeInTheDocument();
+  it('botão "Aa" cicla o tamanho de fonte de leitura', async () => {
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+    const { container } = render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
 
-    intersectionCallback!([{ isIntersecting: false }]);
-    expect(await screen.findByText('☰ Índice')).toBeInTheDocument();
+    const wrapper = container.querySelector('[class*="wrapper"]') as HTMLElement;
+    expect(wrapper.style.getPropertyValue('--leitura-escala')).toBe('1');
+
+    const botaoFonte = screen.getByRole('button', { name: 'Ajustar tamanho da fonte de leitura' });
+    fireEvent.click(botaoFonte);
+    expect(wrapper.style.getPropertyValue('--leitura-escala')).toBe('1.15');
+
+    fireEvent.click(botaoFonte);
+    expect(wrapper.style.getPropertyValue('--leitura-escala')).toBe('1.3');
+
+    fireEvent.click(botaoFonte);
+    expect(wrapper.style.getPropertyValue('--leitura-escala')).toBe('1');
+
+    vi.unstubAllGlobals();
+  });
+
+  it('trilha de tópicos: chip ativo muda quando a seção com maior interseção muda', async () => {
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    await waitFor(() => expect(FakeIntersectionObserver.instancias.length).toBeGreaterThan(0));
+
+    const trilha = screen.getByRole('navigation', { name: 'Trilha de tópicos' });
+    const chipBloco1 = within(trilha).getByText('A Lei Foi Feita Para Quem?').closest('button')!;
+    expect(chipBloco1.getAttribute('aria-hidden')).toBeNull();
+    expect(chipBloco1.className).not.toMatch(/chipAtivo/);
+
+    act(() => {
+      FakeIntersectionObserver.instancias[0].emitir('bloco-1', true, 0.8);
+    });
+
+    expect(chipBloco1.className).toMatch(/chipAtivo/);
+
+    vi.unstubAllGlobals();
+  });
+
+  it('nav inferior: avança/retrocede entre tópicos navegáveis e desabilita nas pontas', async () => {
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    await waitFor(() => expect(FakeIntersectionObserver.instancias.length).toBeGreaterThan(0));
+
+    // ativo inicial = índice 0 (bloco-0) -> anterior desabilitado, próximo = bloco-1
+    const anteriorBotao = screen.getByRole('button', { name: 'Tópico anterior' });
+    const proximoBotao = screen.getByRole('button', { name: 'Próximo tópico' });
+    expect(anteriorBotao).toBeDisabled();
+    expect(proximoBotao).not.toBeDisabled();
+    const navInferior = screen.getByRole('navigation', { name: 'Navegação entre tópicos' });
+    expect(within(navInferior).getByText('A Lei Foi Feita Para Quem?')).toBeInTheDocument();
+
+    fireEvent.click(proximoBotao);
+    const alvoClicado = (Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock
+      .instances[0] as HTMLElement;
+    expect(alvoClicado.id).toBe('bloco-1');
+
+    // simula chegar no último ponto navegável (resumo) -> próximo desabilita
+    act(() => {
+      FakeIntersectionObserver.instancias[0].emitir(RESUMO_ID, true, 1);
+    });
+    expect(screen.getByRole('button', { name: 'Próximo tópico' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Tópico anterior' })).not.toBeDisabled();
+
+    vi.unstubAllGlobals();
+  });
+
+  it('barra de progresso reflete a posição de scroll do documento', async () => {
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+    Object.defineProperty(document.documentElement, 'scrollHeight', {
+      value: 1000,
+      configurable: true,
+    });
+    Object.defineProperty(document.documentElement, 'clientHeight', {
+      value: 500,
+      configurable: true,
+    });
+    Object.defineProperty(document.documentElement, 'scrollTop', {
+      value: 0,
+      configurable: true,
+      writable: true,
+    });
+
+    let rafCallback: FrameRequestCallback | null = null;
+    vi.stubGlobal('requestAnimationFrame', (cb: FrameRequestCallback) => {
+      rafCallback = cb;
+      return 1;
+    });
+    vi.stubGlobal('cancelAnimationFrame', () => {});
+
+    const { container } = render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+
+    act(() => {
+      (document.documentElement as unknown as { scrollTop: number }).scrollTop = 250;
+      window.dispatchEvent(new Event('scroll'));
+      rafCallback?.(0);
+    });
+
+    const preenchimento = container.querySelector(
+      '[class*="progressoPreenchimento"]',
+    ) as HTMLElement;
+    expect(preenchimento.style.width).toBe('50%');
 
     vi.unstubAllGlobals();
   });

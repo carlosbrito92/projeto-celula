@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type {
   BlocoComponenteTema,
   DadosAnalogia,
@@ -124,17 +125,33 @@ function Contraste({ dados }: { dados: DadosContraste }) {
 }
 
 function Analogia({ dados }: { dados: DadosAnalogia }) {
+  const [aberta, setAberta] = useState(false);
+
   return (
     <div className={styles.analogia}>
-      <div className={styles.analogiaLabel}>{dados.label}</div>
-      {dados.corpo.map((paragrafo, i) => (
-        <p key={i} className={styles.analogiaCorpo}>
-          <TextoComKeywords texto={paragrafo} />
-        </p>
-      ))}
-      <p className={styles.analogiaConclusao}>
-        <TextoComKeywords texto={dados.conclusao} />
-      </p>
+      <button
+        type="button"
+        className={styles.analogiaLabel}
+        aria-expanded={aberta}
+        onClick={() => setAberta((v) => !v)}
+      >
+        <span className={styles.analogiaCaret} aria-hidden="true">
+          {aberta ? '▾' : '▸'}
+        </span>
+        {dados.label}
+      </button>
+      {aberta && (
+        <>
+          {dados.corpo.map((paragrafo, i) => (
+            <p key={i} className={styles.analogiaCorpo}>
+              <TextoComKeywords texto={paragrafo} />
+            </p>
+          ))}
+          <p className={styles.analogiaConclusao}>
+            <TextoComKeywords texto={dados.conclusao} />
+          </p>
+        </>
+      )}
     </div>
   );
 }
