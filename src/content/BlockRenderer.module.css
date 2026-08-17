@@ -1,5 +1,5 @@
 .paragrafo {
-  font-size: 15px;
+  font-size: calc(15px * var(--leitura-escala, 1));
   line-height: 1.8;
   color: var(--text);
   opacity: 0.9;
@@ -16,7 +16,7 @@
 
 .versiculoTexto {
   font-family: var(--font-corpo);
-  font-size: 17px;
+  font-size: calc(17px * var(--leitura-escala, 1));
   font-weight: 400;
   line-height: 1.6;
   font-style: italic;
@@ -36,7 +36,7 @@
   border-left: 3px solid var(--accent1);
   padding: 16px 18px;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: calc(18px * var(--leitura-escala, 1));
   line-height: 1.5;
   color: var(--text);
 }
@@ -44,7 +44,7 @@
 .fraseChave {
   text-align: center;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: calc(22px * var(--leitura-escala, 1));
   line-height: 1.4;
   color: var(--accent2);
   padding: 12px 24px;
@@ -62,7 +62,7 @@
 .listaItem {
   position: relative;
   padding-left: 18px;
-  font-size: 15px;
+  font-size: calc(15px * var(--leitura-escala, 1));
   line-height: 1.7;
   color: var(--text);
 }

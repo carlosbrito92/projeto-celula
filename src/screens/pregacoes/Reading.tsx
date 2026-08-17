@@ -1,3 +1,4 @@
+import { useMemo, useState, type CSSProperties } from 'react';
 import { Link } from '../../router/Router';
 import { ThemeScope } from '../../themes/ThemeScope';
 import { resolveTema } from '../../themes/registry';
@@ -8,14 +9,33 @@ import { ComponenteTemaRenderer } from '../../content/ComponenteTemaRenderer';
 import { AnnotationBox } from '../../content/AnnotationBox';
 import { MerchSection } from '../../content/MerchSection';
 import { CelulaBox } from '../../content/CelulaBox';
-import { useIndiceFab, scrollToId } from './useIndiceFab';
+import { scrollToId, useScrollProgress, useSecaoAtiva } from './useLeituraNav';
 import styles from './Reading.module.css';
 
 const RESUMO_ID = 'resumo-final';
+const ESCALAS_FONTE = [1, 1.15, 1.3];
 
 export function Reading({ id }: { id: string }) {
   const { pregacao, erro, carregando } = usePregacao(id);
-  const { indiceRef, fabVisivel } = useIndiceFab();
+  const [escalaIndex, setEscalaIndex] = useState(0);
+
+  // Hooks precisam rodar sempre, antes dos returns condicionais abaixo (carregando/erro)
+  // — mesma disciplina do useIndiceFab que este hook substitui.
+  const secoes = pregacao?.conteudo.secoes ?? [];
+  const temResumo = (pregacao?.conteudo.resumo_final?.length ?? 0) > 0;
+
+  const pontosNavegaveis = useMemo(() => {
+    const base = secoes.map((s) => ({ id: s.id, numero: s.numero, titulo: s.titulo }));
+    if (temResumo) {
+      base.push({ id: RESUMO_ID, numero: '↓', titulo: 'Resumo final' });
+    }
+    return base;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [secoes, temResumo]);
+
+  const idsNavegaveis = useMemo(() => pontosNavegaveis.map((p) => p.id), [pontosNavegaveis]);
+  const ativoIndex = useSecaoAtiva(idsNavegaveis);
+  const progresso = useScrollProgress();
 
   if (carregando) {
     return <div className={styles.footer}>Carregando…</div>;
@@ -28,21 +48,78 @@ export function Reading({ id }: { id: string }) {
   const { conteudo } = pregacao;
   const dataExibicao = formatDataPtBr(pregacao.data) ?? conteudo.metadados.data;
 
+  const anterior = pontosNavegaveis[ativoIndex - 1] ?? null;
+  const proximo = pontosNavegaveis[ativoIndex + 1] ?? null;
+
   return (
     <ThemeScope tema={tema}>
-      <div className={styles.wrapper}>
-        <div className={styles.header}>
-          <Link to="/" className={styles.voltar}>
-            ←
-          </Link>
-          <div className={styles.headerInfo}>
-            <div className={styles.headerTitulo}>{pregacao.tema}</div>
-            <div className={styles.headerMeta}>
-              {pregacao.pregador && <span>{pregacao.pregador}</span>}
-              {pregacao.pregador && dataExibicao && <span>·</span>}
-              {dataExibicao && <span>{dataExibicao}</span>}
-              {pregacao.texto_base && <span>· {pregacao.texto_base}</span>}
+      <div
+        className={styles.wrapper}
+        style={{ '--leitura-escala': ESCALAS_FONTE[escalaIndex] } as CSSProperties}
+      >
+        <div className={styles.headerSticky}>
+          <div className={styles.header}>
+            <Link to="/" className={styles.voltar}>
+              ←
+            </Link>
+            <div className={styles.headerInfo}>
+              <div className={styles.headerTitulo}>{pregacao.tema}</div>
+              <div className={styles.headerMeta}>
+                {pregacao.pregador && <span>{pregacao.pregador}</span>}
+                {pregacao.pregador && dataExibicao && <span>·</span>}
+                {dataExibicao && <span>{dataExibicao}</span>}
+                {pregacao.texto_base && <span>· {pregacao.texto_base}</span>}
+              </div>
             </div>
+            <button
+              type="button"
+              className={styles.botaoFonte}
+              aria-label="Ajustar tamanho da fonte de leitura"
+              onClick={() => setEscalaIndex((i) => (i + 1) % ESCALAS_FONTE.length)}
+            >
+              Aa
+            </button>
+          </div>
+
+          {conteudo.mapa_pontos.length > 0 && (
+            <nav className={styles.trilha} aria-label="Trilha de tópicos">
+              {conteudo.mapa_pontos.map((ponto) => {
+                const indexNav = idsNavegaveis.indexOf(ponto.id);
+                const ativo = indexNav !== -1 && indexNav === ativoIndex;
+                return ponto.pendente ? (
+                  <div key={ponto.id} className={`${styles.chip} ${styles.chipPendente}`}>
+                    <span className={styles.chipNumero}>{ponto.numero}</span>
+                    <span className={styles.chipTitulo}>{ponto.titulo}</span>
+                  </div>
+                ) : (
+                  <button
+                    key={ponto.id}
+                    type="button"
+                    className={`${styles.chip} ${ativo ? styles.chipAtivo : ''}`}
+                    onClick={() => scrollToId(ponto.id)}
+                  >
+                    <span className={styles.chipNumero}>{ponto.numero}</span>
+                    <span className={styles.chipTitulo}>{ponto.titulo}</span>
+                  </button>
+                );
+              })}
+              {temResumo && (
+                <button
+                  type="button"
+                  className={`${styles.chip} ${
+                    ativoIndex === idsNavegaveis.length - 1 ? styles.chipAtivo : ''
+                  }`}
+                  onClick={() => scrollToId(RESUMO_ID)}
+                >
+                  <span className={styles.chipNumero}>↓</span>
+                  <span className={styles.chipTitulo}>Resumo final</span>
+                </button>
+              )}
+            </nav>
+          )}
+
+          <div className={styles.progressoBarra}>
+            <div className={styles.progressoPreenchimento} style={{ width: `${progresso}%` }} />
           </div>
         </div>
 
@@ -75,7 +152,7 @@ export function Reading({ id }: { id: string }) {
           </div>
         )}
 
-        <div id="indice" ref={indiceRef}>
+        <div id="indice">
           <div className={styles.indiceLabel}>Índice</div>
           <div className={styles.indiceGrid}>
             {conteudo.mapa_pontos.map((ponto) =>
@@ -96,7 +173,7 @@ export function Reading({ id }: { id: string }) {
                 </button>
               ),
             )}
-            {conteudo.resumo_final && conteudo.resumo_final.length > 0 && (
+            {temResumo && (
               <button
                 type="button"
                 className={styles.indiceCard}
@@ -141,11 +218,11 @@ export function Reading({ id }: { id: string }) {
           ))}
         </div>
 
-        {conteudo.resumo_final && conteudo.resumo_final.length > 0 && (
+        {temResumo && (
           <div id={RESUMO_ID} className={styles.resumo}>
             <div className={styles.indiceLabel}>Resumo final</div>
             <ul className={styles.resumoLista}>
-              {conteudo.resumo_final.map((item, i) => (
+              {conteudo.resumo_final!.map((item, i) => (
                 <li key={i} className={styles.resumoItem}>
                   <div>{item.ponto}</div>
                   {item.versiculo_ancora && (
@@ -163,7 +240,10 @@ export function Reading({ id }: { id: string }) {
 
         {conteudo.banner_intro?.aviso_proxima_serie && (
           <div className={styles.avisoProximaSerie}>
-            {conteudo.banner_intro.aviso_proxima_serie.texto}
+            <span className={styles.avisoProximaSerieIcone} aria-hidden="true">
+              ✦
+            </span>
+            <span>{conteudo.banner_intro.aviso_proxima_serie.texto}</span>
           </div>
         )}
 
@@ -173,14 +253,37 @@ export function Reading({ id }: { id: string }) {
           {dataExibicao}
         </div>
 
-        {fabVisivel && (
-          <button
-            type="button"
-            className={styles.fab}
-            onClick={() => scrollToId('indice')}
-          >
-            ☰ Índice
-          </button>
+        {(anterior || proximo) && (
+          <nav className={styles.navInferior} aria-label="Navegação entre tópicos">
+            <button
+              type="button"
+              className={styles.navBotao}
+              aria-label="Tópico anterior"
+              disabled={!anterior}
+              onClick={() => anterior && scrollToId(anterior.id)}
+            >
+              ‹
+            </button>
+            <div className={styles.navCentro}>
+              {proximo ? (
+                <>
+                  <span className={styles.navLabel}>Próximo · Tópico {proximo.numero}</span>
+                  <span className={styles.navTitulo}>{proximo.titulo}</span>
+                </>
+              ) : (
+                <span className={styles.navLabel}>Fim da mensagem</span>
+              )}
+            </div>
+            <button
+              type="button"
+              className={styles.navBotao}
+              aria-label="Próximo tópico"
+              disabled={!proximo}
+              onClick={() => proximo && scrollToId(proximo.id)}
+            >
+              ›
+            </button>
+          </nav>
         )}
       </div>
     </ThemeScope>
