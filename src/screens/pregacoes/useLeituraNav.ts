@@ -17,8 +17,18 @@ export function scrollToId(id: string) {
  * `ids` é lido via `join('|')` como dependência do efeito — a lista de ids
  * (seções da pregação) é estável entre renders da mesma pregação carregada,
  * mas muda de [] para a lista real assim que `usePregacao` resolve.
+ *
+ * `chaveRemontagem` é um segundo gatilho opcional para o efeito, independente
+ * do conteúdo de `ids`: cobre o caso em que a árvore que contém os elementos
+ * observados desmonta e remonta (ex: `ResumoCurtoOverlay` da Leitura substitui
+ * o conteúdo principal por completo, depois volta) sem que a lista de ids em
+ * si mude. Sem esse gatilho, o efeito nunca reexecuta (`ids.join('|')`
+ * idêntico), o observer antigo fica apontando para nós de DOM já removidos, e
+ * a trilha/nav inferior congelam no último `ativoIndex` até a pregação ser
+ * recarregada do zero. Achado real: 2026-08-19, ao adicionar o overlay de
+ * resumo_curto.
  */
-export function useSecaoAtiva(ids: string[]): number {
+export function useSecaoAtiva(ids: string[], chaveRemontagem: unknown = null): number {
   const [ativoIndex, setAtivoIndex] = useState(0);
   const ratiosRef = useRef<Map<string, number>>(new Map());
 
@@ -63,7 +73,7 @@ export function useSecaoAtiva(ids: string[]): number {
 
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ids.join('|')]);
+  }, [ids.join('|'), chaveRemontagem]);
 
   return ativoIndex;
 }
