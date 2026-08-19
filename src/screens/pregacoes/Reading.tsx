@@ -37,7 +37,7 @@ export function Reading({ id }: { id: string }) {
   }, [secoes, temResumo]);
 
   const idsNavegaveis = useMemo(() => pontosNavegaveis.map((p) => p.id), [pontosNavegaveis]);
-  const ativoIndex = useSecaoAtiva(idsNavegaveis);
+  const ativoIndex = useSecaoAtiva(idsNavegaveis, resumoCurtoAberto);
   const progresso = useScrollProgress();
 
   if (carregando) {

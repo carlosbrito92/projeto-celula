@@ -277,6 +277,39 @@ describe('Reading', () => {
     expect(screen.queryByText('A graça é maior que a Lei.')).not.toBeInTheDocument();
   });
 
+  it('trilha/nav inferior voltam a reagir ao scroll depois de fechar o resumo_curto (regressão)', async () => {
+    vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    await waitFor(() => expect(FakeIntersectionObserver.instancias.length).toBeGreaterThan(0));
+    const instanciasAntes = FakeIntersectionObserver.instancias.length;
+
+    fireEvent.click(screen.getByRole('button', { name: /Ler versão resumida/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Ler a mensagem completa' }));
+
+    // o conteúdo principal desmontou e remontou (overlay substituiu a árvore
+    // inteira) — o observer antigo ficou preso aos nós removidos; um novo
+    // precisa ter sido criado e anexado aos nós reais atuais.
+    await waitFor(() =>
+      expect(FakeIntersectionObserver.instancias.length).toBeGreaterThan(instanciasAntes),
+    );
+    const instanciaAtual =
+      FakeIntersectionObserver.instancias[FakeIntersectionObserver.instancias.length - 1];
+    expect(instanciaAtual.observados.some((el) => el.id === 'bloco-1')).toBe(true);
+
+    const trilha = screen.getByRole('navigation', { name: 'Trilha de tópicos' });
+    const chipBloco1 = within(trilha).getByText('A Lei Foi Feita Para Quem?').closest('button')!;
+    expect(chipBloco1.className).not.toMatch(/chipAtivo/);
+
+    act(() => {
+      instanciaAtual.emitir('bloco-1', true, 0.8);
+    });
+
+    expect(chipBloco1.className).toMatch(/chipAtivo/);
+
+    vi.unstubAllGlobals();
+  });
+
   it('sem resumo_curto: nenhum botão de versão resumida aparece', async () => {
     const { apiGet } = await import('../../../lib/api');
     const semResumoCurto = { ...conteudo, resumo_curto: undefined };
