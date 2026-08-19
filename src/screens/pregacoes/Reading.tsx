@@ -6,10 +6,12 @@ import { usePregacao } from '../../content/usePregacoes';
 import { formatDataPtBr } from '../../content/parseData';
 import { BlockRenderer } from '../../content/BlockRenderer';
 import { ComponenteTemaRenderer } from '../../content/ComponenteTemaRenderer';
+import { Icon } from '../../icons/Icon';
 import { AnnotationBox } from '../../content/AnnotationBox';
 import { MerchSection } from '../../content/MerchSection';
 import { CelulaBox } from '../../content/CelulaBox';
 import { scrollToId, useScrollProgress, useSecaoAtiva } from './useLeituraNav';
+import { ResumoCurtoOverlay } from './ResumoCurtoOverlay';
 import styles from './Reading.module.css';
 
 const RESUMO_ID = 'resumo-final';
@@ -18,6 +20,7 @@ const ESCALAS_FONTE = [1, 1.15, 1.3];
 export function Reading({ id }: { id: string }) {
   const { pregacao, erro, carregando } = usePregacao(id);
   const [escalaIndex, setEscalaIndex] = useState(0);
+  const [resumoCurtoAberto, setResumoCurtoAberto] = useState(false);
 
   // Hooks precisam rodar sempre, antes dos returns condicionais abaixo (carregando/erro)
   // — mesma disciplina do useIndiceFab que este hook substitui.
@@ -50,6 +53,17 @@ export function Reading({ id }: { id: string }) {
 
   const anterior = pontosNavegaveis[ativoIndex - 1] ?? null;
   const proximo = pontosNavegaveis[ativoIndex + 1] ?? null;
+
+  if (resumoCurtoAberto && conteudo.resumo_curto) {
+    return (
+      <ThemeScope tema={tema}>
+        <ResumoCurtoOverlay
+          resumo={conteudo.resumo_curto}
+          aoFechar={() => setResumoCurtoAberto(false)}
+        />
+      </ThemeScope>
+    );
+  }
 
   return (
     <ThemeScope tema={tema}>
@@ -150,6 +164,20 @@ export function Reading({ id }: { id: string }) {
               {conteudo.banner_intro.versiculo_ancora.referencia}
             </div>
           </div>
+        )}
+
+        {conteudo.resumo_curto && (
+          <button
+            type="button"
+            className={styles.resumoCurtoCta}
+            onClick={() => setResumoCurtoAberto(true)}
+          >
+            <Icon name="book-open" />
+            <div className={styles.resumoCurtoCtaTextos}>
+              <div className={styles.resumoCurtoCtaEyebrow}>Sem tempo para o texto completo?</div>
+              <div className={styles.resumoCurtoCtaTitulo}>Ler versão resumida</div>
+            </div>
+          </button>
         )}
 
         <div id="indice">

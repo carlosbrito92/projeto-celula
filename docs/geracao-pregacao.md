@@ -129,6 +129,11 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
   "resumo_final": [
     { "ponto": "string curta", "versiculo_ancora": "referência, se houver" }
   ],
+  "resumo_curto": {
+    "frase_tema": "opcional — string. Uma frase que resume a mensagem inteira, mesmo espírito de banner_intro.frase_sintese mas independente dela (o resumo curto precisa fazer sentido sozinho, sem o resto do documento).",
+    "pontos": "opcional junto com frase_tema — array de 3 a 6 strings, cada uma um parágrafo curto (2-4 frases) condensando um ponto principal da mensagem, na mesma ordem de mapa_pontos/secoes. Não é o mesmo texto de resumo_final (que é uma linha só por ponto, lido *depois* da leitura completa como recapitulação) — aqui cada item precisa ser autossuficiente para quem nunca vai ler as seções inteiras.",
+    "versiculo_chave": "opcional junto com frase_tema — objeto { referencia: string, texto: string }. O único versículo que melhor resume a mensagem inteira, não necessariamente o mesmo de banner_intro.versiculo_ancora."
+  },
   "merch_section": {
     "titulo": "opcional — string, ex: 'Menções e Indicações do Pastor'. Omitir o campo inteiro quando não houver indicações.",
     "itens": [
@@ -159,6 +164,8 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
 - **`nota_lacuna[]`** — usado no Modo B quando uma parte do conteúdo não pode ser reconstituída com confiança a partir das anotações disponíveis. **Também usado no Modo A quando a transcrição tem ruído severo** (ver "Transcrição com ruído severo" abaixo) — nesse caso, `secao_id: "geral"` sinaliza uma ressalva sobre o documento inteiro, e entradas por seção sinalizam trechos específicos onde o texto gerado se apoia mais em reconstrução do que em confirmação direta da fonte.
 - **`merch_section`** — campo de topo opcional (não faz parte de `secoes[]`), para a seção de indicações/menções do pregador (livros, redes sociais, ferramentas) comum em pregações de convidado ou eventos especiais. Omitir o campo inteiro quando a pregação não tiver esse conteúdo — não é parte do fluxo padrão de séries regulares da casa.
 - **`celula_box`** — campo de topo opcional, equivalente ao componente `.celula-box` do Estilo #3 (nota de rodapé, não de header): quem anotou, quem vai compartilhar, e sugestão prática de uso da mensagem na dinâmica de célula. Identificado como lacuna real na calibração de "Jamais Será em Vão" — o primeiro JSON gerado colou uma versão truncada disso em `banner_intro.contextualizacao` (perdendo a frase de sugestão de uso) e no lugar errado (header em vez de rodapé). `celula_box` é conceitualmente distinto de `contextualizacao`: este último é enquadramento de abertura da mensagem; `celula_box` é metadado de processo e orientação de uso, e vive no fim do documento.
+
+- **`resumo_curto`** — campo de topo opcional, adicionado por feedback real de membros mais "leigos" achando o texto completo longo demais (calibração "A Lei É Boa, Mas o Problema Não É Ela", 2026-08-19). Conceitualmente distinto de `resumo_final`: `resumo_final` é recapitulação pós-leitura (uma linha por ponto, lido depois de já ter lido as seções inteiras); `resumo_curto` é um substituto de leitura, acessado *antes* das seções, para quem não vai ler a mensagem completa — por isso `pontos[]` precisa ser autossuficiente (parágrafo curto, não título+gancho) e `frase_tema`/`versiculo_chave` não precisam ser idênticos a `banner_intro.frase_sintese`/`versiculo_ancora`. Na plataforma, vira um botão de destaque na tela de Leitura ("Ler versão resumida") que abre um overlay dedicado — omitir o campo inteiro quando não fizer sentido gerar uma versão resumida (mensagens já curtas).
 
 ### Achado de implementação — `banner_intro` incompleto na primeira calibração
 
