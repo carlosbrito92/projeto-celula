@@ -184,6 +184,18 @@ export interface ResumoItem {
   versiculo_ancora?: string;
 }
 
+/**
+ * Versão enxuta da pregação inteira (frase-tema + poucos pontos + versículo-chave),
+ * para membros que acham o texto completo longo demais. Distinto de `resumo_final`
+ * (recapitulação linha-a-linha de cada seção, lido *depois* da leitura completa) —
+ * este é pensado como substituto de leitura, acessível *antes*, sem passar pelas seções.
+ */
+export interface ResumoCurto {
+  frase_tema: string;
+  pontos: string[];
+  versiculo_chave: VersiculoAncora;
+}
+
 export interface MerchItem {
   icone: string;
   titulo: string;
@@ -212,6 +224,7 @@ export interface PregacaoConteudo {
   mapa_pontos: MapaPonto[];
   secoes: Secao[];
   resumo_final?: ResumoItem[];
+  resumo_curto?: ResumoCurto;
   merch_section?: MerchSectionData | null;
   /** Nota de rodapé do Estilo #3 (quem anotou, quem compartilha, sugestão de uso) — não confundir com banner_intro.contextualizacao (abertura). */
   celula_box?: CelulaBoxData | null;

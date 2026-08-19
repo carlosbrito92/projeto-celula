@@ -52,6 +52,11 @@ const conteudo: PregacaoConteudo = {
     },
   ],
   resumo_final: [{ ponto: 'Resumo do ponto 1', versiculo_ancora: 'João 1.14' }],
+  resumo_curto: {
+    frase_tema: 'A graça é maior que a Lei.',
+    pontos: ['Ponto resumido 1.', 'Ponto resumido 2.'],
+    versiculo_chave: { referencia: 'Efésios 2.8-9', texto: 'Porque pela graça sois salvos.' },
+  },
 };
 
 const pregacaoRow: PregacaoRow = {
@@ -69,7 +74,7 @@ const pregacaoRow: PregacaoRow = {
 };
 
 vi.mock('../../../lib/api', () => ({
-  apiGet: () => Promise.resolve(pregacaoRow),
+  apiGet: vi.fn(() => Promise.resolve(pregacaoRow)),
 }));
 
 vi.mock('../../../router/Router', () => ({
@@ -252,6 +257,34 @@ describe('Reading', () => {
     expect(screen.getByRole('button', { name: 'Tópico anterior' })).not.toBeDisabled();
 
     vi.unstubAllGlobals();
+  });
+
+  it('botão "Ler versão resumida" abre o resumo_curto e "Ler a mensagem completa" volta para a leitura', async () => {
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+
+    fireEvent.click(screen.getByRole('button', { name: /Ler versão resumida/ }));
+
+    expect(screen.getByText('A graça é maior que a Lei.')).toBeInTheDocument();
+    expect(screen.getByText('Ponto resumido 1.')).toBeInTheDocument();
+    expect(screen.getByText('Ponto resumido 2.')).toBeInTheDocument();
+    expect(screen.getByText('“Porque pela graça sois salvos.”')).toBeInTheDocument();
+    expect(screen.getByText('Efésios 2.8-9')).toBeInTheDocument();
+    expect(screen.queryByText('Índice')).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Ler a mensagem completa' }));
+    expect(screen.getByText('Índice')).toBeInTheDocument();
+    expect(screen.queryByText('A graça é maior que a Lei.')).not.toBeInTheDocument();
+  });
+
+  it('sem resumo_curto: nenhum botão de versão resumida aparece', async () => {
+    const { apiGet } = await import('../../../lib/api');
+    const semResumoCurto = { ...conteudo, resumo_curto: undefined };
+    vi.mocked(apiGet).mockResolvedValueOnce({ ...pregacaoRow, conteudo: semResumoCurto });
+
+    render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    expect(screen.queryByRole('button', { name: 'Ler versão resumida' })).not.toBeInTheDocument();
   });
 
   it('barra de progresso reflete a posição de scroll do documento', async () => {
