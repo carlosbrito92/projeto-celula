@@ -27,3 +27,25 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
 if (typeof Element.prototype.scrollIntoView === 'undefined') {
   Element.prototype.scrollIntoView = () => {};
 }
+
+// jsdom não implementa Range.getBoundingClientRect/getClientRects (usado pra
+// posicionar o popover de anotação pessoal perto da seleção de texto real —
+// ver UnidadeAnotavel). Sem stub, qualquer teste que simule seleção de texto
+// quebra com "range.getBoundingClientRect is not a function".
+if (typeof Range.prototype.getBoundingClientRect === 'undefined') {
+  const rectVazio = () => ({
+    x: 0,
+    y: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: 0,
+    height: 0,
+    toJSON() {
+      return this;
+    },
+  });
+  Range.prototype.getBoundingClientRect = rectVazio as typeof Range.prototype.getBoundingClientRect;
+  Range.prototype.getClientRects = (() => []) as unknown as typeof Range.prototype.getClientRects;
+}

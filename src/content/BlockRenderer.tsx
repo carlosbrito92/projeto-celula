@@ -1,21 +1,29 @@
 import type { Bloco } from './types';
-import { TextoComKeywords } from './Keyword';
+import { UnidadeAnotavel } from '../screens/pregacoes/anotacoes/UnidadeAnotavel';
 import { ComponenteTemaRenderer } from './ComponenteTemaRenderer';
 import styles from './BlockRenderer.module.css';
 
-export function BlockRenderer({ bloco }: { bloco: Bloco }) {
+interface Props {
+  bloco: Bloco;
+  secaoId: string;
+  blocoIndex: number;
+}
+
+export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
   switch (bloco.tipo) {
     case 'paragrafo':
       return (
         <p className={styles.paragrafo}>
-          <TextoComKeywords texto={bloco.texto} />
+          <UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />
         </p>
       );
 
     case 'versiculo':
       return (
         <div className={styles.versiculo}>
-          <div className={styles.versiculoTexto}>“{bloco.texto}”</div>
+          <div className={styles.versiculoTexto}>
+            “<UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />”
+          </div>
           <div className={styles.versiculoReferencia}>{bloco.referencia}</div>
         </div>
       );
@@ -23,14 +31,14 @@ export function BlockRenderer({ bloco }: { bloco: Bloco }) {
     case 'callout':
       return (
         <div className={styles.callout}>
-          <TextoComKeywords texto={bloco.texto} />
+          <UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />
         </div>
       );
 
     case 'frase_chave':
       return (
         <div className={styles.fraseChave}>
-          <TextoComKeywords texto={bloco.texto} />
+          <UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />
         </div>
       );
 
@@ -39,7 +47,7 @@ export function BlockRenderer({ bloco }: { bloco: Bloco }) {
         <ul className={styles.lista}>
           {bloco.itens.map((item, i) => (
             <li key={i} className={styles.listaItem}>
-              <TextoComKeywords texto={item} />
+              <UnidadeAnotavel secaoId={secaoId} unidade={`${blocoIndex}:${i}`} texto={item} />
             </li>
           ))}
         </ul>

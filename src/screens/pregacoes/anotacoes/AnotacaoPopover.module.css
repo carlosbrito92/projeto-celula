@@ -1,0 +1,76 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+}
+
+.popover {
+  position: fixed;
+  width: 260px;
+  max-width: calc(100vw - 16px);
+  background: #1f2430;
+  border: 1px solid #3a4152;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.trecho {
+  font-size: 13px;
+  font-style: italic;
+  color: #d8dbe3;
+  opacity: 0.85;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 60px;
+  resize: vertical;
+  background: #14171f;
+  border: 1px solid #3a4152;
+  border-radius: 6px;
+  color: #f2f3f6;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.erro {
+  font-size: 12px;
+  color: #f87171;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.botaoPrimario,
+.botaoSecundario,
+.botaoPerigo {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.botaoPrimario {
+  background: #eab308;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.botaoSecundario {
+  background: transparent;
+  color: #b5b9c4;
+}
+
+.botaoPerigo {
+  background: transparent;
+  color: #f87171;
+}

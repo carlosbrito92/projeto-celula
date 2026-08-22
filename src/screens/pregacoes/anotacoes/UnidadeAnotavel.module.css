@@ -1,0 +1,20 @@
+/* -webkit-touch-callout: none suprime o menu de contexto nativo (copiar/
+   compartilhar) que compete com o gesto de tocar-e-arrastar pra selecionar
+   texto em touch — só aplicado enquanto o modo de anotação está ativo, ver
+   spec anotações pessoais §"Ativação do modo de anotação". */
+.anotavel {
+  -webkit-touch-callout: none;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.destaque {
+  background: #fde68a99;
+  border-radius: 2px;
+  padding: 0 1px;
+  cursor: pointer;
+}
+
+.destaqueComNota {
+  box-shadow: inset 0 -2px 0 #d97706;
+}

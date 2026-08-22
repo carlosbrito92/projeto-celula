@@ -37,6 +37,7 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Configurar projeto React + Capacitor (scaffold inicial, build Android/iOS/PWA funcionando) — Vite+React+TS, `com.minc.celula`; build Android testado de ponta a ponta em tablet físico via adb; PWA (manifest + service worker) validado via `vite preview`; iOS só escafoldado (build real exige macOS/Xcode)
 - [x] Configurar deploy no Vercel — projeto `projeto-celula` linkado e conectado ao GitHub (deploy automático a cada push em `main`); produção em https://projeto-celula.vercel.app, verificado servindo build + manifest PWA + service worker (200)
 - [x] Criar documento vivo de projeto para a fase de código (equivalente a um `CLAUDE.md`, conforme prática referenciada do artigo do Akita) — hurdles técnicos documentados aqui, não nos markdowns de conteúdo — ver `CLAUDE.md` na raiz do repo
+- [x] `scripts/db-seed.ts` ganhou modo seletivo (2026-08-22) — upsert de um único arquivo (`npm run db:seed -- content/pregacoes/x.json`), sem truncate, via chave natural nova (`arquivo_origem`, `db/migrations/0002_arquivo_origem.sql`). Modo completo (sem argumento) inalterado. Ver `CLAUDE.md` "Decisões de arquitetura (Migração Neon)" e hurdle sobre `db-schema.mjs` não ser idempotente
 
 ## Fase 2 — Módulo de Pregações (concluída)
 
@@ -50,6 +51,8 @@ Infraestrutura mínima antes de qualquer feature visível.
 - [x] Nova calibração: "A Religião Te Confundiu" (Religião Tóxica cap. 3, Pastora Anaily) — introduziu 2 gaps reais entre schema documentado e código, corrigidos junto com o conteúdo: `componente_tema` variante `contraste` (documentada em `estilos-pregacao.md`, nunca implementada em `ComponenteTemaRenderer.tsx`) e `banner_intro.versiculo_ancora` (documentado em `geracao-pregacao.md`, nunca existiu no tipo `BannerIntro` nem em `Reading.tsx`). Ver `CLAUDE.md` "Hurdles técnicos".
 
 Também entregue nesta fase, fora do checklist original: router mínimo próprio (`src/router/`) no lugar de `react-router-dom` — evita uma cadeia de CVEs do modo framework/RSC da lib, que o app não usa; suíte de testes (Vitest + Testing Library) com 44 testes, agora exigida no CI.
+
+- [x] Anotações pessoais na Leitura (2026-08-22) — primeiro feedback real de usuário (GD, reunião de líderes). Destaque de texto livre + nota pessoal, 100% local (`localStorage`, nunca sincronizado com o banco), resiliente a recalibração de conteúdo (destaque "escorregado" se realinha pelo texto salvo, ou vira órfão visível em vez de sumir/apontar errado). Exportar pregação como PDF (`html2canvas`+`jsPDF`, import dinâmico). `src/screens/pregacoes/anotacoes/` — ver `CLAUDE.md` "Decisões de arquitetura (Anotações pessoais na Leitura)". **Pendente**: sem validação em browser/device físico nesta sessão (ambiente sem Claude in Chrome configurado) — só testes automatizados (352 passando, incl. integração simulando seleção de texto real via `Range`/`Selection`) + build/typecheck/lint.
 
 ## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída)
 

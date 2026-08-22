@@ -24,7 +24,9 @@ export type IconName =
   | 'timer'
   | 'shuffle'
   | 'users-round'
-  | 'dices';
+  | 'dices'
+  | 'pen-line'
+  | 'file-down';
 
 interface IconProps {
   name: string;
