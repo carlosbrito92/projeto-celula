@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import { Link } from '../../router/Router';
 import { ThemeScope } from '../../themes/ThemeScope';
 import { resolveTema } from '../../themes/registry';
@@ -12,6 +12,11 @@ import { MerchSection } from '../../content/MerchSection';
 import { CelulaBox } from '../../content/CelulaBox';
 import { scrollToId, useScrollProgress, useSecaoAtiva } from './useLeituraNav';
 import { ResumoCurtoOverlay } from './ResumoCurtoOverlay';
+import { useAnotacoes } from './anotacoes/useAnotacoes';
+import { AnotacaoContext, type SelecaoNova } from './anotacoes/AnotacaoContext';
+import { AnotacaoPopover, type PopoverEstado } from './anotacoes/AnotacaoPopover';
+import { SecaoNotas } from './anotacoes/SecaoNotas';
+import { exportarPdf } from './anotacoes/exportarPdf';
 import styles from './Reading.module.css';
 
 const RESUMO_ID = 'resumo-final';
@@ -21,11 +26,15 @@ export function Reading({ id }: { id: string }) {
   const { pregacao, erro, carregando } = usePregacao(id);
   const [escalaIndex, setEscalaIndex] = useState(0);
   const [resumoCurtoAberto, setResumoCurtoAberto] = useState(false);
+  const [popoverEstado, setPopoverEstado] = useState<PopoverEstado | null>(null);
+  const [exportando, setExportando] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Hooks precisam rodar sempre, antes dos returns condicionais abaixo (carregando/erro)
   // — mesma disciplina do useIndiceFab que este hook substitui.
   const secoes = pregacao?.conteudo.secoes ?? [];
   const temResumo = (pregacao?.conteudo.resumo_final?.length ?? 0) > 0;
+  const anotacoes = useAnotacoes(id, secoes);
 
   const pontosNavegaveis = useMemo(() => {
     const base = secoes.map((s) => ({ id: s.id, numero: s.numero, titulo: s.titulo }));
@@ -54,6 +63,20 @@ export function Reading({ id }: { id: string }) {
   const anterior = pontosNavegaveis[ativoIndex - 1] ?? null;
   const proximo = pontosNavegaveis[ativoIndex + 1] ?? null;
 
+  const anotacaoContextValue = {
+    modoAnotacao: anotacoes.modoAnotacao,
+    destaquesPorUnidade: anotacoes.destaquesPorUnidade,
+    iniciarSelecao: (selecao: SelecaoNova) => setPopoverEstado({ tipo: 'nova', ...selecao }),
+    abrirDestaque: (destaqueId: string, rect: DOMRect) =>
+      setPopoverEstado({ tipo: 'editar', id: destaqueId, rect }),
+  };
+
+  const popoverChave = !popoverEstado
+    ? null
+    : popoverEstado.tipo === 'nova'
+      ? `nova:${popoverEstado.secaoId}:${popoverEstado.unidade}:${popoverEstado.offsetInicio}:${popoverEstado.offsetFim}`
+      : `editar:${popoverEstado.id}`;
+
   if (resumoCurtoAberto && conteudo.resumo_curto) {
     return (
       <ThemeScope tema={tema}>
@@ -67,7 +90,9 @@ export function Reading({ id }: { id: string }) {
 
   return (
     <ThemeScope tema={tema}>
+      <AnotacaoContext.Provider value={anotacaoContextValue}>
       <div
+        ref={wrapperRef}
         className={styles.wrapper}
         style={{ '--leitura-escala': ESCALAS_FONTE[escalaIndex] } as CSSProperties}
       >
@@ -85,14 +110,44 @@ export function Reading({ id }: { id: string }) {
                 {pregacao.texto_base && <span>· {pregacao.texto_base}</span>}
               </div>
             </div>
-            <button
-              type="button"
-              className={styles.botaoFonte}
-              aria-label="Ajustar tamanho da fonte de leitura"
-              onClick={() => setEscalaIndex((i) => (i + 1) % ESCALAS_FONTE.length)}
-            >
-              Aa
-            </button>
+            <div className={styles.headerAcoes}>
+              <button
+                type="button"
+                className={styles.botaoFonte}
+                aria-label="Ajustar tamanho da fonte de leitura"
+                onClick={() => setEscalaIndex((i) => (i + 1) % ESCALAS_FONTE.length)}
+              >
+                Aa
+              </button>
+              <button
+                type="button"
+                className={`${styles.botaoIcone} ${anotacoes.modoAnotacao ? styles.botaoIconeAtivo : ''}`}
+                aria-label={
+                  anotacoes.modoAnotacao ? 'Desativar modo de anotação' : 'Ativar modo de anotação'
+                }
+                aria-pressed={anotacoes.modoAnotacao}
+                onClick={anotacoes.alternarModoAnotacao}
+              >
+                <Icon name="pen-line" />
+              </button>
+              <button
+                type="button"
+                className={styles.botaoIcone}
+                aria-label="Exportar pregação como PDF"
+                disabled={exportando}
+                onClick={async () => {
+                  if (!wrapperRef.current) return;
+                  setExportando(true);
+                  try {
+                    await exportarPdf(wrapperRef.current, pregacao.tema);
+                  } finally {
+                    setExportando(false);
+                  }
+                }}
+              >
+                <Icon name="file-down" />
+              </button>
+            </div>
           </div>
 
           {conteudo.mapa_pontos.length > 0 && (
@@ -232,7 +287,7 @@ export function Reading({ id }: { id: string }) {
               </div>
               <div className={styles.secaoCorpo}>
                 {secao.corpo.map((bloco, i) => (
-                  <BlockRenderer key={i} bloco={bloco} />
+                  <BlockRenderer key={i} bloco={bloco} secaoId={secao.id} blocoIndex={i} />
                 ))}
               </div>
               {secao.anotacoes && secao.anotacoes.length > 0 && (
@@ -242,6 +297,7 @@ export function Reading({ id }: { id: string }) {
                   ))}
                 </div>
               )}
+              <SecaoNotas secaoId={secao.id} api={anotacoes} />
             </div>
           ))}
         </div>
@@ -314,6 +370,15 @@ export function Reading({ id }: { id: string }) {
           </nav>
         )}
       </div>
+      {popoverEstado && (
+        <AnotacaoPopover
+          key={popoverChave}
+          estado={popoverEstado}
+          api={anotacoes}
+          aoFechar={() => setPopoverEstado(null)}
+        />
+      )}
+      </AnotacaoContext.Provider>
     </ThemeScope>
   );
 }

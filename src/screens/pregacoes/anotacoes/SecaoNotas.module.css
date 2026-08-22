@@ -1,0 +1,101 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.botaoNova {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px dashed #6b7280;
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.nota {
+  text-align: left;
+  background: #fde68a26;
+  border: 1px solid #d9770633;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.orfa {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f8717126;
+  border: 1px solid #f8717155;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.orfaAviso {
+  font-size: 12px;
+  color: #f87171;
+}
+
+.orfaNota {
+  font-size: 14px;
+}
+
+.botaoApagar {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textarea {
+  min-height: 60px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid #6b7280;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.botaoPrimario,
+.botaoSecundario {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.botaoPrimario {
+  background: #eab308;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.botaoSecundario {
+  background: transparent;
+  color: #9ca3af;
+}
