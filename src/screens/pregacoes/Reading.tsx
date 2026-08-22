@@ -15,7 +15,7 @@ import { ResumoCurtoOverlay } from './ResumoCurtoOverlay';
 import { useAnotacoes } from './anotacoes/useAnotacoes';
 import { AnotacaoContext, type SelecaoNova } from './anotacoes/AnotacaoContext';
 import { AnotacaoPopover, type PopoverEstado } from './anotacoes/AnotacaoPopover';
-import { SecaoNotas } from './anotacoes/SecaoNotas';
+import { ListaAnotacoes } from './anotacoes/ListaAnotacoes';
 import { exportarPdf } from './anotacoes/exportarPdf';
 import styles from './Reading.module.css';
 
@@ -27,8 +27,11 @@ export function Reading({ id }: { id: string }) {
   const [escalaIndex, setEscalaIndex] = useState(0);
   const [resumoCurtoAberto, setResumoCurtoAberto] = useState(false);
   const [popoverEstado, setPopoverEstado] = useState<PopoverEstado | null>(null);
+  const [listaAnotacoesAberta, setListaAnotacoesAberta] = useState(false);
   const [exportando, setExportando] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const headerStickyRef = useRef<HTMLDivElement>(null);
+  const navInferiorRef = useRef<HTMLElement>(null);
 
   // Hooks precisam rodar sempre, antes dos returns condicionais abaixo (carregando/erro)
   // — mesma disciplina do useIndiceFab que este hook substitui.
@@ -88,6 +91,18 @@ export function Reading({ id }: { id: string }) {
     );
   }
 
+  if (listaAnotacoesAberta) {
+    return (
+      <ThemeScope tema={tema}>
+        <ListaAnotacoes
+          secoes={secoes}
+          api={anotacoes}
+          aoFechar={() => setListaAnotacoesAberta(false)}
+        />
+      </ThemeScope>
+    );
+  }
+
   return (
     <ThemeScope tema={tema}>
       <AnotacaoContext.Provider value={anotacaoContextValue}>
@@ -96,7 +111,7 @@ export function Reading({ id }: { id: string }) {
         className={styles.wrapper}
         style={{ '--leitura-escala': ESCALAS_FONTE[escalaIndex] } as CSSProperties}
       >
-        <div className={styles.headerSticky}>
+        <div ref={headerStickyRef} className={styles.headerSticky}>
           <div className={styles.header}>
             <Link to="/" className={styles.voltar}>
               ←
@@ -133,13 +148,24 @@ export function Reading({ id }: { id: string }) {
               <button
                 type="button"
                 className={styles.botaoIcone}
+                aria-label="Ver minhas anotações"
+                onClick={() => setListaAnotacoesAberta(true)}
+              >
+                <Icon name="notebook-pen" />
+              </button>
+              <button
+                type="button"
+                className={styles.botaoIcone}
                 aria-label="Exportar pregação como PDF"
                 disabled={exportando}
                 onClick={async () => {
                   if (!wrapperRef.current) return;
                   setExportando(true);
                   try {
-                    await exportarPdf(wrapperRef.current, pregacao.tema);
+                    const ocultar = [headerStickyRef.current, navInferiorRef.current].filter(
+                      (el): el is HTMLElement => el !== null,
+                    );
+                    await exportarPdf(wrapperRef.current, pregacao.tema, ocultar);
                   } finally {
                     setExportando(false);
                   }
@@ -191,6 +217,13 @@ export function Reading({ id }: { id: string }) {
             <div className={styles.progressoPreenchimento} style={{ width: `${progresso}%` }} />
           </div>
         </div>
+
+        {anotacoes.modoAnotacao && (
+          <div className={styles.hintAnotacao}>
+            Modo de anotação ativo — selecione um trecho de texto pra grifar. Toque na caneta de
+            novo pra sair.
+          </div>
+        )}
 
         {pregacao.serie && <span className={styles.badge}>{pregacao.serie}</span>}
 
@@ -297,7 +330,6 @@ export function Reading({ id }: { id: string }) {
                   ))}
                 </div>
               )}
-              <SecaoNotas secaoId={secao.id} api={anotacoes} />
             </div>
           ))}
         </div>
@@ -338,7 +370,7 @@ export function Reading({ id }: { id: string }) {
         </div>
 
         {(anterior || proximo) && (
-          <nav className={styles.navInferior} aria-label="Navegação entre tópicos">
+          <nav ref={navInferiorRef} className={styles.navInferior} aria-label="Navegação entre tópicos">
             <button
               type="button"
               className={styles.navBotao}

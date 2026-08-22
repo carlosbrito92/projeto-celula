@@ -61,6 +61,11 @@ function localizarPonto(container: Node, offsetGlobal: number): { node: Node; of
   throw new Error(`offset ${offsetGlobal} fora do texto de ${container}`);
 }
 
+// Gatilho de captura é `selectionchange` (documento inteiro, debounced 300ms
+// em UnidadeAnotavel), não mais mouseup/touchend no container — achado real
+// de device físico, ver UnidadeAnotavel.tsx. Os `await screen.findByText`
+// depois desta chamada absorvem o debounce sozinhos (polling, timeout
+// default de 1000ms > 300ms).
 function selecionarTrecho(container: HTMLElement, inicio: number, fim: number) {
   const span = container.querySelector('p span')!;
   const pontoInicio = localizarPonto(span, inicio);
@@ -71,7 +76,7 @@ function selecionarTrecho(container: HTMLElement, inicio: number, fim: number) {
   const selection = window.getSelection()!;
   selection.removeAllRanges();
   selection.addRange(range);
-  fireEvent.mouseUp(span);
+  document.dispatchEvent(new Event('selectionchange'));
 }
 
 describe('fluxo de anotação pessoal (integração)', () => {

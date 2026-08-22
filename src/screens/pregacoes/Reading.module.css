@@ -3,6 +3,21 @@
   flex-direction: column;
   gap: 28px;
   padding: 20px 24px 40px;
+  /* Sem isso o fundo escuro só vem do AppShell (ancestral fora do .wrapper)
+     — funciona na tela normal, mas quebra no export em PDF: html2canvas só
+     rasteriza o próprio .wrapper, então sem background próprio o resultado
+     fica branco onde nenhum bloco filho tem cor de fundo explícita. */
+  background: var(--bg);
+}
+
+.hintAnotacao {
+  background: var(--accent1);
+  color: var(--surface);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 8px;
 }
 
 .headerSticky {

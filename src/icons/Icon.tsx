@@ -26,7 +26,8 @@ export type IconName =
   | 'users-round'
   | 'dices'
   | 'pen-line'
-  | 'file-down';
+  | 'file-down'
+  | 'notebook-pen';
 
 interface IconProps {
   name: string;
