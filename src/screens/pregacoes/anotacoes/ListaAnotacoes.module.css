@@ -1,0 +1,168 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: var(--bg, #14171f);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px 18px;
+  background: var(--surface, #1a1d26);
+  border-bottom: 1px solid var(--border, #2c2f3a);
+}
+
+.voltar {
+  background: none;
+  border: none;
+  color: var(--accent1, #eab308);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.titulo {
+  font-family: var(--font-display, inherit);
+  font-size: 16px;
+  color: var(--text, #f2f3f6);
+}
+
+.corpo {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px 40px;
+}
+
+.vazio {
+  color: var(--muted, #9ca3af);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupoTitulo {
+  font-family: var(--font-display, inherit);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted, #9ca3af);
+}
+
+.destaqueItem,
+.nota {
+  text-align: left;
+  background: #fde68a26;
+  border: 1px solid #d9770633;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text, inherit);
+  cursor: pointer;
+}
+
+.destaqueTrecho {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.destaqueNota {
+  margin-top: 6px;
+}
+
+.orfa {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f8717126;
+  border: 1px solid #f8717155;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.orfaAviso {
+  font-size: 12px;
+  color: #f87171;
+}
+
+.orfaNota {
+  font-size: 14px;
+  color: var(--text, inherit);
+}
+
+.botaoApagar {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.botaoNova {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px dashed var(--muted, #6b7280);
+  border-radius: 8px;
+  color: var(--muted, #9ca3af);
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textarea {
+  min-height: 60px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid var(--border, #6b7280);
+  background: transparent;
+  color: var(--text, inherit);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.botaoPrimario,
+.botaoSecundario {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.botaoPrimario {
+  background: var(--accent1, #eab308);
+  color: var(--surface, #1a1a1a);
+  font-weight: 600;
+}
+
+.botaoSecundario {
+  background: transparent;
+  color: var(--muted, #9ca3af);
+}
