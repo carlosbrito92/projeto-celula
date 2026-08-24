@@ -161,19 +161,28 @@ export const ESTILO_6_UMA_VEZ_SALVO: Theme = {
     border: '#3d2e1c',
     text: '#f0e4d0',
     muted: '#8a7358',
-    accent1: '#9c1c1c', // --seal
-    accent2: '#d4544a', // --seal-soft
+    accent1: '#9c1c1c', // --seal — só decorativo (borda/fundo), nunca cor de fonte neste tema
+    accent2: '#d4544a', // --seal-soft — mesma regra do accent1
     'accent-alert': '#d4544a', // sem cor de alerta própria documentada — reusa seal-soft
     'accent-dim': '#3a1210', // --seal-dim
     'tag-bg': 'rgba(156,28,28,.10)', // --seal-glow, fundo do badge de série
   },
+  // Sóbria (IBM Plex Sans) — usada em tudo que NÃO é o header h1 (índice,
+  // títulos de seção, badges, CTAs etc). O brush (Kalam) fica isolado em
+  // fonteH1, exclusivo do h1 — ver docs/estilos-pregacao.md.
   fonteDisplay: {
-    family: "'Kalam', cursive",
+    family: "'IBM Plex Sans', system-ui, sans-serif",
+    // Combinado (Kalam+Courier Prime+IBM Plex Sans) fica aqui de propósito:
+    // é o único useGoogleFont() que injeta o link — fonteH1/fonteCorpo/
+    // fonteMono abaixo reusam esse carregamento com googleFontsUrl vazio,
+    // mesmo padrão já usado antes pra fonteMono.
     googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Kalam:wght@700&family=Courier+Prime:wght@400;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap`,
   },
+  fonteH1: { family: "'Kalam', cursive", googleFontsUrl: '' },
   fonteCorpo: { family: "'IBM Plex Sans', system-ui, sans-serif", googleFontsUrl: '' },
   fonteMono: { family: "'Courier Prime', monospace", googleFontsUrl: '' }, // datilografada, etiqueta/prova
-  pesoDisplay: 700, // Kalam só carrega 700 aqui
+  pesoDisplay: 600, // peso de destaque da IBM Plex Sans sóbria (carregada: 300;400;500;600)
+  pesoH1: 700, // Kalam só carrega 700
 };
 
 export const THEMES: Record<string, Theme> = {

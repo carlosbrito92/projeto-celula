@@ -73,3 +73,8 @@
 .pregador {
   color: var(--text);
 }
+
+/* Estilo #6: --seal-soft só decorativo — nunca cor de fonte (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .badge {
+  color: var(--muted);
+}

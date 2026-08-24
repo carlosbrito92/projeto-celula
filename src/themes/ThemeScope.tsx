@@ -15,11 +15,14 @@ export function ThemeScope({ tema, children, className, block = true }: ThemeSco
   useGoogleFont(tema.fonteDisplay.googleFontsUrl || undefined);
   useGoogleFont(tema.fonteCorpo.googleFontsUrl || undefined);
   useGoogleFont(tema.fonteMono?.googleFontsUrl || undefined);
+  useGoogleFont(tema.fonteH1?.googleFontsUrl || undefined);
 
   const style: CSSProperties & Record<string, string> = {
     '--font-display': tema.fonteDisplay.family,
     '--font-corpo': tema.fonteCorpo.family,
     '--font-mono': tema.fonteMono?.family ?? 'ui-monospace, monospace',
+    '--font-h1': tema.fonteH1?.family ?? tema.fonteDisplay.family,
+    '--font-h1-weight': String(tema.pesoH1 ?? tema.pesoDisplay),
     '--font-display-weight': String(tema.pesoDisplay),
     '--font-display-transform': tema.maiusculoDisplay ? 'uppercase' : 'none',
     '--secao-titulo-weight': String(tema.secaoTitulo?.peso ?? tema.pesoDisplay),

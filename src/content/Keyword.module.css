@@ -2,3 +2,9 @@
   color: var(--accent1);
   font-weight: 600;
 }
+
+/* Estilo #6: --seal só decorativo — palavra em negrito usa o peso pra se
+   destacar, não a cor (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .keyword {
+  color: var(--text);
+}

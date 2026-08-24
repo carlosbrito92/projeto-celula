@@ -316,9 +316,11 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 ### Paleta
 
+> **Atualizado 2026-08-24** — revertida pra escura de novo. A versão "clareada" de 2026-08-22 (nunca chegou a ser vista renderizada antes de ir pro registry) ficou ruim no preview real do PR: Carlos avaliou que um tom mais próximo do preto (ainda partindo do marrom kraft, não cinza/preto puro) é mais confortável pra leitura. Valores voltam a ser os originais pré-08-22.
+
 | Variável | Valor | Origem / Uso |
 |---|---|---|
-| `--bg` | `#1c140d` | Fundo geral — marrom-kraft bem escuro, derivado do papel pardo |
+| `--bg` | `#1c140d` | Fundo geral — marrom kraft bem escuro, quase preto |
 | `--surface` | `#241a10` | Header, footer |
 | `--surface2` | `#2c2014` | Cards, blocos de versículo, boxes de analogia |
 | `--border` | `#3d2e1c` | Bordas e separadores |
@@ -330,6 +332,8 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 | `--seal-dim` | `#3a1210` | Bordas/fundos do acento vermelho |
 | `--seal-glow` | `rgba(156,28,28,.10)` | Glow decorativo, fundo do badge de série |
 
+**`--seal`/`--seal-soft` são estritamente decorativos (2026-08-24, correção de Carlos após ver o preview real do PR) — nunca cor de fonte.** Vermelho saturado sobre o marrom kraft do tema tem contraste ruim pra leitura de texto corrido — o problema não é só o achado pontual de acessibilidade de 2026-08-22 (referência bíblica/badge, corrigido com +2px), é a combinação em si. Uso permitido: borda (`border-left`, `border-top-color`), fundo (badge, botão de ação ativo, progresso, CTA preenchido) — nunca `color` de texto/ícone. Todo lugar que usava `--seal`/`--seal-soft` como `color` (palavra-chave em negrito, números de índice/seção, badge de série, referência bíblica, ícones de navegação, frase-chave, labels de componente_tema) passa a usar `--text` (ênfase) ou `--muted` (rótulo secundário) — ver `ComponenteTemaRenderer.module.css`, `Keyword.module.css`, `Reading.module.css`, `BlockRenderer.module.css`, `SermonCard.module.css`, `ResumoCurtoOverlay.module.css`, todos com override escopado por `[data-tema="estilo-6-uma-vez-salvo"]`. Exceção: `.ctaCompleta` (botão "Ler pregação completa") — ali o vermelho é fundo do botão, o texto por cima usa `--bg`, não é o mesmo par de contraste.
+
 **Racional:** a arte não usa gradiente nem textura "tecnológica" como as séries anteriores — é inteiramente analógica: papel, cera, fita adesiva, carimbo. A paleta reflete isso com tons terrosos e um único vermelho de acento, evitando qualquer cor "digital" (neon, saturação alta) que quebraria a metáfora de documento selado/prova física.
 
 **Textura de fundo:** paper grain sutil (SVG noise ou textura de papel kraft em baixa opacidade) no `body::before`, reforçando a superfície de papel da arte oficial.
@@ -339,10 +343,12 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 | Função | Família | Pesos |
 |---|---|---|
 | Título de "prova" (etiqueta) | `Courier Prime` (ou `Space Mono`) | 400, 700 — datilografada, imitando a etiqueta batida à máquina |
-| Título principal / display | `Kalam` ou `Caveat` (brush bold) | — segue o pôster de Instagram |
-| Corpo | `IBM Plex Sans` ou `Source Serif 4` | 300, 400, 500, 600 — segue a direção artística do telão |
+| Título principal / display (só `header h1`) | `Kalam` ou `Caveat` (brush bold) | — segue o pôster de Instagram |
+| Tudo mais (índice, títulos de seção, badges, CTAs, corpo) | `IBM Plex Sans` ou `Source Serif 4` | 300, 400, 500, 600 — segue a direção artística do telão |
 
-**Resolução da tipografia principal (validado):** o título principal (`header h1`) usa o brush manuscrito do pôster de Instagram — é a peça de identidade mais reconhecível da série, funcionando como "assinatura" visual. Todo o restante do documento (etiquetas de prova, corpo, blocos de versículo, componentes) segue a direção artística do telão — mais sóbria e legível, adequada para leitura contínua. Essa divisão intencional replica a mesma lógica das artes originais: o pôster é a peça de divulgação/impacto, o telão é a peça de acompanhamento durante a pregação.
+**Resolução da tipografia principal (corrigido 2026-08-24, segunda rodada).** O título principal (`header h1`) usa o brush manuscrito do pôster de Instagram — é a peça de identidade mais reconhecível da série, funcionando como "assinatura" visual. **O brush é exclusivo do `h1`, sem exceção** — inclui não só `banner_intro.frase_sintese`/blocos de versículo (primeira correção, 2026-08-22) como também os títulos do índice grid e os títulos de seção durante o scroll (`.indiceTitulo`/`.secaoTitulo`), que a primeira correção deixou passar por herdarem `var(--font-display)` igual a tudo mais. Resolvido na raiz, não seletor por seletor: `Theme.fonteH1`/`Theme.pesoH1` (`src/themes/types.ts`) é um par de campos novo, opcional, exclusivo pro `header h1` — quando ausente (todo tema que não é o #6), cai em `fonteDisplay`/`pesoDisplay` como sempre. No Estilo #6, `fonteDisplay` virou a fonte sóbria (IBM Plex Sans) e `fonteH1` ficou com o Kalam — como quase tudo no app referencia `var(--font-display)`/`var(--font-display-weight)` (índice, `secaoTitulo`, badges, callouts, CTAs — em `Reading.module.css`, `SermonCard.module.css`, `BlockRenderer.module.css`, `ComponenteTemaRenderer.module.css`, `ResumoCurtoOverlay.module.css`), a inversão resolve todos esses pontos de uma vez, sem precisar de override escopado em cada arquivo. Só `.headerTitulo` (`Reading.module.css`) foi trocado explicitamente pra `var(--font-h1)`/`var(--font-h1-weight)`. Todo o restante do documento segue a direção artística do telão — mais sóbria e legível, adequada para leitura contínua. Essa divisão intencional replica a mesma lógica das artes originais: o pôster é a peça de divulgação/impacto, o telão é a peça de acompanhamento durante a pregação.
+
+**Ajuste de acessibilidade (2026-08-22, superado em parte pela regra de 2026-08-24 acima):** o achado original (referência bíblica/badge de série com baixo contraste) motivou o +2px pontual — esse ajuste de tamanho continua valendo, mas a causa raiz (vermelho como cor de fonte) foi resolvida de forma mais ampla logo acima, não só nesses dois elementos.
 
 ### Componentes e variantes específicas deste tema
 
