@@ -146,9 +146,9 @@
 }
 
 .headerTitulo {
-  font-family: var(--font-display);
+  font-family: var(--font-h1);
   font-size: 22px;
-  font-weight: var(--font-display-weight);
+  font-weight: var(--font-h1-weight);
   text-transform: var(--font-display-transform, none);
 }
 
@@ -172,10 +172,11 @@
   margin-bottom: 6px;
 }
 
-/* Estilo #6: +2px — mesmo achado de contraste do .versiculoAncoraReferencia
-   acima, aplicado ao badge de série (docs/estilos-pregacao.md). */
+/* Estilo #6: +2px e cor sóbria — --seal-soft como cor de fonte tinha baixo
+   contraste sobre o kraft do tema (docs/estilos-pregacao.md). */
 [data-tema="estilo-6-uma-vez-salvo"] .badge {
   font-size: 11px;
+  color: var(--muted);
 }
 
 .banner {
@@ -185,12 +186,6 @@
   font-family: var(--font-display);
   font-size: calc(19px * var(--leitura-escala, 1));
   line-height: 1.5;
-}
-
-/* Estilo #6: brush (Kalam) exclusivo do header h1 — frase_sintese usa a
-   fonte sóbria do tema, não a "assinatura" do pôster (docs/estilos-pregacao.md). */
-[data-tema="estilo-6-uma-vez-salvo"] .banner {
-  font-family: var(--font-corpo);
 }
 
 .bannerContextualizacao {
@@ -225,10 +220,11 @@
   color: var(--accent1);
 }
 
-/* Estilo #6: +2px — contraste baixo (--seal saturado sobre fundo escuro em
-   texto pequeno), achado de acessibilidade (docs/estilos-pregacao.md). */
+/* Estilo #6: +2px e cor sóbria — --seal saturado sobre fundo escuro em
+   texto pequeno, achado de acessibilidade (docs/estilos-pregacao.md). */
 [data-tema="estilo-6-uma-vez-salvo"] .versiculoAncoraReferencia {
   font-size: 13px;
+  color: var(--muted);
 }
 
 .avisoProximaSerie {
@@ -502,4 +498,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Estilo #6: --seal/--seal-soft só decorativo (borda, fundo, progresso) —
+   nunca cor de fonte, mesmo achado de contraste acima (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .chipNumero,
+[data-tema="estilo-6-uma-vez-salvo"] .indiceNumero,
+[data-tema="estilo-6-uma-vez-salvo"] .secaoNumero,
+[data-tema="estilo-6-uma-vez-salvo"] .resumoAncora {
+  color: var(--muted);
+}
+
+[data-tema="estilo-6-uma-vez-salvo"] .voltar,
+[data-tema="estilo-6-uma-vez-salvo"] .avisoProximaSerieIcone,
+[data-tema="estilo-6-uma-vez-salvo"] .resumoCurtoCta svg,
+[data-tema="estilo-6-uma-vez-salvo"] .resumoCurtoCtaTitulo,
+[data-tema="estilo-6-uma-vez-salvo"] .navBotao {
+  color: var(--text);
 }

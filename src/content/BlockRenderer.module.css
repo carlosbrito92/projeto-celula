@@ -31,9 +31,10 @@
   color: var(--accent1);
 }
 
-/* Estilo #6: +2px — mesmo achado de contraste do tema (docs/estilos-pregacao.md). */
+/* Estilo #6: +2px e cor sóbria — mesmo achado de contraste do tema (docs/estilos-pregacao.md). */
 [data-tema="estilo-6-uma-vez-salvo"] .versiculoReferencia {
   font-size: 13px;
+  color: var(--muted);
 }
 
 .callout {
@@ -77,4 +78,9 @@
   position: absolute;
   left: 0;
   color: var(--muted);
+}
+
+/* Estilo #6: --seal-soft só decorativo — nunca cor de fonte (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .fraseChave {
+  color: var(--text);
 }
