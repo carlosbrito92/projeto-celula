@@ -115,3 +115,16 @@
   padding: 16px;
   cursor: pointer;
 }
+
+/* Estilo #6: --seal/--seal-soft só decorativo — nunca cor de fonte
+   (docs/estilos-pregacao.md). .ctaCompleta fica de fora: ali o vermelho é
+   fundo do botão, não cor de texto — o texto usa --bg por cima, sem relação
+   com o contraste vermelho-sobre-kraft que motivou essa regra. */
+[data-tema="estilo-6-uma-vez-salvo"] .pontoNumero,
+[data-tema="estilo-6-uma-vez-salvo"] .versiculoChaveReferencia {
+  color: var(--muted);
+}
+
+[data-tema="estilo-6-uma-vez-salvo"] .voltar {
+  color: var(--text);
+}

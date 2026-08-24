@@ -32,6 +32,16 @@ export interface Theme {
   /** Opcional — usado para labels/badges/metadados. Fallback: monoespaçada do sistema. */
   fonteMono?: ThemeFont;
   /**
+   * Opcional — fonte exclusiva do header h1 (título da pregação), quando o
+   * tema quer uma "assinatura" visual mais expressiva que fonteDisplay sem
+   * vazar pro resto do documento (ex: Estilo #6, brush manuscrito só no h1
+   * — ver docs/estilos-pregacao.md). Ausente: h1 cai em fonteDisplay, igual
+   * a todo tema que não define isso.
+   */
+  fonteH1?: ThemeFont;
+  /** Peso de fonteH1 (mesma regra de pesoDisplay — precisa ser carregado). Ausente: cai em pesoDisplay. */
+  pesoH1?: number;
+  /**
    * Peso usado em títulos/destaques (var(--font-display-weight)) — precisa
    * ser um peso que a família de fonteDisplay realmente tem carregado
    * (ver wght@ na googleFontsUrl). Nunca hardcodar font-weight junto de

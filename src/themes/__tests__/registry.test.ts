@@ -87,6 +87,17 @@ describe('pesoDisplay de cada tema', () => {
       ).toContain(tema.secaoTitulo.peso);
     }
   });
+
+  it('pesoH1 (quando definido) também é um peso realmente carregado — fonteH1.googleFontsUrl pode estar vazio (URL combinado fica em fonteDisplay), então checa lá', () => {
+    for (const tema of Object.values(THEMES)) {
+      if (!tema.fonteH1 || tema.pesoH1 === undefined) continue;
+      const urlComFonte = tema.fonteH1.googleFontsUrl || tema.fonteDisplay.googleFontsUrl;
+      const pesos = pesosDisponiveis(urlComFonte, tema.fonteH1.family);
+      expect(pesos, `${tema.nome}: pesoH1=${tema.pesoH1} não está em [${pesos}]`).toContain(
+        tema.pesoH1,
+      );
+    }
+  });
 });
 
 describe('tratamento de maiúsculas/itálico por tema (docs/estilos-pregacao.md)', () => {

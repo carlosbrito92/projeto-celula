@@ -308,3 +308,17 @@
   color: var(--text);
   text-align: right;
 }
+
+/* Estilo #6: --seal/--seal-soft só decorativo (borda-topo em versusLadoB/
+   contrasteLadoB, fundo, etc) — nunca cor de fonte (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .stageLabel,
+[data-tema="estilo-6-uma-vez-salvo"] .banhoNumero,
+[data-tema="estilo-6-uma-vez-salvo"] .labelBoxTitulo {
+  color: var(--muted);
+}
+
+[data-tema="estilo-6-uma-vez-salvo"] .antidotoLabel,
+[data-tema="estilo-6-uma-vez-salvo"] .analogiaLabel,
+[data-tema="estilo-6-uma-vez-salvo"] .analogiaConclusao {
+  color: var(--text);
+}
