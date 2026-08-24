@@ -1,0 +1,237 @@
+{
+  "metadados": {
+    "serie": "Próximo Nível",
+    "capitulo": "",
+    "tema": "Faça com que cada dia conte",
+    "data": "15 de fevereiro de 2026",
+    "pregador": "Pastor Ian",
+    "texto_base": "Salmo 139.13-14",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Uma mensagem sobre o valor inestimável que temos em Deus, a urgência de viver com propósito e a necessidade de fazer cada dia contar, discernindo o tempo que Deus nos dá para servi-Lo e cumprir o nosso destino.",
+    "componente_tema": {
+      "variante": "stage",
+      "dados": {
+        "label": "DECLARAÇÃO",
+        "texto": "Faça com que cada dia conte.",
+        "sub": "A vida é uma ficha única que recebemos; não há segunda oportunidade para agradar a Deus."
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": ""
+    },
+    "versiculo_ancora": {
+      "referencia": "Salmo 139.13-14",
+      "texto": "Pois tu formaste o meu interior, tu me teceste no seio de minha mãe. Graças te dou, visto que por modo assombrosamente maravilhoso me formaste; as tuas obras são admiráveis, e a minha alma o sabe muito bem."
+    },
+    "frase_sintese": "Você é uma obra-prima tecida por Deus, e o tempo que Ele nos dá não deve ser desperdiçado em ciclos viciosos ou na resistência à Sua voz, mas investido em servi-Lo, pois é a forma como vivemos hoje que determinará a nossa recompensa na eternidade."
+  },
+  "mapa_pontos": [
+    {
+      "id": "ponto-0",
+      "numero": "00",
+      "titulo": "Fundação: A Obra-Prima Tecida por Deus",
+      "pendente": false
+    },
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Morte é uma Promoção, mas a Vida Determina a Recompensa",
+      "pendente": false
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "O Que Deus Não Conta: O Tempo no Pecado e no DesServiço",
+      "pendente": false
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "O Que Deus Não Conta: A Resistência e a Vida na Carne",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "ponto-0",
+      "numero": "00",
+      "titulo": "Fundação: A Obra-Prima Tecida por Deus",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Salmo 139.13-14 · Efésios 2.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O Salmo 139 não fala apenas da criação do mundo, mas de você. Você foi formado de modo assombrosamente maravilhoso. A expressão 'tecer' remete a um artesão habilidoso que não erra um ponto sequer de quem Ele te criou para ser."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Salmo 139.13-14",
+          "texto": "Pois tu formaste o meu interior, tu me teceste no seio de minha mãe. Graças te dou, visto que por modo assombrosamente maravilhoso me formaste; as tuas obras são admiráveis, e a minha alma o sabe muito bem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Efésios 2.10, Paulo usa a palavra grega *poiema*, de onde vem 'poema' ou 'poesia'. Você é o poema de Deus, uma obra-prima. Seu valor não é definido pelas pessoas, mas pelo preço que Jesus pagou por você."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 2.10",
+          "texto": "Pois somos feitura dele, criados em Cristo Jesus para boas obras, as quais Deus de antemão preparou para que andássemos nelas."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus não te criou para viver uma vida meramente fisiológica (trabalhar para ter dinheiro, comprar comida, ter saúde para trabalhar de novo). Ele te criou com um propósito glorioso e um destino."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Morte é uma Promoção, mas a Vida Determina a Recompensa",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Eclesiastes 7.2 · Mateus 25.1-13 · 2 Timóteo 4.7-8",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Salomão ensina que é mais sábio ir à casa onde há luto do que à casa de festa, pois na casa de luto se vê o fim de todos os homens e os vivos tomam isso para si. A morte é inevitável, mas para o crente, ela não é condenação, é promoção."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Eclesiastes 7.2",
+          "texto": "Melhor é ir à casa onde há luto do que ir à casa onde há banquete, porque naquela se vê o fim de todos os homens, e os vivos o tomam por coração."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": {
+              "label": "Para os Perdidos",
+              "citacao": "A morte é o fim e a condenação."
+            },
+            "lado_b": {
+              "label": "Para os Salvos",
+              "citacao": "A morte é a promoção para ver o Senhor perfeitamente, sem dor, tristeza, doença ou tentação."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A morte não nos aperfeiçoa. A parábola das 10 virgens mostra que 5 eram prudentes (tinham azeite de sobra, símbolo do Espírito Santo) e 5 eram tolas (tinham azeite, mas não de sobra). A maneira como você vive aqui determina a forma como passará a eternidade."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A salvação é pela graça, mas Deus recompensará e aprovará aqueles que fizeram a Sua vontade. Paulo declarou com convicção: 'Combati o bom combate, acabei a carreira, guardei a fé'. Ele sabia que teria uma 'ampla entrada' no reino."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Timóteo 4.7-8",
+          "texto": "Combati o bom combate, acabei a carreira, guardei a fé. Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos os que amam a sua vinda."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "O Que Deus Não Conta: O Tempo no Pecado e no DesServiço",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "2 Coríntios 5.17 · 1 Reis 6.1 · Atos 13.18-22",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Existem princípios espirituais sobre como Deus contabiliza o nosso tempo. O primeiro princípio é que **Deus não conta o tempo em que vivemos no pecado**. Antes de Cristo, estávamos mortos em nossos delitos. Quando somos salvos, nos tornamos nova criatura; as coisas antigas passaram. Assim como Israel começou a contar um novo ciclo ao sair do Egito, nossa contagem começa na cruz."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 5.17",
+          "texto": "E, assim, se alguém está em Cristo, é nova criatura; as coisas antigas já passaram; eis que se fizeram novas."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não deixe seus filhos no Egito. Assim como Moisés disse que 'nenhuma unha ficaria no Egito', não entregue seus filhos às mãos do faraó (omissão, falta de discipulado, exposição a conteúdos nocivos). Faça com que cada dia deles conte para Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O segundo princípio: **Deus não conta o tempo em que não O servimos**, mesmo após a conversão. Há uma aparente contradição bíblica: 1 Reis 6.1 diz que passaram 480 anos entre a saída do Egito e a construção do Templo. Já Atos 13.18-22 soma 573 anos (40 + 450 + 40 + 3). A diferença de 93 anos corresponde ao tempo em que Israel serviu a outros reis e não a Deus (Juízes). Deus não conta o tempo de desobediência."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "diagnostico",
+          "dados": {
+            "label": "Sinais de DesServiço",
+            "itens": [
+              "Tratar a igreja como um shopping espiritual, buscando apenas conforto e estrutura.",
+              "Viver focado apenas em conquistas materiais (casa, carro, dinheiro) como se fossem o galardão final.",
+              "Escrever uma história paralela, apaixonando-se por este mundo e esquecendo que somos de passagem."
+            ]
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "O Que Deus Não Conta: A Resistência e a Vida na Carne",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Deuteronômio 1.2 · Gênesis 16-17 · Salmo 90.12-17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O terceiro princípio: **Deus não conta o tempo em que Lhe resistimos**. A jornada do Horebe até Cades-Barnéia era de apenas 11 dias, mas Israel gastou 40 anos no deserto (14.600 dias desperdiçados). Não resista à voz do Espírito Santo. Se Deus te chamou, não adie sua resposta. Deus não tem 'Plano B' para a sua vida; se você foi chamado para algo, foi criado para aquilo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O quarto e último princípio: **Deus não conta o tempo que vivemos na carne**. Viver na carne não significa apenas imoralidade, mas viver pela própria força, tentando conquistar as promessas de Deus no braço, como Abraão fez ao gerar Ismael. O resultado? Abraão ficou 13 anos sem ouvir a voz de Deus (Gênesis 16.16 a 17.1)."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 17.1",
+          "texto": "Quando tinha Abrão noventa e nove anos, apareceu o Senhor a Abrão e disse-lhe: Eu sou o Deus Todo-Poderoso; anda na minha presença e sê perfeito."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Homens e mulheres de Deus oram, ouvem a voz de Deus e são posicionados no lugar certo para receber a promessa. Você é filho de um Pai rico; não viva ansioso, tentando conquistar tudo na força do seu braço."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há uma promessa de restauração. O salmista pede: 'Ensina-nos a contar os nossos dias para que alcancemos coração sábio'. Sacia-nos de manhã com a tua benignidade, e confirma sobre nós a obra das nossas mãos."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "Somos obra-prima (poiema) de Deus, tecidos por Ele com propósito, e não devemos viver um ciclo vicioso e meramente fisiológico.",
+      "versiculo_ancora": "Salmo 139.13-14"
+    },
+    {
+      "ponto": "A morte é uma promoção para o crente, mas não nos aperfeiçoa; a maneira como vivemos e servimos a Deus hoje determina nossa recompensa e se teremos uma 'ampla entrada' no reino.",
+      "versiculo_ancora": "2 Timóteo 4.7-8"
+    },
+    {
+      "ponto": "Deus não conta o tempo vivido no pecado antes da conversão, nem o tempo em que, mesmo convertidos, escolhemos não servi-Lo e nos acomodamos.",
+      "versiculo_ancora": "1 Reis 6.1 · Atos 13.18-22"
+    },
+    {
+      "ponto": "Deus não conta o tempo em que resistimos ao Seu chamado, desperdiçando estações, nem o tempo em que vivemos na carne, tentando cumprir as promessas divinas pela nossa própria força.",
+      "versiculo_ancora": "Gênesis 17.1"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Faça com que cada dia conte: Deus não contabiliza o tempo desperdiçado no pecado, no deserviço, na resistência ou na carne, mas quer coroar aqueles que vivem cada estação para a glória d'Ele.",
+    "pontos": [
+      "Você é um poema (poiema) de Deus, tecido de modo assombrosamente maravilhoso. Seu valor foi definido pelo preço que Jesus pagou, e você não foi criado para viver um ciclo vicioso e meramente fisiológico, mas para cumprir um propósito glorioso. A morte, para o crente, não é o fim, mas uma promoção para estar diante do Trono; no entanto, ela não nos aperfeiçoa. A forma como vivemos, servimos e perseveramos aqui determina se teremos uma 'ampla entrada' no reino e ouviremos 'servo bom e fiel'.",
+      "Existem quatro tipos de tempo que Deus simplesmente não conta em nossa história. Ele não conta o tempo em que vivemos no pecado antes da conversão, pois em Cristo somos nova criatura. Ele também não conta o tempo em que, mesmo salvos, escolhemos não servi-Lo, nos acomodando ou tratando a igreja como um mero centro de conforto, como os 93 anos de desobediência que a Bíblia desconta da história de Israel.",
+      "Além disso, Deus não conta o tempo em que resistimos à Sua voz, transformando uma jornada de 11 dias em 40 anos de deserto, nem o tempo em que vivemos 'na carne', tentando conquistar as promessas de Deus pela nossa própria força e ansiedade, como Abraão, que ficou 13 anos sem ouvir a voz de Deus. Aprenda a contar os seus dias, renda-se ao Espírito e permita que Deus confirme a obra das suas mãos."
+    ],
+    "versiculo_chave": {
+      "referencia": "Salmo 139.13-14",
+      "texto": "Pois tu formaste o meu interior, tu me teceste no seio de minha mãe. Graças te dou, visto que por modo assombrosamente maravilhoso me formaste; as tuas obras são admiráveis, e a minha alma o sabe muito bem."
+    }
+  },
+  "nota_lacuna": []
+}

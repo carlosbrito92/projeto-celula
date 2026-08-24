@@ -151,6 +151,31 @@ export const ESTILO_5B_RELIGIAO_TOXICA: Theme = {
   maiusculoDisplay: true, // "Display: Anton — peso único extra-bold, uppercase" — docs/estilos-pregacao.md
 };
 
+export const ESTILO_6_UMA_VEZ_SALVO: Theme = {
+  key: 'estilo-6-uma-vez-salvo',
+  nome: 'Estilo #6 — Uma Vez Salvo, Salvo Para Sempre',
+  cores: {
+    bg: '#1c140d',
+    surface: '#241a10',
+    surface2: '#2c2014',
+    border: '#3d2e1c',
+    text: '#f0e4d0',
+    muted: '#8a7358',
+    accent1: '#9c1c1c', // --seal
+    accent2: '#d4544a', // --seal-soft
+    'accent-alert': '#d4544a', // sem cor de alerta própria documentada — reusa seal-soft
+    'accent-dim': '#3a1210', // --seal-dim
+    'tag-bg': 'rgba(156,28,28,.10)', // --seal-glow, fundo do badge de série
+  },
+  fonteDisplay: {
+    family: "'Kalam', cursive",
+    googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Kalam:wght@700&family=Courier+Prime:wght@400;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap`,
+  },
+  fonteCorpo: { family: "'IBM Plex Sans', system-ui, sans-serif", googleFontsUrl: '' },
+  fonteMono: { family: "'Courier Prime', monospace", googleFontsUrl: '' }, // datilografada, etiqueta/prova
+  pesoDisplay: 700, // Kalam só carrega 700 aqui
+};
+
 export const THEMES: Record<string, Theme> = {
   [PADRAO_MINC.key]: PADRAO_MINC,
   [ESTILO_1_MAIO_SALVACAO.key]: ESTILO_1_MAIO_SALVACAO,
@@ -158,6 +183,7 @@ export const THEMES: Record<string, Theme> = {
   [ESTILO_3_CELULA.key]: ESTILO_3_CELULA,
   [ESTILO_4_IGREJAR.key]: ESTILO_4_IGREJAR,
   [ESTILO_5B_RELIGIAO_TOXICA.key]: ESTILO_5B_RELIGIAO_TOXICA,
+  [ESTILO_6_UMA_VEZ_SALVO.key]: ESTILO_6_UMA_VEZ_SALVO,
 };
 
 // Mapeamento Série -> tema (docs/estilos-pregacao.md). Séries sem entrada
@@ -168,6 +194,7 @@ const SERIE_PARA_TEMA: Record<string, string> = {
   Igrejar: ESTILO_4_IGREJAR.key,
   'Maio de Salvação': ESTILO_1_MAIO_SALVACAO.key,
   "Renovo'26": ESTILO_2_RENOVO26.key,
+  'Uma Vez Salvo, Salvo Para Sempre': ESTILO_6_UMA_VEZ_SALVO.key,
 };
 
 // Chaves curtas aceitas em metadados.tema_override (docs/estilos-pregacao.md
@@ -180,6 +207,7 @@ const TEMA_OVERRIDE_PARA_CHAVE: Record<string, string> = {
   'Estilo #3': ESTILO_3_CELULA.key,
   'Estilo #4': ESTILO_4_IGREJAR.key,
   'Estilo #5b': ESTILO_5B_RELIGIAO_TOXICA.key,
+  'Estilo #6': ESTILO_6_UMA_VEZ_SALVO.key,
 };
 
 export function resolveTema(

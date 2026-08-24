@@ -1,0 +1,333 @@
+{
+  "metadados": {
+    "serie": "Uma Vez Salvo, Salvo Para Sempre",
+    "capitulo": "Capítulo 1",
+    "tema": "A Segurança da Salvação",
+    "data": "23 de agosto de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Romanos 8.29-30",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Primeira mensagem da nova série. O tema provocativo: um crente pode afirmar, com convicção, que é salvo — sem que isso seja arrogância. A questão não é o quanto você consegue segurar Deus, mas quem está segurando você. O pastor mapeia quatro formas de crer a respeito da própria salvação, desmonta a doutrina do universalismo e apresenta as três primeiras de várias provas de que a salvação é eterna.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          { "campo": "Questão central", "valor": "Quem está segurando você — você ou Deus?" },
+          { "campo": "Provas apresentadas", "valor": "3 de várias — a série continua" },
+          { "campo": "Base doutrinária", "valor": "Justificação pela fé, não pelas obras" }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "Romanos 5.1",
+      "texto": "Justificados, pois, mediante a fé, temos paz com Deus, por meio de nosso Senhor Jesus Cristo."
+    },
+    "frase_sintese": "A questão não é o quanto você consegue segurar Deus. A questão é: quem está segurando você?"
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "1", "titulo": "Os Quatro Grupos e o Engano do Universalismo" },
+    { "id": "bloco-2", "numero": "2", "titulo": "Salvos da Ira de Deus" },
+    { "id": "bloco-3", "numero": "3", "titulo": "Por Que a Certeza da Salvação Importa" },
+    { "id": "bloco-4", "numero": "4", "titulo": "Quem Está Segurando Quem?" },
+    { "id": "bloco-5", "numero": "5", "titulo": "Primeira Prova — A Salvação É um Presente da Graça de Deus" },
+    { "id": "bloco-6", "numero": "6", "titulo": "Segunda Prova — A Salvação Foi um Ato Planejado por Deus" },
+    { "id": "bloco-7", "numero": "7", "titulo": "Terceira Prova — Um Filho Não Pode Deixar de Ser Filho" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Os Quatro Grupos e o Engano do Universalismo",
+      "sec_eyebrow": "Fundação",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando um crente afirma com convicção que é salvo, isso incomoda muita gente — soa arrogante. Mas isso só seria arrogância **se a salvação dependesse do que você faz**. Ela não depende das suas obras — depende da obra de Cristo. Não tem a ver com os seus créditos, tem a ver com os créditos dele."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Com relação à salvação, existem pelo menos quatro grupos de pessoas: os que não são salvos e sabem que não são; os que são salvos e sabem que são; os que são salvos mas ainda não têm essa convicção, vivendo com dúvida e insegurança; e os que não são salvos, mas pensam que são."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse quarto grupo é sustentado, em parte, por uma doutrina enganosa chamada **universalismo** — nascida no catolicismo, que ensina que todos já são salvos e que o inferno não existe. Mas o Deus que essa doutrina descreve **não é o Deus do Novo Testamento**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se o inferno de fato não existisse, para onde pessoas como Hitler seriam enviadas? É claro que o inferno existe — essa é a justa ira de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se não existisse inferno, Deus seria injusto — colocaria todo mundo no mesmo barco, sem distinção. O Novo Testamento ensina que existe justiça: todo homem caído que não nasceu de novo vai comparecer diante de Deus, e se comparecer sem um advogado, será condenado eternamente."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Salvos da Ira de Deus",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Romanos 5.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "No dia em que você foi salvo, você foi salvo do inferno, do diabo, do pecado — mas, segundo o ensino de Paulo aos romanos, **fomos salvos do próprio Deus**. Todos nós estávamos debaixo da ira de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você não foi salvo do inferno simplesmente — até o inferno está debaixo da ira de Deus. Você não foi salvo do diabo simplesmente — até o diabo está debaixo da ira de Deus. **Mas ele te salvou dele mesmo, na cruz.** Cristo tomou o seu lugar, experimentou toda a ira de Deus por você — foi por isso que ele bradou: \"Deus meu, Deus meu, por que me desamparaste?\""
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus nunca mais ficará irado com você, porque Cristo na cruz já experimentou toda a ira de Deus no seu lugar. Você recebeu a justiça de Cristo para que pudesse caminhar em paz."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 5.1",
+          "texto": "Justificados, pois, mediante a fé, temos paz com Deus, por meio de nosso Senhor Jesus Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O sinal de quem recebeu o dom da justiça é que vive em paz — sabendo que os pensamentos de Deus a seu respeito são de bem, e não de mal. Existem duas doutrinas que regem a mente da maioria: ou creem que a salvação é por obras e que Deus só salva os bons, ou creem que todos já são salvos automaticamente. Ambas erram o alvo."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Por Que a Certeza da Salvação Importa",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Efésios 6.17 · 2 Timóteo 4.6-8",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Só entra no céu quem é perfeito. Você não tem perfeição nenhuma em si mesmo — mas aquele que é perfeito precisa te carregar e te colocar lá dentro. Por isso Deus enviou o Filho: quem crê nele recebe a justiça de Cristo, que é perfeita, porque foi Cristo quem cumpriu todas as exigências de Deus — **não depende das suas obras, não depende do seu comportamento.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ter essa certeza não é detalhe teológico — é essencial. **Não é possível crescer espiritualmente, não é possível alcançar maturidade, se você não crê que é salvo.** Sem essa âncora, sem essa rocha, você vive inseguro, angustiado, um dia salvo, outro dia não. Não é possível ser usado por Deus com essa insegurança."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 6.17",
+          "texto": "Tomai também o capacete da salvação..."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O capacete protege a mente. Quem não crê que é salvo não consegue se posicionar espiritualmente no dia mau. Paulo é o modelo dessa segurança:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Timóteo 4.6-8",
+          "texto": "Quanto a mim, estou sendo já oferecido por libação, e o tempo da minha partida é chegado. Combati o bom combate, completei a carreira, guardei a fé. Já agora a coroa da justiça me está guardada, a qual o Senhor, reto Juiz, me dará naquele dia; e não somente a mim, mas também a todos que amam a sua vinda."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se há um assunto que deixa os crentes aterrorizados, é a volta de Jesus — porque não têm a segurança de que são salvos. Mas o clamor do nosso coração é: Maranata, vem, Senhor Jesus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Quem Está Segurando Quem?",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Hebreus 13.5 · Romanos 8.38-39",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Você foi salvo no dia em que creu no Senhor Jesus. Mas a pergunta é: **por que você permanece salvo? É porque você está segurando nele, ou é porque ele está segurando você?** A resposta determina em grande medida o seu estado emocional e espiritual — se você acha que é você quem segura, uma hora vai se cansar, uma hora vai ficar vulnerável."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Os Chimpanzés na Copa das Árvores",
+            "corpo": [
+              "Na África, chimpanzés se movem rapidamente de árvore em árvore, fugindo de predadores que não conseguem subir. Para isso, precisam manter os dois braços livres e ágeis.",
+              "Mas quando há um filhote, ele precisa se agarrar sozinho à mãe enquanto ela corre em disparada — e existe sempre o risco de, em algum momento, cair. É exatamente esse o momento que o predador espera: não a chance de pegar um chimpanzé adulto, mas o filhote que não conseguiu se segurar."
+            ],
+            "conclusao": "Se a sua salvação dependesse da sua capacidade de se segurar em Deus, você correria o mesmo risco do filhote. Mas não é você quem segura — é ele quem te segura, quem te sustenta, quem está agarrado em você."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 13.5",
+          "texto": "De maneira nenhuma te deixarei, nunca jamais te abandonarei."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.38-39",
+          "texto": "Nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas presentes, nem as futuras, nem as potestades, nem a altura, nem a profundidade, nem qualquer outra criatura poderá separar-nos do amor de Deus, que está em Cristo Jesus, nosso Senhor."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você não é um objeto solto na mão de Deus — você é um dos dedos da mão de Deus. Foi unido a ele, ligado a ele eternamente. Nada poderá te separar do amor de Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Primeira Prova — A Salvação É um Presente da Graça de Deus",
+      "sec_eyebrow": "1ª Prova",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Não houve penitência, escadaria de joelhos, dízimo ou boa obra que comprasse sua salvação — **você recebeu e creu.** É um presente, um dom, fruto da bondade de Deus. O engano comum é pensar que, para permanecer salvo, você precisa se comportar bem — como se a salvação fosse um presente sob condição de bom comportamento futuro."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Bicicleta de Natal",
+            "corpo": [
+              "É como um pai dizer ao filho: \"vou te dar uma bicicleta no Natal, mas espero que você passe de ano — se não passar, eu arranco essa bicicleta de você.\""
+            ],
+            "conclusao": "Isso não é presente — é barganha. Um presente de verdade, uma vez dado, não é retomado. A salvação é dom, e a Bíblia diz que o dom de Deus é irrevogável."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos foram ensinados desde a infância: \"se você se comportar assim, Papai do Céu não vai gostar mais de você.\" Isso é engano — faz parecer que Deus só gosta dos bonzinhos. Mas o ensino do Novo Testamento é outro: **onde havia mais pecado, superabundou a graça.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "O amor de Deus por você não muda. Ele já te amava antes de você nascer de novo, quando você era blasfemo, quando tinha um coração resistente a ele. Esse amor não vai diminuir agora que você é filho."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso não significa ausência de disciplina ou de julgamento das obras — o autor de Hebreus diz que o Pai disciplina os filhos que ama, e 2 Coríntios 5.10 fala do tribunal de Cristo. Mas esse não é julgamento de condenação: **Romanos 8.1 diz que já não há mais condenação para os que estão em Cristo Jesus.** Deus não mistura os públicos — o julgamento dos incrédulos (o grande trono branco) é diferente do julgamento das obras dos filhos, que serão recompensadas, não condenadas."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Segunda Prova — A Salvação Foi um Ato Planejado por Deus",
+      "sec_eyebrow": "2ª Prova",
+      "referencias": "Romanos 8.29-30",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Sua salvação não é um acidente, não aconteceu por acaso, não foi improvisada. Deus não simplesmente \"deu um jeitinho\" de última hora — a salvação foi planejada por Deus **antes da fundação do mundo**, porque Deus nunca é surpreendido."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.29-30",
+          "texto": "Porque aos que de antemão conheceu, também os predestinou para serem conformes à imagem de seu Filho, a fim de que ele seja o primogênito entre muitos irmãos. E aos que predestinou, a esses também chamou; e aos que chamou, a esses também justificou; e aos que justificou, a esses também glorificou."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Essa é a chamada **corrente da salvação**, com cinco elos: presciência, predestinação, chamado, justificação e glorificação. Deus já te conhecia antes de Adão ser criado — ele é onisciente, não está preso ao tempo, ocupa passado, presente e futuro simultaneamente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Do ponto de vista humano, você foi salvo no dia em que fez um apelo, veio à frente, orou uma oração de confissão. Mas do ponto de vista de Deus, **tudo começa na presciência**: ele viu, no corredor da história, quem ouviria o evangelho e creria — e a esses predestinou, dizendo: \"você é meu filho.\""
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois vem o **chamado** — o momento em que o evangelho foi pregado e você creu, tornando eficaz aquilo que já estava determinado. Depois a **justificação** — você foi declarado sem culpa, sua dívida quitada, sua história remontada, as maldições quebradas. E por fim a **glorificação**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Filipenses 1.6",
+          "texto": "Aquele que começou a boa obra em vós, ele mesmo a completará..."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Naquele dia, receberemos um corpo novo, incorruptível, que não estará sujeito ao pecado nem à doença, nem vai envelhecer. Nesse dia, a sua verdadeira identidade será revelada e manifesta: você é filho de Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Terceira Prova — Um Filho Não Pode Deixar de Ser Filho",
+      "sec_eyebrow": "3ª Prova · Conclusão",
+      "referencias": "João 1.12 · 1 João 5.1 · Gênesis 3.22",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A salvação é muito mais do que ser livrado do inferno ou da condenação eterna — por si só, isso já seria glorioso, mas vai além: **Deus te fez filho dele.** Ele compartilhou com você a sua própria semente; você foi gerado pelo Espírito de Deus e hoje carrega dentro de si a natureza do Pai."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 1.12",
+          "texto": "Mas, a todos quantos o receberam, deu-lhes o poder de serem feitos filhos de Deus: a saber, aos que creem no seu nome."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 5.1",
+          "texto": "Todo aquele que crê que Jesus é o Cristo é nascido de Deus; e todo aquele que ama ao que o gerou também ama ao que dele é nascido."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Um relacionamento de pais e filho pode ser desfeito — pode acontecer, e acontece. **Mas um filho jamais deixa de ser filho de seu pai.** O filho carrega o DNA do pai dentro de si; você jamais pode deixar de ser feito filho de Deus."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — As Duas Árvores do Éden",
+            "corpo": [
+              "Havia duas árvores no jardim: a árvore do conhecimento do bem e do mal, e a Árvore da Vida. O homem comeu da árvore errada, e um simples ato de comer condenou a humanidade inteira. Deus então colocou um anjo com espada desembainhada no caminho da Árvore da Vida — porque se o homem, naquela condição caída, comesse dela, viveria eternamente como pecador."
+            ],
+            "conclusao": "Hoje sabemos que a Árvore da Vida é Cristo. O homem caiu porque comeu errado — mas você é salvo porque comeu de Cristo. No dia em que ele morreu, o anjo com a espada foi retirado, o véu foi rasgado, e hoje podemos acessar e comer da Árvore da Vida livremente."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gênesis 3.22",
+          "texto": "Então disse o Senhor Deus: Eis que o homem se tornou como um de nós, conhecedor do bem e do mal; ora, não suceda que estenda a mão, e tome também da árvore da vida, e coma, e viva eternamente."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A vida eterna não é apenas uma vida que nunca acaba — é um tipo de vida, uma qualidade de vida, a mesma vida que Deus tem. Jesus disse: eu vim para que tenham vida, e vida em abundância."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "Os quatro grupos e o universalismo: existem os que sabem que não são salvos, os que sabem que são, os que são mas ainda duvidam, e os que não são mas pensam que são. O universalismo (todos já salvos, sem inferno) não é o Deus do Novo Testamento — a justa ira de Deus é real.", "versiculo_ancora": "" },
+    { "ponto": "Salvos da ira de Deus: fomos salvos não apenas do inferno ou do diabo, mas do próprio Deus — Cristo experimentou essa ira em nosso lugar na cruz, e por isso hoje temos paz com Deus.", "versiculo_ancora": "Romanos 5.1" },
+    { "ponto": "Por que a certeza importa: sem convicção da salvação não há crescimento espiritual nem autoridade para resistir no dia mau. Paulo é o modelo de quem guardou a fé com plena segurança.", "versiculo_ancora": "Efésios 6.17 · 2 Timóteo 4.6-8" },
+    { "ponto": "Quem segura quem: se você depende da sua própria força para se manter salvo, uma hora cairá (como o filhote de chimpanzé). Mas é Deus quem te segura, e nada pode te separar do seu amor.", "versiculo_ancora": "Hebreus 13.5 · Romanos 8.38-39" },
+    { "ponto": "Primeira prova — presente da graça: a salvação foi recebida, não conquistada, e não é retomada por mau comportamento. O amor de Deus não diminui depois que você se torna filho.", "versiculo_ancora": "Romanos 8.1" },
+    { "ponto": "Segunda prova — ato planejado: a corrente da salvação (presciência, predestinação, chamado, justificação, glorificação) mostra que nada foi acidental — tudo foi determinado antes da fundação do mundo.", "versiculo_ancora": "Romanos 8.29-30" },
+    { "ponto": "Terceira prova — filho não deixa de ser filho: você recebeu a própria natureza de Deus, e isso é irreversível — assim como comer da Árvore da Vida (Cristo) garante uma vida que não se perde.", "versiculo_ancora": "João 1.12 · 1 João 5.1 · Gênesis 3.22" }
+  ],
+  "resumo_curto": {
+    "frase_tema": "A questão não é o quanto você consegue segurar Deus — a questão é quem está segurando você.",
+    "pontos": [
+      "Um crente pode afirmar com convicção que é salvo sem soar arrogante — porque a salvação não depende do que você faz, depende do que Cristo fez.",
+      "Fomos salvos não só do inferno ou do diabo, mas do próprio Deus — Cristo tomou nosso lugar e experimentou toda a ira de Deus na cruz.",
+      "\"Justificados, pois, mediante a fé, temos paz com Deus, por meio de nosso Senhor Jesus Cristo\" (Romanos 5.1).",
+      "Sem a certeza da salvação não há crescimento espiritual — você vive inseguro, incapaz de se posicionar no dia mau (exemplo de Paulo, que guardou a fé até o fim).",
+      "Quem segura sua salvação não é você — é Deus (exemplo dos chimpanzés: o filhote que precisa se segurar sozinho é o que corre risco de cair).",
+      "\"De maneira nenhuma te deixarei, nunca jamais te abandonarei\" (Hebreus 13.5).",
+      "Primeira prova: a salvação é presente da graça, não troca — um presente de verdade não é retomado depois de dado (exemplo da bicicleta de Natal).",
+      "Segunda prova: a salvação foi planejada por Deus antes da fundação do mundo, numa corrente de cinco elos — presciência, predestinação, chamado, justificação e glorificação.",
+      "\"Aos que predestinou, a esses também chamou; e aos que chamou, a esses também justificou; e aos que justificou, a esses também glorificou\" (Romanos 8.30).",
+      "Terceira prova: um filho não pode deixar de ser filho — você recebeu a própria natureza de Deus, assim como quem come da Árvore da Vida (Cristo) vive para sempre (exemplo das duas árvores do Éden).",
+      "Vamos descansar nessa certeza — não é você que segura Deus, é ele quem te segura, e nada pode mudar isso."
+    ],
+    "versiculo_chave": {
+      "referencia": "Romanos 8.38-39",
+      "texto": "Nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas presentes, nem as futuras, nem as potestades, nem a altura, nem a profundidade, nem qualquer outra criatura poderá separar-nos do amor de Deus, que está em Cristo Jesus, nosso Senhor."
+    }
+  },
+  "nota_lacuna": []
+}

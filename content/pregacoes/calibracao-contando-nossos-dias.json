@@ -1,0 +1,241 @@
+{
+  "metadados": {
+    "serie": "Próximo Nível",
+    "capitulo": "",
+    "tema": "Contando os Nossos Dias",
+    "data": "8 de fevereiro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Salmo 90.12",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Uma mensagem sobre maturidade, sabedoria e a importância de discernir as estações espirituais para concluir os ciclos de crescimento e alcançar o próximo nível que Deus tem para nós.",
+    "componente_tema": {
+      "variante": "stage",
+      "dados": {
+        "label": "DECLARAÇÃO",
+        "texto": "A prova não tem o propósito de me reprovar, mas de me aprovar. Deus me prepara no secreto para suportar o peso da próxima estação.",
+        "sub": "Antes da promoção, existe a preparação."
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": ""
+    },
+    "versiculo_ancora": {
+      "referencia": "Salmo 90.12",
+      "texto": "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria."
+    },
+    "frase_sintese": "Antes de uma promoção, existe uma prova. Deus nos prepara no secreto, desenvolvendo nosso caráter e sabedoria, para que possamos discernir as estações espirituais e concluir os ciclos de crescimento até alcançar o descanso e a plenitude d'Ele."
+  },
+  "mapa_pontos": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Prova Precede a Promoção",
+      "pendente": false
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Sabedoria como Chave do Próximo Nível",
+      "pendente": false
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "Contar os Dias e Discernir as Estações (Kairós)",
+      "pendente": false
+    },
+    {
+      "id": "ponto-4",
+      "numero": "04",
+      "titulo": "Os Ciclos de Crescimento e o Princípio do Descanso",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Prova Precede a Promoção",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Tiago 1.2-4",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus está nos levando para um próximo nível, mas antes de uma promoção, sempre existe uma prova. A prova não tem o propósito de nos reprovar, mas de nos aprovar. Quando somos testados, Deus está gerando estrutura espiritual e alargando a nossa capacidade para lidar com o peso da nova estação."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 1.2-4",
+          "texto": "Meus irmãos, considerem motivo de grande alegria o fato de passarem por diversas provações, pois vocês sabem que a prova da sua fé produz perseverança. E a perseverança deve ter ação completa, a fim de que vocês sejam maduros e íntegros, sem lhes faltar coisa alguma."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Analogia",
+            "corpo": [
+              "O bambu chinês cresce metros em poucas semanas, mas passa anos crescendo para baixo da terra, desenvolvendo raízes profundas e fortes.",
+              "Quem olha de fora pensa que nada acontece, mas uma revolução silenciosa está construindo a base que sustentará o crescimento visível.",
+              "Assim é a formação no secreto: Deus não tem pressa em exibir, mas tem compromisso em formar caráter, identidade e maturidade antes de nos expor publicamente."
+            ],
+            "conclusao": "O que é público e sustentado é mantido por aquilo que foi formado e construído no secreto."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há um desequilíbrio perigoso quando valorizamos o poder e a unção em detrimento do caráter. O poder pode te colocar em um lugar de destaque e evidência, mas é o **caráter** que te mantém nesse lugar. Jesus viveu 30 anos em formação no secreto antes de 3 anos e meio de ministério público."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Sabedoria como Chave do Próximo Nível",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Tiago 1.5 · 1 Coríntios 1.30",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A maioria dos nossos problemas não são financeiros, conjugais ou ministeriais; são, em sua raiz, **problemas de sabedoria**. Existe algo que ainda não sabemos ou não vimos. A boa notícia é que a sabedoria não é um dom automático, mas uma conquista adquirida através da busca intencional a Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 1.5",
+          "texto": "Se algum de vocês tem falta de sabedoria, peça-a a Deus, que a todos dá livremente, de boa vontade; e lhe será concedida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A nossa sabedoria não é apenas um conceito, é uma Pessoa: **Cristo**. Aquele que cresce em sabedoria valoriza a presença de Deus e investe tempo na Sua Palavra. A Bíblia é soprada por Deus, e ao meditar, confessar e praticar a Palavra, recebemos o sopro d'Ele para discernir os caminhos à nossa frente."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 1.30",
+          "texto": "É por causa dele que vocês estão em Cristo Jesus, o qual se tornou sabedoria de Deus para nós, isto é, justiça, santidade e redenção."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "Contar os Dias e Discernir as Estações (Kairós)",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Salmo 90.12",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Contar os nossos dias não é apenas uma cronologia de segundos e minutos (*Chronos*), mas o discernimento espiritual das estações que estamos vivendo (*Kairós*). Deus é um Deus de ciclos, de começos, recomeços e agendas espirituais."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Salmo 90.12",
+          "texto": "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quando o Chronos (tempo cronológico) se encontra com o Kairós (tempo de oportunidade e favor), Deus nos promove para o próximo nível."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para contar os dias, precisamos de **marcos espirituais**: o dia do novo nascimento, do batismo, do casamento, de uma ordenação ou de um grande livramento. Esses marcos funcionam como bússolas (Jeremias 31.21) que nos ajudam a perceber em qual ano do ciclo estamos, quais promessas reivindicar e qual postura adotar. Quem não conta os dias vive distraído, desperdiçando estações e morrendo na praia por não concluir os ciclos de crescimento."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-4",
+      "numero": "04",
+      "titulo": "Os Ciclos de Crescimento e o Princípio do Descanso",
+      "sec_eyebrow": "4ª Verdade",
+      "referencias": "Levítico 25 · Lucas 13.6-9 · 2 Reis 13.17-19",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus planejou a história em ciclos, culminando no princípio do Sábado (descanso). Assim como houve o ano sabático e o ano do Jubileu no Antigo Testamento, nossas vidas também operam em ciclos de 7 anos, cada um com um propósito e uma expectativa específica."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "timeline",
+          "dados": {
+            "itens": [
+              {
+                "icon": "1",
+                "titulo": "Ano de Aprendizagem",
+                "desc": "Ano de ajustes, descobertas e dificuldades. Não é tempo de esperar grandes frutos, mas de ganhar experiência e paciência."
+              },
+              {
+                "icon": "2",
+                "titulo": "Ano de Serviço",
+                "desc": "Tempo de arregaçar as mangas, trabalhar duro e mostrar serviço. Não é ano de reconhecimento, mas de construção e quebração de pedra."
+              },
+              {
+                "icon": "3",
+                "titulo": "Ano de Aliança",
+                "desc": "Consolidação e intimidade. Os vínculos se fortalecem e os primeiros frutos devem ser reinvestidos para adubar a terra, não consumidos prematuramente (Levítico 19.23-25)."
+              },
+              {
+                "icon": "4",
+                "titulo": "Ano de Oportunidades",
+                "desc": "Tempo em que se espera fruto. Como a figueira na parábola, é o momento de receber cuidado extra e produzir, sob risco de ser cortada (Lucas 13.6-9)."
+              },
+              {
+                "icon": "5",
+                "titulo": "Ano de Perseverança",
+                "desc": "Ano de definição de padrões e resistência. É quando as raízes são testadas e a tentação de desistir é maior, exigindo que 'atiremos as flechas' até o fim (2 Reis 13.17-19)."
+              },
+              {
+                "icon": "6",
+                "titulo": "Ano da Bênção Tríplice",
+                "desc": "Deus envia Sua bênção para que a terra produza colheita suficiente para três anos, preparando o caminho para o descanso (Levítico 25.20-22)."
+              },
+              {
+                "icon": "7",
+                "titulo": "Ano do Descanso (Sabático)",
+                "desc": "Plenitude, deleite e desfrute. O ciclo é concluído e a promessa é experimentada em sua totalidade, sem a necessidade de plantar ou colher com esforço."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos vivem em eterna 'quebração de pedra' porque desistem no ano 1, 2 ou 5, reiniciando ciclos sem nunca chegar ao ano do descanso. Aprender a contar os dias é saber ter paciência quando é tempo de perseverar e fé quando é tempo de colher. Deus quer nos levar ao sétimo ano, à plenitude da bênção."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "Antes de qualquer promoção espiritual, existe uma prova. Deus usa as dificuldades para desenvolver nosso caráter e maturidade, garantindo que tenhamos estrutura para suportar o peso do próximo nível.",
+      "versiculo_ancora": "Tiago 1.2-4"
+    },
+    {
+      "ponto": "A maioria dos nossos impasses são, na raiz, problemas de sabedoria. A sabedoria é adquirida através da busca a Deus, valorizando Sua presença e a Sua Palavra, pois Cristo é a nossa sabedoria.",
+      "versiculo_ancora": "Tiago 1.5"
+    },
+    {
+      "ponto": "Contar os dias significa discernir as estações espirituais (Kairós) a partir de marcos espirituais. Quem não percebe o ciclo em que está vivendo, desperdiça oportunidades e não conclui o que Deus começou.",
+      "versiculo_ancora": "Salmo 90.12"
+    },
+    {
+      "ponto": "A vida opera em ciclos de crescimento (como o princípio dos 7 anos). Cada ano tem um propósito: aprender, servir, consolidar, frutificar, perseverar e, finalmente, descansar na bênção tríplice de Deus.",
+      "versiculo_ancora": "Levítico 25.20-22"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "A prova não é para te reprovar, mas para te aprovar: discirna a estação em que você está, persevere no ciclo e prepare-se para o descanso e a promoção de Deus.",
+    "pontos": [
+      "Antes de uma promoção, sempre existe uma prova. Deus não tem pressa em nos exibir, mas tem compromisso em nos formar no secreto. Assim como o bambu passa anos desenvolvendo raízes invisíveis antes de crescer metros em poucas semanas, Deus está alargando nossa capacidade espiritual e forjando nosso caráter para que possamos suportar o peso e a responsabilidade do próximo nível sem quebrar. O poder pode te colocar no palco, mas apenas o caráter te mantém lá.",
+      "A chave para navegar essa jornada é a sabedoria, que se adquire pedindo a Deus e mergulhando em Sua Palavra. A maioria dos nossos problemas não é de recursos, mas de sabedoria. Contar os nossos dias, como pede o Salmo 90, não é uma contagem cronológica, mas o discernimento espiritual das estações (Kairós). Precisamos de marcos espirituais (como o batismo ou o casamento) para saber em que ano do ciclo estamos, quais promessas reivindicar e qual postura adotar, evitando viver de forma distraída e desperdiçar estações.",
+      "Deus estabeleceu o princípio dos ciclos de crescimento, culminando no descanso. Em um ciclo de 7 anos, passamos por fases distintas: o primeiro ano é de aprendizagem e ajustes; o segundo, de serviço e trabalho duro; o terceiro, de consolidação de alianças; o quarto, de oportunidades onde se espera fruto; o quinto, de perseverança e definição de padrões; o sexto, de bênção tríplice preparatória; e o sétimo, o ano sabático de pleno descanso e deleite. Muitos vivem em eterna luta porque desistem antes de concluir o ciclo. Aprenda a perseverar para experimentar a plenitude da bênção de Deus."
+    ],
+    "versiculo_chave": {
+      "referencia": "Salmo 90.12",
+      "texto": "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria."
+    }
+  },
+  "nota_lacuna": []
+}

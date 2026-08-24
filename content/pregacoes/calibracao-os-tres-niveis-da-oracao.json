@@ -1,0 +1,295 @@
+{
+  "metadados": {
+    "serie": "Avulsa",
+    "capitulo": "",
+    "tema": "Os Três Níveis da Oração",
+    "data": "28 de setembro de 2025",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Mateus 7.7-8",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Mensagem de abertura de uma jornada de 14 dias de jejum. O propósito declarado é ensinar a igreja a orar — partindo de Tiago 4.2-3 (\"pedis e não recebeis, porque não pedis\") para revelar três níveis progressivos de intensidade na oração: pedir, buscar e bater.",
+    "versiculo_ancora": {
+      "referencia": "Mateus 7.7-8",
+      "texto": "Pedi, e dar-se-vos-á; buscai, e achareis; batei, e abrir-se-vos-á. Pois todo o que pede recebe; e o que busca encontra; e ao que bate abrir-se-lhe-á."
+    },
+    "frase_sintese": "O jejum não é uma barganha nem moeda de troca com Deus — é oração intensificada, um convite a um novo patamar de vida de oração frutífera. Tudo aquilo que Deus é e tudo aquilo que Deus tem está disponível para nós por meio da oração; quando oramos, damos a Deus autorização para agir na nossa história."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Oração Como Autorização"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Ore a Respeito de Tudo"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Nível 1 — Pedir"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Nível 2 — Buscar"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Nível 3 — Bater (Interceder)"
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Oração Como Autorização",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Salmo 115.16 · Gênesis 2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando oramos, estamos autorizando Deus a intervir na nossa história. **Deus não faz nada na sua vida se você não orar a respeito daquilo primeiro** — tudo o que Deus realiza hoje é fruto de orações respondidas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ao criar o homem, Deus deu liberdade de escolha — e Deus respeita essa liberdade. Ele colocou no jardim uma alternativa (a árvore da vida e a árvore do conhecimento) justamente para que o homem pudesse exercitar essa liberdade. Deus não vai amarrar você numa cadeira e forçar uma bênção sobre você."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Salmo 115.16",
+          "texto": "Os céus são os céus do Senhor, mas a terra, ele a deu aos filhos dos homens."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O homem escolheu mal e cometeu alta traição contra Deus — toda a história da redenção existe para corrigir esse erro. Mas a liberdade de escolha permanece: é por isso que orar é necessário. Deus está mais interessado em te abençoar do que você está em ser abençoado por ele — mas ele espera que você venha a ele, espontaneamente, como um filho se aproxima do pai."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A oração mais poderosa e profunda que podemos fazer é simplesmente chamá-lo de Pai."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Ore a Respeito de Tudo",
+      "sec_eyebrow": "Fundação",
+      "referencias": "",
+      "corpo": [
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Lustre de Cristal",
+            "corpo": [
+              "Recém-casados, o pastor e a esposa voltaram da lua de mel para uma casa vazia — sem sofá, sem mesa, sem fogão. No meio da mudança, ela disse que queria muito um lustre de cristal. Ele reagiu com ironia: 'não temos nem fogão, quer comprar lustre agora?' — e sugeriu que ela orasse a Deus a respeito.",
+              "Semanas depois, ministrando em outra cidade, sem ter comentado a necessidade com ninguém, um caminhão de mudança chegou à casa deles — sofá, mesa de jantar, cadeiras, tudo combinando. E dentro de uma das caixas: o lustre."
+            ],
+            "conclusao": "Se um lustre é importante para você, um lustre é importante para Deus também. Não existe assunto pequeno demais para levar a ele."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muita gente pensa: \"não vou incomodar Deus com esse tipo de coisa, ele está governando o universo.\" Mas tudo que diz respeito a você é importante para Deus — ele não é um Deus distante e impessoal, é Pai. **Não há nada tão grande que Deus não possa fazer, e não há nada tão pequeno que diz respeito a você que não seja importante para ele.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você sente que não tem assunto para falar com Deus, é porque não tem percepção da própria vida. Casamento, filhos, ministério, saúde, direção, discernimento, amigos que sofrem, pessoas confusas ao redor — não faltará motivo, faltará tempo. **Você não tem cultivado uma vida de oração porque o seu coração está vazio** — não vazio de Deus, mas vazio de anseios, de sonhos, de expectativa."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Aquele que tem um desejo profundo no coração, ele vai orar."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Nível 1 — Pedir",
+      "sec_eyebrow": "1º Nível",
+      "referencias": "Tiago 4.2-3 · 1 João 5.14 · Filipenses 4.19 · 1 Timóteo 2.3-4 · Salmo 128.1-2",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 4.2-3",
+          "texto": "Cobiçais, e nada tendes; matais e invejais, e nada podeis alcançar; combateis e guerreais, e nada tendes, porque não pedis."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos dos seus problemas começam porque você não pede. Existem lutas que você enfrenta simplesmente porque não orou a respeito. Você pode culpar governo, capitalismo, pandemia, opressão — **mas a explicação bíblica é uma só: porque você não pediu.** Se você é filho, o seu Pai tem para dar. Não há motivo para inveja de ninguém — basta pedir."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — As Balinhas de Avião",
+            "corpo": [
+              "Sempre que viaja, o pastor volta com balinhas de avião. Quando seu filho Pedrinho acorda de madrugada, ele desce até o quarto e entrega uma bala — mas nunca dá o pacote inteiro de uma vez. O menino sabe que há mais na mochila, mas precisa vir até ele, sentar no colo, conversar."
+            ],
+            "conclusao": "Deus é dono de tudo, mas não dá tudo de uma vez — porque ele quer que você recorra a ele, dependa dele, tenha intimidade com ele. Não tenha vergonha de pedir."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há quem pense que não pedir é mais espiritual — \"hoje só vamos agradecer\". Isso parece espiritual, mas na verdade é carne: quem acha que não precisa pedir está expressando autossuficiência e arrogância. **O homem não pode receber nada, se do céu não lhe for dado.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Segundo encorajamento: **peça com clareza, seja específico, não seja vago.** Quando alguém pede oração \"de forma geral\", a pessoa não saberá reconhecer quando Deus agiu. Orações definidas têm respostas específicas — e você saberá que foi Deus. Isso não significa exagerar nos detalhes, mas saber o que você deseja e pedir com clareza."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E peça em linha com a vontade de Deus — que é revelada na Palavra. Quanto mais cheio da Palavra você estiver, mais preparado estará para os momentos de necessidade, e mais frutífero será na oração."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 5.14",
+          "texto": "E esta é a confiança que temos para com ele: que, se pedirmos alguma coisa, segundo a sua vontade, ele nos ouve."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Exemplos de promessas específicas na Palavra para orar com confiança: suprimento (Filipenses 4.19), salvação de familiares (1 Timóteo 2.3-4), prosperidade no trabalho (Salmo 128.1-2). Quanto à cura, Jesus é a exata expressão do caráter do Pai — e **Jesus nunca colocou doença em ninguém; ele curou a todos.** Onde ele passava, cegos enxergavam, enfermos eram curados, espíritos imundos eram expulsos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Filipenses 4.19",
+          "texto": "O meu Deus, segundo as suas riquezas, suprirá todas as vossas necessidades em glória, por Cristo Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Salmo 128.1-2",
+          "texto": "Bem-aventurado aquele que teme ao Senhor e anda nos seus caminhos. Pois comerás do trabalho das tuas mãos; feliz serás, e te irá bem."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Por último: quando pedimos, pedimos apenas uma vez — porque temos a confiança de que fomos ouvidos. Às vezes a oração repetida é mais expressão de incredulidade do que de fé. Persevere vigiando, com ações de graças."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Nível 2 — Buscar",
+      "sec_eyebrow": "2º Nível",
+      "referencias": "Hebreus 11.6 · Jeremias 29.13-14",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O segundo nível é mais profundo, mais intenso — o coração está envolvido. Buscar fala de uma intensidade que não abre mão: você deseja algo hoje, continua desejando semana que vem, e no mês seguinte esse anseio ainda não saiu do coração."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 11.6",
+          "texto": "De fato, sem fé é impossível agradar a Deus, porquanto é necessário que aquele que se aproxima de Deus creia que ele existe, e que se torna galardoador dos que o buscam."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus recompensa aqueles que o buscam — só pelo fato de participar de um jejum como este, já há recompensa. Buscar ao Senhor é conversar com ele, obter direção: \"Senhor, me ensina, me explica, me mostra, me ajuda, me socorre.\" É uma busca intensa, de quem verdadeiramente está disposto."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Jeremias 29.13-14",
+          "texto": "E buscar-me-eis e me achareis, quando me buscardes com todo o vosso coração. Serei achado de vós, diz o Senhor, e farei mudar a vossa sorte."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Vou mudar a sua circunstância. Vou mudar seu casamento, sua condição financeira, sua liderança, seu ministério. E quando Deus promete mudar a sua sorte? Quando você decide buscá-lo de todo coração."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Nível 3 — Bater (Interceder)",
+      "sec_eyebrow": "3º Nível · Conclusão",
+      "referencias": "Daniel 9.2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O terceiro nível é bater — normalmente não batemos por nós mesmos, mas por alguém que amamos. Esse nível também é chamado de **intercessão**: o estágio mais profundo, nem todos entram nele. É o nível de oração de quem amadureceu — sai de cena e ora, clama e suplica em função dos outros."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Neste jejum, a igreja intercederá para que escamas caiam de olhos espirituais, para que correntes e prisões sejam quebradas, para que fortalezas espirituais caiam."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Daniel e os 70 Anos",
+            "corpo": [
+              "Daniel, lendo os livros do profeta Jeremias, descobriu que o cativeiro em Babilônia duraria 70 anos — e percebeu que aquele prazo estava se completando. Ele não presumiu que a promessa se cumpriria sozinha."
+            ],
+            "conclusao": "Ele voltou o rosto ao Senhor para buscar oração e súplica. Uma promessa profética não se cumpre automaticamente — quando entendemos que é tempo de chuva, oramos por chuva."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Daniel 9.2-3",
+          "texto": "No primeiro ano do seu reinado, eu, Daniel, entendi, pelos livros, que o número de anos de que falara o Senhor ao profeta Jeremias, que haviam de durar as assolações de Jerusalém, era de setenta anos. E voltei o rosto ao Senhor Deus, para buscá-lo em oração e súplicas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você tem uma promessa, uma palavra profética sobre sua vida, saiba: curar, salvar, suprir, libertar, transformar — tudo isso é a vontade de Deus. Muito do que as pessoas chamam de crise é apenas uma necessidade de aplicar fé e subir para outro nível. Você pode fugir da crise, ou encará-la dizendo: **\"não sei como ele fará, mas tenho a promessa sobre mim — e terei um testemunho para compartilhar, como memorial na minha história.\"**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Nosso problema é que muitos de nós não queremos depender de Deus. Na cabeça de muitos, viver pela fé é furada. Mas Deus é bom — e neste jejum você vai experimentar milagres."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "A oração como autorização: Deus não age na sua vida sem que você ore a respeito primeiro. Deus respeita a liberdade que deu ao homem — a oração é o exercício dessa liberdade.",
+      "versiculo_ancora": "Salmo 115.16"
+    },
+    {
+      "ponto": "Ore a respeito de tudo: nada é pequeno demais para Deus. Um coração vazio de anseios e sonhos é o que impede a vida de oração — não a distância de Deus.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Nível 1 — Pedir: a maioria dos problemas nasce do não pedir. Peça com clareza, seja específico, peça em linha com a Palavra, e peça apenas uma vez — depois persevere vigiando com ações de graças.",
+      "versiculo_ancora": "Tiago 4.2-3 · 1 João 5.14"
+    },
+    {
+      "ponto": "Nível 2 — Buscar: mais intenso que pedir — é quando o coração se envolve e não larga o desejo. Deus recompensa quem o busca de todo coração e promete mudar a sorte de quem assim o faz.",
+      "versiculo_ancora": "Hebreus 11.6 · Jeremias 29.13-14"
+    },
+    {
+      "ponto": "Nível 3 — Bater/Interceder: o estágio mais profundo, por alguém amado, não por si mesmo. Promessas não se cumprem automaticamente — Daniel orou pelo cumprimento do que já sabia ser a vontade de Deus.",
+      "versiculo_ancora": "Daniel 9.2-3"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Quando você ora, você autoriza Deus a agir — e existem três níveis, cada um mais intenso que o anterior: pedir, buscar e bater.",
+    "pontos": [
+      "Deus não faz nada na nossa vida sem que oremos primeiro — ele respeita a liberdade que deu ao homem, e por isso espera ser procurado.",
+      "\"Os céus são os céus do Senhor, mas a terra, ele a deu aos filhos dos homens\" (Salmo 115.16).",
+      "Nada é pequeno demais para levar a Deus (exemplo do lustre de cristal). O problema não é distância de Deus — é coração vazio de sonhos, anseios e expectativa. Quem tem desejo profundo, ora.",
+      "Primeiro nível: pedir. Muitos problemas nascem porque simplesmente não pedimos (exemplo das balinhas de avião — Deus quer que a gente venha até ele).",
+      "\"Cobiçais e nada tendes... porque não pedis\" (Tiago 4.2-3).",
+      "Peça com clareza, peça em linha com a Palavra, e peça apenas uma vez — perseverando com ações de graças, não repetindo por incredulidade.",
+      "Jesus nunca colocou doença em ninguém; ele curou a todos.",
+      "Segundo nível: buscar — mais intenso, o coração não larga.",
+      "\"Buscar-me-eis e me achareis... e farei mudar a vossa sorte\" (Jeremias 29.13-14). Deus recompensa quem o busca de todo coração.",
+      "Terceiro nível: bater, ou interceder — normalmente por quem amamos, não por nós. É o nível mais profundo, de quem amadureceu (exemplo de Daniel, que orou pelo cumprimento da promessa que já conhecia).",
+      "Vamos orar pedindo, buscando e intercedendo neste jejum — e vamos ver Deus mudar a nossa sorte."
+    ],
+    "versiculo_chave": {
+      "referencia": "Mateus 7.7-8",
+      "texto": "Pedi, e dar-se-vos-á; buscai, e achareis; batei, e abrir-se-vos-á. Pois todo o que pede recebe; e o que busca encontra; e ao que bate abrir-se-lhe-á."
+    }
+  },
+  "nota_lacuna": []
+}
