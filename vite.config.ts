@@ -8,8 +8,20 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      // Registro manual via registerSW() em src/main.tsx — sem isso, o script
+      // de registro auto-injetado (default do plugin) deixa o SW "instalado
+      // mas esperando" em vez de ativar de fato via skipWaiting, e o tema
+      // novo só aparece depois que o usuário limpa dados do site manualmente
+      // (CLAUDE.md, hurdle 2026-07-30/08-01/08-16 — e conflita direto com
+      // localStorage de anotações pessoais, que não pode ser limpo junto).
+      injectRegister: false,
       includeAssets: ['favicon.svg'],
       workbox: {
+        // Remove caches de versões anteriores do SW na ativação — sem isso,
+        // cache morto se acumula a cada deploy (não afeta o bug de tema não
+        // atualizar em si, que é o registerSW() ausente em main.tsx, mas é
+        // limpeza que deveria estar ligada desde sempre).
+        cleanupOutdatedCaches: true,
         // playroomkit (chunk Lobby-*.js, protótipo V2 em /v2/quem-sou-eu) é
         // ~800kB, e puxa o SDK do Discord (peer dep opcional que não usamos,
         // vira o chunk output-*.js) — nenhum dos dois faz sentido pré-cachear
