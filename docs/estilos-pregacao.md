@@ -309,6 +309,56 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 ---
 
+## Tema: Estilo #6 — Uma Vez Salvo, Salvo Para Sempre
+
+**Origem:** Arte oficial — tela do telão (bloco de "prova" com etiqueta datilografada e selo de cera vermelha sobre fundo pardo texturizado, faixa cinza-papel rasgado para o título) e pôster de Instagram (envelope kraft, título brush bold branco/vermelho, âncora do selo, etiqueta destacada com a frase-síntese da série).
+**Uso:** série *Uma Vez Salvo, Salvo Para Sempre* — tema da segurança eterna da salvação.
+
+### Paleta
+
+| Variável | Valor | Origem / Uso |
+|---|---|---|
+| `--bg` | `#1c140d` | Fundo geral — marrom-kraft bem escuro, derivado do papel pardo |
+| `--surface` | `#241a10` | Header, footer |
+| `--surface2` | `#2c2014` | Cards, blocos de versículo, boxes de analogia |
+| `--border` | `#3d2e1c` | Bordas e separadores |
+| `--text` | `#f0e4d0` | Texto principal — bege claro, tom de papel envelhecido |
+| `--muted` | `#8a7358` | Referências, labels |
+| `--kraft` | `#c9a876` | Acento neutro — o próprio tom do papel pardo, usado em fundos de etiqueta/faixa |
+| `--seal` | `#9c1c1c` | Acento primário — vermelho do selo de cera |
+| `--seal-soft` | `#d4544a` | Acento secundário — vermelho mais vivo, usado no destaque de palavra-chave (como o "SALVO" do pôster) |
+| `--seal-dim` | `#3a1210` | Bordas/fundos do acento vermelho |
+| `--seal-glow` | `rgba(156,28,28,.10)` | Glow decorativo, fundo do badge de série |
+
+**Racional:** a arte não usa gradiente nem textura "tecnológica" como as séries anteriores — é inteiramente analógica: papel, cera, fita adesiva, carimbo. A paleta reflete isso com tons terrosos e um único vermelho de acento, evitando qualquer cor "digital" (neon, saturação alta) que quebraria a metáfora de documento selado/prova física.
+
+**Textura de fundo:** paper grain sutil (SVG noise ou textura de papel kraft em baixa opacidade) no `body::before`, reforçando a superfície de papel da arte oficial.
+
+### Tipografia
+
+| Função | Família | Pesos |
+|---|---|---|
+| Título de "prova" (etiqueta) | `Courier Prime` (ou `Space Mono`) | 400, 700 — datilografada, imitando a etiqueta batida à máquina |
+| Título principal / display | `Kalam` ou `Caveat` (brush bold) | — segue o pôster de Instagram |
+| Corpo | `IBM Plex Sans` ou `Source Serif 4` | 300, 400, 500, 600 — segue a direção artística do telão |
+
+**Resolução da tipografia principal (validado):** o título principal (`header h1`) usa o brush manuscrito do pôster de Instagram — é a peça de identidade mais reconhecível da série, funcionando como "assinatura" visual. Todo o restante do documento (etiquetas de prova, corpo, blocos de versículo, componentes) segue a direção artística do telão — mais sóbria e legível, adequada para leitura contínua. Essa divisão intencional replica a mesma lógica das artes originais: o pôster é a peça de divulgação/impacto, o telão é a peça de acompanhamento durante a pregação.
+
+### Componentes e variantes específicas deste tema
+
+- **`.seal-badge`** — selo circular de cera com âncora, usado no header como elemento decorativo fixo (não muda por seção). Réplica do elemento gráfico mais reconhecível da arte.
+- **`.prova-label`** — etiqueta com aparência de fita adesiva/papel rasgado, fundo `--kraft`, texto em `Courier Prime`, usada como `sec_eyebrow` visual para cada prova (substitui o `.sec-eyebrow` textual simples dos outros temas por um elemento com textura própria). Payload segue o campo `sec_eyebrow` universal (string) — a variante visual (fita/etiqueta) é resolvida pelo tema, não pelo JSON de conteúdo.
+- **`.label-box`** (reaproveitado do Estilo #5b) — cabe bem aqui como "ficha" ou "selo de autenticidade" no header, já usado na calibração de teste deste tema (`campos`: questão central, provas apresentadas, base doutrinária).
+- **Navegação interna** — segue a especificação universal de Leitura Contínua (ver seção ao final deste documento); cores do chip/progresso usando `--seal`/`--seal-dim`.
+
+### Decisões editoriais
+
+- **Tópicos nomeados como "provas"** — a série usa `sec_eyebrow: "Primeira Prova"`, `"Segunda Prova"`, `"Terceira Prova"` em vez de números ou nomes de bloco genéricos, refletindo a metáfora documental/jurídica da arte (selo, prova, envelope).
+- **Paleta deliberadamente não-digital** — únicos acentos são tons terrosos + um vermelho de cera, sem neon ou saturação alta, para preservar a metáfora de documento físico selado.
+- **Duas fontes de arte, papéis diferentes** — título principal segue o pôster (brush, impacto, divulgação); todo o restante segue o telão (sóbrio, legível, acompanhamento da pregação). Ver nota de resolução na seção Tipografia.
+
+---
+
 ## Tema: Série Religião Tóxica (Estilo #5 → #5b, paleta oficial vigente)
 
 > **Nota histórica:** este tema teve duas versões. O Estilo #5 original foi criado editorialmente (sem referência visual) para a primeira mensagem da série. Na segunda mensagem, a arte oficial de palco chegou e **substituiu retroativamente** a paleta editorial. **O Estilo #5b é o tema vigente** — o #5 original é mantido abaixo apenas como registro histórico do princípio de "paleta provisória".

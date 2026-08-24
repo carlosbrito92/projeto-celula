@@ -1,0 +1,191 @@
+{
+  "metadados": {
+    "serie": "Avulsa",
+    "capitulo": "",
+    "tema": "Até Quando a Mágoa Vai Te Segurar?",
+    "data": "25 de novembro de 2023",
+    "pregador": "Pastor Pedro",
+    "texto_base": "Hebreus 12.14-15",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Uma mensagem sobre libertação, cura da alma e a decisão de soltar o passado para viver o novo de Deus.",
+    "componente_tema": {
+      "variante": "stage",
+      "dados": {
+        "label": "DECLARAÇÃO",
+        "texto": "Este é um dia de libertação. Até quando a mágoa vai te segurar? Hoje é dia de soltar e prosseguir.",
+        "sub": "Uma decisão de não permitir que o passado roube o seu futuro."
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": ""
+    },
+    "versiculo_ancora": {
+      "referencia": "Hebreus 12.15",
+      "texto": "Cuidado para que ninguém deixe de alcançar a graça de Deus; para que nenhuma raiz de amargura brote e cause dificuldades, contaminando a muitos."
+    },
+    "frase_sintese": "A mágoa não tratada se transforma em uma raiz de amargura que contamina nossa alma e nossos relacionamentos, mas o perdão é a chave que nos liberta do passado e nos permite viver o novo de Deus."
+  },
+  "mapa_pontos": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Evolução da Mágoa em Raiz de Amargura",
+      "pendente": false
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Ofensa como Isca e a Escolha da Graça",
+      "pendente": false
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "O Perdão como Decisão de Liberdade",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Evolução da Mágoa em Raiz de Amargura",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Hebreus 12.14-15",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe uma diferença crucial entre mágoa e amargura. A mágoa é a ferida inicial, mas a **amargura** é a mágoa que foi processada na alma, que não foi tratada e que justificamos como algo normal. Ela é a evolução da mágoa não curada."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 12.14-15",
+          "texto": "Segui a paz com todos e a santificação, sem a qual ninguém verá o Senhor. Tendo cuidado para que ninguém se prive da graça de Deus; nem haja alguma raiz de amargura que, brotando, vos perturbe, e por ela muitos se contaminem."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O tempo não cura feridas, não arranca raízes e não restaura relacionamentos. O tempo apenas dá mais espaço para o crescimento daquilo que precisamos arrancar desde o primeiro momento."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Analogia",
+            "corpo": [
+              "Deixar a mágoa sem tratamento é como deixar uma louça suja na pia. No início, parece inofensiva, mas com o tempo a sujeira endurece, seca e começa a atrair problemas.",
+              "O que seria fácil de lavar no primeiro momento torna-se uma tarefa árdua e desagradável depois.",
+              "Assim é a raiz de amargura: ela se aprofunda, se multiplica e contamina todos os relacionamentos ao redor."
+            ],
+            "conclusao": "Não espere o tempo resolver. Trate a ferida enquanto ela ainda pode ser curada."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Pessoas amarguradas passam a enxergar tudo através da **lente da dor**. Isso afeta a maneira de pensar, de viver, de tomar decisões e até a vida espiritual. O fruto dessa raiz é a raiva, o ódio, a aversão e a vingança, mantendo-nos presos ao passado enquanto Deus quer nos levar para uma nova estação."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Ofensa como Isca e a Escolha da Graça",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Provérbios 19.11 · Mateus 7.1-2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Tudo começa com uma **pequena ofensa** ou um mal-entendido. O inimigo usa a ofensa como uma isca (como a marisca para o peixe) para nos capturar e nos distrair. O objetivo do adversário é que percamos uma grande oportunidade, uma grande amizade ou um grande dia por conta de uma pequena desavença."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Provérbios 19.11",
+          "texto": "A sabedoria do homem lhe dá paciência; sua glória é ignorar as ofensas."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": {
+              "label": "A Medida da Condenação",
+              "citacao": "Julga rapidamente, cobra explicações, assume o pior e guarda a ofensa no coração."
+            },
+            "lado_b": {
+              "label": "A Medida da Graça",
+              "citacao": "Dá o benefício da dúvida, espera o melhor do outro, ignora a ofensa e escolhe passar por cima."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A ofensa é o poder que damos ao outro de nos ferir. Quando reagimos com amor e passamos por cima, retiramos esse poder. A sabedoria nos chama a não emprestar nossos ouvidos a toda ofensa, pois a serpente (o adversário) se alimenta da energia de discórdia e ressentimento que geramos quando não tratamos essas feridas."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "O Perdão como Decisão de Liberdade",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Mateus 18.21-35 · 1 João 1.9",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando a ofensa foi intencional, a dor é profunda e a traição, real. Ainda assim, a Palavra de Deus nos oferece um caminho de saída. Jesus ensina que o perdão não tem limites (setenta vezes sete) e ilustra isso com a **Parábola do Servo Incompassivo**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 18.32-33",
+          "texto": "Então o senhor chamou o servo e disse: 'Servo mau, perdoei-lhe toda a dívida, porque você me suplicou. Não devia você ter compaixão do seu conservo, assim como eu tive compaixão de você?'"
+        },
+        {
+          "tipo": "callout",
+          "texto": "O perdão não é sobre se a outra pessoa merece, se ela se arrependeu ou se pediu reparação. O perdão é sobre a sua liberdade. É deixar livre quem nos ofendeu, assim como fomos libertos de uma dívida impagável por Deus."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "antidoto",
+          "dados": {
+            "label": "Como ser curado e perdoar",
+            "texto": "1. **Admita e reconheça**: Confesse que precisa de cura e libertação (1 João 1.9). A mágoa é um pecado quando decidimos permanecer nela.\n2. **Perdoe sem exigir reparação**: O perdão é uma decisão e uma atitude, não um sentimento. Não é amnésia, mas a decisão de não usar mais aquela memória para ferir a si mesmo ou ao outro.\n3. **Solte o sino**: Perdoar é parar de puxar a corda do sino. O som pode ecoar por um tempo, mas sem a sua ação, ele eventualmente cessará."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando deixamos as pessoas irem livres, nós mesmos é que ficamos livres. O perdão é, na verdade, um bem que fazemos a nós mesmos para romper com o passado e viver o novo que Deus tem para nós."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "A mágoa não tratada evolui para uma raiz de amargura que contamina a alma e os relacionamentos. O tempo não cura essa raiz; apenas a aprofunda.",
+      "versiculo_ancora": "Hebreus 12.15"
+    },
+    {
+      "ponto": "Pequenas ofensas e mal-entendidos são iscas. A sabedoria nos chama a ignorar a ofensa e a aplicar a medida da graça, não a da condenação.",
+      "versiculo_ancora": "Provérbios 19.11"
+    },
+    {
+      "ponto": "O perdão é uma decisão de liberdade, não um sentimento. Devemos perdoar sem exigir reparação, assim como Deus nos perdoou de uma dívida impagável.",
+      "versiculo_ancora": "Mateus 18.32-33"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Solte a mágoa hoje: o perdão não é um sentimento, é uma decisão que liberta você do passado para viver o novo de Deus.",
+    "pontos": [
+      "A mágoa não tratada não desaparece com o tempo; ela se aprofunda como uma raiz de amargura, contaminando nossa percepção, nossos relacionamentos e nossa vida espiritual, gerando frutos de raiva e vingança. É como uma louça suja deixada na pia: quanto mais tempo passa, mais difícil e desagradável se torna a limpeza.",
+      "Pequenas ofensas e mal-entendidos são iscas que nos prendem ao passado e nos roubam o presente. A sabedoria nos chama a ignorar a ofensa e a aplicar a medida da graça, dando ao outro o benefício da dúvida e escolhendo não retribuir o mal com o mal, retirando assim o poder que a ofensa tem sobre nós.",
+      "O perdão é uma decisão, não um sentimento ou esquecimento. Assim como fomos perdoados de uma dívida impagável por Deus, somos chamados a liberar aqueles que nos ofenderam, não porque merecem, mas porque isso nos traz cura. Perdoar é parar de puxar a corda do sino da mágoa, escolhendo a própria liberdade."
+    ],
+    "versiculo_chave": {
+      "referencia": "Hebreus 12.15",
+      "texto": "Cuidado para que ninguém deixe de alcançar a graça de Deus; para que nenhuma raiz de amargura brote e cause dificuldades, contaminando a muitos."
+    }
+  },
+  "nota_lacuna": []
+}
