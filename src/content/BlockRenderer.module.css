@@ -31,6 +31,11 @@
   color: var(--accent1);
 }
 
+/* Estilo #6: +2px — mesmo achado de contraste do tema (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .versiculoReferencia {
+  font-size: 13px;
+}
+
 .callout {
   background: var(--surface2);
   border-left: 3px solid var(--accent1);

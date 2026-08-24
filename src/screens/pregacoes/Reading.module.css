@@ -172,6 +172,12 @@
   margin-bottom: 6px;
 }
 
+/* Estilo #6: +2px — mesmo achado de contraste do .versiculoAncoraReferencia
+   acima, aplicado ao badge de série (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .badge {
+  font-size: 11px;
+}
+
 .banner {
   background: var(--surface2);
   border-left: 3px solid var(--accent1);
@@ -179,6 +185,12 @@
   font-family: var(--font-display);
   font-size: calc(19px * var(--leitura-escala, 1));
   line-height: 1.5;
+}
+
+/* Estilo #6: brush (Kalam) exclusivo do header h1 — frase_sintese usa a
+   fonte sóbria do tema, não a "assinatura" do pôster (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .banner {
+  font-family: var(--font-corpo);
 }
 
 .bannerContextualizacao {
@@ -211,6 +223,12 @@
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--accent1);
+}
+
+/* Estilo #6: +2px — contraste baixo (--seal saturado sobre fundo escuro em
+   texto pequeno), achado de acessibilidade (docs/estilos-pregacao.md). */
+[data-tema="estilo-6-uma-vez-salvo"] .versiculoAncoraReferencia {
+  font-size: 13px;
 }
 
 .avisoProximaSerie {

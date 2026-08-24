@@ -155,10 +155,10 @@ export const ESTILO_6_UMA_VEZ_SALVO: Theme = {
   key: 'estilo-6-uma-vez-salvo',
   nome: 'Estilo #6 — Uma Vez Salvo, Salvo Para Sempre',
   cores: {
-    bg: '#1c140d',
-    surface: '#241a10',
-    surface2: '#2c2014',
-    border: '#3d2e1c',
+    bg: '#2a2015',
+    surface: '#332618',
+    surface2: '#3d2e1c',
+    border: '#4d3a24',
     text: '#f0e4d0',
     muted: '#8a7358',
     accent1: '#9c1c1c', // --seal

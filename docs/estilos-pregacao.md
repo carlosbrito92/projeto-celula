@@ -316,15 +316,17 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 ### Paleta
 
+> **Atualizado 2026-08-22** — clareada em relação à versão original, aproximando do tom kraft claro da arte oficial (pôster de Instagram), mantendo a mesma hierarquia relativa de luminosidade (bg < surface < surface2 < border) para não perder contraste de leitura em ambiente escuro.
+
 | Variável | Valor | Origem / Uso |
 |---|---|---|
-| `--bg` | `#1c140d` | Fundo geral — marrom-kraft bem escuro, derivado do papel pardo |
-| `--surface` | `#241a10` | Header, footer |
-| `--surface2` | `#2c2014` | Cards, blocos de versículo, boxes de analogia |
-| `--border` | `#3d2e1c` | Bordas e separadores |
-| `--text` | `#f0e4d0` | Texto principal — bege claro, tom de papel envelhecido |
+| `--bg` | `#2a2015` | Fundo geral — kraft escuro mais quente que a versão original (`#1c140d`), sobe luminosidade sem virar claro demais pra leitura confortável em ambiente com pouca luz |
+| `--surface` | `#332618` | Header, footer — acompanha o novo `--bg` na mesma proporção |
+| `--surface2` | `#3d2e1c` | Cards, blocos de versículo, boxes de analogia — idem |
+| `--border` | `#4d3a24` | Bordas e separadores — idem |
+| `--text` | `#f0e4d0` | Texto principal — bege claro, tom de papel envelhecido (mantido, já funcionava bem contra qualquer um dos tons de fundo) |
 | `--muted` | `#8a7358` | Referências, labels |
-| `--kraft` | `#c9a876` | Acento neutro — o próprio tom do papel pardo, usado em fundos de etiqueta/faixa |
+| `--kraft` | `#c9a876` | Acento neutro — o próprio tom do papel pardo, usado em fundos de etiqueta/faixa (mantido) |
 | `--seal` | `#9c1c1c` | Acento primário — vermelho do selo de cera |
 | `--seal-soft` | `#d4544a` | Acento secundário — vermelho mais vivo, usado no destaque de palavra-chave (como o "SALVO" do pôster) |
 | `--seal-dim` | `#3a1210` | Bordas/fundos do acento vermelho |
@@ -342,7 +344,9 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 | Título principal / display | `Kalam` ou `Caveat` (brush bold) | — segue o pôster de Instagram |
 | Corpo | `IBM Plex Sans` ou `Source Serif 4` | 300, 400, 500, 600 — segue a direção artística do telão |
 
-**Resolução da tipografia principal (validado):** o título principal (`header h1`) usa o brush manuscrito do pôster de Instagram — é a peça de identidade mais reconhecível da série, funcionando como "assinatura" visual. Todo o restante do documento (etiquetas de prova, corpo, blocos de versículo, componentes) segue a direção artística do telão — mais sóbria e legível, adequada para leitura contínua. Essa divisão intencional replica a mesma lógica das artes originais: o pôster é a peça de divulgação/impacto, o telão é a peça de acompanhamento durante a pregação.
+**Resolução da tipografia principal (validado, corrigido 2026-08-22):** o título principal (`header h1`) usa o brush manuscrito do pôster de Instagram — é a peça de identidade mais reconhecível da série, funcionando como "assinatura" visual. **Restrição explícita**: o brush é exclusivo do `h1` — em uma primeira implementação, vazou incorretamente para o `banner_intro.frase_sintese` e para blocos de citação de versículo, que devem usar a fonte sóbria (`IBM Plex Sans`/`Source Serif 4`), não o brush. Todo o restante do documento (etiquetas de prova, corpo, blocos de versículo, componentes, banner_intro) segue a direção artística do telão — mais sóbria e legível, adequada para leitura contínua. Essa divisão intencional replica a mesma lógica das artes originais: o pôster é a peça de divulgação/impacto, o telão é a peça de acompanhamento durante a pregação.
+
+**Ajuste de acessibilidade (2026-08-22):** a combinação de fundo escuro + vermelho de selo (`--seal`) prejudicava a legibilidade da referência bíblica (ex: "Romanos 5.1") ao lado de blocos de versículo — identificado por Carlos com visão normal, então o problema seria mais severo para leitores com baixa visão. Correção: **+2px no tamanho de fonte padrão**, tanto para a referência bíblica quanto para o badge de série no header (ex: "Uma Vez Salvo, Salvo Para Sempre") — os dois elementos que usam o acento vermelho sobre o fundo do tema.
 
 ### Componentes e variantes específicas deste tema
 
