@@ -1,0 +1,407 @@
+{
+  "metadados": {
+    "serie": "Uma Vez Salvo, Salvo Para Sempre",
+    "capitulo": "Capítulo 4",
+    "tema": "Uma Âncora para a Alma",
+    "data": "13 de setembro de 2026",
+    "pregador": "Pastor Yan Augusto",
+    "texto_base": "Hebreus 6.4-20",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Quarta mensagem da série, em resposta às dúvidas geradas pelas provas anteriores. O texto mais usado por quem rejeita a segurança eterna — Hebreus 6 — é analisado em profundidade. O Pastor Yan demonstra que as cinco expressões de Hb 6.4-6 descrevem pessoas que se aproximaram do evangelho, mas nunca nasceram de novo, e que a conclusão do capítulo não é medo, mas uma âncora firme: o juramento imutável de Deus.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          { "campo": "Texto em análise", "valor": "Hebreus 6.4-20 — o texto mais difícil da série" },
+          { "campo": "Questão central", "valor": "Hebreus 6 anula a segurança eterna ou a confirma?" },
+          { "campo": "Conclusão", "valor": "A âncora da alma é Jesus — ele jurou, e é impossível que Deus minta" }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": "Próximo domingo (20 de setembro): Hebreus 10 — continuando a resposta às dúvidas sobre a segurança eterna."
+    },
+    "versiculo_ancora": {
+      "referencia": "Hebreus 6.19",
+      "texto": "A qual temos por âncora da alma, segura e firme e que penetra além do véu, onde Jesus, como precursor, entrou por nós, tendo-se tornado sumo sacerdote para sempre, segundo a ordem de Melquisedeque."
+    },
+    "frase_sintese": "A certeza da salvação não é colocada em xeque em Hebreus 6 — pelo contrário, ela é reafirmada como uma âncora firme para a sua alma."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Fundação — A Âncora e o Princípio Hermenêutico",
+      "pendente": false
+    },
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Contexto da Carta aos Hebreus",
+      "pendente": false
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "As Cinco Expressões — Quem São os Que Caíram?",
+      "pendente": false
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Queda e a Blasfêmia contra o Espírito Santo",
+      "pendente": false
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Juramento de Deus e a Âncora da Alma",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Fundação — A Âncora e o Princípio Hermenêutico",
+      "sec_eyebrow": "Fundação",
+      "referencias": "Hebreus 6.4-20 · Efésios 6.17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Este é o quarto domingo da série. Nas três mensagens anteriores, compartilhei dez provas da segurança eterna da salvação. Hoje quero responder às perguntas que surgiram — e o texto que mais me enviaram é **Hebreus 6**, o texto favorito daqueles que rejeitam a doutrina de que uma vez salvos, salvos para sempre."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas antes de mergulhar no texto, quero lembrar por que a certeza da salvação importa: apenas aqueles que têm a segurança absoluta da salvação eterna podem realmente ter uma **fé firme em Jesus**. Apenas esses podem crescer espiritualmente, permanecer firmes no dia mau, no dia do ataque espiritual, nos dias das tribulações."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Que É Uma Âncora",
+            "corpo": [
+              "Uma âncora é um objeto extremamente pesado, normalmente em formato específico, que é lançado quando um navio deseja ficar parado — para que aquele navio não seja levado pelas ondas, para que balance menos.",
+              "A âncora é lançada ao mar — e assim é também a certeza da salvação. Nas águas deste mundo turbulento, cheio de vento e ondas de tribulações, nós precisamos estar seguros em Cristo Jesus.",
+              "Paulo diz em Efésios 6 que no dia mau devemos nos vestir da armadura espiritual, e uma das partes dessa armadura é exatamente o **capacete da salvação** — o capacete protege a cabeça, assim como a salvação protege a nossa mente, a nossa alma."
+            ],
+            "conclusao": "A certeza da salvação é uma âncora firme para a sua alma. Nos dias da adversidade, aqueles que têm certeza de que uma vez salvos estão salvos para sempre descansam nas misericórdias de Deus."
+          }
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quando nós interpretamos a Bíblia, precisamos compreender um princípio da hermenêutica: nós nunca devemos trocar a interpretação de um texto claro por causa de um texto que é obscuro ou de difícil interpretação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos leem Hebreus 6 e logo correm para afirmar que é possível que o salvo perca a salvação. Mas há muitos textos claros na Bíblia que afirmam a nossa salvação eterna: **João 3.16** — aquele que crê no Filho não perece, mas tem a vida eterna. **João 1.12** — a todos quantos o receberam, deu-lhes o direito de serem feitos filhos de Deus. **João 5.24** — aquele que ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Contexto da Carta aos Hebreus",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Hebreus 1.1-4 · Hebreus 10.32-34",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A primeira coisa que precisamos fazer é **tipar a carta aos Hebreus**. Não sabemos quem é o autor — a Bíblia não diz o nome. Alguns atribuem a Paulo, outros a Barnabé, mas não há consenso. Porém, o próprio nome da carta já revela quem são os seus destinatários: **hebreus** — um termo designado para se referir ao povo de Israel."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A carta é escrita para judeus que estavam se aproximando do cristianismo, em um processo de conhecer Jesus e de se converterem. Mas havia um grande problema: muitos desses judeus eram **perseguidos pelos judaizantes** — aqueles que não desejavam uma conversão plena ao Senhor Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 10.32-34",
+          "texto": "Lembrai-vos, porém, dos dias passados, em que, depois de iluminados, sustentastes grande luta de sofrimentos; ora, sendo vós mesmos objeto de opróbrio e de tribulações, ora, tornando-vos coparticipantes daqueles que assim foram tratados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Eles entravam nas casas desses judeus que estavam se convertendo, roubavam seus bens, prendiam seus filhos, suas esposas — tudo isso com o propósito de fazer com que eles não permanecessem crendo no Senhor Jesus. Portanto, a carta é escrita para um grupo de judeus que estavam tendo um profundo contato com o cristianismo: **alguns já haviam se convertido, mas tantos outros ainda precisavam de uma experiência genuína de salvação**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "razoes_grid",
+          "dados": {
+            "itens": [
+              {
+                "num": "1",
+                "nome": "Os que Nasceram de Novo",
+                "texto": "Aqueles que realmente creram, confessaram e passaram da morte para a vida. São genuinamente salvos."
+              },
+              {
+                "num": "2",
+                "nome": "Os que Estão se Aproximando",
+                "texto": "Vêm ao culto, gostam, estão sendo persuadidos pelo evangelho, investigando, estudando, decidindo se creem ou não. É o processo normal de conversão."
+              },
+              {
+                "num": "3",
+                "nome": "Os que Rejeitam a Verdade",
+                "texto": "Apesar de serem expostos ao evangelho, decidem rejeitá-lo. Ouviram sobre Jesus, sobre a cruz, sobre a eternidade — e ainda assim dizem: 'eu não creio'."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "callout",
+          "texto": "Nunca confunda conversão com novo nascimento. São coisas diferentes. Alguns estão se convertendo, mas ainda não nasceram de novo. Eles se aproximam, vêm aos cultos, frequentam uma célula, cantam canções, fazem orações — mas a natureza ainda não foi transformada."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A tentação daqueles irmãos era a tentação de **voltar** — de desistir desse caminho de conversão e voltar ao judaísmo, voltar aos sacrifícios, voltar à obediência à lei. Mas o autor de Hebreus está ensinando que **algo melhor chegou** — e esse algo melhor não é uma coisa, é uma pessoa: **Jesus Cristo**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 1.1-4",
+          "texto": "Havendo Deus, outrora, falado, muitas vezes e de muitas maneiras, aos pais, pelos profetas, nestes últimos dias, nos falou pelo Filho, a quem constituiu herdeiro de todas as coisas, pelo qual também fez o universo. Ele, que é o resplendor da glória e a expressão exata do seu Ser, sustentando todas as coisas pela palavra do seu poder, depois de ter feito a purificação dos pecados, assentou-se à direita da Majestade, nas alturas, tendo-se tornado tão superior aos anjos quanto herdou mais excelente nome do que eles."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O autor começa logo no capítulo um mostrando que **Jesus é superior**: superior ao judaísmo, superior a Moisés, superior aos anjos, superior ao sacerdócio de Arão e de Levi, superior a Josué. Muitos querem voltar à lei, muitos amam o judaísmo ainda hoje nas nossas igrejas — porque não entenderam que Cristo é superior."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "As Cinco Expressões — Quem São os Que Caíram?",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Hebreus 6.4-6 · Mateus 16.13-17 · Mateus 27.34 · Romanos 10.9-10 · Hebreus 4.2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O autor de Hebreus usa algumas expressões fortes para descrever aqueles que caíram. Ele diz que foram **iluminados**, que **provaram o dom celestial**, que se tornaram **participantes do Espírito Santo**, que **provaram a boa palavra de Deus** e os **poderes do mundo vindouro** — mas simplesmente caíram. Muitos concluem: se caíram, eram salvos e perderam a salvação. Vamos avaliar cada uma dessas expressões."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Primeira expressão: foram iluminados.** Ser iluminado não é ser salvo. Ser iluminado é **começar a enxergar** — ter os olhos abertos, começar a compreender o evangelho. Mas compreender não é necessariamente crer. Alguém pode vir aos nossos cultos e começar a ser iluminado — antes nem cria em Deus, nem cria na Bíblia — mas depois de alguns cultos o coração se abre e começa a ver, um lampejo de fé nasce. Mas a salvação não acontece quando alguém entende — a salvação acontece quando alguém diz: **eu creio**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 16.16-17",
+          "texto": "Respondendo Simão Pedro, disse: Tu és o Cristo, o Filho do Deus vivo. Então, Jesus lhe afirmou: Bem-aventurado és, Simão Barjonas, porque não foi carne e sangue que to revelaram, mas meu Pai, que está nos céus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há pessoas que podem frequentar os cultos, podem entender a mensagem, podem ouvir o evangelho — mas não receber. Podem achar o ambiente da igreja bom, legal, agradável. Podem gostar das músicas do louvor, podem sentir até algum tipo de arrepio, alguma sensação espiritual — mas isso não as torna necessariamente salvas. Estão sendo iluminadas, mas se não creram em Cristo, ainda não passaram da morte para a vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Segunda expressão: provaram o dom celestial.** Alguém diz: se provaram o presente celestial, quer dizer que foram salvos. Mas é um equívoco — porque é possível provar algo sem necessariamente aquilo se tornar parte de você."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 27.34",
+          "texto": "Deram-lhe a beber vinho com fel; mas ele, provando-o, não quis beber."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus na cruz pediu água, e os soldados, por pura maldade, deram-lhe vinho com fel — em outras palavras, vinagre. A Bíblia diz que Jesus **provou, mas não quis** — ele sentiu o gosto, mas não engoliu. Da mesma forma, quando o texto diz que há aqueles que provaram o dom celestial, quer dizer que **sentiram o gosto, mas não entrou no coração**. Eles experimentaram o amor da igreja, presenciaram a atuação do Espírito Santo em algum nível, foram impactados pela adoração — mas isso ainda não os transformou de dentro para fora."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Ar-Condicionado",
+            "corpo": [
+              "Imagine alguém que sai de um ambiente de calor intenso — como Belo Horizonte nesses dias — e entra em um ambiente refrigerado. No primeiro momento, a pessoa percebe imediatamente a diferença.",
+              "Mas depois de algum tempo, ela se acostuma com a temperatura e deixa de percebê-la.",
+              "Frequentar o ambiente de vida não é necessariamente possuir a vida. Alguns frequentam esse ambiente — a presença de Deus está aqui, a vida de Deus está aqui — mas não quer dizer que eles já possuem a vida de Deus dentro deles. Alguns apenas se acostumaram."
+            ],
+            "conclusao": "Estar na igreja não te torna salvo. Ninguém entrará na eternidade porque frequentava um culto. É necessário nascer de novo."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Terceira expressão: tornaram-se participantes do Espírito Santo.** Talvez essa seja a expressão mais difícil. A palavra 'participante' carrega a ideia de alguém que compartilha, que participa, que tem parte em alguma coisa. Mas nós precisamos distinguir **experimentar a atuação do Espírito** e **possuir a vida do Espírito dentro de nós**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Imagine que uma pessoa chega a uma reunião completamente oprimida por espíritos malignos, e alguém ora por ela, e pelo poder do Espírito de Deus aquela pessoa é liberta da opressão — ali houve uma ação genuína do Espírito Santo. Essa pessoa foi beneficiada por algo que o Espírito realizou — ela **participou** do Espírito Santo. Mas isso não quer dizer que ela nasceu de novo instantaneamente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Talvez um dos exemplos mais impressionantes nesse sentido seja **Judas**. Ele esteve muito perto de Jesus — não observou à distância, ele caminhou com Jesus o mesmo tempo que os outros. Teve com Jesus o mesmo relacionamento, o mesmo acesso. Judas ouviu os mesmos ensinamentos que os doze ouviram. Ele assistiu libertações, teve os pés lavados por Jesus, sentou-se à mesa com Jesus. Mais do que isso: quando Jesus enviou os doze e deu autoridade para expulsarem demônios, **Judas estava lá expulsando demônios**. Ele foi um dos que saíram e voltaram dizendo: 'os demônios se submetem a nós'."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Um homem pode estar extraordinariamente próximo das manifestações do reino de Deus e ainda assim terminar traindo o Rei. Alguém pode estar extremamente próximo de Jesus, mas ainda assim terminar negando-o."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A pergunta certa não é 'eu já senti alguma coisa?' ou 'eu já fui tocado em alguma reunião?' A pergunta certa é: **eu nasci de novo?** Se você nasceu de novo, a divina semente permanece dentro de você. Você tem uma inclinação para a vida e paz. Você não ama o pecado, não ama esse mundo — porque no seu coração há um desejo diferente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Quarta expressão: provaram a boa palavra de Deus.** Alguém pode vir aos nossos cultos, ouvir a mensagem e ser profundamente tocado por ela. Pode dizer: 'isso faz sentido, que palavra linda, que mensagem profunda, isso falou comigo.' Pode ficar até emocionado. Essa pessoa experimentou alguma coisa — provou a boa palavra de Deus. Mas isso também não significa que nasceu de novo — porque existe uma diferença entre **ouvir a palavra, admirar a palavra e receber a palavra com fé no coração**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Parábola do Semeador e a Terra da Festa da Roça",
+            "corpo": [
+              "Você se lembra da parábola do semeador? O semeador saiu a semear e não ficou escolhendo o solo — ele simplesmente foi lançando a semente, sem avaliar se a terra era boa ou ruim. Mas a Bíblia mostra que a semente caiu em diferentes tipos de solo.",
+              "Há o solo compactado, pisado demais. É como aquela terra dura de festa da roça, onde você precisa de um martelete e de uma boca de lobo (alavanca) só para cavar os buracos das fogueiras. A semente é lançada, mas não se aprofunda, não cria raízes, não germina. Alguns corações são assim: duros demais para a palavra penetrar.",
+              "Há também o solo rochoso, onde a semente cai entre as pedras e não frutifica; e o solo cheio de espinhos, que sufocam a semente até ela morrer. É possível receber a palavra, ouvir a semente, mas não produzir nada na sua vida. O problema não é o pregador, nem a palavra em si — é o nosso coração."
+            ],
+            "conclusao": "Mas há o solo bom — aquela terra fofinha, cheia de nutrientes, onde tudo o que se planta cresce. Se o seu coração for assim, mesmo que o pregador não seja tão bom, você será edificado. O que demonstra o tipo de solo que você é? O resultado. Como diz Hebreus 6.7-8: a terra que absorve a chuva e produz erva útil recebe a bênção; mas a que produz espinhos e abrolhos é rejeitada e está perto da maldição."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 4.2",
+          "texto": "Porque também a nós foram anunciadas as boas-novas como se deu com eles, mas a palavra que ouviram não lhes aproveitou, visto não ter sido acompanhada pela fé, naqueles que ouviam."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Quinta expressão: provaram os poderes do mundo vindouro.** Jesus, quando veio a este mundo, curou enfermos, expulsou demônios, ressuscitou mortos — e disse: 'o reino de Deus está entre vós'. Na teologia chamamos isso de **o já e o ainda não**: o reino de Deus está entre nós, mas ainda será plenamente estabelecido. Chegará o dia em que o Senhor Jesus virá nas nuvens, como um general poderoso montado num cavalo branco, e reivindicará o poder e a autoridade sobre todas as coisas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Alguns já provaram dos poderes do reino vindouro — foram curados, foram até libertos de demônios ou de vícios — mas não necessariamente foram realmente salvos. Deus é bom, e ele pode manifestar a bondade dele até mesmo sobre aqueles que não nasceram de novo. Receber um milagre não é necessariamente ser salvo."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Queda e a Blasfêmia contra o Espírito Santo",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Hebreus 6.6 · Mateus 12.31-32",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O autor de Hebreus diz que eles **caíram** — apesar de tudo isso. Nós, crentes antigos, quando lemos 'caíram', interpretamos como 'pecaram'. Mas cair na Bíblia não é apenas alguém que cai em algum pecado. Paulo mesmo diz que muitos dos irmãos da Galácia **decaíram da graça** voltando para a lei. Quando alguém deixa a graça de Deus e volta para a lei, a Bíblia diz que isso é também uma queda."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Os leitores daquele tempo eram judeus, e aquela era uma advertência séria. O autor de Hebreus está dizendo: eles viveram tudo isso, chegaram tão perto — mas no meio do caminho eles caíram. **Não estavam caindo, entregando-se ao pecado — estavam voltando ao judaísmo.** E qual é o problema disso? Quando voltavam ao judaísmo, o autor de Hebreus diz que eles **crucificavam Cristo de novo**. Era como se dissessem: 'Jesus ainda não veio. O Messias ainda virá. Cristo deveria ser crucificado novamente.'"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Eu creio que esse erro cometido por aqueles que estavam no processo de conversão é o mesmo erro que Jesus aponta como a **blasfêmia contra o Espírito Santo**. Essa é uma das perguntas que eu mais recebo: o que é a blasfêmia contra o Espírito Santo? Porque todo crente tem medo — 'vai que eu acordo um dia, penso algo errado e falo algo ruim contra o Espírito Santo, e eu perca a minha salvação'."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você tem medo de cometer a blasfêmia contra o Espírito Santo, fica tranquilo — porque você nunca vai cometê-la. A blasfêmia contra o Espírito Santo não pode ser cometida por crentes nascidos de novo, porque se você nasceu de novo, não há no seu coração essa inclinação, não há no seu coração esse desejar — há a divina semente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem blasfemou contra o Espírito Santo nos dias de Jesus? Foram os **fariseus** — os religiosos. Eles estavam perto, mas não tinham ainda nascido de novo. Estavam próximos, ficavam ouvindo os sermões para confrontar Jesus, mas não tinham tido ainda uma experiência genuína de novo nascimento."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O pecado da blasfêmia é **atribuir ao diabo, aos demônios, algo que o Espírito está fazendo** — atribuir à obra do Espírito Santo algo que é demoníaco. Por que essa pessoa não pode ser perdoada? Não é porque o sangue de Jesus não possa lavá-la — mas é simplesmente porque é como se ela tivesse **fechado a torneira da graça**. Uma vez que ela afirmou que a obra do Espírito é obra de demônios, como ela poderia se arrepender? Como poderia ser convencida do pecado? Como poderia ter o Espírito trabalhando na mente e no coração dela?"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Juramento de Deus e a Âncora da Alma",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Hebreus 6.7-20 · Gênesis 22.16-17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O texto de Hebreus 6.7-8 nos diz que a chuva cai, o solo recebe os benefícios — mas o que demonstra exatamente que tipo de solo eu sou é o **resultado**. Um solo produz vegetação útil e recebe a bênção da parte de Deus. O outro produz abrolhos e espinhos. Quer saber o que a palavra tem produzido em você? Se tem gerado arrependimento, contrição, mudança de vida — então você tem recebido a bênção que vem da palavra de Deus. Mas se tem gerado espinhos — rejeição, distanciamento, não querer se comprometer — então você ainda não nasceu de novo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Muitos leem Hebreus 6 e ficam desesperados, pensando: 'pode ser que eu peque e Deus nunca mais me perdoe'. Mas eu vim te contar: **não há pecado que o sangue de Jesus não possa perdoar**. Não há erro que seja maior do que a obra de Cristo na cruz do Calvário."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 6.9",
+          "texto": "Quanto a vós outros, todavia, ó amados, estamos persuadidos das coisas que são melhores e pertencentes à salvação, ainda que falamos desta maneira."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Preste atenção na mudança de tom. O autor diz: 'quanto a vós outros, todavia, ó **amados**'. Ele estava falando para quem estava perto, mas não tinha nascido de novo. Mas agora, para vocês que nasceram de novo, ele quer dizer outra coisa: **nós estamos persuadidos de coisas que são melhores e pertencentes à salvação**. Tudo que ele falou anteriormente não pertence à salvação — é gente que chegou perto, mas ainda não foi salva."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois de uma advertência tão severa, talvez a gente esperasse que o autor terminasse dizendo: 'portanto, tomem cuidado, vivam com medo, porque talvez amanhã tudo esteja perdido'. Mas olha o que ele diz a partir do verso 13:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 6.13-17",
+          "texto": "Pois, quando Deus fez a promessa a Abraão, visto que não tinha ninguém superior por quem jurar, jurou por si mesmo, dizendo: Certamente te abençoarei e te multiplicarei. E assim, depois de esperar com paciência, obteve Abraão a promessa. Pois os homens juram pelo que lhes é superior, e o juramento, servindo de garantia, é para eles o fim de toda contenda. Por isso, Deus, quando quis mostrar mais firmemente aos herdeiros da promessa a imutabilidade do seu propósito, se interpôs com juramento."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Deus não precisava prometer nem jurar coisa alguma — mas ele transforma as suas palavras em promessas, não porque há a possibilidade de ele não fazer, mas **pela fraqueza da nossa fé**. Deus transformou as suas palavras em promessas. Ele poderia dizer 'você é salvo' — mas ele decidiu prometer: 'eu te prometo, você será salvo no último dia'."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Os homens juram pelo que lhes é superior — mas o Senhor não tem nada acima dele. Não há ninguém maior que ele. Então, para que você tivesse certeza, para que a sua salvação fosse firme, para que a promessa fosse imutável — ele se interpôs com juramento. Ele jurou: você será salvo no final. Não há nada que mude isso."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 6.18-19",
+          "texto": "Para que, mediante duas coisas imutáveis, nas quais é impossível que Deus minta, forte alento tenhamos nós que já corremos para o refúgio, a fim de lançar mão da esperança proposta; a qual temos por âncora da alma, segura e firme e que penetra além do véu."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A âncora da alma é **Jesus**. Não é você. Não é você que se segura, não é você que se firma — é nele que você está firmado, é nele que você está sustentado. O autor de Hebreus diz: ele jurou. Ele é o Deus que não pode mentir — não é que ele não quer, é que ele simplesmente **não tem como mentir**. Você foi salvo. Uma vez que você foi salvo, você está salvo para sempre."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "DECLARAÇÃO",
+            "texto": "A âncora da minha alma é Jesus. Ele jurou, e é impossível que Deus minta. Uma vez salvo, salvo para sempre.",
+            "sub": "Hebreus 6.19 — Nem a morte, nem a vida, nem os principados, nem qualquer outra criatura poderá me separar do amor de Deus."
+          }
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "Princípio hermenêutico: nunca trocar a interpretação de um texto claro (Jo 3.16, Jo 1.12, Jo 5.24) por causa de um texto obscuro ou de difícil interpretação como Hebreus 6.",
+      "versiculo_ancora": "João 5.24"
+    },
+    {
+      "ponto": "A carta aos Hebreus foi escrita para judeus em processo de conversão, tentados a retroceder ao judaísmo. O autor mostra que Cristo é superior a tudo — e que voltar é crucificá-lo de novo.",
+      "versiculo_ancora": "Hebreus 1.1-4"
+    },
+    {
+      "ponto": "As cinco expressões de Hb 6.4-6 (iluminados, provaram o dom celestial, participantes do Espírito Santo, provaram a palavra, provaram os poderes vindouros) descrevem pessoas que se aproximaram do evangelho, mas nunca nasceram de novo — não crentes que perderam a salvação.",
+      "versiculo_ancora": "Hebreus 6.4-6"
+    },
+    {
+      "ponto": "A blasfêmia contra o Espírito Santo é atribuir ao diabo a obra do Espírito. Quem nasceu de novo não pode cometê-la, porque não há no seu coração essa inclinação. Se você tem medo de tê-la cometido, é prova de que não a cometeu.",
+      "versiculo_ancora": "Mateus 12.31-32"
+    },
+    {
+      "ponto": "O autor de Hebreus muda o tom no verso 9: 'ó amados, estamos persuadidos de coisas melhores'. Deus jurou por si mesmo porque não há ninguém superior a ele — duas coisas imutáveis, nas quais é impossível que Deus minta. A âncora da alma é Jesus, que penetra além do véu.",
+      "versiculo_ancora": "Hebreus 6.18-19"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Hebreus 6 não anula a segurança eterna — pelo contrário, termina com a imagem mais firme de toda a Bíblia: Jesus, a âncora da alma, segura e firme, que penetra além do véu.",
+    "pontos": [
+      "O texto de Hebreus 6 é o favorito de quem rejeita a segurança eterna, mas precisa ser lido no contexto: a carta foi escrita para judeus em processo de conversão, tentados a voltar ao judaísmo. O princípio hermenêutico é claro — nunca trocar textos claros (João 3.16, 1.12, 5.24) por um texto de difícil interpretação. As cinco expressões de Hb 6.4-6 não descrevem crentes que perderam a salvação, mas pessoas que se aproximaram do evangelho sem nunca nascer de novo.",
+      "Ser iluminado é começar a enxergar, mas não é crer. Provar o dom celestial é sentir o gosto sem engolir — como Jesus na cruz, que provou o vinagre mas não quis beber. Participar do Espírito Santo pode ser experimentar uma libertação sem ter a vida do Espírito dentro de si — Judas é o exemplo máximo: caminhou com Jesus, expulsou demônios, teve os pés lavados — e ainda assim traiu o Rei. Provar a palavra sem acompanhá-la de fé é como a semente que cai em solo pedregoso ou na terra compactada da festa da roça: ela não cria raízes.",
+      "A queda de Hebreus 6 não é pecado moral — é retrocesso ao judaísmo, é crucificar Cristo de novo. A blasfêmia contra o Espírito Santo (atribuir ao diabo a obra do Espírito) não pode ser cometida por quem nasceu de novo — se você tem medo de tê-la cometido, é prova de que não a cometeu. E o autor muda o tom no verso 9: 'ó amados, estamos persuadidos de coisas melhores'. Deus jurou por si mesmo porque não há ninguém superior — duas coisas imutáveis, nas quais é impossível que Deus minta. A âncora da alma é Jesus."
+    ],
+    "versiculo_chave": {
+      "referencia": "Hebreus 6.19",
+      "texto": "A qual temos por âncora da alma, segura e firme e que penetra além do véu, onde Jesus, como precursor, entrou por nós, tendo-se tornado sumo sacerdote para sempre, segundo a ordem de Melquisedeque."
+    }
+  },
+  "nota_lacuna": []
+}
