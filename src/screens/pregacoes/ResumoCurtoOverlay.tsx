@@ -1,38 +1,82 @@
-import type { ResumoCurto } from '../../content/types';
+import { Icon } from '../../icons/Icon';
 import styles from './ResumoCurtoOverlay.module.css';
 
-export function ResumoCurtoOverlay({
-  resumo,
-  aoFechar,
-}: {
-  resumo: ResumoCurto;
+interface PontoResumo {
+  numero: number;
+  titulo: string;
+  resumo: string;
+  frase_chave?: string;
+}
+
+interface ResumoOverlayProps {
+  resumo: {
+    frase_tema?: string;
+    pontos?: (string | PontoResumo)[];
+    versiculo_chave?: { referencia: string; texto: string };
+  };
   aoFechar: () => void;
-}) {
+}
+
+export function ResumoCurtoOverlay({ resumo, aoFechar }: ResumoOverlayProps) {
   return (
     <div className={styles.overlay}>
-      <div className={styles.header}>
-        <button type="button" className={styles.voltar} onClick={aoFechar} aria-label="Voltar para a leitura completa">
-          ←
+      <header className={styles.header}>
+        <button
+          type="button"
+          className={styles.voltar}
+          onClick={aoFechar}
+          aria-label="Fechar resumo"
+        >
+          ← Voltar
         </button>
-        <div className={styles.headerLabel}>Versão resumida</div>
-      </div>
+        <span className={styles.headerLabel}>Versão Resumida</span>
+      </header>
 
       <div className={styles.corpo}>
-        <div className={styles.fraseTema}>{resumo.frase_tema}</div>
+        {resumo.frase_tema && (
+          <div className={styles.fraseTema}>
+            {resumo.frase_tema}
+          </div>
+        )}
 
-        <ol className={styles.pontos}>
-          {resumo.pontos.map((ponto, i) => (
-            <li key={i} className={styles.pontoItem}>
-              <span className={styles.pontoNumero}>{String(i + 1).padStart(2, '0')}</span>
-              <span className={styles.pontoTexto}>{ponto}</span>
-            </li>
-          ))}
-        </ol>
+        {resumo.pontos && resumo.pontos.length > 0 && (
+          <ul className={styles.pontos}>
+            {resumo.pontos.map((ponto, index) => {
+              const ehObjeto = typeof ponto === 'object' && ponto !== null;
+              const ehNovoFormato = ehObjeto && 'numero' in ponto && 'titulo' in ponto;
 
-        <div className={styles.versiculoChave}>
-          <div className={styles.versiculoChaveTexto}>“{resumo.versiculo_chave.texto}”</div>
-          <div className={styles.versiculoChaveReferencia}>{resumo.versiculo_chave.referencia}</div>
-        </div>
+              const numero = ehNovoFormato ? (ponto as PontoResumo).numero : index + 1;
+              const titulo = ehNovoFormato ? (ponto as PontoResumo).titulo : `Ponto ${numero}`;
+              const textoResumo = ehNovoFormato
+                ? (ponto as PontoResumo).resumo
+                : (typeof ponto === 'string' ? ponto : '');
+              const fraseChave = ehNovoFormato ? (ponto as PontoResumo).frase_chave : undefined;
+
+              return (
+                <li key={index} className={styles.pontoItem}>
+                  <div className={styles.cabecalhoPonto}>
+                    <span className={styles.pontoNumero}>{String(numero).padStart(2, '0')}</span>
+                    <h3 className={styles.tituloPonto}>{titulo}</h3>
+                  </div>
+                  <p className={styles.pontoTexto}>{textoResumo}</p>
+                  {fraseChave && (
+                    <blockquote className={styles.fraseChave}>
+                      <Icon name="quote" className={styles.iconeAspas} />
+                      <span>{fraseChave}</span>
+                    </blockquote>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
+        {resumo.versiculo_chave && (
+          <div className={styles.versiculoChave}>
+            <p className={styles.versiculoChaveTexto}>"{resumo.versiculo_chave.texto}"</p>
+            <span className={styles.versiculoChaveReferencia}>{resumo.versiculo_chave.referencia}</span>
+          </div>
+        )}
       </div>
 
       <button type="button" className={styles.ctaCompleta} onClick={aoFechar}>

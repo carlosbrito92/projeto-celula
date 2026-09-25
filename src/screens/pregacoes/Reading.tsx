@@ -80,14 +80,14 @@ export function Reading({ id }: { id: string }) {
       ? `nova:${popoverEstado.secaoId}:${popoverEstado.unidade}:${popoverEstado.offsetInicio}:${popoverEstado.offsetFim}`
       : `editar:${popoverEstado.id}`;
 
-  if (resumoCurtoAberto && conteudo.resumo_curto) {
+  const resumoParaExibir = conteudo.resumo_lider ?? conteudo.resumo_curto;
+
+  if (resumoCurtoAberto && resumoParaExibir) {
     return (
-      <ThemeScope tema={tema}>
-        <ResumoCurtoOverlay
-          resumo={conteudo.resumo_curto}
-          aoFechar={() => setResumoCurtoAberto(false)}
-        />
-      </ThemeScope>
+      <ResumoCurtoOverlay
+        resumo={resumoParaExibir}
+        aoFechar={() => setResumoCurtoAberto(false)}
+      />
     );
   }
 
@@ -254,17 +254,13 @@ export function Reading({ id }: { id: string }) {
           </div>
         )}
 
-        {conteudo.resumo_curto && (
+        {resumoParaExibir && (
           <button
             type="button"
-            className={styles.resumoCurtoCta}
+            className={styles.botaoResumo} /* <-- RESTAURE A CLASSE ORIGINAL AQUI */
             onClick={() => setResumoCurtoAberto(true)}
           >
-            <Icon name="book-open" />
-            <div className={styles.resumoCurtoCtaTextos}>
-              <div className={styles.resumoCurtoCtaEyebrow}>Sem tempo para o texto completo?</div>
-              <div className={styles.resumoCurtoCtaTitulo}>Ler versão resumida</div>
-            </div>
+            Ler versão resumida
           </button>
         )}
 

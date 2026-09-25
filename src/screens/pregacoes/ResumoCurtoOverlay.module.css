@@ -128,3 +128,73 @@
 [data-tema="estilo-6-uma-vez-salvo"] .voltar {
   color: var(--text);
 }
+
+/* --- Novas classes para o formato resumo_lider --- */
+
+.cabecalhoPonto {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.tituloPonto {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Ajuste fino no .pontoNumero existente para alinhar melhor com o novo layout */
+.pontoNumero {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent1);
+  padding-top: 2px;
+}
+
+/* Ajuste fino no .pontoTexto existente para garantir legibilidade */
+.pontoTexto {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 12px 0;
+  opacity: 0.9;
+}
+
+.fraseChave {
+  margin: 0;
+  padding: 12px 14px;
+  background: var(--surface2);
+  border-left: 3px solid var(--accent2);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.iconeAspas {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--accent2);
+  margin-top: 2px;
+  opacity: 0.8;
+}
+
+/* Override do Estilo #6 para a frase-chave (evitar vermelho como cor de texto) */
+[data-tema="estilo-6-uma-vez-salvo"] .fraseChave {
+  border-left-color: var(--kraft);
+}
+
+[data-tema="estilo-6-uma-vez-salvo"] .iconeAspas {
+  color: var(--muted);
+}
