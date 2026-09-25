@@ -67,6 +67,36 @@ export interface BlocoLista {
   itens: string[];
 }
 
+export interface BlocoSubtitulo {
+  tipo: 'subtitulo';
+  texto: string;
+}
+
+export interface BlocoCitacao {
+  tipo: 'citacao';
+  autor: string;
+  texto: string;
+  fidelidade?: string;
+}
+
+export interface BlocoGlossario {
+  tipo: 'glossario';
+  termo: string;
+  etimologia: string;
+  significado_no_texto: string;
+  uso_indevido?: string;
+}
+
+export interface BlocoPergunta {
+  tipo: 'pergunta';
+  texto: string;
+}
+
+export interface BlocoResposta {
+  tipo: 'resposta';
+  texto: string;
+}
+
 export interface DadosStage {
   label: string;
   frase: string;
@@ -138,6 +168,16 @@ export interface DadosDuplaGrid {
   itens: DadosDuplaGridItem[];
 }
 
+export interface DadosTimelineItem {
+  icon: string;
+  titulo: string;
+  desc: string;
+}
+
+export interface DadosTimeline {
+  itens: DadosTimelineItem[];
+}
+
 export type ComponenteTemaVariante =
   | { variante: 'stage'; dados: DadosStage }
   | { variante: 'diagnostico'; dados: DadosDiagnostico }
@@ -149,6 +189,7 @@ export type ComponenteTemaVariante =
   | { variante: 'humor'; dados: DadosHumor }
   | { variante: 'label_box'; dados: DadosLabelBox }
   | { variante: 'duplice_grid'; dados: DadosDuplaGrid }
+  | { variante: 'timeline'; dados: DadosTimeline }
   // variantes exclusivas de tema ainda não implementadas na plataforma
   // (verb_block, poeiras_grid) caem aqui e são ignoradas com segurança
   // pelo ComponenteTemaRenderer — nunca quebram a renderização.
@@ -162,6 +203,11 @@ export type Bloco =
   | BlocoCallout
   | BlocoFraseChave
   | BlocoLista
+  | BlocoSubtitulo
+  | BlocoCitacao
+  | BlocoGlossario
+  | BlocoPergunta
+  | BlocoResposta
   | BlocoComponenteTema;
 
 export interface Anotacao {
@@ -194,6 +240,26 @@ export interface ResumoCurto {
   frase_tema: string;
   pontos: string[];
   versiculo_chave: VersiculoAncora;
+}
+
+// Adicione esta interface (pode ser perto de ResumoCurto)
+export interface ResumoLider {
+  frase_tema: string;
+  pontos: Array<{
+    numero: number;
+    titulo: string;
+    resumo: string;
+    frase_chave: string;
+  }>;
+  versiculo_chave?: { referencia: string; texto: string };
+}
+
+// Dentro da interface principal do conteúdo da pregação (onde já existe resumo_curto):
+export interface ConteudoPregacao {
+  // ... outros campos existentes
+  resumo_curto?: ResumoCurto;
+  resumo_lider?: ResumoLider; // <-- ADICIONE ESTA LINHA
+  // ...
 }
 
 export interface MerchItem {
