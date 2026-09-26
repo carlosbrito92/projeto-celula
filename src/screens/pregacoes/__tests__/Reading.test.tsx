@@ -57,6 +57,14 @@ const conteudo: PregacaoConteudo = {
     pontos: ['Ponto resumido 1.', 'Ponto resumido 2.'],
     versiculo_chave: { referencia: 'Efésios 2.8-9', texto: 'Porque pela graça sois salvos.' },
   },
+  resumo_lider: {
+    frase_tema: 'A graça é maior que a Lei.',
+    pontos: [
+      { numero: 1, titulo: 'Ponto Um', resumo: 'Ponto resumido 1.', frase_chave: 'Frase chave 1' },
+      { numero: 2, titulo: 'Ponto Dois', resumo: 'Ponto resumido 2.', frase_chave: 'Frase chave 2' },
+    ],
+    versiculo_chave: { referencia: 'Efésios 2.8-9', texto: 'Porque pela graça sois salvos.' },
+  },
 };
 
 const pregacaoRow: PregacaoRow = {
@@ -259,16 +267,17 @@ describe('Reading', () => {
     vi.unstubAllGlobals();
   });
 
-  it('botão "Ler versão resumida" abre o resumo_curto e "Ler a mensagem completa" volta para a leitura', async () => {
+  it('botão "Ler versão resumida" abre o resumo_lider e "Ler a mensagem completa" volta para a leitura', async () => {
     render(<Reading id="sermon-1" />);
     await screen.findByText('A Graça Não É o Que Você Pensa');
 
     fireEvent.click(screen.getByRole('button', { name: /Ler versão resumida/ }));
 
     expect(screen.getByText('A graça é maior que a Lei.')).toBeInTheDocument();
+    expect(screen.getByText('Ponto Um')).toBeInTheDocument();
     expect(screen.getByText('Ponto resumido 1.')).toBeInTheDocument();
-    expect(screen.getByText('Ponto resumido 2.')).toBeInTheDocument();
-    expect(screen.getByText('“Porque pela graça sois salvos.”')).toBeInTheDocument();
+    expect(screen.getByText('Frase chave 1')).toBeInTheDocument();
+    expect(screen.getByText('"Porque pela graça sois salvos."')).toBeInTheDocument();
     expect(screen.getByText('Efésios 2.8-9')).toBeInTheDocument();
     expect(screen.queryByText('Índice')).not.toBeInTheDocument();
 
@@ -312,8 +321,8 @@ describe('Reading', () => {
 
   it('sem resumo_curto: nenhum botão de versão resumida aparece', async () => {
     const { apiGet } = await import('../../../lib/api');
-    const semResumoCurto = { ...conteudo, resumo_curto: undefined };
-    vi.mocked(apiGet).mockResolvedValueOnce({ ...pregacaoRow, conteudo: semResumoCurto });
+    const semResumo = { ...conteudo, resumo_curto: undefined, resumo_lider: undefined };
+    vi.mocked(apiGet).mockResolvedValueOnce({ ...pregacaoRow, conteudo: semResumo });
 
     render(<Reading id="sermon-1" />);
     await screen.findByText('A Graça Não É o Que Você Pensa');
