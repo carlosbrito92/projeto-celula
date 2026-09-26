@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Antídoto",
         "campos": [
-          { "campo": "Toxina identificada", "valor": "Mistura lei + graça" },
-          { "campo": "Nome bíblico", "valor": "Babel — confusão" },
-          { "campo": "Status", "valor": "Instável" }
+          {
+            "campo": "Toxina identificada",
+            "valor": "Mistura lei + graça"
+          },
+          {
+            "campo": "Nome bíblico",
+            "valor": "Babel — confusão"
+          },
+          {
+            "campo": "Status",
+            "valor": "Instável"
+          }
         ]
       }
     },
@@ -28,12 +37,36 @@
     "frase_sintese": "A lei não te dá segurança — ela traz condenação. E o problema é que muitos crentes nunca sabem exatamente onde estão: numa semana se sentem salvos, na outra se sentem perdidos. Isso é confusão. E confusão, na Bíblia, tem nome: Babilônia."
   },
   "mapa_pontos": [
-    { "id": "bloco-0", "numero": "·", "titulo": "A Grande Babilônia" },
-    { "id": "bloco-1", "numero": "1", "titulo": "A Confusão da Mistura" },
-    { "id": "bloco-2", "numero": "2", "titulo": "O Equilíbrio Térmico Não Agrada" },
-    { "id": "bloco-3", "numero": "3", "titulo": "O Evangelho Não Aceita Remendos" },
-    { "id": "bloco-4", "numero": "4", "titulo": "A Prostituição da Mistura" },
-    { "id": "bloco-5", "numero": "5", "titulo": "O Vale da Confusão" }
+    {
+      "id": "bloco-0",
+      "numero": "·",
+      "titulo": "A Grande Babilônia"
+    },
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Confusão da Mistura"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Equilíbrio Térmico Não Agrada"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "O Evangelho Não Aceita Remendos"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "A Prostituição da Mistura"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "O Vale da Confusão"
+    }
   ],
   "secoes": [
     {
@@ -359,12 +392,69 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "A grande Babilônia: não é o mundo — é um sistema espiritual e religioso. Babel significa confusão, mistura. \"Sai dela, povo meu\" — ainda há povo de Deus dentro dessa mistura.", "versiculo_ancora": "Apocalipse 17-18" },
-    { "ponto": "A confusão da mistura: Agar (Lei) e Sara (Promessa) são duas alianças. A Lei gera escravidão; a promessa gera segurança. Deus detesta confusão — Isaque não podia ter duas influências.", "versiculo_ancora": "Gálatas 4.21-31" },
-    { "ponto": "O equilíbrio térmico não agrada: Deus prefere frio ou quente — não morno. Morno é a mistura de lei e graça. Não existe igreja totalmente da lei — só sinagoga.", "versiculo_ancora": "Apocalipse 3.15-16" },
-    { "ponto": "O evangelho não aceita remendos: vinho novo em odres novos. Misturar o velho com o novo faz os dois se perderem — jugo desigual, sementes que se degeneram.", "versiculo_ancora": "Marcos 2.21-22 · Deuteronômio 22.9-10" },
-    { "ponto": "A prostituição da mistura: você é casado com Cristo — buscar a Lei para merecer é se prostituir espiritualmente. Um ciclo de ir e voltar entre graça e lei.", "versiculo_ancora": "Romanos 7.1-5" },
-    { "ponto": "O vale da confusão: ouro e prata (justiça e redenção) embrulhados no manto babilônico (mistura) ficam inoperantes. Entre Betel (casa de Deus) e Bete-Áven (casa da vaidade) está a mistura — e o resultado é Ai, ruína.", "versiculo_ancora": "Josué 7" }
+    {
+      "ponto": "A grande Babilônia: não é o mundo — é um sistema espiritual e religioso. Babel significa confusão, mistura. \"Sai dela, povo meu\" — ainda há povo de Deus dentro dessa mistura.",
+      "versiculo_ancora": "Apocalipse 17-18"
+    },
+    {
+      "ponto": "A confusão da mistura: Agar (Lei) e Sara (Promessa) são duas alianças. A Lei gera escravidão; a promessa gera segurança. Deus detesta confusão — Isaque não podia ter duas influências.",
+      "versiculo_ancora": "Gálatas 4.21-31"
+    },
+    {
+      "ponto": "O equilíbrio térmico não agrada: Deus prefere frio ou quente — não morno. Morno é a mistura de lei e graça. Não existe igreja totalmente da lei — só sinagoga.",
+      "versiculo_ancora": "Apocalipse 3.15-16"
+    },
+    {
+      "ponto": "O evangelho não aceita remendos: vinho novo em odres novos. Misturar o velho com o novo faz os dois se perderem — jugo desigual, sementes que se degeneram.",
+      "versiculo_ancora": "Marcos 2.21-22 · Deuteronômio 22.9-10"
+    },
+    {
+      "ponto": "A prostituição da mistura: você é casado com Cristo — buscar a Lei para merecer é se prostituir espiritualmente. Um ciclo de ir e voltar entre graça e lei.",
+      "versiculo_ancora": "Romanos 7.1-5"
+    },
+    {
+      "ponto": "O vale da confusão: ouro e prata (justiça e redenção) embrulhados no manto babilônico (mistura) ficam inoperantes. Entre Betel (casa de Deus) e Bete-Áven (casa da vaidade) está a mistura — e o resultado é Ai, ruína.",
+      "versiculo_ancora": "Josué 7"
+    }
   ],
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A verdadeira Babilônia não é o mundo, mas a mistura tóxica entre Lei e Graça que gera confusão espiritual e rouba a segurança do crente.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Confusão da Mistura",
+        "resumo": "A Bíblia usa a alegoria de Agar e Sara para contrastar a Lei, que gera escravidão pelo esforço próprio, com a Graça, que traz a liberdade da promessa. Deus detesta a mistura, pois o crente não pode viver sob duas influências, assim como Isaque não poderia ter duas mães (Gálatas 4.21-31).",
+        "frase_chave": "A grande Babilônia aponta para a mistura. Não é só a Lei — é a Lei misturada com a Graça."
+      },
+      {
+        "numero": 2,
+        "titulo": "O Equilíbrio Térmico Não Agrada",
+        "resumo": "Deus reprova a mornidão, que é justamente a tentativa de equilibrar a Lei e a Graça. Assim como um refrigerante morno é desagradável, a mistura espiritual torna a fé inoperante e inaceitável diante de Deus (Apocalipse 3.15-16).",
+        "frase_chave": "Mornidão só serve para bebê. Você não é mais bebê — você se tornou adulto pela palavra da justiça que recebeu."
+      },
+      {
+        "numero": 3,
+        "titulo": "O Evangelho Não Aceita Remendos",
+        "resumo": "Tentar remendar a Graça na antiga aliança da Lei é como colocar vinho novo em odres velhos, o que causa o rompimento de ambos. Deus ordena que não se misturem sementes ou animais diferentes no mesmo jugo, pois a mistura degenera o fruto e distorce o propósito divino (Marcos 2.21-22).",
+        "frase_chave": "Deus odeia a mistura entre o velho e o novo."
+      },
+      {
+        "numero": 4,
+        "titulo": "A Prostituição da Mistura",
+        "resumo": "Como somos casados com Cristo, buscar a Lei para merecer bênçãos é uma forma de prostituição espiritual. Esse ciclo de ir e voltar entre a Graça e a Lei nos torna estéreis, impedindo que frutifiquemos para Deus (Romanos 7.1-5).",
+        "frase_chave": "Enquanto você vive nessa prostituição espiritual, você se torna estéril. Mas se você vive pela graça, a fertilidade do Senhor se manifesta na sua vida."
+      },
+      {
+        "numero": 5,
+        "titulo": "O Vale da Confusão",
+        "resumo": "O pecado de Acã, que escondeu ouro e prata embrulhados em um manto babilônico, ilustra como a mistura torna a justiça e a redenção inoperantes. Viver entre a casa de Deus e a vaidade leva à ruína, deixando apenas um vale de perturbação (Josué 7.20-26).",
+        "frase_chave": "Não misture nem na sua vida, nem na sua célula, nem no seu casamento, nem no seu ministério. Fale só da graça de Deus."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Apocalipse 3.15-16",
+      "texto": "Conheço as tuas obras, sei que não és frio nem quente. Antes fosses frio ou quente! E, por este motivo, porque és morno, não és frio nem quente, estou a ponto de vomitar-te da minha boca."
+    }
+  }
 }

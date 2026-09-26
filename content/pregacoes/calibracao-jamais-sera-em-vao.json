@@ -13,12 +13,36 @@
     "frase_sintese": "Existe um trabalho que acontece nos bastidores, sem holofotes, sem aplausos, sem reconhecimento. Orações feitas em segredo. Visitas que ninguém fica sabendo. Serviços que parecem pequenos. Esta mensagem é para quem serve assim — e precisa saber que nada disso é vão."
   },
   "mapa_pontos": [
-    { "id": "ponto-1", "numero": "1", "titulo": "Tudo começa pela graça" },
-    { "id": "ponto-2", "numero": "2", "titulo": "A graça produz serviço, não acomodação" },
-    { "id": "ponto-3", "numero": "3", "titulo": "Deus escolheu agir através de pessoas" },
-    { "id": "ponto-4", "numero": "4", "titulo": "Deus vê o que ninguém vê" },
-    { "id": "ponto-5", "numero": "5", "titulo": "Prestaremos contas das nossas obras" },
-    { "id": "ponto-6", "numero": "6", "titulo": "Deus não se esquece de quem serve" }
+    {
+      "id": "ponto-1",
+      "numero": "1",
+      "titulo": "Tudo começa pela graça"
+    },
+    {
+      "id": "ponto-2",
+      "numero": "2",
+      "titulo": "A graça produz serviço, não acomodação"
+    },
+    {
+      "id": "ponto-3",
+      "numero": "3",
+      "titulo": "Deus escolheu agir através de pessoas"
+    },
+    {
+      "id": "ponto-4",
+      "numero": "4",
+      "titulo": "Deus vê o que ninguém vê"
+    },
+    {
+      "id": "ponto-5",
+      "numero": "5",
+      "titulo": "Prestaremos contas das nossas obras"
+    },
+    {
+      "id": "ponto-6",
+      "numero": "6",
+      "titulo": "Deus não se esquece de quem serve"
+    }
   ],
   "secoes": [
     {
@@ -224,17 +248,80 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "Tudo começa pela graça: não somos salvos pelas obras, mas somos salvos para as obras.", "versiculo_ancora": "Efésios 2.8-10" },
-    { "ponto": "A graça não produz acomodação, produz serviço: a graça verdadeira gera disposição, compromisso e desejo de servir.", "versiculo_ancora": "1 Coríntios 15.10" },
-    { "ponto": "Deus escolheu agir através de pessoas: cada função é importante, nenhum serviço é menor diante de Deus.", "versiculo_ancora": "1 Coríntios 3.6-8" },
-    { "ponto": "Deus vê o que ninguém vê: nenhuma oração é esquecida, nenhum sacrifício passa despercebido.", "versiculo_ancora": "" },
-    { "ponto": "Prestaremos contas das nossas obras: a questão não é se recebemos graça, mas o que fizemos com ela.", "versiculo_ancora": "2 Coríntios 5.10" },
-    { "ponto": "Deus não se esquece de quem serve: Deus registra aquilo que os homens muitas vezes não enxergam.", "versiculo_ancora": "Romanos 16" }
+    {
+      "ponto": "Tudo começa pela graça: não somos salvos pelas obras, mas somos salvos para as obras.",
+      "versiculo_ancora": "Efésios 2.8-10"
+    },
+    {
+      "ponto": "A graça não produz acomodação, produz serviço: a graça verdadeira gera disposição, compromisso e desejo de servir.",
+      "versiculo_ancora": "1 Coríntios 15.10"
+    },
+    {
+      "ponto": "Deus escolheu agir através de pessoas: cada função é importante, nenhum serviço é menor diante de Deus.",
+      "versiculo_ancora": "1 Coríntios 3.6-8"
+    },
+    {
+      "ponto": "Deus vê o que ninguém vê: nenhuma oração é esquecida, nenhum sacrifício passa despercebido.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Prestaremos contas das nossas obras: a questão não é se recebemos graça, mas o que fizemos com ela.",
+      "versiculo_ancora": "2 Coríntios 5.10"
+    },
+    {
+      "ponto": "Deus não se esquece de quem serve: Deus registra aquilo que os homens muitas vezes não enxergam.",
+      "versiculo_ancora": "Romanos 16"
+    }
   ],
   "celula_box": {
     "anotado_por": "Stefani",
     "compartilhado_por": "Jéssica",
     "sugestao_uso": "As frases-chave de cada ponto são boas âncoras para a discussão em grupo — escolha uma ou duas para aprofundar conforme o tempo disponível."
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "Todo serviço realizado para Deus, mesmo que invisível aos olhos humanos, possui valor eterno e jamais será esquecido pelo Senhor.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Tudo começa pela graça",
+        "resumo": "A salvação é um presente imerecido de Deus, não fruto de nossos esforços. No entanto, fomos transformados para que essa graça transborde em boas obras como evidência de nossa fé (Efésios 2.8-10).",
+        "frase_chave": "Não somos salvos pelas obras, mas somos salvos para as obras."
+      },
+      {
+        "numero": 2,
+        "titulo": "A graça produz serviço, não acomodação",
+        "resumo": "A verdadeira compreensão da graça de Deus não gera preguiça, mas um desejo profundo de cooperar com o Reino. A graça nos move a trabalhar com disposição e compromisso (1 Coríntios 15.10).",
+        "frase_chave": "A graça não forma espectadores, forma cooperadores."
+      },
+      {
+        "numero": 3,
+        "titulo": "Deus escolheu agir através de pessoas",
+        "resumo": "Deus poderia agir sozinho, mas escolheu usar pessoas com funções diferentes para realizar Seus planos. Cada um deve fazer sua parte com fidelidade, pois nenhum serviço é menor diante dEle (1 Coríntios 3.6-8).",
+        "frase_chave": "Somos cooperadores de Deus."
+      },
+      {
+        "numero": 4,
+        "titulo": "Deus vê o que ninguém vê",
+        "resumo": "Muitos serviços acontecem nos bastidores, sem aplausos ou reconhecimento humano. Deus, porém, registra cada oração secreta e cada gesto de amor, pois nada passa despercebido aos Seus olhos (Mateus 6.4).",
+        "frase_chave": "Talvez ninguém veja, mas Deus vê."
+      },
+      {
+        "numero": 5,
+        "titulo": "Prestaremos contas das nossas obras",
+        "resumo": "Haverá um momento de avaliação diante de Cristo sobre como utilizamos os dons e oportunidades que recebemos. Servir é uma resposta de fidelidade à graça que nos foi concedida (2 Coríntios 5.10).",
+        "frase_chave": "A questão não é se recebemos graça, mas o que fizemos com ela."
+      },
+      {
+        "numero": 6,
+        "titulo": "Deus não se esquece de quem serve",
+        "resumo": "Assim como Paulo citou nominalmente aqueles que serviram nos bastidores em Romanos 16, Deus conhece e valoriza cada servo fiel. Ele registra nossas lutas e dedicação, garantindo que nada é perdido (Romanos 16).",
+        "frase_chave": "Deus registra aquilo que os homens muitas vezes não enxergam."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "1 Coríntios 15.58",
+      "texto": "Portanto, meus amados irmãos, sede firmes, inabaláveis e sempre abundantes na obra do Senhor, sabendo que, no Senhor, o vosso trabalho não é vão."
+    }
+  }
 }

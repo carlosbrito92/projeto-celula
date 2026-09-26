@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Selo de Autenticidade",
         "campos": [
-          { "campo": "Provas apresentadas", "valor": "4ª, 5ª e 6ª de várias" },
-          { "campo": "Conceito central", "valor": "Amálgama, Edificação e Selo" },
-          { "campo": "Base doutrinária", "valor": "União mística com Cristo e a perseverança dos santos" }
+          {
+            "campo": "Provas apresentadas",
+            "valor": "4ª, 5ª e 6ª de várias"
+          },
+          {
+            "campo": "Conceito central",
+            "valor": "Amálgama, Edificação e Selo"
+          },
+          {
+            "campo": "Base doutrinária",
+            "valor": "União mística com Cristo e a perseverança dos santos"
+          }
         ]
       }
     },
@@ -233,5 +242,32 @@
       "texto": "Em quem também vós, depois que ouvistes a palavra da verdade, o evangelho da vossa salvação, tendo nele também crido, fostes selados com o Espírito Santo da promessa, o qual é o penhor da nossa herança, até ao resgate da sua propriedade, em louvor da sua glória."
     }
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A salvação é uma união irreversível com Cristo, garantida pela nossa posição no Seu corpo, no Seu edifício e pelo selo do Espírito Santo.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "O Corpo de Cristo Não Pode Ser Mutilado",
+        "resumo": "Nossa união com Cristo é como um amálgama ou os ingredientes de um bolo: uma vez misturados, a separação torna-se impossível. Como membros do corpo de Cristo, não seremos amputados, pois a graça garante que o salvo pertence permanentemente ao Senhor (1 Coríntios 6.17).",
+        "frase_chave": "A meritocracia é uma mentalidade humana e mundana. Somos o que somos pela graça."
+      },
+      {
+        "numero": 2,
+        "titulo": "Somos Pedras Vivas da Casa de Deus",
+        "resumo": "Deus é um construtor perfeito que posiciona cada pedra viva em Sua casa espiritual com propósito eterno. Se fosse possível perder a salvação, Deus seria um construtor falho que deixa buracos em Sua própria obra (1 Pedro 2.5).",
+        "frase_chave": "Deus não fica dizendo aos anjos: 'Cole aquela pedra de novo, ela se arrependeu'."
+      },
+      {
+        "numero": 3,
+        "titulo": "Recebemos o Selo e o Penhor do Espírito",
+        "resumo": "O Espírito Santo é o selo que marca nossa propriedade, autentica nossa filiação e serve como penhor, o pagamento inicial que garante nossa redenção final. Sua presença em nós é a prova inquestionável de que pertencemos a Deus (Efésios 1.13-14).",
+        "frase_chave": "Aqueles que têm o selo são verdadeiros e serão arrebatados."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 1.13-14",
+      "texto": "Em quem também vós, depois que ouvistes a palavra da verdade, o evangelho da vossa salvação, tendo nele também crido, fostes selados com o Espírito Santo da promessa, o qual é o penhor da nossa herança, até ao resgate da sua propriedade, em louvor da sua glória."
+    }
+  }
 }

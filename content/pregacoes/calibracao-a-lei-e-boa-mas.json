@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Diagnóstico",
         "campos": [
-          { "campo": "Diagnóstico", "valor": "A lei desperta o pecado que promete conter" },
-          { "campo": "Efeito da lei", "valor": "Frustração ou hipocrisia" },
-          { "campo": "Antídoto", "valor": "Contemplação, não esforço" }
+          {
+            "campo": "Diagnóstico",
+            "valor": "A lei desperta o pecado que promete conter"
+          },
+          {
+            "campo": "Efeito da lei",
+            "valor": "Frustração ou hipocrisia"
+          },
+          {
+            "campo": "Antídoto",
+            "valor": "Contemplação, não esforço"
+          }
         ]
       }
     },
@@ -31,12 +40,36 @@
     "frase_sintese": "Uma reportagem sobre evangélicos americanos pedindo a volta dos Dez Mandamentos às escolas intrigou o pastor: o cristianismo nunca foi edificado sobre a Lei de Moisés — as raízes cristãs estão na obra consumada de Cristo no Calvário, não nas tábuas do Sinai. Esse gancho abre uma das mensagens mais diretas da série: a Lei é boa, mas não foi feita para o que a religião promete que ela faz."
   },
   "mapa_pontos": [
-    { "id": "bloco-1", "numero": "1", "titulo": "Ninguém Realmente Cumpre a Lei" },
-    { "id": "bloco-2", "numero": "2", "titulo": "A Lei Desperta o Pecado que Proíbe" },
-    { "id": "bloco-3", "numero": "3", "titulo": "O Verdadeiro Propósito da Lei" },
-    { "id": "bloco-4", "numero": "4", "titulo": "Frustração ou Hipocrisia" },
-    { "id": "bloco-5", "numero": "5", "titulo": "A Serpente Pregou o Primeiro Sermão Religioso" },
-    { "id": "bloco-6", "numero": "6", "titulo": "Contemplar, Não se Esforçar" }
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Ninguém Realmente Cumpre a Lei"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "A Lei Desperta o Pecado que Proíbe"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "O Verdadeiro Propósito da Lei"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Frustração ou Hipocrisia"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "A Serpente Pregou o Primeiro Sermão Religioso"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Contemplar, Não se Esforçar"
+    }
   ],
   "secoes": [
     {
@@ -210,8 +243,16 @@
           "variante": "duplice_grid",
           "dados": {
             "itens": [
-              { "num": "01", "nome": "Frustração", "texto": "Você tenta, falha, tenta de novo, falha de novo — e a consciência da própria incapacidade se acumula, gerando desânimo espiritual." },
-              { "num": "02", "nome": "Hipocrisia", "texto": "Você finge que está cumprindo. Coloca os Dez Mandamentos na porta da escola ou do quarto dos filhos — sem realmente vivê-los — e passa a exigir dos outros aquilo que você mesmo não pratica." }
+              {
+                "num": "01",
+                "nome": "Frustração",
+                "texto": "Você tenta, falha, tenta de novo, falha de novo — e a consciência da própria incapacidade se acumula, gerando desânimo espiritual."
+              },
+              {
+                "num": "02",
+                "nome": "Hipocrisia",
+                "texto": "Você finge que está cumprindo. Coloca os Dez Mandamentos na porta da escola ou do quarto dos filhos — sem realmente vivê-los — e passa a exigir dos outros aquilo que você mesmo não pratica."
+              }
             ]
           }
         },
@@ -320,12 +361,30 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "Ninguém cumpre a lei: nem os que a defendem mais fervorosamente a cumprem de fato. O cristianismo não foi edificado sobre a Lei — morremos para ela mediante o corpo de Cristo.", "versiculo_ancora": "Romanos 7.4,12" },
-    { "ponto": "A lei desperta o pecado que proíbe: a proibição desperta exatamente o que proíbe — como a placa \"não pule o muro\". Quanto mais Lei, mais força o pecado tem.", "versiculo_ancora": "Romanos 7.5,8 · 1 Coríntios 15.56" },
-    { "ponto": "O verdadeiro propósito da lei: não foi dada para santificar ou justificar — foi dada para mostrar o quanto você é pecador, e realçar a ofensa até que você clame pela graça.", "versiculo_ancora": "1 Timóteo 1.8 · Romanos 3.20 · Romanos 5.20" },
-    { "ponto": "Frustração ou hipocrisia: a lei só gera duas coisas em quem tenta cumpri-la. A humildade nasce quando você reconhece: \"eu não dou conta, eu preciso de Cristo\".", "versiculo_ancora": "Efésios 2.8-9" },
-    { "ponto": "A serpente pregou o primeiro sermão religioso: \"faça isso e você será como Deus\" — sempre baseado no que o homem pode fazer. Você já tem o Espírito Santo; não precisa de bússola moral.", "versiculo_ancora": "Gênesis 3 · Gálatas 5.18" },
-    { "ponto": "Contemplar, não se esforçar: a transformação não vem do esforço contra a carne — vem de contemplar a Cristo, de glória em glória.", "versiculo_ancora": "Gálatas 5.16 · 2 Coríntios 3.18" }
+    {
+      "ponto": "Ninguém cumpre a lei: nem os que a defendem mais fervorosamente a cumprem de fato. O cristianismo não foi edificado sobre a Lei — morremos para ela mediante o corpo de Cristo.",
+      "versiculo_ancora": "Romanos 7.4,12"
+    },
+    {
+      "ponto": "A lei desperta o pecado que proíbe: a proibição desperta exatamente o que proíbe — como a placa \"não pule o muro\". Quanto mais Lei, mais força o pecado tem.",
+      "versiculo_ancora": "Romanos 7.5,8 · 1 Coríntios 15.56"
+    },
+    {
+      "ponto": "O verdadeiro propósito da lei: não foi dada para santificar ou justificar — foi dada para mostrar o quanto você é pecador, e realçar a ofensa até que você clame pela graça.",
+      "versiculo_ancora": "1 Timóteo 1.8 · Romanos 3.20 · Romanos 5.20"
+    },
+    {
+      "ponto": "Frustração ou hipocrisia: a lei só gera duas coisas em quem tenta cumpri-la. A humildade nasce quando você reconhece: \"eu não dou conta, eu preciso de Cristo\".",
+      "versiculo_ancora": "Efésios 2.8-9"
+    },
+    {
+      "ponto": "A serpente pregou o primeiro sermão religioso: \"faça isso e você será como Deus\" — sempre baseado no que o homem pode fazer. Você já tem o Espírito Santo; não precisa de bússola moral.",
+      "versiculo_ancora": "Gênesis 3 · Gálatas 5.18"
+    },
+    {
+      "ponto": "Contemplar, não se esforçar: a transformação não vem do esforço contra a carne — vem de contemplar a Cristo, de glória em glória.",
+      "versiculo_ancora": "Gálatas 5.16 · 2 Coríntios 3.18"
+    }
   ],
   "nota_lacuna": [],
   "resumo_curto": {
@@ -336,6 +395,51 @@
       "A Lei nunca foi dada para santificar, justificar ou aperfeiçoar ninguém — foi dada para realçar o pecado e mostrar a incapacidade humana, como um policial que só existe para apontar o erro, nunca para elogiar o acerto. O propósito é conduzir à conclusão: \"eu não dou conta, eu preciso de Cristo.\"",
       "Tentar cumprir a Lei só produz dois resultados possíveis: frustração, de tentar e falhar repetidamente, ou hipocrisia, de fingir que cumpre enquanto exige dos outros o que não pratica. A saída não é tentar com mais força — é reconhecer a própria incapacidade e deixar que a graça, e não o esforço, produza a vitória.",
       "A transformação verdadeira não vem do esforço contra a carne, mas de contemplar a Cristo — de glória em glória, de forma progressiva, não instantânea. Quanto mais cheio do Espírito alguém está, menos precisa satisfazer os desejos da carne — não porque venceu por conta própria, mas porque o Espírito milita a seu favor."
+    ],
+    "versiculo_chave": {
+      "referencia": "1 Timóteo 1.8",
+      "texto": "Sabemos, porém, que a lei é boa, se alguém dela usa legitimamente."
+    }
+  },
+  "resumo_lider": {
+    "frase_tema": "A Lei é boa, mas não foi feita para te tornar bom; ela serve para revelar sua incapacidade e conduzi-lo à dependência total de Cristo.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Ninguém Realmente Cumpre a Lei",
+        "resumo": "O cristianismo não foi edificado sobre a Lei de Moisés, mas sobre a obra consumada de Cristo. Ninguém consegue cumprir todos os mandamentos, e tentar usá-los como alicerce da fé é um erro, pois a Lei é santa, mas não foi feita para nos tornar santos (Romanos 7.4, 12).",
+        "frase_chave": "Se de fato os Dez Mandamentos fossem a raiz da nossa fé, eu estaria martelando isso toda semana. Você teria decorado, teria escrito num quadro em casa."
+      },
+      {
+        "numero": 2,
+        "titulo": "A Lei Desperta o Pecado que Proíbe",
+        "resumo": "A proibição desperta o desejo, tal como uma placa de 'não pule o muro' que instiga os adolescentes a pularem. Quanto mais tentamos nos transformar por regras, mais força o pecado ganha na carne, pois a Lei fortalece o pecado (Romanos 7.5, 8).",
+        "frase_chave": "O que te aproxima de Deus não é a sua obediência, não é a sua performance — é simplesmente crer no poder do sangue."
+      },
+      {
+        "numero": 3,
+        "titulo": "O Verdadeiro Propósito da Lei",
+        "resumo": "A Lei é como um celular usado para matar uma barata: o uso é inadequado e destrutivo. Ela foi dada para realçar o pecado e mostrar que somos incapazes, funcionando como um policial que apenas aponta o erro e nunca elogia o acerto (Romanos 3.20, 5.20).",
+        "frase_chave": "Ninguém chega a Deus pela Lei. A Lei foi dada para ser quebrada — para não ser cumprida — de forma que o homem clamasse pela graça."
+      },
+      {
+        "numero": 4,
+        "titulo": "Frustração ou Hipocrisia",
+        "resumo": "Tentar cumprir a Lei gera apenas frustração pelo fracasso constante ou hipocrisia de fingir uma santidade que não existe. A verdadeira humildade surge ao reconhecer que não damos conta e que precisamos da graça de Deus (Efésios 2.8-9).",
+        "frase_chave": "Você acredita que pode entrar no céu porque obedeceu a lei? Somos salvos pela graça, mediante a fé, e não por obras — para que ninguém se glorie."
+      },
+      {
+        "numero": 5,
+        "titulo": "A Serpente Pregou o Primeiro Sermão Religioso",
+        "resumo": "A serpente enganou o homem com a promessa de que ele seria como Deus através do conhecimento do bem e do mal. Hoje, muitos crentes buscam fórmulas de autoaprimoramento, esquecendo que o Espírito Santo já habita neles como guia (Gálatas 5.18).",
+        "frase_chave": "A árvore não era a árvore do pecado — era a árvore do conhecimento. E você está sempre achando que existe algo que você não sabe, que quando descobrir vai destravar sua vida."
+      },
+      {
+        "numero": 6,
+        "titulo": "Contemplar, Não se Esforçar",
+        "resumo": "A transformação não vem do esforço humano contra a carne, mas da contemplação da glória de Cristo. À medida que contemplamos a Jesus, somos transformados de glória em glória pelo Espírito, não por fórmulas ou passos (2 Coríntios 3.18).",
+        "frase_chave": "Quanto mais você enxerga Cristo e vê um pouco mais dele, a glória de Cristo é acrescentada na sua vida. E de glória em glória, você é mudado e transformado."
+      }
     ],
     "versiculo_chave": {
       "referencia": "1 Timóteo 1.8",

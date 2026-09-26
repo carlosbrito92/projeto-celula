@@ -13,11 +13,31 @@
     "frase_sintese": "Quando comemos um alimento, ele passa a fazer parte de nós — tornamo-nos, de certa forma, aquilo que consumimos. Da mesma maneira, quando nos alimentamos do Pão Celestial, Cristo, somos transformados por Ele. Tornamo-nos participantes da natureza celestial por meio do poder da Palavra de Deus. Mas há um engano sutil que impede muitos crentes de viver essa realidade — e esta mensagem existe para expô-lo."
   },
   "mapa_pontos": [
-    { "id": "bloco-1", "numero": "1", "titulo": "O Evangelho da Graça" },
-    { "id": "bloco-2", "numero": "2", "titulo": "O Antídoto Contra a Religião" },
-    { "id": "bloco-3", "numero": "3", "titulo": "A Doença dos Gálatas" },
-    { "id": "bloco-4", "numero": "4", "titulo": "O Poder Daquilo em que Cremos" },
-    { "id": "bloco-5", "numero": "5", "titulo": "Sintomas de um \"Gálata\"" }
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Evangelho da Graça"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Antídoto Contra a Religião"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Doença dos Gálatas"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Poder Daquilo em que Cremos"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Sintomas de um \"Gálata\""
+    }
   ],
   "secoes": [
     {
@@ -105,8 +125,14 @@
           "tipo": "componente_tema",
           "variante": "versus",
           "dados": {
-            "lado_a": { "label": "A Religião Ensina", "citacao": "Se eu fizer o bem, serei recompensado." },
-            "lado_b": { "label": "O Evangelho Ensina", "citacao": "Cristo fez tudo por mim." }
+            "lado_a": {
+              "label": "A Religião Ensina",
+              "citacao": "Se eu fizer o bem, serei recompensado."
+            },
+            "lado_b": {
+              "label": "O Evangelho Ensina",
+              "citacao": "Cristo fez tudo por mim."
+            }
           }
         },
         {
@@ -228,11 +254,65 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "O Evangelho da Graça: não há outra forma de salvação senão pela graça — e da mesma graça vêm cura, milagres e bênçãos. Muitos crentes professam a graça mas vivem pela meritocracia.", "versiculo_ancora": "Efésios 2.8-9 · Gálatas 3.3" },
-    { "ponto": "O Antídoto: os falsos mestres não retiravam Cristo — apenas acrescentavam algo. A religião diz \"faça e será recompensado\"; o Evangelho diz \"Cristo fez tudo por mim\".", "versiculo_ancora": "Gálatas 1.6-9" },
-    { "ponto": "A Doença dos Gálatas: medo da punição, dúvida da salvação, sentimento de rejeição, crença em conquistar o favor divino. Uma crença errada é mais perigosa que um comportamento errado.", "versiculo_ancora": "Gálatas 3.1" },
-    { "ponto": "O Poder da Crença: o problema em Corinto não era pecado impedindo a Ceia — era falta de entendimento sobre Cristo e sua obra.", "versiculo_ancora": "1 Coríntios 11.29-30" },
-    { "ponto": "Sintomas de um \"Gálata\": a cruz sem efeito prático, a santificação pelo esforço próprio, o amor de Deus como algo a conquistar — todos anulam a suficiência da cruz.", "versiculo_ancora": "" }
+    {
+      "ponto": "O Evangelho da Graça: não há outra forma de salvação senão pela graça — e da mesma graça vêm cura, milagres e bênçãos. Muitos crentes professam a graça mas vivem pela meritocracia.",
+      "versiculo_ancora": "Efésios 2.8-9 · Gálatas 3.3"
+    },
+    {
+      "ponto": "O Antídoto: os falsos mestres não retiravam Cristo — apenas acrescentavam algo. A religião diz \"faça e será recompensado\"; o Evangelho diz \"Cristo fez tudo por mim\".",
+      "versiculo_ancora": "Gálatas 1.6-9"
+    },
+    {
+      "ponto": "A Doença dos Gálatas: medo da punição, dúvida da salvação, sentimento de rejeição, crença em conquistar o favor divino. Uma crença errada é mais perigosa que um comportamento errado.",
+      "versiculo_ancora": "Gálatas 3.1"
+    },
+    {
+      "ponto": "O Poder da Crença: o problema em Corinto não era pecado impedindo a Ceia — era falta de entendimento sobre Cristo e sua obra.",
+      "versiculo_ancora": "1 Coríntios 11.29-30"
+    },
+    {
+      "ponto": "Sintomas de um \"Gálata\": a cruz sem efeito prático, a santificação pelo esforço próprio, o amor de Deus como algo a conquistar — todos anulam a suficiência da cruz.",
+      "versiculo_ancora": ""
+    }
   ],
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "Muitos cristãos professam a graça, mas vivem sob a meritocracia religiosa; precisamos retornar à suficiência da cruz para sermos verdadeiramente transformados.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "O Evangelho da Graça",
+        "resumo": "A salvação e todas as bênçãos de Deus são recebidas exclusivamente pela graça, não por méritos ou esforços humanos. Muitos crentes vivem um fardo desnecessário ao tentar barganhar com Deus, esquecendo que Cristo é o nosso único representante (Efésios 2.8-9).",
+        "frase_chave": "A bênção de Deus é um presente da graça. Ela é concedida justamente àqueles que não a merecem. O preço já foi pago por Cristo."
+      },
+      {
+        "numero": 2,
+        "titulo": "O Antídoto Contra a Religião",
+        "resumo": "O erro dos gálatas não foi abandonar Cristo, mas tentar acrescentar exigências humanas à obra perfeita da cruz. Enquanto a religião ensina que o homem deve fazer para ser recompensado, o Evangelho declara que Cristo já fez tudo (Gálatas 1.6-7).",
+        "frase_chave": "Uma das estratégias de Satanás é perverter o Evangelho, colocando o homem no centro."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Doença dos Gálatas",
+        "resumo": "A 'doença dos gálatas' se manifesta através do medo da punição, dúvida da salvação e a busca por conquistar o favor divino. Paulo alerta que uma crença errada é mais perigosa para a vida cristã do que um comportamento errado (Gálatas 3.1).",
+        "frase_chave": "Enquanto houver graça, haverá esperança de transformação."
+      },
+      {
+        "numero": 4,
+        "titulo": "O Poder Daquilo em que Cremos",
+        "resumo": "O erro da igreja em Corinto ao participar da Ceia não era o pecado em si, mas a falta de discernimento sobre a obra de Cristo. Eles tratavam o sacrifício sagrado como algo comum por não entenderem a suficiência do que Jesus realizou (1 Coríntios 11.29-30).",
+        "frase_chave": "O problema era a falta de entendimento sobre Cristo e sua obra."
+      },
+      {
+        "numero": 5,
+        "titulo": "Sintomas de um \"Gálata\"",
+        "resumo": "Podemos identificar essa mentalidade quando a cruz não tem efeito prático no dia a dia ou quando acreditamos que a santificação depende apenas do nosso esforço. Tentar conquistar o amor de Deus por mérito próprio anula a suficiência da cruz (Gálatas 3.3).",
+        "frase_chave": "A graça não apenas inicia a vida cristã; ela também a sustenta até o fim."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 2.8-9",
+      "texto": "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não vem das obras, para que ninguém se glorie."
+    }
+  }
 }

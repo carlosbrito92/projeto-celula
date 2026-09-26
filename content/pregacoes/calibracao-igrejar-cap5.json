@@ -12,13 +12,41 @@
     "frase_sintese": "No hebraico, a palavra traduzida como 'apartou-se' é yarad — que significa literalmente descer, afundar, ir para baixo. Quando você se aparta da comunhão, você nunca sobe — você só desce. É um caminho de decadência. E ninguém dorme crente e acorda desviado: as pessoas se afastam aos poucos."
   },
   "mapa_pontos": [
-    { "id": "bloco-1", "numero": "I", "titulo": "Judá se Apartou — o Contexto" },
-    { "id": "bloco-2", "numero": "II", "titulo": "Primeira Causa: Culpa e Condenação" },
-    { "id": "bloco-3", "numero": "III", "titulo": "Afastar-se do Povo da Promessa" },
-    { "id": "bloco-4", "numero": "IV", "titulo": "Os Filhos São os que Mais Sofrem" },
-    { "id": "bloco-5", "numero": "V", "titulo": "A Parábola do Banho" },
-    { "id": "bloco-6", "numero": "VI", "titulo": "Segunda Causa: Justiça Própria" },
-    { "id": "bloco-7", "numero": "VII", "titulo": "A Prova da Transformação" }
+    {
+      "id": "bloco-1",
+      "numero": "I",
+      "titulo": "Judá se Apartou — o Contexto"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "II",
+      "titulo": "Primeira Causa: Culpa e Condenação"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "III",
+      "titulo": "Afastar-se do Povo da Promessa"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "IV",
+      "titulo": "Os Filhos São os que Mais Sofrem"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "V",
+      "titulo": "A Parábola do Banho"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "VI",
+      "titulo": "Segunda Causa: Justiça Própria"
+    },
+    {
+      "id": "bloco-7",
+      "numero": "VII",
+      "titulo": "A Prova da Transformação"
+    }
   ],
   "secoes": [
     {
@@ -144,13 +172,41 @@
           "variante": "poeiras_grid",
           "dados": {
             "itens": [
-              { "numero": "01", "nome": "Confirmação da sua autoridade", "descricao": "Quando o filho ouve na igreja a mesma coisa que ouve em casa, a autoridade dos pais é confirmada. Um legado é transmitido com respaldo." },
-              { "numero": "02", "nome": "Referências espirituais além de você", "descricao": "Nenhum pai consegue discipular sozinho. Os filhos precisam conviver com outros homens e mulheres de Deus e se inspirar em diferentes exemplos de fé." },
-              { "numero": "03", "nome": "Amizades que fortalecem a fé", "descricao": "Amizades influenciam diretamente o destino. Na igreja, os filhos constroem relacionamentos com quem compartilha dos mesmos valores." },
-              { "numero": "04", "nome": "Amor pela Palavra desde cedo", "descricao": "O diabo não acha que seu filho é novo demais para atacá-lo. Você não pode achar que ele é novo demais para ser exposto à Palavra. Semeie cedo." },
-              { "numero": "05", "nome": "Cosmovisão bíblica", "descricao": "A escola ensina, a internet ensina, as amizades ensinam. Mas é na igreja que ele aprende a enxergar a vida na perspectiva de Deus — identidade, propósito, caráter." },
-              { "numero": "06", "nome": "Suporte nos momentos difíceis", "descricao": "Crises, dúvidas, tentações e perdas virão. Quando vierem, haverá uma família espiritual ao redor deles." },
-              { "numero": "07", "nome": "Aprender a servir, não só consumir", "descricao": "O mundo ensina a extrair. O Reino ensina a servir. Crianças que crescem servindo desenvolvem empatia, compaixão, responsabilidade e senso de propósito." }
+              {
+                "numero": "01",
+                "nome": "Confirmação da sua autoridade",
+                "descricao": "Quando o filho ouve na igreja a mesma coisa que ouve em casa, a autoridade dos pais é confirmada. Um legado é transmitido com respaldo."
+              },
+              {
+                "numero": "02",
+                "nome": "Referências espirituais além de você",
+                "descricao": "Nenhum pai consegue discipular sozinho. Os filhos precisam conviver com outros homens e mulheres de Deus e se inspirar em diferentes exemplos de fé."
+              },
+              {
+                "numero": "03",
+                "nome": "Amizades que fortalecem a fé",
+                "descricao": "Amizades influenciam diretamente o destino. Na igreja, os filhos constroem relacionamentos com quem compartilha dos mesmos valores."
+              },
+              {
+                "numero": "04",
+                "nome": "Amor pela Palavra desde cedo",
+                "descricao": "O diabo não acha que seu filho é novo demais para atacá-lo. Você não pode achar que ele é novo demais para ser exposto à Palavra. Semeie cedo."
+              },
+              {
+                "numero": "05",
+                "nome": "Cosmovisão bíblica",
+                "descricao": "A escola ensina, a internet ensina, as amizades ensinam. Mas é na igreja que ele aprende a enxergar a vida na perspectiva de Deus — identidade, propósito, caráter."
+              },
+              {
+                "numero": "06",
+                "nome": "Suporte nos momentos difíceis",
+                "descricao": "Crises, dúvidas, tentações e perdas virão. Quando vierem, haverá uma família espiritual ao redor deles."
+              },
+              {
+                "numero": "07",
+                "nome": "Aprender a servir, não só consumir",
+                "descricao": "O mundo ensina a extrair. O Reino ensina a servir. Crianças que crescem servindo desenvolvem empatia, compaixão, responsabilidade e senso de propósito."
+              }
             ]
           }
         },
@@ -316,13 +372,85 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "Yarad — descer: apartar-se da comunhão é literalmente afundar. Ninguém dorme crente e acorda desviado — o afastamento é gradual.", "versiculo_ancora": "Gênesis 38.1" },
-    { "ponto": "Primeira causa — culpa: Judá vendeu José (tipo de Cristo; Judá e Judas são o mesmo nome) e a condenação o afastou. Quem está debaixo de acusação se esconde — mas esse é exatamente o dia de vir e sentar na primeira fileira.", "versiculo_ancora": "" },
-    { "ponto": "O povo da promessa: afastar-se da família da fé é afastar-se do povo da aliança — e a mistura traz queda. Hoje o povo da aliança são todos os regenerados pela Palavra e lavados pelo sangue.", "versiculo_ancora": "Gênesis 3.15" },
-    { "ponto": "Os filhos sofrem mais: sete razões para os filhos crescerem na igreja — autoridade confirmada, referências, amizades, amor pela Palavra, cosmovisão, suporte e aprender a servir. Enquanto a argila está fresca, ela deve ser trabalhada.", "versiculo_ancora": "" },
-    { "ponto": "A parábola do banho: dez desculpas de quem não toma banho — as mesmas de quem não congrega. O convite não é condenação: é atração.", "versiculo_ancora": "" },
-    { "ponto": "Segunda causa — justiça própria: Judá quis queimar Tamar pelo pecado que ele mesmo cometeu. Quem se sente superior não pertence. 'Mais justa é ela do que eu' é o ponto de virada.", "versiculo_ancora": "Gênesis 38.26 · Filipenses 2.3" },
-    { "ponto": "A prova da transformação: Judá, que vendeu um irmão como escravo, oferece-se como escravo por Benjamim. A metanoia verdadeira gera disposição de servir e permanecer.", "versiculo_ancora": "Gênesis 44" }
+    {
+      "ponto": "Yarad — descer: apartar-se da comunhão é literalmente afundar. Ninguém dorme crente e acorda desviado — o afastamento é gradual.",
+      "versiculo_ancora": "Gênesis 38.1"
+    },
+    {
+      "ponto": "Primeira causa — culpa: Judá vendeu José (tipo de Cristo; Judá e Judas são o mesmo nome) e a condenação o afastou. Quem está debaixo de acusação se esconde — mas esse é exatamente o dia de vir e sentar na primeira fileira.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "O povo da promessa: afastar-se da família da fé é afastar-se do povo da aliança — e a mistura traz queda. Hoje o povo da aliança são todos os regenerados pela Palavra e lavados pelo sangue.",
+      "versiculo_ancora": "Gênesis 3.15"
+    },
+    {
+      "ponto": "Os filhos sofrem mais: sete razões para os filhos crescerem na igreja — autoridade confirmada, referências, amizades, amor pela Palavra, cosmovisão, suporte e aprender a servir. Enquanto a argila está fresca, ela deve ser trabalhada.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "A parábola do banho: dez desculpas de quem não toma banho — as mesmas de quem não congrega. O convite não é condenação: é atração.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Segunda causa — justiça própria: Judá quis queimar Tamar pelo pecado que ele mesmo cometeu. Quem se sente superior não pertence. 'Mais justa é ela do que eu' é o ponto de virada.",
+      "versiculo_ancora": "Gênesis 38.26 · Filipenses 2.3"
+    },
+    {
+      "ponto": "A prova da transformação: Judá, que vendeu um irmão como escravo, oferece-se como escravo por Benjamim. A metanoia verdadeira gera disposição de servir e permanecer.",
+      "versiculo_ancora": "Gênesis 44"
+    }
   ],
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "O afastamento da comunhão é um processo gradual de decadência, mas a restauração acontece quando abandonamos a culpa e a justiça própria pelo serviço.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Judá se Apartou — o Contexto",
+        "resumo": "Judá, após trair seu irmão José, iniciou um processo de afastamento espiritual. Ele vendeu o próprio irmão, que era um tipo de Cristo, revelando a raiz de sua decadência (Gênesis 38.1-2).",
+        "frase_chave": "José foi traído por Judá. Jesus foi traído por Judas."
+      },
+      {
+        "numero": 2,
+        "titulo": "Primeira Causa: Culpa e Condenação",
+        "resumo": "A culpa pelo pecado leva muitos a se isolarem da família da fé, acreditando que não há mais jeito para eles. O afastamento é gradual, mas o remédio é justamente buscar a casa de Deus mesmo em meio à acusação (Gênesis 38.1).",
+        "frase_chave": "Quando você estiver debaixo de acusação — esse é o dia de sentar na primeira fileira."
+      },
+      {
+        "numero": 3,
+        "titulo": "Afastar-se do Povo da Promessa",
+        "resumo": "Ao se apartar, Judá se desconectou da linhagem da promessa messiânica estabelecida por Deus. Hoje, a igreja é o povo da aliança, onde Deus coloca pessoas para nos sarar e abençoar (Gênesis 3.15).",
+        "frase_chave": "Quando Deus quer te abençoar, ele coloca alguém na sua vida."
+      },
+      {
+        "numero": 4,
+        "titulo": "Os Filhos São os que Mais Sofrem",
+        "resumo": "O afastamento dos pais priva os filhos de referências espirituais, amizades saudáveis e uma cosmovisão bíblica. Enquanto a argila está fresca, ela precisa ser trabalhada na casa de Deus (Gênesis 38.1).",
+        "frase_chave": "Quando o filho não quer ir à escola, você o leva mesmo assim. E quando ele não quer vir ao culto?"
+      },
+      {
+        "numero": 5,
+        "titulo": "A Parábola do Banho",
+        "resumo": "Muitas desculpas para não congregar são comparáveis às desculpas de quem não quer tomar banho. O convite para a igreja não é de condenação, mas de atração para um lugar de cura (Gênesis 38.1).",
+        "frase_chave": "Se você anda com gente que não toma banho, uma hora dessas você vai feder."
+      },
+      {
+        "numero": 6,
+        "titulo": "Segunda Causa: Justiça Própria",
+        "resumo": "A justiça própria faz com que sejamos rigorosos com os outros e lenientes conosco, perdendo nossa identidade e autoridade. A restauração começa ao reconhecer que os irmãos são superiores a nós (Gênesis 38.26).",
+        "frase_chave": "Você está apto para a vida da igreja quando reconhece: esses irmãos são melhores do que eu."
+      },
+      {
+        "numero": 7,
+        "titulo": "A Prova da Transformação",
+        "resumo": "A verdadeira mudança em Judá foi provada quando ele se ofereceu como escravo para salvar seu irmão Benjamim. A metanoia completa gera disposição para servir e permanecer na comunhão (Gênesis 44.18-34).",
+        "frase_chave": "Anos atrás, ele vendeu um irmão como escravo. Agora, se oferece como escravo para resgatar um irmão."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Gênesis 38.26",
+      "texto": "E conheceu-os Judá e disse: Mais justa é ela do que eu."
+    }
+  }
 }

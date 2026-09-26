@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Selo de Autenticidade",
         "campos": [
-          { "campo": "Texto em análise", "valor": "Hebreus 6.4-20 — o texto mais difícil da série" },
-          { "campo": "Questão central", "valor": "Hebreus 6 anula a segurança eterna ou a confirma?" },
-          { "campo": "Conclusão", "valor": "A âncora da alma é Jesus — ele jurou, e é impossível que Deus minta" }
+          {
+            "campo": "Texto em análise",
+            "valor": "Hebreus 6.4-20 — o texto mais difícil da série"
+          },
+          {
+            "campo": "Questão central",
+            "valor": "Hebreus 6 anula a segurança eterna ou a confirma?"
+          },
+          {
+            "campo": "Conclusão",
+            "valor": "A âncora da alma é Jesus — ele jurou, e é impossível que Deus minta"
+          }
         ]
       }
     },
@@ -403,5 +412,44 @@
       "texto": "A qual temos por âncora da alma, segura e firme e que penetra além do véu, onde Jesus, como precursor, entrou por nós, tendo-se tornado sumo sacerdote para sempre, segundo a ordem de Melquisedeque."
     }
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "Hebreus 6 não anula a segurança eterna, mas reafirma a promessa imutável de Deus como uma âncora firme para a alma daqueles que nasceram de novo.",
+    "pontos": [
+      {
+        "numero": 0,
+        "titulo": "Fundação — A Âncora e o Princípio Hermenêutico",
+        "resumo": "A certeza da salvação é como uma âncora que nos mantém firmes em meio às tribulações. Devemos interpretar textos difíceis, como Hebreus 6, à luz de passagens claras que garantem a vida eterna (Hebreus 6.4-20).",
+        "frase_chave": "Quando nós interpretamos a Bíblia, precisamos compreender um princípio da hermenêutica: nós nunca devemos trocar a interpretação de um texto claro por causa de um texto que é obscuro ou de difícil interpretação."
+      },
+      {
+        "numero": 1,
+        "titulo": "O Contexto da Carta aos Hebreus",
+        "resumo": "A carta foi escrita para judeus que estavam em processo de conversão, mas sofriam perseguição e eram tentados a retroceder ao judaísmo. É fundamental distinguir entre estar se aproximando do evangelho e ter nascido de novo (Hebreus 1.1-4).",
+        "frase_chave": "Nunca confunda conversão com novo nascimento. São coisas diferentes."
+      },
+      {
+        "numero": 2,
+        "titulo": "As Cinco Expressões — Quem São os Que Caíram?",
+        "resumo": "As cinco expressões de Hebreus 6 descrevem pessoas que foram iluminadas e provaram o poder de Deus, mas não nasceram de novo. Assim como Judas, que caminhou com Jesus e expulsou demônios, é possível estar próximo das manifestações do Reino sem possuir a vida de Deus (Hebreus 6.4-6).",
+        "frase_chave": "Um homem pode estar extraordinariamente próximo das manifestações do reino de Deus e ainda assim terminar traindo o Rei."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Queda e a Blasfêmia contra o Espírito Santo",
+        "resumo": "A queda mencionada não é um pecado moral, mas o retrocesso ao judaísmo, que equivale a crucificar Cristo novamente. A blasfêmia contra o Espírito Santo é atribuir a obra de Deus ao diabo, algo que um crente nascido de novo não pode cometer (Mateus 12.31-32).",
+        "frase_chave": "Se você tem medo de cometer a blasfêmia contra o Espírito Santo, fica tranquilo — porque você nunca vai cometê-la."
+      },
+      {
+        "numero": 4,
+        "titulo": "O Juramento de Deus e a Âncora da Alma",
+        "resumo": "Deus jurou por si mesmo para garantir a imutabilidade de Sua promessa, oferecendo um alento forte aos herdeiros. A nossa âncora não é a nossa própria força, mas Jesus, que penetrou além do véu por nós (Hebreus 6.18-19).",
+        "frase_chave": "Os homens juram pelo que lhes é superior — mas o Senhor não tem nada acima dele. Então, para que você tivesse certeza, para que a sua salvação fosse firme, para que a promessa fosse imutável — ele se interpôs com juramento."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Hebreus 6.19",
+      "texto": "A qual temos por âncora da alma, segura e firme e que penetra além do véu, onde Jesus, como precursor, entrou por nós, tendo-se tornado sumo sacerdote para sempre, segundo a ordem de Melquisedeque."
+    }
+  }
 }
