@@ -254,11 +254,10 @@ export interface ResumoLider {
   versiculo_chave?: { referencia: string; texto: string };
 }
 
-// Dentro da interface principal do conteúdo da pregação (onde já existe resumo_curto):
+// Anotação de referência - Dentro da interface principal do conteúdo da pregação (onde já existe resumo_curto):
 export interface ConteudoPregacao {
-  // ... outros campos existentes
   resumo_curto?: ResumoCurto;
-  resumo_lider?: ResumoLider; // <-- ADICIONE ESTA LINHA
+  resumo_lider?: ResumoLider;
   // ...
 }
 
@@ -291,6 +290,7 @@ export interface PregacaoConteudo {
   secoes: Secao[];
   resumo_final?: ResumoItem[];
   resumo_curto?: ResumoCurto;
+  resumo_lider?: ResumoLider;
   merch_section?: MerchSectionData | null;
   /** Nota de rodapé do Estilo #3 (quem anotou, quem compartilha, sugestão de uso) — não confundir com banner_intro.contextualizacao (abertura). */
   celula_box?: CelulaBoxData | null;
