@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "db:schema": "node --env-file=.env.local scripts/db-schema.mjs",
-    "db:seed": "tsx --env-file=.env.local scripts/db-seed.ts"
+    "db:seed": "tsx --env-file=.env.local scripts/db-seed.ts",
+    "gerar-resumo-lider": "tsx --env-file=.env.local scripts/gerar-resumo-lider.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.4.2",
@@ -18,7 +19,9 @@
     "@capacitor/cli": "^8.4.2",
     "@capacitor/core": "^8.4.2",
     "@capacitor/ios": "^8.4.2",
+    "@google/generative-ai": "^0.24.1",
     "@neondatabase/serverless": "^1.1.0",
+    "groq-sdk": "^1.6.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "motion": "^13.1.0",

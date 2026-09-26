@@ -10,6 +10,7 @@ import type {
   DadosHumor,
   DadosLabelBox,
   DadosStage,
+  DadosTimeline,
   DadosVersus,
 } from './types';
 import { TextoComKeywords } from './Keyword';
@@ -44,6 +45,8 @@ export function ComponenteTemaRenderer({ bloco }: { bloco: BlocoComponenteTema }
       return <LabelBox dados={bloco.dados as DadosLabelBox} />;
     case 'duplice_grid':
       return <DuplaGrid dados={bloco.dados as DadosDuplaGrid} />;
+    case 'timeline':
+      return <Timeline dados={bloco.dados as DadosTimeline} />;
     default:
       if (import.meta.env.DEV) {
         console.warn(`componente_tema variante desconhecida: "${bloco.variante}" — ignorada.`);
@@ -189,6 +192,24 @@ function DuplaGrid({ dados }: { dados: DadosDuplaGrid }) {
           <div className={styles.duplaGridNome}>{item.nome}</div>
           <div className={styles.duplaGridTexto}>
             <TextoComKeywords texto={item.texto} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Timeline({ dados }: { dados: DadosTimeline }) {
+  return (
+    <div className={styles.timeline}>
+      {dados.itens.map((item, i) => (
+        <div key={i} className={styles.timelineItem}>
+          <span className={styles.timelineIcon}>{item.icon}</span>
+          <div className={styles.timelineConteudo}>
+            <div className={styles.timelineTitulo}>{item.titulo}</div>
+            <div className={styles.timelineDesc}>
+              <TextoComKeywords texto={item.desc} />
+            </div>
           </div>
         </div>
       ))}

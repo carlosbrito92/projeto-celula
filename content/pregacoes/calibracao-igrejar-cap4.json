@@ -12,12 +12,36 @@
     "frase_sintese": "Vivemos em um tempo em que muitas pessoas valorizam Jesus, mas desprezam a igreja. Porém, a Bíblia revela que a igreja não é uma invenção humana — ela é o centro do coração de Deus e Seu propósito eterno."
   },
   "mapa_pontos": [
-    { "id": "ponto-1", "numero": "01", "titulo": "A Igreja sempre esteve no plano de Deus" },
-    { "id": "ponto-2", "numero": "02", "titulo": "A Igreja é a Casa de Deus" },
-    { "id": "ponto-3", "numero": "03", "titulo": "Hoje nós somos essa Casa" },
-    { "id": "ponto-4", "numero": "04", "titulo": "O propósito eterno de Deus" },
-    { "id": "ponto-5", "numero": "05", "titulo": "Chamados para viver em unidade" },
-    { "id": "ponto-6", "numero": "06", "titulo": "Somos um Corpo" }
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "A Igreja sempre esteve no plano de Deus"
+    },
+    {
+      "id": "ponto-2",
+      "numero": "02",
+      "titulo": "A Igreja é a Casa de Deus"
+    },
+    {
+      "id": "ponto-3",
+      "numero": "03",
+      "titulo": "Hoje nós somos essa Casa"
+    },
+    {
+      "id": "ponto-4",
+      "numero": "04",
+      "titulo": "O propósito eterno de Deus"
+    },
+    {
+      "id": "ponto-5",
+      "numero": "05",
+      "titulo": "Chamados para viver em unidade"
+    },
+    {
+      "id": "ponto-6",
+      "numero": "06",
+      "titulo": "Somos um Corpo"
+    }
   ],
   "secoes": [
     {
@@ -59,11 +83,31 @@
           "variante": "poeiras_grid",
           "dados": {
             "itens": [
-              { "numero": "", "nome": "A Arca de Noé", "descricao": "Quem estava dentro não experimentou o juízo." },
-              { "numero": "", "nome": "Abraão", "descricao": "Aguardava a cidade eterna, habitando em tendas por revelação." },
-              { "numero": "", "nome": "Jacó", "descricao": "Chamou Betel de Casa de Deus, a porta dos céus." },
-              { "numero": "", "nome": "O Tabernáculo de Moisés", "descricao": "A glória desceu no dia em que foi levantado." },
-              { "numero": "", "nome": "O Templo de Salomão", "descricao": "A glória encheu a casa na dedicação." }
+              {
+                "numero": "",
+                "nome": "A Arca de Noé",
+                "descricao": "Quem estava dentro não experimentou o juízo."
+              },
+              {
+                "numero": "",
+                "nome": "Abraão",
+                "descricao": "Aguardava a cidade eterna, habitando em tendas por revelação."
+              },
+              {
+                "numero": "",
+                "nome": "Jacó",
+                "descricao": "Chamou Betel de Casa de Deus, a porta dos céus."
+              },
+              {
+                "numero": "",
+                "nome": "O Tabernáculo de Moisés",
+                "descricao": "A glória desceu no dia em que foi levantado."
+              },
+              {
+                "numero": "",
+                "nome": "O Templo de Salomão",
+                "descricao": "A glória encheu a casa na dedicação."
+              }
             ]
           }
         },
@@ -211,12 +255,75 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "A Igreja sempre esteve no plano: do Éden à Nova Jerusalém, Deus deseja habitar com Seu povo.", "versiculo_ancora": "Gênesis 2 · Apocalipse 21-22" },
-    { "ponto": "A Igreja é a Casa de Deus: Arca de Noé, Abraão, Betel, Tabernáculo, Templo — sempre que a casa era edificada, a glória se manifestava.", "versiculo_ancora": "Hebreus 11.9-10 · Gênesis 28.16-17" },
-    { "ponto": "Hoje nós somos essa Casa: o Espírito habita em nós. Não somos frequentadores — somos a Igreja.", "versiculo_ancora": "" },
-    { "ponto": "O propósito eterno: não é apenas salvar — é restaurar para a comunhão com Deus e uns com os outros.", "versiculo_ancora": "" },
-    { "ponto": "Unidade: Deus é comunhão ('façamos'). Em unidade há presença, crescimento e autoridade.", "versiculo_ancora": "Gênesis 1.26" },
-    { "ponto": "Somos um Corpo: ligados, somos fortalecidos, direcionados e protegidos. Afastados, esfriamos. A célula é onde o Corpo vive no cotidiano.", "versiculo_ancora": "" }
+    {
+      "ponto": "A Igreja sempre esteve no plano: do Éden à Nova Jerusalém, Deus deseja habitar com Seu povo.",
+      "versiculo_ancora": "Gênesis 2 · Apocalipse 21-22"
+    },
+    {
+      "ponto": "A Igreja é a Casa de Deus: Arca de Noé, Abraão, Betel, Tabernáculo, Templo — sempre que a casa era edificada, a glória se manifestava.",
+      "versiculo_ancora": "Hebreus 11.9-10 · Gênesis 28.16-17"
+    },
+    {
+      "ponto": "Hoje nós somos essa Casa: o Espírito habita em nós. Não somos frequentadores — somos a Igreja.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "O propósito eterno: não é apenas salvar — é restaurar para a comunhão com Deus e uns com os outros.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Unidade: Deus é comunhão ('façamos'). Em unidade há presença, crescimento e autoridade.",
+      "versiculo_ancora": "Gênesis 1.26"
+    },
+    {
+      "ponto": "Somos um Corpo: ligados, somos fortalecidos, direcionados e protegidos. Afastados, esfriamos. A célula é onde o Corpo vive no cotidiano.",
+      "versiculo_ancora": ""
+    }
   ],
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A igreja não é uma invenção humana, mas o propósito eterno de Deus, que deseja habitar em comunhão com Seu povo através de um corpo unido.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Igreja sempre esteve no plano de Deus",
+        "resumo": "Desde o Jardim do Éden até a Nova Jerusalém, Deus revela Seu desejo constante de habitar com Seu povo. O primeiro e o último livro da Bíblia contam a mesma história de preparação para essa habitação (Gênesis 2 · Apocalipse 21-22).",
+        "frase_chave": "Deus sempre desejou viver em comunhão conosco."
+      },
+      {
+        "numero": 2,
+        "titulo": "A Igreja é a Casa de Deus",
+        "resumo": "Ao longo da história, Deus usou figuras como a Arca de Noé, o Tabernáculo e o Templo para apontar para a Igreja. Sempre que a casa de Deus era edificada, Sua glória se manifestava (Hebreus 11.9-10 · Gênesis 28.16-17).",
+        "frase_chave": "Sempre que a casa de Deus era edificada, Sua glória se manifestava."
+      },
+      {
+        "numero": 3,
+        "titulo": "Hoje nós somos essa Casa",
+        "resumo": "Com Cristo, o paradigma mudou e o Espírito Santo passou a habitar em nós, não mais em templos feitos por mãos humanas. Não somos apenas frequentadores, nós somos a Igreja, um templo vivo construído de pedras vivas.",
+        "frase_chave": "Não somos apenas frequentadores da igreja. Nós somos a Igreja."
+      },
+      {
+        "numero": 4,
+        "titulo": "O propósito eterno de Deus",
+        "resumo": "A salvação não é o destino final, mas o caminho de restauração para o propósito original de Deus. Fomos criados para viver em comunhão com Ele e uns com os outros.",
+        "frase_chave": "A salvação é o caminho de volta — mas o destino sempre foi a comunhão."
+      },
+      {
+        "numero": 5,
+        "titulo": "Chamados para viver em unidade",
+        "resumo": "O plural 'façamos' em Gênesis revela que Deus é comunhão, e a igreja, feita à Sua imagem, deve refletir essa unidade. Quando caminhamos juntos, a presença de Deus se manifesta, há crescimento e autoridade espiritual (Gênesis 1.26).",
+        "frase_chave": "Deus é comunhão."
+      },
+      {
+        "numero": 6,
+        "titulo": "Somos um Corpo",
+        "resumo": "Cada membro é importante e indispensável para o funcionamento do Corpo de Cristo, onde recebemos fortalecimento, direção e proteção. Assim como a brasa fora do braseiro esfria, o cristão isolado perde o calor espiritual.",
+        "frase_chave": "Quando nos afastamos, esfriamos espiritualmente. A brasa fora do braseiro esfria."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Mateus 16.18",
+      "texto": "Pois também eu te digo que tu és Pedro, e sobre esta pedra edificarei a minha igreja, e as portas do inferno não prevalecerão contra ela."
+    }
+  }
 }

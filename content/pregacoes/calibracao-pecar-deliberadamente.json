@@ -1,0 +1,489 @@
+{
+  "metadados": {
+    "serie": "Uma Vez Salvo, Salvo Para Sempre",
+    "capitulo": "Capítulo 5 — Encerramento",
+    "tema": "E Se Eu Pecar Deliberadamente?",
+    "data": "22 de setembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Hebreus 10.25-26",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Última mensagem da série. O texto mais desafiador sobre segurança eterna — Hebreus 10.25-26 — é enfrentado de frente. A conclusão: 'viver deliberadamente em pecado' não significa cair em pecado moral, mas abandonar a congregação e rejeitar o sacrifício de Cristo, voltando ao sistema antigo. Quem nasceu de novo peca, mas não vive na prática do pecado — e o sinal disso é o que sente depois.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          {
+            "campo": "Texto em análise",
+            "valor": "Hebreus 10.25-26 — o versículo mais usado contra a segurança eterna"
+          },
+          {
+            "campo": "Questão central",
+            "valor": "O que realmente significa 'viver deliberadamente em pecado'?"
+          },
+          {
+            "campo": "Conclusão",
+            "valor": "Viver em pecado é não crer no sangue de Cristo — quem crê está permanentemente lavado"
+          }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": "Em novembro, aos domingos: série sobre a volta de Jesus — os acontecimentos que cercam sua vinda, o arrebatamento da igreja e a grande tribulação. Quem tem certeza da salvação ama a volta de Jesus."
+    },
+    "versiculo_ancora": {
+      "referencia": "Hebreus 10.25-26",
+      "texto": "Não deixemos de congregar-nos, como é costume de alguns; antes, façamos admoestações e tanto mais quanto vedes que o Dia se aproxima. Porque, se vivermos deliberadamente em pecado, depois de termos recebido o pleno conhecimento da verdade, já não resta sacrifício pelos pecados."
+    },
+    "frase_sintese": "Viver deliberadamente em pecado não é cair em pecado — é abandonar a congregação e rejeitar o sacrifício de Cristo. Quem crê no poder do sangue está permanentemente lavado, mesmo quando tropeça."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Contexto de Hebreus — Transição de Aliança",
+      "pendente": false
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Que É Viver Deliberadamente em Pecado",
+      "pendente": false
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Salvação Sempre Foi Pela Graça, Mediante a Fé",
+      "pendente": false
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Pecar Não É o Mesmo Que Viver no Pecado",
+      "pendente": false
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "O Que Define a Prática do Pecado",
+      "pendente": false
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Consequência da Rejeição e Encerramento",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Contexto de Hebreus — Transição de Aliança",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Hebreus 10.25 · Hebreus 1.1-4 · Gênesis 14.18-20 · Hebreus 7.1-10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Para compreender o verso 26, precisamos primeiro compreender o versículo 25. O 'Dia' mencionado está com D maiúsculo — não é um dia qualquer. **É o Dia de Cristo, o dia da sua volta.** O autor de Hebreus está dizendo: não desistam de congregar, permaneçam congregando, porque o dia da volta de Cristo se aproxima. Se há dois mil anos o dia de Cristo já estava se aproximando, imaginemos nos nossos dias."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 10.25",
+          "texto": "Não deixemos de congregar-nos, como é costume de alguns; antes, façamos admoestações e tanto mais quanto vedes que o Dia se aproxima."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A carta aos Hebreus foi escrita para os **primeiros judeus alcançados pelo evangelho** — um povo vivendo uma transição de era, de tempos, de aliança, de dispensação. É impressionante que Hebreus seja o livro do Novo Testamento menos pregado e menos lido nas igrejas, sendo uma carta essencial. Ela foi escrita para **encorajar** aqueles primeiros convertidos que estavam debaixo de grande pressão — duramente perseguidos, tentados a desistir, tentados a recuar, tentados a não permanecer."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Naquela congregação havia pelo menos **três tipos de pessoas**: os convertidos genuínos, que já tinham sido regenerados e nascidos de novo; os observadores em processo de conversão, que estavam ali ouvindo, analisando, conhecendo; e os rejeitores, que já tinham ouvido e entendido, mas decidiram rejeitar o sacrifício de Cristo e voltar ao templo para sacrificar animais novamente."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "razoes_grid",
+          "dados": {
+            "itens": [
+              {
+                "num": "1",
+                "nome": "Os Convertidos Genuínos",
+                "texto": "Já regenerados e nascidos de novo. Tinham tido revelação do evangelho e crido em Cristo e na sua obra."
+              },
+              {
+                "num": "2",
+                "nome": "Os Observadores em Processo",
+                "texto": "Estavam ali ouvindo, analisando, conhecendo. Conversão é um processo — diferente do novo nascimento, que é o momento da decisão."
+              },
+              {
+                "num": "3",
+                "nome": "Os Rejeitores",
+                "texto": "Já tinham ouvido e entendido, mas decidiram rejeitar. Voltavam ao templo para sacrificar animais novamente."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Aquele terceiro grupo vivia num grande conflito: líderes religiosos pressionando — 'se vocês não voltarem ao templo, estarão pecando contra o templo; se não voltarem, serão considerados apóstatas'. E por isso muitos estavam **deixando de congregar**, abandonando a vida da igreja, retornando para as práticas judaicas antigas. É nesse contexto que o autor de Hebreus escreve: não retrocedam. Nós não somos daqueles que retrocedem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A carta de Hebreus é uma **carta de contrastes, de comparações, de paralelos**. Do capítulo um em diante: Cristo é superior aos anjos, superior a Moisés, superior a todos os profetas, superior ao sacerdócio de Arão e de Levi. O autor faz uma comparação entre o sacrifício dos animais oferecidos durante 1.500 anos e o sacrifício definitivo de Cristo na cruz."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O primeiro sacerdote que aparece na Escritura é **Melquisedeque**. Ele se encontra com Abraão, e a Bíblia diz que Abraão lhe deu o dízimo — a primeira menção de dízimo na Bíblia — e que Melquisedeque, em seguida, lhe ofereceu pão e vinho. O menor é sempre abençoado pelo maior; logo, Melquisedeque é maior que Abraão. Mas em Abraão estavam Isaque, Jacó e Levi — e Cristo é superior a todos eles, pois Melquisedeque, como todo o Antigo Testamento, é um tipo de Cristo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 1.29",
+          "texto": "No dia seguinte, viu João a Jesus, que vinha para ele, e disse: Eis o Cordeiro de Deus, que tira o pecado do mundo!"
+        },
+        {
+          "tipo": "callout",
+          "texto": "O sacrifício de Cristo na cruz fez valer todos os sacrifícios de animais oferecidos anteriormente. Agora Deus só aceita o sangue desse Cordeiro — Jesus de Nazaré. Não abandonem a igreja, não voltem para o templo, não voltem para a lei: nenhum animal vai salvar. Não resta mais sacrifício."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "O Que É Viver Deliberadamente em Pecado",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Hebreus 10.25-26",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Entendendo o contexto, o verso 26 se abre. O que significa para o autor de Hebreus **'viver deliberadamente em pecado'? Deixar de congregar.** Aquele que deixa de congregar está escolhendo viver no pecado. O verso 25 é a chave do contexto para entender o verso 26."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 10.26",
+          "texto": "Porque, se vivermos deliberadamente em pecado, depois de termos recebido o pleno conhecimento da verdade, já não resta sacrifício pelos pecados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas com quem o autor de Hebreus está falando? Com aqueles que **já tinham provado a verdade**, já tinham tido entendimento de que não há sacrifício além do sacrifício de Cristo, já tinham tido experiência de que não há obra mais poderosa do que a obra de Cristo. Se voltassem ao templo para sacrificar animais, estariam dizendo em outras palavras: 'Jesus ainda não veio. O Messias ainda virá. Cristo deveria ser crucificado novamente.'"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Uma vez que conhecemos a verdade sobre o sangue de Cristo e a rejeitamos, não resta mais nenhum sangue suficiente para nos perdoar, nos libertar, nos restaurar e mudar a nossa história. O sangue do Cordeiro de Deus — nesse sangue sim há poder. Mas se não cremos, não resta mais sacrifício para nós."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Salvação Sempre Foi Pela Graça, Mediante a Fé",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Gênesis 3.15 · Romanos 3.25 · Hebreus 9.15 · João 1.29",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Mesmo no Antigo Testamento, a salvação sempre foi pela graça, mediante a fé — nunca por obras. O sangue do animal derramado apontava para o Messias prometido, e era nisso que eles criam. Perguntam: 'Adão foi salvo? Vamos encontrar Adão no céu?'"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Após a queda, Deus fez uma promessa que é a **primeira profecia da Bíblia** (Gênesis 3.15): a mulher geraria um descendente que seria ferido no calcanhar, mas esmagaria a cabeça da serpente. A prova de que Adão creu é que, depois dessa profecia, ele dá à sua mulher o nome de **Eva**, que significa **vida** — como quem diz: 'Não morreremos, viveremos; de você virá um descendente.' Cristo foi ferido na cruz, mas na cruz ele esmagou a cabeça da serpente."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Cartão de Crédito",
+            "corpo": [
+              "Quando pagamos algo no cartão de crédito, não estamos pagando de fato naquele momento — o pagamento real acontece no dia em que chega a fatura.",
+              "Durante 1.500 anos, animais foram oferecidos e sangue foi derramado, como um cartão sendo passado, até que a fatura foi paga por completo na cruz do Calvário.",
+              "Naquele dia, quando o Cordeiro de Deus foi morto e o sangue de Jesus foi derramado, ele fez valer todo o sangue de animais oferecido como sacrifício naquele antigo sistema."
+            ],
+            "conclusao": "Todos os sacrifícios do Antigo Testamento apontavam para a cruz. Quando Cristo morreu, a fatura foi quitada — não resta mais sacrifício algum a ser oferecido."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Pecar Não É o Mesmo Que Viver no Pecado",
+      "sec_eyebrow": "4ª Verdade",
+      "referencias": "1 João 1.7-9 · 1 Coríntios 15.12-19 · Romanos 4.25",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Viver deliberadamente em pecado **não é o mesmo que cometer pecado**. Todos nós pecamos — ninguém aqui é impecável. Mas não vivemos no pecado. O pecado que cometemos não tem mais o poder de mudar quem somos e mudar a nossa natureza."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Estamos permanentemente debaixo da ação do sangue do Cordeiro. O sangue de Cristo é derramado sobre a nossa vida **24 horas por dia** — ele é aplicado sobre nós. Como estamos congregando, como estamos ligados ao corpo, como estamos sendo abençoados pelo corpo de Cristo, estamos debaixo do sangue. Mesmo quando pecamos, mal acabamos de pecar e já estamos sendo lavados pelo sangue."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Ouro no Barro",
+            "corpo": [
+              "Somos como ouro. O ouro pode estar enfiado no barro.",
+              "Mas se arrancarmos o ouro do barro, basta lavá-lo com uma água limpa e aquele ouro passa a brilhar novamente.",
+              "O barro não muda o que o ouro é. O pecado não muda aquilo que somos — somos como ouro brilhando na presença de Deus, constantemente lavados pelo sangue de Jesus."
+            ],
+            "conclusao": "O nosso pecado não pode mudar a nossa posição. Somos justos diante de Deus — vejamo-nos como justos."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 1.7-9",
+          "texto": "Se, porém, andarmos na luz, como ele está na luz, mantemos comunhão uns com os outros, e o sangue de Jesus, seu Filho, nos purifica de todo pecado. Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados e nos purificar de toda injustiça."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há uma **prova bíblica** de que 'viver no pecado' não significa praticar pecado. Paulo escreve à igreja de Corinto, que tinha sérios problemas doutrinários — alguns ali não acreditavam na ressurreição dos mortos. E Paulo não diz simplesmente 'vocês estão errados, engulam'. A Palavra de Deus nunca é dogmática nesse sentido — ela nos apresenta um **raciocínio espiritual**, uma lógica bíblica."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 15.12-17",
+          "texto": "Ora, se é corrente pregar-se que Cristo ressuscitou dentre os mortos, como, pois, afirmam alguns dentre vós que não há ressurreição de mortos? E, se não há ressurreição de mortos, então, Cristo não ressuscitou. E, se Cristo não ressuscitou, é vã a nossa pregação, e vã, a vossa fé; e somos tidos por falsas testemunhas de Deus... E, se Cristo não ressuscitou, é vã a vossa fé, e ainda permaneceis nos vossos pecados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se Cristo não ressuscitou, Cristo também não morreu. E se Cristo não morreu, não houve provisão para o perdão dos nossos pecados. E se não há provisão para o perdão, **onde permanecemos? No pecado.** Aquele que não crê no poder do sangue permanece no pecado."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A expressão 'permanecer no pecado' em 1 Coríntios 15 é a mesma de Hebreus 10 — mas ali ela não significa praticar o pecado. Significa não ter crido no perdão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A ressurreição é a prova de que a obra de Cristo foi **aprovada pelo Juiz de toda a terra** — de que o seu sangue foi aceito para pagar a dívida de toda a humanidade. Se ele não ressuscitou, o sacrifício não foi aceito e não fomos perdoados. Mas Cristo não apenas morreu — **Cristo ressuscitou**. E o Juiz de toda a terra aceitou e recebeu o sangue de Cristo para pagar o pecado de toda a humanidade."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Com isso somos capazes de entender a afirmação do verso 26: **só é possível viver deliberadamente no pecado se não cremos**. Se não cremos, ainda estamos no pecado. Mas aquele que creu não está no pecado mais. Não estamos dizendo que não pecamos, que não possamos tropeçar, que não possamos cair. O que estamos dizendo é que **mesmo que caiamos, continuamos sendo justos** — nosso pecado não pode alterar mais a nossa condição, a nossa posição de justiça diante de Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "O Que Define a Prática do Pecado",
+      "sec_eyebrow": "5ª Verdade",
+      "referencias": "2 Pedro 2.22 · Provérbios 26.11 · 1 João 3.9 · Romanos 8.16",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma coisa é **cometer pecado** — todos cometemos. Outra coisa é **viver na prática do pecado** — e aí a coisa muda completamente. Essa palavra 'prática' é fundamental."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Pedro 2.22",
+          "texto": "O que lhes sobrevém é o que diz certo provérbio verdadeiro: O cão voltou ao seu próprio vômito; e: A porca lavada voltou a revolver-se no lamaçal."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existem na igreja **porcas lavadas**: limpinhas, mas com a natureza inalterada. Um belo dia resolvem voltar para a lama — porque ainda são porcas. Quando a natureza é mudada, deixamos de ser porca e nos tornamos **ovelha**. É como o cão com focinheira: por mais que o contenhamos, a natureza dele não mudou. Tem que nascer de novo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 3.9",
+          "texto": "Todo aquele que é nascido de Deus não vive na prática do pecado; porque nele permanece a divina semente; ora, esse não pode viver pecando, porque é nascido de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Recebemos a **divina semente**, fomos gerados filhos de Deus, recebemos uma nova posição espiritual — a da justiça. Por isso não vivemos na prática do pecado — não apenas porque não devemos, mas porque **não queremos mais**: tornamo-nos **alérgicos ao pecado**. O pecado agride a nossa natureza e violenta a nossa consciência."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas aí surge a questão: **o que determina a prática?** Quantas vezes precisamos cometer aquele pecado para definir que estamos na prática? Duas vezes? Três vezes? Cinco vezes? A Bíblia não define a quantidade de vezes. Por isso **nunca devemos julgar os outros**. Devemos saber de nós mesmos. Não estamos na posição para avaliar quem é filho de Deus e quem não é — é o Espírito Santo quem testifica isso."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O que define a prática não é a quantidade de vezes que fazemos. O que define a prática é o que sentimos depois."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois que um crente peca, o que ele sente? **Horrível por dentro.** Sua consciência fica acusada, sua alma fica apertada, ele se sente embotado. Ele coloca a mão na cabeça e pensa: 'Meu Deus, o que eu fiz? Onde eu estava com a cabeça? Por que eu fui fazer isso?' Quando pessoas vêm conversar em aconselhamento, a única pergunta relevante é: **o que você sentiu depois?** Porque esse é o sinal."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "diagnostico",
+          "dados": {
+            "label": "Sinais de que Nascemos de Novo",
+            "itens": [
+              "Sentimo-nos horríveis depois de pecar — mão na cabeça, conflito na alma.",
+              "Não queremos viver na prática do pecado — queremos viver em vitória sobre ele.",
+              "O pecado agride a nossa nova natureza — tornamo-nos alérgicos.",
+              "O Espírito Santo dentro de nós testifica que somos filhos.",
+              "Temos inclinação para a vida e paz, não para o pecado."
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se ele repete, é porque ainda não teve a revelação de que o pecado não precisa dominá-lo, nem a revelação completa do poder do Espírito que o capacita à vitória. É uma questão de **hábito**. Hábitos são difíceis de serem construídos — mas hábitos velhos também são difíceis de serem desfeitos. Por isso precisamos ter **paciência e tolerância** com aqueles que são crianças na fé. Eles vão crescer, vão amadurecer, e essas velhas práticas serão abandonadas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ao aconselhar casais, é comum que cheguem já tristes, falando tudo o que o outro fez e do que não gostou. Depois que falam tudo, a pergunta fundamental é: **vocês oram juntos?** Antes de dormir, deitados na cama? Quando amanhece, vocês oram juntos, um colocando a mão sobre o outro, declarando? Se vocês não oram juntos, não há como o Senhor operar, porque tudo o que ele faz na nossa vida é por meio da oração."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quando é um casal de gente nascida de novo, com o coração voltado para Deus, ao perceber que disse algo que entristeceu o outro, ambos ficam incomodados e querem resolver logo. Quem nasceu de novo tem um novo coração e não quer viver no pecado: quer lidar com a situação."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Consequência da Rejeição e Encerramento",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Hebreus 10.27-29 · João 5.24 · Romanos 8.1 · Lucas 23.34",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 10.27",
+          "texto": "Pelo contrário, certa expectativa horrível de juízo e fogo vingador prestes a consumir os adversários."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Aqueles que não creem no poder do sangue vivem com uma **expectativa horrível** a respeito da volta de Jesus. Eles ignoram a volta de Cristo porque são cheios de pavor. Mas nós não temos esse tipo de expectativa — porque já não há mais condenação para os que estão em Cristo Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 5.24",
+          "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A vida eterna é **indestrutível** — a morte não tem poder sobre ela. Não entramos mais em juízo. Já passamos da morte para a vida porque nascemos de novo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 10.28-29",
+          "texto": "Sem misericórdia, morre pelo depoimento de duas ou três testemunhas quem tiver rejeitado a lei de Moisés. De quanto mais severo castigo julgais vós será considerado digno aquele que calcou aos pés o Filho de Deus, e profanou o sangue da aliança com o qual foi santificado, e ultrajou o Espírito da graça?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando alguém rejeitava a lei de Moisés, a consequência era a morte. Mas se a graça de Cristo foi infinitamente maior do que a lei de Moisés, a consequência de rejeitar a graça de Cristo — de desprezar a obra de Cristo, o sangue de Cristo — precisa ser uma consequência ainda maior. **'Calcar aos pés'** é uma expressão dura — significa pisotear, desprezar o sacrifício de Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que o autor de Hebreus está dizendo é que aqueles que decidiram voltar para o templo e voltar a sacrificar animais, voltar para as práticas antigas judaicas, eles estavam **pisoteando sobre o sacrifício de Cristo**, desprezando o sacrifício de Cristo, profanando o sangue da aliança."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E aqueles que pecam voluntariamente? Todo pecado é voluntário — ninguém peca sem ter vontade de pecar. Mas o perdão está no sangue de Jesus. Na cruz, o Senhor disse: 'Pai, perdoa-lhes, porque não sabem o que fazem'. Eles sabiam o que estavam fazendo — mas talvez não sabiam a consequência, talvez não tinham noção contra quem estavam fazendo. **Mas lá na cruz, o Senhor colocou todos os pecados na mesma categoria: a categoria da ignorância.** Por isso todos os nossos pecados são perdoados."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 23.34",
+          "texto": "Contudo, Jesus dizia: Pai, perdoa-lhes, porque não sabem o que fazem. Então, repartindo as vestes dele, lançaram sortes."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não é pela nossa obra, não é pelo que fazemos — é pelo poder de Deus. Não é pelo tanto que fizemos, é pelo tanto que ele fez. Não é a nossa capacidade de nos segurar nele — é a capacidade dele de nos segurar."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "O contexto de Hebreus: carta escrita aos primeiros judeus convertidos, vivendo transição de aliança sob pressão para voltar ao judaísmo. Cristo é superior a tudo — não há para onde retroceder.",
+      "versiculo_ancora": "Hebreus 10.25"
+    },
+    {
+      "ponto": "Viver deliberadamente em pecado = deixar de congregar. Não é cair em pecado moral — é rejeitar o sacrifício de Cristo e voltar ao sistema antigo de sacrifícios de animais.",
+      "versiculo_ancora": "Hebreus 10.25-26"
+    },
+    {
+      "ponto": "A salvação sempre foi pela graça, mediante a fé — mesmo no Antigo Testamento. Os sacrifícios de animais eram como um cartão de crédito: a fatura foi paga na cruz.",
+      "versiculo_ancora": "Gênesis 3.15 · João 1.29"
+    },
+    {
+      "ponto": "Pecar não é viver no pecado. Todos pecamos, mas o pecado não muda a nossa natureza. Estamos permanentemente debaixo do sangue de Cristo — como ouro no barro que, lavado, volta a brilhar.",
+      "versiculo_ancora": "1 João 1.7-9"
+    },
+    {
+      "ponto": "A prova bíblica: 1 Coríntios 15 — se Cristo não ressuscitou, permanecemos nos pecados. Permanecer no pecado = não crer no poder do sangue, não praticar pecado.",
+      "versiculo_ancora": "1 Coríntios 15.12-17"
+    },
+    {
+      "ponto": "O que define a prática do pecado não é a quantidade de vezes — é o que sentimos depois. Quem nasceu de novo sente-se horrível, fica em conflito, porque o pecado agride a nova natureza.",
+      "versiculo_ancora": "1 João 3.9 · 2 Pedro 2.22"
+    },
+    {
+      "ponto": "Consequência da rejeição: quem rejeita a graça pisa no sangue da aliança e vive em expectativa horrível de juízo. Mas quem crê tem vida eterna, não entra em juízo, passou da morte para a vida.",
+      "versiculo_ancora": "Hebreus 10.27-29 · João 5.24"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Viver deliberadamente em pecado não é cair — é abandonar a congregação e rejeitar o sangue de Cristo. Quem crê está permanentemente lavado, mesmo quando tropeça.",
+    "pontos": [
+      "Hebreus 10.26 é o texto mais usado contra a segurança eterna, mas precisa ser lido no contexto: a carta foi escrita para judeus convertidos sob pressão para voltar ao judaísmo. 'Viver deliberadamente em pecado' não é cometer pecado moral — é deixar de congregar, rejeitar o sacrifício de Cristo e voltar a oferecer sacrifícios de animais. Não resta mais sacrifício porque a fatura já foi paga na cruz. Mesmo no Antigo Testamento, a salvação sempre foi pela graça, mediante a fé — os sacrifícios de animais eram como um cartão de crédito sendo passado até que a fatura fosse quitada no Calvário.",
+      "Todos nós pecamos, mas o pecado não muda a nossa natureza. Estamos permanentemente debaixo do sangue de Cristo — como ouro enfiado no barro que, lavado com água limpa, volta a brilhar. O barro não muda o que o ouro é. 1 Coríntios 15 prova isso: se Cristo não ressuscitou, permanecemos nos pecados. Permanecer no pecado significa não crer no perdão — não praticar pecado. A ressurreição é a prova de que a obra de Cristo foi aprovada pelo Juiz de toda a terra.",
+      "O que define a prática do pecado não é a quantidade de vezes — é o que sentimos depois. Quem nasceu de novo sente-se horrível depois de pecar, fica em conflito terrível, porque o pecado agride a nova natureza. Quem não nasceu de novo não sente. O pecado é voluntário, mas todos foram colocados na categoria da ignorância na cruz: 'Pai, perdoa-lhes, porque não sabem o que fazem.'"
+    ],
+    "versiculo_chave": {
+      "referencia": "João 5.24",
+      "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+    }
+  },
+  "nota_lacuna": [
+    {
+      "titulo": "Crédito de fontes",
+      "texto": "Este JSON foi gerado a partir da transcrição do áudio (Modo A), complementada pelas anotações estruturadas de Samyr Woityla, que forneceu esboço organizado, referências cruzadas e frases-chave da mensagem. As anotações de Samyr serviram como fonte secundária de validação e preenchimento de lacunas da transcrição corrompida por erros de IA."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "Viver deliberadamente em pecado não é cair, mas abandonar a congregação e rejeitar o sacrifício de Cristo, pois quem crê está permanentemente lavado.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "O Contexto de Hebreus — Transição de Aliança",
+        "resumo": "A carta foi escrita para judeus convertidos sob pressão para abandonar a igreja e retornar ao sistema de sacrifícios de animais. O autor enfatiza que Cristo é superior a tudo e não há para onde retroceder (Hebreus 10.25).",
+        "frase_chave": "O sacrifício de Cristo na cruz fez valer todos os sacrifícios de animais oferecidos anteriormente. Agora Deus só aceita o sangue desse Cordeiro."
+      },
+      {
+        "numero": 2,
+        "titulo": "O Que É Viver Deliberadamente em Pecado",
+        "resumo": "Viver deliberadamente em pecado significa abandonar a congregação e rejeitar a verdade do sacrifício de Cristo. Quem conhece a eficácia do sangue e o rejeita, não encontra mais outro sacrifício para perdão (Hebreus 10.26).",
+        "frase_chave": "Uma vez que conhecemos a verdade sobre o sangue de Cristo e a rejeitamos, não resta mais nenhum sangue suficiente para nos perdoar."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Salvação Sempre Foi Pela Graça, Mediante a Fé",
+        "resumo": "A salvação nunca foi por obras, mas pela fé no Messias prometido. Os sacrifícios de animais funcionaram como um cartão de crédito, cuja fatura foi totalmente quitada na cruz (Gênesis 3.15).",
+        "frase_chave": "Quando Cristo morreu, a fatura foi quitada — não resta mais sacrifício algum a ser oferecido."
+      },
+      {
+        "numero": 4,
+        "titulo": "Pecar Não É o Mesmo Que Viver no Pecado",
+        "resumo": "Cometer pecado não altera nossa natureza, pois estamos permanentemente debaixo do sangue de Cristo. Somos como ouro no barro: o pecado pode nos sujar, mas não muda quem somos (1 João 1.7-9).",
+        "frase_chave": "A expressão 'permanecer no pecado' em 1 Coríntios 15 é a mesma de Hebreus 10 — mas ali ela não significa praticar o pecado. Significa não ter crido no perdão."
+      },
+      {
+        "numero": 5,
+        "titulo": "O Que Define a Prática do Pecado",
+        "resumo": "A prática do pecado não é definida pela quantidade de vezes que se cai, mas pelo que se sente após o erro. Quem nasceu de novo sente-se horrível e em conflito, pois o pecado agride sua nova natureza (1 João 3.9).",
+        "frase_chave": "O que define a prática não é a quantidade de vezes que fazemos. O que define a prática é o que sentimos depois."
+      },
+      {
+        "numero": 6,
+        "titulo": "Consequência da Rejeição e Encerramento",
+        "resumo": "Rejeitar a graça é pisotear o sangue da aliança, resultando em expectativa de juízo. Contudo, quem crê já passou da morte para a vida e não entra em condenação (João 5.24).",
+        "frase_chave": "Não é a nossa capacidade de nos segurar nele — é a capacidade dele de nos segurar."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "João 5.24",
+      "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+    }
+  }
+}

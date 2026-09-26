@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Antídoto",
         "campos": [
-          { "campo": "Antídoto", "valor": "Graça" },
-          { "campo": "Toxina identificada", "valor": "Mistura lei + graça" },
-          { "campo": "Status", "valor": "Instável" }
+          {
+            "campo": "Antídoto",
+            "valor": "Graça"
+          },
+          {
+            "campo": "Toxina identificada",
+            "valor": "Mistura lei + graça"
+          },
+          {
+            "campo": "Status",
+            "valor": "Instável"
+          }
         ]
       }
     },
@@ -395,5 +404,44 @@
       "versiculo_ancora": "Gálatas 3.24-25 · Romanos 7.4"
     }
   ],
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A graça não é apenas a porta de entrada da salvação, mas o caminho inteiro pelo qual vivemos, crescemos e vencemos em Cristo Jesus.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Lei Foi Feita Para Quem?",
+        "resumo": "Deus não deu a Lei para salvar o homem, mas para revelar sua incapacidade e a necessidade de um Salvador. Como a tentativa de matar uma barata com um celular, usar a Lei para salvação é um erro de propósito que apenas evidencia nossa culpa (Romanos 3.20).",
+        "frase_chave": "A graça não é apenas a porta — ela é o caminho inteiro. Você entrou pela graça, você permanece pela graça, você cresce pela graça, você vence pela graça, você produz frutos pela graça."
+      },
+      {
+        "numero": 2,
+        "titulo": "Precisamos Guardar a Lei?",
+        "resumo": "A Lei funciona como uma colher que agita um copo de água aparentemente limpa, revelando as impurezas que já estavam lá. Ela não foi dada para ser cumprida pelo homem, mas para expor nossa condição pecaminosa e nos levar a clamar pela graça (Romanos 7.7).",
+        "frase_chave": "A Lei não foi dada para ser cumprida — foi dada para ser quebrada, e assim revelar sua condição de pecador."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Obediência Me Torna Mais Justo?",
+        "resumo": "A justiça é um dom gratuito recebido em Cristo, não uma conquista por bom comportamento. Assim como uma placa de 'proibido fumar' não diz respeito a quem não fuma, a Lei não define quem já foi transformado pelo Evangelho (Romanos 5.17).",
+        "frase_chave": "Não é o evangelho de um Deus irado, raivoso, que vai acertar as contas com você. O arquivo foi corrompido. A fita foi apagada. O filme foi cancelado — porque o sangue de Cristo lavou."
+      },
+      {
+        "numero": 4,
+        "titulo": "Nova Aliança, Lei Antiquada",
+        "resumo": "A Lei é como um vídeo cassete que foi útil no passado, mas tornou-se antiquado diante da nova realidade do Espírito Santo. Quem é guiado pelo Espírito não está mais subordinado às regras externas da Lei (Hebreus 8.13).",
+        "frase_chave": "Você não é mais guiado por regras externas — é guiado por uma voz que habita dentro de você."
+      },
+      {
+        "numero": 5,
+        "titulo": "O Aio Que Nos Conduziu a Cristo",
+        "resumo": "A Lei serviu como um aio, um monitor que conduziu o homem até Cristo, mas sua função termina quando chegamos à fé. Morremos para a Lei e ressuscitamos com Cristo, tendo a vontade de Deus escrita em nossos corações (Gálatas 3.24-25).",
+        "frase_chave": "A vontade de Deus foi colocada em nós. Não mais tábuas de pedra — mas um coração de carne, onde o Espírito Santo escreve a lei por dentro."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 2.8-9",
+      "texto": "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós, é dom de Deus; não de obras, para que ninguém se glorie."
+    }
+  }
 }

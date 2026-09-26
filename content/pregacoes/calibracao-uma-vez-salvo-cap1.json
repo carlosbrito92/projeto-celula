@@ -15,9 +15,18 @@
       "dados": {
         "titulo": "Selo de Autenticidade",
         "campos": [
-          { "campo": "Questão central", "valor": "Quem está segurando você — você ou Deus?" },
-          { "campo": "Provas apresentadas", "valor": "3 de várias — a série continua" },
-          { "campo": "Base doutrinária", "valor": "Justificação pela fé, não pelas obras" }
+          {
+            "campo": "Questão central",
+            "valor": "Quem está segurando você — você ou Deus?"
+          },
+          {
+            "campo": "Provas apresentadas",
+            "valor": "3 de várias — a série continua"
+          },
+          {
+            "campo": "Base doutrinária",
+            "valor": "Justificação pela fé, não pelas obras"
+          }
         ]
       }
     },
@@ -28,13 +37,41 @@
     "frase_sintese": "A questão não é o quanto você consegue segurar Deus. A questão é: quem está segurando você?"
   },
   "mapa_pontos": [
-    { "id": "bloco-1", "numero": "1", "titulo": "Os Quatro Grupos e o Engano do Universalismo" },
-    { "id": "bloco-2", "numero": "2", "titulo": "Salvos da Ira de Deus" },
-    { "id": "bloco-3", "numero": "3", "titulo": "Por Que a Certeza da Salvação Importa" },
-    { "id": "bloco-4", "numero": "4", "titulo": "Quem Está Segurando Quem?" },
-    { "id": "bloco-5", "numero": "5", "titulo": "Primeira Prova — A Salvação É um Presente da Graça de Deus" },
-    { "id": "bloco-6", "numero": "6", "titulo": "Segunda Prova — A Salvação Foi um Ato Planejado por Deus" },
-    { "id": "bloco-7", "numero": "7", "titulo": "Terceira Prova — Um Filho Não Pode Deixar de Ser Filho" }
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Os Quatro Grupos e o Engano do Universalismo"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Salvos da Ira de Deus"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Por Que a Certeza da Salvação Importa"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Quem Está Segurando Quem?"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Primeira Prova — A Salvação É um Presente da Graça de Deus"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Segunda Prova — A Salvação Foi um Ato Planejado por Deus"
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Terceira Prova — Um Filho Não Pode Deixar de Ser Filho"
+    }
   ],
   "secoes": [
     {
@@ -301,13 +338,34 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "Os quatro grupos e o universalismo: existem os que sabem que não são salvos, os que sabem que são, os que são mas ainda duvidam, e os que não são mas pensam que são. O universalismo (todos já salvos, sem inferno) não é o Deus do Novo Testamento — a justa ira de Deus é real.", "versiculo_ancora": "" },
-    { "ponto": "Salvos da ira de Deus: fomos salvos não apenas do inferno ou do diabo, mas do próprio Deus — Cristo experimentou essa ira em nosso lugar na cruz, e por isso hoje temos paz com Deus.", "versiculo_ancora": "Romanos 5.1" },
-    { "ponto": "Por que a certeza importa: sem convicção da salvação não há crescimento espiritual nem autoridade para resistir no dia mau. Paulo é o modelo de quem guardou a fé com plena segurança.", "versiculo_ancora": "Efésios 6.17 · 2 Timóteo 4.6-8" },
-    { "ponto": "Quem segura quem: se você depende da sua própria força para se manter salvo, uma hora cairá (como o filhote de chimpanzé). Mas é Deus quem te segura, e nada pode te separar do seu amor.", "versiculo_ancora": "Hebreus 13.5 · Romanos 8.38-39" },
-    { "ponto": "Primeira prova — presente da graça: a salvação foi recebida, não conquistada, e não é retomada por mau comportamento. O amor de Deus não diminui depois que você se torna filho.", "versiculo_ancora": "Romanos 8.1" },
-    { "ponto": "Segunda prova — ato planejado: a corrente da salvação (presciência, predestinação, chamado, justificação, glorificação) mostra que nada foi acidental — tudo foi determinado antes da fundação do mundo.", "versiculo_ancora": "Romanos 8.29-30" },
-    { "ponto": "Terceira prova — filho não deixa de ser filho: você recebeu a própria natureza de Deus, e isso é irreversível — assim como comer da Árvore da Vida (Cristo) garante uma vida que não se perde.", "versiculo_ancora": "João 1.12 · 1 João 5.1 · Gênesis 3.22" }
+    {
+      "ponto": "Os quatro grupos e o universalismo: existem os que sabem que não são salvos, os que sabem que são, os que são mas ainda duvidam, e os que não são mas pensam que são. O universalismo (todos já salvos, sem inferno) não é o Deus do Novo Testamento — a justa ira de Deus é real.",
+      "versiculo_ancora": ""
+    },
+    {
+      "ponto": "Salvos da ira de Deus: fomos salvos não apenas do inferno ou do diabo, mas do próprio Deus — Cristo experimentou essa ira em nosso lugar na cruz, e por isso hoje temos paz com Deus.",
+      "versiculo_ancora": "Romanos 5.1"
+    },
+    {
+      "ponto": "Por que a certeza importa: sem convicção da salvação não há crescimento espiritual nem autoridade para resistir no dia mau. Paulo é o modelo de quem guardou a fé com plena segurança.",
+      "versiculo_ancora": "Efésios 6.17 · 2 Timóteo 4.6-8"
+    },
+    {
+      "ponto": "Quem segura quem: se você depende da sua própria força para se manter salvo, uma hora cairá (como o filhote de chimpanzé). Mas é Deus quem te segura, e nada pode te separar do seu amor.",
+      "versiculo_ancora": "Hebreus 13.5 · Romanos 8.38-39"
+    },
+    {
+      "ponto": "Primeira prova — presente da graça: a salvação foi recebida, não conquistada, e não é retomada por mau comportamento. O amor de Deus não diminui depois que você se torna filho.",
+      "versiculo_ancora": "Romanos 8.1"
+    },
+    {
+      "ponto": "Segunda prova — ato planejado: a corrente da salvação (presciência, predestinação, chamado, justificação, glorificação) mostra que nada foi acidental — tudo foi determinado antes da fundação do mundo.",
+      "versiculo_ancora": "Romanos 8.29-30"
+    },
+    {
+      "ponto": "Terceira prova — filho não deixa de ser filho: você recebeu a própria natureza de Deus, e isso é irreversível — assim como comer da Árvore da Vida (Cristo) garante uma vida que não se perde.",
+      "versiculo_ancora": "João 1.12 · 1 João 5.1 · Gênesis 3.22"
+    }
   ],
   "resumo_curto": {
     "frase_tema": "A questão não é o quanto você consegue segurar Deus — a questão é quem está segurando você.",
@@ -329,5 +387,56 @@
       "texto": "Nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas presentes, nem as futuras, nem as potestades, nem a altura, nem a profundidade, nem qualquer outra criatura poderá separar-nos do amor de Deus, que está em Cristo Jesus, nosso Senhor."
     }
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A segurança da salvação não depende da sua capacidade de segurar Deus, mas da certeza de que Ele está segurando você eternamente.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Os Quatro Grupos e o Universalismo",
+        "resumo": "Existem quatro grupos quanto à salvação, variando entre os que sabem que são salvos e os que vivem em engano. O universalismo é uma doutrina falsa que nega a ira de Deus, ignorando que o inferno é uma realidade justa para o homem caído (Romanos 8.29-30).",
+        "frase_chave": "Se o inferno de fato não existisse, para onde pessoas como Hitler seriam enviadas? É claro que o inferno existe — essa é a justa ira de Deus."
+      },
+      {
+        "numero": 2,
+        "titulo": "Salvos da Ira de Deus",
+        "resumo": "Fomos salvos não apenas do inferno ou do diabo, mas da própria ira de Deus. Cristo tomou nosso lugar na cruz, experimentando o desamparo divino para que pudéssemos viver em paz (Romanos 5.1).",
+        "frase_chave": "Deus nunca mais ficará irado com você, porque Cristo na cruz já experimentou toda a ira de Deus no seu lugar."
+      },
+      {
+        "numero": 3,
+        "titulo": "Por Que a Certeza da Salvação Importa",
+        "resumo": "A convicção da salvação é o capacete que protege a mente e permite o crescimento espiritual. Sem essa âncora, o crente vive em constante insegurança e incapacidade de se posicionar no dia mau (Efésios 6.17).",
+        "frase_chave": "Se há um assunto que deixa os crentes aterrorizados, é a volta de Jesus — porque não têm a segurança de que são salvos."
+      },
+      {
+        "numero": 4,
+        "titulo": "Quem Está Segurando Quem?",
+        "resumo": "Como na ilustração dos chimpanzés, se a salvação dependesse da nossa força, cairíamos como um filhote que não consegue se segurar. A segurança real vem de Deus, que nos sustenta e nos mantém unidos a Ele (Hebreus 13.5).",
+        "frase_chave": "Você não é um objeto solto na mão de Deus — você é um dos dedos da mão de Deus."
+      },
+      {
+        "numero": 5,
+        "titulo": "A Salvação É um Presente da Graça",
+        "resumo": "A salvação é um dom irrevogável e não uma barganha baseada em bom comportamento, como a promessa de uma bicicleta de Natal que pode ser retirada. O amor de Deus por seus filhos não diminui, pois não há mais condenação para quem está em Cristo (Romanos 8.1).",
+        "frase_chave": "O amor de Deus por você não muda. Ele já te amava antes de você nascer de novo, quando você era blasfemo."
+      },
+      {
+        "numero": 6,
+        "titulo": "A Salvação Foi um Ato Planejado",
+        "resumo": "A salvação segue uma corrente de cinco elos divinos: presciência, predestinação, chamado, justificação e glorificação. Nada foi acidental, pois Deus planejou nossa redenção antes da fundação do mundo (Romanos 8.29-30).",
+        "frase_chave": "Naquele dia, receberemos um corpo novo, incorruptível, que não estará sujeito ao pecado nem à doença, nem vai envelhecer."
+      },
+      {
+        "numero": 7,
+        "titulo": "Um Filho Não Pode Deixar de Ser Filho",
+        "resumo": "Ao nos tornar filhos, Deus compartilhou sua própria natureza conosco, algo que não pode ser desfeito. Assim como Cristo é a Árvore da Vida, ao comermos dele, recebemos uma vida eterna que não se perde (João 1.12).",
+        "frase_chave": "A vida eterna não é apenas uma vida que nunca acaba — é um tipo de vida, uma qualidade de vida, a mesma vida que Deus tem."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Romanos 8.38-39",
+      "texto": "Nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas presentes, nem as futuras, nem as potestades, nem a altura, nem a profundidade, nem qualquer outra criatura poderá separar-nos do amor de Deus, que está em Cristo Jesus, nosso Senhor."
+    }
+  }
 }

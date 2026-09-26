@@ -1,0 +1,273 @@
+{
+  "metadados": {
+    "serie": "Uma Vez Salvo, Salvo Para Sempre",
+    "capitulo": "Capítulo 2",
+    "tema": "A Certeza da Salvação",
+    "data": "30 de agosto de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "1 Coríntios 6.17 · 1 Pedro 2.5 · Efésios 1.13-14",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Continuação da série sobre a segurança eterna da salvação. Após estabelecer na semana anterior que a salvação é um presente, um ato planejado e uma mudança de natureza, o pastor apresenta as provas 4, 5 e 6, demonstrando que nossa união com Cristo é orgânica, nossa posição no edifício de Deus é permanente e o Espírito Santo é a garantia inquebrável da nossa herança.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          {
+            "campo": "Provas apresentadas",
+            "valor": "4ª, 5ª e 6ª de várias"
+          },
+          {
+            "campo": "Conceito central",
+            "valor": "Amálgama, Edificação e Selo"
+          },
+          {
+            "campo": "Base doutrinária",
+            "valor": "União mística com Cristo e a perseverança dos santos"
+          }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": ""
+    },
+    "versiculo_ancora": {
+      "referencia": "Efésios 1.13-14",
+      "texto": "Em quem também vós, depois que ouvistes a palavra da verdade, o evangelho da vossa salvação, tendo nele também crido, fostes selados com o Espírito Santo da promessa, o qual é o penhor da nossa herança, até ao resgate da sua propriedade, em louvor da sua glória."
+    },
+    "frase_sintese": "Você não é um objeto solto nas mãos de Deus; você é um dos dedos da mão de Deus, amalgamado a Ele, edificado como pedra viva e selado pelo Espírito até o dia da redenção."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Ponte: A Natureza do Filho e a Maturidade",
+      "pendente": false
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "4ª Prova: O Corpo de Cristo Não Pode Ser Mutilado",
+      "pendente": false
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "5ª Prova: Somos Pedras Vivas da Casa de Deus",
+      "pendente": false
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "6ª Prova: Recebemos o Selo e o Penhor do Espírito",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Ponte: A Natureza do Filho e a Maturidade",
+      "sec_eyebrow": "Recapitulação",
+      "referencias": "João 1.12",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Aquele que não possui a convicção da sua salvação vive inseguro, angustiado e amedrontado, incapaz de se posicionar no dia mau ou de exercer a autoridade que lhe foi dada. Por outro lado, quem sabe que é filho reina, governa e desfruta da herança, pois entende que a salvação é uma **questão de natureza**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Assim como um bebê pode ter comportamentos estranhos ou imaturos, o novo convertido também pode tropeçar. No entanto, a resposta da família não é a rejeição, mas a correção e o ensino. O crescimento espiritual não é instantâneo; é um processo de alimentação contínua na mesa da Palavra. **Tempo de igreja não é sinônimo de maturidade**, mas a natureza de filho permanece inalterada, pois fomos gerados pela semente incorruptível da Palavra de Deus."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Ninguém é salvo simplesmente por frequentar uma igreja ou por ter sido batizado nas águas. O batismo é a expressão exterior de uma experiência interior. Se nunca houve um verdadeiro novo nascimento, os rituais externos não têm crédito diante de Deus. É preciso nascer de novo."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "4ª Prova: O Corpo de Cristo Não Pode Ser Mutilado",
+      "sec_eyebrow": "4ª Prova",
+      "referencias": "1 Coríntios 6.17 · Romanos 8.38-39 · 1 Coríntios 6.15 · 1 Coríntios 12.26-27",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Algo ainda mais poderoso do que ser livrado do inferno aconteceu no momento da sua salvação: **você foi unido ao Senhor**. A palavra grega original para \"unir\" (*kollao*) carrega o sentido de colar, mas vai além, aproximando-se do conceito de **amálgama**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Amálgama, o Durepox e o Bolo",
+            "corpo": [
+              "O amálgama é a mistura de mercúrio com prata usada em obturações: duas substâncias distintas que, uma vez misturadas, tornam-se uma só, impossíveis de serem separadas.",
+              "Da mesma forma, pense em um bolo: farinha, ovos, leite e fermento são ingredientes separados. Mas, após a mistura e o calor do forno, ocorre uma reação química irreversível. Não existe tecnologia capaz de 'tirar o ovo de volta' do bolo pronto.",
+              "Foi isso que Deus fez: você foi amalgamado a Cristo. O Senhor aceitou você na massa, e agora não há como separá-Lo de você, nem a você d'Ele."
+            ],
+            "conclusao": "Você não é apenas um anexo; você é membro do corpo de Cristo. E um corpo espiritual não chega à glória mutilado ou com membros amputados."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 6.17",
+          "texto": "Mas aquele que se une ao Senhor é um só espírito com ele."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O argumento de Paulo contra a imoralidade em Corinto não era 'o Espírito Santo vai te abandonar', mas sim: 'você levaria os membros de Cristo para se unirem a uma meretriz?' (1 Co 6.15). A união é tão profunda que o pecado afeta o corpo todo, mas a **graça garante que o verdadeiro salvo, mesmo quando tropeça, é levantado pelo Senhor**, pois não vive mergulhado no pecado, mas luta contra ele."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 12.26-27",
+          "texto": "De maneira que, se um membro sofre, todos sofrem com ele; e, se um deles é honrado, com ele todos se regozijam. Vós, porém, sois corpo de Cristo; e, individualmente, membros desse corpo."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A meritocracia é uma mentalidade humana e mundana. Somos o que somos pela graça. O Senhor me escolheu por causa da Sua graça — por isso nada pode me tirar das mãos de Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "5ª Prova: Somos Pedras Vivas da Casa de Deus",
+      "sec_eyebrow": "5ª Prova",
+      "referencias": "1 Pedro 2.5-7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Individualmente, somos pedras vivas; coletivamente, somos edificados como casa espiritual. Você era uma pedra morta, isolada no mato, mas Cristo te encontrou, compartilhou Sua vida com você e te inseriu no Seu projeto."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Pedro 2.5",
+          "texto": "Também vós mesmos, como pedras que vivem, sois edificados casa espiritual para serdes sacerdócio santo, a fim de oferecerdes sacrifícios espirituais agradáveis a Deus por intermédio de Jesus Cristo."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se fosse possível um crente perder a salvação, uma pedra teria que ser arrancada do edifício. Isso significaria que Deus é um construtor falho, que não sabe escolher ou fixar suas próprias pedras, deixando a obra cheia de buracos e falhas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "As coisas de Deus não funcionam assim. Uma vez que Deus escolheu e posicionou a pedra, ela está ligada pela argamassa espiritual do Espírito Santo. **Deus não fica dizendo aos anjos: 'Cole aquela pedra de novo, ela se arrependeu'.** O que Deus escolheu, está escolhido para a glória do Seu nome."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "6ª Prova: Recebemos o Selo e o Penhor do Espírito",
+      "sec_eyebrow": "6ª Prova",
+      "referencias": "Efésios 1.13-14 · Romanos 8.9 · Efésios 4.30 · Romanos 8.23 · 1 Coríntios 1.22 · João 14.16",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A sexta prova reside no fato de que recebemos o **selo** e o **penhor** do Espírito Santo. No mundo antigo, o selo tinha funções muito específicas que se aplicam perfeitamente à nossa segurança espiritual."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "razoes_grid",
+          "dados": {
+            "itens": [
+              {
+                "num": "a",
+                "nome": "Propriedade",
+                "texto": "Assim como um fazendeiro marca o gado ou um rei sela um decreto com seu anel, o Espírito Santo é a marca de que você foi comprado pelo sangue de Jesus e pertence a Deus."
+              },
+              {
+                "num": "b",
+                "nome": "Autenticidade",
+                "texto": "O selo é o certificado de que a joia é verdadeira. A presença do Espírito em você (Romanos 8.9) é a prova incontestável de que você é autenticamente um filho de Deus."
+              },
+              {
+                "num": "c",
+                "nome": "Garantia (Penhor)",
+                "texto": "O Espírito é as 'primícias' (Rm 8.23), o pagamento inicial que garante que a transação será concluída. Ele é a garantia de que Deus completará a redenção do nosso corpo no dia da volta de Cristo."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 4.30",
+          "texto": "E não entristeçais o Espírito de Deus, no qual fostes selados para o dia da redenção."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 1.22",
+          "texto": "O qual também nos selou e deu o penhor do Espírito em nossos corações."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Aqueles que têm o selo são verdadeiros e serão arrebatados. Aqueles que não têm o selo, não são d'Ele. O Espírito habitando em você é a prova, a marca e a garantia da sua salvação eterna."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "A certeza da salvação transforma a maneira como vivemos: quem sabe que é filho exerce autoridade e desfruta da herança, entendendo que tropeços são tratados com correção, não com rejeição, pois a salvação é uma mudança de natureza.",
+      "versiculo_ancora": "João 1.12"
+    },
+    {
+      "ponto": "4ª Prova: Fomos amalgamados a Cristo. Assim como ingredientes que se tornam um bolo irreversível ou metais fundidos em amálgama, nossa união com o Senhor é orgânica e permanente. O corpo de Cristo não chega à glória mutilado.",
+      "versiculo_ancora": "1 Coríntios 6.17 · 1 Coríntios 12.26-27"
+    },
+    {
+      "ponto": "5ª Prova: Somos pedras vivas edificadas como casa espiritual. Deus é um construtor perfeito; Ele não perde, não arranca e não substitui pedras do Seu edifício, pois a obra é para a Sua glória.",
+      "versiculo_ancora": "1 Pedro 2.5"
+    },
+    {
+      "ponto": "6ª Prova: Recebemos o selo e o penhor do Espírito Santo, que atestam nossa propriedade por Deus, nossa autenticidade como filhos e servem como garantia inquebrável da nossa redenção final.",
+      "versiculo_ancora": "Efésios 1.13-14 · Efésios 4.30"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Somos filhos, somos membros do corpo, somos pedras vivas e fomos selados pelo Espírito — por isso, podemos caminhar com segurança, confiança e ousadia diante de Deus.",
+    "pontos": [
+      "A segurança da salvação não é baseada no nosso comportamento impecável ou em rituais externos como o batismo nas águas, mas na natureza que recebemos. Assim como um pai corrige um filho imaturo sem expulsá-lo de casa, Deus nos disciplina com amor, mas nunca nos revoga a filiação. Quem tem a convicção de ser filho vive com ousadia, pois sabe que foi gerado pela semente incorruptível da Palavra e que sua herança está garantida pela graça, não pelos méritos ou pela meritocracia humana.",
+      "Nossa união com Cristo vai muito além de uma simples associação; é uma fusão espiritual irreversível. O pastor utiliza a analogia do amálgama, do durepox e do bolo: assim como não se pode separar o ovo da massa depois que o bolo está assado, não há como desvincular o crente de Cristo. Fomos feitos membros do Seu corpo, e um corpo espiritual não pode ser mutilado, amputado ou chegar à glória com peças faltantes. Onde você está, Cristo está com você.",
+      "Finalmente, Deus nos posicionou como pedras vivas em Seu edifício, unidos pela argamassa do Espírito, e nos deu o Seu selo. Este selo tem três funções inegociáveis: marca de propriedade (somos d'Ele), certificado de autenticidade (temos o Espírito) e penhor ou garantia (as primícias que asseguram a conclusão da nossa salvação). Não é você quem se segura em Deus; é Ele quem te segura, e nenhuma criatura poderá separá-lo do amor de Deus."
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 1.13-14",
+      "texto": "Em quem também vós, depois que ouvistes a palavra da verdade, o evangelho da vossa salvação, tendo nele também crido, fostes selados com o Espírito Santo da promessa, o qual é o penhor da nossa herança, até ao resgate da sua propriedade, em louvor da sua glória."
+    }
+  },
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A salvação é uma união irreversível com Cristo, garantida pela nossa posição no Seu corpo, no Seu edifício e pelo selo do Espírito Santo.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "O Corpo de Cristo Não Pode Ser Mutilado",
+        "resumo": "Nossa união com Cristo é como um amálgama ou os ingredientes de um bolo: uma vez misturados, a separação torna-se impossível. Como membros do corpo de Cristo, não seremos amputados, pois a graça garante que o salvo pertence permanentemente ao Senhor (1 Coríntios 6.17).",
+        "frase_chave": "A meritocracia é uma mentalidade humana e mundana. Somos o que somos pela graça."
+      },
+      {
+        "numero": 2,
+        "titulo": "Somos Pedras Vivas da Casa de Deus",
+        "resumo": "Deus é um construtor perfeito que posiciona cada pedra viva em Sua casa espiritual com propósito eterno. Se fosse possível perder a salvação, Deus seria um construtor falho que deixa buracos em Sua própria obra (1 Pedro 2.5).",
+        "frase_chave": "Deus não fica dizendo aos anjos: 'Cole aquela pedra de novo, ela se arrependeu'."
+      },
+      {
+        "numero": 3,
+        "titulo": "Recebemos o Selo e o Penhor do Espírito",
+        "resumo": "O Espírito Santo é o selo que marca nossa propriedade, autentica nossa filiação e serve como penhor, o pagamento inicial que garante nossa redenção final. Sua presença em nós é a prova inquestionável de que pertencemos a Deus (Efésios 1.13-14).",
+        "frase_chave": "Aqueles que têm o selo são verdadeiros e serão arrebatados."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 1.13-14",
+      "texto": "Em quem também vós, depois que ouvistes a palavra da verdade, o evangelho da vossa salvação, tendo nele também crido, fostes selados com o Espírito Santo da promessa, o qual é o penhor da nossa herança, até ao resgate da sua propriedade, em louvor da sua glória."
+    }
+  }
+}

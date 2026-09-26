@@ -267,6 +267,54 @@
   color: var(--text);
 }
 
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.timelineIcon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--accent1);
+  color: var(--accent1);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineConteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timelineTitulo {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.timelineDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.9;
+}
+
 .labelBox {
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -314,6 +362,11 @@
 [data-tema="estilo-6-uma-vez-salvo"] .stageLabel,
 [data-tema="estilo-6-uma-vez-salvo"] .banhoNumero,
 [data-tema="estilo-6-uma-vez-salvo"] .labelBoxTitulo {
+  color: var(--muted);
+}
+
+[data-tema="estilo-6-uma-vez-salvo"] .timelineIcon {
+  border-color: var(--muted);
   color: var(--muted);
 }
 

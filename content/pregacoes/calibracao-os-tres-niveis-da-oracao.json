@@ -291,5 +291,44 @@
       "texto": "Pedi, e dar-se-vos-á; buscai, e achareis; batei, e abrir-se-vos-á. Pois todo o que pede recebe; e o que busca encontra; e ao que bate abrir-se-lhe-á."
     }
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "A oração é a autorização que damos a Deus para agir, crescendo em intensidade através dos níveis de pedir, buscar e bater.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Oração Como Autorização",
+        "resumo": "Deus respeita a liberdade humana e não intervém em nossa história sem que o autorizemos através da oração. Ele deseja que nos aproximemos espontaneamente, como filhos que buscam o Pai (Salmo 115.16).",
+        "frase_chave": "A oração mais poderosa e profunda que podemos fazer é simplesmente chamá-lo de Pai."
+      },
+      {
+        "numero": 2,
+        "titulo": "Ore a Respeito de Tudo",
+        "resumo": "Não existem assuntos pequenos demais para Deus, como ilustrado pelo pedido de um lustre de cristal que foi atendido. A falta de oração revela um coração vazio de anseios e expectativas, não a distância de Deus (Jeremias 29.13-14).",
+        "frase_chave": "Aquele que tem um desejo profundo no coração, ele vai orar."
+      },
+      {
+        "numero": 3,
+        "titulo": "Nível 1 — Pedir",
+        "resumo": "Muitos problemas persistem apenas porque não pedimos, demonstrando autossuficiência. Como o pai que dá balas ao filho, Deus quer que peçamos com clareza e baseados na Sua Palavra, mantendo a confiança de que fomos ouvidos (Tiago 4.2-3).",
+        "frase_chave": "Por último: quando pedimos, pedimos apenas uma vez — porque temos a confiança de que fomos ouvidos."
+      },
+      {
+        "numero": 4,
+        "titulo": "Nível 2 — Buscar",
+        "resumo": "Buscar é um nível de oração mais intenso, onde o coração se envolve e não abre mão do desejo. Deus recompensa aqueles que o buscam de todo o coração com direção e mudança de sorte (Hebreus 11.6).",
+        "frase_chave": "Vou mudar a sua circunstância. Vou mudar seu casamento, sua condição financeira, sua liderança, seu ministério."
+      },
+      {
+        "numero": 5,
+        "titulo": "Nível 3 — Bater (Interceder)",
+        "resumo": "Este é o nível da intercessão, onde oramos pelos outros e pelo cumprimento de promessas, como Daniel fez ao ler as profecias de Jeremias. Promessas não se cumprem automaticamente; elas exigem que nos posicionemos em oração (Daniel 9.2-3).",
+        "frase_chave": "Nosso problema é que muitos de nós não queremos depender de Deus. Na cabeça de muitos, viver pela fé é furada."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Mateus 7.7-8",
+      "texto": "Pedi, e dar-se-vos-á; buscai, e achareis; batei, e abrir-se-vos-á. Pois todo o que pede recebe; e o que busca encontra; e ao que bate abrir-se-lhe-á."
+    }
+  }
 }

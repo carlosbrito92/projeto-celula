@@ -1,0 +1,321 @@
+{
+  "metadados": {
+    "serie": "Uma Vez Salvo, Salvo Para Sempre",
+    "capitulo": "Capítulo 3",
+    "tema": "A Certeza da Salvação — Parte 3",
+    "data": "06 de setembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "João 17.6 · Hebreus 7.25 · 1 Pedro 1.5 · João 5.24",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Terceira mensagem da série. O pastor conclui a sequência de 10 bases da certeza da salvação, apresentando as provas 7 a 10: somos propriedade do Senhor Jesus, somos sustentados pela intercessão de Cristo, somos guardados pelo poder de Deus e somos preservados pela fidelidade de Deus. A questão central permanece: não é você quem segura Deus — é ele quem segura você.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          { "campo": "Provas apresentadas", "valor": "7ª, 8ª, 9ª e 10ª — série concluída" },
+          { "campo": "Questão central", "valor": "Quem está segurando você — você ou Deus?" },
+          { "campo": "Base doutrinária", "valor": "Preservação divina, intercessão de Cristo, fidelidade de Deus" }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": "Próximo domingo (13 de setembro): Hebreus 6 — respondendo às dúvidas enviadas sobre essa série. Domingo seguinte (20 de setembro): Hebreus 10."
+    },
+    "versiculo_ancora": {
+      "referencia": "João 10.29",
+      "texto": "Aquilo que meu Pai me deu é maior do que tudo; e da mão do Pai ninguém pode arrebatar."
+    },
+    "frase_sintese": "Você é o presente que o Pai deu ao Filho — e Jesus cuida do presente que recebeu. Nada pode te arrancar das mãos dele, porque ele vive para interceder por você."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Recapitulação — Provas 1 a 6",
+      "pendente": false
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "7ª Prova — Somos Propriedade do Senhor Jesus",
+      "pendente": false
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "8ª Prova — Somos Sustentados pela Intercessão de Cristo",
+      "pendente": false
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "9ª Prova — Somos Guardados pelo Poder de Deus",
+      "pendente": false
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "10ª Prova — Somos Preservados pela Fidelidade de Deus",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-0",
+      "numero": "0",
+      "titulo": "Recapitulação — Provas 1 a 6",
+      "sec_eyebrow": "Recapitulação",
+      "referencias": "Romanos 8.29-30 · João 1.12 · 1 Coríntios 6.17 · 1 Pedro 2.5 · Efésios 1.13-14",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Aquele que não tem certeza da sua salvação não tem rocha sobre a qual estão os seus pés — não está ancorado, não está fundamentado, e consequentemente não cresce espiritualmente. Não é possível avançar em maturidade se você não possui a convicção de que é salvo. Ter essa certeza é **absolutamente vital** para o seu crescimento espiritual."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nas duas primeiras mensagens, o pastor compartilhou seis bases: **(1)** a salvação é um presente da graça de Deus, um dom irrevogável; **(2)** a salvação foi planejada por Deus antes da fundação do mundo; **(3)** um filho não pode deixar de ser filho, pois recebeu a natureza do Pai; **(4)** o corpo de Cristo não pode ser mutilado — fomos amalgamados a ele; **(5)** somos pedras vivas na casa de Deus; e **(6)** recebemos o selo e o penhor do Espírito Santo — marca de propriedade, autenticidade e garantia."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você foi salvo por essa graça, você também será mantido salvo por essa graça. Uma vez salvo, salvo para sempre."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "7ª Prova — Somos Propriedade do Senhor Jesus",
+      "sec_eyebrow": "7ª Prova",
+      "referencias": "João 17.6 · João 17.12 · João 6.37 · João 10.29",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Por que você pertence a Cristo? Há muitas razões verdadeiras: porque ele te criou, porque ele te comprou pelo sangue, porque ele te resgatou do mercado de escravos. Mas existe um **terceiro aspecto** que quase ninguém percebe — revelado na oração sacerdotal de Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 17.6",
+          "texto": "Eu revelei teu nome àqueles que me deste do mundo. Eles sempre foram teus. Tu os deste a mim, e eles obedeceram à tua palavra."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você pertence a Cristo porque **você é um presente que Deus Pai deu para Cristo**. O Pai não dá presentes baratos para o Filho — ele dá aquilo que possui valor. Você não é um presente qualquer, você é uma pérola rara pela qual Cristo deu tudo para te comprar de volta."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se fosse possível você perder a salvação, significaria que Jesus não cuidou bem do presente que ganhou. Mas Jesus não é assim — tudo que é dado a ele, ele preserva até a eternidade, porque ele está cuidando do presente que o Pai lhe deu."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 17.12",
+          "texto": "Estando eu com eles no mundo, guardava-os em teu nome. Tenho guardado aqueles que tu me deste, **e nenhum deles se perdeu**, senão o filho da perdição, para que a Escritura se cumprisse."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 6.37",
+          "texto": "Todo aquele que o Pai me dá, esse virá a mim; e o que vem a mim, de modo nenhum o lançarei fora."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 10.29",
+          "texto": "Aquilo que meu Pai me deu é maior do que tudo; e da mão do Pai ninguém pode arrebatar."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Ninguém pode arrebatar das mãos de Deus. Nem o pecado, nenhuma tentação pode te arrancar das mãos dele. Você está nas mãos de Deus — e ninguém pode te tirar de lá."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "8ª Prova — Somos Sustentados pela Intercessão de Cristo",
+      "sec_eyebrow": "8ª Prova",
+      "referencias": "Hebreus 7.25 · João 17.9 · Lucas 22.31-32 · João 17.11-12 · Gálatas 3.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus Cristo, agora mesmo, está diante de Deus Pai **orando por você**. Ele é o nosso Sumo Sacerdote, e a sua intercessão é contínua. A oração dele é para que você seja preservado, guardado, que você permaneça, que você não desista, que você persevere, que você não retroceda."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 7.25",
+          "texto": "Por isso também pode salvar totalmente os que por ele se chegam a Deus, vivendo sempre para interceder por eles."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nós fomos salvos pela graça quando não podíamos nos salvar por nós mesmos. Mas você também não pode se manter salvo pela sua própria força — **o que te mantém salvo é a intercessão de Jesus por você**. Só podemos continuar salvos porque ele está orando por nós."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 17.9",
+          "texto": "É por eles que eu rogo; não rogo pelo mundo, mas por aqueles que me deste, porque são teus."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": {
+              "label": "Pedro",
+              "citacao": "Negou e traiu a Jesus — mas se arrependeu porque era salvo. O sinal da salvação foi o arrependimento. Jesus já havia orado por ele antes da queda."
+            },
+            "lado_b": {
+              "label": "Judas",
+              "citacao": "Negou e traiu a Jesus — mas sentiu apenas remorso, tentou pagar o próprio preço e se suicidou. A ausência de arrependimento provou que ele nunca foi dos nossos."
+            }
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 22.31-32",
+          "texto": "Simão, Simão, eis que Satanás vos reclamou para vos peneirar como trigo; eu, porém, roguei por ti, para que a tua fé não desfaleça; tu, pois, quando te converteres, fortalece os teus irmãos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não foi a firmeza de caráter de Pedro que o manteve de pé — foi a intercessão de Jesus por ele que o levantou, restaurou e colocou de pé novamente. Jesus sabia o que iria acontecer com Pedro e **antes da queda, já havia orado por ele**. Da mesma forma, antes dos seus problemas, antes das suas lutas, Jesus já intercedeu por você."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Pedro se arrependeu porque era salvo — não foi salvo porque se arrependeu. **O arrependimento é evidência da salvação, não a causa dela.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 3.3",
+          "texto": "Sois assim insensatos? Tendo começado no Espírito, estejais, agora, sendo aperfeiçoados na carne?"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Somos salvos pela graça, e depois somos **santificados pela graça também**. Não é pelo esforço, pela obra ou pelo merecimento — é pela graça do início ao fim. A pergunta chave permanece: é você que está segurando em Deus tentando não cair, ou é ele que está preservando você?"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "9ª Prova — Somos Guardados pelo Poder de Deus",
+      "sec_eyebrow": "9ª Prova",
+      "referencias": "1 Pedro 1.5 · 1 João 2.19 · Judas 1.24-25 · Colossenses 3.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Nossa salvação não é apenas uma questão de você crer — é uma questão do **poder de Deus te preservar**. Não é você mesmo que se guarda, não é você mesmo que se preserva. É o poder de Deus que te preserva. Você não mereceu quando foi salvo, e não tem que merecer hoje para ser preservado — é tudo pela graça."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Pedro 1.5",
+          "texto": "Que sois guardados pelo poder de Deus, mediante a fé para a salvação preparada para revelar-se no último tempo."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Os Chimpanzés e a Mão do Pai",
+            "corpo": [
+              "Na África, os macacos fogem dos predadores se movendo rapidamente de árvore em árvore. Os filhotes precisam se agarrar sozinhos à mãe enquanto ela corre — e sempre há o risco de cair. É exatamente o filhote, que precisa se segurar sozinho, que o predador espera pegar.",
+              "Se a sua salvação dependesse da sua capacidade de se segurar em Deus, você correria o mesmo risco do filhote. Mas não é você quem segura — é ele quem te segura.",
+              "Imagine que você é um pai ou uma mãe, segurando a mãozinha de seu filho de 1 ano. A mãozinha dele é tão pequena que não dá conta de permanecer segurando a sua mão. A força dele para não cair não está no tanto que ele é capaz de te segurar — está na sua mão que o sustenta. A mãozinha pequena não faz diferença; é a sua mão que faz toda a diferença."
+            ],
+            "conclusao": "Ainda que poeticamente cantemos 'segura na mão de Deus', na verdade é Deus que está segurando as suas mãos. Não é você que segura — é ele quem sustenta, preserva e guarda."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 2.19",
+          "texto": "Eles saíram de nosso meio; entretanto, não eram dos nossos, porque, se tivessem sido dos nossos, teriam permanecido conosco; todavia, eles se foram para que ficasse manifesto que nenhum deles é dos nossos."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você tem o dom da salvação, você não perde. Mas se perde, é porque nunca teve. Aquele que se desvia e nunca volta, manifesta que nunca foi genuinamente dos nossos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Judas 1.24-25",
+          "texto": "Ora, aquele que é poderoso para vos guardar de tropeços e para vos apresentar com exultação, imaculados diante da sua glória, ao único Deus, nosso Salvador, mediante Jesus Cristo, Senhor nosso, glória, majestade, império e soberania, antes de todas as eras, e agora, e por todos os séculos. Amém!"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ele é poderoso para te guardar de todos os tropeços. Você não precisa viver com medo de cair, com medo de tropeçar, com medo de retroceder. **Há alguém que sustenta você** — e não é a sua oração, é a oração do seu Sumo Sacerdote que agora mesmo diante de Deus Pai está intercedendo por você."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "10ª Prova — Somos Preservados pela Fidelidade de Deus",
+      "sec_eyebrow": "10ª Prova",
+      "referencias": "João 5.24 · João 10.28-30 · Romanos 8.31-39",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma vez que você é salvo, você não pode ser lançado fora. Deus, na sua graça, para que você tenha certeza, confiança e segurança, **te faz uma promessa** — e as promessas de Deus são imutáveis. Aquilo que Deus falou não retrocede. Deus não muda, e as suas promessas não mudam também."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 5.24",
+          "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma vez que Deus escreveu o seu nome no livro da vida, você não pode mais ser apagado daquele livro. Somente alguém maior do que Deus poderia arrancar o seu nome de lá — mas não há nenhum trono mais elevado do que o trono de Deus, não há ninguém mais poderoso do que o Altíssimo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 10.28-30",
+          "texto": "Eu lhes dou a vida eterna; jamais perecerão, e ninguém as arrebatará da minha mão. Aquilo que meu Pai me deu é maior do que tudo; e da mão do Pai ninguém pode arrebatar. Eu e o Pai somos um."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A promessa é clara: **jamais perecerão**, e **ninguém as arrebatará**. Nem da mão de Cristo, nem da mão do Pai. Não é a sua capacidade de se segurar nele — é a capacidade dele de segurar você. Não é pelo tanto que você fez, é pelo tanto que ele fez."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.38-39",
+          "texto": "Porque eu estou bem certo de que nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas do presente, nem do porvir, nem os poderes, nem a altura, nem a profundidade, nem qualquer outra criatura poderá separar-nos do amor de Deus, que está em Cristo Jesus, nosso Senhor."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se Deus é por nós, quem será contra nós? Aquele que não poupou o seu próprio Filho, antes, por todos nós o entregou, porventura não nos dará graciosamente com ele todas as coisas? Quem intentará acusação contra os eleitos de Deus? É Deus quem os justifica."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "7ª Prova — Somos propriedade do Senhor: você é um presente que o Pai deu ao Filho. Jesus não dá presentes baratos — ele cuida do presente que recebeu e o preserva até a eternidade. Nada pode te arrancar das mãos dele.",
+      "versiculo_ancora": "João 17.6 · João 6.37 · João 10.29"
+    },
+    {
+      "ponto": "8ª Prova — Somos sustentados pela intercessão de Cristo: Jesus vive para interceder por nós. Não é a sua força que te mantém salvo — é a oração contínua do Sumo Sacerdote. Pedro se arrependeu porque era salvo; Judas não se arrependeu porque nunca foi dos nossos.",
+      "versiculo_ancora": "Hebreus 7.25 · Lucas 22.31-32"
+    },
+    {
+      "ponto": "9ª Prova — Somos guardados pelo poder de Deus: não é você quem se guarda — é o poder de Deus que te preserva. Você não precisa viver com medo de cair. Há alguém que sustenta você com suas mãos fortes.",
+      "versiculo_ancora": "1 Pedro 1.5 · Judas 1.24-25"
+    },
+    {
+      "ponto": "10ª Prova — Somos preservados pela fidelidade de Deus: as promessas de Deus são imutáveis. Uma vez que ele escreveu seu nome no livro da vida, ninguém pode apagá-lo. Jamais perecerão, e ninguém as arrebatará da sua mão.",
+      "versiculo_ancora": "João 5.24 · João 10.28-30"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Você é o presente que o Pai deu ao Filho — e Jesus vive para interceder por você, guardá-lo pelo poder de Deus e preservá-lo pela sua fidelidade até o dia final.",
+    "pontos": [
+      "Você pertence a Cristo porque é um presente que o Pai deu ao Filho — não um presente barato, mas uma pérola rara pela qual ele deu tudo. Jesus cuida do presente que recebeu e o preserva até a eternidade. Se fosse possível perder a salvação, significaria que ele não cuidou bem do presente — mas isso é impossível. Nada pode te arrancar das mãos dele, porque aquilo que o Pai deu é maior do que tudo.",
+      "Jesus Cristo agora mesmo está diante do Pai orando por você. Não é a sua força que te mantém salvo — é a intercessão do Sumo Sacerdote. Pedro e Judas cometeram o mesmo pecado de trair Jesus, mas a diferença foi o arrependimento: Pedro se arrependeu porque era salvo; Judas sentiu apenas remorso e nunca voltou. Jesus já havia orado por Pedro antes da queda — da mesma forma, ele intercede por você antes mesmo dos seus problemas.",
+      "Somos guardados pelo poder de Deus, não pela nossa própria capacidade. Como a mãozinha pequena de um bebê não consegue segurar a mão do pai — é a mão do pai que faz toda a diferença. E somos preservados pela fidelidade de Deus: suas promessas são imutáveis, seu nome está escrito no livro da vida e de lá ninguém pode apagá-lo. Jamais perecerão, e ninguém as arrebatará da sua mão."
+    ],
+    "versiculo_chave": {
+      "referencia": "João 10.28-29",
+      "texto": "Eu lhes dou a vida eterna; jamais perecerão, e ninguém as arrebatará da minha mão. Aquilo que meu Pai me deu é maior do que tudo; e da mão do Pai ninguém pode arrebatar."
+    }
+  },
+  "nota_lacuna": []
+}

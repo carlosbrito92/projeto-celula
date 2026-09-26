@@ -1,6 +1,7 @@
 import type { Bloco } from './types';
 import { UnidadeAnotavel } from '../screens/pregacoes/anotacoes/UnidadeAnotavel';
 import { ComponenteTemaRenderer } from './ComponenteTemaRenderer';
+import { TextoComKeywords } from './Keyword';
 import styles from './BlockRenderer.module.css';
 
 interface Props {
@@ -55,6 +56,52 @@ export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
 
     case 'componente_tema':
       return <ComponenteTemaRenderer bloco={bloco} />;
+
+    case 'subtitulo':
+      return <h3 className={styles.subtitulo}>{bloco.texto}</h3>;
+
+    case 'citacao':
+      return (
+        <blockquote className={styles.citacao}>
+          <div className={styles.citacaoTexto}>
+            “<TextoComKeywords texto={bloco.texto} />”
+          </div>
+          <div className={styles.citacaoAutor}>— {bloco.autor}</div>
+        </blockquote>
+      );
+
+    case 'glossario':
+      return (
+        <div className={styles.glossario}>
+          <div className={styles.glossarioTermo}>{bloco.termo}</div>
+          <div className={styles.glossarioEtimologia}>
+            <TextoComKeywords texto={bloco.etimologia} />
+          </div>
+          <div className={styles.glossarioSignificado}>
+            <TextoComKeywords texto={bloco.significado_no_texto} />
+          </div>
+          {bloco.uso_indevido && (
+            <div className={styles.glossarioUsoIndevido}>
+              <span className={styles.glossarioUsoIndevidoLabel}>Uso indevido comum</span>
+              <TextoComKeywords texto={bloco.uso_indevido} />
+            </div>
+          )}
+        </div>
+      );
+
+    case 'pergunta':
+      return (
+        <div className={styles.pergunta}>
+          <TextoComKeywords texto={bloco.texto} />
+        </div>
+      );
+
+    case 'resposta':
+      return (
+        <div className={styles.resposta}>
+          <TextoComKeywords texto={bloco.texto} />
+        </div>
+      );
 
     default:
       return null;

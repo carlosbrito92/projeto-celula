@@ -233,5 +233,32 @@
       "texto": "Pois tu formaste o meu interior, tu me teceste no seio de minha mãe. Graças te dou, visto que por modo assombrosamente maravilhoso me formaste; as tuas obras são admiráveis, e a minha alma o sabe muito bem."
     }
   },
-  "nota_lacuna": []
+  "nota_lacuna": [],
+  "resumo_lider": {
+    "frase_tema": "Você é uma obra-prima de Deus e deve investir seu tempo servindo-O, pois a forma como vive hoje determina sua recompensa na eternidade.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Morte é uma Promoção, mas a Vida Determina a Recompensa",
+        "resumo": "A morte é inevitável, mas para o crente ela representa uma promoção para estar com o Senhor. Contudo, a morte não nos aperfeiçoa; a maneira como vivemos e servimos a Deus aqui determina nossa recompensa e a qualidade da nossa entrada no Reino (2 Timóteo 4.7-8).",
+        "frase_chave": "A vida é uma ficha única que recebemos; não há segunda oportunidade para agradar a Deus."
+      },
+      {
+        "numero": 2,
+        "titulo": "O Que Deus Não Conta: O Tempo no Pecado e no DesServiço",
+        "resumo": "Deus não contabiliza o tempo vivido no pecado antes da conversão, nem o tempo em que, após salvos, escolhemos não servi-Lo. Assim como Israel teve anos de desobediência descontados de sua história, Deus não conta o tempo de acomodação ou deserviço (1 Reis 6.1).",
+        "frase_chave": "Não deixe seus filhos no Egito; não entregue seus filhos às mãos do faraó."
+      },
+      {
+        "numero": 3,
+        "titulo": "O Que Deus Não Conta: A Resistência e a Vida na Carne",
+        "resumo": "Deus não conta o tempo em que resistimos à Sua voz ou tentamos cumprir promessas pela nossa própria força, como Abraão ao gerar Ismael. Viver na carne gera ansiedade e desperdiça estações que deveriam ser vividas na dependência do Espírito (Gênesis 17.1).",
+        "frase_chave": "Você é filho de um Pai rico; não viva ansioso, tentando conquistar tudo na força do seu braço."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Salmo 139.13-14",
+      "texto": "Pois tu formaste o meu interior, tu me teceste no seio de minha mãe. Graças te dou, visto que por modo assombrosamente maravilhoso me formaste; as tuas obras são admiráveis, e a minha alma o sabe muito bem."
+    }
+  }
 }
