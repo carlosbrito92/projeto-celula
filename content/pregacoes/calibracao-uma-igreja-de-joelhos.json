@@ -1,0 +1,501 @@
+{
+  "metadados": {
+    "serie": "Uma Igreja de Joelhos",
+    "capitulo": "Capítulo 1",
+    "tema": "Uma Igreja de Joelhos",
+    "data": "27 de setembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Atos 12.1-24",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Primeira mensagem de uma nova série sobre oração. Em Atos 12, a igreja enfrenta sua maior crise: Tiago é morto, Pedro é preso e Herodes parece ter a última palavra. Mas enquanto o poder terreno se move contra a igreja, algo invisível está acontecendo — há oração incessante. E a oração muda tudo.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Selo de Autenticidade",
+        "campos": [
+          {
+            "campo": "Texto em análise",
+            "valor": "Atos 12 — a crise que ninguém podia resolver"
+          },
+          {
+            "campo": "Questão central",
+            "valor": "Quando todas as portas se fecham, qual é o recurso final da igreja?"
+          },
+          {
+            "campo": "Conclusão",
+            "valor": "Herodes não teve a última palavra. A Palavra de Deus teve — e ela crescia e se multiplicava."
+          }
+        ]
+      }
+    },
+    "aviso_proxima_serie": {
+      "texto": "Esta é a primeira mensagem da série \"Uma Igreja de Joelhos\" — 14 dias de jejum e oração que começam em outubro."
+    },
+    "versiculo_ancora": {
+      "referencia": "Atos 12.5",
+      "texto": "Pedro, pois, estava guardado no cárcere; mas havia oração incessante a Deus por parte da igreja a favor dele."
+    },
+    "frase_sintese": "Quando todas as portas se fecham, ainda existe uma porta que permanece aberta: a porta da oração. E essa porta, nem Herodes pode fechar."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Crise Que Ninguém Podia Resolver",
+      "pendente": false
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Faça da Oração Seu Primeiro Recurso",
+      "pendente": false
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Ore a Palavra",
+      "pendente": false
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Não Pare de Orar",
+      "pendente": false
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Não Ore Sozinho",
+      "pendente": false
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Ore Além de Você",
+      "pendente": false
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Ore com a Fé Que Você Tem",
+      "pendente": false
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Quando Deus Tem a Última Palavra",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Crise Que Ninguém Podia Resolver",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Atos 12.1-5",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma das regras mais conhecidas entre os roteiristas de cinema é colocar o personagem em uma situação desesperadora, cercá-lo de perigo e conduzi-lo a um dilema para o qual aparentemente não existe saída. E quando a situação já parecer suficientemente difícil, torná-la ainda pior. É assim que uma história ganha tensão e prende a nossa atenção."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "De certa maneira, encontramos algo semelhante em algumas histórias da Bíblia. Deus permite que seus filhos atravessem circunstâncias que, aos olhos humanos, parecem não oferecer qualquer possibilidade de solução — não para provocar emoções fortes, mas porque existem verdades espirituais que aprendemos de maneira muito mais profunda quando somos conduzidos a lugares nos quais nossos próprios recursos já não são suficientes."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Atos 12 nos apresenta exatamente um desses momentos. Há um vilão nessa história: **Herodes Agripa I**, neto de Herodes o Grande. Não é o mesmo Herodes que mandou matar as crianças de Belém, nem o Herodes Antipas que matou João Batista — é outro, da mesma dinastia. E ele decide perseguir a igreja."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 12.1-2",
+          "texto": "Por aquele tempo, mandou o rei Herodes prender alguns da igreja para os maltratar, fazendo passar a fio de espada a Tiago, irmão de João."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Tiago foi morto à espada. E quando Herodes percebeu que aquilo agradava aos judeus, decidiu avançar ainda mais: mandou prender Pedro também. Colocou-o sob forte vigilância — quatro escoltas de quatro soldados cada uma. Humanamente falando, tudo havia sido preparado para impedir qualquer possibilidade de fuga. Não havia saída."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Pedro estava preso, mas a igreja estava orando. Havia uma prisão, mas havia oração. Havia soldados, mas havia oração. Havia uma sentença aparentemente definida, mas havia oração."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A igreja poderia ter reagido de muitas maneiras. Poderia tentar mobilizar a população, organizar protestos, buscar influência junto às autoridades. A participação política pode ter o seu lugar em determinadas circunstâncias. Mas não é o recurso final da igreja. Quando todos os caminhos humanos pareciam fechados, ainda havia uma porta que Herodes não podia fechar: **a porta da oração**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 12.5",
+          "texto": "Pedro, pois, estava guardado no cárcere; mas havia oração incessante a Deus por parte da igreja a favor dele."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Faça da Oração Seu Primeiro Recurso",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Tiago 4.2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O primeiro princípio é este: **a oração deve ser o nosso primeiro recurso, e não o último.** Infelizmente, o mais comum é fazermos exatamente o contrário. Muitas pessoas recorrem à oração somente depois de terem esgotado todas as possibilidades que estavam ao seu alcance. Tentam resolver o problema com a própria força, inteligência, influência e recursos — e quando finalmente percebem que não há mais nada que possam fazer, começam a orar."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Escalada da Crise",
+            "corpo": [
+              "Pense em alguém enfrentando uma grave dificuldade financeira. Primeiro, utiliza todo o limite disponível no cartão de crédito.",
+              "Depois, recorre ao cheque especial. Quando esses recursos acabam, tenta conseguir dinheiro emprestado com os amigos; em seguida, procura os familiares.",
+              "Se a situação continuar se agravando, talvez comece até mesmo a vender alguns dos seus bens. Somente depois de esgotar todas as possibilidades, decide orar — quase como quem diz: 'agora já não tenho mais nada a perder'."
+            ],
+            "conclusao": "Mas deveríamos inverter essa lógica. Em vez de perguntar 'o que tenho a perder se eu orar?', deveríamos nos perguntar: 'o que tenho perdido por não orar?'"
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tiago 4.2",
+          "texto": "Cobiçais e nada tendes; matais e invejais, e nada podeis obter; viveis a lutar e a fazer guerras. Nada tendes, porque não pedis."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Existem coisas que não experimentamos não porque Deus seja incapaz de realizá-las, mas simplesmente porque não pedimos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A oração não deve entrar em cena apenas quando todas as outras portas se fecharam. Ela deve estar no início do processo. Antes de agir, ore. Antes de decidir, ore. Antes de procurar uma solução, ore. Isso não significa que a oração substitua nossa responsabilidade de agir — significa que nossa ação deve nascer de um coração que primeiro buscou a Deus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Ore a Palavra",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "1 João 5.14-15",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O segundo princípio: **aprenda a orar em linha com a Palavra de Deus.** Em 1 João 5.14-15 lemos que esta é a confiança que temos para com ele: que, se pedirmos alguma coisa segundo a sua vontade, ele nos ouve. E se sabemos que ele nos ouve quanto ao que lhe pedimos, estamos certos de que obtemos os pedidos que lhe temos feito."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 5.14-15",
+          "texto": "E esta é a confiança que temos para com ele: que, se pedirmos alguma coisa segundo a sua vontade, ele nos ouve. E, se sabemos que ele nos ouve quanto ao que lhe pedimos, estamos certos de que obtemos os pedidos que lhe temos feito."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "João relaciona diretamente a confiança na oração com a vontade de Deus. Nossa segurança não está simplesmente no fato de pedirmos algo com intensidade, repetirmos muitas vezes ou desejarmos profundamente. Nossa confiança está em saber que aquilo que estamos pedindo está de acordo com a vontade de Deus."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Nada está fora do alcance da oração — exceto aquilo que está fora da vontade de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A oração não existe para convencer Deus a realizar a nossa vontade, mas para nos colocar em concordância com a vontade dele e cooperar para que aquilo que está em seu coração encontre expressão na terra. A autoridade da oração não está em fazer com que Deus concorde conosco, mas em nós concordarmos com ele."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A vontade de Deus é revelada na sua Palavra. Portanto, **orar a vontade de Deus é orar a Palavra.** Quanto mais cheios da Palavra formos, mais preparados estaremos para tempos de necessidade — e mais conteúdo teremos para as nossas orações."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Não Pare de Orar",
+      "sec_eyebrow": "4ª Verdade",
+      "referencias": "Atos 12.5 · Colossenses 4.2",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Atos 12.5 nos diz que, enquanto Pedro permanecia guardado no cárcere, **havia oração incessante** a Deus por parte da igreja a favor dele. Essa expressão nos ajuda a compreender algumas características importantes da oração que aquela igreja estava fazendo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em primeiro lugar, a oração deve ser **contínua**. Não pode estar presente apenas nos momentos de emergência. Assim como nos alimentamos regularmente para sustentar o corpo, precisamos cultivar uma comunhão constante com Deus por meio da oração."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em segundo lugar, a oração deve ser **intensa**. O termo grego utilizado aqui é *ektenōs*, relacionado à ideia de algo estendido ao máximo, levado até o limite. Não se tratava de repetição mecânica — havia fervor, envolvimento, um coração em ebulição."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em terceiro lugar, a oração deve ser **perseverante**. Paulo escreve em Colossenses 4.2: 'Perseverai na oração, vigiando com ações de graças.' Perseverar significa não abandonar a posição de fé simplesmente porque a resposta ainda não se manifestou. Pedro continuava preso, as portas permaneciam fechadas e os soldados continuavam em seus postos — mas a igreja continuava orando."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Colossenses 4.2",
+          "texto": "Perseverai na oração, vigiando com ações de graças."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Chega um momento em que nossa oração deixa de ser apenas 'Deus, ouça-me' e passa também a declarar: 'Pai, obrigado porque o Senhor me ouve.' A gratidão mantém a tomada da fé ligada."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Este é um dos grandes segredos da oração perseverante: **não interpretar a demora como uma negativa de Deus.** Enquanto ainda não vemos, continuamos orando; enquanto as circunstâncias ainda não mudaram, continuamos crendo; e enquanto esperamos, continuamos dando graças. A fé não permanece firme apenas quando a resposta chega — ela permanece firme enquanto esperamos por ela."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Não Ore Sozinho",
+      "sec_eyebrow": "5ª Verdade",
+      "referencias": "Atos 12.5 · Mateus 18.19-20",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Atos 12.5 diz que 'havia oração incessante a Deus **por parte da igreja** a favor dele'. Pedro estava enfrentando uma crise pessoal, mas não estava sozinho. Enquanto ele permanecia preso, havia uma igreja que assumiu aquela causa em oração."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe uma dimensão da oração que é individual e que ninguém pode desenvolver em nosso lugar. Mas existe também uma dimensão que experimentamos quando nos reunimos com outros irmãos e colocamos nossa fé em concordância. **Há poder quando a igreja ora em unidade.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 18.19-20",
+          "texto": "Em verdade também vos digo que, se dois dentre vós, sobre a terra, concordarem a respeito de qualquer coisa que, porventura, pedirem, ser-lhes-á concedida por meu Pai, que está nos céus. Porque, onde estiverem dois ou três reunidos em meu nome, ali estou no meio deles."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A palavra 'concordar' é fundamental nessa passagem. Não se trata simplesmente de duas pessoas estarem fisicamente no mesmo ambiente, dizendo palavras ao mesmo tempo. Concordar é **colocar a fé na mesma direção**, unir o coração em torno de um mesmo propósito e apresentar juntos uma causa diante de Deus."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Pedro não podia abrir as portas da prisão, mas a igreja podia orar. Ele não podia retirar as próprias correntes, mas a igreja podia orar. Ele não podia mudar a decisão de Herodes, mas a igreja podia apresentar aquela situação diante de uma autoridade maior do que Herodes."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Ore Além de Você",
+      "sec_eyebrow": "6ª Verdade",
+      "referencias": "Atos 12.5",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A oração não deve estar concentrada apenas em nossas próprias necessidades. Naturalmente, podemos apresentar diante de Deus aquilo que nos preocupa, nossos sonhos, lutas, necessidades e desafios. Jesus nos ensinou a pedir pelo pão de cada dia. No entanto, uma vida madura de oração **não termina em nós mesmos.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Foi exatamente isso que aconteceu em Atos 12. A igreja estava reunida, mas **não estava orando por si mesma**. Enquanto Pedro estava preso, os irmãos fizeram da necessidade dele a necessidade deles. A prisão era de Pedro, mas a oração era da igreja. As correntes estavam nas mãos de Pedro, mas o peso daquela situação estava também no coração dos irmãos."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Interceder é sair do centro da própria vida por alguns momentos para colocar outra pessoa no centro das nossas orações."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas nossas orações também precisam ultrapassar os limites das pessoas que conhecemos. Existem irmãos sofrendo ao redor do mundo, cristãos perseguidos por causa da fé, famílias enfrentando guerras, fome, injustiça. Talvez nunca conheçamos pessoalmente essas pessoas, mas podemos nos colocar diante de Deus em favor delas. A oração nos permite alcançar lugares aos quais nossos pés jamais chegarão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma igreja saudável não ora apenas por suas próprias necessidades, seus projetos e seus desafios. Ela aprende a olhar ao redor e carregar pessoas diante de Deus. Quando amadurecemos na oração, **nossa lista de pedidos deixa de conter apenas o nosso nome.**"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Ore com a Fé Que Você Tem",
+      "sec_eyebrow": "7ª Verdade",
+      "referencias": "Atos 12.12-15",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Os discípulos fizeram muitas coisas certas naquela noite. Oraram continuamente, com intensidade, perseverança e em unidade. No entanto, há um detalhe surpreendente na narrativa: as mesmas pessoas que estavam orando pela libertação de Pedro **tiveram dificuldade de acreditar quando ele apareceu à porta.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 12.15",
+          "texto": "Eles lhe disseram: Estás louca. Ela, porém, persistia em afirmar que assim era. Então disseram: É o seu anjo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Essa cena nos ensina algo precioso: **Deus pode responder às nossas orações mesmo quando nossa fé não é perfeita.** Aqueles irmãos tinham fé — afinal, estavam orando. Se não cressem que Deus poderia fazer alguma coisa, provavelmente não permaneceriam reunidos intercedendo. Ao mesmo tempo, havia neles dúvidas, limitações e uma dificuldade real de compreender a dimensão daquilo que Deus era capaz de fazer."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não é uma fé perfeita em um Deus pequeno — é uma fé, ainda que imperfeita, depositada em um Deus infinitamente poderoso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Talvez essa situação tão pitoresca tenha sido registrada justamente para encorajar pessoas comuns como nós. Não precisamos esperar nos tornar 'gigantes da fé' para começar a orar. Não precisamos sentir que nossa fé chegou a um nível extraordinário para nos aproximarmos de Deus. Podemos chegar a ele com a fé que temos, ainda que pequena, e depositá-la inteiramente nele."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Afinal, o poder da oração não está no tamanho daquele que ora, mas na grandeza daquele que ouve. **Nossa fé pode até ser pequena, mas o Deus em quem confiamos continua sendo grande.**"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Quando Deus Tem a Última Palavra",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Atos 12.24",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Atos 12 começa apresentando um Herodes aparentemente todo-poderoso. Ele possui autoridade política, soldados, prisões e uma espada. Tiago é morto, Pedro é preso e a igreja parece estar acuada. Aos olhos humanos, não há qualquer dúvida sobre quem possui o poder naquela história."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas é justamente aí que a história começa a mudar. No início do capítulo, Tiago está morto, Pedro está preso e Herodes está no trono. No final, **Pedro está livre, Herodes está morto e a Palavra de Deus continua avançando.** Aquele que parecia controlar os acontecimentos desaparece da história, enquanto aquilo que ele tentou impedir continua crescendo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 12.24",
+          "texto": "Entretanto, a palavra do Senhor crescia e se multiplicava."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Lucas registra essa conclusão de maneira extraordinária. Herodes tentou deter a igreja, mas não conseguiu deter a Palavra. Prendeu seus líderes, matou um dos apóstolos e pretendia executar outro — mas nada disso foi capaz de interromper aquilo que Deus estava fazendo. Homens podem ser presos, estruturas podem ser atacadas e circunstâncias podem se levantar contra os propósitos de Deus — **mas a sua Palavra não pode ser acorrentada.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Herodes não teve a última palavra. A prisão não teve a última palavra. As correntes não tiveram a última palavra. A Palavra de Deus teve — e ela crescia e se multiplicava."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "DECLARAÇÃO",
+            "texto": "Quando todas as portas parecerem fechadas, ainda existe uma porta aberta. Ore primeiro. Ore a Palavra. Ore incessantemente. Ore com outros. Ore pelos outros. Ore com a fé que você tem.",
+            "sub": "Você pode não saber como Deus responderá, nem quando a resposta chegará — mas pode permanecer diante dele sabendo que nenhuma circunstância é maior do que o seu poder."
+          }
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "A crise que ninguém podia resolver: Herodes mata Tiago, prende Pedro e cerca a prisão com soldados. Humanamente, não há saída — mas há uma porta que Herodes não pode fechar: a porta da oração.",
+      "versiculo_ancora": "Atos 12.5"
+    },
+    {
+      "ponto": "Oração como primeiro recurso: nada tendes porque não pedis (Tg 4.2). Em vez de perguntar 'o que tenho a perder se orar?', pergunte 'o que tenho perdido por não orar?'.",
+      "versiculo_ancora": "Tiago 4.2"
+    },
+    {
+      "ponto": "Orar a Palavra: nada está fora do alcance da oração, exceto o que está fora da vontade de Deus. E a vontade de Deus é revelada na sua Palavra. Orar a vontade de Deus é orar a Palavra.",
+      "versiculo_ancora": "1 João 5.14-15"
+    },
+    {
+      "ponto": "Oração incessante: contínua, intensa (ektenōs — estendida ao máximo) e perseverante com ações de graças. A demora não é negativa — a fé permanece firme enquanto esperamos.",
+      "versiculo_ancora": "Colossenses 4.2"
+    },
+    {
+      "ponto": "Não ore sozinho: há poder na concordância (Mt 18.19-20). Pedro não podia abrir a prisão, mas a igreja podia orar — e orar juntos é apresentar a causa diante de uma autoridade maior que Herodes.",
+      "versiculo_ancora": "Mateus 18.19-20"
+    },
+    {
+      "ponto": "Ore além de você: interceder é sair do centro da própria vida. Quando amadurecemos na oração, nossa lista de pedidos deixa de conter apenas o nosso nome.",
+      "versiculo_ancora": "Atos 12.5"
+    },
+    {
+      "ponto": "Ore com a fé que você tem: a igreja que orava por Pedro duvidou quando ele bateu à porta (At 12.15). Deus responde mesmo quando nossa fé é imperfeita — o poder não está em nós, mas naquele que ouve.",
+      "versiculo_ancora": "Atos 12.15"
+    },
+    {
+      "ponto": "Deus tem a última palavra: no início, Herodes está no trono e Pedro na prisão. No final, Pedro está livre, Herodes está morto e a Palavra crescia e se multiplicava. A Palavra de Deus não pode ser acorrentada.",
+      "versiculo_ancora": "Atos 12.24"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Quando todas as portas se fecham, ainda existe uma porta aberta — a porta da oração. E essa porta, nem Herodes pode fechar.",
+    "pontos": [
+      "Atos 12 apresenta uma crise aparentemente sem saída: Herodes mata Tiago e prende Pedro sob forte vigilância. Humanamente, não há escape. Mas enquanto Herodes move seu poder terreno contra a igreja, algo invisível está acontecendo — há oração incessante. A porta que Herodes não pôde fechar foi a porta da oração, e é por ela que Deus opera o impossível.",
+      "A oração deve ser o primeiro recurso, não o último. Tiago 4.2 diz que nada temos porque não pedimos. Oramos a Palavra porque a vontade de Deus é revelada nela — e nada está fora do alcance da oração, exceto o que está fora da vontade de Deus. Oramos com perseverança e ações de graças, sem interpretar a demora como negativa. A fé permanece firme enquanto esperamos.",
+      "Não oramos sozinhos: há poder na concordância (Mt 18.19-20). E não oramos apenas por nós — uma igreja madura intercede pelos outros, e sua lista de pedidos deixa de conter apenas o próprio nome. Mesmo com fé imperfeita (a igreja duvidou quando Pedro bateu à porta!), Deus responde — porque o poder não está no tamanho da nossa fé, mas na grandeza daquele que ouve. No final de Atos 12, Herodes está morto, Pedro está livre e a Palavra crescia e se multiplicava."
+    ],
+    "versiculo_chave": {
+      "referencia": "Atos 12.5",
+      "texto": "Pedro, pois, estava guardado no cárcere; mas havia oração incessante a Deus por parte da igreja a favor dele."
+    }
+  },
+  "nota_lacuna": [
+    {
+      "titulo": "Paleta editorial provisória",
+      "texto": "Este JSON foi gerado com paleta editorial escolhida pelo tom da mensagem (oração, vigília, intervenção divina). Aguardando foto da arte oficial de palco para substituição retroativa pela paleta oficial da série 'Uma Igreja de Joelhos' — conforme regra do Estilo #5b, a paleta oficial, quando chegar, substituirá esta como padrão de toda a série."
+    },
+    {
+      "titulo": "Crédito das anotações",
+      "texto": "O conteúdo foi enriquecido e corrigido com base em anotações estruturadas fornecidas por membro da igreja, que serviram como fonte secundária para validar e completar a transcrição automática (que continha erros fonéticos significativos, especialmente nos nomes bíblicos e nas citações de versículos)."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "Quando todas as portas se fecham, ainda existe uma porta que permanece aberta: a porta da oração, que nem Herodes pode fechar.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Crise Que Ninguém Podia Resolver",
+        "resumo": "Herodes Agripa I perseguiu a igreja, matando Tiago e prendendo Pedro sob forte vigilância. Humanamente não havia saída, mas a igreja encontrou na oração um recurso que o poder terreno não podia impedir (Atos 12.5).",
+        "frase_chave": "Pedro estava preso, mas a igreja estava orando. Havia uma prisão, mas havia oração. Havia soldados, mas havia oração."
+      },
+      {
+        "numero": 2,
+        "titulo": "Faça da Oração Seu Primeiro Recurso",
+        "resumo": "Muitos só oram após esgotarem seus próprios recursos, como quem usa todo o limite do cartão de crédito antes de buscar a Deus. Devemos inverter essa lógica e orar antes de agir (Tiago 4.2).",
+        "frase_chave": "Existem coisas que não experimentamos não porque Deus seja incapaz de realizá-las, mas simplesmente porque não pedimos."
+      },
+      {
+        "numero": 3,
+        "titulo": "Ore a Palavra",
+        "resumo": "A oração eficaz está alinhada à vontade de Deus, que é revelada em Sua Palavra. Orar é concordar com o coração de Deus, não tentar convencê-lo a realizar a nossa vontade (1 João 5.14-15).",
+        "frase_chave": "Nada está fora do alcance da oração — exceto aquilo que está fora da vontade de Deus."
+      },
+      {
+        "numero": 4,
+        "titulo": "Não Pare de Orar",
+        "resumo": "A oração deve ser contínua, intensa e perseverante, mantendo a gratidão mesmo enquanto esperamos a resposta. Não devemos interpretar a demora de Deus como uma negativa (Colossenses 4.2).",
+        "frase_chave": "Chega um momento em que nossa oração deixa de ser apenas 'Deus, ouça-me' e passa também a declarar: 'Pai, obrigado porque o Senhor me ouve.'"
+      },
+      {
+        "numero": 5,
+        "titulo": "Não Ore Sozinho",
+        "resumo": "Existe um poder especial na concordância quando a igreja se une em um mesmo propósito. Ao orar em unidade, apresentamos nossas causas a uma autoridade maior que qualquer Herodes (Mateus 18.19-20).",
+        "frase_chave": "Pedro não podia abrir as portas da prisão, mas a igreja podia orar."
+      },
+      {
+        "numero": 6,
+        "titulo": "Ore Além de Você",
+        "resumo": "Uma vida madura de oração não se limita às nossas próprias necessidades, mas aprende a interceder por outros. Devemos sair do centro da nossa vida para carregar o peso de quem sofre (Atos 12.5).",
+        "frase_chave": "Interceder é sair do centro da própria vida por alguns momentos para colocar outra pessoa no centro das nossas orações."
+      },
+      {
+        "numero": 7,
+        "titulo": "Ore com a Fé Que Você Tem",
+        "resumo": "Deus responde às orações mesmo quando nossa fé é imperfeita, como visto nos discípulos que duvidaram da libertação de Pedro. O poder não está no tamanho da nossa fé, mas em quem a depositamos (Atos 12.15).",
+        "frase_chave": "Não é uma fé perfeita em um Deus pequeno — é uma fé, ainda que imperfeita, depositada em um Deus infinitamente poderoso."
+      },
+      {
+        "numero": 8,
+        "titulo": "Quando Deus Tem a Última Palavra",
+        "resumo": "Herodes tentou deter a igreja, mas a Palavra de Deus não pode ser acorrentada. No fim, o opressor desapareceu e a Palavra continuou crescendo e se multiplicando (Atos 12.24).",
+        "frase_chave": "Herodes não teve a última palavra. A prisão não teve a última palavra. As correntes não tiveram a última palavra. A Palavra de Deus teve."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Atos 12.5",
+      "texto": "Pedro, pois, estava guardado no cárcere; mas havia oração incessante a Deus por parte da igreja a favor dele."
+    }
+  }
+}
