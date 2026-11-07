@@ -1,0 +1,681 @@
+{
+  "metadados": {
+    "serie": "Escola da Fé",
+    "capitulo": "A Boca de Quem Entendeu a Graça",
+    "tema": "A Boca de Quem Entendeu a Graça",
+    "data": "25 de Outubro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Provérbios 12.14 · Números 21.4-6 · Efésios 4.25-29 · Mateus 7.1-7",
+    "modo_origem": "B"
+  },
+  "banner_intro": {
+    "contextualizacao": "Mensagem da série Escola da Fé sobre o poder das palavras na vida de quem foi alcançado pela graça. A boca que entendeu a graça não é uma boca que nunca erra, mas uma boca que foi transformada — que transmite graça, que não dá lugar ao diabo, que aprende o silêncio do Cordeiro quando a crise aperta.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Entendimentos Principais",
+        "campos": [
+          {
+            "campo": "Questão central",
+            "valor": "O que sai da minha boca reflete a graça que recebi?"
+          },
+          {
+            "campo": "Três tipos de palavra a abandonar",
+            "valor": "Murmuração, julgamento, intromissão"
+          },
+          {
+            "campo": "Três tipos de palavra a cultivar",
+            "valor": "Confissão da Palavra, gratidão, silêncio do Cordeiro"
+          }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "Efésios 4.29",
+      "texto": "Não saia da vossa boca nenhuma palavra torpe, e sim unicamente a que for boa para edificação, conforme a necessidade, e, assim, transmita graça aos que ouvem."
+    },
+    "frase_sintese": "A boca de quem entendeu a graça não fala o que merece falar — fala o que a graça ensinou a falar. E quem recebeu graça precisa ser gracioso."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Poder e o Fruto das Palavras",
+      "pendente": false
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Palavras como Sementes — Confissão e Fé",
+      "pendente": false
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Murmuração Abre Espaço para o Diabo",
+      "pendente": false
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Não Dar Lugar ao Diabo — Mentira, Ira, Palavra Torpe",
+      "pendente": false
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Em Vez de Murmurar, Dar Graças",
+      "pendente": false
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "O Perigo das Palavras de Julgamento",
+      "pendente": false
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "O Critério e o Espelho do Julgamento",
+      "pendente": false
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Julgamento e Vida de Oração",
+      "pendente": false
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "Não se Intrometer, Não Discutir Opões",
+      "pendente": false
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "A Boca Fala do Coração e o Silêncio do Cordeiro",
+      "pendente": false
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "O Poder e o Fruto das Palavras",
+      "sec_eyebrow": "1ª Verdade",
+      "referencias": "Provérbios 12.14 · Provérbios 12.18 · Provérbios 13.2 · Provérbios 18.20-21 · Salmos 103.20",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "As palavras possuem o poder de liberar ou limitar bênçãos em nossa vida. O que falamos tem poder sobre as pessoas próximas, sobre quem caminha conosco — mas tem muito mais poder sobre nós mesmos. Palavras podem levantar, motivar, melhorar a autoestima de alguém; mas também podem abater, ferir e até destruir pessoas e relacionamentos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quantas crianças não cresceram com a autoestima fragilizada porque ouviram palavras duras dentro da própria casa? 'Você não vai dar em nada na vida!' 'Mas você é burro, hein, menino?' 'Meu Deus do céu, você é uma tábua!' São expressões que pais, muitas vezes em momentos de ignorância, acabam dizendo aos filhos, sem perceber o quanto marcam a vida deles. Talvez você tenha sido uma dessas crianças. Mas essas palavras não precisam continuar definindo a sua história — **em Cristo, as coisas velhas já passaram**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Provérbios 12.14",
+          "texto": "Cada um se farta de bem pelo fruto da sua boca, e o que as mãos do homem fizerem ser-lhe-á retribuído."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe um fruto associado àquilo que falamos. Daqui a cinco anos, sua vida terá sido profundamente influenciada por aquilo que você está falando hoje. **Você colherá o fruto das suas palavras.** Por isso palavras são coisas importantes e precisamos levá-las a sério."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Provérbios 12.18",
+          "texto": "Alguém há cuja tagarelice é como pontas de espada, mas a língua dos sábios é medicina."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há pessoas que falam muito, o tempo inteiro, mas suas palavras são como pontas de espada: ferem, machucam e ofendem. Cada frase parece uma espada pontuda. A língua dos sábios, entretanto, é medicina — nossas palavras também podem ser cura na vida das pessoas, remédio para a alma."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Palavras mudam ambientes. Elas atraem seres espirituais — anjos e demônios. Quando confessamos a Palavra de Deus, estamos ativando a atuação dos anjos em nosso favor, porque os anjos obedecem à voz da Palavra (Salmos 103.20)."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Provérbios 18.20-21",
+          "texto": "Do fruto da boca o coração se farta; do que as mãos produzem, o homem se satisfaz. A morte e a vida estão no poder da língua; o que bem a utiliza come do seu fruto."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Palavras como Sementes — Confissão e Fé",
+      "sec_eyebrow": "2ª Verdade",
+      "referencias": "Provérbios 18.21",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "**Palavras são como sementes.** Palavras confessadas são sementes semeadas, e confissões repetidas são como sementes regadas. A imagem é simples: aquilo que plantamos e cultivamos tende a produzir fruto. Por isso, não alimente continuamente com a sua boca aquilo que você não deseja ver crescer na sua vida. Em vez disso, aprenda a concordar com o que a Palavra de Deus declara sobre você."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você inevitavelmente vai se tornar aquilo que você está falando. Se você não quer ver algo manifesto, não verbalize aquilo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando eu digo continuamente que sou abençoado, favorecido, sábio, amado e que tenho a provisão do Senhor, estou confessando a minha confiança na graça de Deus. Tempos de luta e dificuldades chegam para todos. Nesses momentos, você pode passar o tempo inteiro reclamando do problema ou pode se levantar e declarar: **'Obrigado, Pai, porque o Senhor está lutando minhas guerras. Creio que todas as coisas cooperam para o meu bem. Sou sempre conduzido em triunfo em Cristo.'** Essa atitude nos ajuda a permanecer firmes na fé mesmo quando as circunstâncias ainda não mudaram."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você está enfrentando um período de tristeza profunda, não precisa fingir que está tudo bem nem deixar de buscar o cuidado necessário. Mas também não permita que o sofrimento seja a única voz que você ouve. Lembre-se de que **sua identidade não se resume ao que você está sentindo hoje.** Você pode declarar que em Cristo existe esperança, que seu futuro está nas mãos de Deus e que para ele todas as coisas são possíveis."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você não vai experimentar vitória se alimentar o tempo inteiro uma linguagem de derrota. Não vai cultivar expectativa de sucesso falando continuamente de fracasso. Não se trata de negar a realidade, mas de não permitir que ela tenha a última palavra sobre sua fé."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Murmuração Abre Espaço para o Diabo",
+      "sec_eyebrow": "3ª Verdade",
+      "referencias": "Números 21.4-6 · 1 Coríntios 10.10",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Números 21.4-5",
+          "texto": "Então, partiram do monte Hor, pelo caminho que vai ao mar Vermelho, para rodearem a terra de Edom; e a alma do povo tornou-se impaciente no caminho. Por isso, falou o povo contra Deus e contra Moisés: Por que nos fizestes subir do Egito, para que morrêssemos neste deserto? Porque aqui nem pão nem água há; e a nossa alma tem fastio deste pão vil."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Observe uma característica do murmurador: ele sempre encontra alguém para responsabilizar pelos seus problemas. A culpa é do pai, da mãe, do chefe, do governo, do pastor ou até do diabo. Antes de passar o tempo inteiro pensando que outra pessoa é culpada pelo que está acontecendo com você, pare e pergunte ao Senhor: **'O que está indo errado aqui? O que está desalinhado com a tua vontade?'** O Espírito Santo honra a sinceridade de quem deseja ser tratado por Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "De que exatamente os israelitas estavam reclamando? O texto diz que afirmaram não haver pão nem água — e que sua alma estava enfastiada daquele 'pão vil'. Eles estavam **cansados de comer maná**. Chamaram de pão vil aquilo que Deus lhes enviava diariamente do céu. Todas as manhãs, junto com o orvalho, Deus lhes providenciava o pão do céu — uma manifestação diária da graça. Mas chegou um momento em que se cansaram."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se murmuração mudasse alguém, esse mundo era um paraíso. Murmuração não tem poder de transformar ninguém."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Números 21.6",
+          "texto": "Então, o Senhor mandou entre o povo serpentes abrasadoras, que mordiam o povo, de sorte que morreu muita gente em Israel."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Insight exegético — O verbo permissivo",
+            "corpo": [
+              "No hebraico, o verbo 'mandou' em Números 21.6 é permissivo, não causativo. As serpentes já estavam ali — Deus apenas removeu a proteção e permitiu que se manifestassem.",
+              "A murmuração abre uma brecha espiritual: quando você murmura, você dá lugar à serpente. A proteção é retirada e aquilo que estava contido ganha espaço."
+            ],
+            "conclusao": "Quando alimentamos a murmuração, deixamos de cultivar gratidão e confiança — e abrimos espaço para atitudes que comprometem nossa comunhão com Deus e com as pessoas."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 10.10",
+          "texto": "Nem murmureis, como alguns deles murmuraram, e foram destruídos pelo exterminador."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo adverte a igreja para não cair nos mesmos erros de Israel no deserto. Talvez você murmure por coisas que um dia você orou para receber. Cuidado — a porta que Deus abre ninguém fecha, e a porta que Deus fecha ninguém abre."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Não Dar Lugar ao Diabo — Mentira, Ira, Palavra Torpe",
+      "sec_eyebrow": "4ª Verdade",
+      "referencias": "Efésios 4.25-29 · 1 Samuel 18.7-10",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 4.25",
+          "texto": "Por isso, deixando a mentira, fale cada um a verdade com o seu próximo, porque somos membros uns dos outros."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A mentira quebra a confiança, e a confiança é a base de todos os relacionamentos. Você está sentado diante de um pastor ouvindo a Palavra porque confia que ele é um homem de Deus. Quando pega um Uber, confia que o motorista sabe dirigir. Quando come um pão de queijo na padaria, confia que está tudo certo. **Tudo funciona com base na confiança.** Onde não há confiança, os relacionamentos ficam comprometidos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 4.26-27",
+          "texto": "Irai-vos e não pequeis; não se ponha o sol sobre a vossa ira, nem deis lugar ao diabo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Podemos ficar irados — existem coisas que nos deixam nervosos, às vezes por razões legítimas. O problema é permitir que a ira permaneça e se transforme em pecado. Você ficou nervoso às cinco ou seis horas da tarde? **Trate de resolver aquilo. Não deixe nada amanhecido, porque ira amanhecida vira outra coisa.**"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Saul e a Ira Amanhecida",
+            "corpo": [
+              "Em 1 Samuel 18.7-10, as mulheres cantavam que Saul havia ferido seus milhares, mas Davi, seus dez milhares. Saul se indignou muito e, daquele dia em diante, passou a olhar para Davi com maus olhos.",
+              "No dia seguinte, o texto relata uma crise terrível na vida de Saul — um espírito mau o dominou.",
+              "A ira alimentada se transforma em ressentimento, e o ressentimento abre caminho para atitudes destrutivas e para a atuação de espíritos malignos."
+            ],
+            "conclusao": "Ira amanhecida vira carniça na sua casa — e carniça atrai espíritos malignos. Não deixe o sol se pôr sobre a sua ira."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Efésios 4.29",
+          "texto": "Não saia da vossa boca nenhuma palavra torpe, e sim unicamente a que for boa para edificação, conforme a necessidade, e, assim, transmita graça aos que ouvem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que é uma palavra torpe? Nossa tendência é pensar apenas em palavrões e obscenidades, mas a orientação é mais ampla. Paulo está falando daquilo que **corrompe, prejudica e não contribui para edificar** — palavras vazias, destrutivas, de crítica e condenação, que em vez de levantar o outro o deixam abatido. Falar palavra torpe é a mesma coisa que falar o que não transmite graça. Eu sou filho de Deus, e minhas palavras precisam ser verdadeiras. Fui alcançado pela graça, portanto minha boca deve transmitir graça aos que me ouvem."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Em Vez de Murmurar, Dar Graças",
+      "sec_eyebrow": "5ª Verdade",
+      "referencias": "1 Coríntios 10.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A advertência de Paulo em 1 Coríntios 10.10 é severa: 'Nem murmureis, como alguns deles murmuraram e foram destruídos pelo exterminador.' É uma chamada para abandonar a murmuração. **Em vez de murmurar, dê graças!** Agradeça a Deus pela sua casa, pelo seu marido, pela sua esposa, pela sua igreja e pelo seu pastor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "'Mas, pastor, eu não estou com vontade!' Agradeça mesmo sem vontade. 'Mas eu não tenho nenhum motivo para agradecer!' Então agradeça pela fé — **o motivo está chegando.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Se você não sabe o que falar, não fale nada. Se você não tem nada de bom para falar, não fale nada. Só abra sua boca se for para edificar."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Água na Boca",
+            "corpo": [
+              "Existe uma orientação prática antiga: quando seu marido fizer você passar raiva, coloque água na boca e fique com ela lá. Quando a raiva passar, engula. Se a raiva voltar, tome outra dose de água.",
+              "Parece engraçado, mas é um conselho prático. Se for para murmurar e ferir alguém, talvez seja melhor manter a boca fechada por alguns instantes."
+            ],
+            "conclusao": "Vigiar as palavras faz toda a diferença — principalmente quando estamos irritados."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "O Perigo das Palavras de Julgamento",
+      "sec_eyebrow": "6ª Verdade",
+      "referencias": "Mateus 7.1 · Mateus 7.6",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 7.1",
+          "texto": "Não julgueis, para que não sejais julgados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além da murmuração, existe outro tipo de palavra que precisamos abandonar: a palavra de julgamento e condenação. Essa questão exige equilíbrio, porque às vezes interpretamos a Palavra de maneira extrema. Jesus não está proibindo todo exercício de discernimento. Devemos avaliar o ensino segundo a Bíblia, examinar a pregação e identificar aquilo que é verdadeiro ou falso. Mas existe uma diferença entre **avaliar o que uma pessoa ensina** e **presumir que conhecemos seu coração e suas motivações**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem anda comigo sabe que procuro não ficar mencionando nomes de líderes evangélicos para emitir opiniões sobre a vida deles. Eu não conheço a vida dessas pessoas, não conheço seu coração e não estou qualificado para julgar suas intenções. Nem quero assumir esse trabalho — eles não são meus servos. Mas quando alguém ensina alguma coisa, posso e devo examinar o que foi ensinado à luz das Escrituras. **Discernir não é condenar.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 7.6",
+          "texto": "Não deis aos cães o que é santo, nem lanceis ante os porcos as vossas pérolas, para que não as pisem com os pés e, voltando-se, vos despedacem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "As pérolas representam algo precioso. O princípio é que precisamos ter sabedoria sobre como e com quem compartilhamos aquilo que recebemos. **Não fique falando com quem não quer ouvir você.** Não fique entregando conselhos a quem não pediu coisa alguma. Só compartilhe com quem quer te ouvir."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Pense numa situação comum: você vem à igreja, começa a compreender a graça e volta para casa animado. Então encontra um primo que diz alguma coisa legalista. Imediatamente pensa: 'Eu vou falar umas verdades para ele, porque ele ainda não entendeu!' Mas e se seu primo não quiser ouvir você? Não fique ofendido. A maioria das pessoas não está esperando nossa opinião sobre todos os assuntos. Em vez de insistir, sorria, fique quieto e espere a oportunidade de compartilhar com alguém que tenha o coração aberto."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "O Critério e o Espelho do Julgamento",
+      "sec_eyebrow": "7ª Verdade",
+      "referencias": "Mateus 7.2-3",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 7.2",
+          "texto": "Pois, com o critério com que julgardes, sereis julgados; e, com a medida com que tiverdes medido, vos medirão também."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O critério que você utiliza para julgar seu irmão é o critério com o qual também será medido. Isso é muito sério e mais comum do que gostamos de admitir. **Toda fofoca envolve algum tipo de julgamento**: estamos falando da vida de alguém, interpretando suas ações e, muitas vezes, condenando sem conhecer todos os fatos. Nesse sentido, também colhemos o fruto das nossas palavras."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você tem recebido graça. Quem recebe graça precisa ser gracioso. Não faz sentido sermos beneficiados pela misericórdia de Deus e, ao mesmo tempo, tratarmos os outros com dureza e condenação."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 7.3",
+          "texto": "Por que vês tu o argueiro no olho de teu irmão, porém não reparas na trave que está no teu próprio?"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Os Olhos como Projetores",
+            "corpo": [
+              "Às vezes nossos olhos funcionam como projetores: enxergamos no outro aquilo que ocupa o nosso próprio coração.",
+              "Tem gente que passa o tempo inteiro dizendo: 'Fulano é ladrão, beltrano é ladrão. Eu não confio em ninguém!' Todo mundo parece suspeito aos olhos daquela pessoa.",
+              "É preciso parar e perguntar: por que ela enxerga tudo dessa maneira? O que está dentro dela que está sendo projetado para fora?"
+            ],
+            "conclusao": "Nem toda percepção de um defeito alheio significa que possuímos o mesmo defeito — mas nossos julgamentos também podem revelar nossas inseguranças, desconfianças e conflitos interiores. Antes de tentar tirar o argueiro do irmão, retire a trave do próprio olho."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Julgamento e Vida de Oração",
+      "sec_eyebrow": "8ª Verdade",
+      "referencias": "Mateus 7.7 · Isaías 58.6-9",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 7.7",
+          "texto": "Pedi, e dar-se-vos-á; buscai e achareis; batei, e abrir-se-vos-á."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Logo depois de falar sobre julgamento e discernimento, Jesus trata da maneira como nos relacionamos com o Pai em oração. Observe como, nesse mesmo discurso, o Senhor conecta a maneira como tratamos as pessoas com a confiança com que nos aproximamos de Deus. Nossa vida espiritual não pode ser separada da maneira como tratamos as pessoas."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Isaías 58.6",
+          "texto": "Porventura, não é este o jejum que escolhi? Que soltes as ligaduras da impiedade, desfaças as ataduras da servidão, ponhas em liberdade os oprimidos e despedaces todo jugo?"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Isaías 58.9",
+          "texto": "Então, clamarás, e o Senhor te responderá; gritarás por socorro, e ele dirá: Eis-me aqui, se tirares do meio de ti o jugo, o dedo que ameaça e o falar injurioso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isaías 58 torna isso evidente. O Senhor confronta um povo que jejuava, mas não praticava a justiça e a misericórdia. No versículo 9, Deus declara: 'Então, clamarás, e o Senhor te responderá; gritarás por socorro, e ele dirá: Eis-me aqui' — e acrescenta a necessidade de **retirar do meio do povo o jugo, o dedo que ameaça e o falar injurioso.**"
+        },
+        {
+          "tipo": "callout",
+          "texto": "O texto fala de oração, mas também fala de abandonar palavras injuriosas. Quem tem palavras julgadoras e condenatórias tem suas orações interrompidas. O que eu mais quero é ver respostas de oração, ver Deus fluindo e se movendo — por isso precisamos prestar atenção àquilo que falamos."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "Não se Intrometer, Não Discutir Opões",
+      "sec_eyebrow": "9ª Verdade",
+      "referencias": "1 Tessalonicenses 4.9-11 · Romanos 14.1-4",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 4.9-11",
+          "texto": "Quanto ao amor fraternal, não há necessidade de que eu vos escreva, porquanto vós mesmos estais por Deus instruídos que deveis amar-vos uns aos outros... e procureis viver tranquilamente, cuidar do que é vosso e trabalhar com as próprias mãos, como vos ordenamos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo escreve que não precisava ensinar os irmãos sobre o amor fraternal, porque eles já haviam sido instruídos por Deus a amar uns aos outros. Mas ele continua exortando os irmãos a progredirem cada vez mais — vocês já estão amando, mas podem avançar ainda mais. E então acrescenta: **devemos viver tranquilamente, cuidar do que é nosso e trabalhar com as próprias mãos.** Você precisa cuidar das suas coisas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existem, sim, coisas que são da sua conta. Se você é membro de uma igreja e vê um irmão aflito ou angustiado, não pode simplesmente dizer: 'Vou cuidar da minha vida; ele que se dane!' Isso não é amor. Seu marido é da sua conta, sua esposa é da sua conta, seus filhos são da sua conta e a igreja da qual você faz parte também é da sua conta. Mas existe muita coisa que não é."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Há situações em que precisamos ouvir a pergunta do Espírito Santo: 'Por que você está se intrometendo? O que você está fazendo envolvido nesse assunto?' Não seja um crente intrometido."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Sabe o que acontece com o professor? Não importa onde esteja ou com quem esteja conversando, ele acaba querendo ensinar. A pessoa comenta alguma coisa e você já apresenta três motivos, cinco princípios e uma conclusão. Só que existe um problema: **o outro não perguntou nada.** Talvez nem queira saber sua opinião. Se você sabe que não tem nada a ver com isso, pare por aí. Se alguém perguntar, responda. Se pedir conselho, aconselhe. Mas se não pediu, não se intrometa. Você não conhece todos os detalhes da vida das pessoas."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 14.1",
+          "texto": "Acolhei ao que é débil na fé, não, porém, para discutir opiniões."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo apresenta outro princípio fundamental: existem pessoas que são fracas na fé, mas Paulo não manda rejeitá-las nem discutir com elas — **manda acolhê-las.** Vivemos na geração da discussão, em que todo mundo quer debater tudo. Mas não fomos chamados para viver discutindo com as pessoas. Fale de Cristo, compartilhe Cristo e seja gracioso."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Servo Alheio",
+            "corpo": [
+              "Romanos 14.4 pergunta: 'Quem és tu que julgas o servo alheio?' É como se o seu vizinho começasse a dar palpites sobre a maneira como a sua funcionária está lavando o seu quintal. Você provavelmente pensaria: 'Quem vai orientar essa pessoa sou eu! Por que meu vizinho está se metendo na minha casa?'",
+              "É essa a força da pergunta de Paulo. Quem é você para julgar o servo alheio? Ele pertence ao Senhor, e é diante do Senhor que está em pé ou cai."
+            ],
+            "conclusao": "Não despreze quem Deus acolheu. E, se você comeu sem saber da procedência, isso não deveria virar motivo para alguém sair espalhando acusações sobre você."
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "A Boca Fala do Coração e o Silêncio do Cordeiro",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Mateus 12.34-36 · João 14.30 · Isaías 53.7",
+      "corpo": [
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 12.34-36",
+          "texto": "Raça de víboras, como podeis falar coisas boas, sendo maus? Porque a boca fala do que o coração está cheio. O homem bom tira do tesouro bom coisas boas; mas o homem mau do mau tesouro tira coisas más. Digo-vos que, no dia do juízo, os homens haverão de prestar contas de toda palavra frívola que proferirem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para compreender a raiz de tudo isso, precisamos voltar às palavras de Jesus: **a boca fala do que está cheio o coração.** Seus pecados foram perdoados em Cristo, e não há condenação para aqueles que estão nele. No entanto, isso não significa que estamos autorizados a falar qualquer coisa. Nossas palavras revelam o coração."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não adianta simplesmente tentar mudar a boca. É preciso permitir que Deus transforme primeiro o coração, porque a boca sempre vai falar daquilo de que o coração está cheio."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 14.30",
+          "texto": "Já não falarei muito convosco, porque aí vem o príncipe do mundo; e ele nada tem em mim."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O Senhor estava se aproximando da hora de sua paixão, de uma pressão emocional e espiritual extraordinária. Nesse contexto, Jesus revela sua plena confiança no Pai e a certeza de que o príncipe deste mundo não tinha nada nele. Isso nos ensina a importância de saber quando falar e quando ficar em silêncio."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**No tempo de crise, aprenda a ficar em silêncio.** Não estou dizendo que você precisa ficar calado o tempo todo — mas, no meio de uma crise, muitas vezes a melhor coisa que você pode fazer é não sair falando indiscriminadamente. A pressão pode nos levar a falar de maneira inapropriada. Há momentos em que estamos tão cansados, feridos ou irritados que não conseguimos medir bem nossas palavras. Aprenda a esperar. Se não tem uma palavra que edifique, se naquele momento não consegue falar de maneira graciosa, fique em silêncio até poder tratar a questão com sabedoria."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Isaías 53.7",
+          "texto": "Ele foi oprimido e humilhado, mas não abriu a boca; como cordeiro foi levado ao matadouro; e, como ovelha muda perante os seus tosquiadores, ele não abriu a boca."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Faça como o Cordeiro",
+            "corpo": [
+              "Você já foi oprimido ou humilhado alguma vez? Quando isso aconteceu, qual foi sua reação? Conseguiu ficar em silêncio ou respondeu imediatamente, tomado pela ira?",
+              "O cordeiro não revida com violência. Jesus, mesmo tendo autoridade e poder, entregou-se àquele que julga retamente.",
+              "Isso não significa aceitar abusos, deixar de procurar proteção ou permanecer calado diante de uma injustiça que precisa ser denunciada. Significa aprender que nem toda provocação exige uma resposta impulsiva — e que não precisamos fazer da nossa boca uma arma de vingança."
+            ],
+            "conclusao": "Você pode estabelecer limites, buscar ajuda e agir corretamente sem se entregar à mesma agressividade. Deus conhece sua causa, e você pode confiar que ele é justo."
+          }
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "stage",
+          "dados": {
+            "label": "UMA ALIANÇA COM A MINHA BOCA",
+            "texto": "Faça uma aliança com a sua boca. Diga a Deus que deseja falar para abençoar, transmitir graça e edificar; que não quer mais usar suas palavras para acusar, ameaçar, condenar ou julgar injustamente.",
+            "sub": "Peça que o Espírito Santo purifique sua língua e transforme seu coração — para que aquilo que sai da sua boca seja uma expressão da graça que você recebeu."
+          }
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "O poder e o fruto das palavras: aquilo que falamos tem mais poder sobre nós mesmos do que sobre os outros. Daqui a cinco anos, sua vida terá sido influenciada pelo que você fala hoje — você colherá o fruto das suas palavras (Pv 12.14, 18.21).",
+      "versiculo_ancora": "Provérbios 18.21"
+    },
+    {
+      "ponto": "Palavras como sementes: confissões repetidas são sementes regadas. Não alimente com a boca aquilo que você não quer ver crescer. Confessar a Palavra de Deus é concordar com a verdade sobre sua vida.",
+      "versiculo_ancora": "Provérbios 18.20"
+    },
+    {
+      "ponto": "A murmuração abre espaço para o diabo: Israel chamou de 'pão vil' o maná que Deus enviava do céu. O verbo 'mandou' serpentes em Nm 21.6 é permissivo — Deus removeu a proteção e a serpente ganhou espaço. Murmuração não muda ninguém.",
+      "versiculo_ancora": "Números 21.4-6 · 1 Coríntios 10.10"
+    },
+    {
+      "ponto": "Não dar lugar ao diabo: a mentira quebra a confiança; a ira amanhecida vira ressentimento e atrai espíritos malignos (exemplo de Saul em 1Sm 18); palavra torpe é tudo aquilo que não transmite graça. (Ef 4.25-29)",
+      "versiculo_ancora": "Efésios 4.26-29"
+    },
+    {
+      "ponto": "Em vez de murmurar, dar graças: agradeça mesmo sem vontade, agradeça pela fé — o motivo está chegando. Se não tem nada de bom para falar, não fale nada.",
+      "versiculo_ancora": "1 Coríntios 10.10"
+    },
+    {
+      "ponto": "O perigo do julgamento: discernir não é condenar. Não lance pérolas aos porcos — só compartilhe com quem quer ouvir. (Mt 7.1,6)",
+      "versiculo_ancora": "Mateus 7.1 · Mateus 7.6"
+    },
+    {
+      "ponto": "O critério e o espelho: você será medido com a mesma medida. Nossos olhos funcionam como projetores — vemos no outro aquilo que ocupa nosso próprio coração. (Mt 7.2-3)",
+      "versiculo_ancora": "Mateus 7.2-3"
+    },
+    {
+      "ponto": "Julgamento interrompe oração: Isaías 58.9 conecta resposta de oração com o abandono do falar injurioso. Quem recebe graça precisa ser gracioso.",
+      "versiculo_ancora": "Isaías 58.9"
+    },
+    {
+      "ponto": "Não se intrometer, não discutir opiniões: viva tranquilamente, cuide do que é seu. Acolha o débil na fé, não discuta opiniões. Quem és tu que julgas o servo alheio? (1Ts 4.11 · Rm 14.1-4)",
+      "versiculo_ancora": "Romanos 14.4"
+    },
+    {
+      "ponto": "A boca fala do coração e o silêncio do Cordeiro: não adianta tentar mudar a boca — é preciso deixar Deus transformar o coração. No tempo de crise, aprenda a ficar em silêncio. Faça como o Cordeiro: não abra a boca. (Mt 12.34 · Is 53.7)",
+      "versiculo_ancora": "Isaías 53.7"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "A boca de quem entendeu a graça não fala o que merece falar — fala o que a graça ensinou a falar.",
+    "pontos": [
+      "As palavras têm poder de liberar ou limitar bênçãos — e têm muito mais poder sobre nós mesmos do que sobre os outros. Daqui a cinco anos, sua vida terá sido influenciada pelo que você fala hoje: você colherá o fruto das suas palavras. Palavras confessadas são sementes semeadas, confissões repetidas são sementes regadas. Não alimente com a boca aquilo que você não quer ver crescer na sua vida. Em vez disso, aprenda a concordar com o que a Palavra declara sobre você.",
+      "A murmuração abre espaço para o diabo — Israel chamou de 'pão vil' o maná que Deus enviava do céu. O verbo 'mandou' serpentes em Números 21.6 é permissivo: Deus apenas removeu a proteção e a serpente ganhou espaço. Se murmuração mudasse alguém, o mundo já seria um paraíso. Em vez de murmurar, dê graças — agradeça mesmo sem vontade, agradeça pela fé. Paulo em Efésios 4 ensina três coisas: não minta (quebra a confiança), não deixe o sol se pôr sobre a ira (ira amanhecida vira carniça que atrai espíritos malignos, como aconteceu com Saul), e não fale palavra torpe (tudo que não transmite graça).",
+      "Além da murmuração, abandone as palavras de julgamento. Discernir não é condenar — avalie o ensino, não o coração. Só compartilhe pérolas com quem quer ouvir. O critério que você usa para julgar será usado com você, e seus olhos funcionam como projetores: você vê no outro o que ocupa o seu próprio coração. Isaías 58.9 conecta resposta de oração com o abandono do falar injurioso. Não se intrometa na vida alheia, não discuta opiniões — acolha o débil na fé. E a boca fala do que o coração está cheio: no tempo de crise, aprenda o silêncio do Cordeiro (Is 53.7) — nem toda provocação exige resposta impulsiva."
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 4.29",
+      "texto": "Não saia da vossa boca nenhuma palavra torpe, e sim unicamente a que for boa para edificação, conforme a necessidade, e, assim, transmita graça aos que ouvem."
+    }
+  },
+  "nota_lacuna": [
+    {
+      "titulo": "Data da pregação",
+      "texto": "A data específica desta mensagem não foi informada — apenas que pertence à série 'Escola da Fé'. Quando a data for confirmada, atualizar o campo `metadados.data` no formato 'DD de mês de AAAA'."
+    },
+    {
+      "titulo": "Identidade visual da série",
+      "texto": "Sem foto de palco disponível no momento. A renderização usa o tema Padrão MINC como fallback. Se houver arte oficial da série 'Escola da Fé' (lettering, paleta, backdrop), seguir o workflow de criação de tema — a paleta oficial substituirá retroativamente o padrão para todas as mensagens desta série (regra do Estilo #5b)."
+    },
+    {
+      "titulo": "Crédito das fontes",
+      "texto": "JSON gerado a partir do cruzamento de três fontes: esboço estruturado da mensagem (anexo principal, autoria atribuída a Stephanie) + anotações de Mari (frases-chave e insights práticos) + anotações de Matheus Sozza (insights exegéticos, como o verbo permissivo em Nm 21.6 e a conexão ira→espírito maligno em 1Sm 18). As três fontes se complementaram — divergências foram resolvidas pelo alinhamento ao texto bíblico e ao esboço base."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "A boca de quem entendeu a graça não fala o que merece, mas fala o que a graça ensinou a falar.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "O Poder e o Fruto das Palavras",
+        "resumo": "Nossas palavras possuem poder real para liberar bênçãos ou destruir relacionamentos, influenciando mais a nós mesmos do que aos outros. Devemos ser sábios, pois colheremos o fruto daquilo que falamos hoje (Provérbios 12.14).",
+        "frase_chave": "Palavras mudam ambientes. Elas atraem seres espirituais — anjos e demônios."
+      },
+      {
+        "numero": 2,
+        "titulo": "Palavras como Sementes — Confissão e Fé",
+        "resumo": "Palavras são sementes e confissões repetidas são sementes regadas que produzem frutos. Não devemos alimentar com a boca aquilo que não desejamos ver crescer, mas sim declarar a Palavra de Deus (Provérbios 18.21).",
+        "frase_chave": "Você inevitavelmente vai se tornar aquilo que você está falando."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Murmuração Abre Espaço para o Diabo",
+        "resumo": "A murmuração é uma brecha espiritual que retira a proteção divina, permitindo que o mal se manifeste. Murmurar não transforma ninguém, apenas nos afasta da gratidão (Números 21.4-6).",
+        "frase_chave": "Se murmuração mudasse alguém, esse mundo era um paraíso."
+      },
+      {
+        "numero": 4,
+        "titulo": "Não Dar Lugar ao Diabo — Mentira, Ira, Palavra Torpe",
+        "resumo": "Devemos evitar a mentira, resolver a ira antes do pôr do sol e abandonar palavras torpes que não edificam. A ira alimentada torna-se ressentimento, abrindo caminho para o inimigo (Efésios 4.25-29).",
+        "frase_chave": "Ira amanhecida vira carniça na sua casa — e carniça atrai espíritos malignos."
+      },
+      {
+        "numero": 5,
+        "titulo": "Em Vez de Murmurar, Dar Graças",
+        "resumo": "A gratidão é o antídoto para a murmuração, devendo ser praticada mesmo quando não sentimos vontade. Se não temos algo bom para edificar, o melhor é manter o silêncio (1 Coríntios 10.10).",
+        "frase_chave": "Se você não sabe o que falar, não fale nada."
+      },
+      {
+        "numero": 6,
+        "titulo": "O Perigo das Palavras de Julgamento",
+        "resumo": "Discernir o ensino não é o mesmo que condenar o coração das pessoas. Devemos ter sabedoria para não lançar pérolas a quem não deseja ouvir (Mateus 7.1-6).",
+        "frase_chave": "Discernir não é condenar."
+      },
+      {
+        "numero": 7,
+        "titulo": "O Critério e o Espelho do Julgamento",
+        "resumo": "Seremos medidos pelo mesmo critério que usamos para julgar o próximo. Muitas vezes, nossos julgamentos funcionam como projetores de nossas próprias falhas internas (Mateus 7.2-3).",
+        "frase_chave": "Você tem recebido graça. Quem recebe graça precisa ser gracioso."
+      },
+      {
+        "numero": 8,
+        "titulo": "Julgamento e Vida de Oração",
+        "resumo": "A nossa vida de oração está conectada à forma como tratamos o próximo. O falar injurioso e o julgamento podem interromper o fluir das respostas de Deus (Isaías 58.9).",
+        "frase_chave": "Quem tem palavras julgadoras e condenatórias tem suas orações interrompidas."
+      },
+      {
+        "numero": 9,
+        "titulo": "Não se Intrometer, Não Discutir Opões",
+        "resumo": "Devemos cuidar da nossa própria vida e trabalhar com as próprias mãos, evitando nos intrometer em assuntos alheios. Não fomos chamados para viver em discussões de opiniões (Romanos 14.1-4).",
+        "frase_chave": "Há situações em que precisamos ouvir a pergunta do Espírito Santo: 'Por que você está se intrometendo?'"
+      },
+      {
+        "numero": 10,
+        "titulo": "A Boca Fala do Coração e o Silêncio do Cordeiro",
+        "resumo": "A boca revela o que está no coração, por isso a transformação deve ser interna. Em tempos de crise, devemos aprender o silêncio do Cordeiro, sem responder impulsivamente (Isaías 53.7).",
+        "frase_chave": "Não adianta simplesmente tentar mudar a boca. É preciso permitir que Deus transforme primeiro o coração."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Efésios 4.29",
+      "texto": "Não saia da vossa boca nenhuma palavra torpe, e sim unicamente a que for boa para edificação, conforme a necessidade, e, assim, transmita graça aos que ouvem."
+    }
+  }
+}
