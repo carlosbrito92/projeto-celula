@@ -14,8 +14,8 @@
       "variante": "stage",
       "dados": {
         "label": "DECLARAÇÃO",
-        "texto": "Este é um dia de libertação. Até quando a mágoa vai te segurar? Hoje é dia de soltar e prosseguir.",
-        "sub": "Uma decisão de não permitir que o passado roube o seu futuro."
+        "frase": "Este é um dia de libertação. Até quando a mágoa vai te segurar? Hoje é dia de soltar e prosseguir.",
+        "subtitulo": "Uma decisão de não permitir que o passado roube o seu futuro."
       }
     },
     "aviso_proxima_serie": {

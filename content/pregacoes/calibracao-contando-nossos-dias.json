@@ -14,8 +14,8 @@
       "variante": "stage",
       "dados": {
         "label": "DECLARAÇÃO",
-        "texto": "A prova não tem o propósito de me reprovar, mas de me aprovar. Deus me prepara no secreto para suportar o peso da próxima estação.",
-        "sub": "Antes da promoção, existe a preparação."
+        "frase": "A prova não tem o propósito de me reprovar, mas de me aprovar. Deus me prepara no secreto para suportar o peso da próxima estação.",
+        "subtitulo": "Antes da promoção, existe a preparação."
       }
     },
     "aviso_proxima_serie": {
