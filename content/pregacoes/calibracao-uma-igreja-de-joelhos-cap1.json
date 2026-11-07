@@ -377,8 +377,8 @@
           "variante": "stage",
           "dados": {
             "label": "DECLARAÇÃO",
-            "texto": "Quando todas as portas parecerem fechadas, ainda existe uma porta aberta. Ore primeiro. Ore a Palavra. Ore incessantemente. Ore com outros. Ore pelos outros. Ore com a fé que você tem.",
-            "sub": "Você pode não saber como Deus responderá, nem quando a resposta chegará — mas pode permanecer diante dele sabendo que nenhuma circunstância é maior do que o seu poder."
+            "frase": "Quando todas as portas parecerem fechadas, ainda existe uma porta aberta. Ore primeiro. Ore a Palavra. Ore incessantemente. Ore com outros. Ore pelos outros. Ore com a fé que você tem.",
+            "subtitulo": "Você pode não saber como Deus responderá, nem quando a resposta chegará — mas pode permanecer diante dele sabendo que nenhuma circunstância é maior do que o seu poder."
           }
         }
       ],
