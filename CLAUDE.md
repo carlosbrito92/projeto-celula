@@ -27,6 +27,7 @@ Web app (React + Capacitor) para redes de célula: biblioteca de pregações, ca
 - `docs/mock-prompt.md` / `docs/mock-aprovado-v2.html` — referência visual aprovada
 - `docs/spec-privacidade-sorteio.md` — fluxo de privacidade sequencial ("passar o celular") dos utilitários de sorteio (Fase 3)
 - `docs/progresso.md` — checklist de acompanhamento por fase
+- `docs/painel-editorial.md` — plano do Painel Editorial (publicação de pregações por líderes via PR)
 - `db/migrations/` — migrações do banco (schema + RLS), aplicadas via `npm run db:schema` (antes `supabase/migrations/`, removido na migração para Neon)
 
 ---
@@ -142,6 +143,17 @@ PR #64 (2026-09-26, junto com a correção de service worker já documentada no 
 - **Geração via `scripts/gerar-resumo-lider.ts` (Gemini, `gemini-3.1-flash-lite`, `GEMINI_API_KEY` só em `.env.local`), não escrita manual.** Prompt fixo exige reusar os mesmos pontos/ordem de `mapa_pontos`, preservar ilustrações marcantes do corpo real, extrair `frase_chave` de um `callout`/frase de impacto real (nunca inventar) — mesma disciplina de "não alucinar conteúdo editorial" que já vale pra qualquer pregação calibrada manualmente. **Idempotente**: pula arquivo que já tem `resumo_lider` (log `⏭`), sem truncar nada. Sem argumento roda em lote sobre todo `content/pregacoes/calibracao-*.json`; com argumento (path), processa só esse arquivo — mesmo padrão de modo seletivo que `db-seed.ts` já tinha (ver "Decisões de arquitetura (Migração Neon)").
 - **Mesmo PR trouxe blocos de corpo novos (`subtitulo`, `citacao`, `glossario`, `pergunta`, `resposta`) e a variante `timeline` de `componente_tema`, todos já com renderer implementado** (`BlockRenderer.tsx` / `ComponenteTemaRenderer.tsx`) no mesmo commit que introduziu os tipos — diferente do gap recorrente registrado nos hurdles de 2026-07-29/08-02 ("documentado/tipado mas sem renderer"), aqui tipo e renderer chegaram juntos.
 - **Pendente**: `docs/geracao-pregacao.md` (schema de conteúdo) ainda não documenta `resumo_lider` nem os blocos/variante novos acima — só existem em código/tipos até este ponto.
+
+## Decisões de arquitetura (Painel Editorial)
+
+Plano completo em `docs/painel-editorial.md` (decisões de Carlos, 2026-11-07). Aqui só o que afeta como construir.
+
+- **Publicação por líderes = Pull Request, nunca escrita no banco.** `api/editorial/publicar.ts` valida o schema e abre/atualiza um PR em `content/pregacoes/` via GitHub API (`api/_lib/github.ts`, fetch puro, sem octokit). Regra de segurança item 2 (conteúdo editorial somente leitura para o app) continua intacta; o banco só recebe o conteúdo pelo fluxo normal de `db-seed` depois do merge de Carlos. `GITHUB_TOKEN_EDITORIAL` (fine-grained PAT, só este repo, Contents + Pull requests) não consegue escrever em `main` por causa da branch protection.
+- **Autenticação editorial = um código por líder em `EDITORIAL_CODIGOS` (env var da Vercel), validado no servidor em toda request** (`api/_lib/editorialAuth.ts`, hash + `timingSafeEqual`). Código com menos de 16 caracteres é ignorado. Qualquer checagem de código no client é só para mostrar/esconder UI, nunca uma barreira. Nunca logar nem devolver o código; o nome do líder (não o código) é o que vai para commit/PR/rascunho.
+- **`src/content/validarPregacao.ts` é a fonte de verdade de "o que é uma pregação válida"**, compartilhada entre a Vercel Function e (futuramente) o editor. Zero dependências além de `parseData`, com imports relativos usando extensão `.js`, porque é type-checked tanto por `tsconfig.app.json` (bundler) quanto por `tsconfig.api.json` (nodenext, hurdle de 2026-08-01). Tipo de bloco de corpo desconhecido = erro (o texto sumiria); variante de `componente_tema` desconhecida = aviso (o renderer ignora com segurança). **Ao adicionar um tipo de bloco ou variante nova ao renderer, adicionar também ao validador**, senão o painel rejeita conteúdo que o app sabe exibir.
+- **Teste de regressão roda o validador contra todo `content/pregacoes/*.json`** (`import.meta.glob`, não `node:fs`: o arquivo de teste vive em `src/` e o `tsconfig.app.json` não tem tipos de Node). Erros conhecidos de conteúdo ficam numa allowlist explícita (`PENDENCIAS_CONHECIDAS`), e qualquer erro novo quebra o CI. Primeiro achado: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura em produção).
+- **Branch editorial = `editorial/<slug>-<sufixo base36 sem hífen>`.** O PR aberto de um arquivo é achado por prefixo **e** sufixo sem hífen; só `startsWith` confundiria `nova.json` com `nova-parte-2.json`. Republicar com PR aberto = novo commit no mesmo PR; depois do merge = novo PR substituindo o arquivo (upsert por `arquivo_origem`, que está preenchido nas 22 linhas de `pregacoes` em 2026-11-07).
+- **Testes de `api/_lib/__tests__/` rodam no ambiente jsdom padrão da suíte.** `// @vitest-environment node` quebra porque `src/test/setup.ts` toca `Element.prototype`. Imports com `.js` (nodenext). Diretório `_lib` não vira function na Vercel (prefixo `_`).
 
 ## Decisões de arquitetura (V2 — Quem Sou Eu)
 

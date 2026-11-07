@@ -98,6 +98,22 @@ Também entregue nesta fase, fora do checklist original: router mínimo próprio
 - [x] Terceiro mini-jogo (Spicy) — **Fix: zoom por duplo toque quebrava o clique duplo de declarar carta no mobile.** `index.html` não desabilitava zoom (`<meta name="viewport">` sem `maximum-scale`/`user-scalable=no`) — em touchscreen, duplo toque sem isso é interpretado como gesto de zoom nativo do WebView/navegador, não como dois cliques, então `onDoubleClick` (`FlippableCard`) nunca disparava no celular, só funcionava no desktop (`dblclick` de mouse é nativo, não depende de gesto). Corrigido acrescentando `maximum-scale=1.0, user-scalable=no` ao viewport — o app já é 100% "estilo aplicativo" (tab bar fixa, sem necessidade de pinch-zoom em nenhuma tela), então desabilitar zoom de página não tem trade-off de acessibilidade relevante aqui. **Pendências de confirmação em device físico, não fechadas nesta sessão**: (1) achado por Carlos junto dos bugs acima — "no APK, Host não consegue usar duplo clique pra declarar carta" — não confirmado ainda se o fix do viewport resolve, precisa reinstalar o APK (que ainda não tinha esse fix) e testar de novo; (2) "no APK é possível desafiar a própria carta jogada, causando crash no outro jogador que está no browser" — pendente de confirmar se é o mesmo autodesafio já corrigido rodando num APK desatualizado (sem o fix), ou um caminho de crash à parte — precisa reinstalar o APK atualizado e testar; (3) "celular (Tyrr6) não conseguia jogar a última carta" — suspeita forte de ser consequência do crash de tela branca acima (uma vez que a árvore React cai, nenhum clique funciona mais), mas não confirmado como bug de lógica à parte.
 - [ ] Terceiro mini-jogo (Spicy) — **Decisão de produto pendente, ainda não implementada (Carlos, 2026-08-14)**: a carta Troféu (`TipoCarta.trofeu`, `types.ts:10`) hoje é uma carta física normal que pode ser distribuída na mão de um jogador via compra do monte — visualmente indistinguível pro dono de qualquer outra carta na mão, exceto pelo próprio desenho. Carlos vai introduzir uma nova tela pra tratar o(s) Troféu(éis) como elemento compartilhado, visível a **todos** os jogadores (não escondido na mão de ninguém), que some da mesa quando alguém o ganha — mais fiel ao jogo físico (o pote de troféus fica visível na mesa entre todos, não misturado no baralho de ninguém). Ainda não desenhado/especificado a fundo; mudança de UI (e possivelmente de `EstadoPartida`/`turno.ts`, já que hoje o troféu circula pelo mesmo `maos[]`/`pilhaCompra` de qualquer carta) — não iniciada.
 
+## Painel Editorial (em andamento)
+
+Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de célula publicam pregações sem JSON/terminal/git; único passo de Carlos é o merge do PR.
+
+- [x] Validação de schema de `PregacaoConteudo` no servidor (`src/content/validarPregacao.ts`), com teste de regressão contra todo `content/pregacoes/*.json`
+- [x] Endpoint `POST /api/editorial/publicar` — código por líder (`EDITORIAL_CODIGOS`), abre/atualiza PR em `content/pregacoes/` via GitHub API, nunca escreve no banco
+- [ ] Configurar `GITHUB_TOKEN_EDITORIAL` + `EDITORIAL_CODIGOS` na Vercel e testar publicação real (ver `painel-editorial.md` §4.5)
+- [ ] Regra de rate limit no Vercel Firewall para `/api/editorial/*` antes de distribuir códigos
+- [ ] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — lista em `PENDENCIAS_CONHECIDAS` de `validarPregacao.test.ts`
+- [ ] Decisão de Carlos: seed automático pós-merge (role `content_writer` como secret do Actions vs. passo manual) — §6
+- [ ] Rascunhos no servidor: migração `0003` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`) + `api/editorial/rascunhos` — §5
+- [ ] Painel mínimo: rota `/editorial`, botão na Biblioteca, modal de código, lista de rascunhos com status derivado — §7.1
+- [ ] Editor guiado gerando `PregacaoConteudo` exato, com validação em tempo real — §7.2
+- [ ] Exportar/Copiar JSON (fallback) — §7.3
+- [ ] Pós-MVP: pré-visualização ao vivo; editar pregação já publicada — §7.4–7.5
+
 ---
 
 ## Como manter este documento
