@@ -116,18 +116,11 @@ describe('validarPregacao', () => {
   // Regressão: todo conteúdo real já publicado precisa passar — senão o
   // validador está mais estrito que o schema de fato usado em produção.
   //
-  // Exceção explícita: `stage` com `texto`/`sub` em vez de `frase`/`subtitulo`
-  // é bug real de conteúdo (ComponenteTemaRenderer só lê `frase`, então a
-  // declaração some na leitura — só o label aparece). Listado aqui até o
-  // conteúdo ser corrigido; qualquer erro novo fora desta lista quebra o teste.
-  const PENDENCIAS_CONHECIDAS: Record<string, string[]> = {
-    'Teste Pregação.json': ['banner_intro.componente_tema.dados.frase'],
-    'calibracao-a-boca-de-quem-entendeu-a-graca.json': ['secoes[9].corpo[8].dados.frase'],
-    'calibracao-contando-nossos-dias.json': ['banner_intro.componente_tema.dados.frase'],
-    'calibracao-faca-com-que-cada-dia-conte.json': ['banner_intro.componente_tema.dados.frase'],
-    'calibracao-uma-ancora-para-alma.json': ['secoes[4].corpo[10].dados.frase'],
-    'calibracao-uma-igreja-de-joelhos-cap1.json': ['secoes[7].corpo[5].dados.frase'],
-  };
+  // Exceção explícita, por arquivo: erro conhecido de conteúdo que ainda não
+  // foi corrigido. Manter vazio — qualquer entrada aqui é dívida aberta (ver
+  // docs/progresso.md § Painel Editorial). Primeira rodada (stage com
+  // texto/sub em vez de frase/subtitulo, 6 arquivos) corrigida no PR #68.
+  const PENDENCIAS_CONHECIDAS: Record<string, string[]> = {};
 
   describe('conteúdo real de content/pregacoes/', () => {
     // import.meta.glob (não node:fs) — este arquivo é type-checked pelo

@@ -72,7 +72,7 @@ Mesmo módulo no servidor (fonte de verdade) e, depois, no editor (validação e
 - `resumo_lider.pontos[]` = `{numero: number, titulo, resumo, frase_chave}`; `resumo_curto`; `resumo_final`.
 - **Teste de regressão** roda o validador contra todo `content/pregacoes/*.json` real.
 
-> **Achado do teste de regressão (bug real em produção):** 6 arquivos usam `stage` com `texto`/`sub` em vez de `frase`/`subtitulo`. `ComponenteTemaRenderer` só lê `frase`, então a declaração some na leitura e só o label aparece. Os arquivos estão listados como `PENDENCIAS_CONHECIDAS` no teste até o conteúdo ser corrigido. Qualquer erro novo fora da lista quebra o CI.
+> **Achado do teste de regressão (bug real em produção):** 6 arquivos usam `stage` com `texto`/`sub` em vez de `frase`/`subtitulo`. `ComponenteTemaRenderer` só lê `frase`, então a declaração some na leitura e só o label aparece. Corrigido no PR #68; `PENDENCIAS_CONHECIDAS` no teste está vazia. Qualquer erro novo de conteúdo quebra o CI.
 
 ### 4.3 PR via GitHub — `api/_lib/github.ts`
 

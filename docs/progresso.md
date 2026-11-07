@@ -106,7 +106,8 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [x] Endpoint `POST /api/editorial/publicar` — código por líder (`EDITORIAL_CODIGOS`), abre/atualiza PR em `content/pregacoes/` via GitHub API, nunca escreve no banco
 - [ ] Configurar `GITHUB_TOKEN_EDITORIAL` + `EDITORIAL_CODIGOS` na Vercel e testar publicação real (ver `painel-editorial.md` §4.5)
 - [ ] Regra de rate limit no Vercel Firewall para `/api/editorial/*` antes de distribuir códigos
-- [ ] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — lista em `PENDENCIAS_CONHECIDAS` de `validarPregacao.test.ts`
+- [x] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — PR #68, `PENDENCIAS_CONHECIDAS` esvaziada
+- [ ] Seed seletivo dos 6 arquivos corrigidos no #68 (banco ainda com `texto`/`sub` até rodar)
 - [ ] Decisão de Carlos: seed automático pós-merge (role `content_writer` como secret do Actions vs. passo manual) — §6
 - [ ] Rascunhos no servidor: migração `0003` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`) + `api/editorial/rascunhos` — §5
 - [ ] Painel mínimo: rota `/editorial`, botão na Biblioteca, modal de código, lista de rascunhos com status derivado — §7.1
