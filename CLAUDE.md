@@ -133,6 +133,16 @@ Primeiro feedback real de usuário (GD, reunião de líderes de célula) — spe
 - **`Icon` (`src/icons/Icon.tsx`) usa `import.meta.glob` com `?raw`** pra montar o registro de ícones em runtime a partir dos arquivos em `src/icons/lucide/`, injetados via `dangerouslySetInnerHTML` — seguro aqui porque o conteúdo vem de arquivos vendorizados no próprio repo, não de input de usuário. Nome desconhecido não quebra a renderização (retorna `null`, `console.warn` em dev) — mesmo padrão de `ComponenteTemaRenderer` pra variante desconhecida (Fase 2).
 - **`conteudo.icone` nos JSONs de quebra-gelos/utilitários agora guarda o nome do ícone Lucide** (ex: `"drama"`), não mais o emoji — ver tabela de mapeamento em `docs/mock-prompt.md`.
 
+## Decisões de arquitetura (Resumo para líder de célula)
+
+PR #64 (2026-09-26, junto com a correção de service worker já documentada no hurdle de 2026-08-24 abaixo).
+
+- **`ConteudoPregacao.resumo_lider` (`ResumoLider`, `src/content/types.ts`) é uma versão mais densa de `resumo_curto`, pensada pro líder de célula preparar a reunião, não pro membro leigo substituir a leitura completa.** Mesma intenção de "ler antes de entrar nas seções", mas estrutura diferente: `pontos` é array de `{numero, titulo, resumo, frase_chave}` (espelha `mapa_pontos`, um resumo autossuficiente por ponto + a frase de impacto real do pregador), não só `string[]` como em `resumo_curto`.
+- **`Reading.tsx` reaproveita o mesmo `ResumoCurtoOverlay`** (`resumoParaExibir = conteudo.resumo_lider ?? conteudo.resumo_curto`, linha ~83) — `resumo_lider` tem prioridade quando os dois existem na mesma pregação; nenhum componente novo, campo puramente opcional.
+- **Geração via `scripts/gerar-resumo-lider.ts` (Gemini, `gemini-3.1-flash-lite`, `GEMINI_API_KEY` só em `.env.local`), não escrita manual.** Prompt fixo exige reusar os mesmos pontos/ordem de `mapa_pontos`, preservar ilustrações marcantes do corpo real, extrair `frase_chave` de um `callout`/frase de impacto real (nunca inventar) — mesma disciplina de "não alucinar conteúdo editorial" que já vale pra qualquer pregação calibrada manualmente. **Idempotente**: pula arquivo que já tem `resumo_lider` (log `⏭`), sem truncar nada. Sem argumento roda em lote sobre todo `content/pregacoes/calibracao-*.json`; com argumento (path), processa só esse arquivo — mesmo padrão de modo seletivo que `db-seed.ts` já tinha (ver "Decisões de arquitetura (Migração Neon)").
+- **Mesmo PR trouxe blocos de corpo novos (`subtitulo`, `citacao`, `glossario`, `pergunta`, `resposta`) e a variante `timeline` de `componente_tema`, todos já com renderer implementado** (`BlockRenderer.tsx` / `ComponenteTemaRenderer.tsx`) no mesmo commit que introduziu os tipos — diferente do gap recorrente registrado nos hurdles de 2026-07-29/08-02 ("documentado/tipado mas sem renderer"), aqui tipo e renderer chegaram juntos.
+- **Pendente**: `docs/geracao-pregacao.md` (schema de conteúdo) ainda não documenta `resumo_lider` nem os blocos/variante novos acima — só existem em código/tipos até este ponto.
+
 ## Decisões de arquitetura (V2 — Quem Sou Eu)
 
 Decisões de produto e mecânica do primeiro jogo (Quem Sou Eu) em `docs/projeto-celula.md` §10 — aqui o achado técnico e as decisões de implementação real (`src/multiplayer/quemSouEu/`).
