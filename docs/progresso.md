@@ -108,7 +108,10 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [ ] Regra de rate limit no Vercel Firewall para `/api/editorial/*` antes de distribuir códigos
 - [x] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — PR #68, `PENDENCIAS_CONHECIDAS` esvaziada
 - [x] Seed seletivo dos 6 arquivos corrigidos no #68 — rodado em 2026-11-07, API de produção sem nenhum `stage` sem `frase`
-- [ ] Decisão de Carlos: seed automático pós-merge (role `content_writer` como secret do Actions vs. passo manual) — §6
+- [x] Seed automático pós-merge — role `pregacoes_seed` (migração `0003`, aplicada no Neon em 2026-11-08), workflow `seed-pregacoes.yml`, Environment `seed-producao` (só `main`) — §6
+- [ ] Teste de ponta a ponta do seed automático: PR de teste → merge → linha em `pregacoes` com `arquivo_origem` → apagar linha de teste
+- [ ] Confirmar que `GITHUB_TOKEN_EDITORIAL` não tem a permissão "Workflows"
+- [ ] Limpeza de branches Neon órfãs criadas por preview de PR editorial (decisão de abordagem pendente — §8)
 - [ ] Rascunhos no servidor: migração `0003` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`) + `api/editorial/rascunhos` — §5
 - [ ] Painel mínimo: rota `/editorial`, botão na Biblioteca, modal de código, lista de rascunhos com status derivado — §7.1
 - [ ] Editor guiado gerando `PregacaoConteudo` exato, com validação em tempo real — §7.2

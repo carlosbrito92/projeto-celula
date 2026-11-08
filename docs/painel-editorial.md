@@ -141,18 +141,18 @@ Alternativas descartadas:
 - **Upstash/Vercel KV**: serviço e credencial a mais, para um volume que o Postgres existente absorve sem custo.
 - **Rascunho como draft PR no GitHub**: cada autosave viraria um commit e um preview deploy da Vercel. Cada preview cria uma branch no Neon, e o teto de 10 branches já foi atingido uma vez (hurdle de 2026-08-06).
 
-## 6. Seed automático pós-merge (decisão pendente de Carlos)
+## 6. Seed automático pós-merge — implementado (2026-11-08)
 
-Sem esta peça, o merge do PR leva o JSON ao repo, mas **não ao banco**: alguém ainda precisa rodar `npm run db:seed -- <arquivo>` manualmente. Isso é exatamente o passo que o projeto quer tirar do caminho crítico de Carlos.
+Decisão de Carlos: seed automático, com as condições abaixo. Os detalhes de segurança estão no CLAUDE.md, item 2.
 
-Proposta: workflow do GitHub Actions disparado por `push` em `main` com `paths: content/pregacoes/**`, que roda o modo seletivo de `db-seed.ts` para cada arquivo alterado no commit (nunca o modo completo com truncate).
-
-Exige uma credencial de banco fora do `.env.local`. Duas opções:
-
-- **(recomendada) role novo `content_writer`**: `GRANT select, insert, update` só em `pregacoes`, mais policies RLS de insert/update só para esse role, e a credencial como *secret* do GitHub Actions. O app continua sem escrita: quem escreve é o CI, disparado pelo merge de Carlos.
-- **`DATABASE_URL_ADMIN` como secret do GitHub**: mais simples, mas dá privilégio de owner a um runner de CI. Contraria a nota atual do CLAUDE.md ("`DATABASE_URL_ADMIN` só existe em `.env.local`").
-
-Até esta decisão, o fluxo funciona com um passo manual de Carlos após o merge (um comando, sem editar JSON).
+- **Workflow** `.github/workflows/seed-pregacoes.yml`:
+  - roda em `push` na `main` (nunca em `pull_request`);
+  - faz upsert seletivo de cada `.json` de `content/pregacoes/` adicionado ou modificado no push;
+  - `concurrency` com grupo único e sem cancelamento.
+- **Credencial**: role `pregacoes_seed` (migração `0003`), só `SELECT`/`INSERT`/`UPDATE` em `pregacoes`. Fica como secret `DATABASE_URL_SEED` do Environment `seed-producao`, restrito à `main`.
+- **Validação** (`validarPregacao`) dentro do `db-seed.ts`, antes de qualquer escrita. Falha = job vermelho, e o GitHub notifica.
+- **Não propaga**: remoção e renomeação de arquivo (manual).
+- **Gate**: o merge manual de Carlos, que dá para fazer pelo app do GitHub no celular. Sem auto-merge.
 
 ## 7. Editor visual (depois)
 
@@ -191,6 +191,6 @@ Fora do escopo:
 1. Líderes e membros continuam abrindo o app sem login e sem mudança visual.
 2. Um líder cria uma pregação em menos de 15 minutos sem ver JSON, terminal ou git.
 3. Fontes e paletas vêm sempre dos temas registrados (`src/themes/registry.ts`), nunca de escolha livre.
-4. Do "Publicar" do líder até a pregação no ar, o único passo de Carlos é o **merge do PR** (exige §6 decidido; até lá, merge + 1 comando).
+4. Do "Publicar" do líder até a pregação no ar, o único passo de Carlos é o **merge do PR** (§6).
 5. JSON malformado é rejeitado no servidor antes de virar PR. O CI roda o mesmo validador contra todo `content/pregacoes/` (teste de regressão), então um arquivo inválido também nunca chega a `main`.
 6. `npm run lint`, `npm test` e `npm run build` limpos em cada PR.
