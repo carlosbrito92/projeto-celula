@@ -1,0 +1,36 @@
+{
+  "metadados": {
+    "serie": "Teste",
+    "tema": "Teste Painel Editorial",
+    "data": "7 de novembro de 2026",
+    "pregador": "Claude (teste automatizado)"
+  },
+  "banner_intro": {
+    "frase_sintese": "Pregação de teste do painel editorial — fechar o PR sem merge."
+  },
+  "mapa_pontos": [
+    {
+      "id": "p1",
+      "numero": "01",
+      "titulo": "Teste"
+    }
+  ],
+  "secoes": [
+    {
+      "id": "p1",
+      "numero": "01",
+      "titulo": "Teste",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Conteúdo de teste. **Não publicar.**"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Salmos 46.10",
+          "texto": "Aquietai-vos e sabei que eu sou Deus."
+        }
+      ]
+    }
+  ]
+}
