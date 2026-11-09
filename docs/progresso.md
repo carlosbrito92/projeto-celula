@@ -109,7 +109,7 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [x] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — PR #68, `PENDENCIAS_CONHECIDAS` esvaziada
 - [x] Seed seletivo dos 6 arquivos corrigidos no #68 — rodado em 2026-11-07, API de produção sem nenhum `stage` sem `frase`
 - [x] Seed automático pós-merge — role `pregacoes_seed` (migração `0003`, aplicada no Neon em 2026-11-08), workflow `seed-pregacoes.yml`, Environment `seed-producao` (só `main`) — §6
-- [ ] Teste de ponta a ponta do seed automático: PR de teste → merge → linha em `pregacoes` com `arquivo_origem` → apagar linha de teste
+- [x] Teste de ponta a ponta do seed automático (2026-11-09): PR #71 adicionou `teste-seed-ci.json` → merge → run `Seed de pregações` verde em 31s (1 arquivo, 0 falhas) → linha em `pregacoes` com `arquivo_origem` preenchido e visível em `/api/pregacoes` de produção → linha apagada com ADMIN → arquivo removido no PR #72
 - [ ] Confirmar que `GITHUB_TOKEN_EDITORIAL` não tem a permissão "Workflows"
 - [ ] Limpeza de branches Neon órfãs criadas por preview de PR editorial (decisão de abordagem pendente — §8)
 - [ ] Rascunhos no servidor: migração `0003` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`) + `api/editorial/rascunhos` — §5
