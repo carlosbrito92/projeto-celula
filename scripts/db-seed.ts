@@ -7,16 +7,40 @@
 // Com argumento (path pro .json): modo seletivo — upsert só desse arquivo,
 // sem truncate, via `on conflict (arquivo_origem)` (ver CLAUDE.md, migração
 // 0002_arquivo_origem.sql).
+//
+// Credencial: DATABASE_URL_SEED (role pregacoes_seed, migração 0003 — usado
+// pelo workflow seed-pregacoes.yml pós-merge) tem prioridade sobre
+// DATABASE_URL_ADMIN (owner, só .env.local). Com DATABASE_URL_SEED o script
+// recusa o modo completo e qualquer arquivo fora de content/pregacoes/ — o
+// role nem teria privilégio pra isso, mas a recusa explícita dá erro claro
+// em vez de "permission denied" no meio do caminho.
+//
+// Toda pregação passa por validarPregacao antes de qualquer escrita; erro de
+// validação = exit 1, nada gravado (no modo completo, antes do truncate).
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import pg from 'pg';
 import { parseDataPtBr } from '../src/content/parseData.ts';
+import { validarPregacao } from '../src/content/validarPregacao.ts';
 
-const DATABASE_URL_ADMIN = process.env.DATABASE_URL_ADMIN;
-if (!DATABASE_URL_ADMIN) {
-  console.error('DATABASE_URL_ADMIN não definida. Configure em .env.local e exporte antes de rodar.');
+const DATABASE_URL_SEED = process.env.DATABASE_URL_SEED;
+const DATABASE_URL = DATABASE_URL_SEED ?? process.env.DATABASE_URL_ADMIN;
+const modoCi = DATABASE_URL_SEED !== undefined;
+if (!DATABASE_URL) {
+  console.error('Nem DATABASE_URL_SEED nem DATABASE_URL_ADMIN definida. Configure em .env.local e exporte antes de rodar.');
   process.exit(1);
+}
+
+/** Aborta (exit 1) se a pregação não passar no validador — mesma regra do endpoint de publicação. */
+function exigirPregacaoValida(arquivo: string, dado: unknown) {
+  const r = validarPregacao(dado);
+  for (const a of r.avisos) console.warn(`⚠ ${arquivo}: ${a.caminho} — ${a.mensagem}`);
+  if (!r.ok) {
+    for (const e of r.erros) console.error(`✖ ${arquivo}: ${e.caminho} — ${e.mensagem}`);
+    console.error(`Pregação "${arquivo}" inválida — nada foi gravado.`);
+    process.exit(1);
+  }
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -97,11 +121,16 @@ async function upsertQuebraGelo(client: pg.Client, arquivo: string, q: QuebraGel
 
 const DIRS_QUEBRA_GELO = ['quebra-gelos', 'utilitarios'];
 
-const client = new pg.Client({ connectionString: DATABASE_URL_ADMIN });
+const argArquivo = process.argv[2];
+if (modoCi && !argArquivo) {
+  console.error('Com DATABASE_URL_SEED só o modo seletivo é permitido (nunca truncate). Passe o path de um .json de content/pregacoes/.');
+  process.exit(1);
+}
+
+const client = new pg.Client({ connectionString: DATABASE_URL });
 await client.connect();
 
 try {
-  const argArquivo = process.argv[2];
 
   if (argArquivo) {
     // Modo seletivo: sem truncate, upsert só do arquivo passado.
@@ -110,7 +139,13 @@ try {
     const arquivo = path.basename(caminhoAbsoluto);
     const dado = JSON.parse(await readFile(caminhoAbsoluto, 'utf-8'));
 
+    if (modoCi && dirPai !== 'pregacoes') {
+      console.error(`Com DATABASE_URL_SEED só arquivos de content/pregacoes/ são aceitos (recebido: ${dirPai}/${arquivo}).`);
+      process.exit(1);
+    }
+
     if (dirPai === 'pregacoes') {
+      exigirPregacaoValida(arquivo, dado);
       await upsertPregacao(client, arquivo, dado as PregacaoJson);
       console.log(`Pregação "${arquivo}" upsertada.`);
     } else if (DIRS_QUEBRA_GELO.includes(dirPai)) {
@@ -124,10 +159,13 @@ try {
     }
   } else {
     // Modo completo: truncate + reprocessa content/ inteiro.
+    // Lê e valida tudo ANTES do truncate — um JSON quebrado nunca deixa o banco vazio.
+    const pregacoes = await lerJsons<PregacaoJson>(path.join(contentDir, 'pregacoes'));
+    for (const { arquivo, dado } of pregacoes) exigirPregacaoValida(arquivo, dado);
+
     console.log('Limpando tabelas...');
     await client.query('truncate table public.pregacoes, public.quebra_gelos');
 
-    const pregacoes = await lerJsons<PregacaoJson>(path.join(contentDir, 'pregacoes'));
     for (const { arquivo, dado } of pregacoes) {
       await upsertPregacao(client, arquivo, dado);
     }

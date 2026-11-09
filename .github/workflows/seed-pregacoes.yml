@@ -1,0 +1,85 @@
+# Seed automático pós-merge (decisão de Carlos, 2026-11-08 — ver CLAUDE.md,
+# "Requisitos de segurança" item 2 e docs/painel-editorial.md §6).
+#
+# A cada push em main, faz upsert (modo seletivo de scripts/db-seed.ts) de cada
+# .json de content/pregacoes/ adicionado ou modificado no range do push.
+#   - Nunca modo completo/truncate (db-seed recusa sem argumento quando recebe
+#     DATABASE_URL_SEED).
+#   - Remoção/renomeação de arquivo NÃO propaga pro banco (remoção é manual).
+#   - Credencial: secret DATABASE_URL_SEED (role pregacoes_seed, migração 0003:
+#     só SELECT/INSERT/UPDATE em public.pregacoes) do Environment
+#     `seed-producao`, que só aceita a branch main.
+#   - Só `push` em main — nunca `pull_request`, para o secret não ser
+#     alcançável a partir de branch de PR.
+#   - Qualquer falha (validação ou banco) termina com exit != 0 → GitHub
+#     notifica o dono do repo.
+name: Seed de pregações
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/pregacoes/**.json'
+
+concurrency:
+  group: seed-pregacoes
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    environment: seed-producao
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Upsert dos arquivos alterados
+        env:
+          DATABASE_URL_SEED: ${{ secrets.DATABASE_URL_SEED }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -uo pipefail
+          if [ -z "${DATABASE_URL_SEED}" ]; then
+            echo "::error::secret DATABASE_URL_SEED ausente no environment seed-producao"
+            exit 1
+          fi
+          if ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            echo "::error::commit anterior do push (${BEFORE}) não encontrado — rode o seed seletivo manualmente."
+            exit 1
+          fi
+
+          # -z + --no-renames: nomes com espaço/acentos seguros; rename vira
+          # D+A (só o A entra, a linha antiga fica — igual remoção, manual).
+          mapfile -d '' arquivos < <(git -c core.quotepath=off diff -z --name-only --no-renames --diff-filter=AM "${BEFORE}" "${AFTER}" -- 'content/pregacoes/*.json')
+
+          if [ "${#arquivos[@]}" -eq 0 ]; then
+            echo "Nenhum .json de content/pregacoes/ adicionado ou modificado neste push."
+            exit 0
+          fi
+
+          falhas=0
+          for arquivo in "${arquivos[@]}"; do
+            echo "::group::${arquivo}"
+            if npx tsx scripts/db-seed.ts "${arquivo}"; then
+              echo "OK: ${arquivo}"
+            else
+              echo "::error file=${arquivo}::seed falhou para ${arquivo}"
+              falhas=$((falhas + 1))
+            fi
+            echo "::endgroup::"
+          done
+
+          echo "${#arquivos[@]} arquivo(s) processado(s), ${falhas} falha(s)."
+          [ "${falhas}" -eq 0 ]
