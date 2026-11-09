@@ -497,6 +497,12 @@ Identificado na calibração com pregação de convidado (Pastor Naor Pedroza, "
 
 **Payload (`componente_tema`, variante `humor`):** `{ "texto": "string — o momento de humor, já editorializado em prosa corrida" }`
 
+### `componente_tema` universal: `timeline` (sequência de etapas)
+
+Chegou no PR #64 (2026-09-26), junto com `resumo_lider`, já com renderer (`ComponenteTemaRenderer.tsx`, `Timeline`). Sequência vertical de etapas ou momentos (ex: passos de um processo, fases de uma história bíblica), cada um com um marcador curto, título e descrição. Diferente de `banho_list` (lista numerada sem título por item) e de `duplice_grid` (exatamente dois cards lado a lado).
+
+**Payload (`componente_tema`, variante `timeline`):** `{ "itens": [{ "icon": "string curta exibida como marcador, ex: '1' ou um emoji", "titulo": "string", "desc": "string, aceita **negrito**" }, "..."] }`
+
 ### `componente_tema` universal: `merch_section` (menções e indicações)
 
 Identificado na mesma calibração — seção de fechamento inteira (não um bloco dentro de uma seção de conteúdo, mas uma seção própria no fim do documento) para recomendações práticas que o pregador faz à audiência: livros, redes sociais, produtos, ferramentas. Comum em pregações de convidado/conferência, onde o pregador tem canais próprios a divulgar; menos comum em pregações regulares da série da casa. Cada item tem um ícone, um título curto e uma descrição.
