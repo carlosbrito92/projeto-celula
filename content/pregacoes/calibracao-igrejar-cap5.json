@@ -169,43 +169,43 @@
         },
         {
           "tipo": "componente_tema",
-          "variante": "poeiras_grid",
+          "variante": "timeline",
           "dados": {
             "itens": [
               {
-                "numero": "01",
-                "nome": "Confirmação da sua autoridade",
-                "descricao": "Quando o filho ouve na igreja a mesma coisa que ouve em casa, a autoridade dos pais é confirmada. Um legado é transmitido com respaldo."
+                "icon": "01",
+                "titulo": "Confirmação da sua autoridade",
+                "desc": "Quando o filho ouve na igreja a mesma coisa que ouve em casa, a autoridade dos pais é confirmada. Um legado é transmitido com respaldo."
               },
               {
-                "numero": "02",
-                "nome": "Referências espirituais além de você",
-                "descricao": "Nenhum pai consegue discipular sozinho. Os filhos precisam conviver com outros homens e mulheres de Deus e se inspirar em diferentes exemplos de fé."
+                "icon": "02",
+                "titulo": "Referências espirituais além de você",
+                "desc": "Nenhum pai consegue discipular sozinho. Os filhos precisam conviver com outros homens e mulheres de Deus e se inspirar em diferentes exemplos de fé."
               },
               {
-                "numero": "03",
-                "nome": "Amizades que fortalecem a fé",
-                "descricao": "Amizades influenciam diretamente o destino. Na igreja, os filhos constroem relacionamentos com quem compartilha dos mesmos valores."
+                "icon": "03",
+                "titulo": "Amizades que fortalecem a fé",
+                "desc": "Amizades influenciam diretamente o destino. Na igreja, os filhos constroem relacionamentos com quem compartilha dos mesmos valores."
               },
               {
-                "numero": "04",
-                "nome": "Amor pela Palavra desde cedo",
-                "descricao": "O diabo não acha que seu filho é novo demais para atacá-lo. Você não pode achar que ele é novo demais para ser exposto à Palavra. Semeie cedo."
+                "icon": "04",
+                "titulo": "Amor pela Palavra desde cedo",
+                "desc": "O diabo não acha que seu filho é novo demais para atacá-lo. Você não pode achar que ele é novo demais para ser exposto à Palavra. Semeie cedo."
               },
               {
-                "numero": "05",
-                "nome": "Cosmovisão bíblica",
-                "descricao": "A escola ensina, a internet ensina, as amizades ensinam. Mas é na igreja que ele aprende a enxergar a vida na perspectiva de Deus — identidade, propósito, caráter."
+                "icon": "05",
+                "titulo": "Cosmovisão bíblica",
+                "desc": "A escola ensina, a internet ensina, as amizades ensinam. Mas é na igreja que ele aprende a enxergar a vida na perspectiva de Deus — identidade, propósito, caráter."
               },
               {
-                "numero": "06",
-                "nome": "Suporte nos momentos difíceis",
-                "descricao": "Crises, dúvidas, tentações e perdas virão. Quando vierem, haverá uma família espiritual ao redor deles."
+                "icon": "06",
+                "titulo": "Suporte nos momentos difíceis",
+                "desc": "Crises, dúvidas, tentações e perdas virão. Quando vierem, haverá uma família espiritual ao redor deles."
               },
               {
-                "numero": "07",
-                "nome": "Aprender a servir, não só consumir",
-                "descricao": "O mundo ensina a extrair. O Reino ensina a servir. Crianças que crescem servindo desenvolvem empatia, compaixão, responsabilidade e senso de propósito."
+                "icon": "07",
+                "titulo": "Aprender a servir, não só consumir",
+                "desc": "O mundo ensina a extrair. O Reino ensina a servir. Crianças que crescem servindo desenvolvem empatia, compaixão, responsabilidade e senso de propósito."
               }
             ]
           }

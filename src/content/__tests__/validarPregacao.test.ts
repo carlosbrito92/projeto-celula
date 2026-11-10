@@ -78,10 +78,19 @@ describe('validarPregacao', () => {
 
   it('variante de componente_tema desconhecida é aviso, não erro', () => {
     const p = minima();
-    (p.secoes[0].corpo as unknown[]).push({ tipo: 'componente_tema', variante: 'poeiras_grid', dados: {} });
+    (p.secoes[0].corpo as unknown[]).push({ tipo: 'componente_tema', variante: 'verb_block', dados: {} });
     const r = validarPregacao(p);
     expect(r.ok).toBe(true);
     expect(r.avisos.map((a) => a.caminho)).toContain('secoes[0].corpo[2].variante');
+  });
+
+  it.each(['razoes_grid', 'poeiras_grid'])('variante retirada %s é erro e sugere timeline', (variante) => {
+    const p = minima();
+    (p.secoes[0].corpo as unknown[]).push({ tipo: 'componente_tema', variante, dados: { itens: [] } });
+    const r = validarPregacao(p);
+    expect(r.ok).toBe(false);
+    const erro = r.erros.find((e) => e.caminho === 'secoes[0].corpo[2].variante');
+    expect(erro?.mensagem).toContain('timeline');
   });
 
   it('exige correspondência entre mapa_pontos e secoes (exceto ponto pendente)', () => {

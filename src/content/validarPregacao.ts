@@ -162,6 +162,12 @@ function validarComponenteTema(c: Coletor, o: Obj, base: string) {
         c.texto(item, 'desc', cam);
       });
       break;
+    case 'razoes_grid':
+    case 'poeiras_grid':
+      // Retiradas por decisão de Carlos (2026-11-09): nunca tiveram renderer e
+      // sumiam da leitura. Conteúdo existente migrado para `timeline`.
+      c.erro(`${base}.variante`, `variante "${variante}" foi retirada — use "timeline" (itens com icon, titulo, desc)`);
+      break;
     default:
       c.aviso(`${base}.variante`, `variante "${variante}" não tem renderer na plataforma — será ignorada na leitura`);
   }

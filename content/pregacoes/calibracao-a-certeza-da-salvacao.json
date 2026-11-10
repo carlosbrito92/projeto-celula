@@ -173,23 +173,23 @@
         },
         {
           "tipo": "componente_tema",
-          "variante": "razoes_grid",
+          "variante": "timeline",
           "dados": {
             "itens": [
               {
-                "num": "a",
-                "nome": "Propriedade",
-                "texto": "Assim como um fazendeiro marca o gado ou um rei sela um decreto com seu anel, o Espírito Santo é a marca de que você foi comprado pelo sangue de Jesus e pertence a Deus."
+                "icon": "a",
+                "titulo": "Propriedade",
+                "desc": "Assim como um fazendeiro marca o gado ou um rei sela um decreto com seu anel, o Espírito Santo é a marca de que você foi comprado pelo sangue de Jesus e pertence a Deus."
               },
               {
-                "num": "b",
-                "nome": "Autenticidade",
-                "texto": "O selo é o certificado de que a joia é verdadeira. A presença do Espírito em você (Romanos 8.9) é a prova incontestável de que você é autenticamente um filho de Deus."
+                "icon": "b",
+                "titulo": "Autenticidade",
+                "desc": "O selo é o certificado de que a joia é verdadeira. A presença do Espírito em você (Romanos 8.9) é a prova incontestável de que você é autenticamente um filho de Deus."
               },
               {
-                "num": "c",
-                "nome": "Garantia (Penhor)",
-                "texto": "O Espírito é as 'primícias' (Rm 8.23), o pagamento inicial que garante que a transação será concluída. Ele é a garantia de que Deus completará a redenção do nosso corpo no dia da volta de Cristo."
+                "icon": "c",
+                "titulo": "Garantia (Penhor)",
+                "desc": "O Espírito é as 'primícias' (Rm 8.23), o pagamento inicial que garante que a transação será concluída. Ele é a garantia de que Deus completará a redenção do nosso corpo no dia da volta de Cristo."
               }
             ]
           }

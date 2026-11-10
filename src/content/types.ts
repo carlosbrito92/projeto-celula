@@ -191,8 +191,9 @@ export type ComponenteTemaVariante =
   | { variante: 'duplice_grid'; dados: DadosDuplaGrid }
   | { variante: 'timeline'; dados: DadosTimeline }
   // variantes exclusivas de tema ainda não implementadas na plataforma
-  // (verb_block, poeiras_grid) caem aqui e são ignoradas com segurança
-  // pelo ComponenteTemaRenderer — nunca quebram a renderização.
+  // (verb_block) caem aqui e são ignoradas com segurança pelo
+  // ComponenteTemaRenderer — nunca quebram a renderização. razoes_grid e
+  // poeiras_grid foram retiradas em 2026-11-09 (validador rejeita; usar timeline).
   | { variante: string; dados: unknown };
 
 export type BlocoComponenteTema = { tipo: 'componente_tema' } & ComponenteTemaVariante;

@@ -104,23 +104,23 @@
         },
         {
           "tipo": "componente_tema",
-          "variante": "razoes_grid",
+          "variante": "timeline",
           "dados": {
             "itens": [
               {
-                "num": "1",
-                "nome": "Os Convertidos Genuínos",
-                "texto": "Já regenerados e nascidos de novo. Tinham tido revelação do evangelho e crido em Cristo e na sua obra."
+                "icon": "1",
+                "titulo": "Os Convertidos Genuínos",
+                "desc": "Já regenerados e nascidos de novo. Tinham tido revelação do evangelho e crido em Cristo e na sua obra."
               },
               {
-                "num": "2",
-                "nome": "Os Observadores em Processo",
-                "texto": "Estavam ali ouvindo, analisando, conhecendo. Conversão é um processo — diferente do novo nascimento, que é o momento da decisão."
+                "icon": "2",
+                "titulo": "Os Observadores em Processo",
+                "desc": "Estavam ali ouvindo, analisando, conhecendo. Conversão é um processo — diferente do novo nascimento, que é o momento da decisão."
               },
               {
-                "num": "3",
-                "nome": "Os Rejeitores",
-                "texto": "Já tinham ouvido e entendido, mas decidiram rejeitar. Voltavam ao templo para sacrificar animais novamente."
+                "icon": "3",
+                "titulo": "Os Rejeitores",
+                "desc": "Já tinham ouvido e entendido, mas decidiram rejeitar. Voltavam ao templo para sacrificar animais novamente."
               }
             ]
           }
