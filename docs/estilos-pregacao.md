@@ -294,8 +294,7 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 - **`.verb-block`** — réplica de slide de palco (título grande em dois tons + mini-grade de conjugação verbal). Princípio geral: quando as fotos de palco mostram um slide marcante (conjugação, diagrama, frase projetada em tipografia grande), reproduzir esse elemento no header cria reconhecimento imediato para quem esteve no culto.
   **Payload (variante `verb_block`):** `{ "label": "ex: 'Nova série:'", "verbo": "igrejar", "conjugacoes": [{ "pronome": "eu", "forma": "igrejo" }, "..."] }`
-- **`.poeiras-grid` / `.poeira-card`** — grid de itens paralelos (4–6), 2 colunas (1 em mobile), número decorativo + nome + descrição curta.
-  **Payload (variante `poeiras_grid`):** `{ "itens": [{ "numero": "01", "nome": "Amargura", "descricao": "Hebreus 12.15 — descrição curta" }, "..."] }`
+- ~~**`.poeiras-grid` / `.poeira-card`**~~ — **retirada em 2026-11-09** (decisão de Carlos): a variante `poeiras_grid` nunca teve renderer e o bloco sumia da leitura. Usos existentes migrados para `timeline` (PR #74); o validador do Painel Editorial rejeita a variante. Para itens paralelos com nome e descrição, usar `timeline`.
 - **`.sec-eyebrow`** — rótulo maiúsculo acima do título de seção (função da seção: Fundação / Problema / Solução / Conclusão), em vez de referência abaixo do título. Útil para títulos longos.
 - **Títulos de seção** em maiúsculas + itálico (Barlow Condensed 800) — não recomendado para estilos intimistas.
 - **Navegação interna (índice + FAB)** — igual ao Estilo #3, cores usando `--orange`/`--orange-dim`.
