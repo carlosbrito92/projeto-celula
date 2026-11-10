@@ -107,34 +107,27 @@ Cliente REST mínimo (fetch, sem octokit):
    - `EDITORIAL_CODIGOS` = lista de líderes
 3. **Recomendado**: ativar "Automatically delete head branches" no repo, para não acumular branches `editorial/*` mergeadas.
 
-## 5. Rascunhos no servidor — dimensionamento (próxima etapa)
+## 5. Rascunhos no servidor — implementado (2026-11-10)
 
-**Recomendação: tabela própria no Neon**, não KV store novo. É a mesma stack já em uso, sem conta/serviço a mais, e o volume é minúsculo: cerca de 1 pregação/semana por líder, ~60KB de JSON cada. Mesmo 100 rascunhos dão ~6MB, frente aos 512MB do plano free do Neon.
+**Tabela própria no Neon**, não KV store novo. É a mesma stack já em uso, sem conta/serviço a mais, e o volume é minúsculo: cerca de 1 pregação/semana por líder, ~60KB de JSON cada. Mesmo 100 rascunhos dão ~6MB, frente aos 512MB do plano free do Neon. Teto de 50 rascunhos por líder (`MAX_RASCUNHOS_POR_LIDER`), 512KB por rascunho.
 
-```sql
--- db/migrations/0003_rascunhos_editoriais.sql
-create table public.rascunhos_pregacao (
-  id uuid primary key default gen_random_uuid(),
-  lider text not null,              -- nome vindo de EDITORIAL_CODIGOS (nunca o código)
-  arquivo text,                     -- preenchido na 1ª publicação; republicações reusam
-  tema text not null default '',
-  conteudo jsonb not null,          -- PregacaoConteudo parcial (rascunho pode estar incompleto)
-  versao integer not null default 1,-- concorrência otimista: update exige versao atual
-  atualizado_em timestamptz not null default now()
-);
-alter table public.rascunhos_pregacao enable row level security;  -- na mesma migração (CLAUDE.md)
+**Rascunho não é conteúdo editorial** (decisão de Carlos, 2026-11-09): é trabalho em andamento, que só vira conteúdo depois de publicado via PR e mergeado. Por isso pode ter escrita a partir de `api/`, com um role próprio que não alcança `pregacoes` nem `quebra_gelos`.
 
-create role editorial_rascunhos login password '...';
-grant usage on schema public to editorial_rascunhos;
-grant select, insert, update, delete on public.rascunhos_pregacao to editorial_rascunhos;
-create policy "rascunhos: só o role editorial" on public.rascunhos_pregacao
-  for all to editorial_rascunhos using (true) with check (true);
--- app_readonly NÃO recebe grant nenhum aqui; editorial_rascunhos NÃO recebe grant em pregacoes/quebra_gelos.
-```
-
-- Nova env var `DATABASE_URL_RASCUNHOS` (role `editorial_rascunhos`) só nas Vercel Functions `api/editorial/rascunhos*`. A regra "conteúdo editorial nunca tem escrita pelo app" continua intacta: rascunho não é conteúdo editorial publicado, é rascunho de trabalho, e o role não alcança `pregacoes`.
-- Isolamento por líder (o `lider` vem do código validado no servidor, nunca do body). Visibilidade padrão: cada líder vê só os próprios rascunhos; o que está em revisão aparece para todos via PR.
-- Concorrência otimista via `versao` (dois aparelhos do mesmo líder abertos ao mesmo tempo → o segundo save recebe 409 "rascunho mudou em outro aparelho", nunca sobrescreve em silêncio).
+- **Migração `db/migrations/0004_rascunhos_pregacao.sql`** (aplicada no Neon em 2026-11-10): tabela `rascunhos_pregacao` (`id`, `lider`, `arquivo`, `tema`, `conteudo jsonb`, `versao`, `criado_em`, `atualizado_em`) com RLS, role `editorial_rascunhos` só com `SELECT`/`INSERT`/`UPDATE`/`DELETE` nessa tabela.
+- **Isolamento por líder em duas camadas.** O nome do líder vem sempre do código validado no servidor, nunca do body.
+  1. Toda query de `api/_lib/rascunhos.ts` filtra por `lider`.
+  2. A policy RLS só deixa ver ou gravar linhas com `lider = current_setting('app.lider', true)`. Cada query roda numa transação que faz `set_config('app.lider', <nome>, true)` antes. Sem o setting, nada casa.
+  - Testado no banco real com o role: sem `app.lider` o insert falha e o select volta vazio; um líder não vê, não altera e não apaga linha de outro, nem consegue gravar com o nome de outro; `pregacoes`/`quebra_gelos` dão `permission denied`.
+- **Rotas** (header `X-Editorial-Codigo` obrigatório):
+  - `GET /api/editorial/rascunhos`: lista os rascunhos do líder, sem `conteudo`.
+  - `POST /api/editorial/rascunhos`: cria, com `{ conteudo, arquivo? }`.
+  - `GET /api/editorial/rascunhos/:id`: rascunho completo.
+  - `PUT /api/editorial/rascunhos/:id`: salva, com `{ conteudo, versao, arquivo? }`.
+  - `DELETE /api/editorial/rascunhos/:id`: apaga.
+- **Concorrência otimista via `versao`.** `PUT` com versão antiga recebe 409 `{ versaoAtual }` ("rascunho mudou em outro aparelho") e nunca sobrescreve em silêncio.
+- **Rascunho pode estar incompleto.** Não passa pelo validador de publicação; só exige que `conteudo` seja um objeto. `tema` é copiado de `conteudo.metadados.tema` para a listagem.
+- **Credencial `DATABASE_URL_RASCUNHOS`** (role `editorial_rascunhos`): só nas env vars da Vercel (Production), usada só por `api/_lib/rascunhosHandler.ts`.
+- **Rate limit:** a regra do Vercel Firewall em `/api/editorial` (10 requisições/60s) também vale para os rascunhos. O editor (§7) precisa de autosave com debounce (por exemplo, salvar no máximo a cada 15s e ao sair da tela), não a cada tecla.
 - `localStorage` fica só como cache de digitação ainda não salva (rascunho offline), nunca como única cópia.
 
 Alternativas descartadas:
