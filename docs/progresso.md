@@ -116,6 +116,17 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [ ] Trocar os códigos de teste (`Carlos`/`Carlos2`) em `EDITORIAL_CODIGOS` antes de distribuir códigos aos líderes — foram expostos numa conversa (2026-11-08)
 - [x] Painel mínimo (2026-11-11): rota `/editorial` (lazy), ícone discreto na Biblioteca, entrada por código (validado no servidor; `localStorage` só por conveniência, esquecido em 401), lista de rascunhos com status derivado (Rascunho / Em revisão / Publicado, este pelo `arquivo_origem` da lista pública), apagar com confirmação — §7.1
 - [x] Editor guiado (2026-11-11): rota `/editorial/:id` (lazy), dados gerais/visual/abertura/pontos com blocos (13 tipos)/resumo do líder, sem o líder ver JSON, id ou numeração; validação em tempo real com `validarPregacao` e lista de pendências que leva ao campo; autosave com respiro (≥15s entre salvamentos) + cache local; conflito de versão sem sobrescrever; "Enviar para revisão" chama `/publicar` e grava o `arquivo` no rascunho (próximo envio = correção) — §7.2
+- [x] Primeiro uso real do editor (2026-11-11), por Carlos:
+  - **PC:** rascunho → "Enviar para revisão" → PR #80 → merge → seed automático → pregação no app. O JSON passou no validador sem erros nem avisos.
+  - **Celular (navegador):** funcionou, mas só depois de limpar o cache.
+  - **Ajustes resultantes (PR #81):** JSON na ordem do schema; marcador digitado em lista é removido.
+  - **Limpeza:** pregação de teste removida do banco (ADMIN) e do repositório (PR #82).
+- [x] Usabilidade do editor, 1ª rodada (2026-11-11, PR #84, prioridades escolhidas por Carlos):
+  - **Botão "N" de negrito:** liga/desliga `**…**` na seleção, com prévia "Como fica".
+  - **Índice do rascunho no topo:** pendências por parte, "Recolher tudo"/"Abrir tudo" e botão "Índice" na barra inferior.
+  - **"Ver exemplo" em cada campo e bloco:** onde aparece na leitura + trecho **literal** de pregação publicada (garantido por teste). Tipos sem uso real no acervo têm exemplo marcado como ilustrativo.
+- [ ] Confirmar se o PWA atualiza sozinho sem limpar dados. No celular de Carlos, em 2026-11-11, o painel só apareceu depois de limpar o cache. Limpar dados do site apaga as anotações pessoais (`localStorage`); ver hurdle de 2026-08-24 no CLAUDE.md.
+- [ ] Gerar um APK novo com o painel (o app nativo só tem o que foi empacotado no build) e testar no aparelho.
 - [ ] Exportar/Copiar JSON (fallback) — §7.3
 - [ ] Pós-MVP: pré-visualização ao vivo; editar pregação já publicada — §7.4–7.5
 
