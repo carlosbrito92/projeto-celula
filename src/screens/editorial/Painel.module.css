@@ -239,3 +239,33 @@
   font-size: 13px;
   color: var(--text);
 }
+
+.publicada {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.publicada:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.publicadaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.publicada .tema {
+  font-size: 15px;
+}
+
+.publicada .botaoSecundario {
+  flex-shrink: 0;
+}

@@ -392,6 +392,12 @@ export function Editor({ id }: { id: string }) {
 
         <IndiceRascunho conteudo={conteudo} pendencias={pendencias} raiz={raiz} />
 
+        {arquivoAtual && !enviado && (
+          <div className={styles.avisoBox}>
+            Correção de uma pregação já enviada: o envio substitui a versão anterior, depois que o Carlos aprovar.
+          </div>
+        )}
+
         <details className={styles.grupo} id={idCampo(['metadados'])} open>
           <summary className={styles.grupoTitulo}>Dados gerais</summary>
           <div className={styles.grupoCorpo}>
