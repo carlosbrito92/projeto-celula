@@ -66,7 +66,7 @@ export function CampoLinhas({ caminho, rotulo, dica, obrigatorio }: PropsCampo) 
   const { id, valor, mudar, erros } = useCampo(caminho);
   const linhas = Array.isArray(valor) ? (valor as unknown[]).map((x) => (typeof x === 'string' ? x : '')) : [];
   return (
-    <Moldura id={id} rotulo={rotulo} dica={dica ?? 'Um item por linha.'} obrigatorio={obrigatorio} erros={erros}>
+    <Moldura id={id} rotulo={rotulo} dica={dica ?? 'Um item por linha, sem marcador (o app já coloca).'} obrigatorio={obrigatorio} erros={erros}>
       <textarea
         id={id}
         className={styles.area}
