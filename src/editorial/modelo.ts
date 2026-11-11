@@ -222,6 +222,34 @@ function semVazios<T extends Record<string, unknown>>(o: T, campos: string[]): T
 
 const semLinhasVazias = (l: unknown) => (Array.isArray(l) ? l.filter((x) => !vazio(x)) : l);
 
+/** O app já desenha o marcador da lista: "* item", "- item", "• item" viram "item". */
+const semMarcador = (l: unknown) =>
+  Array.isArray(l) ? l.map((x) => (typeof x === 'string' ? x.replace(/^\s*(?:[*•–-]|\d+[.)])\s+/, '') : x)) : l;
+
+/** Ordem de chaves do schema (docs/geracao-pregacao.md): o arquivo do PR fica legível para revisão. */
+const ORDEM_TOPO = [
+  'metadados',
+  'banner_intro',
+  'mapa_pontos',
+  'secoes',
+  'resumo_final',
+  'resumo_curto',
+  'resumo_lider',
+  'merch_section',
+  'celula_box',
+  'nota_lacuna',
+];
+const ORDEM_SECAO = ['id', 'numero', 'titulo', 'sec_eyebrow', 'referencias', 'corpo', 'anotacoes'];
+const ORDEM_METADADOS = ['serie', 'capitulo', 'tema', 'data', 'pregador', 'texto_base', 'modo_origem', 'tema_override'];
+const ORDEM_BANNER = ['contextualizacao', 'componente_tema', 'frase_sintese', 'versiculo_ancora', 'aviso_proxima_serie'];
+
+function ordenar<T extends object>(o: T, ordem: string[]): T {
+  const r: Record<string, unknown> = {};
+  for (const k of ordem) if (k in o) r[k] = (o as Record<string, unknown>)[k];
+  for (const [k, v] of Object.entries(o)) if (!(k in r)) r[k] = v;
+  return r as T;
+}
+
 function limparVersiculo(v: unknown): { referencia: string; texto: string } | undefined {
   if (!ehObj(v)) return undefined;
   return vazio(v.referencia) && vazio(v.texto) ? undefined : (v as { referencia: string; texto: string });
@@ -229,11 +257,11 @@ function limparVersiculo(v: unknown): { referencia: string; texto: string } | un
 
 function limparBloco(b: Bloco): Bloco {
   const bloco = b as unknown as Record<string, unknown>;
-  if (b.tipo === 'lista') return { ...b, itens: semLinhasVazias(b.itens) as string[] };
+  if (b.tipo === 'lista') return { ...b, itens: semLinhasVazias(semMarcador(b.itens)) as string[] };
   if (b.tipo === 'citacao') return semVazios(bloco, ['fidelidade']) as unknown as Bloco;
   if (b.tipo === 'componente_tema' && ehObj(b.dados)) {
     const d = { ...(b.dados as Record<string, unknown>) };
-    if ('itens' in d && Array.isArray(d.itens) && d.itens.every((x) => typeof x === 'string')) d.itens = semLinhasVazias(d.itens);
+    if ('itens' in d && Array.isArray(d.itens) && d.itens.every((x) => typeof x === 'string')) d.itens = semLinhasVazias(semMarcador(d.itens));
     if (b.variante === 'analogia') d.corpo = semLinhasVazias(d.corpo);
     if (b.variante === 'stage' && vazio(d.subtitulo)) delete d.subtitulo;
     return { ...b, dados: d } as Bloco;
@@ -273,7 +301,10 @@ export function limparParaPublicar(c: Conteudo): Conteudo {
     else delete rl.versiculo_chave;
     r.resumo_lider = rl;
   }
-  return r;
+  r.metadados = ordenar(r.metadados, ORDEM_METADADOS);
+  if (r.banner_intro) r.banner_intro = ordenar(r.banner_intro, ORDEM_BANNER);
+  r.secoes = r.secoes.map((s) => ordenar(s, ORDEM_SECAO));
+  return ordenar(r, ORDEM_TOPO);
 }
 
 /**
