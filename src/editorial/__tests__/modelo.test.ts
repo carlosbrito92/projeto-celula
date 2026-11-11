@@ -154,7 +154,8 @@ describe('pendências de título', () => {
 describe('arquivo enviado para revisão', () => {
   it('chaves na ordem do schema, mesmo editando em outra ordem', () => {
     let c = definirCaminho(preenchida(), ['metadados', 'tema_override'], 'Estilo #5b');
-    c = { secoes: c.secoes, ...c }; // simula a ordem de inserção vista no PR #80
+    const { secoes, ...resto } = c;
+    c = { secoes, ...resto }; // simula a ordem de inserção vista no PR #80
     const l = limparParaPublicar(c);
     expect(Object.keys(l).slice(0, 4)).toEqual(['metadados', 'banner_intro', 'mapa_pontos', 'secoes']);
     expect(Object.keys(l.metadados)).toEqual(['serie', 'tema', 'tema_override']);
