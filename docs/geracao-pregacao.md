@@ -114,8 +114,33 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
         },
         {
           "tipo": "componente_tema",
-          "variante": "stage | diagnostico | antidoto | versus | contraste | verb_block | poeiras_grid | label_box | analogia | banho_list | duplice_grid",
+          "variante": "stage | diagnostico | antidoto | versus | contraste | analogia | banho_list | humor | label_box | duplice_grid | timeline  (implementadas; verb_block NÃO tem renderer; razoes_grid e poeiras_grid foram retiradas — ver Notas)",
           "dados": "objeto específico da variante — ver 'Payloads de componente_tema por variante' abaixo"
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "string — subdivisão dentro de uma seção (texto puro, sem **negrito**)"
+        },
+        {
+          "tipo": "citacao",
+          "autor": "string — quem disse (autor, teólogo, livro)",
+          "texto": "string, aceita **negrito**",
+          "fidelidade": "opcional — string, ex: 'literal' / 'paráfrase'. Validado, mas não exibido na leitura hoje"
+        },
+        {
+          "tipo": "glossario",
+          "termo": "string — palavra estudada (ex: termo grego/hebraico)",
+          "etimologia": "string, aceita **negrito**",
+          "significado_no_texto": "string, aceita **negrito**",
+          "uso_indevido": "opcional — string, aceita **negrito**; exibido como 'Uso indevido comum'"
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "string, aceita **negrito** — pergunta retórica/da audiência que o pregador responde em seguida"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "string, aceita **negrito** — resposta à pergunta imediatamente anterior"
         }
       ],
       "anotacoes": [
@@ -133,6 +158,18 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
     "frase_tema": "opcional — string. Uma frase que resume a mensagem inteira, mesmo espírito de banner_intro.frase_sintese mas independente dela (o resumo curto precisa fazer sentido sozinho, sem o resto do documento).",
     "pontos": "opcional junto com frase_tema — array de 3 a 6 strings, cada uma um parágrafo curto (2-4 frases) condensando um ponto principal da mensagem, na mesma ordem de mapa_pontos/secoes. Não é o mesmo texto de resumo_final (que é uma linha só por ponto, lido *depois* da leitura completa como recapitulação) — aqui cada item precisa ser autossuficiente para quem nunca vai ler as seções inteiras.",
     "versiculo_chave": "opcional junto com frase_tema — objeto { referencia: string, texto: string }. O único versículo que melhor resume a mensagem inteira, não necessariamente o mesmo de banner_intro.versiculo_ancora."
+  },
+  "resumo_lider": {
+    "frase_tema": "string — uma frase que resume a mensagem inteira",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "string — mesmo título/ordem do ponto correspondente em mapa_pontos",
+        "resumo": "string — parágrafo autossuficiente do ponto, preservando ilustrações marcantes do corpo",
+        "frase_chave": "string — frase de impacto REAL do pregador, extraída de um callout/frase_chave do corpo (nunca inventada)"
+      }
+    ],
+    "versiculo_chave": "opcional — objeto { referencia: string, texto: string }"
   },
   "merch_section": {
     "titulo": "opcional — string, ex: 'Menções e Indicações do Pastor'. Omitir o campo inteiro quando não houver indicações.",
@@ -155,9 +192,9 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
 
 - **`metadados`** — os seis campos permanecem os mesmos do processo original (Série, Capítulo, Tema, Data, Pregador, Texto-base) mais `modo_origem` (`"A"` ou `"B"`). São a base direta da busca/filtro na biblioteca da plataforma.
 - **`secoes[].sec_eyebrow`** e **`secoes[].referencias`** — dados estruturados, não texto solto. Faltavam no schema original e foram identificados na primeira calibração com material real (pregação *A Graça Não É o Que Você Pensa*): o HTML de referência já carregava esse rótulo semântico e essa lista de referências por seção como elementos próprios, então o JSON precisa capturá-los como campos, não deixar implícitos no corpo.
-- **`corpo[].tipo`** — cada bloco de conteúdo é tipado (`paragrafo`, `versiculo`, `callout`, `frase_chave`, `lista`, `componente_tema`). A plataforma decide a apresentação visual de cada tipo conforme o tema ativo da série — o JSON nunca especifica cor, fonte ou componente HTML.
+- **`corpo[].tipo`** — cada bloco de conteúdo é tipado (`paragrafo`, `versiculo`, `callout`, `frase_chave`, `lista`, `subtitulo`, `citacao`, `glossario`, `pergunta`, `resposta`, `componente_tema`). Fonte de verdade: o tipo `Bloco` em `src/content/types.ts`. Tipo desconhecido é **erro** no validador do Painel Editorial (`src/content/validarPregacao.ts`), porque o renderer o descartaria e o texto sumiria da leitura. A plataforma decide a apresentação visual de cada tipo conforme o tema ativo da série — o JSON nunca especifica cor, fonte ou componente HTML.
 - **`lista`** — sequência simples de itens com marcador (equivalente a `.blist` no sistema visual: lista corrida sem numeração nem cards). Identificado na segunda calibração (pregação de Igrejar cap. 4, ex: "quando caminhamos em unidade..."). Diferente de `banho_list` (que é numerada e decorativa) e de `poeiras_grid` (cards com nome+descrição próprios) — `lista` é o caso simples, um `<ul>` de bullets.
-- **`componente_tema`** — cobre componentes que só existem em temas específicos (ex: `.stage` do Estilo #1, `.diagnostico`/`.antidoto`/`.versus` de Religião Tóxica, `.verb-block`/`.poeiras-grid` de Igrejar, `.label-box` do 5b) **e também componentes universais reaproveitáveis entre séries** — caso de `analogia` (label + corpo + conclusão em destaque, usado para ilustrações/parábolas do pregador; identificado na calibração, disponível em qualquer tema, não exclusivo de uma série). Diferente dos outros tipos, o formato de `dados` varia por `variante` — não é uma questão de cor, é uma estrutura de dado própria (ex: `versus` precisa de dois lados, `diagnostico` precisa de uma lista, `analogia` precisa de label+corpo+conclusão). Os payloads de cada variante estão documentados em `estilos-pregacao.md`. **Regra de uso:** só incluir um bloco `componente_tema` quando o conteúdo da pregação genuinamente pede aquela estrutura (ex: uma dicotomia explícita e citável para `versus`, uma ilustração/parábola isolada para `analogia`) — não forçar o encaixe. Se a série não tiver esse componente no tema, ou se a plataforma não reconhecer a `variante`, o bloco deve cair no tratamento padrão (`paragrafo`), sem quebrar a renderização.
+- **`componente_tema`** — cobre componentes que só existem em temas específicos (ex: `.stage` do Estilo #1, `.diagnostico`/`.antidoto`/`.versus` de Religião Tóxica, `.verb-block`/`.poeiras-grid` de Igrejar, `.label-box` do 5b) **e também componentes universais reaproveitáveis entre séries** — caso de `analogia` (label + corpo + conclusão em destaque, usado para ilustrações/parábolas do pregador; identificado na calibração, disponível em qualquer tema, não exclusivo de uma série). Diferente dos outros tipos, o formato de `dados` varia por `variante` — não é uma questão de cor, é uma estrutura de dado própria (ex: `versus` precisa de dois lados, `diagnostico` precisa de uma lista, `analogia` precisa de label+corpo+conclusão). Os payloads de cada variante estão documentados em `estilos-pregacao.md`. **Regra de uso:** só incluir um bloco `componente_tema` quando o conteúdo da pregação genuinamente pede aquela estrutura (ex: uma dicotomia explícita e citável para `versus`, uma ilustração/parábola isolada para `analogia`) — não forçar o encaixe. Se a plataforma não reconhecer a `variante`, o bloco é **ignorado** na leitura (o renderer retorna `null`, sem quebrar a página) — ou seja, o conteúdo dele some. O validador do Painel Editorial avisa (aviso, não erro). Variantes com renderer hoje: `stage`, `diagnostico`, `antidoto`, `versus`, `contraste`, `analogia`, `banho_list`, `humor`, `label_box`, `duplice_grid`, `timeline`. Documentada mas **sem renderer**: `verb_block` — não usar em conteúdo novo até ganhar renderer. **Retiradas em 2026-11-09** (decisão de Carlos): `poeiras_grid` e `razoes_grid` nunca tiveram renderer e sumiam da leitura. Os 5 usos existentes viraram `timeline` (PR #74), e o validador agora as rejeita com erro. Para itens paralelos com nome e descrição, usar `timeline`.
 - **Palavras-chave** — marcadas inline no texto do parágrafo (ex: `**palavra**`), sem distinguir `.k1`/`.k2` — essa decisão de qual classe de destaque usar fica a cargo do tema/renderização, não do conteúdo.
 - **`anotacoes[]`** — mantém o mesmo princípio do componente `.annotation` original: nome do autor + texto, associado ao `id` da seção correspondente. Renderizado pela plataforma como caixa inline discreta, seguindo o tema ativo.
 - **`mapa_pontos[].pendente`** — booleano opcional, `true` quando o pregador anunciou o ponto mas não chegou a desenvolvê-lo (ex: tempo do culto esgotado). Identificado na calibração de "O Véu É Removido" (Pastor Ian) — anunciadas 6 verdades, só 5 desenvolvidas. Um ponto `pendente` **não tem `secoes[]` correspondente** (não há conteúdo pra seção nenhuma); a plataforma renderiza o card do índice esmaecido e não-clicável em vez de tentar rolar pra uma seção inexistente. Registrar também em `nota_lacuna[]` o motivo do ponto não ter sido desenvolvido, pra contexto de quem lê depois.
@@ -166,6 +203,14 @@ Nesse caso, a anotação estruturada **não vai para `anotacoes[]`** — ela par
 - **`celula_box`** — campo de topo opcional, equivalente ao componente `.celula-box` do Estilo #3 (nota de rodapé, não de header): quem anotou, quem vai compartilhar, e sugestão prática de uso da mensagem na dinâmica de célula. Identificado como lacuna real na calibração de "Jamais Será em Vão" — o primeiro JSON gerado colou uma versão truncada disso em `banner_intro.contextualizacao` (perdendo a frase de sugestão de uso) e no lugar errado (header em vez de rodapé). `celula_box` é conceitualmente distinto de `contextualizacao`: este último é enquadramento de abertura da mensagem; `celula_box` é metadado de processo e orientação de uso, e vive no fim do documento.
 
 - **`resumo_curto`** — campo de topo opcional, adicionado por feedback real de membros mais "leigos" achando o texto completo longo demais (calibração "A Lei É Boa, Mas o Problema Não É Ela", 2026-08-19). Conceitualmente distinto de `resumo_final`: `resumo_final` é recapitulação pós-leitura (uma linha por ponto, lido depois de já ter lido as seções inteiras); `resumo_curto` é um substituto de leitura, acessado *antes* das seções, para quem não vai ler a mensagem completa — por isso `pontos[]` precisa ser autossuficiente (parágrafo curto, não título+gancho) e `frase_tema`/`versiculo_chave` não precisam ser idênticos a `banner_intro.frase_sintese`/`versiculo_ancora`. Na plataforma, vira um botão de destaque na tela de Leitura ("Ler versão resumida") que abre um overlay dedicado — omitir o campo inteiro quando não fizer sentido gerar uma versão resumida (mensagens já curtas).
+
+- **Blocos `subtitulo`, `citacao`, `glossario`, `pergunta`, `resposta`** (PR #64, 2026-09-26, junto com `resumo_lider`) — todos com renderer em `src/content/BlockRenderer.tsx`.
+  - `subtitulo`: divide uma seção longa em partes; renderiza como `<h3>`. Texto puro — `**negrito**` aparece literal.
+  - `citacao`: frase de terceiro (autor, teólogo, livro), com `— autor` abaixo. Diferente de `callout` (frase do próprio pregador) e de `versiculo` (texto bíblico). `fidelidade` é opcional e não aparece na tela.
+  - `glossario`: estudo de palavra (termo, etimologia, sentido no texto e, opcional, uso indevido comum).
+  - `pergunta`/`resposta`: par de pergunta retórica e resposta, usado em sequência.
+- **`componente_tema` variante `timeline`** — sequência vertical de etapas: `{ "itens": [{ "icon": "string curta exibida como marcador (ex: '1', '2' ou um emoji)", "titulo": "string", "desc": "string, aceita **negrito**" }] }`. `icon` é exibido como texto, não é nome de ícone Lucide.
+- **`resumo_lider`** — campo de topo opcional, versão mais densa de `resumo_curto` para o líder de célula preparar a reunião (não para o membro leigo). `pontos[]` espelha `mapa_pontos` (mesma ordem), com `numero` **numérico** (diferente de `mapa_pontos[].numero`, que é string `"01"`). Quando os dois existem, a Leitura mostra `resumo_lider` no lugar de `resumo_curto`, no mesmo overlay. Gerado por `scripts/gerar-resumo-lider.ts` (Gemini), que pula arquivos que já têm o campo; ver CLAUDE.md "Decisões de arquitetura (Resumo para líder de célula)".
 
 ### Achado de implementação — `banner_intro` incompleto na primeira calibração
 
