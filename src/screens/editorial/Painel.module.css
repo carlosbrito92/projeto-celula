@@ -174,3 +174,68 @@
   padding: 24px 0;
   text-align: center;
 }
+
+.ia {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.iaTitulo {
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.iaCorpo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 0 16px 16px;
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.passoTitulo {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.modelo {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.areaJson {
+  min-height: 140px;
+  resize: vertical;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  padding: 10px 12px;
+}
+
+.arquivo {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 100%;
+}
+
+.aviso {
+  border-left: 3px solid var(--accent2);
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--text);
+}

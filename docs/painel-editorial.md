@@ -183,6 +183,12 @@ Ordem sugerida, cada item um PR:
      - **Inserir no meio:** `adicionarBloco(c, s, tipo, posicao)`.
      - **Remoção:** `blocoVazio` decide se pede confirmação. O rótulo "Analogia" pré-preenchido não conta como texto.
 3. **Exportar/Copiar JSON** (fallback se GitHub/endpoint estiver fora, e para auditoria).
+   - **Implementado em 2026-11-11**, junto com a geração por IA (pedido de Carlos):
+     - **Copiar/Baixar JSON** no fim do editor, com o mesmo `limparParaPublicar` do envio.
+     - **"Gerar com IA / importar JSON"** no painel (`src/screens/editorial/GerarComIA.tsx`), em três passos: copiar ou baixar o prompt, copiar o modelo de metadados e colar a resposta da IA ou escolher o arquivo.
+     - **Prompt:** é o `docs/geracao-pregacao.md` inteiro, importado com `?raw` só quando o líder pede, mais um apêndice (`src/editorial/promptIA.ts`) com os payloads de `componente_tema` e as séries com tema. O doc remete a `estilos-pregacao.md`, que o líder não tem. Um teste roda cada payload do apêndice contra o validador.
+     - **Importação:** `extrairJson` aceita cercas \`\`\`json e texto em volta. O resultado vira rascunho novo via `normalizar`, sem validar. O que faltar aparece como pendência no editor.
+     - **Limite:** blocos que o editor não edita (ex.: `timeline`, `versus`) e têm erro só podem ser removidos ou corrigidos pedindo de novo à IA.
 4. **Pré-visualização ao vivo** (`Reading.tsx`/`BlockRenderer.tsx` dentro do editor) — pós-MVP.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.
 

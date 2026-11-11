@@ -6,11 +6,13 @@ import { apagarRascunho, criarRascunho, ErroEditorial, listarRascunhos, mensagem
 import { novaPregacao } from '../../editorial/modelo';
 import { esquecerCodigo, lerCodigo, salvarCodigo } from '../../editorial/codigoStorage';
 import { derivarStatus, ROTULO_STATUS } from '../../editorial/status';
+import { GerarComIA } from './GerarComIA';
 import styles from './Painel.module.css';
 
 // Painel Editorial — etapa mínima (docs/painel-editorial.md §7.1): entrada por
 // código e lista de rascunhos com status derivado. "Nova pregação"/"Editar"
-// abrem o editor guiado (§7.2, Editor.tsx).
+// abrem o editor guiado (§7.2, Editor.tsx); "Gerar com IA" importa o JSON
+// que a IA do líder gerou como rascunho novo (§7.3, GerarComIA.tsx).
 // O código só mostra/esconde UI aqui; quem valida é o servidor, a cada request.
 
 type Fase = 'entrada' | 'carregando' | 'lista' | 'erro';
@@ -178,6 +180,7 @@ export function Painel() {
           <button className={styles.botaoPrimario} type="button" disabled={criando} onClick={() => void nova()}>
             {criando ? 'Criando…' : '+ Nova pregação'}
           </button>
+          {codigo && <GerarComIA codigo={codigo} />}
 
           {rascunhos.length === 0 ? (
             <div className={styles.vazio}>Nenhum rascunho ainda.</div>

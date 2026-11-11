@@ -510,3 +510,16 @@
 .inserirCaixa .linha .input {
   flex-basis: 100%;
 }
+
+.planoB {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.planoB summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin-bottom: 8px;
+}

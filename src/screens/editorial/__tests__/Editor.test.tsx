@@ -210,6 +210,19 @@ describe('Editor guiado', () => {
     expect(await screen.findByLabelText(/Título dentro da leitura/)).toHaveValue('Outro');
   });
 
+  it('copiar JSON entrega o JSON limpo, igual ao que seria enviado', async () => {
+    const escrever = vi.fn(async (_texto: string) => undefined);
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText: escrever } });
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    fireEvent.click(await screen.findByText('Copiar ou baixar o JSON'));
+    fireEvent.click(screen.getByRole('button', { name: 'Copiar JSON' }));
+    await screen.findByText('JSON copiado.');
+    const copiado = JSON.parse(escrever.mock.calls[0][0]);
+    expect(copiado.metadados).toEqual({ serie: 'Avulsa', tema: 'Fé que move' });
+    expect(copiado.secoes[0].titulo).toBe('Primeiro');
+  });
+
   it('botão N põe a seleção em negrito e mostra a prévia', async () => {
     servidor({ conteudo: pronta(), versao: 1, arquivo: null });
     render(<Editor id="r1" />);
