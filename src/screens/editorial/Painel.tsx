@@ -1,0 +1,201 @@
+import { useCallback, useEffect, useState, type FormEvent } from 'react';
+import { Link } from '../../router/Router';
+import { apiGet } from '../../lib/api';
+import type { PregacaoRow } from '../../content/types';
+import { apagarRascunho, ErroEditorial, listarRascunhos, mensagemDeErro, type ResumoRascunho } from '../../editorial/api';
+import { esquecerCodigo, lerCodigo, salvarCodigo } from '../../editorial/codigoStorage';
+import { derivarStatus, ROTULO_STATUS } from '../../editorial/status';
+import styles from './Painel.module.css';
+
+// Painel Editorial — etapa mínima (docs/painel-editorial.md §7.1): entrada por
+// código e lista de rascunhos com status derivado. O editor chega no §7.2.
+// O código só mostra/esconde UI aqui; quem valida é o servidor, a cada request.
+
+type Fase = 'entrada' | 'carregando' | 'lista' | 'erro';
+
+const formatoData = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+
+function formatarData(iso: string): string {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? '' : formatoData.format(d);
+}
+
+async function arquivosPublicados(): Promise<Set<string>> {
+  try {
+    const linhas = await apiGet<PregacaoRow[]>('/pregacoes');
+    return new Set(linhas.map((l) => l.arquivo_origem).filter((a): a is string => !!a));
+  } catch {
+    return new Set(); // sem a lista pública, nada aparece como "Publicado" — nunca quebra o painel
+  }
+}
+
+export function Painel() {
+  const [codigo, setCodigo] = useState<string | null>(() => lerCodigo());
+  const [fase, setFase] = useState<Fase>(() => (lerCodigo() ? 'carregando' : 'entrada'));
+  const [erro, setErro] = useState<string | null>(null);
+  const [digitado, setDigitado] = useState('');
+  const [rascunhos, setRascunhos] = useState<ResumoRascunho[]>([]);
+  const [publicados, setPublicados] = useState<Set<string>>(new Set());
+  const [confirmandoApagar, setConfirmandoApagar] = useState<string | null>(null);
+
+  const carregar = useCallback(async (c: string) => {
+    setFase('carregando');
+    setErro(null);
+    try {
+      const [lista, pub] = await Promise.all([listarRascunhos(c), arquivosPublicados()]);
+      salvarCodigo(c);
+      setCodigo(c);
+      setRascunhos(lista);
+      setPublicados(pub);
+      setFase('lista');
+    } catch (e) {
+      const status = e instanceof ErroEditorial ? e.status : -1;
+      setErro(e instanceof ErroEditorial ? e.message : mensagemDeErro(-1));
+      if (status === 401) {
+        esquecerCodigo();
+        setCodigo(null);
+        setFase('entrada');
+      } else {
+        setFase('erro');
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const salvo = lerCodigo();
+    if (salvo) void carregar(salvo);
+  }, [carregar]);
+
+  const entrar = (e: FormEvent) => {
+    e.preventDefault();
+    const c = digitado.trim();
+    if (!c) return;
+    setDigitado('');
+    void carregar(c);
+  };
+
+  const sair = () => {
+    esquecerCodigo();
+    setCodigo(null);
+    setRascunhos([]);
+    setErro(null);
+    setFase('entrada');
+  };
+
+  const apagar = async (id: string) => {
+    if (!codigo) return;
+    setConfirmandoApagar(null);
+    try {
+      await apagarRascunho(codigo, id);
+      setRascunhos((rs) => rs.filter((r) => r.id !== id));
+    } catch (e) {
+      setErro(e instanceof ErroEditorial ? e.message : mensagemDeErro(-1));
+    }
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      <Link to="/" className={styles.voltar}>
+        ← Biblioteca
+      </Link>
+      <div className={styles.titulo}>Painel Editorial</div>
+
+      {fase === 'entrada' && (
+        <form className={styles.entrada} onSubmit={entrar}>
+          <label className={styles.rotulo} htmlFor="codigo-editorial">
+            Código de líder
+          </label>
+          <input
+            id="codigo-editorial"
+            className={styles.input}
+            type="password"
+            autoComplete="off"
+            autoCapitalize="none"
+            spellCheck={false}
+            value={digitado}
+            onChange={(e) => setDigitado(e.target.value)}
+          />
+          {erro && (
+            <div className={styles.erro} role="alert">
+              {erro}
+            </div>
+          )}
+          <button className={styles.botaoPrimario} type="submit" disabled={!digitado.trim()}>
+            Entrar
+          </button>
+          <p className={styles.ajuda}>O código é pessoal. Peça o seu ao Carlos.</p>
+        </form>
+      )}
+
+      {fase === 'carregando' && <div className={styles.vazio}>Carregando…</div>}
+
+      {fase === 'erro' && (
+        <div className={styles.entrada}>
+          <div className={styles.erro} role="alert">
+            {erro}
+          </div>
+          <button className={styles.botaoPrimario} type="button" onClick={() => codigo && void carregar(codigo)}>
+            Tentar de novo
+          </button>
+          <button className={styles.botaoSecundario} type="button" onClick={sair}>
+            Sair
+          </button>
+        </div>
+      )}
+
+      {fase === 'lista' && (
+        <>
+          <div className={styles.barra}>
+            <div className={styles.subtitulo}>Seus rascunhos</div>
+            <button className={styles.botaoSecundario} type="button" onClick={sair}>
+              Sair
+            </button>
+          </div>
+
+          {erro && (
+            <div className={styles.erro} role="alert">
+              {erro}
+            </div>
+          )}
+
+          {rascunhos.length === 0 ? (
+            <div className={styles.vazio}>
+              Nenhum rascunho ainda. O editor de pregações chega na próxima etapa do painel.
+            </div>
+          ) : (
+            <ul className={styles.lista}>
+              {rascunhos.map((r) => {
+                const status = derivarStatus(r, publicados);
+                return (
+                  <li key={r.id} className={styles.item}>
+                    <div className={styles.itemTopo}>
+                      <span className={`${styles.status} ${styles[status]}`}>{ROTULO_STATUS[status]}</span>
+                      <span className={styles.data}>{formatarData(r.atualizado_em)}</span>
+                    </div>
+                    <div className={styles.tema}>{r.tema || 'Sem título'}</div>
+                    <div className={styles.acoes}>
+                      {confirmandoApagar === r.id ? (
+                        <>
+                          <button className={styles.botaoPerigo} type="button" onClick={() => void apagar(r.id)}>
+                            Confirmar exclusão
+                          </button>
+                          <button className={styles.botaoSecundario} type="button" onClick={() => setConfirmandoApagar(null)}>
+                            Cancelar
+                          </button>
+                        </>
+                      ) : (
+                        <button className={styles.botaoSecundario} type="button" onClick={() => setConfirmandoApagar(r.id)}>
+                          Apagar
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

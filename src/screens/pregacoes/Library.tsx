@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { usePregacoes } from '../../content/usePregacoes';
 import { filterPregacoes } from '../../content/librarySearch';
 import { SermonCard } from './SermonCard';
+import { Link } from '../../router/Router';
+import { Icon } from '../../icons/Icon';
 import styles from './Library.module.css';
 
 export function Library() {
@@ -10,7 +12,15 @@ export function Library() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.titulo}>Pregações</div>
+      <div className={styles.cabecalho}>
+        <div className={styles.titulo}>Pregações</div>
+        <Link to="/editorial" className={styles.editorial}>
+          <span aria-hidden="true">
+            <Icon name="pen-line" />
+          </span>
+          <span className={styles.srOnly}>Painel Editorial</span>
+        </Link>
+      </div>
       <div className={styles.busca}>
         <input
           className={styles.buscaInput}

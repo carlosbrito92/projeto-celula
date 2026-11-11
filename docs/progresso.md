@@ -113,7 +113,7 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [x] Confirmado por Carlos (2026-11-09): `GITHUB_TOKEN_EDITORIAL` não tem a permissão "Workflows" — branch `editorial/*` não consegue alterar `.github/workflows/`
 - [ ] Limpeza de branches Neon órfãs criadas por preview de PR editorial — branch do PR #69 limpa por Carlos em 2026-11-09; abordagem para as próximas ainda pendente (§8)
 - [x] Rascunhos no servidor (2026-11-10): migração `0004` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`, RLS por `app.lider`, aplicada no Neon) + `api/editorial/rascunhos` (CRUD com versão otimista), testado contra o banco real — §5. Falta Carlos cadastrar `DATABASE_URL_RASCUNHOS` na Vercel
-- [ ] Painel mínimo: rota `/editorial`, botão na Biblioteca, modal de código, lista de rascunhos com status derivado — §7.1
+- [x] Painel mínimo (2026-11-11): rota `/editorial` (lazy), ícone discreto na Biblioteca, entrada por código (validado no servidor; `localStorage` só por conveniência, esquecido em 401), lista de rascunhos com status derivado (Rascunho / Em revisão / Publicado, este pelo `arquivo_origem` da lista pública), apagar com confirmação — §7.1
 - [ ] Editor guiado gerando `PregacaoConteudo` exato, com validação em tempo real — §7.2
 - [ ] Exportar/Copiar JSON (fallback) — §7.3
 - [ ] Pós-MVP: pré-visualização ao vivo; editar pregação já publicada — §7.4–7.5

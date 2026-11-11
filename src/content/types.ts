@@ -309,6 +309,8 @@ export interface PregacaoRow {
   texto_base: string | null;
   modo_origem: 'A' | 'B' | null;
   conteudo: PregacaoConteudo;
+  /** Nome do .json em content/pregacoes/ (migração 0002) — chave do upsert do seed. */
+  arquivo_origem?: string | null;
   created_at: string;
   updated_at: string;
 }
