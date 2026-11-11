@@ -1,0 +1,81 @@
+{
+  "secoes": [
+    {
+      "id": "ponto-1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Teste de **palavra em negrito**"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "* Teste de lista",
+            "* Será que precisa de usar o * ?"
+          ]
+        },
+        {
+          "tipo": "citacao",
+          "autor": "Autor fulano de tal",
+          "texto": "Alguma coisa provavelmente"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "contraste",
+          "dados": {
+            "lado_a": {
+              "label": "Esse é o lado A",
+              "titulo": "Geralmente o mais insensato",
+              "texto": "Por isso preferirmos sair "
+            },
+            "lado_b": {
+              "label": "Esse é o lado B",
+              "titulo": "Aquele com palavras de amor e conforto",
+              "texto": "Sabemos do quanto Deus nos ama"
+            }
+          }
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Analogia",
+            "corpo": [
+              "Uma ilustração ou analogia de monstros e meias"
+            ],
+            "conclusao": "Por isso tem que lavar e esconder todas elas"
+          }
+        }
+      ],
+      "numero": "01",
+      "titulo": "se ficar vazio, usa o titulo do indice",
+      "anotacoes": [],
+      "referencias": "Gênesis 3.15 · Romanos 3.20",
+      "sec_eyebrow": "Fundação"
+    }
+  ],
+  "metadados": {
+    "serie": "Testes de título série",
+    "tema": "Tema teste",
+    "capitulo": "Capitulo da biblia teste",
+    "data": "11 de novembro de 2026",
+    "pregador": "Carlos",
+    "texto_base": "Texto Bíblico",
+    "tema_override": "Estilo #5b"
+  },
+  "mapa_pontos": [
+    {
+      "id": "ponto-1",
+      "numero": "01",
+      "titulo": "O titulo de teste"
+    }
+  ],
+  "banner_intro": {
+    "frase_sintese": "Esse é um teste de abertura - aqui vai uma palavra que resume o texto em algumas sentenças",
+    "contextualizacao": "Teste de número #113",
+    "versiculo_ancora": {
+      "referencia": "Versiculo-ancora de referencia caso houver",
+      "texto": "Texto do versiculo"
+    }
+  }
+}
