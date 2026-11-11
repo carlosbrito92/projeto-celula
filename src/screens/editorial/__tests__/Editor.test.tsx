@@ -152,12 +152,62 @@ describe('Editor guiado', () => {
     servidor({ conteudo: pronta(), versao: 1, arquivo: null });
     render(<Editor id="r1" />);
     fireEvent.click(await screen.findByRole('button', { name: '+ Adicionar ponto' }));
-    expect(screen.getAllByLabelText(/Título no índice/)).toHaveLength(2);
+    expect(screen.getAllByLabelText(/Título do ponto/)).toHaveLength(2);
     const select = screen.getAllByLabelText('Adicionar bloco')[1];
     fireEvent.change(select, { target: { value: 'versiculo' } });
     fireEvent.click(within(select.parentElement as HTMLElement).getByRole('button', { name: 'Adicionar' }));
     expect(screen.getAllByLabelText(/^Referência\s*\*?$/)).toHaveLength(1);
     expect(screen.getByLabelText(/Texto bíblico/)).toBeInTheDocument();
+  });
+
+  it('inserir bloco no meio do ponto, antes do parágrafo existente', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    fireEvent.click((await screen.findAllByRole('button', { name: '+ Inserir bloco aqui' }))[0]);
+    fireEvent.change(screen.getByLabelText('Tipo do bloco'), { target: { value: 'versiculo' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Inserir' }));
+    expect(document.getElementById('campo-secoes-0-corpo-0-')?.textContent).toContain('Versículo');
+    expect(document.getElementById('campo-secoes-0-corpo-1-')?.textContent).toContain('Parágrafo');
+    expect(screen.queryByLabelText('Tipo do bloco')).toBeNull();
+  });
+
+  it('remover bloco com texto pede confirmação; bloco vazio sai direto', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    fireEvent.click((await screen.findAllByRole('button', { name: 'Remover bloco' }))[0]);
+    expect(screen.getByText('Remover este bloco e o texto dele?')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Cancelar' }));
+    expect(screen.getByDisplayValue('Texto do ponto.')).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole('button', { name: 'Remover bloco' })[0]);
+    fireEvent.click(screen.getByRole('button', { name: 'Remover' }));
+    expect(screen.queryByDisplayValue('Texto do ponto.')).toBeNull();
+
+    const select = screen.getAllByLabelText('Adicionar bloco')[0];
+    fireEvent.change(select, { target: { value: 'lista' } });
+    fireEvent.click(within(select.parentElement as HTMLElement).getByRole('button', { name: 'Adicionar' }));
+    fireEvent.click(screen.getAllByRole('button', { name: 'Remover bloco' })[0]);
+    expect(screen.queryByText('Remover este bloco e o texto dele?')).toBeNull();
+    expect(screen.queryAllByRole('button', { name: 'Remover bloco' })).toHaveLength(0);
+  });
+
+  it('um título por ponto; título diferente na leitura só quando pedido', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    expect(await screen.findByLabelText(/Título do ponto/)).toHaveValue('Primeiro');
+    expect(screen.queryByLabelText(/Título dentro da leitura/)).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Usar outro título dentro da leitura' }));
+    fireEvent.change(screen.getByLabelText(/Título dentro da leitura/), { target: { value: 'Primeiro ponto, por extenso' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Usar o mesmo título na leitura' }));
+    expect(screen.queryByLabelText(/Título dentro da leitura/)).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Usar outro título dentro da leitura' }));
+    expect(screen.getByLabelText(/Título dentro da leitura/)).toHaveValue('');
+  });
+
+  it('rascunho com título diferente na leitura já abre mostrando o campo', async () => {
+    const c = definirCaminho(pronta(), ['secoes', 0, 'titulo'], 'Outro');
+    servidor({ conteudo: c, versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    expect(await screen.findByLabelText(/Título dentro da leitura/)).toHaveValue('Outro');
   });
 
   it('botão N põe a seleção em negrito e mostra a prévia', async () => {

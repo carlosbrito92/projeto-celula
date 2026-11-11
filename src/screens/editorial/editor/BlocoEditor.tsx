@@ -1,6 +1,7 @@
 import type { Bloco } from '../../../content/types';
 import { idCampo } from '../../../editorial/caminho';
-import { moverBloco, removerBloco, ROTULO_TIPO_BLOCO, tipoEditavel } from '../../../editorial/modelo';
+import { useState } from 'react';
+import { blocoVazio, moverBloco, removerBloco, ROTULO_TIPO_BLOCO, tipoEditavel } from '../../../editorial/modelo';
 import { CampoLinhas, CampoTexto, VerExemplo } from './Campos';
 import { useEditor } from './contexto';
 import styles from '../Editor.module.css';
@@ -79,7 +80,12 @@ function Corpo({ bloco, base }: { bloco: Bloco; base: (string | number)[] }) {
 
 export function BlocoEditor({ s, b, total }: { s: number; b: number; total: number }) {
   const { conteudo, aplicar } = useEditor();
+  const [confirmando, setConfirmando] = useState(false);
   const bloco = conteudo.secoes[s].corpo[b];
+  const remover = () => {
+    setConfirmando(false);
+    aplicar((c) => removerBloco(c, s, b));
+  };
   const tipo = tipoEditavel(bloco);
   const nome = tipo
     ? ROTULO_TIPO_BLOCO[tipo]
@@ -97,11 +103,22 @@ export function BlocoEditor({ s, b, total }: { s: number; b: number; total: numb
           <button type="button" aria-label="Descer bloco" disabled={b === total - 1} onClick={() => aplicar((c) => moverBloco(c, s, b, 1))}>
             ↓
           </button>
-          <button type="button" aria-label="Remover bloco" onClick={() => aplicar((c) => removerBloco(c, s, b))}>
+          <button type="button" aria-label="Remover bloco" onClick={() => (blocoVazio(bloco) ? remover() : setConfirmando(true))}>
             ✕
           </button>
         </span>
       </div>
+      {confirmando && (
+        <div className={styles.linha} role="alert">
+          <span className={styles.dica}>Remover este bloco e o texto dele?</span>
+          <button type="button" className={styles.botaoPerigo} onClick={remover}>
+            Remover
+          </button>
+          <button type="button" className={styles.botaoSecundario} onClick={() => setConfirmando(false)}>
+            Cancelar
+          </button>
+        </div>
+      )}
       <Corpo bloco={bloco} base={['secoes', s, 'corpo', b]} />
     </div>
   );

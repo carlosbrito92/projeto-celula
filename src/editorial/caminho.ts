@@ -92,6 +92,6 @@ export function rotuloCaminho(caminho: string): string {
       if (rotulo) partes.push(i ? `${rotulo} ${i}` : rotulo);
     }
   }
-  if (/^mapa_pontos\[\d+\]\.titulo$/.test(caminho)) partes[partes.length - 1] = 'título no índice';
+  if (/^mapa_pontos\[\d+\]\.titulo$/.test(caminho)) partes[partes.length - 1] = 'título do ponto';
   return partes.join(' › ');
 }
