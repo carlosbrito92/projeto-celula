@@ -174,6 +174,10 @@ Ordem sugerida, cada item um PR:
      - **Autosave:** salva 4s depois da última edição, no mínimo 15s depois do último salvamento e no máximo 30s depois da primeira edição não salva; também salva quando a aba vai para segundo plano. O `localStorage` guarda o que ainda não subiu, junto com a versão de base, e o cache é descartado se o servidor estiver mais novo.
      - **Conflito (409):** pausa o autosave e oferece "Usar a versão salva" ou "Manter a minha".
      - **Envio:** "Enviar para revisão" manda o JSON limpo para `/publicar`. O `arquivo` devolvido é gravado no rascunho, e o próximo envio vira "Enviar correção", com o mesmo arquivo.
+   - **Usabilidade, 1ª rodada (2026-11-11):**
+     - **Negrito:** `src/editorial/negrito.ts`, função pura; só nos campos que o app renderiza com `**destaque**`. Não entra em frase-síntese, título nem declaração (`stage.frase`), que são exibidos como texto puro.
+     - **Índice com pendências por parte:** `src/editorial/navegacao.ts` agrupa o caminho de cada erro pelo trecho da tela onde ele se corrige.
+     - **Exemplos:** `src/editorial/exemplos.ts`. Trechos com `fonte` precisam existir literalmente na pregação citada, e `exemplos.test.ts` quebra o CI se um exemplo for inventado ou o conteúdo mudar.
 3. **Exportar/Copiar JSON** (fallback se GitHub/endpoint estiver fora, e para auditoria).
 4. **Pré-visualização ao vivo** (`Reading.tsx`/`BlockRenderer.tsx` dentro do editor) — pós-MVP.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.

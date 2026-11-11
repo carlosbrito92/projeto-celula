@@ -24,13 +24,13 @@ export function ResumoLiderEditor() {
           </>
         ) : (
           <>
-            <CampoTexto caminho={['resumo_lider', 'frase_tema']} rotulo="Frase-tema" obrigatorio multilinha />
+            <CampoTexto caminho={['resumo_lider', 'frase_tema']} rotulo="Frase-tema" exemplo="rl_frase_tema" obrigatorio multilinha />
             {rl.pontos.map((p, i) => (
               <fieldset key={i} className={styles.lado} id={idCampo(['resumo_lider', 'pontos', i])}>
                 <legend>
                   {p.numero}. {p.titulo || 'Ponto sem título'}
                 </legend>
-                <CampoTexto caminho={['resumo_lider', 'pontos', i, 'resumo']} rotulo="Resumo" obrigatorio multilinha />
+                <CampoTexto caminho={['resumo_lider', 'pontos', i, 'resumo']} rotulo="Resumo" exemplo={i === 0 ? 'rl_ponto' : undefined} obrigatorio multilinha />
                 <CampoTexto
                   caminho={['resumo_lider', 'pontos', i, 'frase_chave']}
                   rotulo="Frase-chave"

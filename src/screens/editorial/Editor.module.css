@@ -317,7 +317,7 @@
   bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   z-index: 10;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 12px;
   padding: 10px 16px;
@@ -347,4 +347,138 @@
   all: unset;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.indice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-margin-top: 16px;
+}
+
+.indiceTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.indiceTopo .linha {
+  gap: 14px;
+}
+
+.indiceLista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.indiceItem {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.indiceLista li:last-child .indiceItem {
+  border-bottom: none;
+}
+
+.indiceRotulo {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.indiceOk,
+.indicePendente {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.indicePendente {
+  color: var(--text);
+}
+
+.exemplo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exemploBotao {
+  all: unset;
+  cursor: pointer;
+  align-self: flex-start;
+  font-size: 12px;
+  color: var(--accent2);
+  text-decoration: underline;
+}
+
+.exemploCaixa {
+  border: 1px dashed var(--border);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.exemploOnde {
+  color: var(--muted);
+}
+
+.exemploLinha {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.exemploRotulo {
+  color: var(--muted);
+}
+
+.exemploFonte {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.barraTexto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.botaoNegrito {
+  min-width: 36px;
+  min-height: 32px;
+  font-weight: 800;
+  font-family: var(--font-corpo);
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.previa {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--border);
+  overflow-wrap: anywhere;
 }

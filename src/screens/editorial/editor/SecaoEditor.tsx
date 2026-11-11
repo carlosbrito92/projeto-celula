@@ -31,17 +31,19 @@ export function SecaoEditor({ s, total }: { s: number; total: number }) {
             caminho={['mapa_pontos', iMapa, 'titulo']}
             rotulo="Título no índice"
             dica="Curto — aparece na trilha de pontos."
+            exemplo="titulo_indice"
             obrigatorio
           />
         )}
         <CampoTexto
           caminho={['secoes', s, 'titulo']}
           rotulo="Título da seção"
+          exemplo="titulo_secao"
           dica={iMapa >= 0 ? 'Se ficar vazio, usa o título do índice.' : undefined}
           obrigatorio={iMapa < 0}
         />
-        <CampoTexto caminho={['secoes', s, 'sec_eyebrow']} rotulo="Rótulo (opcional)" dica='Ex: "Fundação", "Conclusão".' />
-        <CampoTexto caminho={['secoes', s, 'referencias']} rotulo="Referências (opcional)" dica="Ex: Gênesis 3.15 · Romanos 3.20" />
+        <CampoTexto caminho={['secoes', s, 'sec_eyebrow']} rotulo="Rótulo (opcional)" dica='Ex: "Fundação", "Conclusão".' exemplo="sec_eyebrow" />
+        <CampoTexto caminho={['secoes', s, 'referencias']} rotulo="Referências (opcional)" dica="Ex: Gênesis 3.15 · Romanos 3.20" exemplo="referencias" />
 
         <div className={styles.blocos}>
           {secao.corpo.map((_, b) => (
