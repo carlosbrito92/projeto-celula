@@ -105,7 +105,7 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [x] Validação de schema de `PregacaoConteudo` no servidor (`src/content/validarPregacao.ts`), com teste de regressão contra todo `content/pregacoes/*.json`
 - [x] Endpoint `POST /api/editorial/publicar` — código por líder (`EDITORIAL_CODIGOS`), abre/atualiza PR em `content/pregacoes/` via GitHub API, nunca escreve no banco
 - [x] Configurar `GITHUB_TOKEN_EDITORIAL` + `EDITORIAL_CODIGOS` na Vercel e testar publicação real (2026-11-08) — 401/422 conferidos, PR #69 aberto pelo endpoint, republicação virou segundo commit no mesmo PR; #69 fechado e branch apagada (ver `painel-editorial.md` §4.5)
-- [x] Regra de rate limit no Vercel Firewall para `/api/editorial/*` (2026-11-08) — 10 requisições/60s, depois 403; conferido em produção. Vale também para os rascunhos, então o autosave do editor precisa de debounce
+- [x] Regra de rate limit no Vercel Firewall para `/api/editorial/*` (2026-11-08) — 10 requisições/60s, depois 403; conferido em produção. Subida para 30/60s em 2026-11-11 (o editor batia no limite no primeiro minuto de uso; ver `painel-editorial.md` §5). Vale também para os rascunhos, então o autosave do editor precisa de debounce
 - [x] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — PR #68, `PENDENCIAS_CONHECIDAS` esvaziada
 - [x] Seed seletivo dos 6 arquivos corrigidos no #68 — rodado em 2026-11-07, API de produção sem nenhum `stage` sem `frase`
 - [x] Seed automático pós-merge — role `pregacoes_seed` (migração `0003`, aplicada no Neon em 2026-11-08), workflow `seed-pregacoes.yml`, Environment `seed-producao` (só `main`) — §6

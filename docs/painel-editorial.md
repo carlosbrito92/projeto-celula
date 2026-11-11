@@ -127,7 +127,7 @@ Cliente REST mínimo (fetch, sem octokit):
 - **Concorrência otimista via `versao`.** `PUT` com versão antiga recebe 409 `{ versaoAtual }` ("rascunho mudou em outro aparelho") e nunca sobrescreve em silêncio.
 - **Rascunho pode estar incompleto.** Não passa pelo validador de publicação; só exige que `conteudo` seja um objeto. `tema` é copiado de `conteudo.metadados.tema` para a listagem.
 - **Credencial `DATABASE_URL_RASCUNHOS`** (role `editorial_rascunhos`): só nas env vars da Vercel (Production), usada só por `api/_lib/rascunhosHandler.ts`.
-- **Rate limit:** a regra do Vercel Firewall em `/api/editorial` (10 requisições/60s) também vale para os rascunhos. O editor (§7) precisa de autosave com debounce (por exemplo, salvar no máximo a cada 15s e ao sair da tela), não a cada tecla.
+- **Rate limit:** a regra do Vercel Firewall em `/api/editorial` também vale para os rascunhos. Ela passou de 10 para **30 requisições/60s** em 2026-11-11, por decisão de Carlos: com 10, o primeiro minuto de uso do editor (abrir o painel, criar, abrir o editor e os primeiros salvamentos) ficava perto do limite, e o teste em produção de 2026-11-11 bateu no 403. O limite provavelmente é contado por IP, e nesse caso vários líderes no mesmo Wi-Fi somariam as chamadas. Com códigos de ≥80 bits, 30/min não torna força bruta viável. O editor (§7) precisa de autosave com debounce (por exemplo, salvar no máximo a cada 15s e ao sair da tela), não a cada tecla.
 - `localStorage` fica só como cache de digitação ainda não salva (rascunho offline), nunca como única cópia.
 
 Alternativas descartadas:
