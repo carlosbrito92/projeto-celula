@@ -190,6 +190,10 @@ Ordem sugerida, cada item um PR:
      - **Importação:** `extrairJson` aceita cercas \`\`\`json e texto em volta. O resultado vira rascunho novo via `normalizar`, sem validar. O que faltar aparece como pendência no editor.
      - **Limite:** blocos que o editor não edita (ex.: `timeline`, `versus`) e têm erro só podem ser removidos ou corrigidos pedindo de novo à IA.
 4. **Pré-visualização ao vivo** (`Reading.tsx`/`BlockRenderer.tsx` dentro do editor) — pós-MVP.
+   - **Implementado em 2026-11-11** (`src/screens/editorial/Previa.tsx`):
+     - O corpo da Leitura saiu de `Reading.tsx` para `src/screens/pregacoes/ConteudoLeitura.tsx`, usado pela Leitura e pela prévia. Não existe uma segunda renderização para manter.
+     - A prévia mostra `limparParaPublicar(conteudo)`, ou seja, o JSON que seria enviado, com o tema resolvido pela série e `useDeferredValue` para não atrasar a digitação.
+     - No celular, cobre a tela ("Voltar a editar" ou Esc). A partir de 1100px, fica na metade direita e acompanha a digitação ao lado do editor.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.
 
 Fora do escopo:

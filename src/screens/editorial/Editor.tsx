@@ -6,6 +6,8 @@ import { ErroEditorial, obterRascunho, publicar, salvarRascunho, type ResultadoP
 import { apagarCache, gravarCache, lerCache } from '../../editorial/cacheLocal';
 import { definirCaminho, idCampo, rotuloCaminho, type Caminho } from '../../editorial/caminho';
 import { lerCodigo } from '../../editorial/codigoStorage';
+import { Icon } from '../../icons/Icon';
+import { Previa } from './Previa';
 import { baixarTexto, copiarTexto, nomeArquivo } from '../../editorial/arquivos';
 import { adicionarPonto, limparParaPublicar, normalizar, semErroDuplicadoDeTitulo, type Conteudo } from '../../editorial/modelo';
 import { useAutosave } from '../../editorial/useAutosave';
@@ -154,6 +156,7 @@ export function Editor({ id }: { id: string }) {
   const [mensagemSalvamento, setMensagemSalvamento] = useState<string | null>(null);
   const [aviso, setAviso] = useState<string | null>(null);
   const [mostrarErros, setMostrarErros] = useState(false);
+  const [previaAberta, setPreviaAberta] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [erroEnvio, setErroEnvio] = useState<string | null>(null);
   const [enviado, setEnviado] = useState<ResultadoPublicacao | null>(null);
@@ -332,6 +335,8 @@ export function Editor({ id }: { id: string }) {
     }
   };
 
+  const fecharPrevia = useCallback(() => setPreviaAberta(false), []);
+
   if (fase === 'carregando') return <div className={styles.vazio}>Carregando rascunho…</div>;
   if (fase === 'erro' || !conteudo || !contexto || !validacao) {
     return (
@@ -352,7 +357,7 @@ export function Editor({ id }: { id: string }) {
 
   return (
     <EditorContext.Provider value={contexto}>
-      <div className={styles.wrapper} ref={raiz}>
+      <div className={`${styles.wrapper} ${previaAberta ? styles.comPrevia : ''}`} ref={raiz}>
         <Link to="/editorial" className={styles.voltar}>
           ← Painel
         </Link>
@@ -509,11 +514,20 @@ export function Editor({ id }: { id: string }) {
           >
             Índice
           </button>
+          <button
+            type="button"
+            className={`${styles.botaoSecundario} ${styles.botaoBarra}`}
+            aria-pressed={previaAberta}
+            onClick={() => setPreviaAberta((a) => !a)}
+          >
+            <Icon name="eye" /> Prévia
+          </button>
           <button type="button" className={styles.botaoPrimario} disabled={enviando} onClick={() => void enviar()}>
             {enviando ? 'Enviando…' : arquivoAtual ? 'Enviar correção' : 'Enviar para revisão'}
           </button>
         </div>
       </div>
+      {previaAberta && <Previa conteudo={conteudo} aoFechar={fecharPrevia} />}
     </EditorContext.Provider>
   );
 }

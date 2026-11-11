@@ -523,3 +523,64 @@
   color: var(--muted);
   margin-bottom: 8px;
 }
+
+/* Prévia: tela cheia no celular; em tela larga, metade direita ao lado do editor. */
+.previaLeitura {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg);
+}
+
+.previaLeituraBarra {
+  position: sticky;
+  top: 0;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (min-width: 1100px) {
+  .previaLeitura {
+    left: 50%;
+    border-left: 1px solid var(--border);
+  }
+
+  .comPrevia {
+    padding-right: calc(50% + 24px);
+  }
+
+  .comPrevia .barra {
+    right: 50%;
+  }
+}
+
+.botaoBarra {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Barra com Índice + Prévia: no celular, "Enviar" ocupa a segunda linha inteira. */
+.barra > .botaoPrimario {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 560px) {
+  .barra {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+  }
+
+  .barra > .botaoPrimario {
+    grid-column: auto;
+  }
+}

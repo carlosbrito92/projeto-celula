@@ -223,6 +223,22 @@ describe('Editor guiado', () => {
     expect(copiado.secoes[0].titulo).toBe('Primeiro');
   });
 
+  it('prévia mostra a leitura do JSON que seria enviado e acompanha a edição', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    fireEvent.click(await screen.findByRole('button', { name: /Prévia/ }));
+    const previa = screen.getByRole('dialog', { name: 'Prévia da leitura' });
+    expect(within(previa).getByText('A fé move.')).toBeInTheDocument();
+    expect(within(previa).getByText('Primeiro', { selector: '[class*="secaoTitulo"]' })).toBeInTheDocument(); // título herdado do índice
+    expect(within(previa).getByText('Texto do ponto.')).toBeInTheDocument();
+
+    fireEvent.change(screen.getByDisplayValue('Texto do ponto.'), { target: { value: 'Texto **forte** do ponto.' } });
+    await waitFor(() => expect(within(previa).getByText('forte').tagName).toBe('STRONG'));
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.queryByRole('dialog', { name: 'Prévia da leitura' })).toBeNull();
+  });
+
   it('botão N põe a seleção em negrito e mostra a prévia', async () => {
     servidor({ conteudo: pronta(), versao: 1, arquivo: null });
     render(<Editor id="r1" />);
