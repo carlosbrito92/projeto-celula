@@ -18,7 +18,7 @@ export function setCors(
   if (opcoes.headers) {
     res.setHeader('Access-Control-Allow-Headers', opcoes.headers);
     // Header customizado = preflight OPTIONS antes de cada chamada. Sem cache,
-    // cada chamada do painel conta em dobro na regra de 10 req/60s do Firewall.
+    // cada chamada do painel conta em dobro na regra de rate limit do Firewall (30 req/60s).
     res.setHeader('Access-Control-Max-Age', '600');
   }
 }

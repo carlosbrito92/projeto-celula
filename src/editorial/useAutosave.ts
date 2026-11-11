@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 // Autosave com respiro e intervalo mínimo: a regra do Vercel Firewall em
-// /api/editorial é 10 requisições/60s (docs/painel-editorial.md §5), então
+// /api/editorial é 30 requisições/60s (docs/painel-editorial.md §5), então
 // nunca salvar a cada tecla. Salva `espera` ms depois da última edição (cada
 // edição muda `revisao` e reinicia a espera), nunca antes de `intervaloMinimo`
 // ms depois do último salvamento e nunca depois de `esperaMaxima` ms desde a
