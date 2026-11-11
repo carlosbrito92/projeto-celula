@@ -5,6 +5,32 @@
   padding: 28px 24px 40px;
 }
 
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Discreto de propósito: só líderes usam (docs/painel-editorial.md §7.1). */
+.editorial {
+  color: var(--muted);
+  font-size: 18px;
+  padding: 8px;
+  margin: -8px;
+  opacity: 0.6;
+  line-height: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .titulo {
   font-family: var(--font-display);
   font-size: 38px;

@@ -152,6 +152,10 @@ Decisão de Carlos: seed automático, com as condições abaixo. Os detalhes de 
 Ordem sugerida, cada item um PR:
 
 1. **Painel mínimo**: rota `/editorial` em `src/router/`, botão discreto na `Library.tsx`, modal pedindo o código. O código fica em `localStorage` só para conveniência; o servidor valida sempre. Lista de rascunhos com status derivado (§3).
+   - **Implementado em 2026-11-11** (`src/screens/editorial/Painel.tsx`, `src/editorial/`). A entrada por código é uma tela, não um modal.
+   - **Status derivado sem chamar o GitHub:** sem `arquivo` = Rascunho; `arquivo` presente em `pregacoes.arquivo_origem` (lista pública `/api/pregacoes`) = Publicado; caso contrário = Em revisão.
+   - **Limitação conhecida:** uma correção enviada de uma pregação já publicada continua aparecendo como "Publicado" até o merge. Para distinguir, o editor (§7.2) teria que guardar a versão enviada.
+   - **CORS:** `Access-Control-Max-Age: 600` nas rotas com header customizado. Sem isso, cada chamada do painel geraria um preflight `OPTIONS` e contaria em dobro no rate limit do Firewall.
 2. **Formulário guiado**, gerando exatamente `PregacaoConteudo`:
    - **Dados gerais**: `metadados.{tema, serie, capitulo, pregador, data (seletor de data → formato PT-BR), texto_base}`.
    - **Visual**: escolher série/tema de `src/themes/registry.ts`. O tema é resolvido pela `serie`; série nova sem tema próprio usa `metadados.tema_override`.

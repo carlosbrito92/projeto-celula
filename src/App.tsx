@@ -20,6 +20,9 @@ const ArtistaImpostorLobby = lazy(() =>
   import('./multiplayer/artistaImpostor/Lobby').then((m) => ({ default: m.ArtistaImpostorLobby })),
 );
 const SpicyLobby = lazy(() => import('./multiplayer/spicy/Lobby').then((m) => ({ default: m.SpicyLobby })));
+// Lazy: o Painel Editorial é usado por poucos líderes e vai crescer com o
+// editor (§7.2) — membros que só leem nunca baixam esse código.
+const PainelEditorial = lazy(() => import('./screens/editorial/Painel').then((m) => ({ default: m.Painel })));
 
 function Screens() {
   const { path } = useRouter();
@@ -34,6 +37,14 @@ function Screens() {
   const utilitarioParams = matchPath('/utilitarios/:id', path);
   if (utilitarioParams) return <UtilitarioScreen id={utilitarioParams.id} />;
   if (path === '/utilitarios') return <UtilitarioCatalogo />;
+
+  if (path === '/editorial') {
+    return (
+      <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
+        <PainelEditorial />
+      </Suspense>
+    );
+  }
 
   return <Library />;
 }
