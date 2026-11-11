@@ -104,15 +104,16 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 
 - [x] Validação de schema de `PregacaoConteudo` no servidor (`src/content/validarPregacao.ts`), com teste de regressão contra todo `content/pregacoes/*.json`
 - [x] Endpoint `POST /api/editorial/publicar` — código por líder (`EDITORIAL_CODIGOS`), abre/atualiza PR em `content/pregacoes/` via GitHub API, nunca escreve no banco
-- [ ] Configurar `GITHUB_TOKEN_EDITORIAL` + `EDITORIAL_CODIGOS` na Vercel e testar publicação real (ver `painel-editorial.md` §4.5)
-- [ ] Regra de rate limit no Vercel Firewall para `/api/editorial/*` antes de distribuir códigos
+- [x] Configurar `GITHUB_TOKEN_EDITORIAL` + `EDITORIAL_CODIGOS` na Vercel e testar publicação real (2026-11-08) — 401/422 conferidos, PR #69 aberto pelo endpoint, republicação virou segundo commit no mesmo PR; #69 fechado e branch apagada (ver `painel-editorial.md` §4.5)
+- [x] Regra de rate limit no Vercel Firewall para `/api/editorial/*` (2026-11-08) — 10 requisições/60s, depois 403; conferido em produção. Vale também para os rascunhos, então o autosave do editor precisa de debounce
 - [x] Corrigir conteúdo: 6 pregações com `stage` usando `texto`/`sub` em vez de `frase`/`subtitulo` (frase some na leitura) — PR #68, `PENDENCIAS_CONHECIDAS` esvaziada
 - [x] Seed seletivo dos 6 arquivos corrigidos no #68 — rodado em 2026-11-07, API de produção sem nenhum `stage` sem `frase`
 - [x] Seed automático pós-merge — role `pregacoes_seed` (migração `0003`, aplicada no Neon em 2026-11-08), workflow `seed-pregacoes.yml`, Environment `seed-producao` (só `main`) — §6
 - [x] Teste de ponta a ponta do seed automático (2026-11-09): PR #71 adicionou `teste-seed-ci.json` → merge → run `Seed de pregações` verde em 31s (1 arquivo, 0 falhas) → linha em `pregacoes` com `arquivo_origem` preenchido e visível em `/api/pregacoes` de produção → linha apagada com ADMIN → arquivo removido no PR #72
 - [x] Confirmado por Carlos (2026-11-09): `GITHUB_TOKEN_EDITORIAL` não tem a permissão "Workflows" — branch `editorial/*` não consegue alterar `.github/workflows/`
 - [ ] Limpeza de branches Neon órfãs criadas por preview de PR editorial — branch do PR #69 limpa por Carlos em 2026-11-09; abordagem para as próximas ainda pendente (§8)
-- [x] Rascunhos no servidor (2026-11-10): migração `0004` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`, RLS por `app.lider`, aplicada no Neon) + `api/editorial/rascunhos` (CRUD com versão otimista), testado contra o banco real — §5. Falta Carlos cadastrar `DATABASE_URL_RASCUNHOS` na Vercel
+- [x] Rascunhos no servidor (2026-11-10): migração `0004` (tabela `rascunhos_pregacao` + role `editorial_rascunhos`, RLS por `app.lider`, aplicada no Neon) + `api/editorial/rascunhos` (CRUD com versão otimista) — §5, PR #75. `DATABASE_URL_RASCUNHOS` cadastrada na Vercel (Production). **Testado em produção em 2026-11-11** com dois códigos: criar/listar/ler/salvar ok, versão antiga = 409, rascunho de um líder invisível para o outro (lista vazia, 404), `lider` no body ignorado, rascunho de teste apagado (tabela com 0 linhas)
+- [ ] Trocar os códigos de teste (`Carlos`/`Carlos2`) em `EDITORIAL_CODIGOS` antes de distribuir códigos aos líderes — foram expostos numa conversa (2026-11-08)
 - [ ] Painel mínimo: rota `/editorial`, botão na Biblioteca, modal de código, lista de rascunhos com status derivado — §7.1
 - [ ] Editor guiado gerando `PregacaoConteudo` exato, com validação em tempo real — §7.2
 - [ ] Exportar/Copiar JSON (fallback) — §7.3
