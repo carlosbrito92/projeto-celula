@@ -80,33 +80,33 @@
         },
         {
           "tipo": "componente_tema",
-          "variante": "poeiras_grid",
+          "variante": "timeline",
           "dados": {
             "itens": [
               {
-                "numero": "",
-                "nome": "A Arca de Noé",
-                "descricao": "Quem estava dentro não experimentou o juízo."
+                "icon": "1",
+                "titulo": "A Arca de Noé",
+                "desc": "Quem estava dentro não experimentou o juízo."
               },
               {
-                "numero": "",
-                "nome": "Abraão",
-                "descricao": "Aguardava a cidade eterna, habitando em tendas por revelação."
+                "icon": "2",
+                "titulo": "Abraão",
+                "desc": "Aguardava a cidade eterna, habitando em tendas por revelação."
               },
               {
-                "numero": "",
-                "nome": "Jacó",
-                "descricao": "Chamou Betel de Casa de Deus, a porta dos céus."
+                "icon": "3",
+                "titulo": "Jacó",
+                "desc": "Chamou Betel de Casa de Deus, a porta dos céus."
               },
               {
-                "numero": "",
-                "nome": "O Tabernáculo de Moisés",
-                "descricao": "A glória desceu no dia em que foi levantado."
+                "icon": "4",
+                "titulo": "O Tabernáculo de Moisés",
+                "desc": "A glória desceu no dia em que foi levantado."
               },
               {
-                "numero": "",
-                "nome": "O Templo de Salomão",
-                "descricao": "A glória encheu a casa na dedicação."
+                "icon": "5",
+                "titulo": "O Templo de Salomão",
+                "desc": "A glória encheu a casa na dedicação."
               }
             ]
           }

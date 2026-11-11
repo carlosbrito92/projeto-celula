@@ -137,23 +137,23 @@
         },
         {
           "tipo": "componente_tema",
-          "variante": "razoes_grid",
+          "variante": "timeline",
           "dados": {
             "itens": [
               {
-                "num": "1",
-                "nome": "Os que Nasceram de Novo",
-                "texto": "Aqueles que realmente creram, confessaram e passaram da morte para a vida. São genuinamente salvos."
+                "icon": "1",
+                "titulo": "Os que Nasceram de Novo",
+                "desc": "Aqueles que realmente creram, confessaram e passaram da morte para a vida. São genuinamente salvos."
               },
               {
-                "num": "2",
-                "nome": "Os que Estão se Aproximando",
-                "texto": "Vêm ao culto, gostam, estão sendo persuadidos pelo evangelho, investigando, estudando, decidindo se creem ou não. É o processo normal de conversão."
+                "icon": "2",
+                "titulo": "Os que Estão se Aproximando",
+                "desc": "Vêm ao culto, gostam, estão sendo persuadidos pelo evangelho, investigando, estudando, decidindo se creem ou não. É o processo normal de conversão."
               },
               {
-                "num": "3",
-                "nome": "Os que Rejeitam a Verdade",
-                "texto": "Apesar de serem expostos ao evangelho, decidem rejeitá-lo. Ouviram sobre Jesus, sobre a cruz, sobre a eternidade — e ainda assim dizem: 'eu não creio'."
+                "icon": "3",
+                "titulo": "Os que Rejeitam a Verdade",
+                "desc": "Apesar de serem expostos ao evangelho, decidem rejeitá-lo. Ouviram sobre Jesus, sobre a cruz, sobre a eternidade — e ainda assim dizem: 'eu não creio'."
               }
             ]
           }
