@@ -6,13 +6,16 @@ import { apagarRascunho, criarRascunho, ErroEditorial, listarRascunhos, mensagem
 import { novaPregacao } from '../../editorial/modelo';
 import { esquecerCodigo, lerCodigo, salvarCodigo } from '../../editorial/codigoStorage';
 import { derivarStatus, ROTULO_STATUS } from '../../editorial/status';
+import { listarCorrigiveis, type PregacaoPublicada } from '../../editorial/publicadas';
+import { CorrigirPublicada } from './CorrigirPublicada';
 import { GerarComIA } from './GerarComIA';
 import styles from './Painel.module.css';
 
 // Painel Editorial — etapa mínima (docs/painel-editorial.md §7.1): entrada por
 // código e lista de rascunhos com status derivado. "Nova pregação"/"Editar"
 // abrem o editor guiado (§7.2, Editor.tsx); "Gerar com IA" importa o JSON
-// que a IA do líder gerou como rascunho novo (§7.3, GerarComIA.tsx).
+// que a IA do líder gerou como rascunho novo (§7.3, GerarComIA.tsx);
+// "Corrigir pregação publicada" abre o JSON de `main` no editor (§7.5).
 // O código só mostra/esconde UI aqui; quem valida é o servidor, a cada request.
 
 type Fase = 'entrada' | 'carregando' | 'lista' | 'erro';
@@ -24,12 +27,11 @@ function formatarData(iso: string): string {
   return Number.isNaN(d.getTime()) ? '' : formatoData.format(d);
 }
 
-async function arquivosPublicados(): Promise<Set<string>> {
+async function pregacoesPublicadas(): Promise<PregacaoRow[]> {
   try {
-    const linhas = await apiGet<PregacaoRow[]>('/pregacoes');
-    return new Set(linhas.map((l) => l.arquivo_origem).filter((a): a is string => !!a));
+    return await apiGet<PregacaoRow[]>('/pregacoes');
   } catch {
-    return new Set(); // sem a lista pública, nada aparece como "Publicado" — nunca quebra o painel
+    return []; // sem a lista pública, nada aparece como "Publicado" — nunca quebra o painel
   }
 }
 
@@ -42,17 +44,19 @@ export function Painel() {
   const [digitado, setDigitado] = useState('');
   const [rascunhos, setRascunhos] = useState<ResumoRascunho[]>([]);
   const [publicados, setPublicados] = useState<Set<string>>(new Set());
+  const [corrigiveis, setCorrigiveis] = useState<PregacaoPublicada[]>([]);
   const [confirmandoApagar, setConfirmandoApagar] = useState<string | null>(null);
 
   const carregar = useCallback(async (c: string) => {
     setFase('carregando');
     setErro(null);
     try {
-      const [lista, pub] = await Promise.all([listarRascunhos(c), arquivosPublicados()]);
+      const [lista, linhas] = await Promise.all([listarRascunhos(c), pregacoesPublicadas()]);
       salvarCodigo(c);
       setCodigo(c);
       setRascunhos(lista);
-      setPublicados(pub);
+      setPublicados(new Set(linhas.map((l) => l.arquivo_origem).filter((a): a is string => !!a)));
+      setCorrigiveis(listarCorrigiveis(linhas));
       setFase('lista');
     } catch (e) {
       const status = e instanceof ErroEditorial ? e.status : -1;
@@ -181,6 +185,7 @@ export function Painel() {
             {criando ? 'Criando…' : '+ Nova pregação'}
           </button>
           {codigo && <GerarComIA codigo={codigo} />}
+          {codigo && <CorrigirPublicada codigo={codigo} pregacoes={corrigiveis} rascunhos={rascunhos} />}
 
           {rascunhos.length === 0 ? (
             <div className={styles.vazio}>Nenhum rascunho ainda.</div>

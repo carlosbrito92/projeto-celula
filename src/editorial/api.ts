@@ -62,8 +62,12 @@ export interface Rascunho extends ResumoRascunho {
   conteudo: Record<string, unknown>;
 }
 
-export function criarRascunho(codigo: string, conteudo: object): Promise<ResumoRascunho> {
-  return chamar<ResumoRascunho>(codigo, '/rascunhos', { method: 'POST', body: JSON.stringify({ conteudo }) });
+/** Com `arquivo`: rascunho de correção de uma pregação já publicada (o envio substitui esse arquivo). */
+export function criarRascunho(codigo: string, conteudo: object, arquivo?: string): Promise<ResumoRascunho> {
+  return chamar<ResumoRascunho>(codigo, '/rascunhos', {
+    method: 'POST',
+    body: JSON.stringify(arquivo ? { conteudo, arquivo } : { conteudo }),
+  });
 }
 
 export function obterRascunho(codigo: string, id: string): Promise<Rascunho> {

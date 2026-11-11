@@ -195,6 +195,12 @@ Ordem sugerida, cada item um PR:
      - A prévia mostra `limparParaPublicar(conteudo)`, ou seja, o JSON que seria enviado, com o tema resolvido pela série e `useDeferredValue` para não atrasar a digitação.
      - No celular, cobre a tela ("Voltar a editar" ou Esc). A partir de 1100px, fica na metade direita e acompanha a digitação ao lado do editor.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.
+   - **Implementado em 2026-11-11** (`src/editorial/publicadas.ts`, `src/screens/editorial/CorrigirPublicada.tsx`):
+     - **"Corrigir pregação publicada"** no painel lista as pregações de `/api/pregacoes` cujo `arquivo_origem` tem o formato publicável. `Teste Pregação.json` fica de fora.
+     - **Fonte do JSON:** o arquivo em `main` via `raw.githubusercontent.com` (repositório público, sem credencial). A coluna `conteudo` do banco é `jsonb`, que não guarda a ordem das chaves, e o PR de correção viraria um diff do arquivo inteiro. O banco só é usado se o GitHub não responder. O CDN do raw pode servir uma versão de até ~5 min atrás logo depois de um merge.
+     - **Rascunho já nasce com o `arquivo`**, então o editor mostra "Enviar correção" e o envio substitui o mesmo arquivo: um PR novo ou um commit novo no PR aberto desse arquivo. Se o líder já tem um rascunho desse arquivo, o painel abre esse rascunho em vez de criar outro.
+     - **Teste:** toda pregação de `content/pregacoes/` passa por `normalizar` + `limparParaPublicar` e valida sem erro, ou seja, abre no editor e pode ser reenviada sem mexer.
+     - **Limite:** se outro líder tem um PR aberto do mesmo arquivo, o envio entra nesse PR e substitui a versão dele. A revisão do Carlos é o que pega isso.
 
 Fora do escopo:
 - merge de rascunho "publicado" direto na Biblioteca local (substituído pelo fluxo PR + seed, que valida antes)

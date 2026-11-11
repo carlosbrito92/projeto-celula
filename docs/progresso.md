@@ -134,7 +134,7 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [x] Exportar/Copiar JSON (fallback) e gerar com IA (2026-11-11) — §7.3: prompt `geracao-pregacao.md` + apêndice copiável/baixável no painel, colar/enviar o JSON da IA vira rascunho novo, copiar/baixar o JSON no editor
 - [x] Prévia ao vivo no editor (2026-11-11) — §7.4: botão "Prévia" na barra; tela cheia no celular, lado a lado no PC; usa o mesmo corpo da Leitura (`ConteudoLeitura`)
 - [x] Corrigido junto: o botão "Ler versão resumida" da Leitura estava sem estilo desde o PR #64 (2026-09-26), que trocou a classe por uma inexistente; CTA original restaurado
-- [ ] Editar pregação já publicada — §7.5
+- [x] Editar pregação já publicada — §7.5: "Corrigir pregação publicada" no painel abre o JSON de `main` como rascunho com o mesmo `arquivo`; o envio substitui a publicada depois do merge.
 
 ---
 

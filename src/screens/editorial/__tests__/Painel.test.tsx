@@ -22,12 +22,22 @@ function servidor() {
   const lista = [...rascunhos];
   const f = vi.fn(async (url: string, init?: RequestInit) => {
     if (url.endsWith('/api/pregacoes')) {
-      return new Response(JSON.stringify([{ id: 'p', arquivo_origem: 'esperanca.json' }]), { status: 200 });
+      return new Response(
+        JSON.stringify([
+          { id: 'p', tema: 'Esperança', serie: 'Avulsa', arquivo_origem: 'esperanca.json', conteudo: {} },
+          { id: 'q', tema: 'Vida abundante', serie: 'Avulsa', arquivo_origem: 'vida-abundante.json', conteudo: {} },
+        ]),
+        { status: 200 },
+      );
+    }
+    if (url.startsWith('https://raw.githubusercontent.com/')) {
+      return new Response(JSON.stringify({ metadados: { serie: 'Avulsa', tema: 'Vida abundante' }, secoes: [] }), { status: 200 });
     }
     const codigo = (init?.headers as Record<string, string> | undefined)?.['X-Editorial-Codigo'];
     if (codigo !== BOM) return new Response(JSON.stringify({ erro: 'Código editorial inválido.' }), { status: 401 });
     if (init?.method === 'POST') {
-      return new Response(JSON.stringify({ id: 'novo-id', arquivo: null, tema: '', versao: 1, atualizado_em: 't' }), { status: 201 });
+      const { arquivo = null } = JSON.parse(String(init.body)) as { arquivo?: string };
+      return new Response(JSON.stringify({ id: 'novo-id', arquivo, tema: '', versao: 1, atualizado_em: 't' }), { status: 201 });
     }
     if (init?.method === 'DELETE') {
       const id = url.split('/').pop();
@@ -46,7 +56,10 @@ function entrarCom(codigo: string) {
 }
 
 describe('Painel Editorial', () => {
-  beforeEach(() => localStorage.clear());
+  beforeEach(() => {
+    localStorage.clear();
+    navigate.mockClear();
+  });
   afterEach(() => vi.unstubAllGlobals());
 
   it('sem código salvo: pede o código, não chama o servidor', () => {
@@ -162,5 +175,29 @@ describe('Painel Editorial', () => {
     expect(enviado.metadados).toMatchObject({ serie: 'Avulsa', tema: 'Da IA', pregador: '' });
     expect(enviado.secoes[0].titulo).toBe('A');
     expect(enviado.banner_intro).toEqual({ frase_sintese: '' });
+  });
+
+  it('corrigir pregação publicada: abre o JSON de main como rascunho com o mesmo arquivo', async () => {
+    const f = servidor();
+    localStorage.setItem(CHAVE, BOM);
+    render(<Painel />);
+    fireEvent.click(await screen.findByText('Corrigir pregação publicada'));
+    fireEvent.click(screen.getByRole('button', { name: 'Corrigir Vida abundante' }));
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith('/editorial/novo-id'));
+    expect(f.mock.calls.some(([url]) => String(url).endsWith('/main/content/pregacoes/vida-abundante.json'))).toBe(true);
+    const post = f.mock.calls.find(([, init]) => init?.method === 'POST');
+    const corpo = JSON.parse(String(post?.[1]?.body));
+    expect(corpo.arquivo).toBe('vida-abundante.json');
+    expect(corpo.conteudo.metadados).toMatchObject({ tema: 'Vida abundante', serie: 'Avulsa' });
+  });
+
+  it('corrigir pregação que já tem rascunho do líder: abre o rascunho, não duplica', async () => {
+    const f = servidor();
+    localStorage.setItem(CHAVE, BOM);
+    render(<Painel />);
+    fireEvent.click(await screen.findByText('Corrigir pregação publicada'));
+    fireEvent.click(screen.getByRole('button', { name: 'Continuar correção de Esperança' }));
+    expect(navigate).toHaveBeenCalledWith('/editorial/r3');
+    expect(f.mock.calls.some(([, init]) => init?.method === 'POST')).toBe(false);
   });
 });
