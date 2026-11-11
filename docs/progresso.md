@@ -132,7 +132,9 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 - [ ] Confirmar se o PWA atualiza sozinho sem limpar dados. No celular de Carlos, em 2026-11-11, o painel só apareceu depois de limpar o cache. Limpar dados do site apaga as anotações pessoais (`localStorage`); ver hurdle de 2026-08-24 no CLAUDE.md.
 - [ ] Gerar um APK novo com o painel (o app nativo só tem o que foi empacotado no build) e testar no aparelho.
 - [x] Exportar/Copiar JSON (fallback) e gerar com IA (2026-11-11) — §7.3: prompt `geracao-pregacao.md` + apêndice copiável/baixável no painel, colar/enviar o JSON da IA vira rascunho novo, copiar/baixar o JSON no editor
-- [ ] Pós-MVP: pré-visualização ao vivo; editar pregação já publicada — §7.4–7.5
+- [x] Prévia ao vivo no editor (2026-11-11) — §7.4: botão "Prévia" na barra; tela cheia no celular, lado a lado no PC; usa o mesmo corpo da Leitura (`ConteudoLeitura`)
+- [x] Corrigido junto: o botão "Ler versão resumida" da Leitura estava sem estilo desde o PR #64 (2026-09-26), que trocou a classe por uma inexistente; CTA original restaurado
+- [ ] Editar pregação já publicada — §7.5
 
 ---
 
