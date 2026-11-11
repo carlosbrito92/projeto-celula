@@ -3,6 +3,8 @@ import { validarPregacao } from '../../content/validarPregacao';
 import {
   adicionarBloco,
   adicionarPonto,
+  blocoVazio,
+  novoBloco,
   definirTituloCurto,
   gerarPontosResumoLider,
   limparParaPublicar,
@@ -89,6 +91,28 @@ describe('modelo do editor', () => {
     expect(c.secoes[0].corpo[0].tipo).toBe('versiculo');
   });
 
+  it('blocos: insere na posição pedida, sem tocar nos vizinhos', () => {
+    let c = preenchida();
+    c = adicionarBloco(c, 0, 'versiculo', 0);
+    c = adicionarBloco(c, 0, 'lista', 1);
+    expect(c.secoes[0].corpo.map((b) => b.tipo)).toEqual(['versiculo', 'lista', 'paragrafo']);
+    expect(c.secoes[0].corpo[2]).toEqual({ tipo: 'paragrafo', texto: 'Texto 1' });
+    c = adicionarBloco(c, 0, 'subtitulo', 99);
+    expect(c.secoes[0].corpo.at(-1)?.tipo).toBe('subtitulo');
+    expect(c.secoes[1].corpo).toHaveLength(1);
+  });
+
+  it('bloco vazio: recém-criado é vazio; com qualquer texto, não', () => {
+    for (const tipo of ['paragrafo', 'versiculo', 'lista', 'citacao', 'analogia', 'stage', 'diagnostico', 'contraste'] as const) {
+      expect(blocoVazio(novoBloco(tipo))).toBe(true);
+    }
+    expect(blocoVazio({ tipo: 'paragrafo', texto: '  ' })).toBe(true);
+    expect(blocoVazio({ tipo: 'paragrafo', texto: 'oi' })).toBe(false);
+    expect(blocoVazio({ tipo: 'lista', itens: ['', 'x'] })).toBe(false);
+    const c = definirCaminho(novoBloco('contraste'), ['dados', 'lado_b', 'texto'], 'Sara');
+    expect(blocoVazio(c)).toBe(false);
+  });
+
   it('limpeza: remove opcionais vazios e linhas vazias de lista, herda título entre índice e seção', () => {
     let c = preenchida();
     c = adicionarBloco(c, 0, 'lista');
@@ -147,7 +171,7 @@ describe('pendências de título', () => {
     const filtrados = semErroDuplicadoDeTitulo(c, erros).map((e) => e.caminho);
     expect(filtrados).toContain('mapa_pontos[0].titulo');
     expect(filtrados).not.toContain('secoes[0].titulo');
-    expect(rotuloCaminho('mapa_pontos[0].titulo')).toBe('Ponto 1 › título no índice');
+    expect(rotuloCaminho('mapa_pontos[0].titulo')).toBe('Ponto 1 › título do ponto');
   });
 });
 

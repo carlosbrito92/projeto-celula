@@ -173,8 +173,26 @@ function comCorpo(c: Conteudo, s: number, f: (corpo: Bloco[]) => Bloco[]): Conte
   return { ...c, secoes: c.secoes.map((secao, i) => (i === s ? { ...secao, corpo: f(secao.corpo) } : secao)) };
 }
 
-export function adicionarBloco(c: Conteudo, s: number, tipo: TipoNovoBloco): Conteudo {
-  return comCorpo(c, s, (corpo) => [...corpo, novoBloco(tipo)]);
+/** Insere um bloco novo na posição `posicao` do ponto (fim, se omitida). */
+export function adicionarBloco(c: Conteudo, s: number, tipo: TipoNovoBloco, posicao?: number): Conteudo {
+  return comCorpo(c, s, (corpo) => {
+    const i = posicao === undefined ? corpo.length : Math.max(0, Math.min(posicao, corpo.length));
+    return [...corpo.slice(0, i), novoBloco(tipo), ...corpo.slice(i)];
+  });
+}
+
+/** Bloco sem nenhum texto preenchido: pode sair sem pedir confirmação. */
+export function blocoVazio(b: Bloco): boolean {
+  const temTexto = (v: unknown): boolean =>
+    typeof v === 'string' ? v.trim() !== '' : Array.isArray(v) ? v.some(temTexto) : ehObj(v) ? Object.values(v).some(temTexto) : false;
+  if (b.tipo === 'componente_tema') {
+    const d: Record<string, unknown> = { ...(ehObj(b.dados) ? b.dados : {}) };
+    if (b.variante === 'analogia' && d.label === 'Analogia') delete d.label; // rótulo pré-preenchido não conta
+    return !temTexto(d);
+  }
+  const campos: Record<string, unknown> = { ...(b as unknown as Record<string, unknown>) };
+  delete campos.tipo;
+  return !temTexto(campos);
 }
 
 export function removerBloco(c: Conteudo, s: number, b: number): Conteudo {

@@ -482,3 +482,31 @@
   border-left: 2px solid var(--border);
   overflow-wrap: anywhere;
 }
+
+.inserirBotao {
+  all: unset;
+  cursor: pointer;
+  align-self: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 12px;
+  border: 1px dashed var(--border);
+}
+
+.inserirBotao:hover,
+.inserirBotao:focus-visible {
+  color: var(--accent2);
+  border-color: var(--accent2);
+}
+
+.inserirCaixa {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px dashed var(--accent2);
+  padding: 10px;
+}
+
+.inserirCaixa .linha .input {
+  flex-basis: 100%;
+}

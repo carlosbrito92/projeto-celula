@@ -178,6 +178,10 @@ Ordem sugerida, cada item um PR:
      - **Negrito:** `src/editorial/negrito.ts`, função pura; só nos campos que o app renderiza com `**destaque**`. Não entra em frase-síntese, título nem declaração (`stage.frase`), que são exibidos como texto puro.
      - **Índice com pendências por parte:** `src/editorial/navegacao.ts` agrupa o caminho de cada erro pelo trecho da tela onde ele se corrige.
      - **Exemplos:** `src/editorial/exemplos.ts`. Trechos com `fonte` precisam existir literalmente na pregação citada, e `exemplos.test.ts` quebra o CI se um exemplo for inventado ou o conteúdo mudar.
+   - **Usabilidade, 2ª rodada (2026-11-11):**
+     - **Título:** a tela mostra um campo só, "Título do ponto" (`mapa_pontos[i].titulo`). `secoes[i].titulo` fica vazio e é herdado em `limparParaPublicar`. O campo de título diferente na leitura abre sozinho só se o rascunho já tiver um título diferente ao carregar, ou se houver erro nele.
+     - **Inserir no meio:** `adicionarBloco(c, s, tipo, posicao)`.
+     - **Remoção:** `blocoVazio` decide se pede confirmação. O rótulo "Analogia" pré-preenchido não conta como texto.
 3. **Exportar/Copiar JSON** (fallback se GitHub/endpoint estiver fora, e para auditoria).
 4. **Pré-visualização ao vivo** (`Reading.tsx`/`BlockRenderer.tsx` dentro do editor) — pós-MVP.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.
