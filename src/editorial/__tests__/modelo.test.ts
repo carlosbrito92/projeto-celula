@@ -150,3 +150,26 @@ describe('pendências de título', () => {
     expect(rotuloCaminho('mapa_pontos[0].titulo')).toBe('Ponto 1 › título no índice');
   });
 });
+
+describe('arquivo enviado para revisão', () => {
+  it('chaves na ordem do schema, mesmo editando em outra ordem', () => {
+    let c = definirCaminho(preenchida(), ['metadados', 'tema_override'], 'Estilo #5b');
+    c = { secoes: c.secoes, ...c }; // simula a ordem de inserção vista no PR #80
+    const l = limparParaPublicar(c);
+    expect(Object.keys(l).slice(0, 4)).toEqual(['metadados', 'banner_intro', 'mapa_pontos', 'secoes']);
+    expect(Object.keys(l.metadados)).toEqual(['serie', 'tema', 'tema_override']);
+    expect(Object.keys(l.secoes[0]).slice(0, 4)).toEqual(['id', 'numero', 'titulo', 'corpo']);
+  });
+
+  it('remove marcador digitado em itens de lista ("* item", "- item", "1. item")', () => {
+    let c = adicionarBloco(preenchida(), 0, 'lista');
+    c = definirCaminho(c, ['secoes', 0, 'corpo', 1, 'itens'], ['* Teste de lista', '- dois', '• três', '1. quatro', '*negrito* fica']);
+    expect((limparParaPublicar(c).secoes[0].corpo[1] as { itens: string[] }).itens).toEqual([
+      'Teste de lista',
+      'dois',
+      'três',
+      'quatro',
+      '*negrito* fica',
+    ]);
+  });
+});
