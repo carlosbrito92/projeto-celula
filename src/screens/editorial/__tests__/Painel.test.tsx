@@ -2,8 +2,10 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Painel } from '../Painel';
 
+const navigate = vi.fn();
 vi.mock('../../../router/Router', () => ({
   Link: ({ children, to }: { children: React.ReactNode; to: string }) => <a href={to}>{children}</a>,
+  useRouter: () => ({ navigate, path: '/editorial' }),
 }));
 
 const CHAVE = 'celula:editorial:codigo';
@@ -24,6 +26,9 @@ function servidor() {
     }
     const codigo = (init?.headers as Record<string, string> | undefined)?.['X-Editorial-Codigo'];
     if (codigo !== BOM) return new Response(JSON.stringify({ erro: 'Código editorial inválido.' }), { status: 401 });
+    if (init?.method === 'POST') {
+      return new Response(JSON.stringify({ id: 'novo-id', arquivo: null, tema: '', versao: 1, atualizado_em: 't' }), { status: 201 });
+    }
     if (init?.method === 'DELETE') {
       const id = url.split('/').pop();
       lista.splice(lista.findIndex((r) => r.id === id), 1);
@@ -116,5 +121,16 @@ describe('Painel Editorial', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('indisponível');
     expect(screen.getByRole('button', { name: 'Tentar de novo' })).toBeInTheDocument();
     expect(localStorage.getItem(CHAVE)).toBe(BOM);
+  });
+
+  it('nova pregação cria rascunho no servidor e abre o editor', async () => {
+    const f = servidor();
+    localStorage.setItem(CHAVE, BOM);
+    render(<Painel />);
+    await screen.findByText('Graça');
+    fireEvent.click(screen.getByRole('button', { name: '+ Nova pregação' }));
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith('/editorial/novo-id'));
+    const post = f.mock.calls.find(([, init]) => init?.method === 'POST');
+    expect(JSON.parse(String(post?.[1]?.body)).conteudo.metadados).toMatchObject({ serie: '', tema: '' });
   });
 });

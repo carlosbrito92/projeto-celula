@@ -23,6 +23,7 @@ const SpicyLobby = lazy(() => import('./multiplayer/spicy/Lobby').then((m) => ({
 // Lazy: o Painel Editorial é usado por poucos líderes e vai crescer com o
 // editor (§7.2) — membros que só leem nunca baixam esse código.
 const PainelEditorial = lazy(() => import('./screens/editorial/Painel').then((m) => ({ default: m.Painel })));
+const EditorPregacao = lazy(() => import('./screens/editorial/Editor').then((m) => ({ default: m.Editor })));
 
 function Screens() {
   const { path } = useRouter();
@@ -38,6 +39,14 @@ function Screens() {
   if (utilitarioParams) return <UtilitarioScreen id={utilitarioParams.id} />;
   if (path === '/utilitarios') return <UtilitarioCatalogo />;
 
+  const editorialParams = matchPath('/editorial/:id', path);
+  if (editorialParams) {
+    return (
+      <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>
+        <EditorPregacao key={editorialParams.id} id={editorialParams.id} />
+      </Suspense>
+    );
+  }
   if (path === '/editorial') {
     return (
       <Suspense fallback={<div style={{ padding: 24 }}>Carregando…</div>}>

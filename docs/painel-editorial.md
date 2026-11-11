@@ -166,6 +166,14 @@ Ordem sugerida, cada item um PR:
    - Ordenação subir/descer/remover.
    - **Resumo do líder**: `resumo_lider.{frase_tema, pontos[{numero, titulo, resumo, frase_chave}], versiculo_chave}`, com `pontos` pré-gerados a partir do `mapa_pontos`.
    - Validação em tempo real com o mesmo `validarPregacao`, destacando o campo pelo `caminho` do erro.
+   - **Implementado em 2026-11-11** (`src/screens/editorial/Editor.tsx`, `src/screens/editorial/editor/`, `src/editorial/modelo.ts`):
+     - **Pontos:** cada ponto do índice nasce, some e muda de lugar junto com a sua seção. A renumeração ("01", "02"…) só acontece quando toda a numeração já é desse formato; seções extras sem número e pontos pendentes são preservados.
+     - **Títulos:** o título no índice e o título da seção herdam um do outro quando um está vazio. A lista de pendências mostra um aviso só.
+     - **Blocos:** parágrafo, versículo, frase-chave, destaque, lista, subtítulo, pergunta, resposta, citação, analogia, declaração (`stage`), diagnóstico e contraste. Blocos de outros tipos em conteúdo carregado (ex.: `timeline`, `glossario`) aparecem como "mantido como está" e podem ser movidos ou removidos.
+     - **Antes de validar e de enviar:** `limparParaPublicar` remove campos opcionais vazios e linhas vazias de listas. Os caminhos dos erros continuam batendo com a tela, porque só campos são removidos, nunca itens de `secoes`/`corpo`.
+     - **Autosave:** salva 4s depois da última edição, no mínimo 15s depois do último salvamento e no máximo 30s depois da primeira edição não salva; também salva quando a aba vai para segundo plano. O `localStorage` guarda o que ainda não subiu, junto com a versão de base, e o cache é descartado se o servidor estiver mais novo.
+     - **Conflito (409):** pausa o autosave e oferece "Usar a versão salva" ou "Manter a minha".
+     - **Envio:** "Enviar para revisão" manda o JSON limpo para `/publicar`. O `arquivo` devolvido é gravado no rascunho, e o próximo envio vira "Enviar correção", com o mesmo arquivo.
 3. **Exportar/Copiar JSON** (fallback se GitHub/endpoint estiver fora, e para auditoria).
 4. **Pré-visualização ao vivo** (`Reading.tsx`/`BlockRenderer.tsx` dentro do editor) — pós-MVP.
 5. **Editar pregação já publicada**: carregar o JSON de `main` no editor. Hoje republicar exige ter o rascunho original.
