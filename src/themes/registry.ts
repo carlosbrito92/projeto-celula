@@ -219,6 +219,14 @@ const TEMA_OVERRIDE_PARA_CHAVE: Record<string, string> = {
   'Estilo #6': ESTILO_6_UMA_VEZ_SALVO.key,
 };
 
+/** Séries que já têm tema visual próprio (sugestões no editor do Painel Editorial). */
+export const SERIES_COM_TEMA: readonly string[] = Object.keys(SERIE_PARA_TEMA);
+
+/** Valores aceitos em metadados.tema_override, com o nome legível do tema. */
+export const OPCOES_TEMA_OVERRIDE: readonly { valor: string; nome: string }[] = Object.entries(TEMA_OVERRIDE_PARA_CHAVE).map(
+  ([valor, chave]) => ({ valor, nome: THEMES[chave].nome }),
+);
+
 export function resolveTema(
   serie: string | null | undefined,
   temaOverride?: string | null,

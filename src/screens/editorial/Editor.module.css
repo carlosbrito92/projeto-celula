@@ -1,0 +1,350 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 24px 200px; /* espaço para a barra fixa acima da tab bar */
+}
+
+.voltar {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: var(--font-display-weight);
+  text-transform: var(--font-display-transform, none);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.secaoTitulo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.vazio {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.grupo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.grupoTitulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.grupoCorpo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 16px 16px;
+}
+
+.numero {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.contadorErros {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border: 1px solid var(--accent1);
+  padding: 2px 6px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.rotulo {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.obrigatorio {
+  color: var(--text);
+}
+
+.input,
+.area {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-corpo);
+  font-size: 16px; /* >=16px evita zoom automático no iOS */
+  padding: 10px 12px;
+  outline: none;
+}
+
+.area {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.input:focus,
+.area:focus {
+  border-color: var(--accent1);
+}
+
+.campoComErro .input,
+.campoComErro .area {
+  border-color: var(--accent1);
+}
+
+.dica {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.erroCampo {
+  font-size: 13px;
+  color: var(--text);
+  border-left: 3px solid var(--accent1);
+  padding-left: 8px;
+}
+
+.blocos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bloco {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blocoTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.blocoTipo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.botoesIcone {
+  display: flex;
+  gap: 4px;
+}
+
+.botoesIcone button {
+  min-width: 36px;
+  min-height: 36px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.botoesIcone button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.doisLados {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 720px) {
+  .doisLados {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lado {
+  border: 1px solid var(--border);
+  padding: 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.lado legend {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 0 4px;
+}
+
+.adicionar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.linha {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.linha .input {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.acoesSecao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.botaoPrimario,
+.botaoSecundario,
+.botaoPerigo {
+  font-family: var(--font-corpo);
+  font-size: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text);
+}
+
+.botaoPrimario {
+  background: var(--accent1);
+  border-color: var(--accent1);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.botaoPrimario:disabled,
+.botaoSecundario:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.botaoPerigo {
+  border-color: var(--accent1);
+}
+
+.erroBox,
+.avisoBox {
+  background: var(--surface);
+  border-left: 3px solid var(--accent1);
+  padding: 12px;
+  font-size: 14px;
+}
+
+.avisoBox {
+  border-left-color: var(--accent2);
+}
+
+.erroBox p {
+  margin: 0 0 10px;
+}
+
+.avisoBox a {
+  color: var(--text);
+}
+
+.envio {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.listaErros,
+.listaAvisos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.listaErros button {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+.listaAvisos li {
+  color: var(--muted);
+}
+
+.barra {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.barraInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.estado,
+.pendencias {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.erro,
+.conflito {
+  color: var(--text);
+}
+
+.linkBotao {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+}

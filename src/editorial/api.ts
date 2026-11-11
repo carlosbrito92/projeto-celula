@@ -14,10 +14,13 @@ export interface ResumoRascunho {
 
 export class ErroEditorial extends Error {
   readonly status: number;
-  constructor(status: number, mensagem: string) {
+  /** Corpo JSON da resposta de erro (ex: `versaoAtual` no 409, `erros` no 422). */
+  readonly detalhe: Record<string, unknown>;
+  constructor(status: number, mensagem: string, detalhe: Record<string, unknown> = {}) {
     super(mensagem);
     this.name = 'ErroEditorial';
     this.status = status;
+    this.detalhe = detalhe;
   }
 }
 
@@ -41,8 +44,8 @@ async function chamar<T>(codigo: string, caminho: string, init: RequestInit = {}
     throw new ErroEditorial(0, mensagemDeErro(0));
   }
   if (res.status === 204) return undefined as T;
-  const corpo = (await res.json().catch(() => ({}))) as { erro?: string };
-  if (!res.ok) throw new ErroEditorial(res.status, mensagemDeErro(res.status, corpo.erro));
+  const corpo = (await res.json().catch(() => ({}))) as { erro?: string } & Record<string, unknown>;
+  if (!res.ok) throw new ErroEditorial(res.status, mensagemDeErro(res.status, corpo.erro), corpo);
   return corpo as T;
 }
 
@@ -53,4 +56,44 @@ export async function listarRascunhos(codigo: string): Promise<ResumoRascunho[]>
 
 export function apagarRascunho(codigo: string, id: string): Promise<void> {
   return chamar<void>(codigo, `/rascunhos/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+export interface Rascunho extends ResumoRascunho {
+  conteudo: Record<string, unknown>;
+}
+
+export function criarRascunho(codigo: string, conteudo: object): Promise<ResumoRascunho> {
+  return chamar<ResumoRascunho>(codigo, '/rascunhos', { method: 'POST', body: JSON.stringify({ conteudo }) });
+}
+
+export function obterRascunho(codigo: string, id: string): Promise<Rascunho> {
+  return chamar<Rascunho>(codigo, `/rascunhos/${encodeURIComponent(id)}`);
+}
+
+/** 409 = versão mudou em outro aparelho; o ErroEditorial traz `versaoAtual` em `detalhe`. */
+export function salvarRascunho(
+  codigo: string,
+  id: string,
+  dados: { conteudo: object; versao: number; arquivo?: string },
+): Promise<ResumoRascunho> {
+  return chamar<ResumoRascunho>(codigo, `/rascunhos/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    body: JSON.stringify(dados),
+  });
+}
+
+export interface ResultadoPublicacao {
+  ok: true;
+  prUrl: string;
+  prNumero: number;
+  prNovo: boolean;
+  arquivo: string;
+}
+
+/** Sem `arquivo` = pregação nova; com `arquivo` = correção do mesmo arquivo (novo commit/PR). */
+export function publicar(codigo: string, pregacao: object, arquivo?: string): Promise<ResultadoPublicacao> {
+  return chamar<ResultadoPublicacao>(codigo, '/publicar', {
+    method: 'POST',
+    body: JSON.stringify(arquivo ? { pregacao, arquivo } : { pregacao }),
+  });
 }

@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react';
-import { Link } from '../../router/Router';
+import { Link, useRouter } from '../../router/Router';
 import { apiGet } from '../../lib/api';
 import type { PregacaoRow } from '../../content/types';
-import { apagarRascunho, ErroEditorial, listarRascunhos, mensagemDeErro, type ResumoRascunho } from '../../editorial/api';
+import { apagarRascunho, criarRascunho, ErroEditorial, listarRascunhos, mensagemDeErro, type ResumoRascunho } from '../../editorial/api';
+import { novaPregacao } from '../../editorial/modelo';
 import { esquecerCodigo, lerCodigo, salvarCodigo } from '../../editorial/codigoStorage';
 import { derivarStatus, ROTULO_STATUS } from '../../editorial/status';
 import styles from './Painel.module.css';
 
 // Painel Editorial — etapa mínima (docs/painel-editorial.md §7.1): entrada por
-// código e lista de rascunhos com status derivado. O editor chega no §7.2.
+// código e lista de rascunhos com status derivado. "Nova pregação"/"Editar"
+// abrem o editor guiado (§7.2, Editor.tsx).
 // O código só mostra/esconde UI aqui; quem valida é o servidor, a cada request.
 
 type Fase = 'entrada' | 'carregando' | 'lista' | 'erro';
@@ -30,6 +32,8 @@ async function arquivosPublicados(): Promise<Set<string>> {
 }
 
 export function Painel() {
+  const { navigate } = useRouter();
+  const [criando, setCriando] = useState(false);
   const [codigo, setCodigo] = useState<string | null>(() => lerCodigo());
   const [fase, setFase] = useState<Fase>(() => (lerCodigo() ? 'carregando' : 'entrada'));
   const [erro, setErro] = useState<string | null>(null);
@@ -80,6 +84,19 @@ export function Painel() {
     setRascunhos([]);
     setErro(null);
     setFase('entrada');
+  };
+
+  const nova = async () => {
+    if (!codigo) return;
+    setCriando(true);
+    setErro(null);
+    try {
+      const r = await criarRascunho(codigo, novaPregacao());
+      navigate(`/editorial/${r.id}`);
+    } catch (e) {
+      setErro(e instanceof ErroEditorial ? e.message : mensagemDeErro(-1));
+      setCriando(false);
+    }
   };
 
   const apagar = async (id: string) => {
@@ -158,10 +175,12 @@ export function Painel() {
             </div>
           )}
 
+          <button className={styles.botaoPrimario} type="button" disabled={criando} onClick={() => void nova()}>
+            {criando ? 'Criando…' : '+ Nova pregação'}
+          </button>
+
           {rascunhos.length === 0 ? (
-            <div className={styles.vazio}>
-              Nenhum rascunho ainda. O editor de pregações chega na próxima etapa do painel.
-            </div>
+            <div className={styles.vazio}>Nenhum rascunho ainda.</div>
           ) : (
             <ul className={styles.lista}>
               {rascunhos.map((r) => {
@@ -174,6 +193,9 @@ export function Painel() {
                     </div>
                     <div className={styles.tema}>{r.tema || 'Sem título'}</div>
                     <div className={styles.acoes}>
+                      <Link to={`/editorial/${r.id}`} className={styles.botaoSecundario}>
+                        Editar
+                      </Link>
                       {confirmandoApagar === r.id ? (
                         <>
                           <button className={styles.botaoPerigo} type="button" onClick={() => void apagar(r.id)}>

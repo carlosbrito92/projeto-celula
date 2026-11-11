@@ -141,6 +141,8 @@
 .botaoPrimario,
 .botaoSecundario,
 .botaoPerigo {
+  text-decoration: none;
+  display: inline-block;
   font-family: var(--font-corpo);
   font-size: 14px;
   padding: 10px 14px;
