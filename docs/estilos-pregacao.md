@@ -294,8 +294,7 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 - **`.verb-block`** — réplica de slide de palco (título grande em dois tons + mini-grade de conjugação verbal). Princípio geral: quando as fotos de palco mostram um slide marcante (conjugação, diagrama, frase projetada em tipografia grande), reproduzir esse elemento no header cria reconhecimento imediato para quem esteve no culto.
   **Payload (variante `verb_block`):** `{ "label": "ex: 'Nova série:'", "verbo": "igrejar", "conjugacoes": [{ "pronome": "eu", "forma": "igrejo" }, "..."] }`
-- **`.poeiras-grid` / `.poeira-card`** — grid de itens paralelos (4–6), 2 colunas (1 em mobile), número decorativo + nome + descrição curta.
-  **Payload (variante `poeiras_grid`):** `{ "itens": [{ "numero": "01", "nome": "Amargura", "descricao": "Hebreus 12.15 — descrição curta" }, "..."] }`
+- ~~**`.poeiras-grid` / `.poeira-card`**~~ — **retirada em 2026-11-09** (decisão de Carlos): a variante `poeiras_grid` nunca teve renderer e o bloco sumia da leitura. Usos existentes migrados para `timeline` (PR #74); o validador do Painel Editorial rejeita a variante. Para itens paralelos com nome e descrição, usar `timeline`.
 - **`.sec-eyebrow`** — rótulo maiúsculo acima do título de seção (função da seção: Fundação / Problema / Solução / Conclusão), em vez de referência abaixo do título. Útil para títulos longos.
 - **Títulos de seção** em maiúsculas + itálico (Barlow Condensed 800) — não recomendado para estilos intimistas.
 - **Navegação interna (índice + FAB)** — igual ao Estilo #3, cores usando `--orange`/`--orange-dim`.
@@ -496,6 +495,12 @@ Identificado na calibração de "A Lei É Boa, Mas o Problema Não É Ela" (Reli
 Identificado na calibração com pregação de convidado (Pastor Naor Pedroza, "De Volta ao Pai"). Bloco discreto para um momento de humor/piada do pregador durante a mensagem — diferente de `analogia` (ilustração séria que sustenta um ponto teológico) e de `callout` (citação de peso). Estruturalmente mais simples: só texto, sem label nem conclusão separada. Visualmente marcado com um emoji (ex: 😄) e tratamento levemente distinto (borda tracejada) para sinalizar tom leve sem competir com o conteúdo principal.
 
 **Payload (`componente_tema`, variante `humor`):** `{ "texto": "string — o momento de humor, já editorializado em prosa corrida" }`
+
+### `componente_tema` universal: `timeline` (sequência de etapas)
+
+Chegou no PR #64 (2026-09-26), junto com `resumo_lider`, já com renderer (`ComponenteTemaRenderer.tsx`, `Timeline`). Sequência vertical de etapas ou momentos (ex: passos de um processo, fases de uma história bíblica), cada um com um marcador curto, título e descrição. Diferente de `banho_list` (lista numerada sem título por item) e de `duplice_grid` (exatamente dois cards lado a lado).
+
+**Payload (`componente_tema`, variante `timeline`):** `{ "itens": [{ "icon": "string curta exibida como marcador, ex: '1' ou um emoji", "titulo": "string", "desc": "string, aceita **negrito**" }, "..."] }`
 
 ### `componente_tema` universal: `merch_section` (menções e indicações)
 
