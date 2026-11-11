@@ -131,7 +131,7 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
   - **Remover bloco com texto pede confirmação;** bloco vazio sai direto.
 - [ ] Confirmar se o PWA atualiza sozinho sem limpar dados. No celular de Carlos, em 2026-11-11, o painel só apareceu depois de limpar o cache. Limpar dados do site apaga as anotações pessoais (`localStorage`); ver hurdle de 2026-08-24 no CLAUDE.md.
 - [ ] Gerar um APK novo com o painel (o app nativo só tem o que foi empacotado no build) e testar no aparelho.
-- [ ] Exportar/Copiar JSON (fallback) — §7.3
+- [x] Exportar/Copiar JSON (fallback) e gerar com IA (2026-11-11) — §7.3: prompt `geracao-pregacao.md` + apêndice copiável/baixável no painel, colar/enviar o JSON da IA vira rascunho novo, copiar/baixar o JSON no editor
 - [ ] Pós-MVP: pré-visualização ao vivo; editar pregação já publicada — §7.4–7.5
 
 ---

@@ -6,6 +6,7 @@ import { ErroEditorial, obterRascunho, publicar, salvarRascunho, type ResultadoP
 import { apagarCache, gravarCache, lerCache } from '../../editorial/cacheLocal';
 import { definirCaminho, idCampo, rotuloCaminho, type Caminho } from '../../editorial/caminho';
 import { lerCodigo } from '../../editorial/codigoStorage';
+import { baixarTexto, copiarTexto, nomeArquivo } from '../../editorial/arquivos';
 import { adicionarPonto, limparParaPublicar, normalizar, semErroDuplicadoDeTitulo, type Conteudo } from '../../editorial/modelo';
 import { useAutosave } from '../../editorial/useAutosave';
 import { contarPorGrupo, type Grupo } from '../../editorial/navegacao';
@@ -105,6 +106,39 @@ function IndiceRascunho({
         })}
       </ol>
     </nav>
+  );
+}
+
+/** Copiar/baixar o JSON limpo (§7.3): plano B se o envio falhar, e para conferir. */
+function PlanoB({ conteudo, arquivo }: { conteudo: Conteudo; arquivo: string | null }) {
+  const [aviso, setAviso] = useState<string | null>(null);
+  const json = () => `${JSON.stringify(limparParaPublicar(conteudo), null, 2)}\n`;
+  return (
+    <details className={styles.planoB}>
+      <summary>Copiar ou baixar o JSON</summary>
+      <p className={styles.dica}>Se o envio não funcionar, mande o arquivo para o Carlos. Também serve para guardar uma cópia.</p>
+      <div className={styles.linha}>
+        <button
+          type="button"
+          className={styles.botaoSecundario}
+          onClick={() => void copiarTexto(json()).then((ok) => setAviso(ok ? 'JSON copiado.' : 'Não consegui copiar. Use "Baixar".'))}
+        >
+          Copiar JSON
+        </button>
+        <button
+          type="button"
+          className={styles.botaoSecundario}
+          onClick={() => baixarTexto(arquivo ?? nomeArquivo(conteudo.metadados.tema ?? ''), json())}
+        >
+          Baixar JSON
+        </button>
+      </div>
+      {aviso && (
+        <p className={styles.dica} role="status">
+          {aviso}
+        </p>
+      )}
+    </details>
   );
 }
 
@@ -448,6 +482,7 @@ export function Editor({ id }: { id: string }) {
               ))}
             </ul>
           )}
+          <PlanoB conteudo={conteudo} arquivo={arquivoAtual} />
         </section>
 
         <div className={styles.barra}>

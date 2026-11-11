@@ -133,4 +133,34 @@ describe('Painel Editorial', () => {
     const post = f.mock.calls.find(([, init]) => init?.method === 'POST');
     expect(JSON.parse(String(post?.[1]?.body)).conteudo.metadados).toMatchObject({ serie: '', tema: '' });
   });
+
+  it('gerar com IA: copia o prompt (doc + apêndice) e importa a resposta como rascunho novo', async () => {
+    const f = servidor();
+    const escrever = vi.fn(async (_texto: string) => undefined);
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText: escrever } });
+    localStorage.setItem(CHAVE, BOM);
+    render(<Painel />);
+    fireEvent.click(await screen.findByText('Gerar com IA / importar JSON'));
+
+    fireEvent.click(screen.getByRole('button', { name: 'Copiar prompt' }));
+    await screen.findByText('Prompt copiado. Cole na conversa com a IA.');
+    const prompt = escrever.mock.calls[0][0];
+    expect(prompt).toContain('# Prompt: Geração de Conteúdo de Pregação (JSON)');
+    expect(prompt).toContain('Apêndice para o Painel Editorial');
+
+    const area = screen.getByLabelText(/Cole aqui a resposta da IA/);
+    fireEvent.change(area, { target: { value: 'Aqui está o JSON, mas sem fechar: { "metadados": {' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Importar como rascunho novo' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('Não encontrei');
+
+    const gerado = { metadados: { serie: 'Avulsa', tema: 'Da IA' }, secoes: [{ id: 'a', numero: '01', titulo: 'A', corpo: [] }] };
+    fireEvent.change(area, { target: { value: '```json\n' + JSON.stringify(gerado) + '\n```' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Importar como rascunho novo' }));
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith('/editorial/novo-id'));
+    const post = f.mock.calls.find(([, init]) => init?.method === 'POST');
+    const enviado = JSON.parse(String(post?.[1]?.body)).conteudo;
+    expect(enviado.metadados).toMatchObject({ serie: 'Avulsa', tema: 'Da IA', pregador: '' });
+    expect(enviado.secoes[0].titulo).toBe('A');
+    expect(enviado.banner_intro).toEqual({ frase_sintese: '' });
+  });
 });

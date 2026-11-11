@@ -169,6 +169,7 @@ Plano completo em `docs/painel-editorial.md` (decisões de Carlos, 2026-11-07). 
   - Toda operação estrutural (pontos, blocos, resumo do líder) fica em `src/editorial/modelo.ts`, como função pura testada.
   - `limparParaPublicar` só remove **campos** de objetos, nunca itens de `secoes`/`corpo`; senão o caminho do erro aponta para o campo errado.
   - O autosave (`useAutosave`) respeita o rate limit do Firewall (≥15s entre salvamentos). Testes de navegador contra a API de produção também batem nesse limite: esperar 60s entre rodadas.
+- **`docs/geracao-pregacao.md` é também o prompt dos líderes (2026-11-11).** O painel o importa com `?raw` (`GerarComIA.tsx`, import dinâmico) e acrescenta o apêndice de `src/editorial/promptIA.ts`: payloads de `componente_tema`, testados contra o validador, e a lista `SERIES_COM_TEMA`. Editar o doc muda o que os líderes copiam. Ao criar uma variante nova com renderer, adicionar o payload ao apêndice. O JSON importado vira rascunho sem validação; o editor mostra as pendências.
 - **Testes de `api/_lib/__tests__/` rodam no ambiente jsdom padrão da suíte.** `// @vitest-environment node` quebra porque `src/test/setup.ts` toca `Element.prototype`. Imports com `.js` (nodenext). Diretório `_lib` não vira function na Vercel (prefixo `_`).
 
 ## Decisões de arquitetura (V2 — Quem Sou Eu)
