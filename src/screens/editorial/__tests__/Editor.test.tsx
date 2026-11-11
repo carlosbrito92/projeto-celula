@@ -159,4 +159,36 @@ describe('Editor guiado', () => {
     expect(screen.getAllByLabelText(/^Referência\s*\*?$/)).toHaveLength(1);
     expect(screen.getByLabelText(/Texto bíblico/)).toBeInTheDocument();
   });
+
+  it('botão N põe a seleção em negrito e mostra a prévia', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    const area = (await screen.findAllByLabelText(/^Texto\s*\*?$/))[0] as HTMLTextAreaElement;
+    area.setSelectionRange(0, 5); // "Texto"
+    fireEvent.click(screen.getAllByRole('button', { name: 'Negrito' })[0]);
+    expect(area.value).toBe('**Texto** do ponto.');
+    expect(screen.getByText('Como fica:').parentElement?.querySelector('strong')).toHaveTextContent('Texto');
+  });
+
+  it('"Ver exemplo" mostra onde aparece e o trecho real com a pregação de origem', async () => {
+    servidor({ conteudo: pronta(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    await screen.findByText('Dados gerais', { selector: 'summary' });
+    const campo = screen.getByLabelText(/Frase-síntese/).closest('div')!;
+    fireEvent.click(within(campo).getByRole('button', { name: 'Ver exemplo' }));
+    expect(within(campo).getByText(/primeira coisa que o leitor lê/)).toBeInTheDocument();
+    expect(within(campo).getByText('De “Uma Igreja de Joelhos”')).toBeInTheDocument();
+  });
+
+  it('índice mostra pendências por parte e "Recolher tudo" fecha os grupos', async () => {
+    servidor({ conteudo: novaPregacao(), versao: 1, arquivo: null });
+    render(<Editor id="r1" />);
+    const indice = await screen.findByRole('navigation', { name: 'Índice do rascunho' });
+    expect(within(indice).getByRole('button', { name: /Dados gerais\s*faltam 2/ })).toBeInTheDocument();
+    expect(within(indice).getByRole('button', { name: /Resumo do líder\s*opcional/ })).toBeInTheDocument();
+    fireEvent.click(within(indice).getByRole('button', { name: 'Recolher tudo' }));
+    expect(document.querySelectorAll('details[open]')).toHaveLength(0);
+    fireEvent.click(within(indice).getByRole('button', { name: /Abertura/ }));
+    expect(document.querySelectorAll('details[open]')).toHaveLength(1);
+  });
 });

@@ -8,6 +8,7 @@ import { definirCaminho, idCampo, rotuloCaminho, type Caminho } from '../../edit
 import { lerCodigo } from '../../editorial/codigoStorage';
 import { adicionarPonto, limparParaPublicar, normalizar, semErroDuplicadoDeTitulo, type Conteudo } from '../../editorial/modelo';
 import { useAutosave } from '../../editorial/useAutosave';
+import { contarPorGrupo, type Grupo } from '../../editorial/navegacao';
 import { CampoComSugestoes, CampoData, CampoSelecao, CampoTexto } from './editor/Campos';
 import { EditorContext } from './editor/contexto';
 import { ResumoLiderEditor } from './editor/ResumoLiderEditor';
@@ -50,6 +51,63 @@ function focarCaminho(caminho: string) {
   }
 }
 
+/** Abre (ou fecha) todos os <details> do editor. */
+function alternarTodos(raiz: HTMLElement | null, abrir: boolean) {
+  raiz?.querySelectorAll('details').forEach((d) => {
+    d.open = abrir;
+  });
+}
+
+function IndiceRascunho({
+  conteudo,
+  pendencias,
+  raiz,
+}: {
+  conteudo: Conteudo;
+  pendencias: Map<Grupo, number>;
+  raiz: React.RefObject<HTMLDivElement | null>;
+}) {
+  const itens: { grupo: Grupo; rotulo: string; alvo: string; opcional?: boolean }[] = [
+    { grupo: 'metadados', rotulo: 'Dados gerais', alvo: 'metadados' },
+    { grupo: 'banner_intro', rotulo: 'Abertura', alvo: 'banner_intro' },
+    ...conteudo.secoes.map((s, i) => {
+      const t = conteudo.mapa_pontos.find((p) => p.id === s.id)?.titulo || s.titulo;
+      return { grupo: `secao:${s.id}` as Grupo, rotulo: `${s.numero || '—'} · ${t || 'Ponto sem título'}`, alvo: `secoes[${i}]` };
+    }),
+    { grupo: 'resumo_lider', rotulo: 'Resumo do líder', alvo: 'resumo_lider', opcional: !conteudo.resumo_lider },
+  ];
+  return (
+    <nav className={styles.indice} aria-label="Índice do rascunho" id="indice-rascunho">
+      <div className={styles.indiceTopo}>
+        <span className={styles.secaoTitulo}>Índice</span>
+        <span className={styles.linha}>
+          <button type="button" className={styles.linkBotao} onClick={() => alternarTodos(raiz.current, false)}>
+            Recolher tudo
+          </button>
+          <button type="button" className={styles.linkBotao} onClick={() => alternarTodos(raiz.current, true)}>
+            Abrir tudo
+          </button>
+        </span>
+      </div>
+      <ol className={styles.indiceLista}>
+        {itens.map((it) => {
+          const n = pendencias.get(it.grupo) ?? 0;
+          return (
+            <li key={it.grupo}>
+              <button type="button" className={styles.indiceItem} onClick={() => focarCaminho(it.alvo)}>
+                <span className={styles.indiceRotulo}>{it.rotulo}</span>
+                <span className={n ? styles.indicePendente : styles.indiceOk}>
+                  {it.opcional ? 'opcional' : n ? `falta${n > 1 ? 'm' : ''} ${n}` : '✓'}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
 export function Editor({ id }: { id: string }) {
   const { navigate } = useRouter();
   const codigo = lerCodigo();
@@ -69,6 +127,7 @@ export function Editor({ id }: { id: string }) {
   const [arquivoAtual, setArquivoAtual] = useState<string | null>(null);
 
   // Valores lidos dentro de callbacks assíncronos (sem closure velha).
+  const raiz = useRef<HTMLDivElement>(null);
   const versao = useRef(1);
   const arquivo = useRef<string | null>(null);
   const atual = useRef<{ conteudo: Conteudo | null; revisao: number }>({ conteudo: null, revisao: 0 });
@@ -180,6 +239,11 @@ export function Editor({ id }: { id: string }) {
     return { ...r, erros: semErroDuplicadoDeTitulo(conteudo, r.erros) };
   }, [conteudo]);
 
+  const pendencias = useMemo(
+    () => (conteudo && validacao ? contarPorGrupo(conteudo, validacao.erros) : new Map<Grupo, number>()),
+    [conteudo, validacao],
+  );
+
   const contexto = useMemo(
     () =>
       conteudo && {
@@ -254,7 +318,7 @@ export function Editor({ id }: { id: string }) {
 
   return (
     <EditorContext.Provider value={contexto}>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={raiz}>
         <Link to="/editorial" className={styles.voltar}>
           ← Painel
         </Link>
@@ -287,14 +351,17 @@ export function Editor({ id }: { id: string }) {
           </div>
         )}
 
+        <IndiceRascunho conteudo={conteudo} pendencias={pendencias} raiz={raiz} />
+
         <details className={styles.grupo} id={idCampo(['metadados'])} open>
           <summary className={styles.grupoTitulo}>Dados gerais</summary>
           <div className={styles.grupoCorpo}>
-            <CampoTexto caminho={['metadados', 'tema']} rotulo="Tema (título da pregação)" obrigatorio />
+            <CampoTexto caminho={['metadados', 'tema']} rotulo="Tema (título da pregação)" exemplo="tema" obrigatorio />
             <CampoComSugestoes
               caminho={['metadados', 'serie']}
               rotulo="Série"
               dica='Use "Avulsa" se não fizer parte de uma série.'
+              exemplo="serie"
               obrigatorio
               sugestoes={[...SERIES_COM_TEMA, 'Avulsa']}
             />
@@ -307,10 +374,10 @@ export function Editor({ id }: { id: string }) {
               />
             )}
             <p className={styles.dica}>Visual da leitura: {tema.nome}</p>
-            <CampoTexto caminho={['metadados', 'capitulo']} rotulo="Capítulo (opcional)" dica='Ex: "Capítulo 2".' />
+            <CampoTexto caminho={['metadados', 'capitulo']} rotulo="Capítulo (opcional)" dica='Ex: "Capítulo 2".' exemplo="capitulo" />
             <CampoData caminho={['metadados', 'data']} rotulo="Data" />
             <CampoTexto caminho={['metadados', 'pregador']} rotulo="Pregador" />
-            <CampoTexto caminho={['metadados', 'texto_base']} rotulo="Texto-base" dica="Ex: Efésios 2.8-9" />
+            <CampoTexto caminho={['metadados', 'texto_base']} rotulo="Texto-base" dica="Ex: Efésios 2.8-9" exemplo="texto_base" />
           </div>
         </details>
 
@@ -321,6 +388,7 @@ export function Editor({ id }: { id: string }) {
               caminho={['banner_intro', 'frase_sintese']}
               rotulo="Frase-síntese"
               dica="A frase que resume a mensagem, em destaque no topo."
+              exemplo="frase_sintese"
               obrigatorio
               multilinha
             />
@@ -328,9 +396,10 @@ export function Editor({ id }: { id: string }) {
               caminho={['banner_intro', 'contextualizacao']}
               rotulo="Contextualização (opcional)"
               dica='Ex: "Segundo capítulo da série. No episódio anterior…"'
+              exemplo="contextualizacao"
               multilinha
             />
-            <CampoTexto caminho={['banner_intro', 'versiculo_ancora', 'referencia']} rotulo="Versículo-âncora: referência (opcional)" />
+            <CampoTexto caminho={['banner_intro', 'versiculo_ancora', 'referencia']} rotulo="Versículo-âncora: referência (opcional)" exemplo="versiculo_ancora" />
             <CampoTexto caminho={['banner_intro', 'versiculo_ancora', 'texto']} rotulo="Versículo-âncora: texto (opcional)" multilinha />
           </div>
         </details>
@@ -398,6 +467,13 @@ export function Editor({ id }: { id: string }) {
               {validacao.erros.length === 0 ? 'Pronta para enviar' : `${validacao.erros.length} pendência(s)`}
             </span>
           </div>
+          <button
+            type="button"
+            className={styles.botaoSecundario}
+            onClick={() => document.getElementById('indice-rascunho')?.scrollIntoView({ block: 'start' })}
+          >
+            Índice
+          </button>
           <button type="button" className={styles.botaoPrimario} disabled={enviando} onClick={() => void enviar()}>
             {enviando ? 'Enviando…' : arquivoAtual ? 'Enviar correção' : 'Enviar para revisão'}
           </button>
