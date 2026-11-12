@@ -364,6 +364,52 @@ Quando a fonte já chega como esboço organizado (texto-base, pontos numerados, 
 
 ---
 
+## Tema: Estilo #7 — Maranata
+
+**Origem:** fotos do telão no culto de 8 de novembro de 2026 (slide "série Maranata" e slide do título "A volta de Jesus"). Céu azul-claro com nuvens de pôr do sol, lamparina de cobre enferrujada, trombeta, pássaros, padrão de cruzinhas brancas e um coração vermelho-alaranjado atrás do título.
+**Uso:** série *Maranata* — seis domingos sobre a volta de Jesus (arrebatamento, grande tribulação, anticristo, tribunal de Cristo, milênio, nova Jerusalém).
+
+### Paleta
+
+**Primeiro tema claro do app.** A arte é luminosa (céu de dia, não noite), e escurecer o fundo descaracterizaria a série. O azul do telão foi clareado para leitura longa; o texto usa o oliva quase preto do lettering.
+
+| Variável | Valor | Origem / Uso |
+|---|---|---|
+| `--bg` | `#dcebf3` | Céu do telão, mais claro para leitura contínua |
+| `--surface` | `#e9f3f8` | Header, cards |
+| `--surface2` | `#f4f9fc` | Blocos de versículo, analogia |
+| `--border` | `#b4cfdc` | Bordas e separadores |
+| `--text` | `#26291d` | Oliva quase preto do lettering "Maranata" |
+| `--muted` | `#56646a` | Referências, metadados |
+| `--accent1` | `#a3431c` | Cobre da lamparina — números, referências, bordas de destaque, CTA |
+| `--accent2` | `#57552a` | Oliva do lettering — rótulos de componente |
+| `--accent-alert` | `#b93a14` | Coração vermelho-alaranjado do slide do título |
+| `--accent-dim` | `#efd4c2` | Pêssego das nuvens |
+| `--tag-bg` | `#f1dccd` | Fundo do badge de série — sólido; transparente sobre o azul ficava cinza |
+
+**Contraste:** `--accent1` e `--accent2` passam de 4.5:1 sobre `--bg`, então podem ser cor de texto (diferente da regra do Estilo #6).
+
+### Tipografia
+
+| Função | Família | Pesos |
+|---|---|---|
+| Display (título, índice, seções, callouts) | `Gloock` | 400 (único) — serifa de alto contraste e condensada, com serifas em cunha, a mais próxima do lettering "Maranata"/"A volta de Jesus" |
+| Corpo | `Inter` | 400–700 |
+| Rótulos | `JetBrains Mono` | 400, 500 |
+
+Gloock não tem itálico: onde o app usa display em itálico (citações do `versus`), o navegador sintetiza.
+
+### Componentes e variantes específicas deste tema
+
+Nenhum componente novo. A primeira mensagem usa `label_box` no header (os dois momentos da volta e a condição), `timeline`, `versus`, `contraste` e `analogia`.
+
+### Implementação
+
+- `ThemeScope` passou a definir `color: var(--text)` no wrapper. Antes, textos sem cor própria (`.headerTitulo`, títulos do índice) herdavam a cor do `color-scheme: dark` do app, e no tema claro ficavam quase brancos sobre o céu. Nos temas escuros a mudança é imperceptível.
+- O card da Biblioteca fica claro no meio dos outros, escuros: é a identidade da série, não um erro.
+
+---
+
 ## Tema: Série Religião Tóxica (Estilo #5 → #5b, paleta oficial vigente)
 
 > **Nota histórica:** este tema teve duas versões. O Estilo #5 original foi criado editorialmente (sem referência visual) para a primeira mensagem da série. Na segunda mensagem, a arte oficial de palco chegou e **substituiu retroativamente** a paleta editorial. **O Estilo #5b é o tema vigente** — o #5 original é mantido abaixo apenas como registro histórico do princípio de "paleta provisória".

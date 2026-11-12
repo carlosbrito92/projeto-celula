@@ -1,0 +1,573 @@
+{
+  "metadados": {
+    "serie": "Maranata",
+    "capitulo": "Capítulo 1",
+    "tema": "A Volta de Jesus",
+    "data": "8 de novembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "2 Timóteo 4.6-8",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Primeira mensagem da série Maranata: seis domingos sobre a volta de Jesus — o arrebatamento da igreja, os sinais dos últimos dias, a grande tribulação, o anticristo e o falso profeta, o tribunal de Cristo, o milênio, a nova Jerusalém e a eternidade. Nesta abertura, o pastor apresenta a volta de Cristo como a consumação da redenção, mostra que ela acontece em dois momentos separados pela grande tribulação e explica o que faz um crente estar pronto para ser arrebatado.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Maranata — Vem, Senhor",
+        "campos": [
+          { "campo": "Primeiro momento", "valor": "Arrebatamento — invisível, repentino, sem sinais" },
+          { "campo": "Entre os dois", "valor": "Grande tribulação — 3 anos e meio" },
+          { "campo": "Segundo momento", "valor": "Volta visível — todo olho o verá" },
+          { "campo": "Condição", "valor": "Vigiar e orar" }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "2 Timóteo 4.8",
+      "texto": "Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos quantos amam a sua vinda."
+    },
+    "frase_sintese": "Nós não caminhamos para o caos. Nós caminhamos para a glória — o nosso último endereço não será um túmulo, será a presença do Senhor."
+  },
+  "mapa_pontos": [
+    { "id": "bloco-1", "numero": "1", "titulo": "Amar a Sua Vinda" },
+    { "id": "bloco-2", "numero": "2", "titulo": "Destinados à Salvação, Não à Ira" },
+    { "id": "bloco-3", "numero": "3", "titulo": "A Grande Tribulação e o Abominável da Desolação" },
+    { "id": "bloco-4", "numero": "4", "titulo": "Antes ou Depois? Divergência Sem Divisão" },
+    { "id": "bloco-5", "numero": "5", "titulo": "Do Mesmo Modo Como Subiu: Dois Momentos" },
+    { "id": "bloco-6", "numero": "6", "titulo": "O Trigo Que Amadurece Primeiro" },
+    { "id": "bloco-7", "numero": "7", "titulo": "Uma Noiva Apaixonada" },
+    { "id": "bloco-8", "numero": "8", "titulo": "Como um Ladrão: Vigiai" },
+    { "id": "bloco-9", "numero": "9", "titulo": "As Virgens Prudentes e os Talentos" }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Amar a Sua Vinda",
+      "sec_eyebrow": "Fundação",
+      "referencias": "2 Timóteo 4.6-8",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A volta de Jesus é um assunto que deveria ser constantemente pregado, ensinado e enfatizado. Ela é o **ponto culminante das grandes doutrinas das Escrituras**: a consumação da redenção, a vitória triunfante de Cristo e da igreja. A história não está à deriva, e o mundo não está sem rumo — todos os acontecimentos são cumprimento da Palavra de Deus."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus está sentado na sala de comando. Ele possui as rédeas da história nas mãos e está conduzindo essa história para uma consumação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Perto do fim da vida, Paulo escreve a Timóteo com a serenidade de quem sabe para onde está indo — e afirma que a coroa não está reservada só para ele:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Timóteo 4.6-8",
+          "texto": "Quanto a mim, estou sendo já oferecido por libação, e o tempo da minha partida é chegado. Combati o bom combate, completei a carreira, guardei a fé. Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos quantos amam a sua vinda."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A coroa está guardada para **todos quantos amam a sua vinda**. Por isso o crente que não ama a volta de Cristo, que não tem esse anseio e essa expectativa, revela uma **deficiência na sua vida espiritual**. Há crentes que nem conseguem ler o livro de Apocalipse, tomados por medo e insegurança. Mas a volta de Jesus não deveria produzir medo — deveria produzir **alegria, confiança, expectativa e esperança**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Destinados à Salvação, Não à Ira",
+      "sec_eyebrow": "A Esperança",
+      "referencias": "1 Tessalonicenses 5.9-10 · João 5.24 · Romanos 8.1 · Tito 2.13 · Apocalipse 21.3-4",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Podemos aguardar a volta de Cristo com alegria porque **não estamos destinados à ira**, mas à salvação."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 5.9-10",
+          "texto": "porque Deus não nos destinou para a ira, mas para alcançar a salvação mediante nosso Senhor Jesus Cristo, que morreu por nós para que, quer vigiemos, quer durmamos, vivamos em união com ele."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 5.24",
+          "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.1",
+          "texto": "Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Essa é a nossa **bendita esperança**. E a volta de Cristo será o **fim definitivo de todo sofrimento e de toda dor**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Tito 2.13",
+          "texto": "aguardando a bendita esperança e a manifestação da glória do nosso grande Deus e Salvador Cristo Jesus,"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 21.3-4",
+          "texto": "Então, ouvi grande voz vinda do trono, dizendo: Eis o tabernáculo de Deus com os homens. Deus habitará com eles. Eles serão povos de Deus, e Deus mesmo estará com eles. E lhes enxugará dos olhos toda lágrima, e a morte já não existirá, já não haverá luto, nem pranto, nem dor, porque as primeiras coisas passaram."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Vivemos num mundo cheio de contrastes. Agora mesmo há pessoas transbordando de alegria e outras tomadas pela tristeza; gente nascendo e gente morrendo; pessoas se casando e pessoas se divorciando; uns sendo promovidos e outros perdendo o emprego. Esses contrastes nos fazem ansiar ainda mais pela volta de Cristo, porque naquele dia todas essas coisas passarão e estaremos com o Senhor para sempre."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Somos salvos pela graça, mediante a fé. Uma vez salvos, temos paz com Deus — e todo medo da ira, do juízo e da condenação é arrancado de dentro de nós. Então surge no coração, colocado pelo Espírito, o **anseio de sermos arrebatados**. É por isso que precisamos conhecer o que a Bíblia diz sobre a volta de Jesus: essa revelação precisa **afetar a nossa maneira de viver**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Grande Tribulação e o Abominável da Desolação",
+      "sec_eyebrow": "O Que Separa os Dois Momentos",
+      "referencias": "Daniel 9.27 · Mateus 24.15 · Mateus 24.21 · 1 Tessalonicenses 5.3 · Apocalipse 13",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A segunda vinda de Jesus é um processo que acontece em **dois momentos**: o primeiro é o **arrebatamento da igreja**; o segundo é a **volta visível de Jesus**. O que separa esses dois momentos é um período chamado **a grande tribulação**, também chamado de **o dia da ira de Deus**, que vai durar três anos e meio — 42 meses, 1.260 dias."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "timeline",
+          "dados": {
+            "itens": [
+              { "icon": "1", "titulo": "Arrebatamento da igreja", "desc": "O momento **invisível** e repentino. Encerra o tempo da graça que vivemos hoje." },
+              { "icon": "2", "titulo": "A grande tribulação", "desc": "Três anos e meio, a partir da profanação do templo. A **ira de Deus** é derramada sobre a terra — e a **ira do dragão** persegue os santos." },
+              { "icon": "3", "titulo": "A volta visível", "desc": "Jesus volta nas nuvens e **todo olho o verá**." }
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Hoje vivemos no tempo da graça, na dispensação do Espírito. Quando o arrebatamento acontecer, a ira de Deus será derramada do céu — mas **nunca sobre os crentes**, porque Cristo, na cruz do Calvário, já experimentou toda a ira de Deus em nosso lugar. Ainda assim, alguns crentes não serão poupados da **ira do dragão**: Apocalipse 13 descreve um tempo de perseguição pelo anticristo, chamado de a besta, com permissão até para o martírio."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "As setenta semanas de Daniel"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Daniel 9 traz uma das profecias mais conhecidas da Bíblia, a das **setenta semanas**. Cada semana dura sete anos. As primeiras 69 já se cumpriram — todas dizem respeito a Cristo, à sua obra e à sua morte. Falta apenas a última. Entre a 69ª e a 70ª há um intervalo: **o tempo da igreja**, em que ela está sendo edificada na terra. A última semana, sete anos, corresponde ao período da tribulação."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Daniel 9.27",
+          "texto": "Ele fará firme aliança com muitos, por uma semana; na metade da semana, fará cessar o sacrifício e a oferta de manjares; sobre a asa das abominações virá o assolador, até que a destruição, que está determinada, se derrame sobre o assolador."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus apontou o que dá início à grande tribulação:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.15",
+          "texto": "Quando, pois, virdes o abominável da desolação de que falou o profeta Daniel, no lugar santo (quem lê entenda),"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.21",
+          "texto": "porque nesse tempo haverá grande tribulação, como desde o princípio do mundo até agora não tem havido e nem haverá jamais."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O **lugar santo** é uma das três partes do templo de Jerusalém (átrio, lugar santo e santo dos santos). Mas esse templo não existe hoje: foi destruído no ano 70 d.C. pelo exército romano, sob o comando de Tito, no reinado de Vespasiano. Para que a profecia se cumpra, **o templo precisa ser reconstruído**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O espírito do anticristo já está se manifestando entre nós. Ele fará uma **aliança de sete anos com Israel** que permitirá a reconstrução do templo — num local hoje sob controle muçulmano, o que exigirá uma figura de enorme influência e autoridade. Os primeiros três anos e meio serão de paz:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 5.3",
+          "texto": "Quando andarem dizendo: Paz e segurança, eis que lhes sobrevirá repentina destruição, como vêm as dores de parto à que está para dar à luz; e de nenhum modo escaparão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O **abominável da desolação** é a estátua do anticristo, que o falso profeta levantará para ser adorada no templo reconstruído — Apocalipse 13 diz que ela chegará a falar. O templo será profanado, e essa será a **ignição da grande tribulação**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Eu estou te contando isso, mas você não vai ver isso — porque você será arrebatado antes."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Antes ou Depois? Divergência Sem Divisão",
+      "sec_eyebrow": "As Visões",
+      "referencias": "1 Tessalonicenses 1.10 · Apocalipse 13.7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A grande tribulação dividiu os evangélicos em grupos quanto ao momento do arrebatamento."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": {
+              "label": "Pré-tribulacionistas",
+              "citacao": "A igreja será arrebatada antes da grande tribulação — e todo crente será arrebatado, vigie ou não, ore ou não."
+            },
+            "lado_b": {
+              "label": "Pós-tribulacionistas",
+              "citacao": "Todos os crentes passarão pela grande tribulação; no final dela, Jesus volta nas nuvens e arrebata os santos."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Um dos grandes argumentos dos pré-tribulacionistas é que os crentes serão livrados da ira de Deus, que será derramada na grande tribulação:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 1.10",
+          "texto": "e para aguardardes dos céus o seu Filho, a quem ele ressuscitou dentre os mortos, Jesus, que nos livra da ira vindoura."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É verdade: a ira de Deus não será derramada sobre os crentes. Mas na grande tribulação haverá também **a ira do dragão** — a ira do diabo, um tempo de perseguição e até de martírio por causa da fé."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 13.7",
+          "texto": "Foi-lhe dado, também, que pelejasse contra os santos e os vencesse. Deu-se-lhe ainda autoridade sobre cada tribo, povo, língua e nação;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem pensa diferente não é herege. É uma questão de interpretação. **Todo crente crê** que Jesus volta, que o anticristo e o falso profeta se manifestarão, que haverá um governo mundial e uma grande tribulação, e que no final dela Jesus voltará nas nuvens. A diferença está nos detalhes — e essas diferenças não podem produzir divisão no corpo de Cristo."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não discuta com ninguém. Apenas pergunte: você crê que Jesus vai voltar? Então nós estamos juntos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E no que nós cremos? **Nas duas coisas** — porque a Bíblia faz afirmações a respeito das duas."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Do Mesmo Modo Como Subiu: Dois Momentos",
+      "sec_eyebrow": "A Chave",
+      "referencias": "Atos 1.9-11 · Apocalipse 1.7",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois da ressurreição, Jesus passou mais quarenta dias com os discípulos — como um treinamento adicional aos três anos e meio de caminhada. No fim desses dias, foi elevado aos céus diante deles:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 1.9-11",
+          "texto": "Ditas estas palavras, foi Jesus elevado às alturas, à vista deles, e uma nuvem o encobriu dos seus olhos. E, estando eles com os olhos fitos no céu, enquanto Jesus subia, eis que dois varões vestidos de branco se puseram ao lado deles e lhes disseram: Varões galileus, por que estais olhando para as alturas? Esse Jesus que dentre vós foi assunto ao céu virá do modo como o vistes subir."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Como Jesus subiu? Em **duas etapas**. Do monte das Oliveiras até as nuvens, os discípulos podiam vê-lo — etapa **visível**. Das nuvens até o trono de Deus, não o viram mais — etapa **invisível**. Os anjos disseram que ele voltaria **do mesmo modo**: também em duas etapas, uma invisível e outra visível."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "contraste",
+          "dados": {
+            "lado_a": {
+              "label": "Momento invisível",
+              "titulo": "O arrebatamento da igreja",
+              "texto": "De repente, de surpresa, num momento inesperado — como ensinamos às crianças: Jesus virá de surpresa."
+            },
+            "lado_b": {
+              "label": "Momento visível",
+              "titulo": "A volta nas nuvens",
+              "texto": "Depois da grande tribulação, Jesus volta e todo olho o verá."
+            }
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 1.7",
+          "texto": "Eis que vem com as nuvens, e todo olho o verá, até quantos o traspassaram. E todas as tribos da terra se lamentarão sobre ele. Certamente. Amém!"
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "Então o que faz alguns crentes serem arrebatados no primeiro momento, sem passar pela grande tribulação, e outros só depois dela?"
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "O Trigo Que Amadurece Primeiro",
+      "sec_eyebrow": "Maturidade",
+      "referencias": "Apocalipse 14.4 · Apocalipse 14.14-16",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma das críticas a essa doutrina é que ela faria distinção entre crentes e crentes, quando a Bíblia faz distinção entre joio e trigo. É verdade — mas aqui a diferença não é de natureza entre um trigo e outro. A diferença está na **maturidade**: uma parte do trigo amadurece primeiro, e a Bíblia a chama de **primícias**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Plantação de Trigo",
+            "corpo": [
+              "Quem planta trigo sabe reconhecer a hora da colheita por três sinais: a plantação fica amarelada, o trigo começa a se curvar e as raízes começam a se soltar.",
+              "Alguns trigos amadurecem antes e são colhidos primeiro — é o arrebatamento antes da grande tribulação. O restante da plantação não é desprezado nem lançado no fogo eterno: ele passa pelo sol da perseguição para amadurecer, e então a colheita é completada."
+            ],
+            "conclusao": "Nós nos curvamos porque estamos rendidos à vontade de um Deus soberano. E nossas raízes estão soltas porque não estamos apegados a este mundo — ele não nos fascina, não nos embriaga, não nos segura mais."
+          }
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quanto mais você amadurece, mais você fica desapegado deste mundo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 14.4",
+          "texto": "São estes os que não se macularam com mulheres, porque são castos. São eles os seguidores do Cordeiro por onde quer que vá. São os que foram redimidos dentre os homens, primícias para Deus e para o Cordeiro;"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 14.14-16",
+          "texto": "Olhei, e eis uma nuvem branca, e sentado sobre a nuvem um semelhante a filho de homem, tendo na cabeça uma coroa de ouro e na mão uma foice afiada. Outro anjo saiu do santuário, gritando em grande voz para aquele que se achava sentado sobre a nuvem: Toma a tua foice e ceifa, pois chegou a hora de ceifar, visto que a seara da terra já amadureceu! E aquele que estava sentado sobre a nuvem passou a sua foice sobre a terra, e a terra foi ceifada."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "As primícias são o trigo que amadureceu primeiro. A outra parte da colheita terá que passar pelo **sol da provação e da perseguição** na grande tribulação para amadurecer — e só depois será colhida e arrebatada."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Uma Noiva Apaixonada",
+      "sec_eyebrow": "Santa Expectativa",
+      "referencias": "1 Coríntios 15.19 · 1 Coríntios 7.29-31 · Apocalipse 22.17 · Apocalipse 22.20",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Tem gente que diz: \"Não sei se quero que Jesus volte agora — eu ainda não casei.\" Que planos maravilhosos são esses, que fazem alguém hesitar diante da volta do Senhor? O casamento não é o céu. **O céu é com Jesus.**"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você pode ter planos e projetos — casar, ter filhos, prosperar, viajar e conhecer o mundo. Mas o coração precisa ter um **desejo santo**: \"Senhor, o que eu quero mesmo é a sua vinda. O meu coração não está enterrado nesta terra; a minha expectativa está na sua volta.\""
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 15.19",
+          "texto": "Se a nossa esperança em Cristo se limita apenas a esta vida, somos os mais infelizes de todos os homens."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 7.29-31",
+          "texto": "Isto, porém, vos digo, irmãos: o tempo se abrevia; o que resta é que não só os casados sejam como se o não fossem; mas também os que choram, como se não chorassem; e os que se alegram, como se não se alegrassem; e os que compram, como se nada possuíssem; e os que se utilizam do mundo, como se dele não usassem; porque a aparência deste mundo passa."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Trabalhe como se não trabalhasse, estude como se não estudasse; se possuir dinheiro, viva como se não possuísse. Faça tudo para a glória dele, porque o Senhor Jesus virá."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Noiva Que Só Fala do Casamento",
+            "corpo": [
+              "Uma noiva apaixonada não fala de outro assunto. Qualquer que seja a conversa, ela dá um jeito de chegar no casamento: os bem-casados, o doce de leite, os convites escolhidos assim ou assado.",
+              "O coração dela está transbordando disso. Ela não vê a hora do casamento chegar. E aqui não se trata de um casamento qualquer: o noivo está vindo, e você é a noiva do Senhor."
+            ],
+            "conclusao": "A noiva não diz \"espera mais um pouco, eu quero me formar, conhecer Paris, ter filhos\". A noiva diz: vem."
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 22.17",
+          "texto": "O Espírito e a noiva dizem: Vem! Aquele que ouve, diga: Vem! Aquele que tem sede venha, e quem quiser receba de graça a água da vida."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 22.20",
+          "texto": "Aquele que dá testemunho destas coisas diz: Certamente, venho sem demora. Amém! Vem, Senhor Jesus!"
+        },
+        {
+          "tipo": "frase_chave",
+          "texto": "Maranata — ora vem, Senhor Jesus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Como um Ladrão: Vigiai",
+      "sec_eyebrow": "A Condição",
+      "referencias": "Apocalipse 3.3 · Apocalipse 16.15 · Mateus 24.36 · Mateus 24.40-42 · Mateus 25.13 · Lucas 21.34-36",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O primeiro momento da volta de Jesus, o arrebatamento, será **invisível** — e virá **como um ladrão**. O ladrão não avisa a hora em que está chegando; se avisasse, você se prepararia para recebê-lo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.3",
+          "texto": "Lembra-te, pois, do que tens recebido e ouvido, guarda-o e arrepende-te. Porquanto, se não vigiares, virei como ladrão, e não conhecerás de modo algum em que hora virei contra ti."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 16.15",
+          "texto": "Eis que venho como vem o ladrão. Bem-aventurado aquele que vigia e guarda as suas vestes, para que não ande nu, e não se veja a sua vergonha."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Pode acontecer hoje, agora, a qualquer momento — num abrir e fechar de olhos. **Não há sinais para o arrebatamento.** Não estamos aguardando a reconstrução do templo, nem o anticristo, nem o falso profeta. Estamos aguardando **o noivo**: não acontecimentos, mas uma pessoa."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Já a volta visível, quando ele pisar no monte das Oliveiras, não será inesperada: virá depois da grande tribulação, e a Bíblia descreve os sinais — o anticristo, o falso profeta, um governo mundial, a estátua no templo, a marca da besta sem a qual ninguém compra nem vende. Ninguém sabe o dia nem a hora, mas quem estiver aqui saberá a proximidade da volta."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.36",
+          "texto": "Mas a respeito daquele dia e hora ninguém sabe, nem os anjos dos céus, nem o Filho, senão o Pai."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.40-42",
+          "texto": "Então, dois estarão no campo, um será tomado, e deixado o outro; duas estarão trabalhando num moinho, uma será tomada, e deixada a outra. Portanto, vigiai, porque não sabeis em que dia vem o vosso Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse texto não fala de joio e trigo, nem de um crente verdadeiro e um falso. A Bíblia nunca compara o filho com o ímpio — filho é filho, ímpio é ímpio. Os dois do campo precisam ter **a mesma natureza**: um é tomado e o outro fica para trás porque **não vigiou**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.13",
+          "texto": "Vigiai, pois, porque não sabeis o dia nem a hora."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Vigiar é viver hoje de um jeito que você não precisaria mudar se soubesse que Jesus volta amanhã."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "O que é vigiar"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Manter viva a sua **comunhão com Deus**.",
+            "Rejeitar a frieza, a apatia, o tédio espiritual.",
+            "Viver de forma pura e santa.",
+            "Viver com o coração sensível à voz do Espírito e à direção de Deus.",
+            "Não permitir que as preocupações desta vida tomem o coração.",
+            "Ser fiel naquilo que o Pai nos confiou.",
+            "Manter o coração preparado para o encontro com Jesus.",
+            "Não perder a **eternidade** de vista."
+          ]
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 21.34-36",
+          "texto": "Acautelai-vos por vós mesmos, para que nunca vos suceda que o vosso coração fique sobrecarregado com as consequências da orgia, da embriaguez e das preocupações deste mundo, e para que aquele dia não venha sobre vós repentinamente, como um laço. Pois há de sobrevir a todos os que vivem sobre a face de toda a terra. Vigiai, pois, a todo tempo, orando, para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existem coisas que podem nos seduzir e nos embriagar: o dinheiro, o lazer, o entretenimento, o vencer na vida, a política — quantas pessoas têm sido embriagadas por ideologias. Mas somos **peregrinos**, estamos aqui de passagem."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "Então eu tenho que largar tudo e ficar esperando Jesus voltar?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "De jeito nenhum. Os dois estavam trabalhando no campo; as duas, no moinho. **Continue a sua vida normal** — mas, na sua vida normal, cultive um coração atento ao Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Bíblia não diz que devemos orar e vigiar para sermos salvos: a salvação é **pela graça, mediante a fé**, um dom gratuito de Deus. Mas, com relação ao arrebatamento, há uma conduta exigida. Se todo crente fosse arrebatado — vigiando ou não, orando ou não —, por que seria necessário vigiar? É uma questão de vigiar, orar e estar consciente: **uma questão de amadurecimento**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "As Virgens Prudentes e os Talentos",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "Mateus 25.1-13 · Mateus 25.14-30",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Mateus 25, nas parábolas do Reino, Jesus fala de dez virgens: cinco prudentes e cinco tolas. Não eram cinco virgens e cinco prostitutas — **todas eram virgens**, todas puras, todas da mesma natureza. E todas tinham azeite na lâmpada."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.4",
+          "texto": "as prudentes, porém, levaram azeite em suas vasilhas juntamente com as suas lâmpadas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na Palavra de Deus, o azeite aponta para o **Espírito Santo**. Todo crente tem azeite na lâmpada, mas há crentes cheios do Espírito a ponto de o azeite **transbordar**. Esses são os sábios, os prudentes, os que estão vigiando — esses serão arrebatados naquele dia."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na parábola dos talentos, antes de viajar o senhor distribui talentos aos servos: cinco a um, dois a outro, um a outro — cada um segundo a sua capacidade, e ninguém fica sem pelo menos um. Depois ele volta para pedir contas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O servo que enterrou o talento não era desonesto: devolveu exatamente o que recebeu. Mas o senhor não se agradou, porque quer ver **a sua graça funcionando** na nossa vida — com fidelidade e multiplicação, sem que essa graça seja desperdiçada e se torne vã, vazia, infrutífera."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Quem deseja ser arrebatado não é apenas aquele que viveu com honestidade. É aquele que trabalhou para o Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É por isso que somos uma **igreja em células**: para dar oportunidade a todos de servir com o dom que receberam. Não fique fora do mover. Esteja vigiando, esteja orando, esteja servindo ao Senhor."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    { "ponto": "Amar a sua vinda: a volta de Cristo é a consumação da redenção, e a coroa está guardada para todos quantos amam a sua vinda — quem não a deseja revela uma deficiência espiritual.", "versiculo_ancora": "2 Timóteo 4.6-8" },
+    { "ponto": "Destinados à salvação: não estamos destinados à ira; a volta de Cristo é a bendita esperança e o fim de toda dor, e deve produzir alegria, não medo.", "versiculo_ancora": "1 Tessalonicenses 5.9-10 · Tito 2.13 · Apocalipse 21.3-4" },
+    { "ponto": "A grande tribulação: três anos e meio separam o arrebatamento da volta visível; começam quando o abominável da desolação profanar o templo reconstruído.", "versiculo_ancora": "Daniel 9.27 · Mateus 24.15-21" },
+    { "ponto": "Divergência sem divisão: pré e pós-tribulacionistas discordam sobre o momento do arrebatamento, mas todo crente crê que Jesus volta — e isso nos une.", "versiculo_ancora": "1 Tessalonicenses 1.10" },
+    { "ponto": "Dois momentos: Jesus subiu em duas etapas, uma visível e outra invisível, e voltará do mesmo modo — o arrebatamento (invisível) e a volta nas nuvens (visível).", "versiculo_ancora": "Atos 1.9-11 · Apocalipse 1.7" },
+    { "ponto": "O trigo que amadurece primeiro: a diferença entre os crentes é de maturidade; as primícias são colhidas antes, e o restante amadurece sob o sol da tribulação.", "versiculo_ancora": "Apocalipse 14.4 · Apocalipse 14.14-16" },
+    { "ponto": "Uma noiva apaixonada: planos são bons, mas o coração não pode estar enterrado nesta terra — a noiva não pede para esperar, a noiva diz: vem.", "versiculo_ancora": "1 Coríntios 15.19 · Apocalipse 22.17" },
+    { "ponto": "Vigiai: o arrebatamento vem como ladrão, sem sinais; um é tomado e outro deixado porque não vigiou. Vigiar é viver hoje como se Ele voltasse amanhã.", "versiculo_ancora": "Mateus 24.40-42 · Lucas 21.34-36" },
+    { "ponto": "Virgens e talentos: as prudentes tinham azeite transbordando (cheias do Espírito), e o Senhor quer ver a graça frutificando em quem serve com o dom que recebeu.", "versiculo_ancora": "Mateus 25.1-30" }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Jesus vai voltar, em dois momentos — e quem ama a sua vinda vive vigiando, orando e servindo.",
+    "pontos": [
+      "A volta de Jesus é o ponto alto da fé cristã: a história não está à deriva, ela caminha para a glória. Paulo diz que a coroa está guardada para todos os que amam a vinda do Senhor — e quem é salvo não precisa ter medo, porque não fomos destinados à ira, mas à salvação.",
+      "A volta acontece em dois momentos, assim como Jesus subiu aos céus em duas etapas: primeiro o arrebatamento, invisível e repentino; depois a volta nas nuvens, que todo olho verá. Entre os dois há a grande tribulação, três anos e meio que começam quando o templo reconstruído for profanado pela estátua do anticristo.",
+      "Cristãos discordam sobre se o arrebatamento acontece antes ou depois da tribulação, e isso não pode dividir a igreja. A diferença entre os crentes, na visão do pastor, é de maturidade: como o trigo, uma parte amadurece primeiro — curvada diante de Deus e com as raízes soltas deste mundo.",
+      "O arrebatamento virá como um ladrão, sem sinais. Por isso Jesus manda vigiar: um será tomado e outro deixado. Vigiar é manter a comunhão com Deus, rejeitar a frieza e viver hoje como se Ele voltasse amanhã — sem largar o trabalho e a vida normal.",
+      "Como as virgens prudentes, cheias de azeite, e como os servos que multiplicaram os talentos, a igreja que espera o noivo é a que está cheia do Espírito e servindo com o dom que recebeu. A noiva não pede para esperar — ela diz: vem, Senhor Jesus."
+    ],
+    "versiculo_chave": {
+      "referencia": "Mateus 24.42",
+      "texto": "Portanto, vigiai, porque não sabeis em que dia vem o vosso Senhor."
+    }
+  },
+  "nota_lacuna": [
+    { "secao_id": "geral", "texto": "Transcrição automática com ruído (ex.: 'marata' por 'Maranata', 'tripulação' por 'tribulação'). Referências citadas de forma imprecisa foram corrigidas pelo contexto: 'Apocalipse 15.15' → Apocalipse 16.15; 'Apocalipse 13' (permissão para perseguir os santos) → Apocalipse 13.7; a citação de Paulo sobre viver 'como se não' → 1 Coríntios 7.29-31; 'se esperamos só nesta vida' → 1 Coríntios 15.19; o 'vem' da noiva → Apocalipse 22.17 e 22.20." },
+    { "secao_id": "bloco-3", "texto": "O pastor cita Daniel 9 sem versículo; Daniel 9.27 foi incluído por ser o texto da aliança de uma semana e da abominação no meio dela, que ele descreve. Ele fala ao mesmo tempo da última semana (7 anos) e da grande tribulação (3 anos e meio, depois de 3 anos e meio de paz); o texto segue essa leitura." },
+    { "secao_id": "bloco-4", "texto": "O pastor anuncia três grupos de interpretação, mas só nomeia pré e pós-tribulacionistas; o terceiro é a posição da igreja, apresentada a partir do ponto 5 ('cremos nas duas coisas')." }
+  ]
+}
