@@ -11,6 +11,7 @@
     "test": "vitest run",
     "db:schema": "node --env-file=.env.local scripts/db-schema.mjs",
     "db:seed": "tsx --env-file=.env.local scripts/db-seed.ts",
+    "editorial:codigo": "node scripts/gerar-codigo-editorial.mjs",
     "gerar-resumo-lider": "tsx --env-file=.env.local scripts/gerar-resumo-lider.ts"
   },
   "dependencies": {

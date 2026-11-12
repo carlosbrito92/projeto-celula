@@ -16,6 +16,17 @@ describe('parseCodigos', () => {
     expect(parseCodigos(`Célula: Centro:${A}`)).toEqual([{ nome: 'Célula: Centro', codigo: A }]);
   });
 
+  it('tolera aspas e quebras de linha coladas no painel da Vercel', () => {
+    expect(parseCodigos(`"Fulano:${A};Ciclano:${B}"\n`)).toEqual([
+      { nome: 'Fulano', codigo: A },
+      { nome: 'Ciclano', codigo: B },
+    ]);
+    expect(parseCodigos(`'Fulano:${A}'\r\n"Ciclano:${B}"`)).toEqual([
+      { nome: 'Fulano', codigo: A },
+      { nome: 'Ciclano', codigo: B },
+    ]);
+  });
+
   it('ignora código curto demais ou entrada sem nome, sem logar o código', () => {
     const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     expect(parseCodigos(`Fraco:1234;:${A};SemCodigo`)).toEqual([]);
