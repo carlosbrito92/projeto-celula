@@ -5,11 +5,16 @@ import { createHash, timingSafeEqual } from 'node:crypto';
 //
 //   EDITORIAL_CODIGOS="Fulano de Tal:k7q2-m9xv-p4tz-w8hc;Ciclano:..."
 //
-// Separador entre líderes `;`, entre nome e código o ÚLTIMO `:` (nome pode
-// ter `:`, código não). Revogar um líder = remover a entrada dele e
-// redeployar — não afeta os demais.
+// Separador entre líderes `;` ou quebra de linha, entre nome e código o ÚLTIMO
+// `:` (nome pode ter `:`, código não). Aspas em volta do valor ou de uma
+// entrada são ignoradas (erro comum ao colar no painel da Vercel). Revogar um
+// líder = remover a entrada dele e redeployar — não afeta os demais. A Vercel
+// só aplica a variável alterada em deploys novos.
+//
+// Gerar código: `npm run editorial:codigo -- "Nome"` (scripts/gerar-codigo-editorial.mjs),
+// no terminal do Carlos — nunca colar o resultado em chat.
 
-/** Mínimo de caracteres por código: com o alfabeto de gerarCodigo (32 símbolos) dá ≥80 bits, inviável por força bruta mesmo sem rate limit. */
+/** Mínimo de caracteres por código: com o alfabeto do gerador (32 símbolos) dá ≥80 bits, inviável por força bruta mesmo sem rate limit. */
 export const TAMANHO_MINIMO_CODIGO = 16;
 
 export interface Lider {
@@ -17,11 +22,13 @@ export interface Lider {
   codigo: string;
 }
 
+const semAspas = (s: string) => s.trim().replace(/^(["'])(.*)\1$/s, '$2').trim();
+
 export function parseCodigos(env: string | undefined): Lider[] {
   if (!env) return [];
   const lideres: Lider[] = [];
-  for (const entrada of env.split(';')) {
-    const limpa = entrada.trim();
+  for (const entrada of semAspas(env).split(/[;\r\n]/)) {
+    const limpa = semAspas(entrada);
     if (!limpa) continue;
     const sep = limpa.lastIndexOf(':');
     const nome = sep > 0 ? limpa.slice(0, sep).trim() : '';
