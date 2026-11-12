@@ -113,13 +113,16 @@ interface LinkProps {
   to: string;
   children: ReactNode;
   className?: string;
+  /** Roda antes da navegação (ex: "Continuar lendo" marca a retomada). */
+  onClick?: () => void;
 }
 
 /** Sempre intercepta o clique — nunca confia na navegação default do <a>. */
-export function Link({ to, children, className }: LinkProps) {
+export function Link({ to, children, className, onClick }: LinkProps) {
   const { navigate } = useRouter();
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    onClick?.();
     navigate(to);
   };
   return (
