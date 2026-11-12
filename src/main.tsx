@@ -3,13 +3,12 @@ import { createRoot } from 'react-dom/client'
 import { registerSW } from 'virtual:pwa-register'
 import './index.css'
 import App from './App.tsx'
+import { iniciarAtualizacao } from './pwa/atualizacao'
 
-// registerType: 'autoUpdate' sozinho não é suficiente — precisa dessa chamada
-// pra o SW realmente ativar (skipWaiting) em vez de ficar "instalado mas
-// esperando". Sem periodicSync configurado, o check de atualização só roda
-// na navegação natural (abrir o app de novo), então o reload automático não
-// interrompe uma anotação em andamento no meio da sessão.
-registerSW({ immediate: true })
+// Procura versão nova ao voltar ao app e recarrega só em momento seguro
+// (src/pwa/atualizacao.ts). Sem isso, o celular seguia na versão antiga até o
+// usuário limpar o cache — o que apagava as anotações pessoais.
+iniciarAtualizacao(registerSW)
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
