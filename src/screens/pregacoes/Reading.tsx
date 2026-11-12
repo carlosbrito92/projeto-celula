@@ -1,9 +1,10 @@
-import { useMemo, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { Link } from '../../router/Router';
 import { ThemeScope } from '../../themes/ThemeScope';
 import { resolveTema } from '../../themes/registry';
 import { usePregacao } from '../../content/usePregacoes';
 import { formatDataPtBr } from '../../content/parseData';
+import { consumirRetomar, lerUltimaLeitura, PROGRESSO_MINIMO, salvarUltimaLeitura } from '../../content/ultimaLeitura';
 import { Icon } from '../../icons/Icon';
 import { scrollToId, useScrollProgress, useSecaoAtiva } from './useLeituraNav';
 import { ResumoCurtoOverlay } from './ResumoCurtoOverlay';
@@ -46,6 +47,29 @@ export function Reading({ id }: { id: string }) {
   const idsNavegaveis = useMemo(() => pontosNavegaveis.map((p) => p.id), [pontosNavegaveis]);
   const ativoIndex = useSecaoAtiva(idsNavegaveis, resumoCurtoAberto);
   const progresso = useScrollProgress();
+
+  // "Continuar lendo" da página inicial (src/content/ultimaLeitura.ts): grava a
+  // cada 5% de rolagem ou troca de ponto, e só depois que o leitor começou a ler.
+  const pronta = !!pregacao;
+  const degrau = Math.floor(progresso / 5);
+  useEffect(() => {
+    if (!pronta || progresso < PROGRESSO_MINIMO) return;
+    salvarUltimaLeitura({
+      id,
+      progresso: Math.round(progresso),
+      pontoId: idsNavegaveis[ativoIndex] ?? null,
+      ponto: Math.min(ativoIndex + 1, secoes.length),
+      totalPontos: secoes.length,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, pronta, degrau, ativoIndex]);
+
+  // Aberta por "Continuar lendo": volta ao ponto onde o leitor parou.
+  useEffect(() => {
+    if (!pronta || !consumirRetomar(id)) return;
+    const pontoId = lerUltimaLeitura()?.id === id ? lerUltimaLeitura()?.pontoId : null;
+    if (pontoId) requestAnimationFrame(() => scrollToId(pontoId));
+  }, [id, pronta]);
 
   if (carregando) {
     return <div className={styles.footer}>Carregando…</div>;

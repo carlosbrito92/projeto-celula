@@ -56,6 +56,7 @@ Também entregue nesta fase, fora do checklist original: router mínimo próprio
 - [x] Resumo para líder de célula (`resumo_lider`, PR #64, 2026-09-26) — versão mais densa de `resumo_curto`, pontos estruturados (`numero`/`titulo`/`resumo`/`frase_chave`, espelha `mapa_pontos`) pro líder preparar a reunião. Gerado via `scripts/gerar-resumo-lider.ts` (Gemini, idempotente, lote ou arquivo único). Mesmo PR trouxe blocos novos (`subtitulo`/`citacao`/`glossario`/`pergunta`/`resposta`) e variante `timeline` já com renderer implementado. Ver `CLAUDE.md` "Decisões de arquitetura (Resumo para líder de célula)". Documentados em `docs/geracao-pregacao.md` (e payload de `timeline` em `docs/estilos-pregacao.md`) em 2026-11-09.
 - [x] Pregação "Uma Igreja de Joelhos" renomeada pra incluir capítulo (`calibracao-uma-igreja-de-joelhos.json` → `-cap1.json`, série ganhará mais capítulos) + nova pregação calibrada "A Boca de Quem Entendeu a Graça" (série "Escola da Fé") — PR #65, 2026-11-06.
 - [x] Série Maranata, cap. 1 ("A Volta de Jesus", Pastor Pedro Estrella, 8/11/2026) calibrada pelo terminal + tema novo **Estilo #7 — Maranata**, o primeiro tema claro (`estilos-pregacao.md`). `ThemeScope` passou a definir `color: var(--text)`.
+- [x] Página inicial nova (2026-11-12): destaque, continuar lendo, séries agrupadas com capítulos em ordem, filtro por série, grade no PC. Mock aprovado por Carlos antes do código.
 
 ## Fase 3 — Módulo de Quebra-gelos + Utilitários (concluída)
 
