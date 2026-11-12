@@ -185,6 +185,33 @@ export const ESTILO_6_UMA_VEZ_SALVO: Theme = {
   pesoH1: 700, // Kalam só carrega 700
 };
 
+// Primeiro tema claro: a arte da série é um céu azul-claro com lamparina de
+// cobre, trombeta e nuvens de pôr do sol (docs/estilos-pregacao.md § Estilo #7).
+export const ESTILO_7_MARANATA: Theme = {
+  key: 'estilo-7-maranata',
+  nome: 'Estilo #7 — Maranata',
+  cores: {
+    bg: '#dcebf3', // céu do telão, mais claro para leitura longa
+    surface: '#e9f3f8',
+    surface2: '#f4f9fc',
+    border: '#b4cfdc',
+    text: '#26291d', // oliva quase preto do lettering "Maranata"
+    muted: '#56646a',
+    accent1: '#a3431c', // cobre da lamparina
+    accent2: '#57552a', // oliva do lettering
+    'accent-alert': '#b93a14', // coração vermelho-alaranjado do slide do título
+    'accent-dim': '#efd4c2', // pêssego das nuvens
+    'tag-bg': '#f1dccd', // pêssego sólido: transparente sobre o azul ficava cinza
+  },
+  fonteDisplay: {
+    family: "'Gloock', Georgia, serif", // serifa de alto contraste e condensada, como o lettering
+    googleFontsUrl: `${GOOGLE_FONTS_BASE}?family=Gloock&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`,
+  },
+  fonteCorpo: { family: "'Inter', system-ui, sans-serif", googleFontsUrl: '' },
+  fonteMono: { family: "'JetBrains Mono', monospace", googleFontsUrl: '' },
+  pesoDisplay: 400, // Gloock só existe em 400
+};
+
 export const THEMES: Record<string, Theme> = {
   [PADRAO_MINC.key]: PADRAO_MINC,
   [ESTILO_1_MAIO_SALVACAO.key]: ESTILO_1_MAIO_SALVACAO,
@@ -193,6 +220,7 @@ export const THEMES: Record<string, Theme> = {
   [ESTILO_4_IGREJAR.key]: ESTILO_4_IGREJAR,
   [ESTILO_5B_RELIGIAO_TOXICA.key]: ESTILO_5B_RELIGIAO_TOXICA,
   [ESTILO_6_UMA_VEZ_SALVO.key]: ESTILO_6_UMA_VEZ_SALVO,
+  [ESTILO_7_MARANATA.key]: ESTILO_7_MARANATA,
 };
 
 // Mapeamento Série -> tema (docs/estilos-pregacao.md). Séries sem entrada
@@ -204,6 +232,7 @@ const SERIE_PARA_TEMA: Record<string, string> = {
   'Maio de Salvação': ESTILO_1_MAIO_SALVACAO.key,
   "Renovo'26": ESTILO_2_RENOVO26.key,
   'Uma Vez Salvo, Salvo Para Sempre': ESTILO_6_UMA_VEZ_SALVO.key,
+  Maranata: ESTILO_7_MARANATA.key,
 };
 
 // Chaves curtas aceitas em metadados.tema_override (docs/estilos-pregacao.md
@@ -217,6 +246,7 @@ const TEMA_OVERRIDE_PARA_CHAVE: Record<string, string> = {
   'Estilo #4': ESTILO_4_IGREJAR.key,
   'Estilo #5b': ESTILO_5B_RELIGIAO_TOXICA.key,
   'Estilo #6': ESTILO_6_UMA_VEZ_SALVO.key,
+  'Estilo #7': ESTILO_7_MARANATA.key,
 };
 
 /** Séries que já têm tema visual próprio (sugestões no editor do Painel Editorial). */

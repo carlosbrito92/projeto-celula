@@ -33,6 +33,9 @@ export function ThemeScope({ tema, children, className, block = true }: ThemeSco
   for (const [chave, valor] of Object.entries(tema.cores)) {
     style[`--${chave}`] = valor;
   }
+  // Texto sem cor própria (ex: .headerTitulo, títulos do índice) herdava a cor
+  // padrão do color-scheme dark do app — invisível no primeiro tema claro (#7).
+  style.color = 'var(--text)';
   if (block) {
     style.display = 'block';
   }
