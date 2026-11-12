@@ -31,6 +31,11 @@ describe('formatDataPtBr', () => {
     expect(formatDataPtBr('2026-07-26')).toBe('26 de julho de 2026');
   });
 
+  it('aceita o timestamp que a API devolve para a coluna date', () => {
+    expect(formatDataPtBr('2026-10-25T00:00:00.000Z')).toBe('25 de outubro de 2026');
+    expect(formatDataPtBr('2026-09-06T00:00:00.000Z')).toBe('6 de setembro de 2026');
+  });
+
   it('retorna null para entrada inválida', () => {
     expect(formatDataPtBr(null)).toBeNull();
     expect(formatDataPtBr('26 de julho de 2026')).toBeNull();

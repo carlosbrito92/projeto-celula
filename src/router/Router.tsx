@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App } from '@capacitor/app';
+import { atualizacaoPendente } from '../pwa/atualizacao';
 
 // Router mínimo para as ~4 rotas do app — evita puxar react-router (e a
 // superfície de CVEs do seu modo de framework/RSC, que não usamos) para
@@ -86,6 +87,12 @@ export function RouterProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const navigate = (to: string) => {
+    // Versão nova do app esperando: troca de tela com carga completa, que já
+    // traz a versão nova sem interromper ninguém (src/pwa/atualizacao.ts).
+    if (atualizacaoPendente() && !Capacitor.isNativePlatform()) {
+      window.location.assign(to);
+      return;
+    }
     if (to !== window.location.pathname) {
       window.history.pushState({}, '', to);
     }
