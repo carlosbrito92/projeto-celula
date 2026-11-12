@@ -22,6 +22,14 @@ export default defineConfig({
         // atualizar em si, que é o registerSW() ausente em main.tsx, mas é
         // limpeza que deveria estar ligada desde sempre).
         cleanupOutdatedCaches: true,
+        // A versão nova assume sozinha. Sem isso, o sw.js gerado só chama
+        // skipWaiting() quando recebe a mensagem SKIP_WAITING (modo "prompt"),
+        // que nada no app envia: a versão nova baixava e ficava "esperando"
+        // para sempre, e só limpar o cache resolvia (confirmado em teste com
+        // duas builds, 2026-11-12). A recarga em momento seguro fica em
+        // src/pwa/atualizacao.ts.
+        skipWaiting: true,
+        clientsClaim: true,
         // playroomkit (chunk Lobby-*.js, protótipo V2 em /v2/quem-sou-eu) é
         // ~800kB, e puxa o SDK do Discord (peer dep opcional que não usamos,
         // vira o chunk output-*.js) — nenhum dos dois faz sentido pré-cachear
