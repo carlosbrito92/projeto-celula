@@ -29,10 +29,15 @@ export function parseDataPtBr(input: string | null | undefined): string | null {
   return `${ano}-${mes}-${dia.padStart(2, '0')}`;
 }
 
-/** "2026-07-26" -> "26 de julho de 2026" (exibição). Retorna null se inválido. */
+/**
+ * "2026-07-26" -> "26 de julho de 2026" (exibição). Retorna null se inválido.
+ * Aceita também o timestamp que a API devolve para a coluna `date`
+ * ("2026-07-26T00:00:00.000Z"): antes só o formato curto passava, e a tela
+ * caía sempre no texto cru de `metadados.data` ("25 de Outubro", "06 de…").
+ */
 export function formatDataPtBr(iso: string | null | undefined): string | null {
   if (!iso) return null;
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  const match = /^(\d{4})-(\d{2})-(\d{2})(?:$|T)/.exec(iso);
   if (!match) return null;
   const [, ano, mes, dia] = match;
   const nomeMes = Object.entries(MESES).find(([, valor]) => valor === mes)?.[0];
