@@ -9,6 +9,7 @@ import { Catalogo as UtilitarioCatalogo } from './screens/utilitarios/Catalogo';
 import { UtilitarioScreen } from './screens/utilitarios/UtilitarioScreen';
 import { Catalogo as QuebraGeloCatalogo } from './screens/quebraGelos/Catalogo';
 import { Detalhe as QuebraGeloDetalhe } from './screens/quebraGelos/Detalhe';
+import { ComoUsar } from './screens/comoUsar/ComoUsar';
 
 // Lazy: playroomkit sozinho adiciona ~800kB ao bundle — ninguém que usa a V1
 // deve baixar isso sem nunca visitar /v2. Code-split mantém o chunk principal
@@ -38,6 +39,8 @@ function Screens() {
   const utilitarioParams = matchPath('/utilitarios/:id', path);
   if (utilitarioParams) return <UtilitarioScreen id={utilitarioParams.id} />;
   if (path === '/utilitarios') return <UtilitarioCatalogo />;
+
+  if (path === '/como-usar') return <ComoUsar />;
 
   const editorialParams = matchPath('/editorial/:id', path);
   if (editorialParams) {

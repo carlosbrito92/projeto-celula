@@ -1,0 +1,69 @@
+/* Balão de dica. Fallback em toda var: o componente pode aparecer fora de um
+   ThemeScope (mesma regra dos CSS modules compartilhados da V2). Não definir
+   `visibility` aqui: a Leitura oculta o header com visibility: hidden durante
+   o export em PDF, e a dica herda isso. */
+.dica {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: var(--dica-direita, 16px);
+  z-index: 1;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(300px, calc(100vw - 32px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 14px;
+  background: var(--text, #e8e0d4);
+  color: var(--bg, #0a0805);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-corpo, system-ui, sans-serif);
+}
+
+/* Seta apontando para o botão: distância da borda direita do balão até o
+   centro do botão, também em CSS. */
+.dica::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: calc(var(--dica-seta, 24px) - 6px);
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.texto {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.entendi {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent1, #e8720c);
+  color: var(--bg, #0a0805);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dica {
+    animation: aparecer 0.25s ease-out;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

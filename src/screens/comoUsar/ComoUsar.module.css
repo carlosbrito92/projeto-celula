@@ -1,0 +1,118 @@
+/* Tela fora do ThemeScope das pregações: toda var tem fallback (mesma regra
+   dos CSS modules compartilhados da V2). Os valores de fallback são os do
+   Padrão MINC. */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 16px 40px;
+  max-width: 720px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--text, #e8e0d4);
+  font-family: var(--font-corpo, system-ui, sans-serif);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-left: -12px;
+  color: var(--accent1, #e8720c);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.titulo {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 32px;
+  font-weight: var(--font-display-weight, 700);
+  text-transform: var(--font-display-transform, none);
+  line-height: 1;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--surface, #111009);
+  border: 1px solid var(--border, #2a2318);
+  padding: 16px;
+}
+
+.cardTopo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icone {
+  display: inline-flex;
+  color: var(--accent1, #e8720c);
+  font-size: 20px;
+}
+
+.cardTitulo {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.passos {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--text, #e8e0d4);
+}
+
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.reverDicas {
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent1, #e8720c);
+  font: inherit;
+  font-size: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.confirmacao {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 14px;
+  color: var(--text, #e8e0d4);
+}

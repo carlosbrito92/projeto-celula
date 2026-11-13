@@ -140,6 +140,17 @@ Plano completo e decisões: `docs/painel-editorial.md`. Objetivo: líderes de c�
 
 ---
 
+## Onboarding leve (em andamento)
+
+Pedido de Carlos em 2026-11-13: ajudar membros novos a achar os recursos sem tour nem biblioteca nova. Os dois itens vão no mesmo PR. As decisões técnicas estão no CLAUDE.md, em "Decisões de arquitetura (Onboarding)".
+
+- [x] Tela "Como usar" (`/como-usar`): um card por recurso (ler pregações, Aa, anotações, quebra-gelos, utilitários, jogos pelo celular, privacidade). O conteúdo fica em `src/screens/comoUsar/comoUsar.ts`. Entrada pelo ícone "?" no cabeçalho da Biblioteca. "Rever as dicas" no fim limpa as dicas vistas.
+- [x] Dicas de uma vez só na Leitura: primeiro "Aa", depois a caneta, uma por abertura da pregação, só com o conteúdo carregado. Somem com "Entendi" ou quando a pessoa usa o recurso.
+- [ ] Carlos revisar a cópia dos cards e das dicas no PR.
+- [ ] Teste manual em aparelho (checklist no PR): 360px, header sticky, WebView do Capacitor, safe-area, PDF sem a dica, seleção de texto, "Rever as dicas".
+
+---
+
 ## Como manter este documento
 
 - Marcar `[x]` assim que algo for concluído — não esperar o fim da fase inteira.

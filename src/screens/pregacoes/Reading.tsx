@@ -14,9 +14,18 @@ import { AnotacaoContext, type SelecaoNova } from './anotacoes/AnotacaoContext';
 import { AnotacaoPopover, type PopoverEstado } from './anotacoes/AnotacaoPopover';
 import { ListaAnotacoes } from './anotacoes/ListaAnotacoes';
 import { exportarPdf } from './anotacoes/exportarPdf';
+import { Dica } from '../../onboarding/Dica';
+import { useDica } from '../../onboarding/useDica';
+import { marcarDicaVista } from '../../onboarding/dicasStorage';
+import { DICA_AA, DICA_ANOTACOES, TEXTO_DICA, useDicaDaAbertura } from '../../onboarding/dicasLeitura';
 import styles from './Reading.module.css';
 
 const ESCALAS_FONTE = [1, 1.15, 1.3];
+
+const CLASSE_DICA = {
+  [DICA_AA]: styles.dicaAa,
+  [DICA_ANOTACOES]: styles.dicaAnotacoes,
+};
 
 export function Reading({ id }: { id: string }) {
   const { pregacao, erro, carregando } = usePregacao(id);
@@ -47,6 +56,12 @@ export function Reading({ id }: { id: string }) {
   const idsNavegaveis = useMemo(() => pontosNavegaveis.map((p) => p.id), [pontosNavegaveis]);
   const ativoIndex = useSecaoAtiva(idsNavegaveis, resumoCurtoAberto);
   const progresso = useScrollProgress();
+
+  // Dica de uso: uma por abertura, só com o conteúdo carregado. A escolha fica
+  // aqui (o Reading não desmonta com o resumo aberto); a visibilidade vem do
+  // storage (useDica), porque a árvore abaixo remonta.
+  const dicaDaAbertura = useDicaDaAbertura(id, !!pregacao);
+  const dica = useDica(dicaDaAbertura);
 
   // "Continuar lendo" da página inicial (src/content/ultimaLeitura.ts): grava a
   // cada 5% de rolagem ou troca de ponto, e só depois que o leitor começou a ler.
@@ -149,7 +164,10 @@ export function Reading({ id }: { id: string }) {
                 type="button"
                 className={styles.botaoFonte}
                 aria-label="Ajustar tamanho da fonte de leitura"
-                onClick={() => setEscalaIndex((i) => (i + 1) % ESCALAS_FONTE.length)}
+                onClick={() => {
+                  setEscalaIndex((i) => (i + 1) % ESCALAS_FONTE.length);
+                  marcarDicaVista(DICA_AA);
+                }}
               >
                 Aa
               </button>
@@ -160,7 +178,10 @@ export function Reading({ id }: { id: string }) {
                   anotacoes.modoAnotacao ? 'Desativar modo de anotação' : 'Ativar modo de anotação'
                 }
                 aria-pressed={anotacoes.modoAnotacao}
-                onClick={anotacoes.alternarModoAnotacao}
+                onClick={() => {
+                  anotacoes.alternarModoAnotacao();
+                  marcarDicaVista(DICA_ANOTACOES);
+                }}
               >
                 <Icon name="pen-line" />
               </button>
@@ -235,6 +256,17 @@ export function Reading({ id }: { id: string }) {
           <div className={styles.progressoBarra}>
             <div className={styles.progressoPreenchimento} style={{ width: `${progresso}%` }} />
           </div>
+
+          {/* Dentro do header sticky de propósito: o export de PDF oculta o
+              header (visibility), então a dica some junto; e fica fora do
+              conteúdo anotável, sem tocar na seleção de texto. */}
+          {dica.visivel && dicaDaAbertura && (
+            <Dica
+              texto={TEXTO_DICA[dicaDaAbertura]}
+              aoEntender={dica.dispensar}
+              className={CLASSE_DICA[dicaDaAbertura]}
+            />
+          )}
         </div>
 
         {anotacoes.modoAnotacao && (

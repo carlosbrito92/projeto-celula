@@ -63,6 +63,12 @@ describe('Página inicial', () => {
     expect(screen.queryByRole('region', { name: 'Continuar lendo' })).toBeNull();
   });
 
+  it('ícone "?" no cabeçalho abre a tela Como usar', async () => {
+    render(<Library />);
+    fireEvent.click(screen.getByRole('link', { name: 'Como usar' }));
+    expect(navigate).toHaveBeenCalledWith('/como-usar');
+  });
+
   it('chip de série mostra só ela, em ordem; "Todas" volta', async () => {
     render(<Library />);
     await screen.findByRole('region', { name: 'Mais recente' });
