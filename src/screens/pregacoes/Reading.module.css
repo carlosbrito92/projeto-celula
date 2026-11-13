@@ -29,6 +29,20 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Dicas de uso (src/onboarding/Dica): penduradas abaixo do header sticky,
+   alinhadas por CSS ao botão alvo. A seta é a distância da borda direita do
+   balão até o centro do botão: 24px de padding do header + botões de 36px
+   com gap de 8px (o Aa tem ~42px de largura). */
+.dicaAa {
+  --dica-direita: 12px;
+  --dica-seta: 165px;
+}
+
+.dicaAnotacoes {
+  --dica-direita: 12px;
+  --dica-seta: 118px;
+}
+
 .header {
   display: flex;
   align-items: center;

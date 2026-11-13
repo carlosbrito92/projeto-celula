@@ -85,6 +85,11 @@ vi.mock('../../../lib/api', () => ({
   apiGet: vi.fn(() => Promise.resolve(pregacaoRow)),
 }));
 
+const exportarPdfMock = vi.fn((_el: HTMLElement, _titulo: string, _ocultar: HTMLElement[]) => Promise.resolve());
+vi.mock('../anotacoes/exportarPdf', () => ({
+  exportarPdf: (el: HTMLElement, titulo: string, ocultar: HTMLElement[]) => exportarPdfMock(el, titulo, ocultar),
+}));
+
 vi.mock('../../../router/Router', () => ({
   Link: ({ children, to }: { children: React.ReactNode; to: string }) => (
     <a href={to}>{children}</a>
@@ -367,5 +372,85 @@ describe('Reading', () => {
     expect(preenchimento.style.width).toBe('50%');
 
     vi.unstubAllGlobals();
+  });
+});
+
+describe('Reading — dicas de uso', () => {
+  const DICA_AA = 'leitura-aa-v1';
+  const DICA_ANOTACOES = 'leitura-anotacoes-v1';
+  const vistas = () => JSON.parse(localStorage.getItem('celula:dicas-vistas') ?? '[]');
+  const abrir = async () => {
+    const r = render(<Reading id="sermon-1" />);
+    await screen.findByText('A Graça Não É o Que Você Pensa');
+    return r;
+  };
+
+  beforeEach(() => {
+    localStorage.clear();
+    exportarPdfMock.mockClear();
+    vi.spyOn(Element.prototype, 'scrollIntoView').mockImplementation(() => {});
+  });
+
+  it('não aparece antes do conteúdo carregar', () => {
+    render(<Reading id="sermon-1" />);
+    expect(screen.getByText('Carregando…')).toBeInTheDocument();
+    expect(screen.queryByRole('status')).toBeNull();
+  });
+
+  it('primeira abertura: dica do Aa; "Entendi" grava e esconde, sem puxar a próxima', async () => {
+    await abrir();
+    expect(screen.getByRole('status')).toHaveTextContent(/Aa/);
+    fireEvent.click(screen.getByRole('button', { name: 'Entendi' }));
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(vistas()).toEqual([DICA_AA]);
+  });
+
+  it('segunda abertura: dica das anotações; terceira: nenhuma', async () => {
+    localStorage.setItem('celula:dicas-vistas', JSON.stringify([DICA_AA]));
+    const r = await abrir();
+    expect(screen.getByRole('status')).toHaveTextContent(/caneta/);
+    fireEvent.click(screen.getByRole('button', { name: 'Entendi' }));
+    r.unmount();
+    await abrir();
+    expect(screen.queryByRole('status')).toBeNull();
+  });
+
+  it('usar o Aa some com a dica do Aa', async () => {
+    await abrir();
+    fireEvent.click(screen.getByRole('button', { name: 'Ajustar tamanho da fonte de leitura' }));
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(vistas()).toEqual([DICA_AA]);
+  });
+
+  it('ligar o modo de anotação some com a dica da caneta', async () => {
+    localStorage.setItem('celula:dicas-vistas', JSON.stringify([DICA_AA]));
+    await abrir();
+    fireEvent.click(screen.getByRole('button', { name: 'Ativar modo de anotação' }));
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(vistas()).toContain(DICA_ANOTACOES);
+  });
+
+  it('abrir e fechar o resumo não traz de volta uma dica dispensada nem pula para a próxima', async () => {
+    await abrir();
+    fireEvent.click(screen.getByRole('button', { name: /Ler versão resumida/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Ler a mensagem completa' }));
+    // não dispensada: continua lá depois da remontagem
+    expect(screen.getByRole('status')).toHaveTextContent(/Aa/);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Entendi' }));
+    fireEvent.click(screen.getByRole('button', { name: /Ler versão resumida/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Ler a mensagem completa' }));
+    expect(screen.queryByRole('status')).toBeNull();
+  });
+
+  it('fica dentro do header que o export de PDF oculta, fora do conteúdo anotável', async () => {
+    await abrir();
+    const dica = screen.getByRole('status');
+    fireEvent.click(screen.getByRole('button', { name: 'Exportar pregação como PDF' }));
+    await waitFor(() => expect(exportarPdfMock).toHaveBeenCalled());
+    const ocultar = exportarPdfMock.mock.calls[0][2];
+    expect(ocultar.some((el) => el.contains(dica))).toBe(true);
+    const paragrafo = screen.getByText(/revela o pecado/);
+    expect(ocultar.some((el) => el.contains(paragrafo))).toBe(false);
   });
 });

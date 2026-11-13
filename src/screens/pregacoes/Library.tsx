@@ -199,12 +199,20 @@ export function Library() {
     <div className={styles.wrapper}>
       <div className={styles.cabecalho}>
         <h1 className={styles.titulo}>Pregações</h1>
-        <Link to="/editorial" className={styles.editorial}>
-          <span aria-hidden="true">
-            <Icon name="pen-line" />
-          </span>
-          <span className={styles.srOnly}>Painel Editorial</span>
-        </Link>
+        <div className={styles.cabecalhoAcoes}>
+          <Link to="/como-usar" className={styles.comoUsar}>
+            <span aria-hidden="true">
+              <Icon name="circle-question-mark" />
+            </span>
+            <span className={styles.srOnly}>Como usar</span>
+          </Link>
+          <Link to="/editorial" className={styles.editorial}>
+            <span aria-hidden="true">
+              <Icon name="pen-line" />
+            </span>
+            <span className={styles.srOnly}>Painel Editorial</span>
+          </Link>
+        </div>
       </div>
       <div className={styles.busca}>
         <label htmlFor="busca-pregacoes" className={styles.srOnly}>

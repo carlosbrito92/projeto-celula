@@ -27,7 +27,11 @@ export type IconName =
   | 'dices'
   | 'pen-line'
   | 'file-down'
-  | 'notebook-pen';
+  | 'notebook-pen'
+  | 'circle-question-mark'
+  | 'a-large-small'
+  | 'smartphone'
+  | 'shield-check';
 
 interface IconProps {
   name: string;

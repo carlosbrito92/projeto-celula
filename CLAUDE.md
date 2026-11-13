@@ -176,6 +176,21 @@ Plano completo em `docs/painel-editorial.md` (decisões de Carlos, 2026-11-07). 
 - **Corrigir pregação publicada lê o arquivo de `main` (raw.githubusercontent.com), não a coluna `conteudo` (2026-11-11).** `jsonb` não guarda a ordem das chaves; reenviar a partir do banco transformaria o PR num diff do arquivo inteiro. O banco é só reserva (`src/editorial/publicadas.ts`). Se o repositório deixar de ser público, isso para de funcionar e cai sempre na reserva.
 - **Testes de `api/_lib/__tests__/` rodam no ambiente jsdom padrão da suíte.** `// @vitest-environment node` quebra porque `src/test/setup.ts` toca `Element.prototype`. Imports com `.js` (nodenext). Diretório `_lib` não vira function na Vercel (prefixo `_`).
 
+## Decisões de arquitetura (Onboarding)
+
+Pedido de Carlos em 2026-11-13. O checklist está em `docs/progresso.md`, seção "Onboarding leve". O código fica em `src/onboarding/` (dicas) e `src/screens/comoUsar/` (tela).
+
+- **"Como usar" é dado, não markup.** `CARDS_COMO_USAR` (`comoUsar.ts`) é uma constante tipada: para adicionar um card, basta acrescentar um item. `icone` é `IconName`, então um nome sem SVG vendorizado não compila. O teste também confere que cada card renderiza um `<svg>`. Os rótulos citados entre aspas são os reais da interface: se um botão for renomeado, o card tem que mudar junto.
+- **Entrada pelo "?" no cabeçalho da Biblioteca, não por uma aba nova.** A tela fica dentro do `AppShell`, mas usa `var(--x, fallback)` em todo CSS, como as telas da V2 fora do `ThemeScope`.
+- **Dicas: só o storage diz se uma dica aparece** (`dicasStorage.ts`, `localStorage['celula:dicas-vistas']`, array JSON com try/catch, mesmo padrão de `nomesStorage.ts`). `useDica` lê com `useSyncExternalStore`, sem estado local. Motivo: a Leitura troca a árvore inteira ao abrir o resumo (early return), e uma dica com estado local voltaria depois de dispensada. Os ids são versionados (`leitura-aa-v1`): se o texto de uma dica mudar de forma relevante, ela ganha um id novo e quem viu a versão antiga vê a nova uma vez.
+- **Qual dica aparece é escolhido uma vez por abertura** (`useDicaDaAbertura`, estado no `Reading`, que não desmonta com o resumo aberto). Assim, dispensar a dica do "Aa" não faz a da caneta aparecer na mesma abertura. A escolha só acontece depois do conteúdo carregado. Usar o recurso (`Aa`, caneta) também marca a dica como vista.
+- **A dica fica dentro do `.headerSticky`, como último filho.** Isso resolve três problemas de uma vez:
+  - o export de PDF oculta o header com `visibility: hidden`, e a dica herda. Por isso `Dica.module.css` nunca deve definir `visibility`;
+  - a dica fica fora do conteúdo anotável e não interfere no `selectionchange`;
+  - o `position: absolute` usa o header sticky como referência e o balão fica pendurado logo abaixo dele, sem cobrir a trilha de chips.
+- **Posição e seta só em CSS:** `--dica-direita`/`--dica-seta` por dica em `Reading.module.css`, calculadas a partir das larguras fixas dos botões do header. Nenhuma medição de DOM em JS. Se os botões do header mudarem de tamanho ou de ordem, recalcular esses dois valores.
+- **Balão não modal:** `role="status"`, sem scrim, "Entendi" com pelo menos 44px de altura e largura, animação só com `prefers-reduced-motion: no-preference`.
+
 ## Decisões de arquitetura (V2 — Quem Sou Eu)
 
 Decisões de produto e mecânica do primeiro jogo (Quem Sou Eu) em `docs/projeto-celula.md` §10 — aqui o achado técnico e as decisões de implementação real (`src/multiplayer/quemSouEu/`).
