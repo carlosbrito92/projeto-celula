@@ -1,0 +1,977 @@
+{
+  "metadados": {
+    "serie": "Maranata",
+    "capitulo": "Capítulo 2",
+    "tema": "O Arrebatamento dos Vencedores",
+    "data": "15 de novembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "Lucas 21.34-36",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Segunda mensagem da série Maranata, sobre a volta de Jesus. No primeiro domingo, o pastor apresentou a volta de Cristo em dois momentos — o arrebatamento da igreja e a volta visível —, separados pela grande tribulação. Nesta mensagem, ele aprofunda o que separa os dois momentos e mostra que o que decide se um crente será arrebatado antes ou depois da tribulação é a maturidade: quem são os vencedores e quais as condições para o arrebatamento.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "O Arrebatamento dos Vencedores",
+        "campos": [
+          {
+            "campo": "Primeira colheita",
+            "valor": "Vencedores: maduros, vigilantes — arrebatados antes da grande tribulação"
+          },
+          {
+            "campo": "Segunda colheita",
+            "valor": "Crentes que ainda amadurecem — arrebatados depois da tribulação"
+          },
+          {
+            "campo": "Lugar",
+            "valor": "De pé na presença do Filho do Homem"
+          },
+          {
+            "campo": "Condições",
+            "valor": "Vigiar e orar · estar apercebido · lâmpada e vestes · perseverança"
+          }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "Lucas 21.36",
+      "texto": "Vigiai, pois, a todo tempo, orando para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+    },
+    "aviso_proxima_serie": {
+      "texto": "Em um dos próximos domingos, o pastor falará especificamente do governo mundial do anticristo e montará uma linha do tempo com a sequência dos acontecimentos do fim, do arrebatamento dos vencedores até a eternidade."
+    },
+    "frase_sintese": "Ser salvo basta para escapar da ira de Deus; para escapar da grande tribulação, é preciso vigiar, orar e permanecer apaixonado pelo Noivo."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Grande Tribulação: o Período Que Separa os Dois Momentos"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Um Dia Que Surpreenderá os Habitantes da Terra"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Em Cristo, Sem Condenação"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Arrebatamento Parcial: Uma Questão de Maturidade"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "A Ira do Diabo e a Perseguição dos Santos"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Promessa de Escapar da Grande Tribulação"
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Uma Noiva Apaixonada, Cheia de Azeite"
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Repentino e Sem Sinais"
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "Lugar do Arrebatamento"
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "Vigiar e Orar"
+    },
+    {
+      "id": "bloco-11",
+      "numero": "11",
+      "titulo": "Estar Apercebido"
+    },
+    {
+      "id": "bloco-12",
+      "numero": "12",
+      "titulo": "Manter a Lâmpada Acesa e as Vestes Preparadas"
+    },
+    {
+      "id": "bloco-13",
+      "numero": "13",
+      "titulo": "Guardar a Palavra Com Perseverança"
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "A Grande Tribulação: o Período Que Separa os Dois Momentos",
+      "sec_eyebrow": "Os Dois Momentos",
+      "referencias": "Atos 1.9-11 · Isaías 61.1-2 · Lucas 4.18-19 · Mateus 24.21-22",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O pastor **retoma a ministração do último domingo**, quando começou a série sobre a volta de Jesus. Depois da ressurreição, Jesus passou **mais quarenta dias** com os discípulos, ensinando sobre o reino de Deus — e, no fim desses dias, foi elevado aos céus diante deles."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Atos 1.9-11",
+          "texto": "Ditas estas palavras, foi Jesus elevado às alturas, à vista deles, e uma nuvem o encobriu dos seus olhos. E, estando eles com os olhos fitos no céu, enquanto Jesus subia, eis que dois varões vestidos de branco se puseram ao lado deles e lhes disseram: Varões galileus, por que estais olhando para as alturas? Esse Jesus que dentre vós foi assunto ao céu virá do modo como o vistes subir."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Os discípulos o viram subir do monte das Oliveiras até as nuvens: a etapa **visível**. Depois, ele subiu até o trono de Deus, e não o viram mais: a etapa **invisível**. Os anjos disseram que ele voltará **do mesmo modo** — também em duas etapas."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "contraste",
+          "dados": {
+            "lado_a": {
+              "label": "Primeiro momento — invisível",
+              "titulo": "O arrebatamento da igreja",
+              "texto": "Jesus vem como um ladrão, de forma inesperada, e leva a sua igreja."
+            },
+            "lado_b": {
+              "label": "Segundo momento — visível",
+              "titulo": "A volta nos ares",
+              "texto": "Jesus desce e pisa novamente no monte das Oliveiras; será como um relâmpago, e todo olho o verá."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Algo acontece entre os dois momentos: um evento chamado na Bíblia de **a grande tribulação**, também conhecido como **o dia da ira do Senhor**. Ela vai durar **três anos e meio** — 42 meses, 1.260 dias — expressão que a Bíblia também formula como “um tempo, outro tempo e metade de um tempo”. É quando a ira de Deus será derramada do céu."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Hoje estamos no **tempo da graça**: a ira de Deus ainda não foi revelada do céu. Há uma profecia sobre Jesus, em Isaías, que mostra o coração de Deus:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Isaías 61.1-2",
+          "texto": "O Espírito do Senhor Deus está sobre mim, porque o Senhor me ungiu para pregar boas-novas aos quebrantados, enviou-me para restaurar os contritos de coração, para proclamar libertação aos cativos e a abertura de prisão aos presos; para apregoar o ano aceitável do Senhor e o dia da vingança do nosso Deus; para consolar todos os que choram."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O ano aceitável do Senhor é o ano inteiro; o dia da vingança do nosso Deus é um dia só."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Lucas 4, Jesus entra na sinagoga de Nazaré, num sábado, como de costume. O texto que lhe entregam não foi escolhido ao acaso: era o que caía exatamente naquele dia — e é justamente essa profecia de Isaías, que ali se cumpria."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 4.18-19",
+          "texto": "O Espírito do Senhor é sobre mim, pois que me ungiu para evangelizar os pobres; enviou-me para proclamar libertação aos cativos e restauração da vista aos cegos, para pôr em liberdade os oprimidos, e para proclamar o ano aceitável do Senhor."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "O que ficou faltando aqui?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Jesus **não leu** “o dia da vingança do nosso Deus”. Não foi esquecimento, nem Lucas deixou de escrever: **nós estamos vivendo o ano aceitável do Senhor**. A nossa mensagem não é o dia da vingança nem o dia da ira — é uma mensagem de **esperança**. Qualquer pregação de juízo está desalinhada com este tempo, porque o juízo não veio ainda. A ira não veio, **mas virá**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A grande tribulação é, portanto, esse tempo que está entre os dois momentos: o arrebatamento e a volta de Jesus propriamente dita. Foi o próprio Jesus quem disse que ela virá:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.21-22",
+          "texto": "porque nesse tempo haverá grande tribulação, como desde o princípio do mundo até agora não tem havido e nem haverá jamais. Se aqueles dias não fossem abreviados, ninguém seria salvo; mas, por causa dos escolhidos, tais dias serão abreviados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "“Grande tribulação” é, assim, uma **expressão bíblica usada pelo próprio Senhor Jesus**. Ela, o “tempo, tempos e metade de um tempo” e as demais designações apontam para o mesmo dia terrível em que a ira de Deus será revelada do céu."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Um Dia Que Surpreenderá os Habitantes da Terra",
+      "sec_eyebrow": "O Dia da Ira",
+      "referencias": "Lucas 21.34-35 · 1 Tessalonicenses 5.3 · Apocalipse 12.12",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus também advertiu sobre esse dia:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 21.34-35",
+          "texto": "Acautelai-vos por vós mesmos, para que nunca vos suceda que o vosso coração fique sobrecarregado com as consequências da orgia, da embriaguez e das preocupações deste mundo, e para que aquele dia não venha sobre vós repentinamente, como um laço. Pois há de sobrevir a todos os que vivem sobre a face de toda a terra."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas esse dia **não virá sobre os que creem em Jesus**. Você não está mais debaixo da ira nem do juízo de Deus: está debaixo da sua **graça e do seu favor imerecido**. Jesus **sofreu a ira de Deus no seu lugar**, na cruz. No dia em que você creu, foi colocado em Cristo — hoje você está nele, e não há mais ira, juízo, punição nem condenação. Para os que não creem, porém, a ira virá."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Nós não vamos estar aqui nesse dia, porque nós seremos arrebatados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E virá de forma **brusca e repentina** — não aos poucos, mas de forma radical:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 5.3",
+          "texto": "Quando andarem dizendo: Paz e segurança, eis que lhes sobrevirá repentina destruição, como vêm as dores de parto à que está para dar à luz; e de nenhum modo escaparão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A mulher grávida sabe que dará à luz e vive na expectativa disso, mas não sabe quando. O momento exato é repentino, até inesperado — por isso ela precisa estar atenta e vigilante o tempo todo. Assim virá a grande tribulação, **só que nós não estaremos mais aqui**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse será também o tempo em que o diabo será lançado na terra com grande fúria. Ele virá furioso porque sabe que lhe resta pouco tempo — os **três anos e meio** que a Bíblia diz que a grande tribulação vai durar:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 12.12",
+          "texto": "Por isso, festejai, ó céus, e vós, os que neles habitais. Ai da terra e do mar, pois o diabo desceu até vós, cheio de grande ira, sabendo que pouco tempo lhe resta."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Em Cristo, Sem Condenação",
+      "sec_eyebrow": "A Segurança",
+      "referencias": "Romanos 8.1",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O pastor quer reafirmar: a ira de Deus **não virá sobre você**, porque já não há condenação sobre a sua vida."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.1",
+          "texto": "Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por isso, **não viva assustado, amedrontado nem em pânico**. Viva em paz na presença de Deus: a sua vida está nas mãos de Cristo, que anseia por você, quer estar com você e o ama profundamente. Você não está debaixo da ira, mas do favor; está afirmado nesse amor, em **aliança de sangue** com ele. Você é diferente — e não precisa viver como o mundo vive."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Esse mundo vive debaixo de medo; você está debaixo de paz, porque você é santo."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Esposa Separada",
+            "corpo": [
+              "A palavra **santo** significa **separado do uso comum**. O pastor explica com a própria esposa: ela é santa porque é separada para ele — ninguém toca nela; ele sim, porque ela é santa para ele.",
+              "Assim é você: **separado desse mundo**, e por isso vive de outro modo."
+            ],
+            "conclusao": "O mundo vive debaixo de ansiedade, tormento, medo e pânico; você vive debaixo de paz, descanso e segurança. Já não há condenação sobre você — não viva misturado com esse mundo."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Pensamos na santidade sempre em termos de questões morais, mas ela também tem a ver com o **modo e o estilo de vida**: vivemos de outra forma porque somos separados. Você pode até ser **disciplinado por um Pai amoroso**, mas nunca mais será colocado debaixo do juízo, porque se tornou um com Cristo, membro do próprio Cristo — e Deus trata você como trata Cristo."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Arrebatamento Parcial: Uma Questão de Maturidade",
+      "sec_eyebrow": "Maturidade",
+      "referencias": "Apocalipse 14.4",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas nós cremos que **nem todos os crentes serão arrebatados** no primeiro momento. Foi o que o pastor começou a ensinar no domingo passado: a grande tribulação provoca discussão entre os crentes sobre quando acontece o arrebatamento."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "versus",
+          "dados": {
+            "lado_a": {
+              "label": "Pré-tribulacionistas",
+              "citacao": "O arrebatamento acontece antes da grande tribulação — “pré” significa antes."
+            },
+            "lado_b": {
+              "label": "Pós-tribulacionistas",
+              "citacao": "O arrebatamento acontece depois da grande tribulação — todos os crentes vivos na terra passarão por ela, sem exceção."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E nós, no que cremos? **Nas duas coisas**, porque a Bíblia faz afirmações a respeito das duas. É o que a teologia chama de **arrebatamento parcial**: uma parte da igreja será arrebatada antes da grande tribulação, e outra parte, depois dela. Quem passa pela tribulação também será arrebatado — mas após ela."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "O que diferencia os que serão arrebatados antes dos que serão arrebatados depois?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "É uma questão de **maturidade**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Segundo o Novo Testamento, existem dois tipos de crentes: o **crente carnal**, infantil, que não cresceu espiritualmente nem se desenvolveu na fé; e o **crente espiritual**, maduro, de fé robusta e consistente — a quem a Bíblia se refere como **vencedor**. Os vencedores são aqueles que:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "**Permanecem fiéis**;",
+            "**Guardaram a palavra** de esperança;",
+            "**Oram e vigiam**;",
+            "Têm **azeite sobrando** na lâmpada;",
+            "Não enterraram o talento, mas o **multiplicaram** — e serão recompensados."
+          ]
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não há diferença de natureza entre um trigo e outro — a diferença é de maturidade."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não é trigo e joio: o pastor não está dizendo que um é crente e o outro, falso crente. Uma primeira parte do trigo amadurece primeiro e é colhida antes — a Bíblia a chama de **primícias**:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 14.4",
+          "texto": "São estes os que não se macularam com mulheres, porque são castos. São eles os seguidores do Cordeiro por onde quer que vá. São os que foram redimidos dentre os homens, primícias para Deus e para o Cordeiro;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A outra parte ainda não amadureceu e experimentará o **sol da perseguição e o fogo da provação** para amadurecer; só então a colheita é completada, quando a foice passa. Depois da grande tribulação, todos os crentes que estiverem aqui serão arrebatados."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "A Ira do Diabo e a Perseguição dos Santos",
+      "sec_eyebrow": "A Perseguição",
+      "referencias": "Apocalipse 13.7",
+      "corpo": [
+        {
+          "tipo": "pergunta",
+          "texto": "E quem será salvo durante a grande tribulação, se uma parte da igreja permanece na terra?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Hoje o Espírito Santo habita na igreja; se uma parte dela permanecer na terra, o Espírito continuará agindo aqui. O pastor crê — e deixa claro que a Bíblia não afirma isso, **é uma convicção pessoal** — que nesse tempo haverá **um grande avivamento e muitas conversões**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O arrebatamento será um evento chocante: **pessoas desaparecem**, famílias são surpreendidas, haverá perplexidade no mundo todo. Muitos cristãos que conhecem as profecias e já ouviram inúmeras vezes sobre a volta de Jesus perceberão que elas estão se cumprindo — e que **ficaram na terra**. O impacto espiritual será enorme: o arrebatamento dos vencedores deve desencadear um grande avivamento e uma profunda transformação nos crentes que não estavam vigilantes."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A maneira de enxergar a vida mudará. Se o arrebatamento acontecesse esta noite, indicaria que a volta de Jesus está próxima. Continuarão os crentes vivendo para si mesmos, acumulando coisas e riquezas, colocando o material no centro da vida? Crentes distraídos e acomodados serão **sacudidos pela urgência de anunciar o evangelho** — e a generosidade para que mais pessoas sejam alcançadas por essa verdade passará a ser outra."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 13.7",
+          "texto": "Foi-lhe dado, também, que pelejasse contra os santos e os vencesse. Deu-se-lhe ainda autoridade sobre cada tribo, povo, língua e nação;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nesse tempo, o **anticristo** — chamado de a besta no Apocalipse — governará sobre toda a terra. Em algum próximo domingo, o pastor virá falar especificamente desse governo mundial. Por ora: fique atento às profecias e aos noticiários. Um **governo mundial** terá uma liderança mundial; para protegê-lo, será preciso um **exército mundial**; e, para financiar esse exército, uma **moeda mundial**. Jesus está às portas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O anticristo perseguirá os crentes que estiverem aqui — e também os judeus. Isso não é só uma questão de quem vai no primeiro ônibus e quem vai no segundo, como se alguns chegassem mais cedo e outros mais tarde."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não queira ficar para o segundo ônibus. Quem fica para o segundo ônibus vai ter que encarar o anticristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O pastor não está esperando o anticristo nem o falso profeta: está aguardando **o noivo**. Um crente não pode mais estar debaixo da ira de Deus, mas **pode experimentar a ira do diabo**: foi-lhe dada autoridade para pelejar contra os santos e vencê-los. Será um tempo em que muitos santos serão martirizados."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Promessa de Escapar da Grande Tribulação",
+      "sec_eyebrow": "Aspecto 1",
+      "referencias": "Lucas 21.34-36",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Por isso uma série sobre a volta de Jesus importa: ela **muda a maneira de viver** e afeta o estilo de vida. O pastor anuncia que ensinará pelo menos cinco aspectos do arrebatamento dos vencedores — e desenvolve os quatro primeiros a seguir:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "A **promessa** de escaparmos da grande tribulação;",
+            "O **fato**: ele virá de forma repentina;",
+            "O **momento**: não há sinais que antecedem o arrebatamento;",
+            "O **lugar**: de pé na presença do Filho do Homem."
+          ]
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Primeiro aspecto: a promessa"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Existe uma **promessa** para escaparmos desse tempo:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 21.34-36",
+          "texto": "Acautelai-vos por vós mesmos, para que nunca vos suceda que o vosso coração fique sobrecarregado com as consequências da orgia, da embriaguez e das preocupações deste mundo, e para que aquele dia não venha sobre vós repentinamente, como um laço. Pois há de sobrevir a todos os que vivem sobre a face de toda a terra. Vigiai, pois, a todo tempo, orando para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há quem fique **preocupado e fascinado com este mundo** — embriagado com a carreira, os estudos, o trabalho. Mas o trigo está pronto para a colheita quando dá os seus sinais:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — Os Sinais do Trigo Maduro",
+            "corpo": [
+              "“Nós não somos especialistas de trigo aqui em Belo Horizonte, mas sabemos quando o trigo está pronto para ser colhido”: a plantação fica **amarelada, dourada**.",
+              "O trigo começa a se **curvar**: nós nos curvamos diante do Deus todo-poderoso, queremos que a vontade dele seja estabelecida sobre a nossa.",
+              "As **raízes** do trigo começam a se **soltar**: vamos nos desapegando desta terra e deste mundo."
+            ],
+            "conclusao": "Aqui nós somos peregrinos, estamos de passagem, somos forasteiros."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem está com o coração sobrecarregado vai **perdendo a sensibilidade** às coisas de Deus: fica anestesiado e insensível ao céu, tomado pelas próprias preocupações, sem perceber o mover de Deus. E “nem toda embriaguez vem de um copo”: ela vem de uma **agenda cheia**, de uma rotina cheia, de uma conta que vence amanhã, de um problema que insiste em tirar o sono, de ambições e planos que vão ocupando espaço no coração — e não sobra lugar para a esperança."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Trabalhar não é errado, empreender não é errado, ter ambições não é errado. A medida é esta: **trabalhe como se não trabalhasse, estude como se não estudasse** e use tudo o que você é e tem para a glória dele. Viva para ele, seja **um vaso de honra**. O perigo é aquele dia vir sobre você como um laço — algo que surge no caminho e o surpreende sem você perceber."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Vigiar é **manter o coração desperto**. E aqui está a diferença entre ser salvo e ser arrebatado antes:"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Para ser salvo da ira de Deus, basta crer; mas para não experimentar a grande tribulação, é necessário orar e vigiar."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Uma Noiva Apaixonada, Cheia de Azeite",
+      "sec_eyebrow": "Paixão",
+      "referencias": "Mateus 25.1-13 · Apocalipse 22.17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Você quer ser arrebatado? Quem quer ser arrebatado precisa ter **um coração apaixonado por Jesus**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Condição Para Casar",
+            "corpo": [
+              "Qual é a condição para se casar? **Estar louco para casar.** Se você diz “agora não, não vamos marcar a data, não vamos pensar nisso agora”, ela não vai querer casar com você.",
+              "O pastor brinca que dizem que a mulher vive preocupada até se casar e o homem só passa a se preocupar depois — mas, em condições normais de clima e temperatura, a mulher **anseia pelo casamento**."
+            ],
+            "conclusao": "Esse é o clamor do coração da noiva. Ela diz: vem — Maranata."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A noiva não ora: “Jesus, tarda a tua vinda — primeiro quero ir a Paris, depois construir a casa naquele lote, primeiro quero casar, ter filhos.” Nada disso é errado: **case, trabalhe, tenha filhos, desfrute da vida, viaje**. Mas no coração precisa haver este clamor: *o que eu quero mesmo, Senhor, é a sua vinda.*"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 22.17",
+          "texto": "O Espírito e a noiva dizem: Vem! Aquele que ouve, diga: Vem! Aquele que tem sede venha, e quem quiser receba de graça a água da vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É a história das virgens de Mateus 25: **dez virgens**, cinco prudentes e cinco tolas. Não eram cinco virgens e cinco prostitutas: **todas eram virgens**, todas tinham lâmpada, e o azeite é o Espírito Santo. Todas são crentes, filhas; a diferença é que as cinco prudentes possuíam **azeite transbordando**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.4",
+          "texto": "as prudentes, porém, levaram azeite em suas vasilhas juntamente com as suas lâmpadas."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem tem azeite sobrando é aquele que é **cheio do Espírito**, que transborda da unção — o crente vencedor, **guardado pelo poder de Deus**. As que tinham azeite sobrando foram arrebatadas; as outras perderam a festa. E só tem azeite sobrando quem é apaixonado pelo Senhor: tem **fome** de ouvir a Palavra, de adorá-lo, de desfrutar da presença dele, da glória dele — vive envolvido nisso e pensando nisso. Tem defeitos? Tem. **Quem disse que os perfeitos serão arrebatados?** Serão arrebatados os cheios do Espírito, os que têm azeite sobrando."
+        },
+        {
+          "tipo": "frase_chave",
+          "texto": "Ele virá buscar uma noiva apaixonada."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Ele virá buscar uma noiva que anseia por ele, que tem o coração nele, com um clamor no peito: o Espírito e a noiva dizem **vem**. Diga: Maranata — ora, vem, Senhor Jesus."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Repentino e Sem Sinais",
+      "sec_eyebrow": "Aspectos 2 e 3",
+      "referencias": "Mateus 24.39-44 · Apocalipse 1.7",
+      "corpo": [
+        {
+          "tipo": "subtitulo",
+          "texto": "Segundo aspecto: um fato — virá de forma repentina"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.39-41",
+          "texto": "e não o perceberam, senão quando veio o dilúvio e os levou a todos. Assim será também a vinda do Filho do Homem. Então, dois estarão no campo, um será tomado, e deixado o outro; duas estarão trabalhando num moinho, uma será tomada, e deixada a outra."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.42-44",
+          "texto": "Vigiai, pois, porque não sabeis em que dia vem o vosso Senhor. Mas considerai isto: se o pai de família soubesse a que hora viria o ladrão, vigiaria e não deixaria que fosse arrombada a sua casa. Por isso, também vós estai apercebidos; porque, numa hora em que não cuidais, o Filho do Homem virá."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Repare na expressão: “o **vosso** Senhor”. Ele é o Senhor de quem foi tomado? De quem ficou? É Senhor de **ambos**. O arrebatamento acontecerá **de repente**."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Terceiro aspecto: o momento — não há sinais"
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não existem sinais que antecedem o arrebatamento: pode acontecer hoje à noite, pode acontecer amanhã."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Já a **volta de Jesus nos ares** terá muitos sinais: o sol vai escurecer, a lua ficará vermelha como sangue, as estrelas cairão do firmamento, os poderes do céu serão abalados; haverá a manifestação do falso profeta e do anticristo, o abominável da desolação será colocado no templo — tudo isso **depois da grande tribulação**. Serão sinais evidentes: dessa vez, não será como ladrão, de forma inesperada."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 1.7",
+          "texto": "Eis que vem com as nuvens, e todo olho o verá, até quantos o traspassaram. E todas as tribos da terra se lamentarão sobre ele. Certamente. Amém!"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Não seja como os ímpios, que se lamentarão com a volta de Jesus. Nós somos **uma noiva apaixonada**, de coração apaixonado: queremos mesmo é que ele venha, e venha logo. Maranata — **a noiva diz: vem**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "Lugar do Arrebatamento",
+      "sec_eyebrow": "Aspecto 4",
+      "referencias": "Lucas 21.36 · 1 Tessalonicenses 4.16-17",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "**Quarto aspecto: o lugar.** Essa é uma das principais diferenças bíblicas entre o arrebatamento antes da grande tribulação e o arrebatamento depois dela. A promessa de Jesus em Lucas 21 é que aqueles que vigiarem e orarem escaparão — e estarão **de pé diante do Filho do Homem**:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 21.36",
+          "texto": "Vigiai, pois, a todo tempo, orando para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Esse é o lugar para onde nós seremos arrebatados: de pé na presença do Filho do Homem."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso é totalmente diferente da volta de Jesus nos ares no fim da grande tribulação. Ali haverá **outro arrebatamento**, e os que forem arrebatados nessa ocasião se encontrarão com Jesus **nos ares**. São **dois locais diferentes**:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Tessalonicenses 4.16-17",
+          "texto": "Porque o Senhor mesmo, dada a sua palavra de ordem, ouvida a voz do arcanjo, e ressoada a trombeta de Deus, descerá dos céus, e os mortos em Cristo ressuscitarão primeiro; depois, nós, os vivos, os que ficarmos, seremos arrebatados juntamente com eles, entre nuvens, para o encontro do Senhor nos ares, e, assim, estaremos para sempre com o Senhor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "No primeiro momento, os vencedores estarão **de pé diante de Jesus, diante do trono**; no segundo, se encontrarão com Jesus **nos ares**. São muitos eventos — por isso o pastor pretende, no próximo domingo ou no seguinte, montar uma **linha do tempo** com a sequência de todos esses acontecimentos, para que se entenda a cronologia bíblica do tempo do fim: do arrebatamento dos vencedores até a eternidade futura."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-10",
+      "numero": "10",
+      "titulo": "Vigiar e Orar",
+      "sec_eyebrow": "Condição 1",
+      "referencias": "Lucas 21.36 · Mateus 24.37-41",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Para ser arrebatado antes da grande tribulação há **condições**. A primeira é **vigiar e orar** (Lucas 21.36). Por isso nós não cremos que toda a igreja será arrebatada no primeiro momento: **para ser arrebatado, não basta ser salvo** — Jesus diz que é necessário vigiar e orar."
+        },
+        {
+          "tipo": "frase_chave",
+          "texto": "A oração é a nossa respiração espiritual."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "**Orar** é manter viva a comunhão com Deus e o coração aceso para ele, em todo o tempo, continuamente.",
+            "**Vigiar** é manter viva a comunhão com Deus e a sensibilidade espiritual para perceber as direções dele.",
+            "Viver de forma **pura e santa**, com o coração sensível ao Espírito.",
+            "Não permitir que as **preocupações desta vida** roubem o coração.",
+            "Viver consciente da volta de Jesus, **sem perder a eternidade de vista**."
+          ]
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso **não** é viver trancado dentro do prédio, esperando Jesus voltar — isso não é cristianismo, é fanatismo e loucura. Veja como Jesus descreve a sua volta:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 24.37-38",
+          "texto": "Assim como foi nos dias de Noé, será também a vinda do Filho do Homem. Porquanto, nos dias anteriores ao dilúvio, comiam e bebiam, casavam-se e davam-se em casamento, até ao dia em que Noé entrou na arca;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nos dias de Noé, os ímpios viviam só para comer, beber e satisfazer os seus desejos — e não perceberam a destruição vindo. Mas logo em seguida Jesus fala dos crentes (Mateus 24.40-41): dois estarão **no campo**, duas estarão **no moinho**. Fazendo o quê? **Trabalhando.** Todos estão trabalhando."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "**Crente trabalha, crente produz, crente realiza.** Crente que não trabalha está negando a fé: o trabalho é uma forma de glorificar e servir a Deus, de manter a própria casa e a casa de Deus — há até quem faça jornada dupla, trabalhando oito ou doze horas por dia e ainda servindo na obra. O mundo não entende isso. E é por isso que é impossível ser crente e não prosperar: você recebeu uma nova natureza, foi liberto de demônios que o oprimiam, é cheio do Espírito, recebeu sabedoria, é revestido de unção e descobriu o seu propósito."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-11",
+      "numero": "11",
+      "titulo": "Estar Apercebido",
+      "sec_eyebrow": "Condição 2",
+      "referencias": "Mateus 24.44",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A segunda condição é **estar apercebido** — e estar apercebido é **não deixar questões pendentes**:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Se você sabe que alguém tem algo contra você, **resolva**.",
+            "Se você ofendeu alguém, **peça perdão**; se está ofendido com alguém, **perdoe**.",
+            "Se você tem uma dívida que sabe que precisa pagar, vá conversar — mesmo que não tenha como pagar tudo agora, **resolva**."
+          ]
+        },
+        {
+          "tipo": "callout",
+          "texto": "Não deixe para trás coisas que precisam ser resolvidas: resolva tudo diante de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Pode ser desagradável, desconfortável, constrangedor, mas **resolva**. Não fique sem lidar com isso."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-12",
+      "numero": "12",
+      "titulo": "Manter a Lâmpada Acesa e as Vestes Preparadas",
+      "sec_eyebrow": "Condições 3 e 4",
+      "referencias": "Lucas 12.35 · 2 Timóteo 4.8",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A terceira condição: mantenha a **lâmpada acesa** e as **vestes preparadas**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 12.35",
+          "texto": "Estejam cingidos os vossos lombos, e acesas as vossas candeias;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso não é para ser levado ao pé da letra. O pastor brinca com os crentes que levam a ideia ao extremo — que tomam banho de roupa para não serem encontrados nus quando Jesus voltar, ou usam camisa com camiseta por baixo para estarem “cingidos e revestidos”. Isso **não é evangelho** — é exagero, e é preciso saúde mental. Não viva desesperado de angústia, de medo ou de pânico: você **já está revestido de Cristo**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que se pede é manter as candeias acesas: ter **azeite queimando dentro de você** e ser cheio da unção. É dizer amém à vinda do Senhor — porque essa é a noiva que ele virá buscar, a noiva **apaixonada**, que quer se casar agora."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Como você pode ficar apaixonado? **Quando entende o favor imerecido**, quando se alimenta do amor de Deus. É bom amar a Deus, mas não é o nosso amor por ele que está no centro, nem é a nossa base: o que sustenta tudo é o **amor dele por nós**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "O seu amor por Ele é só um reflexo do conhecimento do amor Dele por você."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Timóteo 4.8",
+          "texto": "Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos quantos amam a sua vinda."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-13",
+      "numero": "13",
+      "titulo": "Guardar a Palavra Com Perseverança",
+      "sec_eyebrow": "Condição 5",
+      "referencias": "Apocalipse 3.10",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A última condição — a quinta — é **guardar a palavra da perseverança**:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.10",
+          "texto": "Porque guardaste a palavra da minha perseverança, também eu te guardarei da hora da provação que há de vir sobre o mundo inteiro, para experimentar os que habitam sobre a terra."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para ser salvo, basta crer. Mas, para ser **livrado da grande tribulação** e ser arrebatado antes, é preciso guardar a palavra da perseverança."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nós vivemos num **mundo caído**, no mundo que jaz no maligno. Há ventos contrários e tempestades que se levantam diante de nós; todos passamos por tempos difíceis. Tem dia em que vem a doença; tem dia em que você perde alguém que ama profundamente e o coração fica despedaçado. Esse é um **dia mau** — e é nele que você precisa guardar a palavra da perseverança:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Eu continuo **crendo**.",
+            "Eu continuo **confiando**.",
+            "Eu continuo **caminhando**.",
+            "Eu continuo **permanecendo**."
+          ]
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "“Eu não estou vendo, eu não estou sentindo, mas eu tenho uma palavra: eu confio no caráter de um Deus que é fiel.”"
+        },
+        {
+          "tipo": "callout",
+          "texto": "O vencedor vence porque permanece."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "A grande tribulação: três anos e meio separam o arrebatamento da volta visível; vivemos hoje o ano aceitável do Senhor, e o dia da ira ainda virá.",
+      "versiculo_ancora": "Atos 1.9-11 · Isaías 61.1-2 · Mateus 24.21-22"
+    },
+    {
+      "ponto": "Um dia que surpreenderá a terra: a ira de Deus virá de forma repentina, mas não sobre os que estão em Cristo, que a suportou na cruz.",
+      "versiculo_ancora": "Lucas 21.34-35 · 1 Tessalonicenses 5.3 · Apocalipse 12.12"
+    },
+    {
+      "ponto": "Em Cristo, sem condenação: o crente vive em paz, não em pânico, porque foi separado — santo — para Deus.",
+      "versiculo_ancora": "Romanos 8.1"
+    },
+    {
+      "ponto": "Arrebatamento parcial: a diferença entre os crentes não é de natureza, e sim de maturidade; as primícias são colhidas antes.",
+      "versiculo_ancora": "Apocalipse 14.4"
+    },
+    {
+      "ponto": "A ira do diabo: quem ficar enfrentará o anticristo, o governo mundial e a perseguição; o crente está livre da ira de Deus, não da do diabo.",
+      "versiculo_ancora": "Apocalipse 13.7"
+    },
+    {
+      "ponto": "A promessa de escapar: para ser salvo da ira de Deus basta crer; para escapar da grande tribulação, é preciso orar e vigiar.",
+      "versiculo_ancora": "Lucas 21.34-36"
+    },
+    {
+      "ponto": "Uma noiva apaixonada: o Noivo virá buscar quem tem azeite transbordando e o clamor “vem” no coração.",
+      "versiculo_ancora": "Mateus 25.1-13 · Apocalipse 22.17"
+    },
+    {
+      "ponto": "Repentino e sem sinais: o arrebatamento pode ser hoje; a volta visível, sim, terá sinais.",
+      "versiculo_ancora": "Mateus 24.39-44 · Apocalipse 1.7"
+    },
+    {
+      "ponto": "Lugar do arrebatamento: de pé na presença do Filho do Homem — um local diferente do encontro nos ares do fim da tribulação.",
+      "versiculo_ancora": "Lucas 21.36 · 1 Tessalonicenses 4.16-17"
+    },
+    {
+      "ponto": "Vigiar e orar: comunhão viva e eternidade à vista, trabalhando e produzindo, sem se trancar à espera.",
+      "versiculo_ancora": "Lucas 21.36 · Mateus 24.37-41"
+    },
+    {
+      "ponto": "Estar apercebido: resolver pendências, pedir perdão, perdoar e acertar o que se deve.",
+      "versiculo_ancora": "Mateus 24.44"
+    },
+    {
+      "ponto": "Lâmpada acesa e vestes preparadas: azeite queimando, paixão pela vinda, e a certeza de já estar revestido de Cristo.",
+      "versiculo_ancora": "Lucas 12.35 · 2 Timóteo 4.8"
+    },
+    {
+      "ponto": "Guardar a palavra da perseverança: o vencedor vence porque permanece, mesmo no dia mau.",
+      "versiculo_ancora": "Apocalipse 3.10"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Quem é salvo está livre da ira de Deus; para ser arrebatado antes da grande tribulação, é preciso viver como vencedor — vigiando, orando e apaixonado pelo Noivo.",
+    "pontos": [
+      "Jesus voltará do mesmo modo como subiu: em dois momentos, o arrebatamento invisível e a volta visível nos ares. Entre os dois está a grande tribulação, um período de três anos e meio em que a ira de Deus será derramada — mas não sobre quem está em Cristo, pois Jesus a sofreu na cruz em nosso lugar. Por isso o crente não vive em pânico: vive em paz.",
+      "A Bíblia fala de dois tipos de crente, e a diferença entre eles é de maturidade, como no trigo: uma parte amadurece primeiro e é colhida antes (as primícias); a outra passará pelo sol da perseguição para amadurecer. Quem ficar enfrentará o anticristo, um governo mundial e a ira do diabo, com perseguição e martírio.",
+      "Existe a promessa de escapar da grande tribulação. Para ser salvo, basta crer; para ser arrebatado antes, é preciso orar e vigiar, mantendo o coração desperto e sem deixar as preocupações ocuparem o lugar da esperança. Quem tem azeite sobrando é o cheio do Espírito, apaixonado pela vinda do Senhor — como a noiva que não pede mais tempo, mas diz: vem.",
+      "O arrebatamento acontece de repente e sem sinais — pode ser hoje —, e quem o vive estará de pé na presença do Filho do Homem. Já a volta visível, no fim da tribulação, terá muitos sinais. É por isso que Jesus manda vigiar e estar apercebido.",
+      "As condições para o arrebatamento dos vencedores são: vigiar e orar (sem largar o trabalho), estar apercebido (resolvendo pendências), manter a lâmpada acesa e as vestes preparadas (azeite queimando e coração apaixonado) e guardar a palavra da perseverança. No dia mau, o vencedor continua crendo, confiando e permanecendo — porque confia no caráter de um Deus fiel."
+    ],
+    "versiculo_chave": {
+      "referencia": "Lucas 21.36",
+      "texto": "Vigiai, pois, a todo tempo, orando para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+    }
+  },
+  "nota_lacuna": [
+    {
+      "secao_id": "geral",
+      "texto": "Transcrição automática com ruído (ex.: 'tripulação' por 'tribulação', 'latrão' por 'ladrão', 'arrepatamento' por 'arrebatamento', 'Ira!' com ponto de exclamação espúrio, 'Terços/terça-lunicenses' por 'Tessalonicenses'). Referências citadas de forma imprecisa foram corrigidas pelo contexto: 'Isaías capítulo e um, versos 1 e 2' → Isaías 61.1-2; 'Lucas capítulo 4 verso 17 16' → Lucas 4.16-19 (citado 4.18-19); 'Apocalipse 12 perso 12' → Apocalipse 12.12; 'Lucas capítulo xxi 34' → Lucas 21.34-36; 'Mateus 24 versus 39 a 42' → Mateus 24.39-44 (o pastor também lê 43-44); 'Apocalipse capítulo 14 verso IV' → Apocalipse 14.4; 'segunda timorte 4 8' → 2 Timóteo 4.8; 'primeira terços, capítulo 4 versus 16 e 17' → 1 Tessalonicenses 4.16-17. O pastor atribui a 'João' a omissão em Lucas 4; o texto é de Lucas, e foi corrigido."
+    },
+    {
+      "secao_id": "bloco-1",
+      "texto": "O texto de Isaías 61.1-2 e de Lucas 4.18-19 foi completado em ARA; o pastor leu uma versão ligeiramente diferente (ex.: 'curar os quebrantados de coração', 'pôr em liberdade os algemados'). Conferir se prefere manter a versão lida em voz alta."
+    },
+    {
+      "secao_id": "bloco-5",
+      "texto": "Trecho sobre generosidade e entrega de bens depois do arrebatamento está truncado na transcrição ('o avanço percebeu adianta nada como lá tudo isso eu vou entregar mesmo'); o texto reconstrói apenas o sentido geral — que a generosidade passará a ser outra, para que mais pessoas sejam alcançadas. A afirmação de que haverá um grande avivamento é, nas palavras do pastor, convicção pessoal (“a Bíblia não diz isso”). O pastor promete falar do governo mundial em outro domingo."
+    },
+    {
+      "secao_id": "bloco-6",
+      "texto": "O pastor anuncia 'pelo menos 5 aspectos' do arrebatamento dos vencedores, mas só enumera quatro: promessa, fato, momento e lugar. O quinto não foi identificado na transcrição. Os 'sinais do trigo maduro' retomam a ilustração do primeiro domingo (que ele diz já ter dado)."
+    },
+    {
+      "secao_id": "bloco-7",
+      "texto": "Na transcrição, a frase sobre as virgens e o azeite aparece truncada ('todas sem azeite na lâmpada'); o texto segue Mateus 25.4 (todas tinham azeite; as prudentes tinham azeite transbordando)."
+    },
+    {
+      "secao_id": "bloco-8",
+      "texto": "A leitura de Mateus 24.39-44 foi reconstituída: o pastor lê 39-42 e depois 43-44 ('considerai isto') com ruído. A ideia de que ele é 'Senhor de ambos' (o que foi tomado e o que ficou) é a interpretação do pastor."
+    },
+    {
+      "secao_id": "bloco-9",
+      "texto": "A relação entre os dois locais (de pé diante do trono; encontro nos ares) segue a exposição do pastor; ele promete uma linha do tempo para um domingo próximo."
+    },
+    {
+      "secao_id": "bloco-12",
+      "texto": "O pastor numera explicitamente a primeira, a segunda, a terceira e a quinta condição; a quarta não é enunciada — o trecho sobre ficar apaixonado (amor de Deus, 2 Timóteo 4.8) vem entre a terceira e a quinta e foi tratado como parte desta seção (condições 3 e 4)."
+    },
+    {
+      "secao_id": "bloco-13",
+      "texto": "A transcrição termina logo após 'O vencedor ele vence porque ele permanece', sem fechamento nem apelo; o restante da ministração pode não ter sido capturado."
+    },
+    {
+      "secao_id": "geral",
+      "texto": "Ordem dos tópicos: os slides do culto estavam fora de ordem. Os quatro primeiros títulos (grande tribulação; dia que surpreenderá; ira do diabo e perseguição; promessa de escapar) vêm das anotações do membro. Os títulos das cinco condições seguem a anotação do membro (vigiar e orar; estar apercebido; lâmpada acesa e vestes preparadas; lugar do arrebatamento; guardar a palavra com perseverança). Na fala do pastor, porém, o 'lugar' vem antes das condições — por isso a seção 'Lugar do Arrebatamento' aparece como a seção 9, e a ordem do JSON segue a fala."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "Só os vencedores — maduros, vigilantes, cheios do Espírito e apaixonados pelo Noivo — serão arrebatados antes da grande tribulação; ser salvo basta para escapar da ira de Deus, mas não para escapar dela.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "A Grande Tribulação: o Período Que Separa os Dois Momentos",
+        "resumo": "Jesus subirá e voltará do mesmo modo — em duas etapas, arrebatamento invisível e volta visível —, e entre elas há a grande tribulação, de três anos e meio. Hoje vivemos o ano aceitável do Senhor; por isso Jesus parou a leitura de Isaías antes do dia da vingança, que ainda virá (Atos 1.9-11; Mateus 24.21-22).",
+        "frase_chave": "O ano aceitável do Senhor é o ano inteiro; o dia da vingança do nosso Deus é um dia só."
+      },
+      {
+        "numero": 2,
+        "titulo": "Um Dia Que Surpreenderá os Habitantes da Terra",
+        "resumo": "A grande tribulação é o dia da ira, que virá de forma repentina sobre os que habitam a terra, como as dores de parto. Quem crê está em Cristo e não está destinado a essa ira: Jesus a suportou na cruz (Lucas 21.34-35; 1 Tessalonicenses 5.3).",
+        "frase_chave": "Nós não vamos estar aqui nesse dia, porque nós seremos arrebatados."
+      },
+      {
+        "numero": 3,
+        "titulo": "Em Cristo, Sem Condenação",
+        "resumo": "Sem condenação em Cristo, o crente não precisa viver assustado: santo significa separado, e quem foi separado vive em paz enquanto o mundo vive em medo. Mesmo disciplinado pelo Pai, nunca estará debaixo do juízo (Romanos 8.1).",
+        "frase_chave": "Esse mundo vive debaixo de medo; você está debaixo de paz, porque você é santo."
+      },
+      {
+        "numero": 4,
+        "titulo": "Arrebatamento Parcial: Uma Questão de Maturidade",
+        "resumo": "Nem todos os crentes serão arrebatados no mesmo momento: a igreja crê nas duas posições, no arrebatamento parcial. O que diferencia os dois grupos não é a natureza, mas a maturidade — as primícias amadurecem primeiro (Apocalipse 14.4).",
+        "frase_chave": "Não há diferença de natureza entre um trigo e outro — a diferença é de maturidade."
+      },
+      {
+        "numero": 5,
+        "titulo": "A Ira do Diabo e a Perseguição dos Santos",
+        "resumo": "Os que ficarem encararão o anticristo e um governo, um exército e uma moeda mundiais; a ira de Deus não vem sobre o crente, mas a ira do diabo, sim, com perseguição e martírio. O pastor crê, como convicção pessoal, que também haverá grande avivamento (Apocalipse 13.7).",
+        "frase_chave": "Não queira ficar para o segundo ônibus. Quem fica para o segundo ônibus vai ter que encarar o anticristo."
+      },
+      {
+        "numero": 6,
+        "titulo": "Promessa de Escapar da Grande Tribulação",
+        "resumo": "Existe uma promessa de escapar da grande tribulação, mas ela exige vigiar e orar, não basta crer. Quem tem o coração sobrecarregado e embriagado pelas preocupações perde a sensibilidade; o trigo maduro se curva e solta as raízes deste mundo (Lucas 21.34-36).",
+        "frase_chave": "Para ser salvo da ira de Deus, basta crer; mas para não experimentar a grande tribulação, é necessário orar e vigiar."
+      },
+      {
+        "numero": 7,
+        "titulo": "Uma Noiva Apaixonada, Cheia de Azeite",
+        "resumo": "Só será arrebatado quem é apaixonado: a noiva não pede mais tempo, ela diz “vem”. As virgens prudentes tinham azeite transbordando, isto é, eram cheias do Espírito — e o Noivo vem buscar uma noiva apaixonada (Mateus 25; Apocalipse 22.17).",
+        "frase_chave": "Ele virá buscar uma noiva apaixonada."
+      },
+      {
+        "numero": 8,
+        "titulo": "Repentino e Sem Sinais",
+        "resumo": "O arrebatamento é um fato repentino e sem sinais que o antecedam — pode ser hoje —, enquanto a volta visível terá muitos sinais. “Um será tomado, outro deixado” se refere a dois crentes, e a diferença está em estar apercebido (Mateus 24.39-44).",
+        "frase_chave": "Não existem sinais que antecedem o arrebatamento: pode acontecer hoje à noite, pode acontecer amanhã."
+      },
+      {
+        "numero": 9,
+        "titulo": "Lugar do Arrebatamento",
+        "resumo": "Quem vigiar e orar escapará e ficará de pé na presença do Filho do Homem; o encontro nos ares de 1 Tessalonicenses 4 é outro momento, no fim da tribulação. São dois locais e dois arrebatamentos, e uma linha do tempo virá nas próximas mensagens (Lucas 21.36).",
+        "frase_chave": "Esse é o lugar para onde nós seremos arrebatados: de pé na presença do Filho do Homem."
+      },
+      {
+        "numero": 10,
+        "titulo": "Vigiar e Orar",
+        "resumo": "A primeira condição é vigiar e orar: comunhão viva com Deus, sensibilidade ao Espírito e eternidade sempre à vista. Isso não é viver trancado esperando — os de Mateus 24 estão no campo e no moinho, trabalhando, e o crente trabalha e produz (Lucas 21.36; Mateus 24.37-41).",
+        "frase_chave": "A oração é a nossa respiração espiritual."
+      },
+      {
+        "numero": 11,
+        "titulo": "Estar Apercebido",
+        "resumo": "A segunda condição é estar apercebido: não deixar pendências. Pedir perdão, perdoar, pagar o que se deve — resolver tudo diante de Deus, ainda que seja desconfortável (Mateus 24.44).",
+        "frase_chave": "Não deixe para trás coisas que precisam ser resolvidas: resolva tudo diante de Deus."
+      },
+      {
+        "numero": 12,
+        "titulo": "Manter a Lâmpada Acesa e as Vestes Preparadas",
+        "resumo": "Manter a lâmpada acesa é ter azeite queimando, ser cheio do Espírito e apaixonado pela vinda do Senhor; as vestes preparadas não são literais, porque você já está revestido de Cristo. A paixão nasce de entender o amor dele por nós (Lucas 12.35; 2 Timóteo 4.8).",
+        "frase_chave": "O seu amor por Ele é só um reflexo do conhecimento do amor Dele por você."
+      },
+      {
+        "numero": 13,
+        "titulo": "Guardar a Palavra Com Perseverança",
+        "resumo": "Quem guarda a palavra da perseverança é guardado da hora da provação. Nos dias maus, o vencedor continua crendo, confiando, caminhando e permanecendo, mesmo sem ver nem sentir, porque confia no caráter de um Deus fiel (Apocalipse 3.10).",
+        "frase_chave": "O vencedor vence porque permanece."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "Lucas 21.36",
+      "texto": "Vigiai, pois, a todo tempo, orando para que possais escapar de todas estas coisas que têm de suceder e estar em pé na presença do Filho do Homem."
+    }
+  }
+}
