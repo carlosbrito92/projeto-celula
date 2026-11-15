@@ -15,10 +15,22 @@
       "dados": {
         "titulo": "Maranata — Vem, Senhor",
         "campos": [
-          { "campo": "Primeiro momento", "valor": "Arrebatamento — invisível, repentino, sem sinais" },
-          { "campo": "Entre os dois", "valor": "Grande tribulação — 3 anos e meio" },
-          { "campo": "Segundo momento", "valor": "Volta visível — todo olho o verá" },
-          { "campo": "Condição", "valor": "Vigiar e orar" }
+          {
+            "campo": "Primeiro momento",
+            "valor": "Arrebatamento — invisível, repentino, sem sinais"
+          },
+          {
+            "campo": "Entre os dois",
+            "valor": "Grande tribulação — 3 anos e meio"
+          },
+          {
+            "campo": "Segundo momento",
+            "valor": "Volta visível — todo olho o verá"
+          },
+          {
+            "campo": "Condição",
+            "valor": "Vigiar e orar"
+          }
         ]
       }
     },
@@ -29,15 +41,51 @@
     "frase_sintese": "Nós não caminhamos para o caos. Nós caminhamos para a glória — o nosso último endereço não será um túmulo, será a presença do Senhor."
   },
   "mapa_pontos": [
-    { "id": "bloco-1", "numero": "1", "titulo": "Amar a Sua Vinda" },
-    { "id": "bloco-2", "numero": "2", "titulo": "Destinados à Salvação, Não à Ira" },
-    { "id": "bloco-3", "numero": "3", "titulo": "A Grande Tribulação e o Abominável da Desolação" },
-    { "id": "bloco-4", "numero": "4", "titulo": "Antes ou Depois? Divergência Sem Divisão" },
-    { "id": "bloco-5", "numero": "5", "titulo": "Do Mesmo Modo Como Subiu: Dois Momentos" },
-    { "id": "bloco-6", "numero": "6", "titulo": "O Trigo Que Amadurece Primeiro" },
-    { "id": "bloco-7", "numero": "7", "titulo": "Uma Noiva Apaixonada" },
-    { "id": "bloco-8", "numero": "8", "titulo": "Como um Ladrão: Vigiai" },
-    { "id": "bloco-9", "numero": "9", "titulo": "As Virgens Prudentes e os Talentos" }
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Amar a Sua Vinda"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Destinados à Salvação, Não à Ira"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "A Grande Tribulação e o Abominável da Desolação"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "Antes ou Depois? Divergência Sem Divisão"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Do Mesmo Modo Como Subiu: Dois Momentos"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "O Trigo Que Amadurece Primeiro"
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Uma Noiva Apaixonada"
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "Como um Ladrão: Vigiai"
+    },
+    {
+      "id": "bloco-9",
+      "numero": "9",
+      "titulo": "As Virgens Prudentes e os Talentos"
+    }
   ],
   "secoes": [
     {
@@ -138,9 +186,21 @@
           "variante": "timeline",
           "dados": {
             "itens": [
-              { "icon": "1", "titulo": "Arrebatamento da igreja", "desc": "O momento **invisível** e repentino. Encerra o tempo da graça que vivemos hoje." },
-              { "icon": "2", "titulo": "A grande tribulação", "desc": "Três anos e meio, a partir da profanação do templo. A **ira de Deus** é derramada sobre a terra — e a **ira do dragão** persegue os santos." },
-              { "icon": "3", "titulo": "A volta visível", "desc": "Jesus volta nas nuvens e **todo olho o verá**." }
+              {
+                "icon": "1",
+                "titulo": "Arrebatamento da igreja",
+                "desc": "O momento **invisível** e repentino. Encerra o tempo da graça que vivemos hoje."
+              },
+              {
+                "icon": "2",
+                "titulo": "A grande tribulação",
+                "desc": "Três anos e meio, a partir da profanação do templo. A **ira de Deus** é derramada sobre a terra — e a **ira do dragão** persegue os santos."
+              },
+              {
+                "icon": "3",
+                "titulo": "A volta visível",
+                "desc": "Jesus volta nas nuvens e **todo olho o verá**."
+              }
             ]
           }
         },
@@ -541,15 +601,42 @@
     }
   ],
   "resumo_final": [
-    { "ponto": "Amar a sua vinda: a volta de Cristo é a consumação da redenção, e a coroa está guardada para todos quantos amam a sua vinda — quem não a deseja revela uma deficiência espiritual.", "versiculo_ancora": "2 Timóteo 4.6-8" },
-    { "ponto": "Destinados à salvação: não estamos destinados à ira; a volta de Cristo é a bendita esperança e o fim de toda dor, e deve produzir alegria, não medo.", "versiculo_ancora": "1 Tessalonicenses 5.9-10 · Tito 2.13 · Apocalipse 21.3-4" },
-    { "ponto": "A grande tribulação: três anos e meio separam o arrebatamento da volta visível; começam quando o abominável da desolação profanar o templo reconstruído.", "versiculo_ancora": "Daniel 9.27 · Mateus 24.15-21" },
-    { "ponto": "Divergência sem divisão: pré e pós-tribulacionistas discordam sobre o momento do arrebatamento, mas todo crente crê que Jesus volta — e isso nos une.", "versiculo_ancora": "1 Tessalonicenses 1.10" },
-    { "ponto": "Dois momentos: Jesus subiu em duas etapas, uma visível e outra invisível, e voltará do mesmo modo — o arrebatamento (invisível) e a volta nas nuvens (visível).", "versiculo_ancora": "Atos 1.9-11 · Apocalipse 1.7" },
-    { "ponto": "O trigo que amadurece primeiro: a diferença entre os crentes é de maturidade; as primícias são colhidas antes, e o restante amadurece sob o sol da tribulação.", "versiculo_ancora": "Apocalipse 14.4 · Apocalipse 14.14-16" },
-    { "ponto": "Uma noiva apaixonada: planos são bons, mas o coração não pode estar enterrado nesta terra — a noiva não pede para esperar, a noiva diz: vem.", "versiculo_ancora": "1 Coríntios 15.19 · Apocalipse 22.17" },
-    { "ponto": "Vigiai: o arrebatamento vem como ladrão, sem sinais; um é tomado e outro deixado porque não vigiou. Vigiar é viver hoje como se Ele voltasse amanhã.", "versiculo_ancora": "Mateus 24.40-42 · Lucas 21.34-36" },
-    { "ponto": "Virgens e talentos: as prudentes tinham azeite transbordando (cheias do Espírito), e o Senhor quer ver a graça frutificando em quem serve com o dom que recebeu.", "versiculo_ancora": "Mateus 25.1-30" }
+    {
+      "ponto": "Amar a sua vinda: a volta de Cristo é a consumação da redenção, e a coroa está guardada para todos quantos amam a sua vinda — quem não a deseja revela uma deficiência espiritual.",
+      "versiculo_ancora": "2 Timóteo 4.6-8"
+    },
+    {
+      "ponto": "Destinados à salvação: não estamos destinados à ira; a volta de Cristo é a bendita esperança e o fim de toda dor, e deve produzir alegria, não medo.",
+      "versiculo_ancora": "1 Tessalonicenses 5.9-10 · Tito 2.13 · Apocalipse 21.3-4"
+    },
+    {
+      "ponto": "A grande tribulação: três anos e meio separam o arrebatamento da volta visível; começam quando o abominável da desolação profanar o templo reconstruído.",
+      "versiculo_ancora": "Daniel 9.27 · Mateus 24.15-21"
+    },
+    {
+      "ponto": "Divergência sem divisão: pré e pós-tribulacionistas discordam sobre o momento do arrebatamento, mas todo crente crê que Jesus volta — e isso nos une.",
+      "versiculo_ancora": "1 Tessalonicenses 1.10"
+    },
+    {
+      "ponto": "Dois momentos: Jesus subiu em duas etapas, uma visível e outra invisível, e voltará do mesmo modo — o arrebatamento (invisível) e a volta nas nuvens (visível).",
+      "versiculo_ancora": "Atos 1.9-11 · Apocalipse 1.7"
+    },
+    {
+      "ponto": "O trigo que amadurece primeiro: a diferença entre os crentes é de maturidade; as primícias são colhidas antes, e o restante amadurece sob o sol da tribulação.",
+      "versiculo_ancora": "Apocalipse 14.4 · Apocalipse 14.14-16"
+    },
+    {
+      "ponto": "Uma noiva apaixonada: planos são bons, mas o coração não pode estar enterrado nesta terra — a noiva não pede para esperar, a noiva diz: vem.",
+      "versiculo_ancora": "1 Coríntios 15.19 · Apocalipse 22.17"
+    },
+    {
+      "ponto": "Vigiai: o arrebatamento vem como ladrão, sem sinais; um é tomado e outro deixado porque não vigiou. Vigiar é viver hoje como se Ele voltasse amanhã.",
+      "versiculo_ancora": "Mateus 24.40-42 · Lucas 21.34-36"
+    },
+    {
+      "ponto": "Virgens e talentos: as prudentes tinham azeite transbordando (cheias do Espírito), e o Senhor quer ver a graça frutificando em quem serve com o dom que recebeu.",
+      "versiculo_ancora": "Mateus 25.1-30"
+    }
   ],
   "resumo_curto": {
     "frase_tema": "Jesus vai voltar, em dois momentos — e quem ama a sua vinda vive vigiando, orando e servindo.",
@@ -566,8 +653,80 @@
     }
   },
   "nota_lacuna": [
-    { "secao_id": "geral", "texto": "Transcrição automática com ruído (ex.: 'marata' por 'Maranata', 'tripulação' por 'tribulação'). Referências citadas de forma imprecisa foram corrigidas pelo contexto: 'Apocalipse 15.15' → Apocalipse 16.15; 'Apocalipse 13' (permissão para perseguir os santos) → Apocalipse 13.7; a citação de Paulo sobre viver 'como se não' → 1 Coríntios 7.29-31; 'se esperamos só nesta vida' → 1 Coríntios 15.19; o 'vem' da noiva → Apocalipse 22.17 e 22.20." },
-    { "secao_id": "bloco-3", "texto": "O pastor cita Daniel 9 sem versículo; Daniel 9.27 foi incluído por ser o texto da aliança de uma semana e da abominação no meio dela, que ele descreve. Ele fala ao mesmo tempo da última semana (7 anos) e da grande tribulação (3 anos e meio, depois de 3 anos e meio de paz); o texto segue essa leitura." },
-    { "secao_id": "bloco-4", "texto": "O pastor anuncia três grupos de interpretação, mas só nomeia pré e pós-tribulacionistas; o terceiro é a posição da igreja, apresentada a partir do ponto 5 ('cremos nas duas coisas')." }
-  ]
+    {
+      "secao_id": "geral",
+      "texto": "Transcrição automática com ruído (ex.: 'marata' por 'Maranata', 'tripulação' por 'tribulação'). Referências citadas de forma imprecisa foram corrigidas pelo contexto: 'Apocalipse 15.15' → Apocalipse 16.15; 'Apocalipse 13' (permissão para perseguir os santos) → Apocalipse 13.7; a citação de Paulo sobre viver 'como se não' → 1 Coríntios 7.29-31; 'se esperamos só nesta vida' → 1 Coríntios 15.19; o 'vem' da noiva → Apocalipse 22.17 e 22.20."
+    },
+    {
+      "secao_id": "bloco-3",
+      "texto": "O pastor cita Daniel 9 sem versículo; Daniel 9.27 foi incluído por ser o texto da aliança de uma semana e da abominação no meio dela, que ele descreve. Ele fala ao mesmo tempo da última semana (7 anos) e da grande tribulação (3 anos e meio, depois de 3 anos e meio de paz); o texto segue essa leitura."
+    },
+    {
+      "secao_id": "bloco-4",
+      "texto": "O pastor anuncia três grupos de interpretação, mas só nomeia pré e pós-tribulacionistas; o terceiro é a posição da igreja, apresentada a partir do ponto 5 ('cremos nas duas coisas')."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "A volta de Jesus é a consumação da nossa redenção; quem ama a Sua vinda vive vigiando, orando e servindo com maturidade espiritual.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Amar a Sua Vinda",
+        "resumo": "A volta de Cristo é o ponto culminante da história e da nossa esperança. A coroa da justiça está reservada para todos os que anseiam por esse encontro, revelando que a falta de expectativa na volta de Jesus indica uma deficiência espiritual (2 Timóteo 4.6-8).",
+        "frase_chave": "Deus está sentado na sala de comando. Ele possui as rédeas da história nas mãos e está conduzindo essa história para uma consumação."
+      },
+      {
+        "numero": 2,
+        "titulo": "Destinados à Salvação, Não à Ira",
+        "resumo": "Como salvos pela graça, não estamos destinados à ira de Deus, pois Cristo já a suportou na cruz. A volta de Jesus será o fim definitivo de todo sofrimento e dor, transformando nossa esperança em realidade eterna (1 Tessalonicenses 5.9-10).",
+        "frase_chave": "Somos salvos pela graça, mediante a fé. Uma vez salvos, temos paz com Deus — e todo medo da ira, do juízo e da condenação é arrancado de dentro de nós."
+      },
+      {
+        "numero": 3,
+        "titulo": "A Grande Tribulação e o Abominável da Desolação",
+        "resumo": "A segunda vinda ocorre em dois momentos, separados pela grande tribulação de três anos e meio. Este período começa quando o anticristo profana o templo reconstruído em Jerusalém com o abominável da desolação (Mateus 24.15).",
+        "frase_chave": "Eu estou te contando isso, mas você não vai ver isso — porque você será arrebatado antes."
+      },
+      {
+        "numero": 4,
+        "titulo": "Antes ou Depois? Divergência Sem Divisão",
+        "resumo": "Existem diferentes interpretações sobre o momento do arrebatamento, mas essas divergências não devem gerar divisão. O ponto central que une a igreja é a certeza absoluta de que Jesus voltará (1 Tessalonicenses 1.10).",
+        "frase_chave": "Não discuta com ninguém. Apenas pergunte: você crê que Jesus vai voltar? Então nós estamos juntos."
+      },
+      {
+        "numero": 5,
+        "titulo": "Do Mesmo Modo Como Subiu: Dois Momentos",
+        "resumo": "Jesus subiu aos céus em duas etapas: uma visível aos discípulos e outra invisível até o trono. Ele voltará da mesma forma, com um arrebatamento repentino seguido por uma manifestação visível a todo o mundo (Atos 1.9-11).",
+        "frase_chave": "Esse Jesus que dentre vós foi assunto ao céu virá do modo como o vistes subir."
+      },
+      {
+        "numero": 6,
+        "titulo": "O Trigo Que Amadurece Primeiro",
+        "resumo": "A diferença entre os crentes no arrebatamento é uma questão de maturidade espiritual, como o trigo que amadurece em tempos diferentes. As primícias são colhidas primeiro, enquanto outros precisam passar pelo sol da provação para amadurecer (Apocalipse 14.4).",
+        "frase_chave": "Quanto mais você amadurece, mais você fica desapegado deste mundo."
+      },
+      {
+        "numero": 7,
+        "titulo": "Uma Noiva Apaixonada",
+        "resumo": "A igreja deve viver como uma noiva apaixonada, cuja maior expectativa não são os bens terrenos, mas o encontro com o Noivo. Devemos usar o mundo sem nos deixar embriagar por ele (Apocalipse 22.20).",
+        "frase_chave": "Maranata — ora vem, Senhor Jesus."
+      },
+      {
+        "numero": 8,
+        "titulo": "Como um Ladrão: Vigiai",
+        "resumo": "O arrebatamento ocorrerá como um ladrão, sem sinais prévios, exigindo que o crente viva em constante vigilância. Vigiar significa manter a comunhão e a pureza, sem abandonar as responsabilidades da vida diária (Mateus 24.42).",
+        "frase_chave": "Vigiar é viver hoje de um jeito que você não precisaria mudar se soubesse que Jesus volta amanhã."
+      },
+      {
+        "numero": 9,
+        "titulo": "As Virgens Prudentes e os Talentos",
+        "resumo": "As virgens prudentes são aquelas que possuem azeite transbordando, representando uma vida cheia do Espírito Santo. O Senhor espera que sejamos servos fiéis que multiplicam os talentos recebidos, servindo ativamente no corpo de Cristo (Mateus 25.4).",
+        "frase_chave": "Quem deseja ser arrebatado não é apenas aquele que viveu com honestidade. É aquele que trabalhou para o Senhor."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "2 Timóteo 4.8",
+      "texto": "Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos quantos amam a sua vinda."
+    }
+  }
 }
