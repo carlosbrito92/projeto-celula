@@ -1,0 +1,30 @@
+{
+  "nome": "2 Verdades, 1 Mentira",
+  "tipo": "instrucional",
+  "utilitario": null,
+  "conteudo": {
+    "icone": "circle-question-mark",
+    "jogadores": {
+      "min": 4,
+      "max": 12
+    },
+    "idade_minima": 10,
+    "duracao_minutos": 30,
+    "regras": [
+      "Pensado para um grupo de cerca de 10 pessoas — funciona de 4 a 12. Não precisa de nada além do grupo.",
+      "Antes de começar, cada um pensa em silêncio, por uns 2 minutos, em 3 afirmações sobre si mesmo: duas verdadeiras e uma inventada. Podem ser anedotas, histórias ou fatos.",
+      "Escolham afirmações que ninguém ali já saiba. \"Já morei em três cidades\" rende mais conversa que \"gosto de café\".",
+      "Capriche na mentira: ela precisa parecer tão real quanto as verdades. Uma mentira absurda demais estraga a graça.",
+      "Combinem quem começa (pode ser quem fez aniversário por último) e sigam em roda. Cada rodada tem uma pessoa na vez, que chamamos de contador.",
+      "O contador fala as 3 afirmações em voz alta, em qualquer ordem, sem mostrar no rosto qual é a mentira. Pode contar com detalhes, como quem conta de verdade.",
+      "O grupo tem 2 minutos para fazer perguntas ao contador, uma pessoa por vez. Vale perguntar \"onde foi?\", \"com quem?\", \"como aconteceu?\". Não vale perguntar diretamente \"qual é a mentira?\".",
+      "O contador pode responder qualquer pergunta, mas precisa manter a história: a mentira também tem que ser defendida com convicção.",
+      "Acabou o tempo das perguntas? Todos votam ao mesmo tempo, apontando com os dedos (1, 2 ou 3) qual afirmação acham que é a mentira. Votem juntos, no \"já!\", para ninguém copiar o voto do outro.",
+      "O contador revela a mentira. Quem acertou marca 1 ponto. Se ninguém acertar, o contador marca 2 pontos por enganar o grupo todo.",
+      "Antes de passar a vez, o contador conta a história por trás de uma das verdades — ou a que mais surpreendeu o grupo. É aqui que a conversa fica boa.",
+      "Passa a vez para a pessoa ao lado. Em 10 pessoas, são cerca de 3 minutos por rodada.",
+      "Quem tiver mais pontos ao final da roda vence — mas o prêmio de verdade é conhecer melhor quem está ao seu lado."
+    ],
+    "dica": "Quem conta, escolha a mentira entre fatos comuns, não entre coisas absurdas: \"já quebrei o braço\" engana mais que \"já conheci o presidente\". Quem pergunta, procure detalhes: quem inventa costuma se atrapalhar nos pormenores. Em um grupo novo, combinem que as afirmações devem ser leves — ninguém precisa expor algo pessoal demais."
+  }
+}
