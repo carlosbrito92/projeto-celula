@@ -1,0 +1,27 @@
+{
+  "nome": "Batalha de Mímicas do Cotidiano",
+  "tipo": "instrucional_utilitario",
+  "utilitario": "Cronômetro (opcional)",
+  "conteudo": {
+    "icone": "hand",
+    "jogadores": {
+      "min": 6
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 20,
+    "regras": [
+      "Dividam o grupo em dois times equilibrados.",
+      "Entreguem pequenos pedaços de papel com situações universais e engraçadas (ex: \"tentando matar um mosquito sem fazer barulho\", \"comendo um sorvete que está derretendo muito rápido\").",
+      "Um participante de cada time vem à frente, sorteia um papel e tem 30 segundos para fazer a mímica para o seu próprio time — toque em \"Iniciar cronômetro\".",
+      "O time que adivinhar primeiro ganha 1 ponto.",
+      "Vence o time com mais pontos ao final de 5 rodadas."
+    ],
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "cronometro",
+        "rotulo_acao": "Iniciar cronômetro",
+        "eyebrow": "Opcional"
+      }
+    ]
+  }
+}

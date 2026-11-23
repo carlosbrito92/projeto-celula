@@ -1,0 +1,18 @@
+{
+  "nome": "O Pote das Perguntas de Ouro",
+  "tipo": "instrucional",
+  "conteudo": {
+    "icone": "messages-square",
+    "jogadores": {
+      "min": 3
+    },
+    "idade_minima": 10,
+    "duracao_minutos": 20,
+    "regras": [
+      "Antes da dinâmica, o facilitador escreve em tiras de papel perguntas leves, mas que tocam o lado humano (ex: \"Qual foi o melhor conselho que você já recebeu?\", \"Qual memória de infância te faz sorrir até hoje?\", \"Se pudesse jantar com qualquer pessoa, quem seria?\").",
+      "Coloquem todas as tiras dobradas em um pote ou caixa no centro da roda.",
+      "Cada participante retira uma tira, lê a pergunta em voz alta e a responde com sinceridade.",
+      "Regra do \"direito de passar\": se a pessoa não se sentir confortável, pode devolver a pergunta ao pote, mas incentive a participação para aprofundar a confiança do grupo."
+    ]
+  }
+}

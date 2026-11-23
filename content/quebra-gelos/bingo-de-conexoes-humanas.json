@@ -1,0 +1,18 @@
+{
+  "nome": "Bingo de Conexões Humanas",
+  "tipo": "instrucional",
+  "conteudo": {
+    "icone": "grid-3x3",
+    "jogadores": {
+      "min": 6
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 15,
+    "regras": [
+      "Entreguem a cada participante uma cartela de bingo 3x3 com características pessoais em cada quadrado (ex: \"Já morou em outra cidade\", \"Sabe tocar um instrumento\", \"Adora cozinhar\", \"Tem um talento escondido\", \"Já fez uma viagem sozinho\").",
+      "Os participantes circulam pela sala e conversam com os colegas para encontrar alguém que corresponda a cada característica.",
+      "Quando encontrarem, a pessoa escreve o nome do colega no quadrado correspondente.",
+      "O objetivo declarado é completar uma linha e gritar \"Bingo\", mas o objetivo real é provocar conversas genuínas e descobrir coisas novas sobre os outros."
+    ]
+  }
+}

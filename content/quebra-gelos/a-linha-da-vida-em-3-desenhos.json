@@ -1,0 +1,18 @@
+{
+  "nome": "A Linha da Vida em 3 Desenhos",
+  "tipo": "instrucional",
+  "conteudo": {
+    "icone": "route",
+    "jogadores": {
+      "min": 3
+    },
+    "idade_minima": 10,
+    "duracao_minutos": 25,
+    "regras": [
+      "Entreguem uma folha de papel A4 e canetas coloridas para cada participante.",
+      "Peçam que dobrem a folha em três partes iguais.",
+      "Em cada parte, eles devem desenhar (sem usar palavras): 1) um hobby ou paixão pessoal, 2) um lugar que marcou sua história, 3) um sonho ou objetivo de vida.",
+      "Formem pequenos grupos de 3 ou 4 pessoas para que cada um explique o significado e a emoção por trás dos seus desenhos."
+    ]
+  }
+}

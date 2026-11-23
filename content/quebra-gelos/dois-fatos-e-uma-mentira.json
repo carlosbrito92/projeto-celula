@@ -1,0 +1,19 @@
+{
+  "nome": "Dois Fatos e Uma Mentira",
+  "tipo": "instrucional",
+  "conteudo": {
+    "icone": "circle-question-mark",
+    "jogadores": {
+      "min": 4
+    },
+    "idade_minima": 10,
+    "duracao_minutos": 20,
+    "regras": [
+      "Entreguem um pequeno pedaço de papel e caneta para cada participante.",
+      "Peçam que escrevam três afirmações sobre si mesmos: duas verdadeiras e uma mentira (ex: \"Já pulei de paraquedas\", \"Tenho 3 gatos\", \"Falo 3 idiomas\").",
+      "Em roda, cada pessoa lê suas três afirmações em voz alta.",
+      "O grupo vota em qual delas acredita ser a mentira.",
+      "Ao revelar a verdade, a pessoa é convidada a contar brevemente a história real por trás dos fatos verdadeiros, gerando curiosidade e admiração mútua."
+    ]
+  }
+}

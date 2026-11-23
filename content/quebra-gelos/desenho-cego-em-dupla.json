@@ -1,0 +1,27 @@
+{
+  "nome": "Desenho Cego em Dupla",
+  "tipo": "instrucional_utilitario",
+  "utilitario": "Cronômetro (opcional)",
+  "conteudo": {
+    "icone": "pencil-ruler",
+    "jogadores": {
+      "min": 4
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 15,
+    "regras": [
+      "Formem duplas e entreguem papel e caneta para apenas uma pessoa (o \"desenhista\").",
+      "A outra pessoa (o \"descritor\") recebe uma imagem simples e cotidiana que o desenhista não pode ver.",
+      "O descritor explica como desenhar a imagem usando apenas formas geométricas e direções (ex: \"desenhe um círculo no centro, um triângulo em cima\"), sem jamais dizer o nome do objeto.",
+      "Cada rodada tem tempo limite de 2 minutos — toque em \"Iniciar cronômetro\".",
+      "Vence a dupla cujo desenho final ficar mais parecido com a imagem original."
+    ],
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "cronometro",
+        "rotulo_acao": "Iniciar cronômetro",
+        "eyebrow": "Opcional"
+      }
+    ]
+  }
+}
