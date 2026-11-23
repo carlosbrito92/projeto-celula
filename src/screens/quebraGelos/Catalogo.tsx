@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useQuebraGelosJogos } from '../../content/useQuebraGelos';
 import type { QuebraGeloJogoConteudo } from '../../content/types';
+import { useRouter } from '../../router/Router';
+import { Icon } from '../../icons/Icon';
 import { CatalogCard } from '../CatalogCard';
-import { filtrarPorTipo, type FiltroTipo } from './catalogoFiltro';
+import { filtrarPorTipo, sortearQuebraGelo, type FiltroTipo } from './catalogoFiltro';
 import { formatarDuracao, formatarIdade, formatarJogadores } from './metaFormat';
 import styles from './Catalogo.module.css';
 
@@ -24,6 +26,7 @@ function meta(conteudo: QuebraGeloJogoConteudo): string | undefined {
 export function Catalogo() {
   const { jogos, erro } = useQuebraGelosJogos();
   const [filtro, setFiltro] = useState<FiltroTipo>('todos');
+  const { navigate } = useRouter();
 
   return (
     <div className={styles.wrapper}>
@@ -41,6 +44,20 @@ export function Catalogo() {
           </button>
         ))}
       </div>
+
+      {jogos && sortearQuebraGelo(jogos) && (
+        <button
+          type="button"
+          className={styles.sortear}
+          onClick={() => {
+            const escolhido = sortearQuebraGelo(jogos);
+            if (escolhido) navigate(`/quebra-gelos/${escolhido.id}`);
+          }}
+        >
+          <Icon name="dices" />
+          <span>Sortear um quebra-gelo</span>
+        </button>
+      )}
 
       {erro && <div className={styles.vazio}>Não foi possível carregar os quebra-gelos.</div>}
       {!erro && jogos === null && <div className={styles.vazio}>Carregando…</div>}

@@ -47,3 +47,18 @@
   padding: 24px 0;
   text-align: center;
 }
+
+.sortear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent1);
+  color: var(--bg);
+  border: none;
+  font-family: var(--font-corpo);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 16px;
+  cursor: pointer;
+}

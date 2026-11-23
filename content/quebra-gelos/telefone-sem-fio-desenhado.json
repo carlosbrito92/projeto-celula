@@ -1,0 +1,19 @@
+{
+  "nome": "Telefone Sem Fio Desenhado",
+  "tipo": "instrucional",
+  "conteudo": {
+    "icone": "satellite-dish",
+    "jogadores": {
+      "min": 6
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 20,
+    "regras": [
+      "Dividam o grupo em equipes de 4 a 6 pessoas e entreguem uma folha de papel para cada equipe.",
+      "A primeira pessoa escreve uma frase curta e curiosa no topo da folha, dobra a ponta para esconder o texto e passa a folha adiante.",
+      "A segunda pessoa desenha o que entendeu da frase, dobra para esconder o desenho e passa adiante.",
+      "A terceira pessoa escreve uma frase descrevendo o desenho que viu, e assim por diante, alternando escrita e desenho até a folha acabar.",
+      "No final, desdobrem as folhas e leiam a sequência em voz alta. A equipe com a transformação mais engraçada ou inesperada vence."
+    ]
+  }
+}

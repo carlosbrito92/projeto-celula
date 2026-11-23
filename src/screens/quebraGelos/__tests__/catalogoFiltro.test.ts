@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { filtrarPorTipo } from '../catalogoFiltro';
+import { elegiveisAleatorio, filtrarPorTipo, sortearQuebraGelo } from '../catalogoFiltro';
 import type { QuebraGeloRow } from '../../../content/types';
 
 function jogo(tipo: QuebraGeloRow['tipo']): QuebraGeloRow {
@@ -30,5 +30,31 @@ describe('filtrarPorTipo', () => {
       jogo('instrucional_utilitario'),
       jogo('utilitario'),
     ]);
+  });
+});
+
+describe('sorteio aleatório', () => {
+  const com = (id: string, tipo: QuebraGeloRow['tipo'], conteudo: object = {}) =>
+    ({ ...jogo(tipo), id, conteudo }) as QuebraGeloRow;
+  const lista = [
+    com('a', 'instrucional'),
+    com('b', 'instrucional_utilitario'),
+    com('jogo', 'instrucional', { jogar_pelo_celular: '/v2/spicy' }),
+    com('jogo2', 'instrucional_utilitario', { jogar_pelo_celular: '/v2/quem-sou-eu' }),
+    com('ferramenta', 'utilitario'),
+  ];
+
+  it('exclui jogos (com "Jogar pelo Celular") e utilitários puros', () => {
+    expect(elegiveisAleatorio(lista).map((j) => j.id)).toEqual(['a', 'b']);
+  });
+
+  it('escolhe pelo número aleatório, sem estourar o limite', () => {
+    expect(sortearQuebraGelo(lista, () => 0)?.id).toBe('a');
+    expect(sortearQuebraGelo(lista, () => 0.99)?.id).toBe('b');
+    expect(sortearQuebraGelo(lista, () => 1)?.id).toBe('b');
+  });
+
+  it('sem candidatos devolve null', () => {
+    expect(sortearQuebraGelo([com('x', 'utilitario')])).toBeNull();
   });
 });
