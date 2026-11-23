@@ -1,3 +1,4 @@
+import { useState, type CSSProperties } from 'react';
 import { Icon } from '../../icons/Icon';
 import styles from './ResumoCurtoOverlay.module.css';
 
@@ -15,11 +16,21 @@ interface ResumoOverlayProps {
     versiculo_chave?: { referencia: string; texto: string };
   };
   aoFechar: () => void;
+  /** Escala de fonte do botão "Aa" da Leitura, para o resumo acompanhar. */
+  escala?: number;
 }
 
-export function ResumoCurtoOverlay({ resumo, aoFechar }: ResumoOverlayProps) {
+export function ResumoCurtoOverlay({ resumo, aoFechar, escala = 1 }: ResumoOverlayProps) {
+  const [progresso, setProgresso] = useState(0);
+
+  // Progresso de rolagem do próprio corpo (o overlay rola por dentro, não a janela).
+  const aoRolar = (el: HTMLDivElement) => {
+    const max = el.scrollHeight - el.clientHeight;
+    setProgresso(max > 0 ? Math.min(100, (el.scrollTop / max) * 100) : 0);
+  };
+
   return (
-    <div className={styles.overlay}>
+    <div className={styles.overlay} style={{ '--leitura-escala': escala } as CSSProperties}>
       <header className={styles.header}>
         <button
           type="button"
@@ -31,8 +42,11 @@ export function ResumoCurtoOverlay({ resumo, aoFechar }: ResumoOverlayProps) {
         </button>
         <span className={styles.headerLabel}>Versão Resumida</span>
       </header>
+      <div className={styles.progressoBarra}>
+        <div className={styles.progressoPreenchimento} style={{ width: `${progresso}%` }} />
+      </div>
 
-      <div className={styles.corpo}>
+      <div className={styles.corpo} onScroll={(e) => aoRolar(e.currentTarget)}>
         {resumo.frase_tema && (
           <div className={styles.fraseTema}>
             {resumo.frase_tema}

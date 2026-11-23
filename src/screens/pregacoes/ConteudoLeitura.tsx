@@ -21,6 +21,7 @@ export function ConteudoLeitura({
   pregador,
   dataExibicao,
   aoAbrirResumo,
+  minutosResumo,
 }: {
   serie: string | null | undefined;
   conteudo: PregacaoConteudo;
@@ -28,11 +29,28 @@ export function ConteudoLeitura({
   dataExibicao: string | null | undefined;
   /** Ausente = sem resumo para abrir (o botão "Ler versão resumida" some). */
   aoAbrirResumo?: () => void;
+  /** Tempo estimado do resumo, mostrado no CTA. */
+  minutosResumo?: number;
 }) {
   const temResumo = (conteudo.resumo_final?.length ?? 0) > 0;
   return (
     <>
       {serie && <span className={styles.badge}>{serie}</span>}
+
+      {aoAbrirResumo && (
+        <button type="button" className={styles.resumoCurtoCta} onClick={aoAbrirResumo}>
+          <span className={styles.resumoCurtoCtaIcone}>
+            <Icon name="book-open" />
+          </span>
+          <div className={styles.resumoCurtoCtaTextos}>
+            <div className={styles.resumoCurtoCtaEyebrow}>Sem tempo para o texto completo?</div>
+            <div className={styles.resumoCurtoCtaTitulo}>Ler versão resumida</div>
+          </div>
+          {minutosResumo !== undefined && (
+            <span className={styles.resumoCurtoCtaTempo}>≈ {minutosResumo} min</span>
+          )}
+        </button>
+      )}
 
       {conteudo.banner_intro?.componente_tema && (
         <ComponenteTemaRenderer
@@ -54,17 +72,6 @@ export function ConteudoLeitura({
           <div className={styles.versiculoAncoraTexto}>“{conteudo.banner_intro.versiculo_ancora.texto}”</div>
           <div className={styles.versiculoAncoraReferencia}>{conteudo.banner_intro.versiculo_ancora.referencia}</div>
         </div>
-      )}
-
-      {aoAbrirResumo && (
-        // Restaurado: o PR #64 trocou o CTA por um <button> sem estilo (classe inexistente).
-        <button type="button" className={styles.resumoCurtoCta} onClick={aoAbrirResumo}>
-          <Icon name="book-open" />
-          <div className={styles.resumoCurtoCtaTextos}>
-            <div className={styles.resumoCurtoCtaEyebrow}>Sem tempo para o texto completo?</div>
-            <div className={styles.resumoCurtoCtaTitulo}>Ler versão resumida</div>
-          </div>
-        </button>
       )}
 
       <div id="indice">
