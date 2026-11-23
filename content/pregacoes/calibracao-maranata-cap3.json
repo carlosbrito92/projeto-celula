@@ -1,0 +1,954 @@
+{
+  "metadados": {
+    "serie": "Maranata",
+    "capitulo": "Capítulo 3",
+    "tema": "Os Três Julgamentos",
+    "data": "22 de novembro de 2026",
+    "pregador": "Pastor Pedro Estrella",
+    "texto_base": "1 Coríntios 3.10-15",
+    "modo_origem": "A"
+  },
+  "banner_intro": {
+    "contextualizacao": "Terceira mensagem da série Maranata, sobre a volta de Jesus. Nos dois primeiros domingos, o pastor apresentou os dois momentos da volta — o arrebatamento e a volta nos ares — e as condições para o arrebatamento dos vencedores. Nesta mensagem, ele esclarece uma das maiores confusões sobre os últimos dias: não existe um único “juízo final”, mas três julgamentos distintos, e o que cada um avalia.",
+    "componente_tema": {
+      "variante": "label_box",
+      "dados": {
+        "titulo": "Os Três Julgamentos",
+        "campos": [
+          {
+            "campo": "1º julgamento",
+            "valor": "Tribunal de Cristo — os crentes; as obras são avaliadas"
+          },
+          {
+            "campo": "2º julgamento",
+            "valor": "Julgamento das nações — conforme trataram os pequeninos irmãos"
+          },
+          {
+            "campo": "3º julgamento",
+            "valor": "Grande trono branco — os incrédulos; o Livro da Vida"
+          },
+          {
+            "campo": "Princípio",
+            "valor": "Deus não mistura o público"
+          }
+        ]
+      }
+    },
+    "versiculo_ancora": {
+      "referencia": "1 Coríntios 3.14-15",
+      "texto": "Se permanecer a obra de alguém que sobre ele edificou, esse receberá galardão. Se a obra de alguém se queimar, sofrerá ele dano; mas esse será salvo, todavia como por fogo."
+    },
+    "aviso_proxima_serie": {
+      "texto": "Ainda nesta série, o pastor pretende apresentar uma linha do tempo completa dos acontecimentos do fim, com a sequência de todos os eventos, do arrebatamento à eternidade."
+    },
+    "frase_sintese": "Quem está em Cristo não será condenado — mas o trabalho será avaliado. Por isso o alvo de quem é salvo não é só receber a salvação: é também ser recompensado."
+  },
+  "mapa_pontos": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Certamente Venho Sem Demora"
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Uma Noiva Que Anseia"
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Os Três Julgamentos"
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Tribunal de Cristo"
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Julgamento das Nações"
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Grande Trono Branco"
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Salvos Para Receber Recompensa"
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "A Corda Sem Fim"
+    }
+  ],
+  "secoes": [
+    {
+      "id": "bloco-1",
+      "numero": "1",
+      "titulo": "Certamente Venho Sem Demora",
+      "sec_eyebrow": "Recapitulação",
+      "referencias": "Apocalipse 22.20 · 2 Pedro 3.8 · 2 Timóteo 4.8 · 1 João 1.8-10 · Romanos 11.29 · Romanos 6.23",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Em Apocalipse 22.20 encontramos uma das principais promessas de Jesus: **“Certamente venho sem demora”**. Esse texto tem quase dois mil anos — e isso nos lembra que a percepção de Deus sobre o tempo não é a nossa."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 22.20",
+          "texto": "Aquele que dá testemunho destas coisas diz: Certamente, venho sem demora. Amém! Vem, Senhor Jesus!"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Pedro 3.8",
+          "texto": "Há, todavia, uma coisa, amados, que não deveis esquecer: que um dia, para o Senhor, é como mil anos, e mil anos, como um dia."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A volta de Jesus está **mais próxima do que imaginamos**. E temos aprendido que ela acontece em **dois momentos**. O primeiro é o **arrebatamento**: os crentes vencedores serão arrebatados e ficarão **em pé diante do Filho do Homem**. A condição para isso é sermos uma **noiva apaixonada** — aquela que anseia pelo Noivo e pela volta dele."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Timóteo 4.8",
+          "texto": "Já agora a coroa da justiça me está guardada, a qual o Senhor, reto juiz, me dará naquele Dia; e não somente a mim, mas também a todos quantos amam a sua vinda."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Jesus voltará para buscar uma noiva: uma igreja que **deseja se casar com ele** e anseia pela sua volta. Por isso este é um assunto que deve ser pregado e falado constantemente — é um dos principais temas de toda a Palavra de Deus."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "No domingo passado vimos as condições para o arrebatamento: **orar e vigiar**, **estar apercebido** — sem deixar pendências nem áreas mal resolvidas — e **guardar a palavra da perseverança**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A condição para ser arrebatado não é ser impecável."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se a condição fosse “não peque”, todos nós estaríamos condenados ao inferno. Ninguém aqui afirma ser sem pecado — e a Bíblia diz que quem afirma isso é mentiroso:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 João 1.8-10",
+          "texto": "Se dissermos que não temos pecado nenhum, a nós mesmos nos enganamos, e a verdade não está em nós. Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados e nos purificar de toda injustiça. Se dissermos que não temos cometido pecado, fazemo-lo mentiroso, e a sua palavra não está em nós."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que afirmamos todos os domingos, sobre você e sobre mim, é que **somos perdoados**: fomos cobertos pelo sangue, o passado foi apagado e um novo futuro foi escrito. Você **nasceu de novo** e se tornou **filho de Deus** — e isso é irreversível. Você não perde a sua salvação, nem a sua posição de filho. Você é cidadão do reino."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 11.29",
+          "texto": "porque os dons e a vocação de Deus são irrevogáveis."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Claro que você não quer viver no pecado: ele é horroroso e tem consequências terríveis. Uma delas é a morte — alguns morrem antes do tempo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 6.23",
+          "texto": "Porque o salário do pecado é a morte, mas o dom gratuito de Deus é a vida eterna em Cristo Jesus, nosso Senhor."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-2",
+      "numero": "2",
+      "titulo": "Uma Noiva Que Anseia",
+      "sec_eyebrow": "Santa Expectativa",
+      "referencias": "Lucas 21.34-36",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Por isso precisamos **vigiar contra a embriaguez deste mundo**. A noiva que Jesus virá buscar é aquela que tem o coração **conquistado por ele**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você não pode mais se perder, porque está em Cristo — mas o seu anseio pelo céu pode se perder."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Você pode estar vigilante hoje e, amanhã, alguma coisa o envolver e o coração se afastar do lugar certo. Isso não significa que você perdeu a salvação — ela é irreversível. Mas é preciso ser uma noiva que **anseia pelo casamento**: a noiva que não anseia por ele tem um problema."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Noiva Que Sonha Com o Casamento",
+            "corpo": [
+              "Uma noiva apaixonada pensa em como será a **cerimônia**, em como será a **casa** onde vão morar, na **lua de mel**, no lugar para onde vão viajar. Desde pequenas, muitas meninas brincam de casinha — e já sonham até com o nome dos filhos.",
+              "Esse anseio foi colocado por Deus dentro dela. Ninguém precisa ensiná-lo."
+            ],
+            "conclusao": "A noiva que Jesus vai buscar é assim: tem o clamor no coração — Maranata, vem, Senhor Jesus."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A condição, portanto, é **querer estar com ele**: ter um anseio por ele e querer que a sua volta seja acelerada. E quanto mais o coração está nele, mais **desapegado** você fica desta vida — e mais fácil é ser arrancado dela, porque as **raízes estão soltas**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso não quer dizer jogar fora o que você tem, nem deixar de desfrutar o que Deus lhe deu. A Bíblia diz que a vontade de Deus é que você aproveite a vida e viva dias felizes. Mas **não se apegue**: você está aqui, mas a sua mente, o seu pensamento e o seu coração estão em outro lugar — porque o trigo será colhido."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É por isso que esta série existe: para despertar a esperança, fortalecer a fé e trazer instrução, entendimento e sabedoria. E hoje chegamos a um dos assuntos que mais geram confusão entre os evangélicos, quando falamos dos últimos dias: **os julgamentos**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-3",
+      "numero": "3",
+      "titulo": "Os Três Julgamentos",
+      "sec_eyebrow": "Visão Geral",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Queremos que você ganhe **clareza** sobre esse assunto, na mente e no coração: segundo a Palavra de Deus, **não existe um único “juízo final” universal**. Existem **três julgamentos diferentes**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "São três porque Deus não trata todos juntos: o julgamento dos filhos não acontece junto com o dos que não creem."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Deus não mistura o público."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "timeline",
+          "dados": {
+            "itens": [
+              {
+                "icon": "1",
+                "titulo": "O tribunal de Cristo",
+                "desc": "O julgamento dos **crentes**, daqueles que nasceram de novo."
+              },
+              {
+                "icon": "2",
+                "titulo": "O julgamento das nações",
+                "desc": "Um julgamento pouco falado e pouco ensinado, que veremos adiante."
+              },
+              {
+                "icon": "3",
+                "titulo": "O grande trono branco",
+                "desc": "O julgamento dos **incrédulos**, os que não creem em Cristo."
+              }
+            ]
+          }
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-4",
+      "numero": "4",
+      "titulo": "O Tribunal de Cristo",
+      "sec_eyebrow": "1º Julgamento",
+      "referencias": "Romanos 8.1 · João 3.18 · João 5.24 · 2 Coríntios 5.10 · Romanos 14.10 · 1 Coríntios 4.4-5 · 1 Coríntios 3.10-15 · Mateus 16.27 · Apocalipse 22.12",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O primeiro julgamento é o dos **crentes**, chamado na Bíblia de **tribunal de Cristo**. Ele **não é um julgamento de condenação**, porque, para quem está em Cristo:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 8.1",
+          "texto": "Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 3.18",
+          "texto": "Quem nele crê não é julgado; mas quem não crê já está julgado, porque não crê no nome do unigênito Filho de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "João 5.24",
+          "texto": "Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna, não entra em juízo, mas passou da morte para a vida."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você está em Cristo, **não há mais condenação sobre você** — então o que será avaliado? **As nossas obras.**"
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Aquilo que fizemos com a graça recebida"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O que será avaliado é o que fizemos com a **medida de graça** que Deus nos confiou: com os dons, os talentos, os recursos, o tempo, as capacidades e os conhecimentos que ele nos deu."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Será aquilo que fizemos com a nossa medida de graça — o trabalho será avaliado!"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Fábrica de Celulares",
+            "corpo": [
+              "Imagine que todos nós trabalhamos numa **fábrica de celulares**, numa linha de montagem. Você foi instruído e treinado, recebeu um manual, as ferramentas e um salário — tudo o que é necessário para produzir bons celulares.",
+              "O **primeiro trabalhador** monta o celular exatamente como o manual manda e faz tudo com excelência. Será elogiado publicamente, receberá uma recompensa e será promovido para uma posição de mais relevância.",
+              "O **segundo trabalhador** monta o celular do jeito que ele acha que deve ser montado, sem diligência nem excelência, e apenas comparece ao trabalho. Possivelmente será corrigido e repreendido.",
+              "E há um terceiro caso: o supervisor chega, percebe que o nome dele **nem está na lista** dos trabalhadores e manda dois seguranças amarrarem suas mãos e pés e o jogarem para fora — porque ele está ali para destruir a linha de produção."
+            ],
+            "conclusao": "Nossas obras serão avaliadas."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O tribunal de Cristo acontece depois que Jesus volta nos ares e os crentes que ficaram são arrebatados. A sequência completa dos acontecimentos veremos mais adiante, ainda neste capítulo."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Um julgamento de obras, não de salvação"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 5.10",
+          "texto": "Porque importa que todos nós compareçamos perante o tribunal de Cristo, para que cada um receba segundo o bem ou mal que tiver feito por meio do corpo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Perceba: é uma questão de **obras, de trabalho**. Romanos 14 fala do mesmo tribunal — e é um texto que se aplica a nós, crentes. Não é sobre salvação, porque a salvação não depende de obras: depende **unicamente de crer em Cristo** e na obra de Cristo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 14.10",
+          "texto": "Tu, porém, por que julgas teu irmão? E tu, por que desprezas o teu? Pois todos compareceremos perante o tribunal de Deus;"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 4.4-5",
+          "texto": "Porque de nada me argúi a consciência; contudo, nem por isso me dou por justificado; pois quem me julga é o Senhor. Portanto, nada julgueis antes do tempo, até que venha o Senhor, o qual não somente trará à plena luz as coisas ocultas das trevas, mas também manifestará os desígnios dos corações; e, então, cada um receberá de Deus o louvor."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Todos receberão o louvor de Deus? O pastor crê que não: alguns têm motivações erradas, uma agenda oculta no coração. Mas haverá os que receberão a glória de ser **elogiados publicamente pela boca do próprio Deus**. Se você fica feliz ao ver o seu rosto na placa de “funcionário do mês”, imagine ser reconhecido naquele dia por palavras que saem da boca de Deus. Isso não é coisa pequena."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "No tribunal de Cristo, alguns serão recompensados, alguns elogiados; alguns possivelmente serão repreendidos, até disciplinados. Por isso a Bíblia fala de **choro** naquele dia — o choro de quem olha para trás e pensa: *poderia ter feito e não fiz, poderia ter sido e não fui*."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "1 Coríntios 3: o texto que deixa tudo claro"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 3.10-11",
+          "texto": "Segundo a graça de Deus que me foi dada, eu, como prudente construtor, lancei o fundamento, e outro edifica sobre ele. Porém cada um veja como edifica. Porque ninguém pode lançar outro fundamento, além do que foi posto, o qual é Jesus Cristo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo se descreve como um **prudente construtor**: um especialista em construções espirituais, que lançou o fundamento. Outros edificam sobre ele — e “cada um veja como edifica”. O fundamento é **Jesus Cristo**; a respeito dele, não há liberdade: não existe outro."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Há muitas igrejas por aí — e que Belo Horizonte tenha cada vez mais, cinco, dez por dia. Uma igreja só não alcança todos os tipos de pessoas nem fala todas as linguagens. Cada tipo de peixe tem uma isca, e há muito peixe lá fora para ser pescado. O que une todas elas é estarem **sobre o mesmo fundamento**. Uma canta dez músicas, outra canta três: é questão de preferência. A base da nossa comunhão não é a preferência — é o fundamento. Por isso, que a volta de Jesus seja antes ou depois da grande tribulação **não importa para nos dividir**: o que nos une é muito maior do que o que nos afasta."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 3.12-13",
+          "texto": "Contudo, se sobre este fundamento alguém edificar ouro, prata, pedras preciosas, madeira, feno, palha, manifesta se tornará a obra de cada um; pois o Dia a demonstrará, porque está sendo revelada pelo fogo; e qual seja a obra de cada um o próprio fogo o provará."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Paulo apresenta duas categorias de materiais: **ouro, prata e pedras preciosas**; e **madeira, feno e palha**. Qual deles produz mais volume numa construção? A madeira, o feno, a palha. Imagine chegar ao tribunal de Cristo carregando um grande volume de feno — ou com pouco ouro nas mãos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por isso crescimento é algo que amamos, mas **não queremos volume: queremos saúde**. Não queremos uma igreja que cresça como quem produz pastel em série. Queremos identificar uma **obra sólida** — e domingo, onze da manhã, ouvir sobre escatologia é sinal de gente crescida, que come comida sólida. Criança não percebe a diferença de um chocolate importado; só quem amadureceu percebe a qualidade do que é servido."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "1 Coríntios 3.14-15",
+          "texto": "Se permanecer a obra de alguém que sobre ele edificou, esse receberá galardão. Se a obra de alguém se queimar, sofrerá ele dano; mas esse será salvo, todavia como por fogo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quem edificou com madeira, feno e palha será **salvo, mas como por fogo**: perde a obra e o galardão. A salvação não é questão de obras — ela vem de você já estar no fundamento, que é Cristo. O **galardão** é questão do que você edificou *sobre* esse fundamento. Por isso não basta ser salvo: o nosso anseio é também ser **recompensado e aprovado naquele dia**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse é o dia de Cristo — o dia de receber a recompensa:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 16.27",
+          "texto": "Porque o Filho do Homem há de vir na glória de seu Pai, com os seus anjos, e então retribuirá a cada um conforme as suas obras."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 22.12",
+          "texto": "E eis que venho sem demora, e comigo está o galardão que tenho para retribuir a cada um segundo as suas obras."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse é o primeiro julgamento: o **tribunal de Cristo**, o julgamento dos que nasceram de novo. É um julgamento de **avaliação**, porque você já não entra em juízo — o que será avaliado é o seu trabalho."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-5",
+      "numero": "5",
+      "titulo": "Julgamento das Nações",
+      "sec_eyebrow": "2º Julgamento",
+      "referencias": "Mateus 25.31-41",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O segundo julgamento é o **julgamento das nações**. Jesus falou dele em Mateus 25 — é um julgamento pouco falado e pouco ensinado, mas vale nos determos nele."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.31-33",
+          "texto": "Quando o Filho do Homem vier na sua majestade e todos os anjos com ele, então, se assentará no trono da sua glória; e todas as nações serão reunidas em sua presença, e ele separará uns dos outros, como o pastor separa dos cabritos as ovelhas; e porá as ovelhas à sua direita, mas os cabritos, à esquerda."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Que nações são essas? Os **mais de duzentos países** que conhecemos hoje: todas serão reunidas na presença de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.34-36",
+          "texto": "Então, dirá o Rei aos que estiverem à sua direita: Vinde, benditos de meu Pai! Entrai na posse do reino que vos está preparado desde a fundação do mundo; porque tive fome, e me destes de comer; tive sede, e me destes de beber; era forasteiro, e me hospedastes; estava nu, e me vestistes; enfermo, e me visitastes; preso, e fostes ver-me."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.37-40",
+          "texto": "Então, perguntarão os justos: Senhor, quando foi que te vimos com fome e te demos de comer? Ou com sede e te demos de beber? E quando te vimos forasteiro e te hospedamos? Ou nu e te vestimos? E quando te vimos enfermo ou preso e fomos visitar-te? O Rei, respondendo, lhes dirá: Em verdade vos digo que sempre que o fizestes a um destes meus pequeninos irmãos, a mim o fizestes."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 25.41",
+          "texto": "Então, o Rei dirá também aos que estiverem à sua esquerda: Apartai-vos de mim, malditos, para o fogo eterno, preparado para o diabo e seus anjos;"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "contraste",
+          "dados": {
+            "lado_a": {
+              "label": "Cabritos — à esquerda",
+              "titulo": "Os que não acolheram",
+              "texto": "Ouvem: apartai-vos de mim, para o fogo eterno preparado para o diabo e seus anjos."
+            },
+            "lado_b": {
+              "label": "Ovelhas — à direita",
+              "titulo": "Os que acolheram os pequeninos irmãos",
+              "texto": "Entram na posse do reino que está preparado desde a fundação do mundo."
+            }
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Quando isso acontece? **Na ocasião da grande tribulação.** O anticristo estará governando a terra e haverá uma **marca**: quem não a receber não poderá comprar nem vender — uma vida de enorme dificuldade. Os crentes se recusarão a receber essa marca, e os judeus também, e por isso serão perseguidos."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Os pequenos irmãos de Jesus são os crentes e os judeus que estiverem aqui na grande tribulação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "As nações que trataram bem esses pequenos irmãos de Jesus — dando comida, moradia, roupa, visita — serão **recompensadas** e farão parte do **milênio**: quando Cristo voltar, ele estabelecerá o seu governo na terra e reinará por **mil anos**."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Onde estamos na linha do tempo"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É muita informação, com tantos nomes e acontecimentos. Para se situar, esta é a sequência:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "timeline",
+          "dados": {
+            "itens": [
+              {
+                "icon": "1",
+                "titulo": "Arrebatamento da igreja",
+                "desc": "Os **crentes vencedores** são arrebatados — de repente, como um ladrão."
+              },
+              {
+                "icon": "2",
+                "titulo": "Manifestação do anticristo",
+                "desc": "O anticristo e o falso profeta se revelam. Há um **acordo de paz com Israel**, o templo é reconstruído e vêm **três anos e meio de paz**."
+              },
+              {
+                "icon": "3",
+                "titulo": "Grande tribulação",
+                "desc": "O anticristo coloca a própria imagem para ser adorada no templo, o acordo é quebrado e começam **três anos e meio de grande tribulação**. Crentes e judeus são perseguidos."
+              },
+              {
+                "icon": "4",
+                "titulo": "A volta de Jesus nos ares",
+                "desc": "Os crentes que ficaram são arrebatados e se encontram com o Senhor nos ares. Acontece o **tribunal de Cristo**: as obras são avaliadas e os aprovados recebem galardão."
+              },
+              {
+                "icon": "5",
+                "titulo": "A batalha",
+                "desc": "Jesus pisa no **monte das Oliveiras** e há uma batalha, no vale do Megido, o Armagedom. Ele não vem “com anjos fofinhos”: será uma guerra, com as nações se voltando contra ele."
+              },
+              {
+                "icon": "6",
+                "titulo": "Julgamento das nações",
+                "desc": "As nações são reunidas e julgadas pela forma como trataram os pequeninos irmãos de Jesus."
+              },
+              {
+                "icon": "7",
+                "titulo": "O milênio",
+                "desc": "Jesus reina na terra por **mil anos** — um tempo de paz e de justiça."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Sobre os dias da grande tribulação, o pastor entende que **pelo menos um terço da população** morrerá: serão dias terríveis, em que a ira de Deus será revelada do céu contra toda impiedade. Mas você não verá nenhuma dessas coisas, porque terá sido arrebatado."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-6",
+      "numero": "6",
+      "titulo": "Grande Trono Branco",
+      "sec_eyebrow": "3º Julgamento",
+      "referencias": "Apocalipse 20.11-15 · Romanos 10.9-10 · 2 Coríntios 12.2-4 · Lucas 23.43 · Lucas 16.19-31 · Romanos 12.3",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Depois do milênio haverá o **último julgamento**, conhecido como o **grande trono branco**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 20.11-15",
+          "texto": "Vi um grande trono branco e aquele que nele se assenta, de cuja presença fugiram a terra e o céu, e não se achou lugar para eles. Vi também os mortos, os grandes e os pequenos, postos em pé diante do trono. Então, se abriram livros. E ainda outro livro, o Livro da Vida, foi aberto. E os mortos foram julgados, segundo as suas obras, conforme o que se achava escrito nos livros. Deu o mar os mortos que nele estavam. A Morte e o Hades entregaram os mortos que neles havia. E foram julgados, um por um, segundo as suas obras. Então, a Morte e o Hades foram lançados para dentro do lago de fogo. Esta é a segunda morte, o lago de fogo. E, se alguém não foi achado inscrito no Livro da Vida, esse foi lançado para dentro do lago de fogo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esse é o julgamento dos **incrédulos**, dos que não creem em Cristo. E o que decide é o **Livro da Vida**: quem não está inscrito nele é lançado no lago de fogo. O seu nome precisa estar nesse livro."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "O que preciso fazer para ter o meu nome no Livro da Vida?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Não é marcar um caminho de joelhos numa escadaria, nem pagar penitência, nem construir casas, nem atravessar a rua para ajudar, nem alimentar os famintos. **Você só precisa crer** — porque Cristo já fez tudo por você."
+        },
+        {
+          "tipo": "callout",
+          "texto": "Você só precisa crer — porque Cristo já fez tudo por você."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 10.9-10",
+          "texto": "se, com a tua boca, confessares Jesus como Senhor e, em teu coração, creres que Deus o ressuscitou dentre os mortos, serás salvo. Porque com o coração se crê para justiça e com a boca se confessa a respeito da salvação."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você creu em Cristo, o seu nome está escrito nesse livro. Quem não creu será lançado no lago de fogo."
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "O que acontece quando as pessoas morrem"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É uma pergunta que muita gente faz. Os que creem em Cristo, quando morrem, vão para o **paraíso** — também chamado de seio de Abraão ou de terceiro céu, como Paulo o descreve. Estão desfrutando a glória de Deus agora mesmo."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Coríntios 12.2-4",
+          "texto": "Conheço um homem em Cristo que, há catorze anos (se no corpo, não sei; se fora do corpo, não sei; Deus o sabe), foi arrebatado até ao terceiro céu. E sei que o tal homem (se no corpo, se fora do corpo, não sei; Deus o sabe) foi arrebatado ao paraíso e ouviu palavras inefáveis, que ao homem não é lícito falar."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Lucas 23.43",
+          "texto": "Em verdade te digo que hoje estarás comigo no paraíso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Os que morrem sem crer em Cristo vão para o **inferno**, e estão **conscientes**, como Jesus mostra em Lucas 16, na história do rico e de Lázaro. Depois, o próprio inferno será lançado no lago de fogo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por que o lago de fogo, se ele foi preparado para o diabo e seus anjos? Porque todos os que decidiram segui-lo terão o mesmo destino que ele. Você tem outro destino — a glória — porque é seguidor de Cristo. Isso **não faz de você melhor do que ninguém**: nem a fé que você tem é sua."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Romanos 12.3",
+          "texto": "Porque, pela graça que me foi dada, digo a cada um dentre vós que não pense de si mesmo além do que convém; antes, pense com moderação, segundo a medida da fé que Deus repartiu a cada um."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "Não é fácil demais? Basta crer e confessar?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Não fomos nós que escolhemos esse caminho: **o Salvador é quem escolheu salvar assim**. Nada mais é acrescentado — basta crer e confessar. Quem creu é eternamente salvo."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Mas hoje queremos encorajar você a **ir além**."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-7",
+      "numero": "7",
+      "titulo": "Salvos Para Receber Recompensa",
+      "sec_eyebrow": "Aplicação",
+      "referencias": "Apocalipse 2.7 · Apocalipse 2.11 · Apocalipse 2.17 · Apocalipse 2.26 · Apocalipse 3.5 · Apocalipse 3.12 · Apocalipse 3.21 · Hebreus 11.6 · Gálatas 4.1 · Mateus 10.41-42",
+      "corpo": [
+        {
+          "tipo": "callout",
+          "texto": "O alvo de todo aquele que está perdido deve ser receber a salvação, mas o alvo de todo aquele que é salvo deve ser receber recompensa."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nos primeiros capítulos do Apocalipse encontramos **sete cartas**, escritas para sete igrejas: Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia e Laodiceia. Todas elas existiram — é uma viagem que um dia podemos fazer. Cada carta começa com Jesus se apresentando de uma forma diferente, porque cada igreja tem uma necessidade diferente: para algumas ele exorta, para outras faz elogios; uma só foi elogiada, outra só foi repreendida. E em todas há uma **promessa ao vencedor**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 2.7",
+          "texto": "Aquele que tem ouvidos, ouça o que o Espírito diz às igrejas: Ao vencedor, dar-lhe-ei que se alimente da árvore da vida que se encontra no paraíso de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 2.11",
+          "texto": "Aquele que tem ouvidos, ouça o que o Espírito diz às igrejas: O vencedor de nenhum modo sofrerá dano da segunda morte."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 2.17",
+          "texto": "Aquele que tem ouvidos, ouça o que o Espírito diz às igrejas: Ao vencedor, dar-lhe-ei do maná escondido, bem como lhe darei uma pedrinha branca, e sobre essa pedrinha escrito um nome novo, o qual ninguém conhece, exceto aquele que o recebe."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 2.26",
+          "texto": "Ao vencedor, que guardar até ao fim as minhas obras, dar-lhe-ei autoridade sobre as nações,"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.5",
+          "texto": "O vencedor será assim vestido de vestiduras brancas, e de modo nenhum apagarei o seu nome do Livro da Vida; pelo contrário, confessarei o seu nome diante de meu Pai e diante dos seus anjos."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.12",
+          "texto": "Ao vencedor, fá-lo-ei coluna no santuário do meu Deus, e daí jamais sairá; gravarei também sobre ele o nome do meu Deus, o nome da cidade do meu Deus, a nova Jerusalém que desce do céu, vinda da parte do meu Deus, e o meu novo nome."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Apocalipse 3.21",
+          "texto": "Ao vencedor, dar-lhe-ei sentar-se comigo no meu trono, assim como também eu venci e me sentei com meu Pai no seu trono."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "Essas promessas são para todos os crentes?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Não. Todos são salvos, todos nasceram de novo — mas essas promessas são **para os vencedores**. Alguns governarão cidades, outros nações, no reino de mil anos."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Uma coisa é receber a **salvação**, o presente gratuito de Deus, a vida eterna. Outra coisa é receber **recompensa**, o galardão."
+        },
+        {
+          "tipo": "pergunta",
+          "texto": "Isso não contradiz a mensagem da graça, que diz que não há mérito?"
+        },
+        {
+          "tipo": "resposta",
+          "texto": "Não há contradição, porque **não há mérito envolvido**. Foi Deus quem nos capacitou a realizar algo para ele — e até a recompensa que você receberá é **fruto da graça de Deus**."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Hebreus 11.6",
+          "texto": "Ora, sem fé é impossível agradar a Deus; porquanto é necessário que aquele que se aproxima de Deus creia que ele existe e que se torna galardoador dos que o buscam."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para entender, é preciso saber a diferença entre duas coisas:"
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "duplice_grid",
+          "dados": {
+            "itens": [
+              {
+                "num": "01",
+                "nome": "Herança",
+                "texto": "É o que o filho recebe **pelo simples fato de ser filho**. O filho que trata bem o pai e o que o trata mal recebem a mesma herança: é questão de filiação, de ter a mesma natureza. Cura, suprimento, o Espírito Santo, portas abertas, favor, sabedoria do céu — tudo isso é herança. Você é da família."
+              },
+              {
+                "num": "02",
+                "nome": "Recompensa",
+                "texto": "É o que se recebe **pelo que se fez** com o que foi confiado. Todos os filhos têm a mesma herança, mas a posição de honra, de glória e de reconhecimento é recompensa."
+              }
+            ]
+          }
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Gálatas 4.1",
+          "texto": "Digo, pois, que, enquanto o herdeiro é menor, em nada difere de escravo, posto que é senhor de tudo;"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Enquanto o herdeiro é menor, ele pode ter uma grande herança — carros na garagem, uma conta milionária —, mas até a babá manda mais na casa do que ele, porque ainda não acessa a herança plenamente. Para viver uma vida plena e dar testemunho, é necessário **amadurecer**."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — O Dono da Empresa e os Dez Filhos",
+            "corpo": [
+              "Imagine que você é dono de uma empresa que movimenta milhões e tem dez filhos. A empresa pertence a todos eles — isso é herança.",
+              "Mas há um filho que, desde pequeno, quer estudar e aprender. Quando você o chama para trabalhar nos seus negócios, ele inventa qualquer desculpa para estar lá com você. Faz intercâmbio, volta cheio de credenciais, começa na ponta da empresa, passa por todos os processos e conhece o negócio como a palma da mão.",
+              "Na hora da sucessão, você não fará uma eleição entre os dez filhos. Você nem tem dúvida sobre qual deles colocar naquela posição."
+            ],
+            "conclusao": "A empresa é herança de todos; a posição de honra é recompensa."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Isso não quer dizer que você precise fazer coisas extraordinárias. Nem todos foram chamados para ser missionários, enviados ou pastores em dedicação exclusiva. A única coisa que você precisa fazer é **não enterrar os talentos** que Deus lhe confiou: cumprir o seu **chamado e o seu propósito**."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Se você é enfermeira, seja enfermeira para a glória de Deus. Se é professora, faça a diferença na vida dos seus alunos: ao entrar naquela sala, o evangelho é ministrado por meio da sua vida na vida deles. Há quem tenha recebido o chamado de ser mãe — essa é a sua missão. Feito com excelência, é um trabalho de amor diante de Deus."
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "Mateus 10.41-42",
+          "texto": "Quem recebe um profeta, no caráter de profeta, receberá o galardão de profeta; e quem recebe um justo, no caráter de justo, receberá o galardão de justo. E quem tão-somente der um copo de água fria a um destes pequeninos, por ser este meu discípulo, em verdade vos digo que de modo algum perderá o seu galardão."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nem um copo de água passa despercebido. Alguns foram chamados para ser enviados; outros, para sustentar os enviados. Todos temos um povo a alcançar: o povo que Deus lhe confiou vai ouvi-lo — e há pessoas que nenhum pastor alcançaria sozinho, mas que serão alcançadas por meio de você."
+        }
+      ],
+      "anotacoes": []
+    },
+    {
+      "id": "bloco-8",
+      "numero": "8",
+      "titulo": "A Corda Sem Fim",
+      "sec_eyebrow": "Conclusão",
+      "referencias": "2 Pedro 3.9",
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Pense numa **corda sem fim**: uma corda infinita, que dá voltas e voltas ao redor do planeta Terra. Assim é a nossa vida — uma vida eterna, de milhares e milhares de anos."
+        },
+        {
+          "tipo": "componente_tema",
+          "variante": "analogia",
+          "dados": {
+            "label": "Ilustração — A Corda e o Adesivo Vermelho",
+            "corpo": [
+              "Imagine uma corda infinita, que dá voltas e mais voltas ao redor do planeta. Na ponta dela, enrolado como um adesivo, está um pedaço **vermelho**, de mais ou menos um palmo.",
+              "Esse pedaço vermelho é a **nossa vida aqui na terra**. Alguns vão viver 70 anos, outros 80, 90 — alguns passam dos 100. Mas isso não é nada diante dos milhares e milhares de anos que temos pela frente."
+            ],
+            "conclusao": "O pouco tempo que vivemos aqui determina como viveremos todo o resto."
+          }
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O mundo sempre faz você viver olhando para trás, preso ao passado — e é isso que produz depressão e angústia. Nesta série, o convite é **olhar para a frente**: para aquele glorioso dia em que Jesus voltará para nos buscar, com o coração cheio de esperança."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Tudo o que você faz nesta vida pode lhe trazer **arrependimento** ou **recompensa**."
+        },
+        {
+          "tipo": "callout",
+          "texto": "A forma como você vive esse pouco período de tempo vai determinar como você viverá esses milhares e milhares de anos que tem pela frente."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Aqui estamos de passagem. É natural querer viver de forma confortável, sem que nada nos afete — mas este é o tempo de **semear** a nossa vida, para receber uma grande recompensa na eternidade. Esta série existe para que você:"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Olhe para a **eternidade**, e não apenas para o agora;",
+            "Seja **desapegado** desta vida;",
+            "Tenha as **raízes soltas** desta terra;",
+            "Não perca a **volta de Jesus** de vista;",
+            "Viva como se Jesus pudesse voltar a **qualquer momento**;",
+            "Deixe a esperança crescer e uma **chama acesa** dentro de você — o anseio que diz: vem."
+          ]
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "E a maneira como você semeia o seu tempo é a chance de ser **um ajudante de Deus**. Jesus ainda não voltou porque é paciente:"
+        },
+        {
+          "tipo": "versiculo",
+          "referencia": "2 Pedro 3.9",
+          "texto": "O Senhor não retarda a sua promessa, como alguns a julgam demorada; pelo contrário, ele é longânimo para convosco, não querendo que ninguém pereça, senão que todos cheguem ao arrependimento."
+        },
+        {
+          "tipo": "frase_chave",
+          "texto": "Maranata — ora, vem, Senhor Jesus."
+        }
+      ],
+      "anotacoes": []
+    }
+  ],
+  "resumo_final": [
+    {
+      "ponto": "Certamente venho sem demora: a volta é em dois momentos, e a condição para ser arrebatado não é ser impecável, mas ansiar pelo Noivo.",
+      "versiculo_ancora": "Apocalipse 22.20 · 2 Timóteo 4.8"
+    },
+    {
+      "ponto": "Uma noiva que anseia: não se perde a salvação, mas o anseio pelo céu pode esfriar — vigie e solte as raízes desta vida.",
+      "versiculo_ancora": "Lucas 21.34-36"
+    },
+    {
+      "ponto": "Existem três julgamentos, porque Deus não mistura o público: o tribunal de Cristo, o das nações e o grande trono branco.",
+      "versiculo_ancora": "Apocalipse 20.11-15 · 2 Coríntios 5.10 · Mateus 25.31-46"
+    },
+    {
+      "ponto": "Tribunal de Cristo: sem condenação, mas com avaliação — as obras edificadas sobre o fundamento (Cristo) serão provadas pelo fogo.",
+      "versiculo_ancora": "2 Coríntios 5.10 · 1 Coríntios 3.10-15"
+    },
+    {
+      "ponto": "Julgamento das nações: separadas como ovelhas e cabritos segundo tratarem os pequeninos irmãos de Jesus; as que os acolhem entram no milênio.",
+      "versiculo_ancora": "Mateus 25.31-46"
+    },
+    {
+      "ponto": "Grande trono branco: os incrédulos serão julgados; para ter o nome no Livro da Vida basta crer em Cristo.",
+      "versiculo_ancora": "Apocalipse 20.11-15 · Romanos 10.9-10"
+    },
+    {
+      "ponto": "Salvos para receber recompensa: salvação é graça; a recompensa é para o vencedor que não enterrou os talentos.",
+      "versiculo_ancora": "Apocalipse 3.21 · Gálatas 4.1 · Mateus 10.41-42"
+    },
+    {
+      "ponto": "A corda sem fim: o pouco tempo desta vida determina como viveremos a eternidade — olhe para a frente e semeie.",
+      "versiculo_ancora": "2 Pedro 3.9"
+    }
+  ],
+  "resumo_curto": {
+    "frase_tema": "Existem três julgamentos — e, para quem está em Cristo, o que será avaliado não é a salvação, mas o trabalho. Por isso o alvo de quem é salvo deve ser também receber recompensa.",
+    "pontos": [
+      "Jesus prometeu voltar sem demora, e a volta acontece em dois momentos. Para ser arrebatado, a condição não é ser impecável — ninguém é —, mas ser uma noiva apaixonada, que anseia pela vinda do Noivo e vigia para que nada tome o lugar da esperança. A salvação e a posição de filho são irreversíveis.",
+      "A Bíblia fala de três julgamentos, porque Deus não mistura o público. O primeiro é o tribunal de Cristo: quem está em Cristo não é condenado, mas o seu trabalho é avaliado. Quem constrói sobre o fundamento — Cristo — com ouro, prata e pedras preciosas é recompensado; quem constrói com madeira, feno e palha é salvo, mas como por fogo.",
+      "O segundo é o julgamento das nações, depois da grande tribulação: as nações são separadas como ovelhas e cabritos pelo modo como trataram os crentes e os judeus perseguidos. O terceiro é o grande trono branco, o julgamento dos incrédulos: quem não está no Livro da Vida é lançado no lago de fogo — e, para ter o nome nele, só é preciso crer em Cristo.",
+      "Todo salvo tem uma herança. Mas a recompensa — as promessas feitas ao vencedor nas sete cartas do Apocalipse — vem do que fazemos com o que Deus nos confiou: o chamado, os talentos, o povo que ele colocou diante de nós. Nossa vida aqui é como um pedaço vermelho na ponta de uma corda sem fim: o pouco tempo que vivemos aqui determina como viveremos a eternidade."
+    ],
+    "versiculo_chave": {
+      "referencia": "1 Coríntios 3.14-15",
+      "texto": "Se permanecer a obra de alguém que sobre ele edificou, esse receberá galardão. Se a obra de alguém se queimar, sofrerá ele dano; mas esse será salvo, todavia como por fogo."
+    }
+  },
+  "nota_lacuna": [
+    {
+      "secao_id": "geral",
+      "texto": "Transcrição automática com ruído (ex.: 'tripulação' por 'tribulação', 'latrão/latão' por 'ladrão', 'arrepatamento' por 'arrebatamento', 'pertulados' por 'perdoados'). Referências citadas de forma imprecisa foram corrigidas pelo contexto: 'Vocalípse, capítulo 20 verso 20' → Apocalipse 22.20; 'Habitats que' (provável 2 Pedro 3.8, citado sem referência); 'segunda antimorte 4 8' → 2 Timóteo 4.8; 'Romanos capítulo 14 de 5 10' → Romanos 14.10; 'primeira Corinthians, capítulo 4 versus 4 e 5' → 1 Coríntios 4.4-5; 'Segundo a Corinthians capítulos 5 vesticulo 10' → 2 Coríntios 5.10; 'primeira Corinthians capítulo 12' (paraíso/terceiro céu) → 2 Coríntios 12.2-4; 'Carta-se a Pedro 4 verso um' → Gálatas 4.1; 'Mateus 25 vesículo 31' → Mateus 25.31-41. Versículos citados sem referência foram identificados pelo contexto e conferidos: Romanos 11.29 ('dons de Deus são irrevogáveis'), Romanos 12.3 ('medida de fé'), Hebreus 11.6 ('galardoador dos que o buscam'), Mateus 10.41-42 ('copo de água') e 2 Pedro 3.9 ('longânimo'). O título do capítulo não aparece no telão; 'Os Três Julgamentos' e 'Certamente Venho Sem Demora' (seção 1) foram escolhidos pelo conteúdo."
+    },
+    {
+      "secao_id": "bloco-2",
+      "texto": "A transcrição traz uma história pessoal do pregador sobre o nome de um filho, truncada e com ruído; ela foi omitida e substituída por uma ilustração genérica ('A Noiva Que Sonha Com o Casamento'), mantendo apenas a ideia central: o anseio da noiva foi colocado por Deus nela."
+    },
+    {
+      "secao_id": "bloco-3",
+      "texto": "O pastor anuncia 'três julgamentos' e os nomeia, mas só aprofunda o segundo 'mais adiante' (o que de fato faz). Na seção, a linha do tempo foi mantida enxuta; a sequência completa dos acontecimentos está na seção 5, onde o pastor a retoma (ele apresenta uma versão curta no meio do tribunal de Cristo e outra mais completa depois do julgamento das nações; foi usada a versão completa)."
+    },
+    {
+      "secao_id": "bloco-4",
+      "texto": "A frase do pastor sobre o choro naquele dia vem truncada ('haverá choro. E não G dentes'); foi mantida só a menção ao choro de quem olha para trás. A leitura de 1 Coríntios 3.13-15 foi reconstituída (o pastor lê com muito ruído); na ilustração da fábrica de celulares, o terceiro trabalhador (cujo nome não está na lista) foi mantido como o pastor o descreve, sem acrescentar interpretação. A passagem sobre igrejas diversas e o exemplo do chocolate importado foram condensados."
+    },
+    {
+      "secao_id": "bloco-5",
+      "texto": "Mateus 25.31-41 foi completado em ARA; o pastor lê o texto com ruído. A identificação dos 'pequeninos irmãos' com crentes e judeus perseguidos na grande tribulação é a interpretação do pastor. A cifra de 'um terço da população' é opinião pessoal ('eu tenho pra mim'), não está na Bíblia. Menção a viagem a Israel em novembro do ano seguinte foi omitida por ser aviso do pregador."
+    },
+    {
+      "secao_id": "bloco-6",
+      "texto": "Lucas 16.19-31 (o rico e Lázaro) é citado sem leitura; está nas referências, sem bloco de versículo. 'Seio de Abraão' e 'terceiro céu' são descrições do pastor para o paraíso."
+    },
+    {
+      "secao_id": "bloco-7",
+      "texto": "A fala sobre as promessas das cartas aparece truncada: o pastor pergunta, a cada promessa, se é para 'todos os crentes' e responde que não — é para o vencedor (resposta reconstituída). Apocalipse 2.26 foi lido pelo pastor até o v. 26; o v. 27 não foi citado. Os versículos de Apocalipse 2 e 3 foram completados em ARA."
+    },
+    {
+      "secao_id": "bloco-8",
+      "texto": "A transcrição termina em 'Ele é Longanimo', sem fechamento nem apelo; 2 Pedro 3.9 foi inferido como o texto a que a frase alude. A ilustração da corda é lida com um adesivo vermelho de cerca de um palmo, enrolado na ponta (descrição fornecida por Carlos; a transcrição só diz 'esse pedaço vermelho'). A história da bisavó de 106 anos foi omitida."
+    }
+  ],
+  "resumo_lider": {
+    "frase_tema": "Deus não mistura o público: o crente não será condenado, mas o seu trabalho será avaliado — por isso o alvo de quem é salvo deve ser também receber recompensa.",
+    "pontos": [
+      {
+        "numero": 1,
+        "titulo": "Certamente Venho Sem Demora",
+        "resumo": "Jesus prometeu voltar “sem demora”, e a volta acontece em dois momentos: o arrebatamento dos vencedores e a volta nos ares. A condição para ser arrebatado não é ser impecável — ninguém é —, mas ser uma noiva apaixonada que anseia pela vinda do Noivo; a salvação e a posição de filho são irreversíveis (Apocalipse 22.20; 2 Timóteo 4.8).",
+        "frase_chave": "A condição para ser arrebatado não é ser impecável."
+      },
+      {
+        "numero": 2,
+        "titulo": "Uma Noiva Que Anseia",
+        "resumo": "A noiva que Jesus busca é a que tem o coração conquistado por ele. Você não pode mais se perder, mas o anseio pelo céu pode esfriar: por isso é preciso vigiar. Quanto mais o coração está nele, mais soltas ficam as raízes desta vida — sem deixar de desfrutar o que Deus deu (Lucas 21.34-36).",
+        "frase_chave": "Você não pode mais se perder, porque está em Cristo — mas o seu anseio pelo céu pode se perder."
+      },
+      {
+        "numero": 3,
+        "titulo": "Os Três Julgamentos",
+        "resumo": "Não existe um único juízo final, mas três julgamentos distintos — o tribunal de Cristo (crentes), o julgamento das nações e o grande trono branco (incrédulos) — porque Deus não mistura o público.",
+        "frase_chave": "Deus não mistura o público."
+      },
+      {
+        "numero": 4,
+        "titulo": "O Tribunal de Cristo",
+        "resumo": "No tribunal de Cristo não há condenação para quem está em Cristo; o que é avaliado é o trabalho feito com a graça recebida. Quem edifica sobre o fundamento — Cristo — com ouro, prata e pedras preciosas é recompensado; quem edifica com madeira, feno e palha é salvo, mas como por fogo, e perde o galardão (1 Coríntios 3.10-15).",
+        "frase_chave": "Será aquilo que fizemos com a nossa medida de graça — o trabalho será avaliado!"
+      },
+      {
+        "numero": 5,
+        "titulo": "Julgamento das Nações",
+        "resumo": "O julgamento das nações, em Mateus 25, ocorre depois da grande tribulação: as nações são separadas como ovelhas e cabritos conforme trataram os “pequeninos irmãos” de Jesus — os crentes e os judeus perseguidos. As que os acolheram entram no milênio, o reino de mil anos (Mateus 25.31-46).",
+        "frase_chave": "Os pequenos irmãos de Jesus são os crentes e os judeus que estiverem aqui na grande tribulação."
+      },
+      {
+        "numero": 6,
+        "titulo": "Grande Trono Branco",
+        "resumo": "No grande trono branco, depois do milênio, os incrédulos são julgados e quem não está no Livro da Vida é lançado no lago de fogo. Para ter o nome no livro, só é preciso crer e confessar, porque Cristo já fez tudo; quem morre em Cristo vai ao paraíso (Apocalipse 20.11-15; Romanos 10.9-10).",
+        "frase_chave": "Você só precisa crer — porque Cristo já fez tudo por você."
+      },
+      {
+        "numero": 7,
+        "titulo": "Salvos Para Receber Recompensa",
+        "resumo": "As promessas das sete cartas são feitas ao vencedor. Salvação é presente gratuito; recompensa é fruto do que fazemos, por graça, com o que Deus confiou. Herança é de todo filho; recompensa vem da fidelidade — por isso o alvo de quem é salvo é ser recompensado, sem enterrar os talentos (Apocalipse 2 e 3; Gálatas 4.1).",
+        "frase_chave": "O alvo de todo aquele que está perdido deve ser receber a salvação, mas o alvo de todo aquele que é salvo deve ser receber recompensa."
+      },
+      {
+        "numero": 8,
+        "titulo": "A Corda Sem Fim",
+        "resumo": "Nossa vida é como um pedaço vermelho na ponta de uma corda infinita: o pouco tempo que vivemos aqui determina como viveremos a eternidade. A série existe para despertar o desapego, manter a volta de Jesus à vista e fazer a esperança crescer, enquanto ele, paciente, espera (2 Pedro 3.9).",
+        "frase_chave": "A forma como você vive esse pouco período de tempo vai determinar como você viverá esses milhares e milhares de anos que tem pela frente."
+      }
+    ],
+    "versiculo_chave": {
+      "referencia": "1 Coríntios 3.14-15",
+      "texto": "Se permanecer a obra de alguém que sobre ele edificou, esse receberá galardão. Se a obra de alguém se queimar, sofrerá ele dano; mas esse será salvo, todavia como por fogo."
+    }
+  }
+}
