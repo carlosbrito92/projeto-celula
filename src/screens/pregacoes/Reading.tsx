@@ -9,6 +9,7 @@ import { Icon } from '../../icons/Icon';
 import { scrollToId, useScrollProgress, useSecaoAtiva } from './useLeituraNav';
 import { ResumoCurtoOverlay } from './ResumoCurtoOverlay';
 import { ConteudoLeitura, RESUMO_ID } from './ConteudoLeitura';
+import { minutosDeLeitura } from './minutosDeLeitura';
 import { useAnotacoes } from './anotacoes/useAnotacoes';
 import { AnotacaoContext, type SelecaoNova } from './anotacoes/AnotacaoContext';
 import { AnotacaoPopover, type PopoverEstado } from './anotacoes/AnotacaoPopover';
@@ -118,10 +119,13 @@ export function Reading({ id }: { id: string }) {
 
   if (resumoCurtoAberto && resumoParaExibir) {
     return (
-      <ResumoCurtoOverlay
-        resumo={resumoParaExibir}
-        aoFechar={() => setResumoCurtoAberto(false)}
-      />
+      <ThemeScope tema={tema}>
+        <ResumoCurtoOverlay
+          resumo={resumoParaExibir}
+          escala={ESCALAS_FONTE[escalaIndex]}
+          aoFechar={() => setResumoCurtoAberto(false)}
+        />
+      </ThemeScope>
     );
   }
 
@@ -218,6 +222,16 @@ export function Reading({ id }: { id: string }) {
 
           {conteudo.mapa_pontos.length > 0 && (
             <nav className={styles.trilha} aria-label="Trilha de tópicos">
+              {resumoParaExibir && (
+                <button
+                  type="button"
+                  className={`${styles.chip} ${styles.chipResumo}`}
+                  onClick={() => setResumoCurtoAberto(true)}
+                >
+                  <Icon name="book-open" className={styles.chipResumoIcone} />
+                  <span className={styles.chipTitulo}>Resumo</span>
+                </button>
+              )}
               {conteudo.mapa_pontos.map((ponto) => {
                 const indexNav = idsNavegaveis.indexOf(ponto.id);
                 const ativo = indexNav !== -1 && indexNav === ativoIndex;
@@ -282,6 +296,7 @@ export function Reading({ id }: { id: string }) {
           pregador={pregacao.pregador}
           dataExibicao={dataExibicao}
           aoAbrirResumo={resumoParaExibir ? () => setResumoCurtoAberto(true) : undefined}
+          minutosResumo={resumoParaExibir ? minutosDeLeitura(resumoParaExibir) : undefined}
         />
 
         {(anterior || proximo) && (
