@@ -318,7 +318,11 @@ export interface PregacaoRow {
 // Tipos do schema de conteúdo de quebra-gelos/utilitários — espelha
 // docs/projeto-celula.md §5-§6 e docs/spec-privacidade-sorteio.md.
 
-export type UtilitarioTipo = 'sorteio_atribuicao' | 'sorteio_papel' | 'cronometro';
+export type UtilitarioTipo =
+  | 'sorteio_atribuicao'
+  | 'sorteio_papel'
+  | 'cronometro'
+  | 'sorteio_pergunta';
 
 /**
  * Utilitário embutido inline na regra de um quebra-gelo. Item [0] do array vira
@@ -338,6 +342,11 @@ export interface UtilitarioInlineRef {
    * § Extensão: papéis múltiplos.
    */
   papeis?: { nome: string; quantidade: number }[];
+  /**
+   * Só para utilitario_tipo === 'sorteio_pergunta' — perguntas sorteadas sem
+   * repetição (histórico em localStorage até o usuário limpar).
+   */
+  perguntas?: string[];
 }
 
 export interface QuebraGeloJogoConteudo {
