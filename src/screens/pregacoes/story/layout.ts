@@ -45,3 +45,43 @@ export function ajustarTexto(
   }
   return ultimo;
 }
+
+export interface ItemBloco {
+  texto: string;
+  /** Altura extra (px) reservada abaixo do item, ex: linha da referência bíblica. */
+  extra?: number;
+}
+
+export interface AjusteBlocos {
+  tamanho: number;
+  /** Linhas de cada item, na mesma ordem de `itens`. */
+  linhas: string[][];
+}
+
+/**
+ * Como `ajustarTexto`, mas para vários trechos empilhados com o MESMO tamanho
+ * de fonte: o maior tamanho em que todos cabem juntos em `alturaMax`
+ * (somando linhas, `extra` de cada item e `espaco` entre eles).
+ */
+export function ajustarBlocos(
+  itens: ItemBloco[],
+  larguraMax: number,
+  alturaMax: number,
+  alturaLinha: number,
+  espaco: number,
+  maximo: number,
+  minimo: number,
+  medirCom: (tamanho: number) => Medir,
+): AjusteBlocos {
+  let ultimo: AjusteBlocos = { tamanho: minimo, linhas: itens.map(() => []) };
+  for (let tamanho = maximo; tamanho >= minimo; tamanho -= 2) {
+    const medir = medirCom(tamanho);
+    const linhas = itens.map((i) => quebrarLinhas(i.texto, larguraMax, medir));
+    ultimo = { tamanho, linhas };
+    const altura =
+      linhas.reduce((s, l, i) => s + l.length * tamanho * alturaLinha + (itens[i].extra ?? 0), 0) +
+      espaco * Math.max(0, itens.length - 1);
+    if (altura <= alturaMax) return ultimo;
+  }
+  return ultimo;
+}

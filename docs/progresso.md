@@ -159,6 +159,7 @@ Pedido de Carlos em 2026-11-25, a partir de feedback real: trocar as anotações
 - [x] Botão "Criar imagem" nos blocos `versiculo`, `frase_chave` e `callout` da Leitura, abrindo o editor (`src/screens/pregacoes/story/`).
 - [x] Imagem 1080×1920 desenhada em canvas, no estilo editorial das referências: série, título, pregador e data, selo, aspas, trecho, atribuição e rodapé.
 - [x] Opções: fonte (a da série + as já usadas no app), alinhamento (esquerda/centro), itálico espaçado, fundo (da série, escuro, claro, âmbar, noite, aurora) e tamanho P/M/G.
+- [x] Até 3 trechos por imagem (ex: versículo + frase de efeito): adicionar da lista de trechos da pregação, reordenar e remover (2026-11-26).
 - [x] Compartilhar (Web Share com arquivo) e salvar PNG.
 - [x] Medição anônima de uso (Vercel Web Analytics): modo de anotação, destaque, nota, PDF e stories.
 - [ ] Ativar o Web Analytics no dashboard da Vercel e confirmar se o plano aceita eventos customizados.
