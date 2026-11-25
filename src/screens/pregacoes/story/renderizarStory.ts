@@ -55,7 +55,12 @@ export function renderizarStory(
   }
   ctx.fillRect(0, 0, LARGURA, ALTURA);
 
-  const fontDisplay = (tamanho: number) => `${fonte.peso} ${tamanho}px ${fonte.family}`;
+  // Itálico editorial: fonte inclinada + espaçamento largo (proporcional ao corpo).
+  // Fonte sem itálico carregado (Anton, Gloock, Kalam, Inter) cai na inclinação sintética do navegador.
+  const fontDisplay = (tamanho: number) =>
+    `${opcoes.italico ? 'italic ' : ''}${fonte.peso} ${tamanho}px ${fonte.family}`;
+  const espacoDisplay = (tamanho: number, fator: number) =>
+    espaco(ctx, opcoes.italico ? tamanho * fator : 0);
   const fontApoio = (peso: number, tamanho: number) => `${peso} ${tamanho}px ${FONTE_APOIO}`;
   const caixa = (t: string) => (fonte.maiusculo ? t.toUpperCase() : t);
   const barra = (y: number, largura = 100) => {
@@ -81,15 +86,18 @@ export function renderizarStory(
   // Título da mensagem (até 2 linhas) + pregador · data
   const titulo = ajustarTexto(caixa(trecho.titulo), larguraUtil, 170, 1.15, 76, 44, (t) => (s) => {
     ctx.font = fontDisplay(t);
+    espacoDisplay(t, 0.03);
     return ctx.measureText(s).width;
   });
   ctx.font = fontDisplay(titulo.tamanho);
+  espacoDisplay(titulo.tamanho, 0.03);
   ctx.fillStyle = paleta.texto;
   let y = 290;
   for (const linha of titulo.linhas.slice(0, 2)) {
     ctx.fillText(linha, x, y);
     y += titulo.tamanho * 1.15;
   }
+  espaco(ctx, 0);
   const meta = [trecho.pregador, trecho.data].filter(Boolean).join(' · ');
   if (meta) {
     ctx.font = fontApoio(600, 34);
@@ -121,7 +129,7 @@ export function renderizarStory(
 
   // Aspas
   ctx.fillStyle = paleta.destaque;
-  ctx.font = fontDisplay(190);
+  ctx.font = `${fonte.peso} 190px ${fonte.family}`; // aspas sempre retas (inclinadas viram "//" em fontes sem itálico)
   ctx.fillText('“', x, ySelo + 68 + 190);
 
   // Trecho em destaque, ancorado logo abaixo das aspas
@@ -136,16 +144,19 @@ export function renderizarStory(
     34,
     (t) => (s) => {
       ctx.font = fontDisplay(t);
+      espacoDisplay(t, 0.07);
       return ctx.measureText(s).width;
     },
   );
   ctx.font = fontDisplay(ajuste.tamanho);
+  espacoDisplay(ajuste.tamanho, 0.07);
   ctx.fillStyle = paleta.texto;
   let yt = topoTexto + ajuste.tamanho;
   for (const linha of ajuste.linhas) {
     ctx.fillText(linha, x, yt);
     yt += ajuste.tamanho * ALTURA_LINHA;
   }
+  espaco(ctx, 0);
 
   // Atribuição
   const atribuicao = trecho.referencia ?? trecho.pregador;

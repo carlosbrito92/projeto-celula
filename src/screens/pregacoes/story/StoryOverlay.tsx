@@ -46,7 +46,7 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
       try {
         // A fonte só existe para o canvas depois de carregada.
         await Promise.all([
-          document.fonts.load(`${fonte.peso} 48px ${fonte.family}`),
+          document.fonts.load(`${opcoes.italico ? 'italic ' : ''}${fonte.peso} 48px ${fonte.family}`),
           document.fonts.load(`600 36px ${FONTE_APOIO}`),
           document.fonts.load(`800 36px ${FONTE_APOIO}`),
         ]);
@@ -135,6 +135,21 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
                 {f.label}
               </button>
             ))}
+          </div>
+        </div>
+
+        <div className={styles.grupo}>
+          <div className={styles.rotulo}>Estilo</div>
+          <div className={styles.chips}>
+            <button
+              type="button"
+              aria-pressed={opcoes.italico}
+              className={`${styles.chip} ${opcoes.italico ? styles.chipAtivo : ''}`}
+              style={{ fontStyle: 'italic', letterSpacing: '0.08em' }}
+              onClick={() => setOpcoes((o) => ({ ...o, italico: !o.italico }))}
+            >
+              Itálico espaçado
+            </button>
           </div>
         </div>
 

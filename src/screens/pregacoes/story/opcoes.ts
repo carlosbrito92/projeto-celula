@@ -104,6 +104,8 @@ export const TAMANHOS: Record<TamanhoKey, { label: string; maximo: number }> = {
 export interface OpcoesStory {
   fonte: FonteKey;
   alinhamento: Alinhamento;
+  /** Itálico com espaçamento largo entre letras (estilo editorial). */
+  italico: boolean;
   fundo: FundoKey;
   tamanho: TamanhoKey;
 }
@@ -111,6 +113,7 @@ export interface OpcoesStory {
 export const OPCOES_PADRAO: OpcoesStory = {
   fonte: FONTE_SERIE,
   alinhamento: 'esquerda',
+  italico: false,
   fundo: 'serie',
   tamanho: 'm',
 };

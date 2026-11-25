@@ -15,6 +15,8 @@ describe('StoryOverlay', () => {
     );
     fireEvent.click(screen.getByRole('button', { name: 'Anton' }));
     expect(screen.getByRole('button', { name: 'Anton' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Itálico espaçado' }));
+    expect(screen.getByRole('button', { name: 'Itálico espaçado' })).toHaveAttribute('aria-pressed', 'true');
     fireEvent.click(screen.getByRole('button', { name: 'Centro' }));
     expect(screen.getByRole('button', { name: 'Centro' })).toHaveAttribute('aria-pressed', 'true');
     fireEvent.click(screen.getByRole('button', { name: 'Fundo Âmbar' }));
