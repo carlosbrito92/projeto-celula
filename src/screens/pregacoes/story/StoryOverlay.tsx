@@ -3,11 +3,16 @@ import type { Theme } from '../../../themes/types';
 import { useGoogleFont } from '../../../themes/useGoogleFont';
 import { registrarUso } from '../../../lib/uso';
 import {
-  FONTES,
+  FONTES_APP,
+  FONTE_APOIO,
+  FONTE_APOIO_URL,
+  FONTE_SERIE,
   FUNDOS,
   OPCOES_PADRAO,
   TAMANHOS,
+  resolverFonte,
   resolverPaleta,
+  type Alinhamento,
   type OpcoesStory,
   type TamanhoKey,
   type TrechoStory,
@@ -25,9 +30,9 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
   const [opcoes, setOpcoes] = useState<OpcoesStory>(OPCOES_PADRAO);
   const [aviso, setAviso] = useState<string | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const fonte = FONTES.find((f) => f.key === opcoes.fonte) ?? FONTES[0];
+  const fonte = resolverFonte(opcoes.fonte, tema);
   useGoogleFont(fonte.googleFontsUrl);
-  useGoogleFont(FONTES[1].googleFontsUrl);
+  useGoogleFont(FONTE_APOIO_URL);
 
   useEffect(() => {
     registrarUso('story_aberto');
@@ -42,7 +47,8 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
         // A fonte só existe para o canvas depois de carregada.
         await Promise.all([
           document.fonts.load(`${fonte.peso} 48px ${fonte.family}`),
-          document.fonts.load(`600 36px ${FONTES[1].family}`),
+          document.fonts.load(`600 36px ${FONTE_APOIO}`),
+          document.fonts.load(`800 36px ${FONTE_APOIO}`),
         ]);
       } catch {
         // sem fonte: desenha com o fallback do sistema
@@ -53,7 +59,7 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
     return () => {
       cancelado = true;
     };
-  }, [trecho, opcoes, tema, fonte]);
+  }, [trecho, opcoes, tema, fonte.key, fonte.family, fonte.peso]);
 
   async function gerarArquivo(): Promise<File | null> {
     if (!canvasRef.current) return null;
@@ -117,7 +123,7 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
         <div className={styles.grupo}>
           <div className={styles.rotulo}>Fonte</div>
           <div className={styles.chips}>
-            {FONTES.map((f) => (
+            {[resolverFonte(FONTE_SERIE, tema), ...FONTES_APP].map((f) => (
               <button
                 key={f.key}
                 type="button"
@@ -127,6 +133,23 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
                 onClick={() => setOpcoes((o) => ({ ...o, fonte: f.key }))}
               >
                 {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.grupo}>
+          <div className={styles.rotulo}>Alinhamento</div>
+          <div className={styles.chips}>
+            {(['esquerda', 'centro'] as Alinhamento[]).map((a) => (
+              <button
+                key={a}
+                type="button"
+                aria-pressed={opcoes.alinhamento === a}
+                className={`${styles.chip} ${opcoes.alinhamento === a ? styles.chipAtivo : ''}`}
+                onClick={() => setOpcoes((o) => ({ ...o, alinhamento: a }))}
+              >
+                {a === 'esquerda' ? 'Esquerda' : 'Centro'}
               </button>
             ))}
           </div>

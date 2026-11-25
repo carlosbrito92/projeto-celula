@@ -1,6 +1,16 @@
 import type { Theme } from '../../../themes/types';
+import {
+  ESTILO_2_RENOVO26,
+  ESTILO_3_CELULA,
+  ESTILO_4_IGREJAR,
+  ESTILO_5B_RELIGIAO_TOXICA,
+  ESTILO_6_UMA_VEZ_SALVO,
+  ESTILO_7_MARANATA,
+  PADRAO_MINC,
+} from '../../../themes/registry';
 
-export type FonteKey = 'serifada' | 'sem_serifa' | 'impacto' | 'manuscrita';
+export type FonteKey = string;
+export type Alinhamento = 'esquerda' | 'centro';
 export type FundoKey = 'serie' | 'escuro' | 'claro' | 'ambar' | 'noite' | 'aurora';
 export type TamanhoKey = 'p' | 'm' | 'g';
 
@@ -14,39 +24,57 @@ export interface FonteStory {
   googleFontsUrl: string;
 }
 
-const GF = 'https://fonts.googleapis.com/css2';
+/** Fonte de display de um tema, com o peso que ele realmente carrega. */
+function deTema(key: string, label: string, t: Theme): FonteStory {
+  return {
+    key,
+    label,
+    family: t.fonteDisplay.family,
+    peso: t.pesoDisplay,
+    maiusculo: t.maiusculoDisplay,
+    googleFontsUrl: t.fonteDisplay.googleFontsUrl,
+  };
+}
 
-export const FONTES: FonteStory[] = [
+/** Fonte da série da pregação — default, sempre a primeira opção. */
+export const FONTE_SERIE = 'serie';
+
+/**
+ * Fontes já usadas no app (uma por família, tiradas do registro de temas —
+ * nada de fonte nova): o peso e a URL vêm do próprio tema, então sempre
+ * existem de verdade no Google Fonts (ver pesosDisponiveis em registry.test).
+ */
+export const FONTES_APP: FonteStory[] = [
+  deTema('cormorant', 'Cormorant', PADRAO_MINC),
+  deTema('playfair', 'Playfair', ESTILO_2_RENOVO26),
+  deTema('lora', 'Lora', ESTILO_3_CELULA),
+  deTema('barlow', 'Barlow', ESTILO_4_IGREJAR),
+  deTema('anton', 'Anton', ESTILO_5B_RELIGIAO_TOXICA),
+  deTema('gloock', 'Gloock', ESTILO_7_MARANATA),
   {
-    key: 'serifada',
-    label: 'Serifada',
-    family: "'Cormorant Garamond', serif",
+    key: 'kalam',
+    label: 'Kalam',
+    family: ESTILO_6_UMA_VEZ_SALVO.fonteH1?.family ?? "'Kalam', cursive",
+    peso: ESTILO_6_UMA_VEZ_SALVO.pesoH1 ?? 700,
+    googleFontsUrl: ESTILO_6_UMA_VEZ_SALVO.fonteDisplay.googleFontsUrl,
+  },
+  {
+    key: 'inter',
+    label: 'Inter',
+    family: PADRAO_MINC.fonteCorpo.family,
     peso: 600,
-    googleFontsUrl: `${GF}?family=Cormorant+Garamond:wght@600&display=swap`,
-  },
-  {
-    key: 'sem_serifa',
-    label: 'Moderna',
-    family: "'Inter', system-ui, sans-serif",
-    peso: 700,
-    googleFontsUrl: `${GF}?family=Inter:wght@700&display=swap`,
-  },
-  {
-    key: 'impacto',
-    label: 'Impacto',
-    family: "'Anton', sans-serif",
-    peso: 400,
-    maiusculo: true,
-    googleFontsUrl: `${GF}?family=Anton&display=swap`,
-  },
-  {
-    key: 'manuscrita',
-    label: 'Manuscrita',
-    family: "'Kalam', cursive",
-    peso: 700,
-    googleFontsUrl: `${GF}?family=Kalam:wght@700&display=swap`,
+    googleFontsUrl: PADRAO_MINC.fonteDisplay.googleFontsUrl,
   },
 ];
+
+export function resolverFonte(key: FonteKey, tema: Theme): FonteStory {
+  if (key === FONTE_SERIE) return { ...deTema(FONTE_SERIE, 'Da série', tema) };
+  return FONTES_APP.find((f) => f.key === key) ?? deTema(FONTE_SERIE, 'Da série', tema);
+}
+
+/** Fonte de apoio (eyebrow, rodapé, metadados): a de corpo do app. */
+export const FONTE_APOIO = "'Inter', system-ui, sans-serif";
+export const FONTE_APOIO_URL = PADRAO_MINC.fonteDisplay.googleFontsUrl;
 
 export interface FundoStory {
   key: FundoKey;
@@ -75,19 +103,27 @@ export const TAMANHOS: Record<TamanhoKey, { label: string; maximo: number }> = {
 
 export interface OpcoesStory {
   fonte: FonteKey;
+  alinhamento: Alinhamento;
   fundo: FundoKey;
   tamanho: TamanhoKey;
 }
 
-export const OPCOES_PADRAO: OpcoesStory = { fonte: 'serifada', fundo: 'serie', tamanho: 'm' };
+export const OPCOES_PADRAO: OpcoesStory = {
+  fonte: FONTE_SERIE,
+  alinhamento: 'esquerda',
+  fundo: 'serie',
+  tamanho: 'm',
+};
 
 export interface TrechoStory {
   texto: string;
   /** Só versículo. */
   referencia?: string;
-  /** Pregação de origem (rodapé). */
+  /** Pregação de origem. */
   titulo: string;
   pregador?: string | null;
+  serie?: string | null;
+  data?: string | null;
 }
 
 export interface PaletaStory {

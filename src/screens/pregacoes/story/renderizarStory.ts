@@ -1,13 +1,31 @@
 import { ajustarTexto } from './layout';
-import { FONTES, TAMANHOS, resolverPaleta, type OpcoesStory, type TrechoStory } from './opcoes';
+import {
+  FONTE_APOIO,
+  TAMANHOS,
+  resolverFonte,
+  resolverPaleta,
+  type OpcoesStory,
+  type TrechoStory,
+} from './opcoes';
 import type { Theme } from '../../../themes/types';
 
 export const LARGURA = 1080;
 export const ALTURA = 1920;
-const MARGEM = 100;
-const ALTURA_LINHA = 1.28;
+const MARGEM = 96;
+const ALTURA_LINHA = 1.3;
 
-/** Desenha a imagem 9×16 (1080×1920) no canvas. As fontes precisam já estar carregadas. */
+type CtxComEspaco = CanvasRenderingContext2D & { letterSpacing?: string };
+
+function espaco(ctx: CtxComEspaco, px: number) {
+  // letterSpacing no canvas: Chromium/Safari recentes. Sem suporte, segue sem espaçamento.
+  if ('letterSpacing' in ctx) ctx.letterSpacing = `${px}px`;
+}
+
+/**
+ * Desenha a imagem 9×16 (1080×1920): cabeçalho (série + título + meta),
+ * selo do tipo de trecho, aspas, o trecho em destaque, atribuição e rodapé.
+ * As fontes precisam já estar carregadas (StoryOverlay cuida disso).
+ */
 export function renderizarStory(
   canvas: HTMLCanvasElement,
   trecho: TrechoStory,
@@ -16,11 +34,16 @@ export function renderizarStory(
 ): void {
   canvas.width = LARGURA;
   canvas.height = ALTURA;
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d') as CtxComEspaco | null;
   if (!ctx) return;
 
-  const fonte = FONTES.find((f) => f.key === opcoes.fonte) ?? FONTES[0];
+  const fonte = resolverFonte(opcoes.fonte, tema);
   const paleta = resolverPaleta(opcoes.fundo, tema);
+  const esquerda = opcoes.alinhamento === 'esquerda';
+  const x = esquerda ? MARGEM : LARGURA / 2;
+  const larguraUtil = LARGURA - MARGEM * 2;
+  ctx.textAlign = esquerda ? 'left' : 'center';
+  ctx.textBaseline = 'alphabetic';
 
   // Fundo
   if (paleta.fundo.length === 1) {
@@ -32,65 +55,125 @@ export function renderizarStory(
   }
   ctx.fillRect(0, 0, LARGURA, ALTURA);
 
-  const larguraTexto = LARGURA - MARGEM * 2;
-  const ehVersiculo = !!trecho.referencia;
-  const texto = fonte.maiusculo ? trecho.texto.toUpperCase() : trecho.texto;
-  const corpo = ehVersiculo ? `“${texto}”` : texto;
+  const fontDisplay = (tamanho: number) => `${fonte.peso} ${tamanho}px ${fonte.family}`;
+  const fontApoio = (peso: number, tamanho: number) => `${peso} ${tamanho}px ${FONTE_APOIO}`;
+  const caixa = (t: string) => (fonte.maiusculo ? t.toUpperCase() : t);
+  const barra = (y: number, largura = 100) => {
+    ctx.fillStyle = paleta.destaque;
+    ctx.fillRect(esquerda ? MARGEM : LARGURA / 2 - largura / 2, y, largura, 6);
+  };
 
-  // Texto principal, centralizado verticalmente na faixa útil
-  const topoFaixa = 420;
-  const alturaFaixa = 1000;
-  const fontCom = (tamanho: number) => `${fonte.peso} ${tamanho}px ${fonte.family}`;
+  // Eyebrow: PROJETO CÉLULA · SÉRIE
+  ctx.fillStyle = paleta.rodape;
+  ctx.globalAlpha = 0.65;
+  ctx.font = fontApoio(600, 30);
+  espaco(ctx, 5);
+  ctx.fillText(
+    (trecho.serie ? `PROJETO CÉLULA · ${trecho.serie}` : 'PROJETO CÉLULA').toUpperCase(),
+    x,
+    150,
+    larguraUtil,
+  );
+  ctx.globalAlpha = 1;
+  espaco(ctx, 0);
+  barra(176);
+
+  // Título da mensagem (até 2 linhas) + pregador · data
+  const titulo = ajustarTexto(caixa(trecho.titulo), larguraUtil, 170, 1.15, 76, 44, (t) => (s) => {
+    ctx.font = fontDisplay(t);
+    return ctx.measureText(s).width;
+  });
+  ctx.font = fontDisplay(titulo.tamanho);
+  ctx.fillStyle = paleta.texto;
+  let y = 290;
+  for (const linha of titulo.linhas.slice(0, 2)) {
+    ctx.fillText(linha, x, y);
+    y += titulo.tamanho * 1.15;
+  }
+  const meta = [trecho.pregador, trecho.data].filter(Boolean).join(' · ');
+  if (meta) {
+    ctx.font = fontApoio(600, 34);
+    espaco(ctx, 2);
+    ctx.globalAlpha = 0.85;
+    ctx.fillText(meta, x, y + 14, larguraUtil);
+    ctx.globalAlpha = 1;
+    espaco(ctx, 0);
+    y += 50;
+  }
+
+  // Selo do tipo de trecho
+  const rotuloSelo = trecho.referencia ? 'Versículo' : 'Frase da mensagem';
+  ctx.font = fontApoio(700, 30);
+  espaco(ctx, 3);
+  const larguraSelo = ctx.measureText(rotuloSelo).width + 64;
+  const xSelo = esquerda ? MARGEM : (LARGURA - larguraSelo) / 2;
+  const ySelo = y + 40;
+  ctx.strokeStyle = paleta.destaque;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.roundRect(xSelo, ySelo, larguraSelo, 68, 34);
+  ctx.stroke();
+  ctx.fillStyle = paleta.destaque;
+  ctx.textAlign = 'center';
+  ctx.fillText(rotuloSelo, xSelo + larguraSelo / 2, ySelo + 45);
+  ctx.textAlign = esquerda ? 'left' : 'center';
+  espaco(ctx, 0);
+
+  // Aspas
+  ctx.fillStyle = paleta.destaque;
+  ctx.font = fontDisplay(190);
+  ctx.fillText('“', x, ySelo + 68 + 190);
+
+  // Trecho em destaque, ancorado logo abaixo das aspas
+  const topoTexto = ySelo + 68 + 190 + 40;
+  const alturaMax = 1560 - topoTexto - (trecho.referencia || trecho.pregador ? 100 : 0);
   const ajuste = ajustarTexto(
-    corpo,
-    larguraTexto,
-    alturaFaixa,
+    caixa(trecho.texto),
+    larguraUtil,
+    alturaMax,
     ALTURA_LINHA,
     TAMANHOS[opcoes.tamanho].maximo,
-    36,
-    (tamanho) => (t) => {
-      ctx.font = fontCom(tamanho);
-      return ctx.measureText(t).width;
+    34,
+    (t) => (s) => {
+      ctx.font = fontDisplay(t);
+      return ctx.measureText(s).width;
     },
   );
-
-  ctx.font = fontCom(ajuste.tamanho);
-  ctx.textBaseline = 'alphabetic';
-  ctx.textAlign = 'center';
+  ctx.font = fontDisplay(ajuste.tamanho);
   ctx.fillStyle = paleta.texto;
-  const alturaBloco = ajuste.linhas.length * ajuste.tamanho * ALTURA_LINHA;
-  let y = topoFaixa + (alturaFaixa - alturaBloco) / 2 + ajuste.tamanho;
+  let yt = topoTexto + ajuste.tamanho;
   for (const linha of ajuste.linhas) {
-    ctx.fillText(linha, LARGURA / 2, y);
-    y += ajuste.tamanho * ALTURA_LINHA;
-  }
-  const fimTexto = y - ajuste.tamanho * ALTURA_LINHA + ajuste.tamanho * 0.4;
-
-  // Filete + referência (só versículo)
-  ctx.fillStyle = paleta.destaque;
-  ctx.fillRect(LARGURA / 2 - 48, topoFaixa - 70, 96, 6);
-  if (ehVersiculo) {
-    ctx.font = `600 44px ${FONTES[1].family}`;
-    ctx.fillStyle = paleta.destaque;
-    ctx.fillText((trecho.referencia ?? '').toUpperCase(), LARGURA / 2, fimTexto + 90);
+    ctx.fillText(linha, x, yt);
+    yt += ajuste.tamanho * ALTURA_LINHA;
   }
 
-  // Rodapé: pregação, pregador, app
+  // Atribuição
+  const atribuicao = trecho.referencia ?? trecho.pregador;
+  if (atribuicao) {
+    ctx.font = fontApoio(600, 40);
+    espaco(ctx, 3);
+    ctx.fillStyle = trecho.referencia ? paleta.destaque : paleta.rodape;
+    ctx.globalAlpha = trecho.referencia ? 1 : 0.8;
+    ctx.fillText(`— ${trecho.referencia ?? atribuicao}`, x, yt + 24, larguraUtil);
+    ctx.globalAlpha = 1;
+    espaco(ctx, 0);
+  }
+
+  // Rodapé
   ctx.fillStyle = paleta.rodape;
-  ctx.globalAlpha = 0.85;
-  ctx.font = `600 36px ${FONTES[1].family}`;
-  const origem = trecho.pregador ? `${trecho.titulo} · ${trecho.pregador}` : trecho.titulo;
-  const linhasOrigem = ajustarTexto(origem, larguraTexto, 120, 1.3, 36, 26, (tam) => (t) => {
-    ctx.font = `600 ${tam}px ${FONTES[1].family}`;
-    return ctx.measureText(t).width;
-  });
-  ctx.font = `600 ${linhasOrigem.tamanho}px ${FONTES[1].family}`;
-  linhasOrigem.linhas.slice(0, 2).forEach((l, i) => {
-    ctx.fillText(l, LARGURA / 2, 1600 + i * linhasOrigem.tamanho * 1.3);
-  });
+  ctx.globalAlpha = 0.25;
+  ctx.fillRect(MARGEM, 1650, larguraUtil, 2);
+  ctx.globalAlpha = 1;
+  ctx.font = fontApoio(800, 46);
+  espaco(ctx, 6);
+  ctx.fillText('PROJETO CÉLULA', x, 1736);
+  espaco(ctx, 0);
+  barra(1756, 56);
   ctx.globalAlpha = 0.6;
-  ctx.font = `600 30px ${FONTES[1].family}`;
-  ctx.fillText('PROJETO CÉLULA', LARGURA / 2, 1720);
+  ctx.font = fontApoio(500, 28);
+  espaco(ctx, 2);
+  ctx.fillText('Leia a mensagem completa no app', x, 1816);
+  espaco(ctx, 0);
   ctx.globalAlpha = 1;
 }
 

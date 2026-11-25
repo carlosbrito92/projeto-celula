@@ -355,6 +355,8 @@ export function Reading({ id }: { id: string }) {
               ...trechoStory,
               titulo: pregacao.tema,
               pregador: pregacao.pregador,
+              serie: pregacao.serie,
+              data: dataExibicao,
             } satisfies TrechoStory
           }
           tema={tema}
