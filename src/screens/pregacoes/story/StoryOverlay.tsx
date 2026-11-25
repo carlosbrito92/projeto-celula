@@ -17,16 +17,26 @@ import {
   type TamanhoKey,
   type TrechoStory,
 } from './opcoes';
+import { mesmoTrecho, type Candidato, type TrechoItem } from './candidatos';
 import { canvasParaBlob, renderizarStory } from './renderizarStory';
 import styles from './StoryOverlay.module.css';
 
+/** Máximo de trechos na mesma imagem — além disso o texto fica pequeno demais para stories. */
+export const MAX_TRECHOS = 3;
+
 interface Props {
+  /** `itens` = trecho(s) iniciais; o resto (título, pregador…) vale para a imagem toda. */
   trecho: TrechoStory;
+  /** Versículos/frases da pregação que o usuário pode adicionar à imagem. */
+  candidatos?: Candidato[];
   tema: Theme;
   aoFechar: () => void;
 }
 
-export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
+export function StoryOverlay({ trecho: trechoInicial, candidatos = [], tema, aoFechar }: Props) {
+  const [itens, setItens] = useState<TrechoItem[]>(trechoInicial.itens);
+  const [escolhendo, setEscolhendo] = useState(false);
+  const trecho: TrechoStory = { ...trechoInicial, itens };
   const [opcoes, setOpcoes] = useState<OpcoesStory>(OPCOES_PADRAO);
   const [aviso, setAviso] = useState<string | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,7 +69,11 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
     return () => {
       cancelado = true;
     };
-  }, [trecho, opcoes, tema, fonte.key, fonte.family, fonte.peso]);
+    // `trecho` é recriado a cada render do pai (Reading re-renderiza ao rolar): depende só dos campos.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itens, trechoInicial.titulo, trechoInicial.pregador, trechoInicial.serie, trechoInicial.data, opcoes, tema, fonte.key, fonte.family, fonte.peso]);
+
+  const disponiveis = candidatos.filter((c) => !itens.some((i) => mesmoTrecho(i, c)));
 
   async function gerarArquivo(): Promise<File | null> {
     if (!canvasRef.current) return null;
@@ -136,6 +150,83 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
               </button>
             ))}
           </div>
+        </div>
+
+        <div className={styles.grupo}>
+          <div className={styles.rotulo}>Trechos ({itens.length}/{MAX_TRECHOS})</div>
+          <ol className={styles.lista}>
+            {itens.map((it, i) => (
+              <li key={`${i}-${it.texto.slice(0, 20)}`} className={styles.itemLista}>
+                <span className={styles.itemTexto}>
+                  {it.referencia ? `${it.referencia} · ` : ''}
+                  {it.texto}
+                </span>
+                <span className={styles.itemAcoes}>
+                  <button
+                    type="button"
+                    className={styles.mini}
+                    aria-label={`Subir trecho ${i + 1}`}
+                    disabled={i === 0}
+                    onClick={() => setItens((l) => mover(l, i, -1))}
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.mini}
+                    aria-label={`Descer trecho ${i + 1}`}
+                    disabled={i === itens.length - 1}
+                    onClick={() => setItens((l) => mover(l, i, 1))}
+                  >
+                    ↓
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.mini}
+                    aria-label={`Remover trecho ${i + 1}`}
+                    disabled={itens.length === 1}
+                    onClick={() => setItens((l) => l.filter((_, j) => j !== i))}
+                  >
+                    ✕
+                  </button>
+                </span>
+              </li>
+            ))}
+          </ol>
+          {itens.length < MAX_TRECHOS && disponiveis.length > 0 && (
+            <button
+              type="button"
+              className={styles.chip}
+              aria-expanded={escolhendo}
+              onClick={() => setEscolhendo((v) => !v)}
+            >
+              + Adicionar trecho
+            </button>
+          )}
+          {escolhendo && itens.length < MAX_TRECHOS && (
+            <ul className={styles.picker}>
+              {disponiveis.map((c) => (
+                <li key={c.id}>
+                  <button
+                    type="button"
+                    className={styles.opcaoPicker}
+                    onClick={() => {
+                      setItens((l) => [...l, { texto: c.texto, referencia: c.referencia }]);
+                      setEscolhendo(false);
+                    }}
+                  >
+                    <span className={styles.pickerSecao}>
+                      {c.referencia ? 'Versículo' : 'Frase'} · {c.secaoTitulo}
+                    </span>
+                    <span className={styles.pickerTexto}>
+                      {c.referencia ? `${c.referencia} — ` : ''}
+                      {c.texto}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className={styles.grupo}>
@@ -228,4 +319,12 @@ export function StoryOverlay({ trecho, tema, aoFechar }: Props) {
       </div>
     </div>
   );
+}
+
+function mover<T>(lista: T[], i: number, delta: -1 | 1): T[] {
+  const j = i + delta;
+  if (j < 0 || j >= lista.length) return lista;
+  const copia = [...lista];
+  [copia[i], copia[j]] = [copia[j], copia[i]];
+  return copia;
 }
