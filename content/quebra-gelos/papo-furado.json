@@ -1,0 +1,57 @@
+{
+  "nome": "Papo Furado",
+  "tipo": "instrucional_utilitario",
+  "utilitario": "Sorteio de pergunta",
+  "conteudo": {
+    "icone": "messages-square",
+    "jogadores": {
+      "min": 3
+    },
+    "idade_minima": 8,
+    "duracao_minutos": 15,
+    "regras": [
+      "Toque em \"Sortear pergunta\": uma caixa de texto mostra a pergunta de discussão.",
+      "O grupo debate o assunto com a seriedade de uma banca acadêmica — quanto mais absurda a questão, mais sérios os argumentos. O humor está exatamente nesse contraste.",
+      "Cada pessoa defende sua posição com fundamentação (exemplos, experiências, \"estudos\"). Vale pedir tréplica.",
+      "Quando o grupo chegar a um veredito (ou desistir com dignidade), sorteiem a próxima.",
+      "As perguntas não se repetem até você tocar em \"Limpar histórico\"."
+    ],
+    "dica": "Inspirado no \"Papo Furado\" de @pedropedrissimo. O líder pode mediar como se fosse um debate de TV: dê 30 segundos para cada lado e peça um parecer final.",
+    "utilitarios_inline": [
+      {
+        "utilitario_tipo": "sorteio_pergunta",
+        "rotulo_acao": "Sortear pergunta",
+        "eyebrow": "Papo Furado",
+        "perguntas": [
+          "O que é mais 'crime culinário', macarrão com arroz e feijão ou strogonoff com feijão?",
+          "O que dá mais trabalho, o favorzinho ou o favorzão?",
+          "O que é pior, confundir casal com mãe e filho ou achar que a mulher tá grávida?",
+          "Quando vai pro céu, vai com a roupa que morreu ou com a roupa do enterro?",
+          "Qual é o pior, esquecer a toalha depois de começar o banho ou perceber que não tem papel higiênico?",
+          "Qual é a posição certa de tomar banho, de frente ou de costas pro registro?",
+          "Quem tem mais água: verde água ou azul marinho?",
+          "O que traz mais impacto em uma conversa: \"e digo mais\" ou \"e você não sabe o pior\"?",
+          "O que é mais sigiloso: \"aqui pra nós\" ou \"morre aqui\"?",
+          "O sujo tem propriedade pra falar do mal lavado?",
+          "Quem tá mais deprimido, o jururu ou o borocoxô?",
+          "Qual é o pior elogio para um feio, simpático ou fofo?",
+          "Quem bajula mais, o puxa-saco ou o baba ovo?",
+          "Quem é mais maneiro, o gente fina ou gente boa?",
+          "Quem tá mais sem dinheiro, quem tá duro ou quem tá liso?",
+          "Qual é mais 'de vez em quando', volta e meia ou vira e mexe?",
+          "Qual expulsa mais, VAZA daqui ou RALA daqui?",
+          "Quem é pior, o babaca ou o otário?",
+          "Rapidinho ou rapidão, qual é o mais rápido?",
+          "Na escala de avareza, quem é o mais sovina, o pão duro ou o muquirana?",
+          "Quem tá mais nervoso, quem tá pistola ou quem tá bolado?",
+          "Qual é mais longe, onde Judas perdeu as botas ou onde o vento faz a curva?",
+          "Qual demora mais, o \"já já\" ou o \"daqui a pouquinho\"?",
+          "O que é menor, um tiquinho ou um cadinho?",
+          "Quem é mais folgado, o espaçoso ou o cara de pau?",
+          "Qual é mais longe, logo ali ou pertinho?",
+          "Qual chuva é mais molhada, o toró ou o pé d'água?"
+        ]
+      }
+    ]
+  }
+}

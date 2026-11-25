@@ -5,11 +5,12 @@ import { Icon } from '../../icons/Icon';
 import type { QuebraGeloJogoConteudo, UtilitarioInlineRef } from '../../content/types';
 import { SorteioAtribuicao } from '../../utilitarios/sorteioAtribuicao/SorteioAtribuicao';
 import { SorteioPapel } from '../../utilitarios/sorteioPapel/SorteioPapel';
+import { SorteioPergunta } from '../../utilitarios/sorteioPergunta/SorteioPergunta';
 import { Cronometro } from '../../utilitarios/cronometro/Cronometro';
 import { formatarDuracao, formatarIdade, formatarJogadores } from './metaFormat';
 import styles from './Detalhe.module.css';
 
-function renderUtilitario(ref: UtilitarioInlineRef, aoFechar: () => void) {
+function renderUtilitario(ref: UtilitarioInlineRef, chave: string, aoFechar: () => void) {
   switch (ref.utilitario_tipo) {
     case 'sorteio_atribuicao':
       return <SorteioAtribuicao aoFechar={aoFechar} />;
@@ -17,6 +18,15 @@ function renderUtilitario(ref: UtilitarioInlineRef, aoFechar: () => void) {
       return <SorteioPapel papeis={ref.papeis} aoFechar={aoFechar} />;
     case 'cronometro':
       return <Cronometro aoFechar={aoFechar} />;
+    case 'sorteio_pergunta':
+      return (
+        <SorteioPergunta
+          perguntas={ref.perguntas ?? []}
+          chave={chave}
+          rotulo={ref.rotulo_acao}
+          aoFechar={aoFechar}
+        />
+      );
     default:
       return null;
   }
@@ -31,7 +41,7 @@ export function Detalhe({ id }: { id: string }) {
 
   if (utilitarioAberto) {
     return (
-      <div className={styles.overlay}>{renderUtilitario(utilitarioAberto, () => setUtilitarioAberto(null))}</div>
+      <div className={styles.overlay}>{renderUtilitario(utilitarioAberto, id, () => setUtilitarioAberto(null))}</div>
     );
   }
 

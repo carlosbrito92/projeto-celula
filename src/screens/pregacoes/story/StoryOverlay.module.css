@@ -1,0 +1,132 @@
+/* Fora do ThemeScope da série (sempre sobre fundo próprio) — todo var() com fallback. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg, #0a0805);
+  color: var(--text, #e8e0d4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: var(--font-corpo, system-ui, sans-serif);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.fechar {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: var(--surface2, #1a1610);
+  color: var(--text, #e8e0d4);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.titulo {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.previaArea {
+  display: flex;
+  justify-content: center;
+  padding: 4px 16px 12px;
+}
+
+.canvas {
+  height: min(52vh, 560px);
+  aspect-ratio: 9 / 16;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  background: #000;
+}
+
+.controles {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 16px calc(20px + env(safe-area-inset-bottom));
+}
+
+.rotulo {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #8a7f70);
+  margin-bottom: 6px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip,
+.amostra {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: var(--surface2, #1a1610);
+  color: var(--text, #e8e0d4);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.amostra {
+  padding: 0 14px;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.amostraLabel {
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.chipAtivo {
+  border-color: var(--accent1, #e8720c);
+}
+
+.aviso {
+  font-size: 14px;
+  color: var(--accent-alert, #f4b06a);
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.botaoSecundario,
+.botaoPrimario {
+  min-height: 52px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botaoSecundario {
+  flex: 1;
+  background: var(--surface2, #1a1610);
+  color: var(--text, #e8e0d4);
+}
+
+.botaoPrimario {
+  flex: 2;
+  background: var(--accent1, #e8720c);
+  color: var(--bg, #0a0805);
+}

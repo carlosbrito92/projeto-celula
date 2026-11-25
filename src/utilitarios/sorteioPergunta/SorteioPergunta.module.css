@@ -1,0 +1,71 @@
+.tela {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.caixa {
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 22px;
+  background: var(--surface2);
+  border-radius: 16px;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.contador {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.acoes {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.botaoLimpar {
+  flex: 1;
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 20px 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.botaoSortear {
+  flex: 2;
+  background: var(--accent1);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 700;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.botaoSortear:disabled,
+.botaoLimpar:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

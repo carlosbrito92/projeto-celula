@@ -1,5 +1,8 @@
 import type { Bloco } from './types';
 import { UnidadeAnotavel } from '../screens/pregacoes/anotacoes/UnidadeAnotavel';
+import { useStoryContext } from '../screens/pregacoes/story/StoryContext';
+import { Icon } from '../icons/Icon';
+import { limparNegrito } from './segmentos';
 import { ComponenteTemaRenderer } from './ComponenteTemaRenderer';
 import { TextoComKeywords } from './Keyword';
 import styles from './BlockRenderer.module.css';
@@ -8,6 +11,22 @@ interface Props {
   bloco: Bloco;
   secaoId: string;
   blocoIndex: number;
+}
+
+/** Botão "Criar imagem" (stories) — some fora da Leitura e fica de fora do PDF. */
+function BotaoStory({ texto, referencia }: { texto: string; referencia?: string }) {
+  const story = useStoryContext();
+  if (!story) return null;
+  return (
+    <button
+      type="button"
+      className={styles.botaoStory}
+      data-html2canvas-ignore="true"
+      onClick={() => story.abrirStory({ texto: limparNegrito(texto).textoLimpo, referencia })}
+    >
+      <Icon name="image" /> Criar imagem
+    </button>
+  );
 }
 
 export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
@@ -26,6 +45,7 @@ export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
             “<UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />”
           </div>
           <div className={styles.versiculoReferencia}>{bloco.referencia}</div>
+          <BotaoStory texto={bloco.texto} referencia={bloco.referencia} />
         </div>
       );
 
@@ -33,6 +53,7 @@ export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
       return (
         <div className={styles.callout}>
           <UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />
+          <BotaoStory texto={bloco.texto} />
         </div>
       );
 
@@ -40,6 +61,7 @@ export function BlockRenderer({ bloco, secaoId, blocoIndex }: Props) {
       return (
         <div className={styles.fraseChave}>
           <UnidadeAnotavel secaoId={secaoId} unidade={String(blocoIndex)} texto={bloco.texto} />
+          <BotaoStory texto={bloco.texto} />
         </div>
       );
 

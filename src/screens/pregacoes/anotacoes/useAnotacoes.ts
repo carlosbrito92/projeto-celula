@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Secao } from '../../../content/types';
 import { limparNegrito } from '../../../content/segmentos';
 import type { DestaqueSpan } from '../../../content/segmentos';
+import { registrarUso } from '../../../lib/uso';
 import { carregarAnotacoes, salvarAnotacoes } from './storage';
 import { resolverDestaque } from './resolverDestaque';
 import type { AnotacaoPessoal, UnidadeId } from './types';
@@ -115,6 +116,7 @@ export function useAnotacoes(pregacaoId: string, secoes: Secao[]) {
           criadoEm: new Date().toISOString(),
         },
       ]);
+      registrarUso('anotacao_destaque_criado');
       return { ok: true, id };
     },
     [destaquesPorUnidade],
@@ -125,6 +127,7 @@ export function useAnotacoes(pregacaoId: string, secoes: Secao[]) {
   }, []);
 
   const criarNotaSolta = useCallback((secaoId: string, nota: string): string => {
+    registrarUso('anotacao_nota_criada');
     const id = crypto.randomUUID();
     setAnotacoes((prev) => [...prev, { id, secaoId, nota, criadoEm: new Date().toISOString() }]);
     return id;
@@ -136,7 +139,14 @@ export function useAnotacoes(pregacaoId: string, secoes: Secao[]) {
 
   return {
     modoAnotacao,
-    alternarModoAnotacao: useCallback(() => setModoAnotacao((m) => !m), []),
+    alternarModoAnotacao: useCallback(
+      () =>
+        setModoAnotacao((m) => {
+          if (!m) registrarUso('anotacao_modo_ativado');
+          return !m;
+        }),
+      [],
+    ),
     destaques,
     orfas,
     notasSoltas,

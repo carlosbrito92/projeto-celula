@@ -31,7 +31,8 @@ export type IconName =
   | 'circle-question-mark'
   | 'a-large-small'
   | 'smartphone'
-  | 'shield-check';
+  | 'shield-check'
+  | 'image';
 
 interface IconProps {
   name: string;

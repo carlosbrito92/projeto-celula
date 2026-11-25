@@ -15,6 +15,10 @@ import { AnotacaoContext, type SelecaoNova } from './anotacoes/AnotacaoContext';
 import { AnotacaoPopover, type PopoverEstado } from './anotacoes/AnotacaoPopover';
 import { ListaAnotacoes } from './anotacoes/ListaAnotacoes';
 import { exportarPdf } from './anotacoes/exportarPdf';
+import { StoryContext } from './story/StoryContext';
+import { StoryOverlay } from './story/StoryOverlay';
+import type { TrechoStory } from './story/opcoes';
+import { registrarUso } from '../../lib/uso';
 import { Dica } from '../../onboarding/Dica';
 import { useDica } from '../../onboarding/useDica';
 import { marcarDicaVista } from '../../onboarding/dicasStorage';
@@ -35,6 +39,7 @@ export function Reading({ id }: { id: string }) {
   const [popoverEstado, setPopoverEstado] = useState<PopoverEstado | null>(null);
   const [listaAnotacoesAberta, setListaAnotacoesAberta] = useState(false);
   const [exportando, setExportando] = useState(false);
+  const [trechoStory, setTrechoStory] = useState<{ texto: string; referencia?: string } | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const headerStickyRef = useRef<HTMLDivElement>(null);
   const navInferiorRef = useRef<HTMLElement>(null);
@@ -143,6 +148,7 @@ export function Reading({ id }: { id: string }) {
 
   return (
     <ThemeScope tema={tema}>
+      <StoryContext.Provider value={{ abrirStory: setTrechoStory }}>
       <AnotacaoContext.Provider value={anotacaoContextValue}>
       <div
         ref={wrapperRef}
@@ -210,6 +216,7 @@ export function Reading({ id }: { id: string }) {
                       (el): el is HTMLElement => el !== null,
                     );
                     await exportarPdf(wrapperRef.current, pregacao.tema, ocultar);
+                    registrarUso('pdf_exportado');
                   } finally {
                     setExportando(false);
                   }
@@ -341,6 +348,22 @@ export function Reading({ id }: { id: string }) {
         />
       )}
       </AnotacaoContext.Provider>
+      {trechoStory && (
+        <StoryOverlay
+          trecho={
+            {
+              ...trechoStory,
+              titulo: pregacao.tema,
+              pregador: pregacao.pregador,
+              serie: pregacao.serie,
+              data: dataExibicao,
+            } satisfies TrechoStory
+          }
+          tema={tema}
+          aoFechar={() => setTrechoStory(null)}
+        />
+      )}
+      </StoryContext.Provider>
     </ThemeScope>
   );
 }

@@ -66,6 +66,7 @@ Também entregue nesta fase, fora do checklist original: router mínimo próprio
 - [x] Implementar tela de catálogo de quebra-gelos (`/quebra-gelos`, com pills Todos/Só leitura/Com sorteio) + tela de detalhe (`/quebra-gelos/:id`) com utilitário(s) embutido(s) inline como overlay — reaproveita os widgets de `/utilitarios` sem duplicar lógica
 - [x] Popular com o catálogo já mapeado (9 quebra-gelos do primeiro lote, `docs/projeto-celula.md` §5.3) — regras/jogadores/idade/duração populados para os 9; Artista Impostor também ganhou `dica` (campo novo em `QuebraGeloJogoConteudo`, ver `CLAUDE.md` "Decisões de arquitetura (Fase 3)"), renderizado como callout na tela de Detalhe. Achado ao popular: `SorteioPapel` precisou tratar `papeis` preset como valor inicial editável (não override fixo) — um preset parcial como "Detetive × 1" não bate a soma com o total de participantes sem completar via editor, já que a contagem só é conhecida em tempo real
 - [x] Trocar ícones placeholder (emoji) pelos ícones Lucide definitivos, usando a tabela de mapeamento já documentada — vendorizados em `src/icons/lucide/` (ver `CLAUDE.md` "Decisões de arquitetura (Sistema de ícones)")
+- [x] Quebra-gelo "Papo Furado" (2026-11-25): 27 perguntas de discussão bem-humorada, com sorteador isolado (`sorteio_pergunta`) que não repete até "Limpar histórico". Conteúdo em `content/quebra-gelos/papo-furado.json`; só aparece em produção depois de `npm run db:seed`.
 - [x] Persistir nomes de participantes entre widgets/sessões (`localStorage`, `src/utilitarios/passagemSequencial/nomesStorage.ts`) — melhoria pós-fase por feedback real de célula: mesma lista de nomes redigitada toda vez ao trocar de quebra-gelo ("Encontre o Líder" → sorteio de detetive). `usePassagemSequencial.nomes` (hook compartilhado pelos dois widgets) persiste; resultados de sorteio continuam 100% efêmeros. PR #47, 2026-08-13
 
 ## Fase 4 — Polimento V1 (não iniciada)
@@ -148,6 +149,22 @@ Pedido de Carlos em 2026-11-13: ajudar membros novos a achar os recursos sem tou
 - [x] Dicas de uma vez só na Leitura: primeiro "Aa", depois a caneta, uma por abertura da pregação, só com o conteúdo carregado. Somem com "Entendi" ou quando a pessoa usa o recurso.
 - [ ] Carlos revisar a cópia dos cards e das dicas no PR.
 - [ ] Teste manual em aparelho (checklist no PR): 360px, header sticky, WebView do Capacitor, safe-area, PDF sem a dica, seleção de texto, "Rever as dicas".
+
+---
+
+## Imagem para stories (em andamento)
+
+Pedido de Carlos em 2026-11-25, a partir de feedback real: trocar as anotações pessoais por uma imagem 9×16 pronta para stories. As decisões técnicas estão no CLAUDE.md, em "Decisões de arquitetura (Imagem para stories)". Plano combinado: medir o uso das anotações antes de removê-las.
+
+- [x] Botão "Criar imagem" nos blocos `versiculo`, `frase_chave` e `callout` da Leitura, abrindo o editor (`src/screens/pregacoes/story/`).
+- [x] Imagem 1080×1920 desenhada em canvas, no estilo editorial das referências: série, título, pregador e data, selo, aspas, trecho, atribuição e rodapé.
+- [x] Opções: fonte (a da série + as já usadas no app), alinhamento (esquerda/centro), itálico espaçado, fundo (da série, escuro, claro, âmbar, noite, aurora) e tamanho P/M/G.
+- [x] Compartilhar (Web Share com arquivo) e salvar PNG.
+- [x] Medição anônima de uso (Vercel Web Analytics): modo de anotação, destaque, nota, PDF e stories.
+- [ ] Ativar o Web Analytics no dashboard da Vercel e confirmar se o plano aceita eventos customizados.
+- [ ] Teste manual em aparelho: compartilhar e salvar no Android/iOS e no app Capacitor, fontes carregando offline, overlay com teclado/safe-area.
+- [ ] Decidir com os números se as anotações pessoais e o export PDF saem (PR à parte; as notas já salvas ficam inacessíveis).
+- [ ] Foto de fundo via API, com overlay escuro (adiado por Carlos; se a API exigir chave, fica numa função em `api/`, nunca no bundle).
 
 ---
 

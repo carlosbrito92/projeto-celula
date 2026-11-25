@@ -190,3 +190,20 @@
 [data-tema="estilo-6-uma-vez-salvo"] .glossarioTermo {
   color: var(--text);
 }
+
+.botaoStory {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border, #2a2318);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted, #8a7f70);
+  font-family: var(--font-corpo, system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
