@@ -18,6 +18,7 @@ import { exportarPdf } from './anotacoes/exportarPdf';
 import { StoryContext } from './story/StoryContext';
 import { StoryOverlay } from './story/StoryOverlay';
 import type { TrechoStory } from './story/opcoes';
+import { trechosDisponiveis } from './story/candidatos';
 import { registrarUso } from '../../lib/uso';
 import { Dica } from '../../onboarding/Dica';
 import { useDica } from '../../onboarding/useDica';
@@ -103,6 +104,7 @@ export function Reading({ id }: { id: string }) {
   const { conteudo } = pregacao;
   const dataExibicao = formatDataPtBr(pregacao.data) ?? conteudo.metadados.data;
 
+  const candidatosStory = trechosDisponiveis(secoes);
   const anterior = pontosNavegaveis[ativoIndex - 1] ?? null;
   const proximo = pontosNavegaveis[ativoIndex + 1] ?? null;
 
@@ -350,9 +352,10 @@ export function Reading({ id }: { id: string }) {
       </AnotacaoContext.Provider>
       {trechoStory && (
         <StoryOverlay
+          candidatos={candidatosStory}
           trecho={
             {
-              ...trechoStory,
+              itens: [trechoStory],
               titulo: pregacao.tema,
               pregador: pregacao.pregador,
               serie: pregacao.serie,

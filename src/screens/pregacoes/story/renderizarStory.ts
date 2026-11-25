@@ -1,4 +1,4 @@
-import { ajustarTexto } from './layout';
+import { ajustarBlocos, ajustarTexto } from './layout';
 import {
   FONTE_APOIO,
   TAMANHOS,
@@ -110,7 +110,10 @@ export function renderizarStory(
   }
 
   // Selo do tipo de trecho
-  const rotuloSelo = trecho.referencia ? 'Versículo' : 'Frase da mensagem';
+  const temVersiculo = trecho.itens.some((i) => i.referencia);
+  const temFrase = trecho.itens.some((i) => !i.referencia);
+  const rotuloSelo =
+    temVersiculo && temFrase ? 'Versículo e frase' : temVersiculo ? 'Versículo' : 'Frase da mensagem';
   ctx.font = fontApoio(700, 30);
   espaco(ctx, 3);
   const larguraSelo = ctx.measureText(rotuloSelo).width + 64;
@@ -132,14 +135,26 @@ export function renderizarStory(
   ctx.font = `${fonte.peso} 190px ${fonte.family}`; // aspas sempre retas (inclinadas viram "//" em fontes sem itálico)
   ctx.fillText('“', x, ySelo + 68 + 190);
 
-  // Trecho em destaque, ancorado logo abaixo das aspas
+  // Trechos em destaque, empilhados logo abaixo das aspas, todos no mesmo tamanho
   const topoTexto = ySelo + 68 + 190 + 40;
-  const alturaMax = 1560 - topoTexto - (trecho.referencia || trecho.pregador ? 100 : 0);
-  const ajuste = ajustarTexto(
-    caixa(trecho.texto),
+  const ATRIBUICAO = 80;
+  const ESPACO_ITENS = 64;
+  const soFrases = !temVersiculo;
+  const mostraPregador = soFrases && !!trecho.pregador;
+  const alturaMax = 1560 - topoTexto - (mostraPregador ? 100 : 0);
+  const itens = trecho.itens.map((i) => {
+    const t = caixa(i.texto);
+    return {
+      texto: i.referencia ? `“${t}”` : t,
+      extra: i.referencia ? ATRIBUICAO : 0,
+    };
+  });
+  const ajuste = ajustarBlocos(
+    itens,
     larguraUtil,
     alturaMax,
     ALTURA_LINHA,
+    ESPACO_ITENS,
     TAMANHOS[opcoes.tamanho].maximo,
     34,
     (t) => (s) => {
@@ -150,22 +165,37 @@ export function renderizarStory(
   );
   ctx.font = fontDisplay(ajuste.tamanho);
   espacoDisplay(ajuste.tamanho, 0.07);
-  ctx.fillStyle = paleta.texto;
   let yt = topoTexto + ajuste.tamanho;
-  for (const linha of ajuste.linhas) {
-    ctx.fillText(linha, x, yt);
-    yt += ajuste.tamanho * ALTURA_LINHA;
-  }
+  ajuste.linhas.forEach((linhas, idx) => {
+    ctx.font = fontDisplay(ajuste.tamanho);
+    espacoDisplay(ajuste.tamanho, 0.07);
+    ctx.fillStyle = paleta.texto;
+    for (const linha of linhas) {
+      ctx.fillText(linha, x, yt);
+      yt += ajuste.tamanho * ALTURA_LINHA;
+    }
+    const ref = trecho.itens[idx].referencia;
+    if (ref) {
+      espaco(ctx, 0);
+      ctx.font = fontApoio(600, 40);
+      espaco(ctx, 3);
+      ctx.fillStyle = paleta.destaque;
+      ctx.fillText(`— ${ref}`, x, yt - ajuste.tamanho * ALTURA_LINHA + 72, larguraUtil);
+      espaco(ctx, 0);
+      yt += ATRIBUICAO;
+    }
+    yt += ESPACO_ITENS;
+  });
   espaco(ctx, 0);
+  yt -= ESPACO_ITENS;
 
-  // Atribuição
-  const atribuicao = trecho.referencia ?? trecho.pregador;
-  if (atribuicao) {
+  // Pregador, só quando todos os trechos são frases (versículo já traz a referência)
+  if (mostraPregador) {
     ctx.font = fontApoio(600, 40);
     espaco(ctx, 3);
-    ctx.fillStyle = trecho.referencia ? paleta.destaque : paleta.rodape;
-    ctx.globalAlpha = trecho.referencia ? 1 : 0.8;
-    ctx.fillText(`— ${trecho.referencia ?? atribuicao}`, x, yt + 24, larguraUtil);
+    ctx.fillStyle = paleta.rodape;
+    ctx.globalAlpha = 0.8;
+    ctx.fillText(`— ${trecho.pregador}`, x, yt + 24, larguraUtil);
     ctx.globalAlpha = 1;
     espaco(ctx, 0);
   }

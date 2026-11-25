@@ -1,4 +1,5 @@
 import type { Theme } from '../../../themes/types';
+import type { TrechoItem } from './candidatos';
 import {
   ESTILO_2_RENOVO26,
   ESTILO_3_CELULA,
@@ -119,9 +120,8 @@ export const OPCOES_PADRAO: OpcoesStory = {
 };
 
 export interface TrechoStory {
-  texto: string;
-  /** Só versículo. */
-  referencia?: string;
+  /** Um ou mais trechos empilhados na mesma imagem (versículo e/ou frases). */
+  itens: TrechoItem[];
   /** Pregação de origem. */
   titulo: string;
   pregador?: string | null;
