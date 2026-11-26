@@ -13,6 +13,13 @@
 #     alcançável a partir de branch de PR.
 #   - Qualquer falha (validação ou banco) termina com exit != 0 → GitHub
 #     notifica o dono do repo.
+#
+# Execução manual (workflow_dispatch, 2026-11-26): Actions → "Seed de
+# pregações" → Run workflow, na branch main. Sem input, refaz o upsert de TODAS
+# as pregações de content/pregacoes/ (nunca trunca: idempotente, só
+# insere/atualiza). Com `arquivo`, só esse. Serve para restaurar pregações
+# depois de um db:seed completo rodado com a pasta local desatualizada, e roda
+# do celular. O mesmo role limitado e o mesmo Environment (só main) valem.
 name: Seed de pregações
 
 on:
@@ -20,6 +27,12 @@ on:
     branches: [main]
     paths:
       - 'content/pregacoes/**.json'
+  workflow_dispatch:
+    inputs:
+      arquivo:
+        description: 'Um arquivo (ex: content/pregacoes/calibracao-maranata-cap3.json). Vazio = todas as pregações.'
+        required: false
+        default: ''
 
 concurrency:
   group: seed-pregacoes
@@ -30,6 +43,8 @@ permissions:
 
 jobs:
   seed:
+    # Execução manual só a partir da main (o Environment também restringe).
+    if: github.event_name == 'push' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: seed-producao
     steps:
@@ -49,23 +64,39 @@ jobs:
           DATABASE_URL_SEED: ${{ secrets.DATABASE_URL_SEED }}
           BEFORE: ${{ github.event.before }}
           AFTER: ${{ github.sha }}
+          EVENTO: ${{ github.event_name }}
+          ARQUIVO_INPUT: ${{ github.event.inputs.arquivo }}
         run: |
           set -uo pipefail
           if [ -z "${DATABASE_URL_SEED}" ]; then
             echo "::error::secret DATABASE_URL_SEED ausente no environment seed-producao"
             exit 1
           fi
-          if ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            echo "::error::commit anterior do push (${BEFORE}) não encontrado — rode o seed seletivo manualmente."
-            exit 1
+          arquivos=()
+          if [ "${EVENTO}" = "workflow_dispatch" ]; then
+            if [ -n "${ARQUIVO_INPUT}" ]; then
+              # Input vem por env (nunca interpolado no script) e é validado.
+              if ! [[ "${ARQUIVO_INPUT}" =~ ^content/pregacoes/[A-Za-z0-9._-]+\.json$ ]] || [ ! -f "${ARQUIVO_INPUT}" ]; then
+                echo "::error::arquivo inválido ou inexistente: ${ARQUIVO_INPUT}"
+                exit 1
+              fi
+              arquivos=("${ARQUIVO_INPUT}")
+            else
+              mapfile -d '' arquivos < <(find content/pregacoes -maxdepth 1 -name '*.json' -print0 | sort -z)
+            fi
+          else
+            if ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+              echo "::error::commit anterior do push (${BEFORE}) não encontrado — rode o seed seletivo manualmente."
+              exit 1
+            fi
+
+            # -z + --no-renames: nomes com espaço/acentos seguros; rename vira
+            # D+A (só o A entra, a linha antiga fica — igual remoção, manual).
+            mapfile -d '' arquivos < <(git -c core.quotepath=off diff -z --name-only --no-renames --diff-filter=AM "${BEFORE}" "${AFTER}" -- 'content/pregacoes/*.json')
           fi
 
-          # -z + --no-renames: nomes com espaço/acentos seguros; rename vira
-          # D+A (só o A entra, a linha antiga fica — igual remoção, manual).
-          mapfile -d '' arquivos < <(git -c core.quotepath=off diff -z --name-only --no-renames --diff-filter=AM "${BEFORE}" "${AFTER}" -- 'content/pregacoes/*.json')
-
           if [ "${#arquivos[@]}" -eq 0 ]; then
-            echo "Nenhum .json de content/pregacoes/ adicionado ou modificado neste push."
+            echo "Nenhum .json de content/pregacoes/ para processar."
             exit 0
           fi
 

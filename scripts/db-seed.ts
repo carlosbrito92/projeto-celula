@@ -3,7 +3,11 @@
 // — nunca em runtime deployado. Reaproveita parseDataPtBr (nunca inserir a
 // string PT-BR crua na coluna `data`, ver CLAUDE.md).
 //
-// Sem argumento: modo completo (truncate + reprocessa content/ inteiro).
+// Sem argumento: modo completo (truncate + reprocessa content/ inteiro). Só
+// roda com a cópia local em dia: na branch main e sem commits atrás de
+// origin/main, e sem linhas no banco que a pasta local não tenha (um truncate
+// as apagaria — foi assim que uma pregação sumiu em 2026-11-26, com a pasta
+// desatualizada). `--forcar` pula essas duas proteções.
 // Com argumento (path pro .json): modo seletivo — upsert só desse arquivo,
 // sem truncate, via `on conflict (arquivo_origem)` (ver CLAUDE.md, migração
 // 0002_arquivo_origem.sql).
@@ -17,12 +21,14 @@
 //
 // Toda pregação passa por validarPregacao antes de qualquer escrita; erro de
 // validação = exit 1, nada gravado (no modo completo, antes do truncate).
+import { execFileSync } from 'node:child_process';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import pg from 'pg';
 import { parseDataPtBr } from '../src/content/parseData.ts';
 import { validarPregacao } from '../src/content/validarPregacao.ts';
+import { orfasNoBanco, problemaDeCopiaLocal } from './seedGuardas.ts';
 
 const DATABASE_URL_SEED = process.env.DATABASE_URL_SEED;
 const DATABASE_URL = DATABASE_URL_SEED ?? process.env.DATABASE_URL_ADMIN;
@@ -121,11 +127,32 @@ async function upsertQuebraGelo(client: pg.Client, arquivo: string, q: QuebraGel
 
 const DIRS_QUEBRA_GELO = ['quebra-gelos', 'utilitarios'];
 
-const argArquivo = process.argv[2];
+const args = process.argv.slice(2);
+const forcar = args.includes('--forcar');
+const argArquivo = args.find((a) => !a.startsWith('--'));
 if (modoCi && !argArquivo) {
   console.error('Com DATABASE_URL_SEED só o modo seletivo é permitido (nunca truncate). Passe o path de um .json de content/pregacoes/.');
   process.exit(1);
 }
+
+/** Modo completo: a pasta local precisa ser uma main em dia, senão o truncate apaga o que a main já tem. */
+function exigirCopiaLocalEmDia() {
+  try {
+    const git = (...a: string[]) => execFileSync('git', a, { cwd: path.join(__dirname, '..'), encoding: 'utf-8' }).trim();
+    const branch = git('rev-parse', '--abbrev-ref', 'HEAD');
+    git('fetch', '--quiet', 'origin', 'main');
+    const atras = Number(git('rev-list', '--count', 'HEAD..origin/main'));
+    const problema = problemaDeCopiaLocal(branch, atras);
+    if (problema) {
+      console.error(`✖ ${problema}\n(Para ignorar esta proteção: --forcar)`);
+      process.exit(1);
+    }
+  } catch (e) {
+    console.error(`✖ Não consegui verificar o git (${(e as Error).message.split('\n')[0]}). Para rodar mesmo assim: --forcar`);
+    process.exit(1);
+  }
+}
+if (!argArquivo && !forcar) exigirCopiaLocalEmDia();
 
 const client = new pg.Client({ connectionString: DATABASE_URL });
 await client.connect();
@@ -163,6 +190,24 @@ try {
     const pregacoes = await lerJsons<PregacaoJson>(path.join(contentDir, 'pregacoes'));
     for (const { arquivo, dado } of pregacoes) exigirPregacaoValida(arquivo, dado);
 
+    const quebraGelos = await lerJsons<QuebraGeloJson>(path.join(contentDir, 'quebra-gelos'));
+    const utilitarios = await lerJsons<QuebraGeloJson>(path.join(contentDir, 'utilitarios'));
+
+    // Nada no banco pode ficar sem arquivo local: o truncate apagaria sem recolocar.
+    if (!forcar) {
+      const { rows: noBancoP } = await client.query('select arquivo_origem from public.pregacoes');
+      const { rows: noBancoQ } = await client.query('select arquivo_origem from public.quebra_gelos');
+      const orfasP = orfasNoBanco(noBancoP.map((r) => r.arquivo_origem), pregacoes.map((x) => x.arquivo));
+      const orfasQ = orfasNoBanco(noBancoQ.map((r) => r.arquivo_origem), [...quebraGelos, ...utilitarios].map((x) => x.arquivo));
+      if (orfasP.length > 0 || orfasQ.length > 0) {
+        console.error('✖ O banco tem conteúdo que NÃO existe na sua pasta content/ — o truncate o apagaria:');
+        for (const o of orfasP) console.error(`   pregação: ${o}`);
+        for (const o of orfasQ) console.error(`   quebra-gelo/utilitário: ${o}`);
+        console.error('Se a pasta está desatualizada: git pull origin main. Se quer mesmo apagar: --forcar. Nada foi alterado.');
+        process.exit(1);
+      }
+    }
+
     console.log('Limpando tabelas...');
     await client.query('truncate table public.pregacoes, public.quebra_gelos');
 
@@ -171,8 +216,6 @@ try {
     }
     console.log(`${pregacoes.length} pregações inseridas.`);
 
-    const quebraGelos = await lerJsons<QuebraGeloJson>(path.join(contentDir, 'quebra-gelos'));
-    const utilitarios = await lerJsons<QuebraGeloJson>(path.join(contentDir, 'utilitarios'));
     for (const { arquivo, dado } of [...quebraGelos, ...utilitarios]) {
       await upsertQuebraGelo(client, arquivo, dado);
     }

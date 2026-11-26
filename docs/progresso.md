@@ -169,6 +169,19 @@ Pedido de Carlos em 2026-11-25, a partir de feedback real: trocar as anotações
 
 ---
 
+## Pendências futuras (sem data)
+
+- [ ] **Modal de apoio ao projeto (voluntários e fundos), a cada 15 dias.** Pedido de Carlos em 2026-11-26. **Bloqueado**: só depois da reunião com a liderança da igreja sobre o app e da oficialização do domínio e do nome (o texto e os links dependem disso). Desenho já conversado:
+  - aparece só na Biblioteca, nunca durante leitura, jogo ou sorteio, e nunca na primeira visita (já há as dicas de onboarding);
+  - botões "Ajudar", "Agora não" (volta em 15 dias) e "Já ajudei" (volta em 90 dias);
+  - data da última exibição no `localStorage`, no padrão de `dicasStorage.ts`; eventos anônimos "viu" e "clicou" em `src/lib/uso.ts`, sem dado pessoal;
+  - limitação conhecida: limpar os dados do site zera a data;
+  - se o app for publicado em loja (Google Play/App Store), revisar as regras de links de doação;
+  - a definir com Carlos: forma de contribuir (Pix, Apoia.se, etc.), contato para voluntários e o texto.
+- [ ] **Oficializar domínio e nome do app** (depois da reunião com a liderança da igreja). Hoje o domínio é `projeto-celula.vercel.app`, que está fixo em `API_BASE_URL` (`src/lib/api.ts`) e no link de convite dos jogos pelo celular; ao trocar, revisar esses pontos, o CORS e o `capacitor.config.ts`.
+
+---
+
 ## Como manter este documento
 
 - Marcar `[x]` assim que algo for concluído — não esperar o fim da fase inteira.
